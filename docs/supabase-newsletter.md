@@ -42,8 +42,9 @@ environment variables at server start.
 
 Submit an address through any newsletter form, then check
 **Table Editor → newsletter_subscribers** in the dashboard. You should see one
-row with the normalised email, the `source` of the form you used, and
-`locale = 'en'`.
+row with the normalised email, the `source` of the form you used, and the
+`locale` of the edition you submitted from — `hy` from `/hy`, `hyw` from `/hyw`,
+`en` from `/en`.
 
 ## Security notes
 

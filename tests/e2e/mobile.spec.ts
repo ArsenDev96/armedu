@@ -1,5 +1,5 @@
 import { expect, test } from "@playwright/test";
-import { cards, ui } from "./helpers";
+import { cards, openHeaderSearch, openMobileMenu, ui } from "./helpers";
 
 /** Runs only under the `mobile` project (Pixel 5, 393px wide). */
 
@@ -12,9 +12,8 @@ test("the mobile menu opens and closes", async ({ page }) => {
 
   await expect(menu).toBeHidden();
 
-  await toggle.click();
+  await openMobileMenu(page, "hy");
   await expect(toggle).toHaveAttribute("aria-expanded", "true");
-  await expect(menu).toBeVisible();
   await expect(menu.getByRole("link", { name: dict.nav.history, exact: true })).toBeVisible();
 
   await toggle.click();
@@ -26,11 +25,8 @@ test("the mobile menu navigates and closes itself", async ({ page }) => {
   await page.goto("/hy");
   const dict = ui("hy");
 
-  await page.getByRole("button", { name: dict.nav.toggleMenu }).click();
-  await page
-    .getByRole("navigation", { name: dict.nav.mobileLabel })
-    .getByRole("link", { name: dict.nav.writers, exact: true })
-    .click();
+  const menu = await openMobileMenu(page, "hy");
+  await menu.getByRole("link", { name: dict.nav.writers, exact: true }).click();
 
   await expect(page).toHaveURL(/\/hy\/writers$/);
   await expect(page.getByRole("navigation", { name: dict.nav.mobileLabel })).toBeHidden();
@@ -40,9 +36,7 @@ test("the language selector works on a small screen", async ({ page }) => {
   await page.goto("/hy/history");
   const dict = ui("hy");
 
-  await page.getByRole("button", { name: dict.nav.toggleMenu }).click();
-
-  const menu = page.getByRole("navigation", { name: dict.nav.mobileLabel });
+  const menu = await openMobileMenu(page, "hy");
   const toEnglish = menu.getByRole("link", {
     name: dict.header.switchToLanguage.replace("{language}", "English"),
   });
@@ -58,13 +52,10 @@ test("the current language is marked in the mobile selector", async ({ page }) =
   await page.goto("/hyw");
   const dict = ui("hyw");
 
-  await page.getByRole("button", { name: dict.nav.toggleMenu }).click();
-
-  const current = page
-    .getByRole("navigation", { name: dict.nav.mobileLabel })
-    .getByRole("link", {
-      name: dict.header.currentLanguage.replace("{language}", "Արեւմտահայերէն"),
-    });
+  const menu = await openMobileMenu(page, "hyw");
+  const current = menu.getByRole("link", {
+    name: dict.header.currentLanguage.replace("{language}", "Արեւմտահայերէն"),
+  });
 
   await expect(current).toHaveAttribute("aria-current", "true");
 });
@@ -73,10 +64,7 @@ test("header search works on a small screen", async ({ page }) => {
   await page.goto("/hy");
   const dict = ui("hy");
 
-  await page.getByRole("button", { name: dict.header.searchButtonLabel }).click();
-  const field = page.getByRole("searchbox", { name: dict.header.searchInputLabel });
-  await expect(field).toBeVisible();
-
+  const field = await openHeaderSearch(page, "hy");
   await field.fill("Թումանյան");
   await field.press("Enter");
 

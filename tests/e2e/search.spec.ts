@@ -1,11 +1,10 @@
 import { expect, test } from "@playwright/test";
-import { articleTitle, ui } from "./helpers";
+import { articleTitle, openHeaderSearch, ui } from "./helpers";
 
 test("the header search navigates to the localized search route", async ({ page }) => {
   await page.goto("/hy");
 
-  await page.getByRole("button", { name: ui("hy").header.searchButtonLabel }).click();
-  const field = page.getByRole("searchbox", { name: ui("hy").header.searchInputLabel });
+  const field = await openHeaderSearch(page, "hy");
   await field.fill("Մաշտոց");
   await field.press("Enter");
 
@@ -18,8 +17,7 @@ test("the header search navigates to the localized search route", async ({ page 
 test("the header search ignores an empty query", async ({ page }) => {
   await page.goto("/hy");
 
-  await page.getByRole("button", { name: ui("hy").header.searchButtonLabel }).click();
-  const field = page.getByRole("searchbox", { name: ui("hy").header.searchInputLabel });
+  const field = await openHeaderSearch(page, "hy");
   await field.fill("   ");
   await field.press("Enter");
 

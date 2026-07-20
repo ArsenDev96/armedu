@@ -1,5 +1,5 @@
 import { expect, test } from "@playwright/test";
-import { LOCALES, articleTitle, hasArticle, ui } from "./helpers";
+import { LOCALES, articleTitle, hasArticle, openLanguageMenu, ui } from "./helpers";
 
 test("/ redirects to the default Armenian edition", async ({ page }) => {
   const response = await page.goto("/");
@@ -36,7 +36,7 @@ test("an unsupported locale segment returns 404", async ({ page }) => {
 test("the desktop language selector switches edition and keeps the page", async ({ page }) => {
   await page.goto("/hy/history");
 
-  await page.getByRole("button", { name: ui("hy").header.selectLanguage }).click();
+  await openLanguageMenu(page, "hy");
   await page.getByRole("link", { name: ui("hy").header.switchToLanguage.replace("{language}", "English") }).click();
 
   await expect(page).toHaveURL(/\/en\/history$/);
@@ -48,7 +48,7 @@ test("the desktop language selector switches edition and keeps the page", async 
 
 test("the language selector uses real links, not buttons", async ({ page }) => {
   await page.goto("/hy");
-  await page.getByRole("button", { name: ui("hy").header.selectLanguage }).click();
+  await openLanguageMenu(page, "hy");
 
   // Middle-clickable, openable in a new tab, crawlable.
   const link = page.getByRole("link", {
@@ -63,7 +63,7 @@ test("switching language preserves the article slug when translated", async ({ p
   await page.goto(`/hy/history/${slug}`);
   await expect(page.getByRole("heading", { level: 1 })).toContainText(articleTitle("hy", slug));
 
-  await page.getByRole("button", { name: ui("hy").header.selectLanguage }).click();
+  await openLanguageMenu(page, "hy");
   await page
     .getByRole("link", {
       name: ui("hy").header.switchToLanguage.replace("{language}", "Արեւմտահայերէն"),
@@ -120,7 +120,7 @@ test("a fully translated article advertises all three editions", async ({ page }
 test("switching language on a search page carries the query across", async ({ page }) => {
   await page.goto("/hy/search?q=Մաշտոց");
 
-  await page.getByRole("button", { name: ui("hy").header.selectLanguage }).click();
+  await openLanguageMenu(page, "hy");
   await page
     .getByRole("link", {
       name: ui("hy").header.switchToLanguage.replace("{language}", "Արեւմտահայերէն"),

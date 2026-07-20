@@ -1,6 +1,6 @@
-import type { Page } from "@playwright/test";
+import { expect, type Page } from "@playwright/test";
 import { getLocaleBundle } from "@/data";
-import { SUPPORTED_LOCALES, type Locale } from "@/data/types";
+import { LOCALE_META, SUPPORTED_LOCALES, type Locale } from "@/data/types";
 import type { UiDictionary } from "@/data/ui";
 
 /**
@@ -37,7 +37,51 @@ export function cards(page: Page) {
   return page.getByRole("article");
 }
 
-/** Opens the desktop language menu and returns the link for a target locale. */
+/**
+ * Opens the desktop language menu.
+ *
+ * Waits on the link for the edition already being read: it is the one entry
+ * guaranteed to be in the menu whatever the current locale is.
+ */
 export async function openLanguageMenu(page: Page, from: Locale) {
-  await page.getByRole("button", { name: ui(from).header.selectLanguage }).click();
+  const dict = ui(from);
+  const current = page.getByRole("link", {
+    name: dict.header.currentLanguage.replace("{language}", LOCALE_META[from].label),
+  });
+  await openHeaderPanel(page, dict.header.selectLanguage, current);
+}
+
+/**
+ * Clicks a header toggle and waits for what it reveals.
+ *
+ * The header is server-rendered, so its buttons are clickable a moment before
+ * React hydrates and attaches the handler. A click landing in that window is
+ * simply dropped: nothing opens, and the test waits out its timeout against
+ * markup that will never change. Retrying the click until the panel actually
+ * appears closes that window. Once hydrated the first attempt succeeds, so this
+ * costs nothing on a warm server — it only pays off on a cold one.
+ */
+async function openHeaderPanel(page: Page, toggleName: string, panel: ReturnType<Page["getByRole"]>) {
+  const toggle = page.getByRole("button", { name: toggleName });
+
+  await expect(async () => {
+    await toggle.click();
+    await expect(panel).toBeVisible({ timeout: 1_000 });
+  }).toPass({ timeout: 15_000 });
+}
+
+/** Opens the mobile navigation drawer and returns it. */
+export async function openMobileMenu(page: Page, locale: Locale) {
+  const dict = ui(locale);
+  const menu = page.getByRole("navigation", { name: dict.nav.mobileLabel });
+  await openHeaderPanel(page, dict.nav.toggleMenu, menu);
+  return menu;
+}
+
+/** Opens the header search field and returns it. */
+export async function openHeaderSearch(page: Page, locale: Locale) {
+  const dict = ui(locale);
+  const field = page.getByRole("searchbox", { name: dict.header.searchInputLabel });
+  await openHeaderPanel(page, dict.header.searchButtonLabel, field);
+  return field;
 }
