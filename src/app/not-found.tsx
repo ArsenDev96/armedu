@@ -1,20 +1,41 @@
-import { ButtonLink } from "@/components/ui/primitives";
+import {
+  LocalizedNotFound,
+  type NotFoundMessages,
+} from "@/components/layout/LocalizedNotFound";
+import { SUPPORTED_LOCALES, type Locale } from "@/data/types";
+import { getUi } from "@/lib/i18n";
+import "./globals.css";
 
+/**
+ * Localised 404.
+ *
+ * This has to live at the app root: Next resolves `notFound()` to the root
+ * `not-found.tsx`, not to one nested under `[locale]`, and it renders it
+ * outside the locale layout — so the stylesheet is imported here explicitly.
+ *
+ * Because a not-found file cannot read route params, every edition's copy is
+ * gathered here and the client component picks the right one from the URL.
+ */
 export default function NotFound() {
+  const messages = Object.fromEntries(
+    SUPPORTED_LOCALES.map((locale) => {
+      const { notFound } = getUi(locale);
+      return [
+        locale,
+        {
+          eyebrow: notFound.eyebrow,
+          title: notFound.title,
+          body: notFound.body,
+          backHome: notFound.backHome,
+          exploreHistory: notFound.exploreHistory,
+        } satisfies NotFoundMessages,
+      ];
+    }),
+  ) as Record<Locale, NotFoundMessages>;
+
   return (
-    <div className="container-page flex min-h-[60vh] flex-col items-center justify-center py-20 text-center">
-      <p className="text-xs font-semibold tracking-[0.18em] text-burgundy uppercase">Error 404</p>
-      <h1 className="mt-4 text-3xl text-ink sm:text-4xl">This page could not be found</h1>
-      <p className="mt-4 max-w-md text-base leading-relaxed text-ink-3">
-        The article may have moved, or the address may contain a typo. The sections below are a good
-        place to continue.
-      </p>
-      <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-        <ButtonLink href="/">Back to home</ButtonLink>
-        <ButtonLink href="/history" variant="secondary">
-          Explore Armenian History
-        </ButtonLink>
-      </div>
+    <div className="flex min-h-screen flex-col bg-paper">
+      <LocalizedNotFound messages={messages} />
     </div>
   );
 }

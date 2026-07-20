@@ -1,10 +1,16 @@
-import { site } from "@/data/site";
+import type { UiDictionary } from "@/data/ui";
 
 /**
  * Logo: an interlaced knot inspired by Armenian manuscript ornament, paired
  * with the platform name and tagline.
  */
-export function Logo({ tone = "dark" }: { tone?: "dark" | "light" }) {
+export function Logo({
+  ui,
+  tone = "dark",
+}: {
+  ui: UiDictionary;
+  tone?: "dark" | "light";
+}) {
   return (
     <span className="flex items-center gap-2.5">
       <svg
@@ -27,14 +33,14 @@ export function Logo({ tone = "dark" }: { tone?: "dark" | "light" }) {
             tone === "light" ? "text-white" : "text-burgundy"
           }`}
         >
-          {site.name}
+          {ui.site.name}
         </span>
         <span
           className={`hidden text-[11px] tracking-wide sm:block ${
             tone === "light" ? "text-white/60" : "text-ink-3"
           }`}
         >
-          {site.tagline}
+          {ui.site.tagline}
         </span>
       </span>
     </span>

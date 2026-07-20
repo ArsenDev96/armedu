@@ -1,17 +1,24 @@
 import Link from "next/link";
 import type { Writer } from "@/data/types";
+import type { UiDictionary } from "@/data/ui";
 import { PlaceholderImage } from "@/components/ui/PlaceholderImage";
 import { ArrowLink, Card } from "@/components/ui/primitives";
+import { t } from "@/lib/i18n";
 
 export function WriterCard({
   writer,
+  href,
+  ui,
   variant = "default",
 }: {
   writer: Writer;
+  /** Locale-prefixed destination. */
+  href: string;
+  ui: UiDictionary;
   /** `horizontal` is the homepage form: portrait left, copy right. */
   variant?: "default" | "horizontal";
 }) {
-  const href = `/writers/${writer.slug}`;
+  const alt = t(ui.article.portraitAlt, { name: writer.name });
 
   if (variant === "horizontal") {
     return (
@@ -21,7 +28,7 @@ export function WriterCard({
             seed={writer.imageSeed}
             variant="portrait"
             label={writer.name}
-            alt={`Portrait placeholder of ${writer.name}`}
+            alt={alt}
             className="h-full transition-transform duration-300 group-hover:scale-[1.04]"
           />
         </div>
@@ -39,7 +46,7 @@ export function WriterCard({
             {writer.description}
           </p>
           <span className="mt-auto inline-flex items-center gap-1.5 pt-4 text-xs font-semibold text-burgundy">
-            View biography
+            {ui.listing.writers.readBiography}
             <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">
               →
             </span>
@@ -56,7 +63,7 @@ export function WriterCard({
           seed={writer.imageSeed}
           variant="portrait"
           label={writer.name}
-          alt={`Portrait placeholder of ${writer.name}`}
+          alt={alt}
           className="transition-transform duration-300 group-hover:scale-[1.03]"
         />
       </div>
@@ -69,7 +76,7 @@ export function WriterCard({
         <p className="mt-1 text-sm font-medium text-burgundy">{writer.lifespan}</p>
         <p className="mt-3 flex-1 text-sm leading-relaxed text-ink-3">{writer.description}</p>
         <ArrowLink href={href} className="mt-5">
-          View biography
+          {ui.listing.writers.readBiography}
         </ArrowLink>
       </div>
     </Card>

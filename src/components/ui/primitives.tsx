@@ -168,9 +168,18 @@ export function RowHeading({
   headingLevel?: "h2" | "h3";
 }) {
   return (
-    <div className={cn("mb-6 flex items-baseline justify-between gap-6", className)}>
-      <Heading className="text-xl leading-tight text-ink sm:text-2xl">{title}</Heading>
-      {action ? <div className="shrink-0">{action}</div> : null}
+    // Wraps rather than overflowing: Armenian and Western Armenian labels are
+    // considerably longer than their English equivalents ("View full timeline"
+    // is 18 characters; "Տեսնել ամբողջ ժամանակագրությունը" is 32), and a
+    // `shrink-0` action pushed the row past the viewport on narrow screens.
+    <div
+      className={cn(
+        "mb-6 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1.5",
+        className,
+      )}
+    >
+      <Heading className="min-w-0 text-xl leading-tight text-ink sm:text-2xl">{title}</Heading>
+      {action ? <div className="min-w-0">{action}</div> : null}
     </div>
   );
 }

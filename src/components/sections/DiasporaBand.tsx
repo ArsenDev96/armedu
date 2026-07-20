@@ -1,13 +1,16 @@
+import type { Locale } from "@/data/types";
+import type { UiDictionary } from "@/data/ui";
 import { PlaceholderImage } from "@/components/ui/PlaceholderImage";
 import { GlobeIcon } from "@/components/ui/icons";
 import { ButtonLink } from "@/components/ui/primitives";
+import { localePath } from "@/lib/i18n";
 
 /**
  * Full-width call-out addressed to the Armenian diaspora. The artwork sits
  * behind the copy behind a warm scrim, so a photograph can replace
  * `PlaceholderImage` without changing the contrast of the text above it.
  */
-export function DiasporaBand() {
+export function DiasporaBand({ locale, ui }: { locale: Locale; ui: UiDictionary }) {
   return (
     <div className="relative overflow-hidden rounded-2xl border border-line">
       <div aria-hidden="true" className="absolute inset-0">
@@ -27,17 +30,17 @@ export function DiasporaBand() {
         </span>
 
         <div className="flex-1">
-          <h2 className="text-xl leading-tight text-ink sm:text-2xl">
-            Stay connected to Armenian culture
-          </h2>
+          <h2 className="text-xl leading-tight text-ink sm:text-2xl">{ui.home.diasporaTitle}</h2>
           <p className="mt-2.5 max-w-2xl text-sm leading-relaxed text-ink-2">
-            Explore Armenian history and literature through clear articles created for Armenian
-            families, students, and teachers around the world.
+            {ui.home.diasporaText}
           </p>
         </div>
 
-        <ButtonLink href="/history" className="shrink-0 self-start md:self-center">
-          Start Exploring
+        <ButtonLink
+          href={localePath(locale, "/history")}
+          className="shrink-0 self-start md:self-center"
+        >
+          {ui.home.diasporaCta}
           <span aria-hidden="true">→</span>
         </ButtonLink>
       </div>

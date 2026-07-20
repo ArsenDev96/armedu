@@ -1,3 +1,6 @@
+"use client";
+
+import { useId } from "react";
 import { cn } from "@/lib/cn";
 
 type Variant = "motif" | "portrait" | "wide";
@@ -93,7 +96,11 @@ export function PlaceholderImage({
   const h = hash(seed);
   const [bg, mid, accent] = PALETTES[h % PALETTES.length];
   const rotation = h % 30;
-  const id = `ph-${h}-${variant}`;
+  // Per-instance, not per-seed: the same article can appear twice on one page
+  // (as the featured item and again in the grid), and two `<defs>` sharing an
+  // id would be duplicate element ids in the document.
+  // React's id contains colons, which are awkward inside `url(#…)`.
+  const id = `ph-${useId().replace(/:/g, "")}-${variant}`;
   const initials = label
     ? label
         .split(" ")

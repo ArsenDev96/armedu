@@ -3,16 +3,21 @@ import type { ArticleSection } from "@/data/types";
 export function TableOfContents({
   sections,
   extra = [],
+  heading,
 }: {
   sections: ArticleSection[];
   extra?: { id: string; heading: string }[];
+  heading: string;
 }) {
   const items = [...sections.map((s) => ({ id: s.id, heading: s.heading })), ...extra];
 
   return (
     <nav aria-labelledby="toc-heading" className="rounded-2xl border border-line bg-surface p-5">
-      <h2 id="toc-heading" className="font-sans text-xs font-semibold tracking-[0.16em] text-ink-3 uppercase">
-        Table of contents
+      <h2
+        id="toc-heading"
+        className="font-sans text-xs font-semibold tracking-[0.16em] text-ink-3 uppercase"
+      >
+        {heading}
       </h2>
       <ol className="mt-4 space-y-2.5 text-sm">
         {items.map((item) => (

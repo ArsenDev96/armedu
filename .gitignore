@@ -6,5 +6,8 @@ build/
 *.pem
 npm-debug.log*
 .env*
+!.env.example
 next-env.d.ts
 tsconfig.tsbuildinfo
+/test-results/
+/playwright-report/

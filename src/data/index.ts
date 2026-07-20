@@ -1,18 +1,27 @@
-import { DEFAULT_LOCALE, type Locale, type LocaleContent } from "./types";
+import { SUPPORTED_LOCALES, type Locale, type LocaleContent } from "./types";
 import { en } from "./locales/en";
+import { hy } from "./locales/hy";
+import { hyw } from "./locales/hyw";
 
 /**
- * Locale registry. Additional locales (hy, hyw, ru) can be registered here once
- * their content bundles exist; missing locales fall back to the default.
+ * Locale registry.
+ *
+ * Every supported locale must have a complete bundle — the `Record` type makes a
+ * missing edition a compile error. There is **no fallback**: `getLocaleBundle`
+ * cannot quietly hand back English when an Armenian bundle is incomplete,
+ * because there is nowhere for it to fall back to. Content that is missing for a
+ * locale is missing, and the UI says so explicitly.
  */
-const bundles: Partial<Record<Locale, LocaleContent>> = {
+const bundles: Record<Locale, LocaleContent> = {
+  hy,
+  hyw,
   en,
 };
 
-export function getContent(locale: Locale = DEFAULT_LOCALE): LocaleContent {
-  return bundles[locale] ?? bundles[DEFAULT_LOCALE]!;
+export function getLocaleBundle(locale: Locale): LocaleContent {
+  return bundles[locale];
 }
 
 export function getAvailableLocales(): Locale[] {
-  return Object.keys(bundles) as Locale[];
+  return [...SUPPORTED_LOCALES];
 }

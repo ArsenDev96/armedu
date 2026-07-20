@@ -1,5 +1,8 @@
 import Image from "next/image";
+import type { Locale } from "@/data/types";
+import type { UiDictionary } from "@/data/ui";
 import { ButtonLink } from "@/components/ui/primitives";
+import { localePath } from "@/lib/i18n";
 
 /**
  * Homepage hero: copy on a warm paper field at the left, photography bleeding
@@ -10,7 +13,7 @@ import { ButtonLink } from "@/components/ui/primitives";
  * of sharing a grid with the copy — nesting a container inside a grid column
  * would gutter it against the column rather than the page.
  */
-export function Hero() {
+export function Hero({ locale, ui }: { locale: Locale; ui: UiDictionary }) {
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-paper-2 to-paper">
       <div
@@ -25,22 +28,22 @@ export function Hero() {
           {/* Steps down at `lg`, where the copy is at its narrowest relative to
               the type — otherwise "Discover Armenian" breaks. */}
           <h1 className="text-[2.25rem] leading-[1.1] text-ink sm:text-5xl lg:text-[2.5rem] xl:text-[3.25rem]">
-            Discover Armenian <span className="text-burgundy">history, literature,</span> and
-            culture
+            {ui.home.heroTitleLead}
+            <span className="text-burgundy">{ui.home.heroTitleAccent}</span>
+            {ui.home.heroTitleTail}
           </h1>
           <p className="mt-6 max-w-lg text-base leading-relaxed text-ink-2">
-            Clear and accessible articles about Armenian historical events, famous writers,
-            important literary works, and cultural heritage.
+            {ui.home.heroDescription}
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <ButtonLink href="/history">
-              Explore Armenian History
+            <ButtonLink href={localePath(locale, "/history")}>
+              {ui.home.heroPrimaryCta}
               <span aria-hidden="true" className="text-base leading-none">
                 →
               </span>
             </ButtonLink>
-            <ButtonLink href="/writers" variant="outline-gold">
-              Discover Armenian Writers
+            <ButtonLink href={localePath(locale, "/writers")} variant="outline-gold">
+              {ui.home.heroSecondaryCta}
             </ButtonLink>
           </div>
         </div>
@@ -54,7 +57,7 @@ export function Hero() {
             the monastery stays in frame however tall the column gets. */}
         <Image
           src="/hero-ararat.png"
-          alt="Khor Virap monastery on the Armenian highland, with the snow-capped peak of Mount Ararat behind it"
+          alt={ui.home.heroImageAlt}
           fill
           priority
           sizes="(min-width: 1024px) 56vw, 100vw"

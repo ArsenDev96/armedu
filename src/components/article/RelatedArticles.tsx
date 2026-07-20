@@ -1,24 +1,37 @@
-import type { ArticleSummary } from "@/data/types";
+import type { ArticleSummary, Locale } from "@/data/types";
+import type { UiDictionary } from "@/data/ui";
 import { ArticleCard } from "@/components/cards/ArticleCard";
+import { localePath } from "@/lib/i18n";
 
 export function RelatedArticles({
+  locale,
+  ui,
   articles,
-  title = "Related articles",
+  title,
 }: {
+  locale: Locale;
+  ui: UiDictionary;
   articles: ArticleSummary[];
-  title?: string;
+  title: string;
 }) {
   if (articles.length === 0) return null;
 
   return (
-    <section aria-labelledby="related-heading" className="border-t border-line bg-paper-2 py-14 md:py-16">
+    <section
+      aria-labelledby="related-heading"
+      className="border-t border-line bg-paper-2 py-14 md:py-16"
+    >
       <div className="container-page">
         <h2 id="related-heading" className="mb-8 text-2xl text-ink md:text-[1.75rem]">
           {title}
         </h2>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {articles.map((article) => (
-            <ArticleCard key={article.slug} article={article} />
+            <ArticleCard
+              key={article.slug}
+              article={{ ...article, href: localePath(locale, article.href) }}
+              ui={ui}
+            />
           ))}
         </div>
       </div>

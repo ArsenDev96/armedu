@@ -14,9 +14,12 @@ const MEDALLIONS: Record<CategoryId, { Icon: typeof ColumnsIcon; className: stri
 
 export function CategoryCard({
   category,
+  href,
   variant = "default",
 }: {
   category: Category;
+  /** Locale-prefixed destination; the category itself stores a locale-free path. */
+  href: string;
   /** `banner` is the homepage form: icon medallion, copy, photography behind. */
   variant?: "default" | "banner";
 }) {
@@ -55,7 +58,7 @@ export function CategoryCard({
             <Icon className="h-5 w-5" />
           </span>
           <h3 className="text-lg text-ink">
-            <Link href={category.href} className="transition hover:text-burgundy">
+            <Link href={href} className="transition hover:text-burgundy">
               <span className="absolute inset-0" />
               {category.title}
             </Link>
@@ -93,12 +96,12 @@ export function CategoryCard({
       </div>
       <div className="flex flex-1 flex-col p-6 md:p-7">
         <h3 className="text-xl text-ink">
-          <Link href={category.href} className="transition hover:text-burgundy">
+          <Link href={href} className="transition hover:text-burgundy">
             {category.title}
           </Link>
         </h3>
         <p className="mt-3 flex-1 text-sm leading-relaxed text-ink-3">{category.description}</p>
-        <ArrowLink href={category.href} className="mt-6">
+        <ArrowLink href={href} className="mt-6">
           {category.linkLabel}
         </ArrowLink>
       </div>

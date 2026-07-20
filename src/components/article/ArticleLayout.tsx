@@ -1,34 +1,48 @@
 import Link from "next/link";
-import type { Article, ArticleSummary } from "@/data/types";
+import type { Article, ArticleSummary, Locale } from "@/data/types";
+import type { UiDictionary } from "@/data/ui";
+import { ArticleNav } from "@/components/article/ArticleNav";
 import { Breadcrumbs, type Crumb } from "@/components/article/Breadcrumbs";
+import { CopyLinkButton } from "@/components/article/CopyLinkButton";
 import { RelatedArticles } from "@/components/article/RelatedArticles";
 import { TableOfContents } from "@/components/article/TableOfContents";
+import { ClockIcon } from "@/components/ui/icons";
 import { PlaceholderImage } from "@/components/ui/PlaceholderImage";
 import { Card, Pill } from "@/components/ui/primitives";
+import { getAdjacentArticles, getCategoryListing } from "@/lib/content";
 import { formatDate } from "@/lib/date";
+import { getUi, localePath, t } from "@/lib/i18n";
+import { estimateReadingTime } from "@/lib/reading-time";
 
 export function ArticleLayout({
+  locale,
   article,
   breadcrumbs,
   related,
 }: {
+  locale: Locale;
   article: Article;
   breadcrumbs: Crumb[];
   related: ArticleSummary[];
 }) {
+  const ui: UiDictionary = getUi(locale);
+  const listing = getCategoryListing(locale, article.category);
+  const { previous, next } = getAdjacentArticles(locale, article);
+  const readingTime = estimateReadingTime(article);
+
   const extraToc = [
-    { id: "important-dates", heading: "Important dates" },
+    { id: "important-dates", heading: ui.article.importantDates },
     { id: "significance", heading: article.significance.heading },
-    { id: "interesting-facts", heading: "Interesting facts" },
-    { id: "related-figures", heading: "Related historical figures" },
-    { id: "sources", heading: "Sources" },
+    { id: "interesting-facts", heading: ui.article.interestingFacts },
+    { id: "related-figures", heading: ui.article.relatedFigures },
+    { id: "sources", heading: ui.article.sources },
   ];
 
   return (
     <article>
       <header className="border-b border-line bg-surface">
         <div className="container-page py-8 md:py-12">
-          <Breadcrumbs items={breadcrumbs} />
+          <Breadcrumbs label={ui.nav.breadcrumbLabel} items={breadcrumbs} />
 
           <div className="mt-6 max-w-3xl">
             <div className="flex flex-wrap items-center gap-2.5">
@@ -42,35 +56,71 @@ export function ArticleLayout({
             </h1>
             <p className="mt-5 text-lg leading-relaxed text-ink-2">{article.intro}</p>
 
-            <dl className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-ink-3">
-              <div className="flex gap-1.5">
-                <dt className="sr-only">Author</dt>
-                <dd>{article.author}</dd>
-              </div>
-              <div className="flex gap-1.5">
-                <dt>Updated</dt>
-                <dd>
-                  <time dateTime={article.updated}>{formatDate(article.updated)}</time>
-                </dd>
-              </div>
-              <div className="flex gap-1.5">
-                <dt className="sr-only">Reading time</dt>
-                <dd>{article.readingTime} min read</dd>
-              </div>
-            </dl>
+            <div className="mt-6 flex flex-wrap items-center justify-between gap-x-6 gap-y-4">
+              <dl className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-ink-3">
+                <div className="flex gap-1.5">
+                  <dt className="sr-only">{ui.article.author}</dt>
+                  <dd>{article.author}</dd>
+                </div>
+                <div className="flex gap-1.5">
+                  <dt>{ui.article.updated}</dt>
+                  <dd>
+                    <time dateTime={article.updated}>{formatDate(article.updated, locale)}</time>
+                  </dd>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <dt className="sr-only">{ui.article.readingTimeLabel}</dt>
+                  <dd className="flex items-center gap-1.5">
+                    <ClockIcon className="h-3.5 w-3.5" aria-hidden="true" />
+                    {t(ui.article.readingTime, { minutes: readingTime })}
+                  </dd>
+                </div>
+              </dl>
+              <CopyLinkButton
+                labels={{
+                  idle: ui.article.copyLink,
+                  copied: ui.article.copied,
+                  failed: ui.article.copyFailed,
+                  copiedAnnouncement: ui.article.copiedAnnouncement,
+                  failedAnnouncement: ui.article.copyFailedAnnouncement,
+                }}
+              />
+            </div>
+
+            <p className="mt-5">
+              <Link
+                href={listing.href}
+                className="inline-flex items-center gap-1.5 text-sm font-semibold text-burgundy transition hover:text-burgundy-dark"
+              >
+                <span aria-hidden="true">←</span>
+                {t(ui.article.backToCategory, { category: listing.title })}
+              </Link>
+            </p>
           </div>
 
           <figure className="mt-8 md:mt-10">
             <div className="aspect-[21/9] overflow-hidden rounded-2xl border border-line bg-paper-2">
-              <PlaceholderImage
-                seed={article.imageSeed}
-                variant="wide"
-                alt={`Cover illustration for the article ${article.title}`}
-              />
+              {article.image ? (
+                // eslint-disable-next-line @next/next/no-img-element -- local file, no optimisation pipeline configured
+                <img
+                  src={article.image.src}
+                  alt={article.image.alt}
+                  className="h-full w-full object-cover"
+                />
+              ) : (
+                <PlaceholderImage
+                  seed={article.imageSeed}
+                  variant="wide"
+                  alt={t(ui.article.imageAlt, { title: article.title })}
+                />
+              )}
             </div>
             <figcaption className="mt-3 text-sm text-ink-3">
-              Illustration placeholder — {article.title}. Replace with licensed imagery before
-              launch.
+              {article.image
+                ? article.image.credit
+                  ? t(ui.article.imageCredit, { credit: article.image.credit })
+                  : article.image.alt
+                : t(ui.article.imagePlaceholderCaption, { title: article.title })}
             </figcaption>
           </figure>
         </div>
@@ -81,11 +131,15 @@ export function ArticleLayout({
           {/* On mobile this block sits directly below the introduction; on desktop it
               becomes a sticky right sidebar. */}
           <aside className="space-y-5 lg:sticky lg:top-24 lg:order-2 lg:self-start">
-            <TableOfContents sections={article.sections} extra={extraToc} />
+            <TableOfContents
+              sections={article.sections}
+              extra={extraToc}
+              heading={ui.article.tableOfContents}
+            />
 
             <Card className="p-5">
               <h2 className="font-sans text-xs font-semibold tracking-[0.16em] text-ink-3 uppercase">
-                Key facts
+                {ui.article.keyFacts}
               </h2>
               <dl className="mt-4 space-y-3 text-sm">
                 {article.keyFacts.map((fact) => (
@@ -99,13 +153,13 @@ export function ArticleLayout({
 
             <Card className="p-5">
               <h2 className="font-sans text-xs font-semibold tracking-[0.16em] text-ink-3 uppercase">
-                Related topics
+                {ui.article.relatedTopics}
               </h2>
               <ul className="mt-4 flex flex-wrap gap-2">
                 {related.map((item) => (
                   <li key={item.slug}>
                     <Link
-                      href={item.href}
+                      href={localePath(locale, item.href)}
                       className="inline-flex rounded-full border border-line px-3 py-1.5 text-xs font-medium text-ink-2 transition hover:border-burgundy hover:text-burgundy"
                     >
                       {item.title}
@@ -136,7 +190,7 @@ export function ArticleLayout({
             </div>
 
             <section id="important-dates" className="mt-14 scroll-mt-28">
-              <h2 className="text-2xl text-ink">Important dates</h2>
+              <h2 className="text-2xl text-ink">{ui.article.importantDates}</h2>
               <ol className="mt-6 space-y-0 border-l-2 border-line pl-6">
                 {article.importantDates.map((entry) => (
                   <li key={entry.year + entry.event} className="relative pb-6 last:pb-0">
@@ -163,7 +217,7 @@ export function ArticleLayout({
             </section>
 
             <section id="interesting-facts" className="mt-14 scroll-mt-28">
-              <h2 className="text-2xl text-ink">Interesting facts</h2>
+              <h2 className="text-2xl text-ink">{ui.article.interestingFacts}</h2>
               <ul className="mt-6 grid gap-4 sm:grid-cols-2">
                 {article.interestingFacts.map((fact, index) => (
                   <li
@@ -180,7 +234,7 @@ export function ArticleLayout({
             </section>
 
             <section id="related-figures" className="mt-14 scroll-mt-28">
-              <h2 className="text-2xl text-ink">Related historical figures</h2>
+              <h2 className="text-2xl text-ink">{ui.article.relatedFigures}</h2>
               <ul className="mt-6 grid gap-4 sm:grid-cols-3">
                 {article.relatedFigures.map((figure) => (
                   <li key={figure.name} className="rounded-2xl border border-line bg-surface p-5">
@@ -189,7 +243,7 @@ export function ArticleLayout({
                         seed={figure.name}
                         variant="portrait"
                         label={figure.name}
-                        alt={`Portrait placeholder of ${figure.name}`}
+                        alt={t(ui.article.portraitAlt, { name: figure.name })}
                       />
                     </div>
                     <h3 className="text-base text-ink">{figure.name}</h3>
@@ -201,7 +255,7 @@ export function ArticleLayout({
             </section>
 
             <section id="sources" className="mt-14 scroll-mt-28">
-              <h2 className="text-2xl text-ink">Sources</h2>
+              <h2 className="text-2xl text-ink">{ui.article.sources}</h2>
               <ul className="mt-5 space-y-3 text-sm text-ink-2">
                 {article.sources.map((source) => (
                   <li key={source.title} className="border-b border-line pb-3 last:border-0">
@@ -216,7 +270,7 @@ export function ArticleLayout({
                           rel="noopener noreferrer"
                           target="_blank"
                         >
-                          Visit source
+                          {ui.article.visitSource}
                         </a>
                       </>
                     ) : null}
@@ -224,11 +278,24 @@ export function ArticleLayout({
                 ))}
               </ul>
             </section>
+
+            <ArticleNav
+              locale={locale}
+              ui={ui}
+              previous={previous}
+              next={next}
+              categoryLabel={article.categoryLabel}
+            />
           </div>
         </div>
       </div>
 
-      <RelatedArticles articles={related} />
+      <RelatedArticles
+        locale={locale}
+        ui={ui}
+        articles={related}
+        title={ui.article.relatedArticles}
+      />
     </article>
   );
 }

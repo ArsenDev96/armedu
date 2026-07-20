@@ -6,15 +6,18 @@
     "dev": "next dev -p 3002",
     "build": "next build",
     "start": "next start  -p 3002",
-    "lint": "next lint",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "validate:content": "tsx scripts/validate-content.ts",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.110.7",
     "next": "^16.2.10",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.61.1",
     "@tailwindcss/postcss": "^4.3.3",
     "@types/node": "^26.1.1",
     "@types/react": "^19.2.7",
@@ -22,6 +25,10 @@
     "playwright": "^1.61.1",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.3.3",
+    "tsx": "^4.23.1",
     "typescript": "^5.9.3"
+  },
+  "allowScripts": {
+    "esbuild@0.28.1": true
   }
 }

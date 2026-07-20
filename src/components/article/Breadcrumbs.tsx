@@ -5,9 +5,9 @@ export interface Crumb {
   href?: string;
 }
 
-export function Breadcrumbs({ items }: { items: Crumb[] }) {
+export function Breadcrumbs({ items, label }: { items: Crumb[]; label: string }) {
   return (
-    <nav aria-label="Breadcrumb">
+    <nav aria-label={label}>
       <ol className="flex flex-wrap items-center gap-1.5 text-sm text-ink-3">
         {items.map((item, index) => {
           const isLast = index === items.length - 1;

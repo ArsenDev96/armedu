@@ -1,0 +1,269 @@
+/**
+ * The complete set of visible interface strings.
+ *
+ * Every locale bundle must supply a `UiDictionary`. Because every field is
+ * required and nothing is optional, a missing translation is a TypeScript error
+ * at build time rather than an English string leaking onto an Armenian page.
+ *
+ * Content — article prose, writer biographies, category copy — is *not* here.
+ * It lives in the content collections alongside this dictionary.
+ */
+export interface UiDictionary {
+  /** Site-level strings. */
+  site: {
+    /** Product name. Latin in every edition — it is a proper name. */
+    name: string;
+    tagline: string;
+    description: string;
+    skipToContent: string;
+    homeLinkLabel: string;
+  };
+
+  nav: {
+    mainLabel: string;
+    mobileLabel: string;
+    breadcrumbLabel: string;
+    home: string;
+    history: string;
+    writers: string;
+    works: string;
+    about: string;
+    contact: string;
+    privacy: string;
+    search: string;
+    sitemap: string;
+    allHistoryArticles: string;
+    allWriters: string;
+    allWorks: string;
+    /** Accessible name for a nav dropdown toggle; `{item}` is the parent label. */
+    submenuLabel: string;
+    toggleMenu: string;
+  };
+
+  header: {
+    searchButtonLabel: string;
+    searchInputLabel: string;
+    searchPlaceholder: string;
+    searchSubmit: string;
+    selectLanguage: string;
+    languageHeading: string;
+    /** Accessible name pattern for a language link, e.g. "Switch to Armenian". */
+    switchToLanguage: string;
+    currentLanguage: string;
+  };
+
+  footer: {
+    description: string;
+    socialLabel: string;
+    exploreTitle: string;
+    historyTitle: string;
+    writersTitle: string;
+    resourcesTitle: string;
+    timeline: string;
+    allArticles: string;
+    ancientArmenia: string;
+    armenianKingdoms: string;
+    medievalArmenia: string;
+    modernArmenia: string;
+    importantFigures: string;
+    languageTitle: string;
+    /** `{year}` and `{name}` are substituted. */
+    copyright: string;
+  };
+
+  home: {
+    heroTitleLead: string;
+    heroTitleAccent: string;
+    heroTitleTail: string;
+    heroDescription: string;
+    heroPrimaryCta: string;
+    heroSecondaryCta: string;
+    /** Alt text for the Khor Virap / Ararat photograph. */
+    heroImageAlt: string;
+    categoriesHeading: string;
+    featuredHeading: string;
+    featuredAction: string;
+    timelineHeading: string;
+    timelineAction: string;
+    writersHeading: string;
+    writersAction: string;
+    newsletterHeading: string;
+    diasporaTitle: string;
+    diasporaText: string;
+    diasporaCta: string;
+  };
+
+  listing: {
+    filtersHeading: string;
+    clearSearch: string;
+    clearAllFilters: string;
+    /** `{count}` substituted. `available` is the unfiltered state. */
+    countArticlesOne: string;
+    countArticlesOther: string;
+    countWritersOne: string;
+    countWritersOther: string;
+    countWorksOne: string;
+    countWorksOther: string;
+    matchesSearch: string;
+    available: string;
+    history: {
+      title: string;
+      metaDescription: string;
+      lead: string;
+      searchLabel: string;
+      searchPlaceholder: string;
+      featuredEyebrow: string;
+      featuredTitle: string;
+      allEyebrow: string;
+      allTitle: string;
+      allDescription: string;
+      timelineEyebrow: string;
+      timelineTitle: string;
+      timelineDescription: string;
+      readArticle: string;
+    };
+    writers: {
+      title: string;
+      metaDescription: string;
+      lead: string;
+      searchLabel: string;
+      searchPlaceholder: string;
+      featuredEyebrow: string;
+      featuredTitle: string;
+      notableWorks: string;
+      readBiography: string;
+      allEyebrow: string;
+      allTitle: string;
+      allDescription: string;
+      newsletterEyebrow: string;
+      newsletterTitle: string;
+      newsletterDescription: string;
+    };
+    works: {
+      title: string;
+      metaDescription: string;
+      lead: string;
+      searchLabel: string;
+      searchPlaceholder: string;
+      featuredEyebrow: string;
+      featuredTitle: string;
+      readSummary: string;
+      allEyebrow: string;
+      allTitle: string;
+      allDescription: string;
+    };
+  };
+
+  empty: {
+    heading: string;
+    /** `{query}` substituted. */
+    bodyWithQuery: string;
+    bodyNoQuery: string;
+    clearLabel: string;
+  };
+
+  search: {
+    title: string;
+    metaDescription: string;
+    heading: string;
+    /** `{count}` substituted — total indexed entries. */
+    lead: string;
+    inputLabel: string;
+    placeholder: string;
+    clear: string;
+    prompt: string;
+    /** `{count}` and `{query}` substituted. */
+    resultsOne: string;
+    resultsOther: string;
+    groupHistory: string;
+    groupWriters: string;
+    groupWorks: string;
+    /** `{count}` substituted, used under each group heading. */
+    groupCountOne: string;
+    groupCountOther: string;
+    typeHistory: string;
+    typeWriter: string;
+    typeWork: string;
+    noQueryHeading: string;
+    noQueryBody: string;
+    browseHistory: string;
+    browseWriters: string;
+    browseWorks: string;
+    noResultsHeading: string;
+    /** `{query}` substituted. */
+    noResultsBody: string;
+    noResultsClear: string;
+  };
+
+  article: {
+    updated: string;
+    author: string;
+    readingTimeLabel: string;
+    /** `{minutes}` substituted, e.g. "8 min read". */
+    readingTime: string;
+    /** `{category}` substituted. */
+    backToCategory: string;
+    tableOfContents: string;
+    keyFacts: string;
+    relatedTopics: string;
+    importantDates: string;
+    interestingFacts: string;
+    relatedFigures: string;
+    sources: string;
+    visitSource: string;
+    relatedArticles: string;
+    previous: string;
+    next: string;
+    /** `{category}` and `{title}` substituted. */
+    previousAria: string;
+    nextAria: string;
+    moreInCategory: string;
+    copyLink: string;
+    copied: string;
+    copyFailed: string;
+    copiedAnnouncement: string;
+    copyFailedAnnouncement: string;
+    /** `{title}` substituted. */
+    imagePlaceholderCaption: string;
+    imageAlt: string;
+    portraitAlt: string;
+    imageCredit: string;
+    typeHistory: string;
+    typeWriters: string;
+    typeWorks: string;
+  };
+
+  /** Shown when an article exists in the project but not in this language. */
+  unavailable: {
+    eyebrow: string;
+    heading: string;
+    body: string;
+    readInOther: string;
+    backToCategory: string;
+    metaTitle: string;
+  };
+
+  newsletter: {
+    emailLabel: string;
+    placeholder: string;
+    placeholderInline: string;
+    button: string;
+    submitting: string;
+    noteDefault: string;
+    noteInline: string;
+    invalid: string;
+    success: string;
+    duplicate: string;
+    error: string;
+    unconfigured: string;
+    devNote: string;
+  };
+
+  notFound: {
+    eyebrow: string;
+    title: string;
+    body: string;
+    backHome: string;
+    exploreHistory: string;
+  };
+}
