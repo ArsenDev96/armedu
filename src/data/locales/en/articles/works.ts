@@ -15,7 +15,7 @@ export const workArticles: Article[] = [
     imageSeed: "anush",
     featured: true,
     intro:
-      "Anush is a narrative poem written by Hovhannes Tumanyan and published in 1892, then revised into its final form in 1901. Set among the shepherds and highland villages of Lori, it tells of a village girl and her beloved whose happiness is broken by a moment of wrestling pride. Turned into an opera by Armen Tigranian in 1912, it became one of the best known works in all of Armenian culture.",
+      "Anush is a narrative poem by Hovhannes Tumanyan, written in 1890, first printed in 1892 and reworked into its final form across 1901 and 1902. Set among the shepherds and highland villages of Lori, it tells of a village girl and her beloved whose happiness is broken by a moment of wrestling pride. Turned into an opera by Armen Tigranian in 1912, it became one of the best known works in all of Armenian culture.",
     author: "ArmEdu Editorial Team",
     updated: "2026-04-12",
     sections: [
@@ -25,7 +25,7 @@ export const workArticles: Article[] = [
         paragraphs: [
           "Tumanyan grew up in the Lori highlands of northern Armenia, a region of steep gorges, stone villages and seasonal pastures. In the late nineteenth century life there was still shaped by clan loyalty, arranged marriage and an unwritten code of family honour that a young man was expected to defend with his body. Tumanyan knew these customs from the inside, and he wrote about them without either mocking them or pretending they were harmless.",
           "The 1890s were also a period when Armenian writers were consciously building a modern national literature in the Eastern Armenian literary language. Rather than imitating European models, Tumanyan turned to village speech, folk song and local legend. Anush was his attempt to give the everyday tragedy of ordinary highlanders the weight and dignity usually reserved for epic subjects.",
-          "The poem first appeared in 1892 in a short version. Tumanyan was not satisfied and kept reworking it for almost a decade, tightening the story, deepening the characters and adding the folk ritual scenes. The 1901 text is the one read in schools today and the one that formed the basis of the opera."
+          "Tumanyan wrote the first version in 1890 and printed it in 1892 in his second collection of poems, published in Moscow; he had considered sending it to a magazine and was advised to keep it for a book. He was not satisfied with it and kept reworking the poem for another decade. The version completed in 1901 and 1902, and published in the Tiflis collection of 1903, is the one read in schools today and the one that formed the basis of the opera."
         ]
       },
       {
@@ -33,8 +33,8 @@ export const workArticles: Article[] = [
         heading: "Summary of the story",
         paragraphs: [
           "Anush, a young woman from a Lori village, loves Saro, a shepherd who tends flocks in the high pastures. Their love is mutual and openly known among the young people of the village, and the early sections of the poem move through spring festivals, songs and the ordinary joys of highland life. Anush's brother Mosi is a proud young man who takes the family name seriously.",
-          "At a village celebration the young men wrestle, and there is a firm local rule: an opponent must never be thrown on his back, because to be pinned that way is a public humiliation. In the excitement of the match Saro forgets himself and throws Mosi flat. The crowd laughs. Mosi rises with the shame burning in him and swears revenge on the man who has disgraced his family before the whole village.",
-          "Saro flees to the mountains and lives as an outlaw. Anush waits, sends word, and finally meets him in secret. Mosi tracks his sister's beloved down and shoots him. When Anush learns that Saro is dead she loses her reason, wanders the gorges calling his name, and throws herself into the river. The poem closes on the mountains, unchanged and indifferent, and on the village that will keep repeating the same customs."
+          "At a village wedding the young men wrestle, and there is a firm local rule: an opponent must never be thrown on his back, because to be pinned that way is a public humiliation. In the excitement of the match Saro forgets himself and throws Mosi flat. The crowd laughs. Mosi rises with the shame burning in him and swears revenge on the man who has disgraced his family before the whole village.",
+          "The two flee together into the mountains, and Anush is later driven from her father's house. Mosi tracks his sister's beloved down and shoots him. When Anush learns that Saro is dead she loses her reason, wanders the gorges calling his name, and throws herself into the river. The poem closes on the mountains, unchanged and indifferent, and on the village that will keep repeating the same customs."
         ]
       },
       {
@@ -89,11 +89,11 @@ export const workArticles: Article[] = [
       { label: "Main characters", value: "Anush, Saro, Mosi, Anush's mother" }
     ],
     importantDates: [
-      { year: "1892", event: "The first version of the poem is published in a literary periodical." },
+      { year: "1892", event: "The first version, written in 1890, is printed in Tumanyan's second collection of poems in Moscow." },
       { year: "1901", event: "Tumanyan completes the expanded and final version of Anush." },
       { year: "1912", event: "Armen Tigranian's opera Anush premieres in Alexandropol, today's Gyumri." },
       { year: "1935", event: "A revised staging of the opera enters the permanent repertoire of the Yerevan opera house." },
-      { year: "1983", event: "A feature film adaptation brings the story to a new generation of viewers." }
+      { year: "1983", event: "A film version of Tigranian's opera is made for television, following a silent feature film of the poem in 1931." }
     ],
     significance: {
       heading: "Why Anush matters",
@@ -127,20 +127,6 @@ export const workArticles: Article[] = [
       }
     ],
     relatedSlugs: ["hovhannes-tumanyan", "david-of-sassoun", "the-fool"],
-    sources: [
-      {
-        title: "Hovhannes Tumanyan: Selected Works and Critical Commentary",
-        publisher: "Yerevan State University Press"
-      },
-      {
-        title: "The Heritage of Armenian Literature, Volume III: From the Eighteenth Century to Modern Times",
-        publisher: "Wayne State University Press"
-      },
-      {
-        title: "Armenian Opera and the Folk Song Tradition",
-        publisher: "Institute of Arts, National Academy of Sciences of Armenia"
-      }
-    ]
   },
   {
     slug: "wounds-of-armenia",
@@ -155,7 +141,7 @@ export const workArticles: Article[] = [
     periodId: "19th-century",
     imageSeed: "wounds-of-armenia",
     intro:
-      "Wounds of Armenia, known in Armenian as Verk Hayastani, was written by Khachatur Abovyan around 1841 and published in 1858, thirteen years after its author disappeared. It tells the story of Aghasi, a young villager who takes up arms during the Russo-Persian war of 1826 to 1828. Because Abovyan wrote it in everyday spoken Armenian rather than the ancient literary language, it is usually called the first modern Armenian novel.",
+      "Wounds of Armenia, known in Armenian as Verk Hayastani, was written by Khachatur Abovyan around 1841 and published in 1858, ten years after its author disappeared. It tells the story of Aghasi, a young villager who takes up arms during the Russo-Persian war of 1826 to 1828. Because Abovyan wrote it in everyday spoken Armenian rather than the ancient literary language, it is usually called the first modern Armenian novel.",
     author: "ArmEdu Editorial Team",
     updated: "2026-03-08",
     sections: [
@@ -172,7 +158,7 @@ export const workArticles: Article[] = [
         id: "summary-of-the-story",
         heading: "Summary of the story",
         paragraphs: [
-          "The novel opens with a long lament over the condition of the Armenian people, then moves to the village of Kanaker near Yerevan. Aghasi, a young and hot-tempered villager, intervenes when Persian soldiers seize local women, wounding one of the soldiers in the struggle. Having defied the khan's men, he can no longer live safely in his village.",
+          "The novel opens with a long lament over the condition of the Armenian people, then moves to the village of Kanaker near Yerevan. During the Easter festivities the soldiers of Hossein Khan, the Persian governor of Yerevan, carry off a village girl named Taguhi. Aghasi, a young and hot-tempered villager, goes after them and kills one of them. Having spilled the khan's blood, he can no longer live safely in his village.",
           "Aghasi becomes a fugitive, gathers companions and joins the Russian advance as the war begins. The narrative follows raids, sieges and the daily suffering of the villagers caught between armies, including the fall of the fortress of Yerevan. Abovyan mixes battle scenes with descriptions of village weddings, funerals, proverbs and prayers, so that the war is always seen through ordinary lives.",
           "Aghasi fights bravely but is fatally wounded, and the novel ends with his death and with the establishment of Russian rule over eastern Armenia. The tone of the ending is complicated: there is relief that the immediate persecution is over, but also grief and a warning that liberation without education and self-knowledge will not be enough."
         ]
@@ -185,10 +171,10 @@ export const workArticles: Article[] = [
           "The villagers of Kanaker appear collectively as often as individually, and this collective portrait is one of the reasons the book reads as a national epic in prose."
         ],
         bullets: [
-          "Aghasi: the young hero, brave and impulsive, who becomes a fighter after defending village women from Persian soldiers.",
+          "Aghasi: the young hero, brave and impulsive, who becomes a fighter after killing one of the governor's soldiers to save an abducted village girl.",
           "The narrator: an openly emotional voice, generally understood as Abovyan himself, who comments on events and pleads with his readers.",
           "Aghasi's mother: a figure of endurance and lament who embodies the suffering of Armenian women during the war.",
-          "Hasan Khan: the Persian governor whose cruelty represents the oppression the villagers live under.",
+          "Hossein Khan, the Persian governor of Yerevan, and his brother Hasan Khan, whose reprisals against the villages represent the oppression the story is written against.",
           "Aghasi's companions: village youths who follow him into the mountains and into the fighting."
         ]
       },
@@ -226,14 +212,14 @@ export const workArticles: Article[] = [
       { label: "First published", value: "1858 in Tiflis, ten years after the author's disappearance" },
       { label: "Genre", value: "Historical novel with strong romantic and didactic elements" },
       { label: "Setting", value: "Kanaker, Yerevan and eastern Armenia during the Russo-Persian war of 1826-1828" },
-      { label: "Main characters", value: "Aghasi, his mother, the narrator, Hasan Khan" }
+      { label: "Main characters", value: "Aghasi, Taguhi, his mother, the narrator, Hossein Khan and Hasan Khan" }
     ],
     importantDates: [
       { year: "1826-1828", event: "The Russo-Persian war, the historical events depicted in the novel." },
       { year: "1841", event: "Abovyan completes the manuscript of Wounds of Armenia." },
       { year: "1848", event: "Abovyan disappears near Yerevan and is never seen again." },
       { year: "1858", event: "The novel is published for the first time, in Tiflis." },
-      { year: "1948", event: "Centenary commemorations establish Abovyan's status as founder of modern Armenian literature." }
+      { year: "1948", event: "The centenary of Abovyan's disappearance is marked across Soviet Armenia." }
     ],
     significance: {
       heading: "Why Wounds of Armenia matters",
@@ -244,7 +230,7 @@ export const workArticles: Article[] = [
     },
     interestingFacts: [
       "Abovyan climbed Mount Ararat in 1829 as interpreter for the scholar Friedrich Parrot, in the first recorded modern ascent.",
-      "He wrote the novel in about six months but could not find a publisher willing to print vernacular prose.",
+      "The manuscript waited seventeen years between its completion in 1841 and its publication in 1858.",
       "The book's Armenian title, Verk Hayastani, is often translated as Wounds of Armenia or Sores of Armenia.",
       "Abovyan also wrote textbooks, fables and one of the earliest Armenian collections of pedagogical writing.",
       "His disappearance in 1848 has never been explained and remains one of Armenian literature's open questions."
@@ -267,20 +253,6 @@ export const workArticles: Article[] = [
       }
     ],
     relatedSlugs: ["khachatur-abovyan", "the-fool", "anush"],
-    sources: [
-      {
-        title: "Khachatur Abovyan and the Birth of Modern Armenian Prose",
-        publisher: "Institute of Literature, National Academy of Sciences of Armenia"
-      },
-      {
-        title: "The Heritage of Armenian Literature, Volume III: From the Eighteenth Century to Modern Times",
-        publisher: "Wayne State University Press"
-      },
-      {
-        title: "Armenia: A Historical Atlas and Companion to the Nineteenth Century",
-        publisher: "University of Chicago Press"
-      }
-    ]
   },
   {
     slug: "the-fool",
@@ -289,13 +261,13 @@ export const workArticles: Article[] = [
     categoryLabel: "Literary Works",
     title: "The Fool",
     excerpt:
-      "Raffi's novel Khente follows a village teacher branded a madman for seeing clearly what his neighbours refuse to admit.",
+      "Raffi's novel Khente follows a young villager branded a madman for seeing clearly what his neighbours refuse to admit.",
     readingTime: 7,
     period: "1880s",
     periodId: "19th-century",
     imageSeed: "the-fool",
     intro:
-      "The Fool, published in 1880 under its Armenian title Khente, is one of Raffi's best known novels. It is set in the Armenian provinces of the Ottoman Empire during the Russo-Turkish war of 1877 to 1878 and follows Vardan, a wandering teacher whom villagers call a fool because he refuses to accept things as they are. The book combines love story, war narrative and political argument.",
+      "The Fool, published in 1880 under its Armenian title Khente, is one of Raffi's best known novels. It moves between the Ottoman districts of Bayazit and Alashkert and the Russian side of the border during the Russo-Turkish war of 1877 to 1878 and follows Vardan, a young man whom the villagers call a fool because he refuses to accept things as they are. The book combines love story, war narrative and political argument.",
     author: "ArmEdu Editorial Team",
     updated: "2026-05-21",
     sections: [
@@ -312,9 +284,9 @@ export const workArticles: Article[] = [
         id: "summary-of-the-story",
         heading: "Summary of the story",
         paragraphs: [
-          "Vardan is an educated young man who moves among the villages of the Armenian highlands. His plain speaking, his refusal to bow to local powers and his insistence that the villagers could defend themselves earn him the nickname Khente, the fool. He falls in love with Lala, the daughter of a wealthy and cautious village notable, and their relationship becomes the emotional centre of the book.",
+          "Vardan is a young man who moves among the villages of the Armenian highlands trading and carrying messages. His plain speaking, his refusal to bow to local powers and his insistence that the villagers could defend themselves earn him the nickname Khente, the fool. He falls in love with Lala, the daughter of the village elder Khacho — a girl raised as a boy under the name Stepanik, so that neither the Kurdish chief Fattah Bey nor the tax collector Thomas Effendi would learn a marriageable daughter lived in the house. Their relationship becomes the emotional centre of the book.",
           "As the Russo-Turkish war spreads, the villages are exposed to raids and reprisals. Raffi describes the destruction of homes, the flight of refugees over mountain passes and the helplessness of communities that have no weapons and no leadership. Vardan works to organise resistance and to move people to safety, while the notables hesitate and negotiate.",
-          "Lala is seized during the violence, and Vardan's search for her drives the later part of the novel. The story ends without a comfortable resolution: the war passes, the promises made to Armenians are not kept, and the fool's warnings turn out to have been the only accurate assessment anyone offered. Raffi leaves the reader with a question rather than a conclusion."
+          "When the Ottoman army besieges Bayazit, Vardan volunteers to carry a message through the enemy lines to the Russian general Ter-Ghukasov, and the relief of the town turns on his success. Lala flees with the refugee column across the border to Vagharshapat, where she falls ill and dies. Vardan, released at last, finds only her grave. The novel closes there with his vision of a future Armenia — free, with an elected parliament, equal rights for women, and its cities called by their Armenian names again — an ending that has been read ever since as either prophecy or wishful thinking."
         ]
       },
       {
@@ -325,11 +297,12 @@ export const workArticles: Article[] = [
           "Around them Raffi places a large cast of villagers, priests, merchants and soldiers, giving the novel a panoramic quality that was new in Armenian fiction."
         ],
         bullets: [
-          "Vardan: the teacher called a fool, clear-sighted, restless and committed to self-defence and education.",
-          "Lala: the young woman he loves, gentle but braver than her sheltered upbringing suggests.",
+          "Vardan: the young man called a fool, clear-sighted, restless, and the one who carries the message through the siege lines at Bayazit.",
+          "Lala, raised as a boy under the name Stepanik: gentle, and braver than her sheltered upbringing suggests.",
           "Khacho: Lala's father, a village elder who believes accommodation and quiet payments will keep his family safe.",
           "Thomas Effendi: a corrupt tax collector who profits from the villagers' fear and represents collaboration with power.",
-          "Salman: a fellow activist whose arguments with Vardan let Raffi debate strategy openly on the page."
+          "Salman: the teacher and propagandist from Constantinople who travels between villages trying to found schools, and whose arguments with Vardan let Raffi debate strategy openly on the page.",
+          "Melik-Mansur and Fattah Bey: the arms-supplier posing as a brigand, and the Kurdish chief whose demands hang over Khacho's household."
         ]
       },
       {
@@ -363,10 +336,10 @@ export const workArticles: Article[] = [
     keyFacts: [
       { label: "Author", value: "Raffi, pen name of Hakob Melik-Hakobian (1835-1888)" },
       { label: "Written", value: "1879-1880" },
-      { label: "First published", value: "1880, serialised and then issued in book form in Tiflis" },
+      { label: "First published", value: "Serialised in Mshak in Tiflis in 1880; first book edition Shusha, 1881" },
       { label: "Genre", value: "Historical and political novel with romantic elements" },
-      { label: "Setting", value: "Armenian provinces of the Ottoman Empire during the Russo-Turkish war of 1877-1878" },
-      { label: "Main characters", value: "Vardan, Lala, Khacho, Thomas Effendi, Salman" }
+      { label: "Setting", value: "Bayazit and Alashkert in the Ottoman Empire, and Vagharshapat across the Russian border, during the Russo-Turkish war of 1877-1878" },
+      { label: "Main characters", value: "Vardan, Lala (Stepanik), Khacho, Thomas Effendi, Salman, Melik-Mansur" }
     ],
     importantDates: [
       { year: "1877-1878", event: "The Russo-Turkish war, the historical background of the novel." },
@@ -383,7 +356,7 @@ export const workArticles: Article[] = [
       ]
     },
     interestingFacts: [
-      "Raffi's real name was Hakob Melik-Hakobian; the pen name comes from the initial of his family name.",
+      "Raffi's real name was Hakob Melik-Hakobian; he took the pen name around 1872, when he began writing for the newspaper Mshak.",
       "He earned his living as a teacher and merchant's agent, travelling the provinces he later described.",
       "The Armenian word khente shifted meaning after the novel, gaining a sense of admirable stubbornness.",
       "Raffi wrote several major novels in under fifteen years, including Samvel and Davit Bek.",
@@ -407,20 +380,6 @@ export const workArticles: Article[] = [
       }
     ],
     relatedSlugs: ["raffi", "wounds-of-armenia", "anush"],
-    sources: [
-      {
-        title: "Raffi: The Novelist as Nation Builder",
-        publisher: "Institute of Literature, National Academy of Sciences of Armenia"
-      },
-      {
-        title: "The Heritage of Armenian Literature, Volume III: From the Eighteenth Century to Modern Times",
-        publisher: "Wayne State University Press"
-      },
-      {
-        title: "The Armenian People from Ancient to Modern Times, Volume II",
-        publisher: "St. Martin's Press"
-      }
-    ]
   },
   {
     slug: "david-of-sassoun",
@@ -452,9 +411,9 @@ export const workArticles: Article[] = [
         id: "summary-of-the-story",
         heading: "Summary of the story",
         paragraphs: [
-          "The epic is usually divided into four branches. In the first, the twin brothers Sanasar and Baghdasar are born to an Armenian princess taken by the caliph of Baghdad. They discover a supernatural spring, gain enormous strength, and found the fortress of Sassoun, establishing the line of heroes.",
+          "The epic is usually divided into four branches. In the first, the Armenian princess Tsovinar drinks from a sacred fountain and conceives the twin brothers Sanasar and Baghdasar before she is taken to the caliph of Baghdad; that is where their more than human strength comes from. They found the fortress of Sassoun, establishing the line of heroes.",
           "The second branch centres on Mher the Elder, Sanasar's son, who kills a lion with his bare hands and earns the name Lion Mher. He defends Sassoun and its people but is drawn into an entanglement with the ruler of Egypt that ends in his death and leaves his homeland exposed.",
-          "The third and most famous branch belongs to David, Mher's son. Raised in ignorance of his origins, David grows into a giant-hearted, impulsive hero who rebuilds his father's monastery, refuses to pay tribute to the invading Msra Melik, and defeats him in single combat. The fourth branch follows David's son Mher the Younger, who finds a world too corrupt for his strength and is finally sealed inside the Raven's Rock, to emerge only when the earth is just enough to bear him."
+          "The third and most famous branch belongs to David, Mher's son. Raised in ignorance of his origins, David grows into a giant-hearted, impulsive hero who rebuilds his father's monastery, refuses to pay tribute to the invading Msra Melik — who is, unknown to Sassoun at first, his own half-brother — and defeats him in single combat. David himself is later killed by a poisoned arrow shot by his own daughter, at the urging of the Sultana of Akhlat. The fourth branch follows David's son Mher the Younger, who finds a world too corrupt for his strength and is finally sealed inside the Raven's Rock, to emerge only when the earth is just enough to bear him."
         ]
       },
       {
@@ -468,7 +427,7 @@ export const workArticles: Article[] = [
           "Sanasar and Baghdasar: the twin founders of Sassoun, born miraculously and strengthened by a magical spring.",
           "Mher the Elder: the lion-slaying second-generation hero who defends Sassoun and dies through a foreign entanglement.",
           "David of Sassoun: the central hero, generous, hot-tempered and honest, who frees Sassoun from tribute by defeating Msra Melik.",
-          "Khandut: the warrior princess who chooses David and becomes his wife.",
+          "Khandut: the noblewoman of Tabriz who sets out to win David and becomes his wife.",
           "Mher the Younger: David's son, too strong for a corrupted world, shut inside the Raven's Rock until justice returns.",
           "Msra Melik: the ruler of Msr who demands tribute from Sassoun and is defeated in single combat by David."
         ]
@@ -486,7 +445,7 @@ export const workArticles: Article[] = [
         id: "language-and-style",
         heading: "Language and style",
         paragraphs: [
-          "The epic was composed and transmitted orally, and its style shows it. Lines are rhythmic and often chanted rather than spoken, formulas and set phrases repeat to help the reciter remember, and episodes are built to a predictable shape that an audience can follow across a long evening. Different reciters produced different versions, and more than a hundred variants have now been collected.",
+          "The epic was composed and transmitted orally, and its style shows it. Lines are rhythmic and often chanted rather than spoken, formulas and set phrases repeat to help the reciter remember, and episodes are built to a predictable shape that an audience can follow across a long evening. Different reciters produced different versions, and around a hundred and sixty variants have now been recorded, of which some fifty have been published.",
           "The language is dialectal and vivid, full of village humour, boasting matches, insults and comic exaggeration. The heroes are not solemn; David in particular is often funny, careless and childlike, which makes his moments of moral seriousness more effective.",
           "A unified literary text was assembled in 1939 by a team of Armenian scholars who combined the collected variants into a single readable version for the epic's celebrated millennium. Most modern readers, including students, encounter that consolidated text, while researchers work with the individual recorded variants."
         ]
@@ -497,7 +456,7 @@ export const workArticles: Article[] = [
         paragraphs: [
           "Since its recording in 1873 the epic has become the central reference point of Armenian folk culture. Hovhannes Tumanyan retold the David branch as a long poem in 1902, and Yeghishe Charents, Avetik Isahakyan and many others produced their own versions, bringing the material to readers throughout the diaspora.",
           "Yervand Kochar's equestrian statue of David of Sassoun, unveiled in 1959 in front of the Yerevan railway station, is one of the best known monuments in Armenia. The epic has also inspired operas, films, animations, paintings and school pageants, and it was inscribed on the UNESCO list of intangible cultural heritage in 2012.",
-          "It is often compared with the Iliad, the Song of Roland and the Shahnameh, and it is longer than several of them. For students it offers an accessible entry point into medieval Armenian history, oral tradition and the way a community turns memory into story."
+          "It is often compared with the Iliad, the Song of Roland and the Shahnameh. For students it offers an accessible entry point into medieval Armenian history, oral tradition and the way a community turns memory into story."
         ]
       }
     ],
@@ -524,8 +483,8 @@ export const workArticles: Article[] = [
       ]
     },
     interestingFacts: [
-      "More than one hundred and fifty variants of the epic have been recorded from different reciters.",
-      "In its fullest form the epic is longer than the Iliad and the Odyssey combined.",
+      "Around a hundred and sixty variants of the epic have been recorded from different reciters since 1873.",
+      "The recorded variants together fill several thousand pages, though any single telling is far shorter.",
       "David's horse Kurkik Jalali can speak, fly and reason, and is passed down through the generations.",
       "Mher the Younger waits inside the Raven's Rock until wheat grows as large as a rosehip.",
       "Yervand Kochar's 1959 statue in Yerevan replaced an earlier version he had made in 1939 that was later destroyed."
@@ -548,19 +507,5 @@ export const workArticles: Article[] = [
       }
     ],
     relatedSlugs: ["hovhannes-tumanyan", "mesrop-mashtots-armenian-alphabet", "anush"],
-    sources: [
-      {
-        title: "Daredevils of Sassoun: The Armenian National Epic",
-        publisher: "Wayne State University Press"
-      },
-      {
-        title: "Sasna Tsrer: Text, Variants and Commentary",
-        publisher: "Institute of Archaeology and Ethnography, National Academy of Sciences of Armenia"
-      },
-      {
-        title: "Oral Epic Traditions of the Armenian Highlands",
-        publisher: "Cambridge University Press"
-      }
-    ]
   }
 ];

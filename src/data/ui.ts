@@ -223,10 +223,20 @@ export interface UiDictionary {
     copyFailed: string;
     copiedAnnouncement: string;
     copyFailedAnnouncement: string;
-    /** `{title}` substituted. */
+    /** `{title}` substituted. Shown only under the generated fallback artwork. */
     imagePlaceholderCaption: string;
+    /**
+     * `{title}` substituted. Caption for the commissioned artwork. It must say
+     * plainly that the picture is an illustration rather than a historical
+     * photograph — on a site used by students, an invented likeness presented
+     * as a document is worse than no picture at all.
+     */
+    imageIllustrationCaption: string;
     imageAlt: string;
+    /** `{name}` substituted. The generated placeholder portrait. */
     portraitAlt: string;
+    /** `{name}` substituted. A drawn portrait, not a photograph. */
+    portraitIllustrationAlt: string;
     imageCredit: string;
     typeHistory: string;
     typeWriters: string;

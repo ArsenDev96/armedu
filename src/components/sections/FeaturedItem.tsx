@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
-import { PlaceholderImage } from "@/components/ui/PlaceholderImage";
+import { ContentPhoto } from "@/components/ui/ContentPhoto";
 import { ArrowLink, Card, Pill } from "@/components/ui/primitives";
+import { IMAGE_SIZES, PORTRAIT_FOCUS } from "@/lib/media";
 
 /** Large highlight block used at the top of listing pages. */
 export function FeaturedItem({
@@ -11,6 +12,7 @@ export function FeaturedItem({
   href,
   linkLabel,
   imageSeed,
+  imageSrc,
   imageAlt,
   variant = "motif",
   meta,
@@ -22,6 +24,8 @@ export function FeaturedItem({
   href: string;
   linkLabel: string;
   imageSeed: string;
+  /** Shipped artwork; the generated fallback renders when it is absent. */
+  imageSrc?: string;
   imageAlt: string;
   variant?: "motif" | "portrait";
   meta?: ReactNode;
@@ -30,11 +34,14 @@ export function FeaturedItem({
     <Card className="overflow-hidden">
       <div className="grid md:grid-cols-2">
         <div className="aspect-[16/10] bg-paper-2 md:aspect-auto md:min-h-[19rem]">
-          <PlaceholderImage
+          <ContentPhoto
+            src={imageSrc}
             seed={imageSeed}
             alt={imageAlt}
             variant={variant}
-            label={variant === "portrait" ? title : undefined}
+            label={title}
+            sizes={IMAGE_SIZES.featured}
+            focus={variant === "portrait" ? PORTRAIT_FOCUS : undefined}
           />
         </div>
         <div className="flex flex-col justify-center p-6 md:p-10">

@@ -1,10 +1,11 @@
 import Link from "next/link";
 import type { ArticleSummary, CategoryId } from "@/data/types";
 import type { UiDictionary } from "@/data/ui";
-import { PlaceholderImage } from "@/components/ui/PlaceholderImage";
+import { ContentPhoto } from "@/components/ui/ContentPhoto";
 import { ClockIcon } from "@/components/ui/icons";
 import { ArrowLink, Card, Pill } from "@/components/ui/primitives";
 import { t } from "@/lib/i18n";
+import { getArticleImageSrc, IMAGE_SIZES } from "@/lib/media";
 
 export function ArticleCard({
   article,
@@ -27,15 +28,18 @@ export function ArticleCard({
   };
 
   const readingTime = t(ui.article.readingTime, { minutes: article.readingTime });
-  const imageAlt = t(ui.article.imageAlt, { title: article.title });
+  const imageAlt = article.image?.alt ?? t(ui.article.imageAlt, { title: article.title });
+  const imageSrc = getArticleImageSrc(article);
 
   if (variant === "compact") {
     return (
       <Card as="article" interactive className="group relative flex h-full flex-col overflow-hidden">
         <div className="aspect-[4/3] overflow-hidden bg-paper-2">
-          <PlaceholderImage
+          <ContentPhoto
+            src={imageSrc}
             seed={article.imageSeed}
             alt={imageAlt}
+            sizes={IMAGE_SIZES.compact}
             className="transition-transform duration-300 group-hover:scale-[1.04]"
           />
         </div>
@@ -69,9 +73,11 @@ export function ArticleCard({
         tabIndex={-1}
         aria-hidden="true"
       >
-        <PlaceholderImage
+        <ContentPhoto
+          src={imageSrc}
           seed={article.imageSeed}
           alt={imageAlt}
+          sizes={IMAGE_SIZES.card}
           className="transition-transform duration-300 group-hover:scale-[1.03]"
         />
       </Link>

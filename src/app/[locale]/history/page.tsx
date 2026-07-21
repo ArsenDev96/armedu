@@ -10,6 +10,7 @@ import type { Locale } from "@/data/types";
 import { getArticlesByCategory, getHistoryPeriods, getTimeline } from "@/lib/content";
 import { formatDate } from "@/lib/date";
 import { getStaticAlternates, getUi, localePath, resolveLocale, t } from "@/lib/i18n";
+import { getArticleImageSrc } from "@/lib/media";
 import { toHistoryListingItems } from "@/lib/search";
 
 type Params = { params: Promise<{ locale: string }> };
@@ -84,7 +85,8 @@ export default async function HistoryPage({ params }: Params) {
                   href={localePath(locale, featured.href)}
                   linkLabel={ui.listing.history.readArticle}
                   imageSeed={featured.imageSeed}
-                  imageAlt={t(ui.article.imageAlt, { title: featured.title })}
+                  imageSrc={getArticleImageSrc(featured)}
+                  imageAlt={featured.image?.alt ?? t(ui.article.imageAlt, { title: featured.title })}
                   meta={
                     <p className="text-sm text-ink-3">
                       {t(ui.article.readingTime, { minutes: featured.readingTime })} ·{" "}

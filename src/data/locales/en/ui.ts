@@ -219,8 +219,10 @@ export const ui: UiDictionary = {
       "Copying failed. Copy the address from the address bar instead.",
     imagePlaceholderCaption:
       "Illustration placeholder — {title}. Replace with licensed imagery before launch.",
+    imageIllustrationCaption: "Illustration for {title}. An artistic depiction, not a historical photograph.",
     imageAlt: "Illustration for {title}",
     portraitAlt: "Portrait placeholder of {name}",
+    portraitIllustrationAlt: "Illustrated portrait of {name}",
     imageCredit: "Image: {credit}",
     typeHistory: "History",
     typeWriters: "Writers",

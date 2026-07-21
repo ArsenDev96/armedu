@@ -24,7 +24,7 @@ export const writers: Writer[] = [
     description:
       "The defining voice of twentieth-century Armenian poetry, who combined modernist experiment with an intense attachment to his homeland.",
     imageSeed: "yeghishe-charents",
-    notableWorks: ["Book of the Road", "Dantesque Legend", "I Love My Armenia"],
+    notableWorks: ["Book of the Road", "Dantesque Legend", "I Love the Sun-Savoured Word of My Sweet Armenia"],
   },
   {
     slug: "raffi",

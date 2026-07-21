@@ -1,9 +1,10 @@
 import Link from "next/link";
 import type { LiteraryWork } from "@/data/types";
 import type { UiDictionary } from "@/data/ui";
-import { PlaceholderImage } from "@/components/ui/PlaceholderImage";
+import { ContentPhoto } from "@/components/ui/ContentPhoto";
 import { ArrowLink, Card, Pill } from "@/components/ui/primitives";
 import { t } from "@/lib/i18n";
+import { getImageSrc, IMAGE_SIZES } from "@/lib/media";
 
 export function WorkCard({
   work,
@@ -18,9 +19,11 @@ export function WorkCard({
   return (
     <Card as="article" interactive className="group flex h-full flex-col overflow-hidden sm:flex-row">
       <div className="aspect-[16/9] shrink-0 overflow-hidden bg-paper-2 sm:aspect-auto sm:w-44 lg:w-52">
-        <PlaceholderImage
+        <ContentPhoto
+          src={getImageSrc(work.slug)}
           seed={work.imageSeed}
           alt={t(ui.article.imageAlt, { title: work.title })}
+          sizes={IMAGE_SIZES.side}
           className="h-full transition-transform duration-300 group-hover:scale-[1.03]"
         />
       </div>

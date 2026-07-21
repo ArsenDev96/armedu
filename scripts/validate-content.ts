@@ -12,7 +12,10 @@
  *   npm run validate:content
  */
 
+import { existsSync } from "node:fs";
+import { join } from "node:path";
 import { getLocaleBundle } from "../src/data";
+import { getSourceRegistry } from "../src/data/sources";
 import {
   CATEGORY_IDS,
   DEFAULT_LOCALE,
@@ -27,6 +30,7 @@ import {
   type Writer,
 } from "../src/data/types";
 import type { UiDictionary } from "../src/data/ui";
+import { getImageRegistry } from "../src/lib/media";
 
 /** The editions expected by the product spec. Russian must not come back. */
 const EXPECTED_LOCALES: Locale[] = ["hy", "hyw", "en"];
@@ -417,19 +421,6 @@ function validateArticle(
       "relatedSlugs",
     );
     check(slug !== article.slug, "relatedSlugs includes the article itself.", "relatedSlugs");
-  }
-
-  check(article.sources.length > 0, "has no sources.", "sources");
-  for (const source of article.sources) {
-    check(filled(source.title), "a source object has an empty title.", "sources");
-    check(filled(source.publisher), `source "${source.title}" has an empty publisher.`, "sources");
-    if (source.href !== undefined) {
-      check(
-        filled(source.href) && isValidHref(source.href),
-        `source "${source.title}" has an invalid href: "${source.href}".`,
-        "sources",
-      );
-    }
   }
 
   // Western Armenian prose must actually be Western Armenian. Catching this in
@@ -831,6 +822,192 @@ function validateAlternates(report: Report): void {
   }
 }
 
+/**
+ * Every registered image must exist on disk and belong to a real slug.
+ *
+ * A missing file is invisible in development — Next serves a 404 for the image
+ * and the card simply renders an empty box — so it has to be caught here. Two
+ * filenames intentionally differ from their slug, which is exactly the kind of
+ * drift a convention-based path would hide.
+ */
+function validateImages(report: Report): void {
+  const registry = getImageRegistry();
+  const publicDir = join(process.cwd(), "public");
+
+  const knownSlugs = new Set(
+    SUPPORTED_LOCALES.flatMap((locale) =>
+      getLocaleBundle(locale).articles.map((article) => article.slug),
+    ),
+  );
+
+  for (const [slug, src] of Object.entries(registry)) {
+    report.check(
+      knownSlugs.has(slug),
+      "global",
+      "image",
+      slug,
+      "is registered in src/lib/media.ts but matches no article slug in any edition.",
+    );
+
+    report.check(
+      src.startsWith("/"),
+      "global",
+      "image",
+      slug,
+      `path "${src}" must be absolute from the public directory.`,
+    );
+
+    report.check(
+      existsSync(join(publicDir, src)),
+      "global",
+      "image",
+      slug,
+      `file "public${src}" does not exist.`,
+    );
+  }
+
+  // The reverse direction: an article with no artwork is allowed (it falls back
+  // to the generated placeholder), but it is worth surfacing which ones.
+  const missing = [...knownSlugs].filter((slug) => !registry[slug]).sort();
+  if (missing.length > 0) {
+    console.log(`  note: ${missing.length} slug(s) render generated artwork: ${missing.join(", ")}`);
+  }
+}
+
+/**
+ * The bibliography: one entry per article slug, every citation identifiable.
+ *
+ * The identifier requirement is the substantive check. An audit of the first
+ * bibliography found 18 of 48 citations named works that do not exist —
+ * plausible titles on real publishers, each linked to a publisher homepage that
+ * always resolved. A fabricated work cannot supply an ISBN or a DOI, so this
+ * check fails at the moment the citation is written rather than in front of a
+ * reader who trusted it.
+ */
+function validateSources(report: Report): void {
+  const registry = getSourceRegistry();
+  const slugs = new Set(
+    SUPPORTED_LOCALES.flatMap((locale) =>
+      getLocaleBundle(locale).articles.map((article) => article.slug),
+    ),
+  );
+
+  for (const slug of slugs) {
+    const sources = registry[slug];
+    report.check(
+      Array.isArray(sources) && sources.length > 0,
+      "global",
+      "source",
+      slug,
+      "has no bibliography entry in src/data/sources.ts.",
+    );
+  }
+
+  for (const [slug, sources] of Object.entries(registry)) {
+    report.check(
+      slugs.has(slug),
+      "global",
+      "source",
+      slug,
+      "is listed in the bibliography but matches no article slug in any edition.",
+    );
+
+    for (const source of sources) {
+      const id = `${slug} — ${source.title}`;
+      report.check(source.title.trim().length > 0, "global", "source", id, "has an empty title.");
+      report.check(
+        source.publisher.trim().length > 0,
+        "global",
+        "source",
+        id,
+        "has an empty publisher.",
+      );
+
+      const { kind, value } = source.identifier;
+      const valid =
+        kind === "isbn"
+          ? /^97[89]\d{10}$|^\d{9}[\dX]$/.test(value.replace(/-/g, ""))
+          : kind === "doi"
+            ? /^10\.\d{4,9}\/\S+$/.test(value)
+            : kind === "url"
+              ? /^https:\/\/\S+$/.test(value)
+              : value.trim().length > 0;
+
+      report.check(
+        valid,
+        "global",
+        "source",
+        id,
+        `has an invalid ${kind} identifier: "${value}".`,
+      );
+    }
+  }
+}
+
+/**
+ * The three editions must state the same numbers.
+ *
+ * Armenian uses Arabic numerals, so a year, a troop count or a page total
+ * survives translation unchanged. Comparing the multiset of numbers per field
+ * therefore catches the one failure that every other check here is blind to: a
+ * correction applied to one edition and forgotten in another. Twenty factual
+ * errors were fixed across three editions in July 2026, and "fixed in English
+ * only" is the obvious way for that work to go wrong.
+ *
+ * Centuries are excluded because the editions legitimately differ in style:
+ * English writes "Nineteenth century", Armenian writes `XIX դար`.
+ */
+function validateCrossLocaleNumbers(report: Report): void {
+  const numbersIn = (text: string): string[] => (text.match(/\d{2,}/g) ?? []).sort();
+
+  const fieldsOf = (locale: Locale, slug: string): Map<string, string[]> | null => {
+    const article = getLocaleBundle(locale).articles.find((a) => a.slug === slug);
+    if (!article) return null;
+    return new Map<string, string[]>([
+      ["intro", numbersIn(article.intro)],
+      ["keyFacts", article.keyFacts.flatMap((f) => numbersIn(f.value)).sort()],
+      ["importantDates", article.importantDates.flatMap((d) => numbersIn(`${d.year} ${d.event}`)).sort()],
+      ["sections", article.sections.flatMap((s) => s.paragraphs.flatMap(numbersIn)).sort()],
+      ["interestingFacts", article.interestingFacts.flatMap(numbersIn).sort()],
+      ["relatedFigures", article.relatedFigures.flatMap((f) => numbersIn(f.lifespan)).sort()],
+    ]);
+  };
+
+  for (const article of getLocaleBundle(DEFAULT_LOCALE).articles) {
+    const base = fieldsOf(DEFAULT_LOCALE, article.slug);
+    if (!base) continue;
+
+    for (const locale of SUPPORTED_LOCALES) {
+      if (locale === DEFAULT_LOCALE) continue;
+      const other = fieldsOf(locale, article.slug);
+      if (!other) continue; // declared translation gap, handled elsewhere
+
+      for (const [field, expected] of base) {
+        const actual = other.get(field) ?? [];
+        const missing = expected.filter((n) => !actual.includes(n));
+        const added = actual.filter((n) => !expected.includes(n));
+        if (missing.length === 0 && added.length === 0) continue;
+
+        const detail = [
+          missing.length ? `missing ${missing.join(", ")}` : "",
+          added.length ? `unexpected ${added.join(", ")}` : "",
+        ]
+          .filter(Boolean)
+          .join("; ");
+
+        report.check(
+          false,
+          locale,
+          "numbers",
+          article.slug,
+          `states different numbers from the "${DEFAULT_LOCALE}" edition — ${detail}.`,
+          field,
+        );
+      }
+    }
+  }
+}
+
 function validateNewsletterLocales(report: Report): void {
   // The form writes the active route locale; anything outside this set would
   // land in Supabase as an unusable segment value.
@@ -858,6 +1035,9 @@ function main(): void {
   validateDictionaries(report);
   validateCoverage(report);
   validateAlternates(report);
+  validateImages(report);
+  validateSources(report);
+  validateCrossLocaleNumbers(report);
   validateNewsletterLocales(report);
 
   let items = 0;

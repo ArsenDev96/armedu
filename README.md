@@ -77,6 +77,7 @@ src/data/
   types.ts              Locale model, content types, LocaleContent
   ui.ts                 UiDictionary — every visible interface string
   index.ts              Locale registry (no fallback)
+  sources.ts            The bibliography, keyed by slug — shared by all editions
   locales/<locale>/
     ui.ts               Interface translations
     pages.ts            About / Contact / Privacy copy
@@ -93,6 +94,18 @@ and category ids. Only labels and prose are translated. Content stores locale-fr
 
 Terminology and orthography rules are in
 [`docs/translation-glossary.md`](docs/translation-glossary.md).
+
+## Imagery
+
+`src/lib/media.ts` maps each content slug to its file under `public/images/`. One registry
+serves all three editions, since slugs are shared and only the alt text and caption are
+localized. `ContentPhoto` renders `next/image` when a slug has artwork and falls back to
+the generated `PlaceholderImage` when it does not, so content added ahead of its picture
+still renders a complete card.
+
+To add artwork: drop the file in `public/images/<category>/` and add one line to the
+registry. `npm run validate:content` fails if the file is missing or the key matches no
+article slug.
 
 ## Search and filtering
 
@@ -140,20 +153,45 @@ article conforms to the `Article` interface in `src/data/types.ts`, so the page 
 table of contents, key facts, dates, related figures and sources all render
 automatically. New slugs are picked up by `generateStaticParams` and the sitemap.
 
+Then add the article's bibliography to `src/data/sources.ts`, keyed by the same slug.
+
 `npm run validate:content` enforces the rules that types cannot: unique slugs,
 resolvable cross-references within a locale, filter ids that exist, declared translation
-gaps, and Western Armenian orthography.
+gaps, Western Armenian orthography, and that every article has at least one source.
+
+## Sources
+
+The bibliography lives in [`src/data/sources.ts`](src/data/sources.ts), keyed by article
+slug and **shared by all three editions** — a citation is language-neutral, and keeping
+three copies of it is what let the first version rot unnoticed.
+
+Every citation must carry an identifier: an ISBN, a DOI, a stable URL, or an archival
+reference for record groups that are not publications. This is not bureaucracy. An audit
+in July 2026 found that 18 of the 48 original citations named books that **do not exist** —
+plausible titles attached to real publishers, each linked to a publisher homepage that
+always resolved and so always looked convincing. A fabricated work cannot supply an ISBN,
+so the requirement fails at the moment the citation is written rather than in front of a
+student who trusted it. `validate:content` enforces it.
 
 ## Known limitations
+
+- **The prose has been fact-checked once, in July 2026, and needed real corrections.**
+  Around twenty factual errors were found and fixed, including an inverted Plutarch
+  quotation, a wrong protagonist and wrong ending in the summary of Raffi's *The Fool*,
+  and several wrong publication years. The articles were originally drafted from memory
+  rather than from the works now cited; treat any uncited specific — a number, a plot
+  detail, a cause of death — as unverified until someone checks it against the source.
 
 - **Western Armenian is a partial edition by design.** Eight articles are not translated
   yet and are declared in `DECLARED_UNAVAILABLE` in `scripts/validate-content.ts`; the
   site shows an explicit unavailable page for them.
 - **Translations need a native-speaker pass.** Items known to be contested are listed at
   the end of [`docs/translation-glossary.md`](docs/translation-glossary.md).
-- **Article imagery is still generated placeholder art** (`PlaceholderImage`). The hero
-  and the three category photographs are real. Licensed photography has a defined slot:
-  the optional `image: { src, alt, credit }` field on `Article`.
+- **The article artwork has no recorded provenance.** All 17 articles render real
+  pictures from `public/images/`, captioned as illustrations rather than as historical
+  photographs, but nothing records who made them or under what licence. Per-image credit
+  has a defined slot: the optional `image: { src, alt, credit }` field on `Article`
+  overrides the registry and renders a credit line.
 - **Social profile links are omitted entirely** until real profiles exist — see
   `socialLinks` in `src/data/site.ts`.
 - **The public domain and contact address are placeholders**, centralised at the top of

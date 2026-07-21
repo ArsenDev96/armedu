@@ -136,8 +136,11 @@ known error; these are judgement calls made during translation.
 5. **`Ժամանակակից Հայաստան`** for the "Modern Armenia" period — Armenian school
    textbooks more often use `Նորագույն Հայաստան`; `Ժամանակակից` reads as
    "contemporary" and collides with the literary period of the same name.
-6. **Century formatting** — Roman numerals (`XIX դար`, `Ք.ա. IX–VI դարեր`) were used per
-   Armenian editorial convention. Switch to `19-րդ դար` if house style prefers Arabic.
+6. **Century formatting** — Roman numerals (`XIX դար`, `Ք.ա. IX–VI դարեր`) are used
+   throughout, per Armenian editorial convention. The writer biographies originally used
+   Arabic (`19-րդ դար`), so a listing filter and the article it opened disagreed on
+   screen; they have been unified on the Roman form. Switch the whole edition to Arabic if
+   house style prefers it, but do not mix the two again.
 7. **`ArmEdu-ի խմբագրական խումբ`** for the author byline — `ArmEdu-ի խմբագրություն` is
    equally idiomatic.
 8. **`Պարույր Սեւակ`** keeps `եւ` inside the name while reformed `և` is used in running
@@ -188,6 +191,6 @@ known error; these are judgement calls made during translation.
 - **Section headings in writer biographies** were numbered (`1.`, `2.`, …) to match the
   history articles. The English source leaves the writer headings unnumbered, so the two
   differ in that one respect.
-- **`Միքայել Նալբանդյան`** — the English source says "Mkrtich Nalbandian", which appears
-  to be an error; the reformer is Mikayel Nalbandian. The Armenian editions use the
-  correct name, so they intentionally diverge from the English here.
+- **`Միքայել Նալբանդյան`** — the English edition used to say "Mkrtich Nalbandian", which
+  was simply wrong. The Armenian was right, and the English has now been corrected to
+  match it. The three editions agree; nothing here needs a decision.

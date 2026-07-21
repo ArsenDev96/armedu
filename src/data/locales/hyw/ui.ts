@@ -219,8 +219,11 @@ export const ui: UiDictionary = {
       "Պատճէնումը չյաջողեցաւ։ Փոխարէնը պատճէնեցէ՛ք հասցէն հասցէագօտիէն։",
     imagePlaceholderCaption:
       "Պատկերի տեղապահ՝ {title}։ Գործարկումէն առաջ փոխարինել արտօնագրուած պատկերով։",
+    imageIllustrationCaption:
+      "Պատկերազարդում՝ {title}։ Գեղարուեստական պատկերում մըն է, ոչ թէ պատմական լուսանկար։",
     imageAlt: "Պատկերազարդում՝ {title}",
     portraitAlt: "Դիմանկարի տեղապահ՝ {name}",
+    portraitIllustrationAlt: "{name}-ի պատկերազարդ դիմանկարը",
     imageCredit: "Պատկեր՝ {credit}",
     typeHistory: "Պատմութիւն",
     typeWriters: "Գրողներ",

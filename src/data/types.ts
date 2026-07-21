@@ -105,10 +105,35 @@ export interface DateEntry {
   event: string;
 }
 
+/**
+ * How a source can be identified. Every citation must carry one.
+ *
+ * This field is the whole point of the type. An audit of the first bibliography
+ * found that 18 of 48 citations named books that do not exist — plausible titles
+ * attached to real publishers, linked to publisher homepages that always
+ * resolved and so always looked convincing. An invented work has no ISBN and no
+ * DOI to supply, so requiring an identifier is what makes the fabrication fail
+ * at the point of writing rather than in front of a student.
+ *
+ * `archive` is for record groups (fonds/series/piece) that have no ISBN and are
+ * not a publication at all; it carries the archival reference, not a URL.
+ */
+export type SourceIdentifier =
+  | { kind: "isbn"; value: string }
+  | { kind: "doi"; value: string }
+  | { kind: "url"; value: string }
+  | { kind: "archive"; value: string };
+
 export interface Source {
+  /** Omitted only for institutional records and archival series with no author. */
+  author?: string;
   title: string;
   publisher: string;
-  href?: string;
+  /** Year of the cited edition, or a range for multi-volume works. */
+  year?: string;
+  identifier: SourceIdentifier;
+  /** Anything a reader needs in order to use the citation correctly. */
+  note?: string;
 }
 
 /**
@@ -159,7 +184,6 @@ export interface Article extends ArticleSummary {
     description: string;
   }[];
   relatedSlugs: string[];
-  sources: Source[];
 }
 
 export interface Writer {

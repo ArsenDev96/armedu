@@ -223,8 +223,11 @@ export const ui: UiDictionary = {
       "Պատճենումը չհաջողվեց։ Պատճենեք հասցեն հասցեագոտուց։",
     imagePlaceholderCaption:
       "Պատկերի տեղապահ՝ {title}։ Գործարկումից առաջ փոխարինել արտոնագրված պատկերով։",
+    imageIllustrationCaption:
+      "Նկարազարդում «{title}» հոդվածի համար։ Գեղարվեստական պատկերում է, ոչ թե պատմական լուսանկար։",
     imageAlt: "Նկարազարդում «{title}» հոդվածի համար",
     portraitAlt: "{name}-ի դիմանկարի տեղապահ",
+    portraitIllustrationAlt: "{name}-ի նկարազարդ դիմանկարը",
     imageCredit: "Պատկերը՝ {credit}",
     typeHistory: "Պատմություն",
     typeWriters: "Գրողներ",

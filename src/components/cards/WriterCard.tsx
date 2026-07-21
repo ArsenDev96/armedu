@@ -1,9 +1,10 @@
 import Link from "next/link";
 import type { Writer } from "@/data/types";
 import type { UiDictionary } from "@/data/ui";
-import { PlaceholderImage } from "@/components/ui/PlaceholderImage";
+import { ContentPhoto } from "@/components/ui/ContentPhoto";
 import { ArrowLink, Card } from "@/components/ui/primitives";
 import { t } from "@/lib/i18n";
+import { getImageSrc, IMAGE_SIZES, PORTRAIT_FOCUS } from "@/lib/media";
 
 export function WriterCard({
   writer,
@@ -18,17 +19,25 @@ export function WriterCard({
   /** `horizontal` is the homepage form: portrait left, copy right. */
   variant?: "default" | "horizontal";
 }) {
-  const alt = t(ui.article.portraitAlt, { name: writer.name });
+  const src = getImageSrc(writer.slug);
+  // The generated fallback really is a placeholder; the shipped artwork is a
+  // drawn portrait. Saying "placeholder" over the latter would be wrong.
+  const alt = t(src ? ui.article.portraitIllustrationAlt : ui.article.portraitAlt, {
+    name: writer.name,
+  });
 
   if (variant === "horizontal") {
     return (
       <Card as="article" interactive className="group relative flex h-full overflow-hidden">
         <div className="w-[38%] shrink-0 overflow-hidden bg-paper-2">
-          <PlaceholderImage
+          <ContentPhoto
+            src={src}
             seed={writer.imageSeed}
             variant="portrait"
             label={writer.name}
             alt={alt}
+            sizes={IMAGE_SIZES.thumb}
+            focus={PORTRAIT_FOCUS}
             className="h-full transition-transform duration-300 group-hover:scale-[1.04]"
           />
         </div>
@@ -59,11 +68,14 @@ export function WriterCard({
   return (
     <Card as="article" interactive className="group flex h-full flex-col overflow-hidden">
       <div className="aspect-[4/3] overflow-hidden bg-paper-2">
-        <PlaceholderImage
+        <ContentPhoto
+          src={src}
           seed={writer.imageSeed}
           variant="portrait"
           label={writer.name}
           alt={alt}
+          sizes={IMAGE_SIZES.card}
+          focus={PORTRAIT_FOCUS}
           className="transition-transform duration-300 group-hover:scale-[1.03]"
         />
       </div>

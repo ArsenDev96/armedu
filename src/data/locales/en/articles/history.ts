@@ -119,22 +119,6 @@ export const historyArticles: Article[] = [
       },
     ],
     relatedSlugs: ["tigran-the-great", "adoption-of-christianity", "mesrop-mashtots-armenian-alphabet"],
-    sources: [
-      {
-        title: "The Kingdom of Urartu: Archaeology and History of the Armenian Highlands",
-        publisher: "Cambridge University Press",
-        href: "https://www.cambridge.org",
-      },
-      {
-        title: "Ancient Near Eastern Inscriptions and the Urartian Royal Record",
-        publisher: "The British Museum",
-        href: "https://www.britishmuseum.org",
-      },
-      {
-        title: "Excavations at Erebuni and Karmir Blur",
-        publisher: "History Museum of Armenia",
-      },
-    ],
   },
   {
     slug: "mesrop-mashtots-armenian-alphabet",
@@ -168,11 +152,11 @@ export const historyArticles: Article[] = [
         heading: "The Creation of the Script",
         paragraphs: [
           "With the support of Catholicos Sahak Partev and King Vramshapuh, Mashtots began a systematic search. He travelled to Edessa, Amid and Samosata, centres of Syriac and Greek learning, studying scripts and consulting scholars. An earlier set of letters attributed to a bishop named Daniel was tested and found inadequate, because it could not represent all the sounds of Armenian. Rather than adapting a foreign alphabet by force, Mashtots analysed the spoken language and designed signs to match it.",
-          "The result, completed around 405, was an alphabet of thirty-six letters ordered so that each represented a single distinct sound of Armenian. Two more letters were added in the twelfth century, giving the thirty-eight used today. The system is remarkably close to phonetic, which is why Armenian spelling remained stable for centuries and why the script proved easy to teach. Its letter order also follows the Greek sequence where the sounds correspond, which shows careful and deliberate design rather than improvisation.",
+          "The result, completed around 405, was an alphabet of thirty-six letters ordered so that each represented a single distinct sound of Armenian. Two more letters, օ and ֆ, were added in the twelfth century. The alphabet is therefore usually counted as thirty-eight letters, or thirty-nine if the ligature և is counted as a letter in its own right, as the reformed orthography treats it. The system is remarkably close to phonetic, which is why Armenian spelling remained stable for centuries and why the script proved easy to teach. Its letter order also follows the Greek sequence where the sounds correspond, which shows careful and deliberate design rather than improvisation.",
           "Tradition records that the first sentence written in the new letters was the opening line of the Book of Proverbs, in which Solomon speaks of knowing wisdom and instruction. The calligrapher Rufinus of Samosata is credited with giving the letters their final graphic form. Mashtots then returned to Armenia and immediately began doing the thing that mattered most: teaching.",
         ],
         bullets: [
-          "Thirty-six original letters, expanded to thirty-eight in the twelfth century",
+          "Thirty-six original letters, expanded to thirty-eight in the twelfth century, or thirty-nine counting the ligature և",
           "Designed to represent each Armenian sound with one distinct sign",
           "Created around 405 with royal and church support",
           "First written sentence traditionally taken from the Book of Proverbs",
@@ -184,7 +168,7 @@ export const historyArticles: Article[] = [
         paragraphs: [
           "Mashtots and Sahak Partev opened schools across the country and sent their most capable students to Edessa, Constantinople and Alexandria to master Greek and Syriac. These students, later known as the Holy Translators, returned with manuscripts and skills. The fifth century that followed is called the Golden Age of Armenian literature, and its central achievement was the translation of the Bible into Armenian, a version so carefully made that later European scholars nicknamed it the queen of translations.",
           "Translation was never limited to scripture. The Holy Translators produced Armenian versions of theological works, histories, philosophy, grammar and science. Several Greek and Syriac texts survive only because an Armenian translation preserved them after the originals were lost, which makes the fifth-century Armenian corpus a resource for scholars far beyond Armenian studies.",
-          "Original writing followed at once. Koriun, a direct student of Mashtots, wrote a biography of his teacher that is the earliest original work of Armenian literature. Yeghishe described the wars of the 450s, Movses Khorenatsi composed a history of the Armenian people, and Agathangelos recorded the conversion of the kingdom. Within a single lifetime, Armenian had become a literary language with history, theology and biography of its own.",
+          "Original writing followed at once. Koriun, a direct student of Mashtots, wrote a biography of his teacher that is the earliest original work of Armenian literature. Yeghishe described the wars of the 450s, and Agathangelos recorded the conversion of the kingdom. Within a single lifetime, Armenian had become a literary language with history, theology and biography of its own. Movses Khorenatsi's history of the Armenian people belongs to the same tradition, though his date is one of the long-running disputes of Armenian studies: he presents himself as a fifth-century pupil of Mashtots, while a good deal of scholarship outside Armenia places him in the eighth century on the evidence of the place names and institutions he mentions.",
         ],
       },
       {
@@ -200,7 +184,7 @@ export const historyArticles: Article[] = [
         id: "legacy",
         heading: "The Alphabet Today",
         paragraphs: [
-          "The Matenadaran in Yerevan, the national repository of ancient manuscripts, holds more than seventeen thousand Armenian manuscripts along with thousands of fragments and documents in other languages. It stands as the direct institutional descendant of the workshops Mashtots founded, and its collection allows scholars to trace the development of Armenian handwriting from the earliest surviving parchments to the printed age.",
+          "The Matenadaran in Yerevan, the national repository of ancient manuscripts, holds more than seventeen thousand manuscripts, most of them Armenian and the rest in Arabic, Persian, Greek, Syriac and other languages, along with thousands of fragments and archival documents. It stands as the direct institutional descendant of the workshops Mashtots founded, and its collection allows scholars to trace the development of Armenian handwriting from the earliest surviving parchments to the printed age.",
           "Above the village of Artashavan a monument called the Armenian Alphabet Park displays all thirty-nine carved letter forms in stone across an open hillside, erected in 2005 for the sixteen-hundredth anniversary of the script. Visitors walk among the letters as though among standing stones, which captures something true about how Armenians regard the alphabet: not simply as a tool but as a monument in its own right.",
           "For students today the practical lesson is straightforward. A written language of one's own makes it possible to record law, faith, poetry and memory without depending on anyone else's script. That is why the invention of 405 is remembered less as a technical achievement than as the moment Armenian culture gained the means to preserve itself.",
         ],
@@ -254,30 +238,13 @@ export const historyArticles: Article[] = [
       },
     ],
     relatedSlugs: ["adoption-of-christianity", "battle-of-avarayr", "bagratid-armenia"],
-    sources: [
-      {
-        title: "The Life of Mashtots by Koriun, translated with commentary",
-        publisher: "Matenadaran, Mesrop Mashtots Institute of Ancient Manuscripts",
-        href: "https://matenadaran.am",
-      },
-      {
-        title: "Armenian Literature of the Golden Age",
-        publisher: "Oxford University Press",
-        href: "https://global.oup.com",
-      },
-      {
-        title: "Writing Systems of the Caucasus: Origins and Development",
-        publisher: "School of Oriental and African Studies, University of London",
-        href: "https://www.soas.ac.uk",
-      },
-    ],
   },
   {
     slug: "adoption-of-christianity",
     href: "/history/adoption-of-christianity",
     category: "history",
     categoryLabel: "Armenian History",
-    title: "The Adoption of Christianity in 301",
+    title: "The Adoption of Christianity",
     excerpt:
       "Armenia is traditionally recognised as the first state to adopt Christianity as its official religion, a decision that reshaped its law, art and identity.",
     readingTime: 7,
@@ -285,7 +252,7 @@ export const historyArticles: Article[] = [
     periodId: "ancient",
     imageSeed: "adoption-of-christianity",
     intro:
-      "According to Armenian tradition, in the year 301 King Trdat III accepted baptism from Gregory the Illuminator and declared Christianity the religion of his kingdom. Whatever the exact date, Armenia was the earliest state anywhere to take that step, more than a decade before Constantine granted toleration in the Roman Empire. The consequences reached into every part of Armenian life, from architecture and law to the eventual invention of the alphabet.",
+      "According to Armenian tradition, in the year 301 King Trdat III accepted baptism from Gregory the Illuminator and declared Christianity the religion of his kingdom. The date is traditional rather than certain, and many historians place the conversion closer to 314; on either dating Armenia was the earliest state anywhere to take that step, since Rome would not make Christianity its own state religion for another eighty years. The consequences reached into every part of Armenian life, from architecture and law to the eventual invention of the alphabet.",
     author: "ArmEdu Editorial Team",
     updated: "2026-03-30",
     sections: [
@@ -351,17 +318,17 @@ export const historyArticles: Article[] = [
     ],
     importantDates: [
       { year: "c. 224", event: "The Sasanian dynasty takes power in Persia and promotes Zoroastrianism among its neighbours." },
-      { year: "c. 287", event: "Trdat III is installed as king of Armenia and Gregory enters his service." },
+      { year: "c. 287 or 298", event: "Trdat III is installed as king of Armenia and Gregory enters his service. The traditional date is 287; much modern scholarship prefers 298, after the Treaty of Nisibis." },
       { year: "301", event: "Trdat III accepts baptism and Christianity becomes the religion of the Armenian state." },
       { year: "325", event: "Armenian bishops take part in the Council of Nicaea." },
       { year: "c. 405", event: "The Armenian alphabet is created so that scripture and liturgy can be read in Armenian." },
       { year: "451", event: "The Council of Chalcedon meets without Armenian participation, setting the church on its own path." },
     ],
     significance: {
-      heading: "Why the adoption of Christianity in 301 matters",
+      heading: "Why the adoption of Christianity matters",
       paragraphs: [
         "The decision made Armenia the first Christian state and reoriented its culture for the next seventeen centuries. Law, art, architecture, music and education were all reshaped around the new religion, and the church became the institution through which Armenians organised themselves whenever they lacked a state of their own.",
-        "It also set in motion the events that produced the Armenian alphabet. Christianity required scripture that congregations could understand, and that requirement produced a script, a translation movement and a national literature. In this sense the conversion of 301 stands at the root of nearly everything studied in Armenian cultural history.",
+        "It also set in motion the events that produced the Armenian alphabet. Christianity required scripture that congregations could understand, and that requirement produced a script, a translation movement and a national literature. In this sense the conversion stands at the root of nearly everything studied in Armenian cultural history.",
       ],
     },
     interestingFacts: [
@@ -385,27 +352,10 @@ export const historyArticles: Article[] = [
       {
         name: "Agathangelos",
         lifespan: "fifth century",
-        description: "Armenian historian whose account of the conversion is the main narrative source for the events of 301.",
+        description: "Armenian historian whose account is the main narrative source for the conversion, written well over a century after it.",
       },
     ],
     relatedSlugs: ["mesrop-mashtots-armenian-alphabet", "battle-of-avarayr", "kingdom-of-urartu"],
-    sources: [
-      {
-        title: "Agathangelos, History of the Armenians, annotated translation",
-        publisher: "State University of New York Press",
-        href: "https://www.sunypress.edu",
-      },
-      {
-        title: "The Formation of Christian Armenia in Late Antiquity",
-        publisher: "Dumbarton Oaks Research Library and Collection",
-        href: "https://www.doaks.org",
-      },
-      {
-        title: "Cathedral and Churches of Echmiatsin, World Heritage Documentation",
-        publisher: "UNESCO",
-        href: "https://whc.unesco.org",
-      },
-    ],
   },
   {
     slug: "battle-of-avarayr",
@@ -447,7 +397,7 @@ export const historyArticles: Article[] = [
         id: "the-battle",
         heading: "The Battle on the Plain",
         paragraphs: [
-          "The armies met on 26 May 451 on the plain of Avarayr in the province of Vaspurakan, near the river Tghmut. Yeghishe gives the Armenian force as about sixty-six thousand, including cavalry, infantry and clergy, against a Persian army of roughly twice that size supported by war elephants and the elite Immortals. Ancient troop figures are usually inflated, but every source agrees that the Armenians were badly outnumbered.",
+          "The armies met on 26 May 451 on the plain of Avarayr in the province of Vaspurakan, near the river Tghmut. Yeghishe gives the Armenian force as about sixty-six thousand, including cavalry, infantry and clergy, against a Persian army he numbers at well over two hundred thousand, supported by war elephants and the elite Immortals. Both figures come from a single partisan source and are almost certainly inflated, as ancient troop numbers usually are, but every account agrees that the Armenians were heavily outnumbered.",
           "Before the fighting the priest Ghevond addressed the troops, and Vardan is recorded as telling them that conscious death is immortality. The Armenians attacked in the morning and pressed the Persian centre hard, and for a time the outcome was uncertain. The reserve strength of the Sasanian army, and above all its elephants, eventually turned the battle. Vardan was killed together with eight other named commanders and a large part of his force.",
           "The Persians held the field, but their losses were heavy and they were unable to follow up quickly. Surviving Armenian nobles and clergy withdrew into the mountains, where they continued a guerrilla resistance that persisted for decades. What began as one battle became a long war of attrition that the Sasanian administration could not end.",
         ],
@@ -462,7 +412,7 @@ export const historyArticles: Article[] = [
         id: "aftermath",
         heading: "The Treaty of Nvarsak",
         paragraphs: [
-          "Resistance revived in 481 under Vahan Mamikonian, a nephew of Vardan, and this time the Sasanian state was distracted by war on its eastern frontier and by internal instability. After several years of fighting the Persian king Balash opened negotiations. The resulting agreement, the Treaty of Nvarsak of 484, guaranteed Armenians the free practice of Christianity, ended attempts at forced conversion, and restored the privileges of the noble houses.",
+          "Resistance revived in 481 under Vahan Mamikonian, a nephew of Vardan, and this time the Sasanian state was distracted by war on its eastern frontier and by internal instability. After several years of fighting the Persian king Balash opened negotiations. The resulting agreement, the Treaty of Nvarsak of 484, guaranteed Armenians the free practice of Christianity, ended attempts at forced conversion, and restored the privileges of the noble houses. Vahan himself was appointed marzpan of Armenia the following year.",
           "Vahan Mamikonian was appointed marzpan of Armenia, meaning that the country was now governed by an Armenian rather than a Persian official. The treaty did not restore the monarchy, but it secured what the war of 451 had been fought for. In practical terms, Avarayr and the campaigns that followed it succeeded.",
           "The Armenian Church later canonised Vardan and his companions, and their feast day, Vardanants, falls in February. It remains a major commemoration, marked with services, school programmes and public ceremonies, and the name Vardan has been given to Armenian boys ever since.",
         ],
@@ -505,7 +455,7 @@ export const historyArticles: Article[] = [
       "The Persian army at Avarayr used war elephants, an unusual sight in the mountains of the Armenian Highlands.",
       "Yeghishe's account of the battle is regarded as one of the finest works of classical Armenian prose.",
       "Clergy fought and served alongside soldiers, and the priest Ghevond is commemorated with the fallen commanders.",
-      "The Treaty of Nvarsak also made Vahan Mamikonian governor of Armenia, so the country was ruled by an Armenian again.",
+      "The year after the Treaty of Nvarsak, Vahan Mamikonian was appointed marzpan of Armenia, so the country was governed by an Armenian again.",
     ],
     relatedFigures: [
       {
@@ -525,23 +475,6 @@ export const historyArticles: Article[] = [
       },
     ],
     relatedSlugs: ["adoption-of-christianity", "mesrop-mashtots-armenian-alphabet", "bagratid-armenia"],
-    sources: [
-      {
-        title: "Yeghishe, History of Vardan and the Armenian War, translated with commentary",
-        publisher: "Harvard University Press",
-        href: "https://www.hup.harvard.edu",
-      },
-      {
-        title: "Armenia Between Byzantium and the Sasanians",
-        publisher: "Dumbarton Oaks Research Library and Collection",
-        href: "https://www.doaks.org",
-      },
-      {
-        title: "The Sasanian Empire and Its Northern Frontier",
-        publisher: "Cambridge University Press",
-        href: "https://www.cambridge.org",
-      },
-    ],
   },
   {
     slug: "bagratid-armenia",
@@ -573,7 +506,7 @@ export const historyArticles: Article[] = [
         id: "ani",
         heading: "Ani, the City of Forty Gates",
         paragraphs: [
-          "King Ashot III moved the royal seat to Ani in 961, and his successors turned a hilltop fortress into a capital. Smbat II built the outer walls in the 970s, and Gagik I completed a building programme that gave the city cathedrals, palaces, markets, bathhouses and bridges. At its height, in the early eleventh century, Ani may have held around a hundred thousand people, which placed it among the largest cities of its time anywhere in the world.",
+          "King Ashot III moved the royal seat to Ani in 961, and his successors turned a hilltop fortress into a capital. Smbat II built the outer walls during his reign of 977 to 989, and Gagik I completed a building programme that gave the city cathedrals, palaces, markets, bathhouses and bridges. At its height, in the early eleventh century, Ani may have held around a hundred thousand people, which placed it among the largest cities of its time anywhere in the world.",
           "The site is a natural fortress, a triangular plateau protected on two sides by deep ravines and closed on the third by a double line of walls with towers. Inside, the streets were laid out around a main thoroughfare, and water was brought in through clay pipes. Ani sat on a branch of the Silk Road, and merchants from Persia, Byzantium and the Caucasus traded there, which explains the scale of both its wealth and its construction.",
           "Later writers called Ani the city of forty gates and a thousand and one churches. The numbers are poetic rather than exact, but archaeologists have identified the remains of dozens of religious buildings within and around the walls, belonging to Armenian, Georgian and other communities. The ruins were inscribed on the UNESCO World Heritage list in 2016.",
         ],
@@ -598,7 +531,7 @@ export const historyArticles: Article[] = [
         heading: "Byzantine Annexation and Seljuk Conquest",
         paragraphs: [
           "The Bagratid kingdom fell to a combination of internal division and imperial pressure. The Byzantine Empire, expanding eastward, annexed Vaspurakan in 1021 and pressed claims on Ani after the death of King Hovhannes-Smbat. In 1045 Byzantine forces took the city and deposed the young king Gagik II. Byzantine administration replaced the Armenian nobility, dismantled local defensive arrangements and taxed the province heavily.",
-          "The consequences appeared quickly. In 1064 the Seljuk sultan Alp Arslan besieged and captured Ani, and seven years later the Byzantine defeat at Manzikert opened Anatolia to Turkic settlement. The removal of the Armenian nobility had left no organised force able to defend the region. Ani continued as a trading town under successive rulers, but earthquakes, shifting trade routes and the Mongol invasions gradually emptied it, and by the seventeenth century it was abandoned.",
+          "The consequences appeared quickly. In 1064 the Seljuk sultan Alp Arslan besieged and captured Ani, and seven years later the Byzantine defeat at Manzikert opened Anatolia to Turkic settlement. The removal of the Armenian nobility had left no organised force able to defend the region. Ani continued as a trading town under successive rulers, but earthquakes, shifting trade routes and the Mongol invasions gradually emptied it, and it was completely abandoned by 1735, when the last monks left.",
           "Many Armenians moved south and west during these upheavals, and in Cilicia on the Mediterranean coast they established a new principality that became the Kingdom of Cilician Armenia. That state, with its ports and its links to the crusader world, carried Armenian political life forward for another three hundred years.",
         ],
       },
@@ -616,7 +549,7 @@ export const historyArticles: Article[] = [
       { label: "Dynasty", value: "Bagratuni, ruling from 885 to 1045" },
       { label: "First king", value: "Ashot I, crowned in 885" },
       { label: "Capital", value: "Ani, from 961" },
-      { label: "Peak population of Ani", value: "Estimated around one hundred thousand" },
+      { label: "Peak population of Ani", value: "Traditionally given as around one hundred thousand, though historians question the figure" },
       { label: "Leading architect", value: "Trdat, builder of Ani cathedral and restorer of the Hagia Sophia dome" },
       { label: "End of the kingdom", value: "Byzantine annexation in 1045, Seljuk capture of Ani in 1064" },
     ],
@@ -660,23 +593,6 @@ export const historyArticles: Article[] = [
       },
     ],
     relatedSlugs: ["adoption-of-christianity", "battle-of-avarayr", "first-republic-of-armenia"],
-    sources: [
-      {
-        title: "Armenia and the Byzantine Empire in the Tenth and Eleventh Centuries",
-        publisher: "Dumbarton Oaks Research Library and Collection",
-        href: "https://www.doaks.org",
-      },
-      {
-        title: "Archaeological Site of Ani, World Heritage Documentation",
-        publisher: "UNESCO",
-        href: "https://whc.unesco.org",
-      },
-      {
-        title: "Medieval Armenian Architecture: Construction of Race and Nation",
-        publisher: "Princeton University Press",
-        href: "https://press.princeton.edu",
-      },
-    ],
   },
   {
     slug: "first-republic-of-armenia",
@@ -709,8 +625,8 @@ export const historyArticles: Article[] = [
         heading: "Founding the Republic",
         paragraphs: [
           "The Armenian National Council declared independence on 28 May 1918, and the new state was governed largely by the Armenian Revolutionary Federation, with Hovhannes Kajaznuni as its first prime minister and Aram Manukian, the organiser of the defence of Yerevan, as a central figure until his death from typhus in 1919. The Treaty of Batum, signed in June under Ottoman pressure, left the republic with only a small territory around Yerevan and Lake Sevan.",
-          "Conditions were desperate. Roughly a third of the population were refugees, harvests had failed, and epidemics of typhus and cholera spread through overcrowded settlements. Famine in the winter of 1918 to 1919 killed tens of thousands. American and other international relief efforts, including the organisation later known as Near East Relief, kept large numbers of people, especially orphans, alive.",
-          "Despite this the government built institutions quickly. Ministries were organised, a parliament was elected in June 1919 with women both voting and standing as candidates, a national currency and postal service were introduced, and a state university was founded at Alexandropol in 1919 before moving to Yerevan. The tricolour of red, blue and orange was adopted as the national flag.",
+          "Conditions were desperate. Roughly a third of the population were refugees, harvests had failed, and epidemics of typhus and cholera spread through overcrowded settlements. Famine and epidemic in the winter of 1918 to 1919 killed on the order of a hundred and fifty thousand people, close to a fifth of the population. American and other international relief efforts, including the organisation later known as Near East Relief, kept large numbers of people, especially orphans, alive.",
+          "Despite this the government built institutions quickly. Ministries were organised, a parliament was elected in June 1919 with women both voting and standing as candidates, a national currency and postal service were introduced, and a state university was established by decree in May 1919, opening in Alexandropol at the start of 1920 before moving to Yerevan. The tricolour of red, blue and orange was adopted as the national flag.",
         ],
         bullets: [
           "Independence declared on 28 May 1918",
@@ -725,7 +641,7 @@ export const historyArticles: Article[] = [
         paragraphs: [
           "The republic sent delegations to the Paris Peace Conference and pressed for recognition and for a viable territory. In 1920 the Treaty of Sevres awarded Armenia extensive lands in eastern Anatolia, with the boundary to be drawn by United States President Woodrow Wilson. Wilson delivered his arbitration award in November 1920, but by then the treaty had no force on the ground, because the Turkish national movement rejected it and the United States Senate declined to accept a mandate over Armenia.",
           "Relations with neighbours were tense. Disputes with Georgia over the Lori district led to brief fighting in December 1918, and conflict with Azerbaijan over Karabakh, Zangezur and Nakhichevan continued through 1919 and 1920. These wars consumed resources the republic could not spare and left it isolated when a serious threat arrived.",
-          "In September 1920 Turkish nationalist forces under Kazim Karabekir attacked from the west and captured Kars and Alexandropol. The Treaty of Alexandropol, signed in December, imposed severe terms. At the same time the Red Army entered from the east, and on 2 December 1920 the government transferred power to a Soviet administration.",
+          "In September 1920 Turkish nationalist forces under Kazim Karabekir attacked from the west and captured Kars and Alexandropol. As the Red Army entered from the east, the government transferred power to a Soviet administration on 2 December 1920. The Treaty of Alexandropol, imposing severe terms, was signed at almost the same moment by a government that had already given up its authority, which is why its legal standing has been disputed ever since.",
         ],
       },
       {
@@ -742,7 +658,7 @@ export const historyArticles: Article[] = [
         heading: "The Republic in Armenian Memory",
         paragraphs: [
           "The First Republic lasted two and a half years, but its achievements were real. It kept a population alive through famine, established a functioning administration in the worst possible conditions, held a democratic election, and founded a university that still operates. It also demonstrated that Armenians could organise a modern state, which mattered enormously to a generation that had just survived the genocide.",
-          "Its symbols carried forward. The independent Republic of Armenia of 1991 readopted the tricolour flag, recognised 28 May as Republic Day, and treated the First Republic as its legal and moral predecessor. The Sardarapat memorial, built in 1968, is one of the country's principal national monuments, and its bell is rung at commemorations each May.",
+          "Its symbols carried forward. The tricolour flag was readopted in August 1990, a year before independence; the republic that followed recognised 28 May as Republic Day, and treated the First Republic as its legal and moral predecessor. The Sardarapat memorial, built in 1968, is one of the country's principal national monuments, and its bell is rung at commemorations each May.",
           "For students, the period offers a demanding but rewarding subject. It requires weighing decisions made under extreme pressure, understanding how great-power diplomacy affected small states after the First World War, and recognising that a short-lived government can still shape a national future.",
         ],
       },
@@ -795,22 +711,5 @@ export const historyArticles: Article[] = [
       },
     ],
     relatedSlugs: ["yeghishe-charents", "hovhannes-tumanyan", "bagratid-armenia"],
-    sources: [
-      {
-        title: "The Republic of Armenia, 1918 to 1921",
-        publisher: "University of California Press",
-        href: "https://www.ucpress.edu",
-      },
-      {
-        title: "Records of the Paris Peace Conference and the Treaty of Sevres",
-        publisher: "The National Archives, United Kingdom",
-        href: "https://www.nationalarchives.gov.uk",
-      },
-      {
-        title: "Near East Relief and Humanitarian Work in the Caucasus",
-        publisher: "Library of Congress",
-        href: "https://www.loc.gov",
-      },
-    ],
   },
 ];

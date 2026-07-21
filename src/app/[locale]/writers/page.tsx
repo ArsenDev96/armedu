@@ -9,6 +9,7 @@ import { Section, SectionHeading } from "@/components/ui/primitives";
 import type { Locale } from "@/data/types";
 import { getLiteraryPeriods, getWriters } from "@/lib/content";
 import { getStaticAlternates, getUi, localePath, resolveLocale, t } from "@/lib/i18n";
+import { getImageSrc } from "@/lib/media";
 import { toWriterListingItems } from "@/lib/search";
 
 type Params = { params: Promise<{ locale: string }> };
@@ -82,7 +83,13 @@ export default async function WritersPage({ params }: Params) {
                   href={localePath(locale, `/writers/${featured.slug}`)}
                   linkLabel={ui.listing.writers.readBiography}
                   imageSeed={featured.imageSeed}
-                  imageAlt={t(ui.article.portraitAlt, { name: featured.name })}
+                  imageSrc={getImageSrc(featured.slug)}
+                  imageAlt={t(
+                    getImageSrc(featured.slug)
+                      ? ui.article.portraitIllustrationAlt
+                      : ui.article.portraitAlt,
+                    { name: featured.name },
+                  )}
                   variant="portrait"
                   meta={
                     <div>

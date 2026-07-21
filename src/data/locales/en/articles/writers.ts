@@ -24,7 +24,7 @@ export const writerArticles: Article[] = [
         heading: "Early life in Lori",
         paragraphs: [
           "Hovhannes Tumanyan was born on 19 February 1869 in Dsegh, a village in the mountainous Lori region of northern Armenia, then part of the Russian Empire. His father, Ter Tadevos, was the village priest, and the household stood at the centre of local life. The boy grew up among shepherds, ploughmen, wedding singers and storytellers, and the speech, songs and legends he absorbed there would supply the raw material for nearly everything he later wrote.",
-          "At the age of eleven he was sent away to school, first in Jalaloghli and then to the Nersisyan School in Tiflis, the great Armenian cultural centre of the Caucasus. Money was short and he never completed a formal higher education, leaving school in 1887 to take clerical work. What he lacked in diplomas he made up for in wide reading, and by his late teens he was publishing verse in Armenian periodicals.",
+          "He attended the village school at Dsegh, then from the age of ten the school at Jalaloghli, and from 1883 the Nersisyan School in Tiflis, the great Armenian cultural centre of the Caucasus. Money was short and he never completed a formal higher education, leaving school in 1887 to take clerical work. What he lacked in diplomas he made up for in wide reading, and by his late teens he was publishing verse in Armenian periodicals.",
           "Tiflis shaped him as much as Lori did. In the city he met editors, teachers, painters and composers, and he learned to see his village childhood from a distance, as material worth preserving. That double perspective, insider warmth combined with a writer's clear eye, became one of the defining qualities of his work.",
         ],
       },
@@ -34,14 +34,14 @@ export const writerArticles: Article[] = [
         paragraphs: [
           "His first collections of poems appeared in 1890 and 1892 and were welcomed for their directness. While many contemporaries wrote in an ornate, self-consciously literary style, Tumanyan wrote in a plain spoken Armenian close to the way people actually talked. Critics quickly recognised that this simplicity was a deliberate artistic choice rather than a limitation, and younger writers began to imitate it.",
           "In Tiflis he became the centre of a literary circle known as Vernatun, meaning the upper room, which met in the attic of his apartment from about 1899. Writers such as Avetik Isahakyan, Levon Shant, Derenik Demirchyan and Nikol Aghbalyan gathered there to read new work aloud and argue about literature. The gatherings gave Armenian letters a meeting point at a time when there was no single national capital.",
-          "Tumanyan also worked as an editor, translator and public lecturer. He translated Pushkin, Lermontov, Byron and Goethe into Armenian, and he prepared a consolidated literary version of the oral epic David of Sassoun, which helped that ancient story reach schoolchildren and general readers rather than only folklore specialists.",
+          "Tumanyan also worked as an editor, translator and public lecturer. He translated Pushkin, Lermontov, Byron and Goethe into Armenian, and he produced a literary retelling of the David branch of the oral epic David of Sassoun, which helped that ancient story reach schoolchildren and general readers rather than only folklore specialists.",
         ],
       },
       {
         id: "major-works",
         heading: "Major works",
         paragraphs: [
-          "His best known narrative poem is Anush, first written in 1892 and substantially revised around 1901. It tells of a village girl and her beloved Saro, whose love is destroyed by a rigid code of honour and by a brother's revenge. The poem combines lyric beauty with a clear social criticism of customs that crush individual lives, and in 1912 the composer Armen Tigranian turned it into the first widely performed Armenian opera.",
+          "His best known narrative poem is Anush, written in 1890, first printed in 1892 and substantially reworked in 1901 and 1902. It tells of a village girl and her beloved Saro, whose love is destroyed by a rigid code of honour and by a brother's revenge. The poem combines lyric beauty with a clear social criticism of customs that crush individual lives, and in 1912 the composer Armen Tigranian turned it into an opera, the first to build its melodies directly on Armenian folk song.",
           "The Capture of Tmkaberd, published in 1902, is a historical ballad about betrayal and conscience set around a besieged fortress. Gikor, written in 1895, is a short prose story about a peasant boy sent to work as a servant in the city, where loneliness and neglect destroy him. It remains one of the most widely read pieces of Armenian prose in schools.",
           "Alongside these he produced dozens of fairy tales and fables, including A Drop of Honey, The Dog and the Cat, The Death of Kikos and The Master and the Servant. Written for children but layered with adult irony, they are still among the first literary texts Armenian children encounter.",
         ],
@@ -143,20 +143,6 @@ export const writerArticles: Article[] = [
       },
     ],
     relatedSlugs: ["anush", "david-of-sassoun", "avetik-isahakyan"],
-    sources: [
-      {
-        title: "The Heritage of Armenian Literature, Volume III",
-        publisher: "Wayne State University Press",
-      },
-      {
-        title: "A History of Armenian Literature",
-        publisher: "Armenian Academy of Sciences, Yerevan",
-      },
-      {
-        title: "Hovhannes Tumanyan: Complete Works and Commentary",
-        publisher: "Institute of Literature after Manuk Abeghian",
-      },
-    ],
   },
   {
     slug: "yeghishe-charents",
@@ -190,7 +176,7 @@ export const writerArticles: Article[] = [
         heading: "Revolution and literary career",
         paragraphs: [
           "After the Russian Revolution Charents supported the Bolsheviks, served briefly in the Red Army and moved to Moscow, where he studied and absorbed the avant-garde currents of the early 1920s. He experimented with free verse, fractured syntax, collage and typographic play, and for a time led a group that called for a complete break with older Armenian literary habits.",
-          "He returned to Soviet Armenia and took a leading role in its new cultural institutions, working in publishing and heading the State Publishing House for several years. He edited texts, promoted young writers and pushed for high production standards, believing that a small nation needed excellent books more than it needed slogans.",
+          "He returned to Soviet Armenia and took a leading role in its new cultural institutions, working at the Armenian State Publishing House from 1928 to 1935. He edited texts, promoted young writers and pushed for high production standards, believing that a small nation needed excellent books more than it needed slogans.",
           "His enthusiasm for the new order was genuine but never simple. Alongside revolutionary poems he kept writing intensely personal lyrics about love, memory, exhaustion and doubt, and he defended the value of national tradition at a time when such defence was becoming dangerous.",
         ],
       },
@@ -198,16 +184,16 @@ export const writerArticles: Article[] = [
         id: "major-works",
         heading: "Major works",
         paragraphs: [
-          "The novel Land of Nairi, published in 1922, is his most ambitious prose work. Set in a provincial Armenian city on the eve of catastrophe, it mixes satire, tragedy and modernist narrative games as it examines the illusions its characters hold about themselves and their nation. It is widely regarded as the first modernist Armenian novel.",
+          "The novel Land of Nairi, written between 1921 and 1925 and published in 1926, is his most ambitious prose work. Set in a provincial Armenian city on the eve of catastrophe, it mixes satire, tragedy and modernist narrative games as it examines the illusions its characters hold about themselves and their nation. It is widely regarded as the first modernist Armenian novel.",
           "Book of the Road, published in 1933, gathers his mature poetry and includes historical meditations, lyric cycles and a section of quatrains inspired by Persian forms. The book was attacked by official critics soon after publication, and it became the central evidence used against him in later years.",
-          "Among his shorter poems, the one beginning I love the sun sweet taste of Armenia is probably the most memorized text in modern Armenian literature. Its images of mountains, ancient script and enduring sorrow are quoted at school ceremonies, concerts and commemorations to this day.",
+          "Among his shorter poems, the one beginning I love the sun-savoured word of my sweet Armenia is probably the most memorised text in modern Armenian literature. Its images of mountains, ancient script and enduring sorrow are quoted at school ceremonies, concerts and commemorations to this day.",
         ],
         bullets: [
           "Dantesque Legend, long poem, 1916",
-          "Land of Nairi, novel, 1922",
+          "Land of Nairi, novel, 1926",
           "Book of the Road, poetry collection, 1933",
           "Rubaiyat and other quatrain cycles",
-          "I love the sun sweet taste of Armenia, lyric poem, 1920",
+          "I love the sun-savoured word of my sweet Armenia, lyric poem, 1920–21",
         ],
       },
       {
@@ -258,7 +244,7 @@ export const writerArticles: Article[] = [
         event: "Volunteers on the Van front and witnesses the deportations of Ottoman Armenians.",
       },
       { year: "1916", event: "Publishes Dantesque Legend, his first major long poem." },
-      { year: "1922", event: "Publishes the modernist novel Land of Nairi." },
+      { year: "1926", event: "Publishes the modernist novel Land of Nairi, written across the previous five years." },
       { year: "1933", event: "Publishes Book of the Road, which is soon officially attacked." },
       { year: "1937", event: "Arrested during the purges and dies in prison in Yerevan." },
     ],
@@ -297,20 +283,6 @@ export const writerArticles: Article[] = [
       },
     ],
     relatedSlugs: ["hovhannes-tumanyan", "paruyr-sevak", "mesrop-mashtots-armenian-alphabet"],
-    sources: [
-      {
-        title: "The Heritage of Armenian Literature, Volume III",
-        publisher: "Wayne State University Press",
-      },
-      {
-        title: "Land of Nairi and the Making of Armenian Modernism",
-        publisher: "Journal of the Society for Armenian Studies",
-      },
-      {
-        title: "Yeghishe Charents: Life, Work and Archive",
-        publisher: "Charents Museum of Literature and Art, Yerevan",
-      },
-    ],
   },
   {
     slug: "raffi",
@@ -395,7 +367,7 @@ export const writerArticles: Article[] = [
     ],
     importantDates: [
       { year: "1835", event: "Born Hakob Melik-Hakobian in the village of Payajuk." },
-      { year: "1858", event: "Publishes his first pieces and adopts the pen name Raffi." },
+      { year: "1860", event: "Publishes his first piece, in the journal Hyusisapayl." },
       { year: "1878", event: "Publishes Jalaleddin, his first widely discussed novel." },
       { year: "1880", event: "Publishes The Fool, introducing the hero Vardan." },
       { year: "1886", event: "Publishes Samvel, generally judged his finest novel." },
@@ -409,7 +381,7 @@ export const writerArticles: Article[] = [
       ],
     },
     interestingFacts: [
-      "He chose the pen name Raffi early in his career and it quickly displaced his family name in public use.",
+      "He took the pen name Raffi around 1872, when he began writing for the newspaper Mshak, and it quickly displaced his family name in public use.",
       "Most of his novels first reached readers as newspaper serials in the Tiflis paper Mshak.",
       "He argued publicly for the education of Armenian girls at a time when it was widely neglected.",
       "The title character of The Fool became a proverbial figure for someone whose supposed foolishness is really courage.",
@@ -436,20 +408,6 @@ export const writerArticles: Article[] = [
       },
     ],
     relatedSlugs: ["khachatur-abovyan", "the-fool", "wounds-of-armenia"],
-    sources: [
-      {
-        title: "The Heritage of Armenian Literature, Volume III",
-        publisher: "Wayne State University Press",
-      },
-      {
-        title: "Armenian Intellectual History in the Nineteenth Century",
-        publisher: "Cambridge University Press",
-      },
-      {
-        title: "Raffi: The Novelist of National Awakening",
-        publisher: "Institute of Literature after Manuk Abeghian",
-      },
-    ],
   },
   {
     slug: "avetik-isahakyan",
@@ -481,7 +439,7 @@ export const writerArticles: Article[] = [
         id: "literary-career",
         heading: "Literary career and exile",
         paragraphs: [
-          "Back in the Caucasus, Isahakyan joined the Vernatun circle around Hovhannes Tumanyan in Tiflis and formed lasting friendships there. Political activity brought him under suspicion, and he was imprisoned in 1908 and 1909 in connection with the mass trial of Armenian political figures before being released.",
+          "Back in the Caucasus, Isahakyan joined the Vernatun circle around Hovhannes Tumanyan in Tiflis and formed lasting friendships there. Political activity brought him under suspicion, and he was arrested in 1908 in connection with the mass trial of Armenian political figures, held for about six months in Metekhi prison and released on bail in 1909.",
           "In 1911 he left the Russian Empire and began a long period abroad, living at different times in Berlin, Venice, Vienna and Paris. He continued to write and became an important figure in Armenian emigre culture, particularly after 1915, when he worked to support survivors and to keep the community's literary life alive.",
           "In 1936 he returned permanently to Soviet Armenia. He was received with honours, elected to the Academy of Sciences and served as chairman of the Writers Union of Armenia from 1946. He continued writing prose sketches, fables and lyrics until the end of his life.",
         ],
@@ -497,7 +455,7 @@ export const writerArticles: Article[] = [
         bullets: [
           "Songs and Wounds, poetry collection, 1897",
           "Abu Lala Mahari, philosophical long poem, 1909 to 1911",
-          "The Eternal Love and other legend-based poems",
+          "Lilith and other legend-based poems",
           "Usta Karo, an unfinished novel",
           "Numerous fables and prose sketches",
         ],
@@ -529,7 +487,7 @@ export const writerArticles: Article[] = [
         label: "Known for",
         value: "Folk-toned lyric poetry and the philosophical poem Abu Lala Mahari",
       },
-      { label: "Notable works", value: "Songs and Wounds, Abu Lala Mahari, The Eternal Love" },
+      { label: "Notable works", value: "Songs and Wounds, Abu Lala Mahari, Lilith" },
       { label: "Literary period", value: "Armenian romanticism into the Soviet era" },
     ],
     importantDates: [
@@ -575,20 +533,6 @@ export const writerArticles: Article[] = [
       },
     ],
     relatedSlugs: ["hovhannes-tumanyan", "yeghishe-charents", "anush"],
-    sources: [
-      {
-        title: "The Heritage of Armenian Literature, Volume III",
-        publisher: "Wayne State University Press",
-      },
-      {
-        title: "Modern Armenian Poetry in Translation",
-        publisher: "Columbia University Press",
-      },
-      {
-        title: "Avetik Isahakyan: Collected Works with Critical Apparatus",
-        publisher: "Armenian Academy of Sciences, Yerevan",
-      },
-    ],
   },
   {
     slug: "khachatur-abovyan",
@@ -654,7 +598,7 @@ export const writerArticles: Article[] = [
         id: "legacy",
         heading: "Disappearance and legacy",
         paragraphs: [
-          "On the morning of 14 April 1848 Abovyan left his home in Yerevan and was never seen again. He was thirty eight. Various explanations have been proposed over the years, from an accident to a journey abroad, but no evidence has ever settled the question and his fate remains unknown.",
+          "On the morning of 14 April 1848 Abovyan left his home in Yerevan and was never seen again. He was thirty eight. Suicide, murder by his political opponents, and arrest and exile by the Russian authorities have all been proposed, and none can be ruled out; no evidence has ever settled the question and his fate remains unknown.",
           "Recognition came after his death. The publication of Wounds of Armenia in 1858 made him a founding figure, and Eastern Armenian literature developed along the path he had marked out. Raffi, Perch Proshian and later realists all worked in the vernacular tradition he began.",
           "Today his birthplace in Kanaker is a museum, a town and a major Yerevan street carry his name, and Wounds of Armenia is a fixed part of the school curriculum. He is remembered as much for his work as an educator as for his fiction.",
         ],
@@ -713,27 +657,13 @@ export const writerArticles: Article[] = [
           "The novelist who built on Abovyan's vernacular prose to create the Armenian historical novel.",
       },
       {
-        name: "Mkrtich Nalbandian",
+        name: "Mikayel Nalbandian",
         lifespan: "1829 to 1866",
         description:
           "A writer and reformer of the next generation who continued the campaign for the modern literary language.",
       },
     ],
     relatedSlugs: ["wounds-of-armenia", "raffi", "hovhannes-tumanyan"],
-    sources: [
-      {
-        title: "The Heritage of Armenian Literature, Volume III",
-        publisher: "Wayne State University Press",
-      },
-      {
-        title: "Khachatur Abovyan and the Birth of Modern Armenian Prose",
-        publisher: "Journal of the Society for Armenian Studies",
-      },
-      {
-        title: "Journey to Ararat",
-        publisher: "Longman, Brown, Green and Longmans",
-      },
-    ],
   },
   {
     slug: "paruyr-sevak",
@@ -757,7 +687,7 @@ export const writerArticles: Article[] = [
         heading: "Early life and education",
         paragraphs: [
           "Paruyr Ghazaryan was born on 24 January 1924 in Zangakatun, then called Chanakhchi, a village in the Ararat valley south of Yerevan. He grew up in a farming family, and the rural landscape and speech of the region remained present in his poetry throughout his life.",
-          "He entered Yerevan State University in 1940 to study Armenian language and literature, graduating in 1945 and continuing with postgraduate research. He adopted the pen name Sevak in tribute to the poet Ruben Sevak, who was killed in 1915, a choice that signalled from the start where his literary loyalties lay.",
+          "He entered Yerevan State University in 1939 to study Armenian language and literature, graduating in 1945 and continuing with postgraduate research. The editor Ruben Zaryan gave him the pen name Sevak, in memory of the poet Ruben Sevak, who was killed in 1915 — a name that signalled from the start where his literary loyalties lay.",
           "From 1951 to 1959 he studied and then taught at the Gorky Literature Institute in Moscow. The years in Moscow exposed him to Russian and translated world poetry and to the cautious loosening of cultural controls that followed 1953, and he returned to Yerevan with a much wider sense of what a poem could attempt.",
         ],
       },
@@ -766,7 +696,7 @@ export const writerArticles: Article[] = [
         heading: "Literary career",
         paragraphs: [
           "Sevak published his first collection in 1948 and several more in the following decade, but his mature voice arrived at the end of the 1950s. He worked afterwards as a researcher and then as a senior figure at the Institute of Literature in Yerevan, and he was elected secretary of the Writers Union of Armenia in 1966.",
-          "He was also an active translator and critic, writing a substantial scholarly study of the nineteenth century poet Sayat Nova. His literary criticism argued for honesty and craft against formulaic official verse, and he encouraged younger poets who wanted to write about private experience.",
+          "He was also an active translator and critic, writing a substantial scholarly study of the eighteenth century troubadour Sayat-Nova. His literary criticism argued for honesty and craft against formulaic official verse, and he encouraged younger poets who wanted to write about private experience.",
           "His public standing grew steadily through the 1960s. Readings drew large audiences, his books sold out quickly, and he became one of the few writers whose opinions carried weight with both the intelligentsia and the general reading public.",
         ],
       },
@@ -775,12 +705,12 @@ export const writerArticles: Article[] = [
         heading: "Major works",
         paragraphs: [
           "The Unsilenceable Belfry, published in 1959, is his central achievement. Built around the life of Komitas, the priest and musicologist whose mind gave way after the events of 1915, it uses the composer's story to speak about the destruction of Western Armenian life. Published four decades after the genocide and years before public commemoration was permitted, it was received as an act of courage as much as a literary work.",
-          "Let There Be Light, issued in 1969, collects the poems of his last decade and shows his range: love lyrics, sharp epigrams, meditations on science and history, and poems about ordinary domestic life. Man on the Palm of the Hand, from 1963, gathers his philosophical verse about human responsibility and the individual conscience.",
+          "Let There Be Light, issued in 1969, collects the poems of his last decade and shows his range: love lyrics, sharp epigrams, meditations on science and history, and poems about ordinary domestic life. Man in the Palm of the Hand, from 1963, gathers his philosophical verse about human responsibility and the individual conscience.",
           "He also wrote the long poem The Three Voiced Liturgy and a body of shorter poems that are widely anthologised. His scholarly monograph on Sayat Nova, defended as a doctoral dissertation, remains a respected contribution to Armenian literary history.",
         ],
         bullets: [
           "The Unsilenceable Belfry, long poem about Komitas, 1959",
-          "Man on the Palm of the Hand, poetry collection, 1963",
+          "Man in the Palm of the Hand, poetry collection, 1963",
           "Let There Be Light, poetry collection, 1969",
           "A scholarly monograph on the poet Sayat Nova",
           "Numerous translations and critical essays",
@@ -799,7 +729,7 @@ export const writerArticles: Article[] = [
         id: "legacy",
         heading: "Death and legacy",
         paragraphs: [
-          "On 17 June 1971 Sevak and his wife Nelly were killed in a car accident on the road to his native village. He was forty seven. The suddenness of the loss, and his prominence as a national voice, led to persistent speculation about the circumstances, though no investigation has established anything beyond a traffic accident. He was buried in the garden of his family house in Zangakatun.",
+          "On 17 June 1971 Sevak and his wife Nelly were killed in a car crash as they drove back from his native village towards Yerevan. He was forty seven. The suddenness of the loss, and his prominence as a critical national voice, led to widespread and lasting suspicion that the security services were involved. The only inquiry was a Soviet one, and it recorded a traffic accident; the archives that might settle the question have never been opened. He was buried in the garden of his family house in Zangakatun.",
           "The village home is now the Paruyr Sevak House Museum, and the village itself was renamed in his honour. Schools, streets and a literary prize carry his name, and his poems are standard reading in Armenian classrooms.",
           "His lasting importance lies in what he made sayable. By writing The Unsilenceable Belfry when he did, he helped move remembrance of 1915 from private grief into public culture, a shift that fed directly into the commemorations of 1965 and the building of the memorial at Tsitsernakaberd.",
         ],
@@ -815,7 +745,7 @@ export const writerArticles: Article[] = [
       },
       {
         label: "Notable works",
-        value: "The Unsilenceable Belfry, Man on the Palm of the Hand, Let There Be Light",
+        value: "The Unsilenceable Belfry, Man in the Palm of the Hand, Let There Be Light",
       },
       { label: "Literary period", value: "Soviet Armenian literature of the postwar decades" },
     ],
@@ -862,19 +792,5 @@ export const writerArticles: Article[] = [
       },
     ],
     relatedSlugs: ["yeghishe-charents", "hovhannes-tumanyan", "david-of-sassoun"],
-    sources: [
-      {
-        title: "The Heritage of Armenian Literature, Volume III",
-        publisher: "Wayne State University Press",
-      },
-      {
-        title: "Soviet Armenian Literature and the Politics of Memory",
-        publisher: "Journal of the Society for Armenian Studies",
-      },
-      {
-        title: "Paruyr Sevak: Collected Works and Commentary",
-        publisher: "Institute of Literature after Manuk Abeghian",
-      },
-    ],
   },
 ];

@@ -6,7 +6,7 @@ export const pages: StaticPagesContent = {
     metaDescription:
       "ArmEdu is an independent educational platform publishing clear, source-based articles about Armenian history, writers, literary works and cultural heritage.",
     heading: "About the platform",
-    lead: "ArmEdu is an independent educational project. We publish clear, carefully sourced articles about Armenian history, writers, literary works and cultural heritage, and we make them free to read for anyone, anywhere.",
+    lead: "ArmEdu is an independent educational project. We publish clear articles about Armenian history, writers, literary works and cultural heritage, list the works behind them so that any claim can be checked, and make them free to read for anyone, anywhere.",
     audiencesEyebrow: "Who it is for",
     audiencesTitle: "Written for four kinds of reader",
     audiencesDescription:
@@ -34,7 +34,7 @@ export const pages: StaticPagesContent = {
     principles: [
       {
         title: "Accuracy before ambition",
-        text: "Every article is built from academic histories and standard reference works, and lists its sources at the end. Where historians disagree, we say so rather than choosing a side.",
+        text: "Every article lists the works behind it, each with an ISBN or a permanent link, so a claim can be followed to something you can actually find in a library. Where historians disagree — and on several of these questions they genuinely do — we say so rather than choosing a side.",
       },
       {
         title: "Plain language",
@@ -44,13 +44,17 @@ export const pages: StaticPagesContent = {
         title: "Culture, not symbolism",
         text: "The focus is on what people wrote, built and argued about. Heritage is presented as something to understand, not something to decorate.",
       },
+      {
+        title: "Corrections",
+        text: "This is an early archive and it has contained mistakes. When one is found it is fixed in all three languages rather than quietly left in the edition nobody checked. If you find something wrong, please tell us.",
+      },
     ],
     languagesHeading: "Languages",
     languagesBody:
       "The platform is published in Eastern Armenian, Western Armenian and English. Armenian is the primary edition; the Western Armenian edition is being completed article by article. The content structure is translation-first, so each article is translated rather than rewritten, and readers can switch language without losing their place.",
     nextHeading: "What is next",
     nextBody:
-      "This is an early version. The article archive will keep growing, and images will be replaced with licensed photography and museum material. Suggestions from teachers are especially welcome.",
+      "This is an early version. The article archive will keep growing. The pictures are illustrations made for the site rather than documentary photographs, and replacing them with licensed museum material is still on the list. Suggestions and corrections from teachers are especially welcome.",
     newsletterEyebrow: "Newsletter",
     newsletterTitle: "Receive new Armenian history and literature articles",
     newsletterDescription: "One email a month, with the newest articles and classroom material.",

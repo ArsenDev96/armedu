@@ -8,6 +8,7 @@ import { Section, SectionHeading } from "@/components/ui/primitives";
 import type { Locale } from "@/data/types";
 import { getWorkGenres, getWorks } from "@/lib/content";
 import { getStaticAlternates, getUi, localePath, resolveLocale, t } from "@/lib/i18n";
+import { getImageSrc } from "@/lib/media";
 import { toWorkListingItems } from "@/lib/search";
 
 type Params = { params: Promise<{ locale: string }> };
@@ -81,6 +82,7 @@ export default async function WorksPage({ params }: Params) {
                   href={localePath(locale, `/works/${featured.slug}`)}
                   linkLabel={ui.listing.works.readSummary}
                   imageSeed={featured.imageSeed}
+                  imageSrc={getImageSrc(featured.slug)}
                   imageAlt={t(ui.article.imageAlt, { title: featured.title })}
                 />
               </div>

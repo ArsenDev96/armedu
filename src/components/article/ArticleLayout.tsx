@@ -1,18 +1,64 @@
 import Link from "next/link";
-import type { Article, ArticleSummary, Locale } from "@/data/types";
+import type { Article, ArticleSummary, Locale, SourceIdentifier } from "@/data/types";
+import { getSources } from "@/data/sources";
 import type { UiDictionary } from "@/data/ui";
 import { ArticleNav } from "@/components/article/ArticleNav";
 import { Breadcrumbs, type Crumb } from "@/components/article/Breadcrumbs";
 import { CopyLinkButton } from "@/components/article/CopyLinkButton";
 import { RelatedArticles } from "@/components/article/RelatedArticles";
 import { TableOfContents } from "@/components/article/TableOfContents";
+import { ContentPhoto } from "@/components/ui/ContentPhoto";
 import { ClockIcon } from "@/components/ui/icons";
 import { PlaceholderImage } from "@/components/ui/PlaceholderImage";
 import { Card, Pill } from "@/components/ui/primitives";
 import { getAdjacentArticles, getCategoryListing } from "@/lib/content";
 import { formatDate } from "@/lib/date";
 import { getUi, localePath, t } from "@/lib/i18n";
+import { getArticleImageSrc, IMAGE_SIZES } from "@/lib/media";
 import { estimateReadingTime } from "@/lib/reading-time";
+
+/**
+ * Renders a citation's identifier as something a reader can follow.
+ *
+ * ISBNs get a WorldCat search and DOIs a doi.org resolver, so a book with no
+ * publisher page is still reachable; archival references are printed as-is,
+ * because a fonds reference is how you request the material at the reading room
+ * desk and there is no URL that stands in for it.
+ */
+function SourceIdentifierLink({
+  identifier,
+  label,
+}: {
+  identifier: SourceIdentifier;
+  label: string;
+}) {
+  if (identifier.kind === "archive") {
+    return <span className="text-ink-3"> · {identifier.value}</span>;
+  }
+
+  const href =
+    identifier.kind === "isbn"
+      ? `https://search.worldcat.org/search?q=bn:${identifier.value}`
+      : identifier.kind === "doi"
+        ? `https://doi.org/${identifier.value}`
+        : identifier.value;
+
+  const shown = identifier.kind === "isbn" ? `ISBN ${identifier.value}` : label;
+
+  return (
+    <>
+      {" "}
+      <a
+        href={href}
+        className="text-burgundy underline underline-offset-2"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        {shown}
+      </a>
+    </>
+  );
+}
 
 export function ArticleLayout({
   locale,
@@ -29,6 +75,21 @@ export function ArticleLayout({
   const listing = getCategoryListing(locale, article.category);
   const { previous, next } = getAdjacentArticles(locale, article);
   const readingTime = estimateReadingTime(article);
+  // The bibliography is locale-independent: the same book serves every edition.
+  const sources = getSources(article.slug);
+
+  // Three distinct cases, and the caption has to tell them apart honestly:
+  // content-declared photography (credited), the artwork shipped in `public/`
+  // (an illustration, and the caption says so), and no artwork at all.
+  const heroSrc = getArticleImageSrc(article);
+  const heroAlt = article.image?.alt ?? t(ui.article.imageAlt, { title: article.title });
+  const heroCaption = article.image
+    ? article.image.credit
+      ? t(ui.article.imageCredit, { credit: article.image.credit })
+      : article.image.alt
+    : t(heroSrc ? ui.article.imageIllustrationCaption : ui.article.imagePlaceholderCaption, {
+        title: article.title,
+      });
 
   const extraToc = [
     { id: "important-dates", heading: ui.article.importantDates },
@@ -100,28 +161,16 @@ export function ArticleLayout({
 
           <figure className="mt-8 md:mt-10">
             <div className="aspect-[21/9] overflow-hidden rounded-2xl border border-line bg-paper-2">
-              {article.image ? (
-                // eslint-disable-next-line @next/next/no-img-element -- local file, no optimisation pipeline configured
-                <img
-                  src={article.image.src}
-                  alt={article.image.alt}
-                  className="h-full w-full object-cover"
-                />
-              ) : (
-                <PlaceholderImage
-                  seed={article.imageSeed}
-                  variant="wide"
-                  alt={t(ui.article.imageAlt, { title: article.title })}
-                />
-              )}
+              <ContentPhoto
+                src={heroSrc}
+                seed={article.imageSeed}
+                variant="wide"
+                alt={heroAlt}
+                sizes={IMAGE_SIZES.hero}
+                priority
+              />
             </div>
-            <figcaption className="mt-3 text-sm text-ink-3">
-              {article.image
-                ? article.image.credit
-                  ? t(ui.article.imageCredit, { credit: article.image.credit })
-                  : article.image.alt
-                : t(ui.article.imagePlaceholderCaption, { title: article.title })}
-            </figcaption>
+            <figcaption className="mt-3 text-sm text-ink-3">{heroCaption}</figcaption>
           </figure>
         </div>
       </header>
@@ -257,22 +306,21 @@ export function ArticleLayout({
             <section id="sources" className="mt-14 scroll-mt-28">
               <h2 className="text-2xl text-ink">{ui.article.sources}</h2>
               <ul className="mt-5 space-y-3 text-sm text-ink-2">
-                {article.sources.map((source) => (
+                {sources.map((source) => (
                   <li key={source.title} className="border-b border-line pb-3 last:border-0">
+                    {source.author ? <span>{source.author}. </span> : null}
                     <span className="font-medium text-ink">{source.title}</span>
-                    <span className="text-ink-3"> — {source.publisher}</span>
-                    {source.href ? (
-                      <>
-                        {" "}
-                        <a
-                          href={source.href}
-                          className="text-burgundy underline underline-offset-2"
-                          rel="noopener noreferrer"
-                          target="_blank"
-                        >
-                          {ui.article.visitSource}
-                        </a>
-                      </>
+                    <span className="text-ink-3">
+                      {" — "}
+                      {source.publisher}
+                      {source.year ? `, ${source.year}` : ""}
+                    </span>
+                    {/* The identifier is the part a reader can act on: it is what
+                        turns a citation into something findable in a library
+                        catalogue rather than a name to take on trust. */}
+                    <SourceIdentifierLink identifier={source.identifier} label={ui.article.visitSource} />
+                    {source.note ? (
+                      <span className="mt-1 block text-ink-3 italic">{source.note}</span>
                     ) : null}
                   </li>
                 ))}

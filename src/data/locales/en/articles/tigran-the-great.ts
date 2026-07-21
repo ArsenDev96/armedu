@@ -22,7 +22,7 @@ export const tigranTheGreat: Article = {
     { label: "Lived", value: "c. 140 BC – 55 BC" },
     { label: "Reigned", value: "95 BC – 55 BC" },
     { label: "Title", value: "King of Kings" },
-    { label: "Capital", value: "Tigranocerta (founded c. 83 BC)" },
+    { label: "Capital", value: "Tigranocerta (founded c. 83–77 BC)" },
     { label: "Dynasty", value: "Artaxiad (Artashesian)" },
   ],
   sections: [
@@ -32,7 +32,7 @@ export const tigranTheGreat: Article = {
       paragraphs: [
         "Tigran was born around 140 BC into the Artaxiad dynasty, the royal house founded by Artashes I about a century earlier. His youth was shaped by a difficult political reality: the Parthian Empire to the east had grown strong enough to press on Armenia's borders, and after a military defeat the Armenian court was required to send a royal hostage to the Parthian king. That hostage was Tigran, who spent a significant part of his early life at the Parthian court.",
         "Ancient historians present those years as formative rather than wasted. At the Parthian court the young prince observed how a large multi-ethnic empire was administered, how vassal kings were bound to a central ruler, and how court ceremony was used to project authority. Many of the ideas he later applied in Armenia — the title King of Kings, a network of dependent rulers, a new royal capital — echo what he had seen in exile.",
-        "When his father Tigranes I died in 95 BC, Tigran secured his release by ceding to Parthia a group of border valleys often referred to in the sources as the seventy valleys. He returned to Armenia, was crowned king, and immediately began working to recover what he had given away.",
+        "When the Armenian throne fell vacant in 95 BC, Tigran secured his release by ceding to Parthia a group of border valleys often referred to in the sources as the seventy valleys. He returned to Armenia, was crowned king, and immediately began working to recover what he had given away. Whose son he was is not settled: the ancient evidence is thin enough that historians place him variously as the son or the nephew of his predecessor.",
       ],
     },
     {
@@ -63,7 +63,7 @@ export const tigranTheGreat: Article = {
       id: "tigranocerta",
       heading: "4. Tigranocerta",
       paragraphs: [
-        "Around 83 BC Tigran founded a new capital, Tigranocerta, in the south-west of his empire. The older capital, Artashat, sat in the Ararat plain — safe, but far from the new southern and western provinces. Tigranocerta was placed to govern the empire he had actually built rather than the kingdom he had inherited.",
+        "At some point in the 80s or 70s BC — most often placed around 83, though the sources do not fix it — Tigran founded a new capital, Tigranocerta, in the south-west of his empire. The older capital, Artashat, sat in the Ararat plain — safe, but far from the new southern and western provinces. Tigranocerta was placed to govern the empire he had actually built rather than the kingdom he had inherited.",
         "Ancient sources describe a planned Hellenistic city with strong walls, a royal palace, parks and a Greek theatre. To populate it quickly, Tigran resettled inhabitants from captured Greek and Syrian cities — a common practice at the time, though the sources note that the resettled communities resented it. The city became a centre of Hellenistic culture, and Greek plays are recorded as having been performed there.",
         "The location of Tigranocerta is still debated by archaeologists, with several candidate sites in south-eastern Turkey and northern Iraq. What is clear is what happened to it: after the Roman victory of 69 BC the city was sacked, its treasury carried away, and many of the resettled inhabitants returned home. Tigranocerta never regained its brief importance.",
       ],
@@ -116,7 +116,7 @@ export const tigranTheGreat: Article = {
     "Tigran's coins show him wearing the distinctive five-pointed Armenian tiara decorated with stars and eagles, a symbol later revived on modern Armenian currency.",
     "He spent much of his youth as a royal hostage at the Parthian court and bought his freedom by ceding seventy border valleys — territory he reconquered within a decade.",
     "Greek tragedies were staged in the theatre of Tigranocerta; his son Artavasdes II wrote plays in Greek himself.",
-    "At the battle of Tigranocerta the Roman army was outnumbered several times over, which is why Lucullus is said to have remarked that the enemy looked too many for an embassy and too few for an army.",
+    "Plutarch records that when Tigran first saw how small the approaching Roman force was, he dismissed it with a line that has followed him ever since: if they have come as ambassadors there are too many of them, and if as soldiers, far too few. The Romans won the battle that followed.",
     "Rather than fight a war he could not win, Tigran surrendered his crown to Pompey in person — and received it back, keeping his kingdom for another eleven years.",
   ],
   relatedFigures: [
@@ -137,18 +137,4 @@ export const tigranTheGreat: Article = {
     },
   ],
   relatedSlugs: ["kingdom-of-urartu", "adoption-of-christianity", "battle-of-avarayr"],
-  sources: [
-    {
-      title: "The Armenian People from Ancient to Modern Times, Volume I",
-      publisher: "St. Martin's Press",
-    },
-    {
-      title: "Armenia: A Historical Atlas",
-      publisher: "University of Chicago Press",
-    },
-    {
-      title: "Life of Lucullus and Life of Pompey, in Parallel Lives",
-      publisher: "Plutarch, Loeb Classical Library",
-    },
-  ],
 };

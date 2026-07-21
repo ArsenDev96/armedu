@@ -1,6 +1,6 @@
 # ArmEdu — Project State Report
 
-**Last updated:** 2026-07-20
+**Last updated:** 2026-07-21
 **Repo:** `d:\armedu` · branch `main`
 **Status:** Armenian-first multilingual MVP, localhost-complete in three editions.
 
@@ -46,6 +46,10 @@ npm run validate:content → PASS (68 entries across 3 locales)
 npm run build            → PASS (79 pages, all statically prerendered)
 npm run test:e2e         → PASS (71/71)
 ```
+
+`validate:content` now also checks: every registered image exists on disk; every article
+has a bibliography entry; every citation carries a valid ISBN, DOI, URL or archival
+reference; and the three editions state the same numbers as each other.
 
 A separate responsive/accessibility audit ran 112 checks across 4 widths
 (375/768/1024/1440) × 28 page states × 3 locales: no horizontal overflow, no duplicate
@@ -116,14 +120,90 @@ build.
 unavailable page: Kingdom of Urartu, Bagratid Armenia, First Republic of Armenia, Raffi,
 Isahakyan, Abovyan, Wounds of Armenia, The Fool.
 
-**English (`en`)** — unchanged and complete, now under `/en`.
+**English (`en`)** — complete, under `/en`. No longer the reference text for accuracy: the
+July 2026 audit corrected it more heavily than either Armenian edition, and on two points
+(Nalbandian's given name, the Wounds of Armenia interval) the Armenian was right and the
+English was wrong.
 
 Slugs are shared and Latin across all editions; filter and category ids are shared. Only
 labels and prose are translated.
 
 ---
 
-## 7. Search, filtering, newsletter
+## 7. Imagery
+
+All 17 articles now render real artwork from `public/images/{history,writers,works}/`.
+`src/lib/media.ts` maps **slug → file** in one place (two filenames deliberately differ
+from their slug, which is why it is an explicit map and not a path convention), and
+`src/components/ui/ContentPhoto.tsx` renders `next/image` when a slug has artwork and the
+generated `PlaceholderImage` when it does not — so both branches fill the same box and no
+layout changed.
+
+Wired into: article hero (21:9, `priority`), history/writer/work cards, homepage compact
+cards, the three featured blocks, and search thumbnails. The writer artwork is landscape
+with the figure left of centre, so the narrow portrait crops use a shared focal point
+(`PORTRAIT_FOCUS`) instead of centring and cutting the face.
+
+The pictures are **illustrations, not historical photographs**, and the site says so: the
+article caption uses `imageIllustrationCaption` ("An artistic depiction, not a historical
+photograph"), and writer alt text switched from "portrait placeholder" to "illustrated
+portrait". Provenance is not recorded anywhere — see limitation 5.
+
+`validate:content` now fails if a registered file is missing from `public/`, or if a
+registry key matches no article slug in any edition.
+
+---
+
+## 8. Content audit — July 2026
+
+The whole archive was fact-checked against external sources. It found a correct skeleton
+and unreliable details, because the articles were originally drafted from a language
+model's memory and then given a bibliography assembled to look plausible.
+
+**Bibliography.** 18 of 48 citations named works that do not exist; 6 more had the wrong
+publisher; 12 were correct. The fabrications shared a signature — a prestigious publisher
+paired with a title restating the article's own subject — and two cited the same title
+under two publishers. Every `href` pointed at a publisher homepage, which always resolved
+and so concealed the problem.
+
+*Fixed:* the bibliography moved to `src/data/sources.ts`, keyed by slug and shared by all
+three editions. Fabrications removed and replaced with real studies of the same subject;
+publishers corrected; author, year and an ISBN/DOI/permalink added to every entry.
+`validate:content` now requires an identifier — an invented work cannot supply one.
+
+**Prose.** About twenty confirmed errors, fixed in all three editions. The worst:
+
+- The Plutarch remark at Tigranocerta was **inverted** — it is Tigran's line about the
+  Romans, not Lucullus's about the Armenians.
+- *The Fool*: Vardan was described as a teacher (that is Salman), Lala as seized (she
+  flees and dies of illness), and the ending as open (it closes on Vardan's vision of a
+  free Armenia at her grave). The wrong protagonist was in the card excerpt too.
+- Wrong years: *Land of Nairi* 1926 not 1922; Raffi's debut 1860 not 1858; *Anush*
+  written 1890; Ani abandoned 1735 not "the seventeenth century"; flag readopted 1990.
+- "The Eternal Love", listed twice as an Isahakyan work, does not exist.
+- Self-contradictions: 38 vs 39 letters; ten vs thirteen years; Sayat-Nova placed in two
+  different centuries.
+
+**Framing.** Three contested matters were stated as settled and are now presented as
+disputes: the 301 date for the conversion (the article had argued against its own title),
+Abovyan's disappearance (the politically charged theories had been replaced by "an
+accident"), and Sevak's death.
+
+**The About page** claimed every article was "built from academic histories and standard
+reference works". That was false and has been rewritten, with a new "Corrections"
+principle stating plainly that the archive has contained mistakes.
+
+**Two safeguards were added so this cannot recur silently.** Every citation must carry an
+ISBN, DOI, stable URL or archival reference — an invented work cannot supply one, so the
+next fabrication fails when it is written rather than in front of a reader. And the three
+editions are now checked to state the same numbers, which catches a correction applied in
+one language and forgotten in another.
+
+**What the audit did not settle.** It verified the claims it checked; it did not
+re-derive the articles from the works now cited. Any uncited specific — a number, a plot
+detail, a cause of death — should still be treated as unverified. See limitation 1.
+
+## 9. Search, filtering, newsletter
 
 - Search runs in the browser against **the active locale's bundle only**. An Armenian
   query never reaches English text.
@@ -137,39 +217,60 @@ labels and prose are translated.
 
 ---
 
-## 8. Remaining limitations
+## 10. Remaining limitations
 
-1. **Translations need a native-speaker pass.** ~30 specific judgement calls are listed
+1. **The prose was drafted from a language model's memory, not from the cited works.**
+   The July 2026 audit fixed every error it found, but it checked claims rather than
+   rebuilding the articles from sources. Uncited specifics remain unverified, and the
+   plot summaries in particular were wrong often enough that the remaining ones deserve a
+   reader who knows the texts. This is the project's largest open risk.
+2. **Translations need a native-speaker pass.** ~30 specific judgement calls are listed
    at the end of `docs/translation-glossary.md`, split by edition. None are known errors;
    all are used consistently, so each can be changed in one pass.
-2. **Western Armenian is a partial edition by design** — 8 of 17 articles pending.
-3. **Article imagery is still generated placeholder art.** Hero and the three category
-   photographs are real and untouched. Licensed photography has a defined slot:
-   `image: { src, alt, credit }` on `Article`.
-4. **The localized 404 renders outside the locale layout.** Next.js resolves `notFound()`
+3. **Western Armenian is a partial edition by design** — 8 of 17 articles pending.
+4. **`Պարույր Սեւակ` is spelled with `եւ` in 15 places** in the Armenian edition, where
+   reformed orthography would give `Սևակ`. It is a proper name, so the choice is
+   editorial rather than mechanical; logged as review item 8 in the glossary.
+5. **The article artwork has no recorded provenance or credit.** It is rendered and
+   captioned as illustration rather than as documentary photography, which is honest, but
+   nothing in the repo records who made each picture or under what licence. If these are
+   AI-generated, the captions should say so explicitly — a student looking at
+   Թումանյան's page is looking at an invented likeness, and real photographs of him
+   exist. Per-image credits have a defined slot already: `image: { src, alt, credit }` on
+   `Article` overrides the registry and renders a credit line.
+6. **The localized 404 renders outside the locale layout.** Next.js resolves `notFound()`
    to the *root* `app/not-found.tsx`, not to one nested under `[locale]`, so the 404 page
    has no header or footer. It is still correctly localized (the language is recovered
    from the pathname) and styled.
-5. **The Western Armenian orthography check is narrow by design.** It flags only the
+7. **The Western Armenian orthography check is narrow by design.** It flags only the
    unambiguous Eastern markers (`և`, `ություն`). The Eastern participle `-ված` cannot be
    told apart by spelling from correct Western forms like `սորված`, so checking it would
    flag correct Armenian and train editors to ignore the validator.
-6. **Placeholder identity** — `armedu.example.org`, centralised in `src/data/site.ts`.
-7. **No social profiles**, so those blocks are hidden rather than populated.
-8. **No deployment, CI, analytics or Search Console** — excluded by project constraint.
-9. **`npm run lint` has been removed** (it was dead — `next lint` no longer exists in
+8. **Placeholder identity** — `armedu.example.org`, centralised in `src/data/site.ts`.
+9. **No social profiles**, so those blocks are hidden rather than populated.
+10. **No deployment, CI, analytics or Search Console** — excluded by project constraint.
+11. **`npm run lint` has been removed** (it was dead — `next lint` no longer exists in
    Next 16). No ESLint was added, per the "avoid unnecessary dependencies" constraint.
 
 ---
 
-## 9. Suggested next-phase decisions
+## 11. Suggested next-phase decisions
 
-1. **Commission a native-speaker review** of both Armenian editions, working from the
-   glossary's review list. This is the highest-value next step — the architecture is
-   done; only wording judgement remains.
-2. **Decide whether Western Armenian should reach parity** (8 more articles) or stay a
+1. **Decide who verifies the content, and against what.** This is now the highest-value
+   step, ahead of anything technical. The audit corrected what it caught, but the
+   articles were never derived from the works they cite. Options range from a subject
+   specialist re-reading each article against the bibliography, to narrowing the archive
+   to the articles someone can actually vouch for. The platform is honest about its
+   uncertainty now; it is not yet authoritative.
+2. **Commission a native-speaker review** of both Armenian editions, working from the
+   glossary's review list. Separate from the accuracy question above: this one is about
+   wording and orthography, and includes the `Սեւակ` / `Սևակ` decision.
+3. **Decide whether Western Armenian should reach parity** (8 more articles) or stay a
    curated subset. The unavailable-page mechanism makes either honest.
-3. **Source real imagery** — museums/archives licensing is still the open ask.
-4. **Content expansion** — how many articles per category constitutes "launchable"?
-5. **Newsletter operations** — who reads the Supabase table, and what gets sent, per
+4. **Decide how the artwork is credited.** State where the 17 illustrations came from and
+   whether the caption should name that source (or say "AI-generated" outright). For the
+   six writers, decide whether a documented historical photograph should replace the
+   illustration.
+5. **Content expansion** — how many articles per category constitutes "launchable"?
+6. **Newsletter operations** — who reads the Supabase table, and what gets sent, per
    language segment?

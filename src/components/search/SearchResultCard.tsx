@@ -1,9 +1,10 @@
 import Link from "next/link";
 import type { CategoryId } from "@/data/types";
 import type { UiDictionary } from "@/data/ui";
-import { PlaceholderImage } from "@/components/ui/PlaceholderImage";
+import { ContentPhoto } from "@/components/ui/ContentPhoto";
 import { Card, Pill } from "@/components/ui/primitives";
 import { t } from "@/lib/i18n";
+import { getImageSrc, IMAGE_SIZES, PORTRAIT_FOCUS } from "@/lib/media";
 import type { SearchResult } from "@/lib/search";
 
 /**
@@ -18,15 +19,19 @@ export function SearchResultCard({ result, ui }: { result: SearchResult; ui: UiD
   };
 
   const portrait = result.type === "writers";
+  const src = getImageSrc(result.slug);
 
   return (
     <Card as="li" interactive className="group relative flex overflow-hidden">
       <div className="hidden w-32 shrink-0 overflow-hidden bg-paper-2 sm:block lg:w-40">
-        <PlaceholderImage
+        <ContentPhoto
+          src={src}
           seed={result.imageSeed}
           variant={portrait ? "portrait" : "motif"}
-          label={portrait ? result.title : undefined}
+          label={result.title}
           alt={t(ui.article.imageAlt, { title: result.title })}
+          sizes={IMAGE_SIZES.thumb}
+          focus={portrait ? PORTRAIT_FOCUS : undefined}
           className="h-full transition-transform duration-300 group-hover:scale-[1.03]"
         />
       </div>
