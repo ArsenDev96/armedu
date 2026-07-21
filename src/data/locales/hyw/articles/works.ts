@@ -9,7 +9,6 @@ export const workArticles: Article[] = [
     title: "Անուշ",
     excerpt:
       "Յովհաննէս Թումանեանի լեռնային սիրերգութիւնը կը հետեւի երկու երիտասարդ գիւղացիներու, որոնք կը կործանին հպարտութենէն, սովորոյթէն եւ պատուոյ խիստ օրէնքէն։",
-    readingTime: 8,
     period: "1890-ականներ",
     periodId: "19th-century",
     imageSeed: "anush",
@@ -139,7 +138,6 @@ export const workArticles: Article[] = [
     title: "Սասնայ ծռեր",
     excerpt:
       "Հայոց մեծ բանաւոր դիւցազնավէպը կը պատմէ սասունցի դիւցազուններու չորս սերունդի մասին, որոնք կը պաշտպանեն իրենց լեռնային հայրենիքը օտար հարկէն եւ արշաւանքէն։",
-    readingTime: 9,
     period: "Միջնադարեան դիւցազնավէպ",
     periodId: "medieval",
     imageSeed: "david-of-sassoun",

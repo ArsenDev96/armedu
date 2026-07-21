@@ -9,7 +9,6 @@ export const historyArticles: Article[] = [
     title: "The Kingdom of Urartu",
     excerpt:
       "Urartu was a powerful highland kingdom around Lake Van whose fortresses, canals and cuneiform records shaped the later history of the Armenian Highlands.",
-    readingTime: 8,
     period: "Ancient Armenia",
     periodId: "ancient",
     imageSeed: "kingdom-of-urartu",
@@ -128,7 +127,6 @@ export const historyArticles: Article[] = [
     title: "Mesrop Mashtots and the Armenian Alphabet",
     excerpt:
       "Around 405 CE the scholar and monk Mesrop Mashtots created an alphabet that gave Armenian its own written voice and reshaped the nation's culture.",
-    readingTime: 8,
     period: "Ancient Armenia",
     periodId: "ancient",
     imageSeed: "mesrop-mashtots-armenian-alphabet",
@@ -247,7 +245,6 @@ export const historyArticles: Article[] = [
     title: "The Adoption of Christianity",
     excerpt:
       "Armenia is traditionally recognised as the first state to adopt Christianity as its official religion, a decision that reshaped its law, art and identity.",
-    readingTime: 7,
     period: "Ancient Armenia",
     periodId: "ancient",
     imageSeed: "adoption-of-christianity",
@@ -365,7 +362,6 @@ export const historyArticles: Article[] = [
     title: "The Battle of Avarayr",
     excerpt:
       "In 451 Armenian forces under Vardan Mamikonian faced a far larger Persian army to defend their faith, losing the battle but winning religious freedom.",
-    readingTime: 7,
     period: "Battles and Events",
     periodId: "battles",
     imageSeed: "battle-of-avarayr",
@@ -484,7 +480,6 @@ export const historyArticles: Article[] = [
     title: "Bagratid Armenia and the City of Ani",
     excerpt:
       "The Bagratid kings restored Armenian statehood after two centuries of foreign rule and built Ani into one of the great cities of the medieval world.",
-    readingTime: 8,
     period: "Medieval Armenia",
     periodId: "medieval",
     imageSeed: "bagratid-armenia",
@@ -602,7 +597,6 @@ export const historyArticles: Article[] = [
     title: "The First Republic of Armenia",
     excerpt:
       "Declared in 1918 amid war and famine, the First Republic gave Armenians a modern independent state for two and a half difficult years.",
-    readingTime: 7,
     period: "Modern Armenia",
     periodId: "modern",
     imageSeed: "first-republic-of-armenia",

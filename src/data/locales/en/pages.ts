@@ -100,11 +100,11 @@ export const pages: StaticPagesContent = {
       },
       {
         heading: "Analytics",
-        body: "This version of the site runs no analytics and no tracking of any kind. Nothing about your visit is recorded or shared with third parties.",
+        body: "This version of the site runs no analytics and no tracking of any kind. Browsing is not recorded. The one exception is the newsletter: if you submit your address, it is stored by Supabase, a hosting provider acting on our behalf, which also receives your IP address as part of that request. Nothing else about your visit leaves this site.",
       },
       {
         heading: "Cookies",
-        body: "The site does not use advertising or tracking cookies. Any storage in your browser is limited to remembering interface preferences, such as your chosen language.",
+        body: "The site sets no cookies and stores nothing in your browser. Your chosen language is part of the web address, not something we save about you.",
       },
       {
         heading: "Children",

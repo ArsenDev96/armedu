@@ -165,8 +165,15 @@ export interface ArticleSummary {
   featured?: boolean;
 }
 
-/** Full article payload for a detail page. */
-export interface Article extends ArticleSummary {
+/**
+ * Full article payload for a detail page.
+ *
+ * `readingTime` is deliberately omitted: it is derived from this object's own
+ * prose by `estimateReadingTime`, never authored. When it was a stored field,
+ * the card and the article header disagreed on 28 of the 51 articles, because
+ * one rendered the stored number and the other recomputed it.
+ */
+export interface Article extends Omit<ArticleSummary, "readingTime"> {
   intro: string;
   author: string;
   updated: string;

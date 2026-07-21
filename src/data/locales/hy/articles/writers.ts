@@ -9,7 +9,6 @@ export const writerArticles: Article[] = [
     title: "Հովհաննես Թումանյան",
     excerpt:
       "Գյուղում ծնված բանաստեղծը, որի բալլադները, հեքիաթները և հանդարտ բարոյական հեղինակությունը նրան բերեցին Ամենայն հայոց բանաստեղծի կոչումը։",
-    readingTime: 8,
     period: "XIX դար",
     periodId: "19th-century",
     imageSeed: "hovhannes-tumanyan",
@@ -152,7 +151,6 @@ export const writerArticles: Article[] = [
     title: "Եղիշե Չարենց",
     excerpt:
       "Անհանգիստ մոդեռնիստ բանաստեղծ, ում համարձակ փորձարկումները և Հայաստանի հանդեպ բուռն սերը նրան դարձրին իր սերնդի որոշիչ գրական ձայնը։",
-    readingTime: 8,
     period: "XX դար",
     periodId: "20th-century",
     imageSeed: "yeghishe-charents",
@@ -292,7 +290,6 @@ export const writerArticles: Article[] = [
     title: "Րաֆֆի (Հակոբ Մելիք-Հակոբյան)",
     excerpt:
       "Վիպասանը, ով ստեղծեց հայկական պատմավեպը և գեղարվեստական խոսքով պնդեց, որ ազգը պետք է ինքը գործի իրեն փրկելու համար։",
-    readingTime: 7,
     period: "XIX դար",
     periodId: "19th-century",
     imageSeed: "raffi",
@@ -417,7 +414,6 @@ export const writerArticles: Article[] = [
     title: "Ավետիք Իսահակյան",
     excerpt:
       "Պանդխտության և կարոտի քնարերգուն, ում ժողովրդական հնչողությամբ երգերը և փիլիսոփայական պոեմը նրան դարձրին ամենասիրված հայ ձայներից մեկը։",
-    readingTime: 7,
     period: "XX դար",
     periodId: "20th-century",
     imageSeed: "avetik-isahakyan",
@@ -542,7 +538,6 @@ export const writerArticles: Article[] = [
     title: "Խաչատուր Աբովյան",
     excerpt:
       "Ուսուցիչը, լեռնագնացը և վիպասանը, ով հիմնեց նոր հայ գրականությունը՝ գրելով այն լեզվով, որով ժողովուրդն իրականում խոսում էր։",
-    readingTime: 7,
     period: "XIX դար",
     periodId: "19th-century",
     imageSeed: "khachatur-abovyan",
@@ -673,7 +668,6 @@ export const writerArticles: Article[] = [
     title: "Պարույր Սեւակ",
     excerpt:
       "Խորհրդային շրջանի բանաստեղծը, ում Կոմիտասի մասին պոեմը կոտրեց երկար լռությունը և ցեղասպանության հիշողությունը կրկին խոսելի դարձրեց հայ բանաստեղծության մեջ։",
-    readingTime: 7,
     period: "Խորհրդային շրջան",
     periodId: "soviet",
     imageSeed: "paruyr-sevak",

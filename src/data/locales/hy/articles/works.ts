@@ -9,7 +9,6 @@ export const workArticles: Article[] = [
     title: "Անուշ",
     excerpt:
       "Հովհաննես Թումանյանի լեռնային սիրո պոեմը պատմում է երկու երիտասարդ գյուղացիների մասին, որոնց կործանում են հպարտությունը, սովորույթը և պատվի խիստ օրենքը։",
-    readingTime: 8,
     period: "1890-ական թվականներ",
     periodId: "19th-century",
     imageSeed: "anush",
@@ -136,7 +135,6 @@ export const workArticles: Article[] = [
     title: "Վերք Հայաստանի",
     excerpt:
       "Խաչատուր Աբովյանի՝ ռուս-պարսկական պատերազմին նվիրված վեպը հայ ժողովրդի կենդանի խոսակցական լեզվով գրված առաջին խոշոր երկն է։",
-    readingTime: 8,
     period: "1840-ական թվականներ",
     periodId: "19th-century",
     imageSeed: "wounds-of-armenia",
@@ -262,7 +260,6 @@ export const workArticles: Article[] = [
     title: "Խենթը",
     excerpt:
       "Րաֆֆու «Խենթը» վեպը պատմում է մի երիտասարդ գյուղացու մասին, ում խենթ են անվանում, որովհետև նա պարզ տեսնում է այն, ինչ հարևանները հրաժարվում են ընդունել։",
-    readingTime: 7,
     period: "1880-ական թվականներ",
     periodId: "19th-century",
     imageSeed: "the-fool",
@@ -389,7 +386,6 @@ export const workArticles: Article[] = [
     title: "Սասնա ծռեր",
     excerpt:
       "Հայկական մեծ բանավոր էպոսը պատմում է սասունցի հերոսների չորս սերնդի մասին, որոնք պաշտպանում են իրենց լեռնային հայրենիքը օտար հարկից և արշավանքներից։",
-    readingTime: 9,
     period: "Միջնադարյան էպոս",
     periodId: "medieval",
     imageSeed: "david-of-sassoun",

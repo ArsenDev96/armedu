@@ -9,7 +9,6 @@ export const historyArticles: Article[] = [
     title: "Ուրարտուի թագավորությունը",
     excerpt:
       "Ուրարտուն Վանա լճի շրջակայքում ձևավորված հզոր լեռնային թագավորություն էր, որի ամրոցները, ջրանցքներն ու սեպագիր արձանագրությունները ձևավորեցին Հայկական լեռնաշխարհի հետագա պատմությունը։",
-    readingTime: 8,
     period: "Հին Հայաստան",
     periodId: "ancient",
     imageSeed: "kingdom-of-urartu",
@@ -128,7 +127,6 @@ export const historyArticles: Article[] = [
     title: "Մեսրոպ Մաշտոցը և հայոց այբուբենը",
     excerpt:
       "Մ.թ. մոտ 405 թվականին գիտնական և վանական Մեսրոպ Մաշտոցը ստեղծեց այբուբեն, որը հայերենին տվեց սեփական գրավոր ձայնը և վերափոխեց ազգի մշակույթը։",
-    readingTime: 8,
     period: "Հին Հայաստան",
     periodId: "ancient",
     imageSeed: "mesrop-mashtots-armenian-alphabet",
@@ -247,7 +245,6 @@ export const historyArticles: Article[] = [
     title: "Քրիստոնեության ընդունումը",
     excerpt:
       "Հայաստանն ավանդաբար ճանաչվում է որպես քրիստոնեությունը պետական կրոն հռչակած առաջին երկիրը՝ որոշում, որը վերափոխեց նրա իրավունքը, արվեստը և ինքնությունը։",
-    readingTime: 7,
     period: "Հին Հայաստան",
     periodId: "ancient",
     imageSeed: "adoption-of-christianity",
@@ -365,7 +362,6 @@ export const historyArticles: Article[] = [
     title: "Ավարայրի ճակատամարտը",
     excerpt:
       "451 թվականին Վարդան Մամիկոնյանի գլխավորած հայկական ուժերը դեմ առ դեմ կանգնեցին շատ ավելի մեծաքանակ պարսկական բանակի հետ՝ պաշտպանելով իրենց հավատքը. նրանք պարտվեցին ճակատամարտում, բայց նվաճեցին կրոնական ազատությունը։",
-    readingTime: 7,
     period: "Ճակատամարտեր և իրադարձություններ",
     periodId: "battles",
     imageSeed: "battle-of-avarayr",
@@ -484,7 +480,6 @@ export const historyArticles: Article[] = [
     title: "Բագրատունյաց Հայաստանը և Անի քաղաքը",
     excerpt:
       "Բագրատունի արքաները երկու դարի օտար տիրապետությունից հետո վերականգնեցին հայկական պետականությունը և Անին դարձրին միջնադարյան աշխարհի մեծ քաղաքներից մեկը։",
-    readingTime: 8,
     period: "Միջնադարյան Հայաստան",
     periodId: "medieval",
     imageSeed: "bagratid-armenia",
@@ -602,7 +597,6 @@ export const historyArticles: Article[] = [
     title: "Հայաստանի Առաջին Հանրապետությունը",
     excerpt:
       "Հռչակված 1918 թվականին՝ պատերազմի և սովի պայմաններում, Առաջին Հանրապետությունը հայերին տվեց ժամանակակից անկախ պետություն երկուսուկես դժվարին տարիների ընթացքում։",
-    readingTime: 7,
     period: "Ժամանակակից Հայաստան",
     periodId: "modern",
     imageSeed: "first-republic-of-armenia",

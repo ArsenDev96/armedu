@@ -9,6 +9,7 @@ import type {
 import { ALL_FILTER_ID } from "@/data/types";
 import { getAllArticles, getArticlesByCategory, getWorks, getWriters } from "@/lib/content";
 import { localePath } from "@/lib/i18n";
+import { estimateReadingTime } from "@/lib/reading-time";
 
 /**
  * Client-side search over one locale's content bundle.
@@ -72,7 +73,9 @@ export function toHistoryListingItems(
     categoryLabel: article.categoryLabel,
     title: article.title,
     excerpt: article.excerpt,
-    readingTime: article.readingTime,
+    // Derived here, and by `ArticleLayout` for the article header, from the one
+    // function — so a card and the page it opens can never disagree.
+    readingTime: estimateReadingTime(article),
     period: article.period,
     periodId: article.periodId,
     imageSeed: article.imageSeed,

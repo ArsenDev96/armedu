@@ -9,7 +9,6 @@ export const writerArticles: Article[] = [
     title: "Յովհաննէս Թումանեան",
     excerpt:
       "Գիւղէն սերած բանաստեղծը, որուն բալլադները, հեքիաթներն ու հանդարտ բարոյական հեղինակութիւնը իրեն շահեցան Ամենայն Հայոց Բանաստեղծի տիտղոսը։",
-    readingTime: 8,
     period: "19-րդ դար",
     periodId: "19th-century",
     imageSeed: "hovhannes-tumanyan",
@@ -152,7 +151,6 @@ export const writerArticles: Article[] = [
     title: "Եղիշէ Չարենց",
     excerpt:
       "Անհանգիստ արդիապաշտ բանաստեղծ մը, որուն համարձակ փորձարկումները եւ Հայաստանի հանդէպ բուռն սէրը զինք դարձուցին իր սերունդին որոշիչ գրական ձայնը։",
-    readingTime: 8,
     period: "20-րդ դար",
     periodId: "20th-century",
     imageSeed: "yeghishe-charents",
@@ -292,7 +290,6 @@ export const writerArticles: Article[] = [
     title: "Պարոյր Սեւակ",
     excerpt:
       "Խորհրդային շրջանի բանաստեղծը, որուն Կոմիտասի մասին դիւցազներգութիւնը կոտրեց երկար լռութիւն մը եւ ցեղասպանութեան յիշողութիւնը դարձեալ խօսելի դարձուց հայ ոտանաւորին մէջ։",
-    readingTime: 7,
     period: "Խորհրդային շրջան",
     periodId: "soviet",
     imageSeed: "paruyr-sevak",

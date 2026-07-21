@@ -1,6 +1,6 @@
 "use client";
 
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ALL_FILTER_ID } from "@/data/types";
 
@@ -15,30 +15,46 @@ import { ALL_FILTER_ID } from "@/data/types";
  * Typing uses `replaceState` so a search does not bury the previous page under
  * one history entry per keystroke; choosing a filter uses `pushState`, so Back
  * steps through the filters a reader actually chose.
+ *
+ * The URL is read in an effect, never during render, and this is the whole
+ * point. `useSearchParams()` during render forces React to bail the enclosing
+ * Suspense boundary out to client-side rendering, and the prerendered HTML for
+ * these three pages then contained no cards, no links and no filters at all —
+ * only a grey placeholder. Reading `window.location` after mount costs a
+ * filtered arrival one extra paint, and buys every reader and every crawler a
+ * complete page without JavaScript.
  */
 export function useListingParams(filterKey: string) {
   const pathname = usePathname();
-  const searchParams = useSearchParams();
 
-  const urlQuery = searchParams.get("q") ?? "";
-  const urlFilter = searchParams.get(filterKey) ?? ALL_FILTER_ID;
-
-  const [query, setQueryState] = useState(urlQuery);
-  const [filterId, setFilterState] = useState(urlFilter);
+  const [query, setQueryState] = useState("");
+  const [filterId, setFilterState] = useState(ALL_FILTER_ID);
 
   /** What we last wrote ourselves — anything else came from Back/Forward. */
-  const written = useRef({ q: urlQuery, f: urlFilter });
+  const written = useRef({ q: "", f: ALL_FILTER_ID });
 
   useEffect(() => {
-    if (written.current.q !== urlQuery) {
-      written.current.q = urlQuery;
-      setQueryState(urlQuery);
-    }
-    if (written.current.f !== urlFilter) {
-      written.current.f = urlFilter;
-      setFilterState(urlFilter);
-    }
-  }, [urlQuery, urlFilter]);
+    /** Adopt whatever the address bar says: on mount, and on Back/Forward. */
+    const sync = () => {
+      const params = new URLSearchParams(window.location.search);
+      const q = params.get("q") ?? "";
+      const f = params.get(filterKey) ?? ALL_FILTER_ID;
+      if (written.current.q !== q) {
+        written.current.q = q;
+        setQueryState(q);
+      }
+      if (written.current.f !== f) {
+        written.current.f = f;
+        setFilterState(f);
+      }
+    };
+
+    sync();
+    // `pushState`/`replaceState` do not fire popstate, so this only ever hears
+    // the reader's own Back and Forward, never our own writes.
+    window.addEventListener("popstate", sync);
+    return () => window.removeEventListener("popstate", sync);
+  }, [filterKey]);
 
   const write = useCallback(
     (nextQuery: string, nextFilter: string, mode: "push" | "replace") => {

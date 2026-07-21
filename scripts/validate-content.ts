@@ -31,6 +31,7 @@ import {
 } from "../src/data/types";
 import type { UiDictionary } from "../src/data/ui";
 import { getImageRegistry } from "../src/lib/media";
+import { estimateReadingTime } from "../src/lib/reading-time";
 
 /** The editions expected by the product spec. Russian must not come back. */
 const EXPECTED_LOCALES: Locale[] = ["hy", "hyw", "en"];
@@ -323,10 +324,12 @@ function validateArticle(
     "href",
   );
 
+  // `readingTime` is derived from the prose, not authored, so there is nothing
+  // to validate here — only that the prose is long enough to produce a number.
   check(
-    typeof article.readingTime === "number" && article.readingTime > 0,
-    "readingTime must be a positive number.",
-    "readingTime",
+    estimateReadingTime(article) > 0,
+    "has too little prose to produce a reading time.",
+    "sections",
   );
   check(
     /^\d{4}-\d{2}-\d{2}$/.test(article.updated),
@@ -941,6 +944,31 @@ function validateSources(report: Report): void {
         `has an invalid ${kind} identifier: "${value}".`,
       );
     }
+  }
+
+  // One identifier must not name two different works. Reusing a citation across
+  // articles is normal and expected — the same survey supports several — but two
+  // *titles* sharing an ISBN means one of them is wrong. This check exists
+  // because it caught exactly that: volumes I and II of the same series were
+  // entered with a single ISBN copied between them.
+  const titlesByIdentifier = new Map<string, Set<string>>();
+  for (const sources of Object.values(registry)) {
+    for (const source of sources) {
+      const key = `${source.identifier.kind}:${source.identifier.value}`;
+      const titles = titlesByIdentifier.get(key) ?? new Set<string>();
+      titles.add(source.title);
+      titlesByIdentifier.set(key, titles);
+    }
+  }
+
+  for (const [key, titles] of titlesByIdentifier) {
+    report.check(
+      titles.size === 1,
+      "global",
+      "source",
+      key,
+      `identifies ${titles.size} different works: ${[...titles].map((t) => `"${t}"`).join(", ")}.`,
+    );
   }
 }
 

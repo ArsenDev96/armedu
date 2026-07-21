@@ -1,4 +1,5 @@
 import { getLocaleBundle } from "@/data";
+import { estimateReadingTime } from "@/lib/reading-time";
 import type {
   Article,
   ArticleSummary,
@@ -35,11 +36,22 @@ export function getArticle(
   );
 }
 
+/**
+ * Card-shaped projection of a full article.
+ *
+ * `readingTime` is computed here rather than stored on the article, so the card
+ * and the article header always show the same number — they call the same
+ * function on the same prose.
+ */
+export function toArticleSummary(article: Article): ArticleSummary {
+  return { ...article, readingTime: estimateReadingTime(article) };
+}
+
 export function getFeaturedArticles(locale: Locale, limit = 6): ArticleSummary[] {
   const all = getAllArticles(locale);
   const featured = all.filter((article) => article.featured);
   const rest = all.filter((article) => !article.featured);
-  return [...featured, ...rest].slice(0, limit);
+  return [...featured, ...rest].slice(0, limit).map(toArticleSummary);
 }
 
 /**
@@ -55,13 +67,13 @@ export function getRelatedArticles(locale: Locale, article: Article): ArticleSum
     .map((slug) => all.find((candidate) => candidate.slug === slug))
     .filter((candidate): candidate is Article => Boolean(candidate));
 
-  if (related.length >= 3) return related.slice(0, 3);
+  if (related.length >= 3) return related.slice(0, 3).map(toArticleSummary);
 
   const fillers = all.filter(
     (candidate) =>
       candidate.slug !== article.slug && !related.some((item) => item.slug === candidate.slug),
   );
-  return [...related, ...fillers].slice(0, 3);
+  return [...related, ...fillers].slice(0, 3).map(toArticleSummary);
 }
 
 export function getWriters(locale: Locale): Writer[] {
@@ -105,7 +117,12 @@ export function getAdjacentArticles(
   const index = siblings.findIndex((candidate) => candidate.slug === article.slug);
   if (index === -1) return {};
 
-  return { previous: siblings[index - 1], next: siblings[index + 1] };
+  const previous = siblings[index - 1];
+  const next = siblings[index + 1];
+  return {
+    previous: previous ? toArticleSummary(previous) : undefined,
+    next: next ? toArticleSummary(next) : undefined,
+  };
 }
 
 /** Where a category's listing lives in this locale, for the "back to" link. */

@@ -203,7 +203,46 @@ one language and forgotten in another.
 re-derive the articles from the works now cited. Any uncited specific — a number, a plot
 detail, a cause of death — should still be treated as unverified. See limitation 1.
 
-## 9. Search, filtering, newsletter
+## 9. Project review — July 2026
+
+Six parallel reviews covered Next.js correctness, accessibility, the data layer, security
+and privacy, test coverage, and cross-edition content. The base held up: no secrets, no
+XSS surface, correct `params` handling in all 12 routes, one `<h1>` per page with no
+skipped levels, every `<nav>` named, and a no-fallback registry that is structurally
+unbreakable. Four defects were serious enough to fix immediately.
+
+**Fixed**
+
+1. **The three listing pages shipped no content.** `useSearchParams()` during render bailed
+   the Suspense boundary out to client-side rendering, so the prerendered HTML for nine
+   pages held a grey placeholder and nothing else — no cards, no links, no filters. The URL
+   is now read in an effect (`src/lib/useListingParams.ts`) and the boundaries are gone.
+   Verified in the built HTML: 7 `<article>` elements, the search field and all 7 filter
+   pills, with no bailout marker.
+2. **Western Armenian listings advertised content that edition does not have** — «Վեց
+   գրողներ» over three writers, «Աբովեանէն մինչեւ Սեւակ» without Abovyan, and meta
+   descriptions naming four absent works. Those four strings had been translated from
+   English rather than adjusted for a 9-article edition.
+3. **Western Armenian told readers an article was an "8-second read"** — `վայրկեան`
+   (second) where the unit is `րոպէ` (minute).
+4. **Reading times contradicted themselves on 28 of 51 articles**, because the card
+   rendered a stored field and the article header recomputed it. `readingTime` is no longer
+   authored: `Article` omits it, and `toArticleSummary` derives it from the prose, so the
+   two cannot diverge.
+
+**Also fixed:** the privacy policy made two false statements — that nothing is shared with
+third parties (Supabase receives the address and the IP; it is now named), and that the
+browser stores interface preferences (the code stores nothing at all).
+
+**Known and deferred** — real, but none of them misleads a reader: no `og:locale` on any
+page; the 404 has no `lang` and hydrates to a different language than it prerenders; the
+homepage timeline rail is keyboard-unreachable and the focus ring is 1.68:1 on the footer;
+`formatDate("")` silently yields 1 January 1900; `hyw` dates render with Eastern month
+names because `intlLocale` is `hy-AM`; the newsletter has no real test coverage and the
+table accepts unconstrained public writes; `validateAlternates` and `SITEMAP_LOCALE_TAGS`
+assert coverage that does not exist. Full detail in the review; these are the backlog.
+
+## 10. Search, filtering, newsletter
 
 - Search runs in the browser against **the active locale's bundle only**. An Armenian
   query never reaches English text.
@@ -217,7 +256,7 @@ detail, a cause of death — should still be treated as unverified. See limitati
 
 ---
 
-## 10. Remaining limitations
+## 11. Remaining limitations
 
 1. **The prose was drafted from a language model's memory, not from the cited works.**
    The July 2026 audit fixed every error it found, but it checked claims rather than
@@ -254,7 +293,7 @@ detail, a cause of death — should still be treated as unverified. See limitati
 
 ---
 
-## 11. Suggested next-phase decisions
+## 12. Suggested next-phase decisions
 
 1. **Decide who verifies the content, and against what.** This is now the highest-value
    step, ahead of anything technical. The audit corrected what it caught, but the

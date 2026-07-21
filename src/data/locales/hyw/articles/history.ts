@@ -9,7 +9,6 @@ export const historyArticles: Article[] = [
     title: "Մեսրոպ Մաշտոց եւ հայոց այբուբենը",
     excerpt:
       "Մօտ 405 Ք.Ե.-ին գիտնական ու կրօնաւոր Մեսրոպ Մաշտոց ստեղծեց այբուբեն մը, որ հայերէնին տուաւ իր սեփական գրաւոր ձայնը եւ վերակազմեց ազգին մշակոյթը։",
-    readingTime: 8,
     period: "Հին Հայաստան",
     periodId: "ancient",
     imageSeed: "mesrop-mashtots-armenian-alphabet",
@@ -128,7 +127,6 @@ export const historyArticles: Article[] = [
     title: "Քրիստոնէութեան ընդունումը",
     excerpt:
       "Հայաստան աւանդաբար կը ճանչցուի որպէս առաջին պետութիւնը, որ քրիստոնէութիւնը ընդունեց իբրեւ պաշտօնական կրօն. որոշում մը, որ վերակազմեց իր օրէնքը, արուեստն ու ինքնութիւնը։",
-    readingTime: 7,
     period: "Հին Հայաստան",
     periodId: "ancient",
     imageSeed: "adoption-of-christianity",
@@ -246,7 +244,6 @@ export const historyArticles: Article[] = [
     title: "Աւարայրի ճակատամարտը",
     excerpt:
       "451-ին Վարդան Մամիկոնեանի գլխաւորած հայկական ուժերը դիմագրաւեցին շատ աւելի մեծ պարսկական բանակ մը՝ իրենց հաւատքը պաշտպանելու համար, կորսնցնելով ճակատամարտը, բայց շահելով կրօնական ազատութիւնը։",
-    readingTime: 7,
     period: "Ճակատամարտեր եւ դէպքեր",
     periodId: "battles",
     imageSeed: "battle-of-avarayr",

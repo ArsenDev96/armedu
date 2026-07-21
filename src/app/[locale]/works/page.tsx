@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
-import { Suspense } from "react";
 import { Breadcrumbs } from "@/components/article/Breadcrumbs";
 import { WorksListing } from "@/components/listing/WorksListing";
 import { FeaturedItem } from "@/components/sections/FeaturedItem";
-import { ListingFallback } from "@/components/sections/ListingFallback";
 import { Section, SectionHeading } from "@/components/ui/primitives";
 import type { Locale } from "@/data/types";
 import { getWorkGenres, getWorks } from "@/lib/content";
@@ -66,7 +64,6 @@ export default async function WorksPage({ params }: Params) {
       </div>
 
       <Section>
-        <Suspense fallback={<ListingFallback />}>
           <WorksListing items={toWorkListingItems(locale, works)} filters={genres} ui={ui}>
             {featured ? (
               <div className="mt-10 md:mt-12">
@@ -88,7 +85,6 @@ export default async function WorksPage({ params }: Params) {
               </div>
             ) : null}
           </WorksListing>
-        </Suspense>
       </Section>
     </>
   );

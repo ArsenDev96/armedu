@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
-import { Suspense } from "react";
 import { Breadcrumbs } from "@/components/article/Breadcrumbs";
 import { WritersListing } from "@/components/listing/WritersListing";
 import { FeaturedItem } from "@/components/sections/FeaturedItem";
-import { ListingFallback } from "@/components/sections/ListingFallback";
 import { NewsletterForm } from "@/components/sections/NewsletterForm";
 import { Section, SectionHeading } from "@/components/ui/primitives";
 import type { Locale } from "@/data/types";
@@ -67,7 +65,6 @@ export default async function WritersPage({ params }: Params) {
       </div>
 
       <Section>
-        <Suspense fallback={<ListingFallback />}>
           <WritersListing items={toWriterListingItems(locale, writers)} filters={periods} ui={ui}>
             {featured ? (
               <div className="mt-10 md:mt-12">
@@ -112,7 +109,6 @@ export default async function WritersPage({ params }: Params) {
               </div>
             ) : null}
           </WritersListing>
-        </Suspense>
       </Section>
 
       <Section tone="tinted">

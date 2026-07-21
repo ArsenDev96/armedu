@@ -9,7 +9,6 @@ export const writerArticles: Article[] = [
     title: "Hovhannes Tumanyan",
     excerpt:
       "The village-born poet whose ballads, fairy tales and quiet moral authority earned him the title Poet of All Armenians.",
-    readingTime: 8,
     period: "19th Century",
     periodId: "19th-century",
     imageSeed: "hovhannes-tumanyan",
@@ -152,7 +151,6 @@ export const writerArticles: Article[] = [
     title: "Yeghishe Charents",
     excerpt:
       "A restless modernist poet whose bold experiments and fierce love of Armenia made him the defining literary voice of his generation.",
-    readingTime: 8,
     period: "20th Century",
     periodId: "20th-century",
     imageSeed: "yeghishe-charents",
@@ -292,7 +290,6 @@ export const writerArticles: Article[] = [
     title: "Raffi (Hakob Melik-Hakobian)",
     excerpt:
       "The novelist who invented the Armenian historical novel and used fiction to argue that a nation must act to save itself.",
-    readingTime: 7,
     period: "19th Century",
     periodId: "19th-century",
     imageSeed: "raffi",
@@ -417,7 +414,6 @@ export const writerArticles: Article[] = [
     title: "Avetik Isahakyan",
     excerpt:
       "A lyric poet of exile and longing whose folk-toned songs and philosophical epic made him one of the most beloved Armenian voices.",
-    readingTime: 7,
     period: "20th Century",
     periodId: "20th-century",
     imageSeed: "avetik-isahakyan",
@@ -542,7 +538,6 @@ export const writerArticles: Article[] = [
     title: "Khachatur Abovyan",
     excerpt:
       "The teacher, mountaineer and novelist who founded modern Armenian literature by writing in the language people actually spoke.",
-    readingTime: 7,
     period: "19th Century",
     periodId: "19th-century",
     imageSeed: "khachatur-abovyan",
@@ -673,7 +668,6 @@ export const writerArticles: Article[] = [
     title: "Paruyr Sevak",
     excerpt:
       "The Soviet-era poet whose epic about Komitas broke a long silence and made memory of the genocide speakable again in Armenian verse.",
-    readingTime: 7,
     period: "Soviet Era",
     periodId: "soviet",
     imageSeed: "paruyr-sevak",

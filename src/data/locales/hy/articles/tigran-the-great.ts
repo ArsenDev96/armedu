@@ -9,7 +9,6 @@ export const tigranTheGreat: Article = {
   period: "Հայկական թագավորություններ",
   periodId: "kingdoms",
   imageSeed: "tigran-the-great",
-  readingTime: 9,
   featured: true,
   excerpt:
     "Արտաշեսյան արքան, որը Հայաստանը վերածեց Մերձավոր Արևելքի ամենահզոր պետության, հիմնադրեց Տիգրանակերտը և դեմ առ դեմ կանգնեց Լուկուլլոսի ու Պոմպեոսի հռոմեական լեգեոնների հետ։",

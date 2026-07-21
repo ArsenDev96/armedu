@@ -9,7 +9,6 @@ export const workArticles: Article[] = [
     title: "Anush",
     excerpt:
       "Hovhannes Tumanyan's mountain love poem follows two young villagers destroyed by pride, custom and the harsh code of honour.",
-    readingTime: 8,
     period: "1890s",
     periodId: "19th-century",
     imageSeed: "anush",
@@ -136,7 +135,6 @@ export const workArticles: Article[] = [
     title: "Wounds of Armenia",
     excerpt:
       "Khachatur Abovyan's novel of the Russo-Persian war is the first major work written in the living speech of the Armenian people.",
-    readingTime: 8,
     period: "1840s",
     periodId: "19th-century",
     imageSeed: "wounds-of-armenia",
@@ -262,7 +260,6 @@ export const workArticles: Article[] = [
     title: "The Fool",
     excerpt:
       "Raffi's novel Khente follows a young villager branded a madman for seeing clearly what his neighbours refuse to admit.",
-    readingTime: 7,
     period: "1880s",
     periodId: "19th-century",
     imageSeed: "the-fool",
@@ -389,7 +386,6 @@ export const workArticles: Article[] = [
     title: "David of Sassoun",
     excerpt:
       "The great Armenian oral epic tells of four generations of Sassoun heroes who defend their mountain homeland against foreign tribute and invasion.",
-    readingTime: 9,
     period: "Medieval epic",
     periodId: "medieval",
     imageSeed: "david-of-sassoun",

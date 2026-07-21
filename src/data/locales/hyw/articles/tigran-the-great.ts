@@ -9,7 +9,6 @@ export const tigranTheGreat: Article = {
   period: "Հայկական թագաւորութիւններ",
   periodId: "kingdoms",
   imageSeed: "tigran-the-great",
-  readingTime: 9,
   featured: true,
   excerpt:
     "Արտաշէսեան արքան, որ Հայաստանը ընդարձակեց մինչեւ Մերձաւոր Արեւելքի ամենէն հզօր պետութիւնը դառնալը, հիմնեց Տիգրանակերտը եւ դիմագրաւեց Լուկուլլոսի ու Պոմպէոսի հռոմէական լեգէոնները։",

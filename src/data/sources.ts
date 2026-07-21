@@ -53,9 +53,10 @@ const SOURCES: Record<string, Source[]> = {
       author: "Richard G. Hovannisian (ed.)",
       title:
         "The Armenian People from Ancient to Modern Times, Volume I: The Dynastic Periods, from Antiquity to the Fourteenth Century",
-      publisher: "St. Martin's Press, New York",
-      year: "1997",
-      identifier: { kind: "isbn", value: "9780312101688" },
+      publisher: "Palgrave Macmillan",
+      year: "2004",
+      identifier: { kind: "isbn", value: "9781403966360" },
+      note: "First published by St. Martin's Press, New York, 1997. The two volumes are cited here in the Palgrave reissue, whose ISBNs are unambiguously per-volume.",
     },
     {
       author: "Robert H. Hewsen",
@@ -314,10 +315,10 @@ const SOURCES: Record<string, Source[]> = {
       identifier: { kind: "isbn", value: "9780814332214" },
     },
     {
-      title: "Anush: manuscript history and versions",
-      publisher: "Museum of Hovhannes Tumanyan, Yerevan",
+      title: "Hovhannes Tumanyan Museum, Yerevan",
+      publisher: "Museum of Hovhannes Tumanyan",
       identifier: { kind: "url", value: "https://tumanyan.am/eng/" },
-      note: "Documents the 1890 first version, the 1892 printing and the 1901–1902 revision.",
+      note: "Holds the manuscripts, and documents the 1890 first version of Anush, the 1892 printing and the 1901–1902 revision.",
     },
   ],
 
@@ -351,10 +352,10 @@ const SOURCES: Record<string, Source[]> = {
       author: "Richard G. Hovannisian (ed.)",
       title:
         "The Armenian People from Ancient to Modern Times, Volume II: Foreign Dominion to Statehood, the Fifteenth Century to the Twentieth Century",
-      publisher: "St. Martin's Press, New York",
-      year: "1997",
-      identifier: { kind: "isbn", value: "9780312101688" },
-      note: "For the Russo-Turkish war of 1877–78 and the Berlin reform clause the novel turns on.",
+      publisher: "Palgrave Macmillan",
+      year: "2004",
+      identifier: { kind: "isbn", value: "9781403964229" },
+      note: "First published by St. Martin's Press, New York, 1997. For the Russo-Turkish war of 1877–78 and the Berlin reform clause the novel turns on.",
     },
   ],
 

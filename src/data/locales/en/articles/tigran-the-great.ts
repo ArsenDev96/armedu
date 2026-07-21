@@ -9,7 +9,6 @@ export const tigranTheGreat: Article = {
   period: "Armenian Kingdoms",
   periodId: "kingdoms",
   imageSeed: "tigran-the-great",
-  readingTime: 9,
   featured: true,
   excerpt:
     "The Artaxiad king who expanded Armenia into the strongest state of the Near East, founded Tigranocerta, and met the Roman legions of Lucullus and Pompey.",

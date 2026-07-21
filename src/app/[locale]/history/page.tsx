@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
-import { Suspense } from "react";
 import { Breadcrumbs } from "@/components/article/Breadcrumbs";
 import { HistoryListing } from "@/components/listing/HistoryListing";
 import { FeaturedItem } from "@/components/sections/FeaturedItem";
-import { ListingFallback } from "@/components/sections/ListingFallback";
 import { Timeline } from "@/components/sections/Timeline";
 import { Section, SectionHeading } from "@/components/ui/primitives";
 import type { Locale } from "@/data/types";
@@ -11,6 +9,7 @@ import { getArticlesByCategory, getHistoryPeriods, getTimeline } from "@/lib/con
 import { formatDate } from "@/lib/date";
 import { getStaticAlternates, getUi, localePath, resolveLocale, t } from "@/lib/i18n";
 import { getArticleImageSrc } from "@/lib/media";
+import { estimateReadingTime } from "@/lib/reading-time";
 import { toHistoryListingItems } from "@/lib/search";
 
 type Params = { params: Promise<{ locale: string }> };
@@ -70,7 +69,6 @@ export default async function HistoryPage({ params }: Params) {
       </div>
 
       <Section>
-        <Suspense fallback={<ListingFallback />}>
           <HistoryListing items={items} filters={periods} ui={ui}>
             {featured ? (
               <div className="mt-10 md:mt-12">
@@ -89,7 +87,7 @@ export default async function HistoryPage({ params }: Params) {
                   imageAlt={featured.image?.alt ?? t(ui.article.imageAlt, { title: featured.title })}
                   meta={
                     <p className="text-sm text-ink-3">
-                      {t(ui.article.readingTime, { minutes: featured.readingTime })} ·{" "}
+                      {t(ui.article.readingTime, { minutes: estimateReadingTime(featured) })} ·{" "}
                       {ui.article.updated} {formatDate(featured.updated, locale)}
                     </p>
                   }
@@ -97,7 +95,6 @@ export default async function HistoryPage({ params }: Params) {
               </div>
             ) : null}
           </HistoryListing>
-        </Suspense>
       </Section>
 
       <Section tone="surface">
