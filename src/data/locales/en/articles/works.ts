@@ -33,7 +33,7 @@ export const workArticles: Article[] = [
         paragraphs: [
           "Anush, a young woman from a Lori village, loves Saro, a shepherd who tends flocks in the high pastures. Their love is mutual and openly known among the young people of the village, and the early sections of the poem move through spring festivals, songs and the ordinary joys of highland life. Anush's brother Mosi is a proud young man who takes the family name seriously.",
           "At a village wedding the young men wrestle, and there is a firm local rule: an opponent must never be thrown on his back, because to be pinned that way is a public humiliation. In the excitement of the match Saro forgets himself and throws Mosi flat. The crowd laughs. Mosi rises with the shame burning in him and swears revenge on the man who has disgraced his family before the whole village.",
-          "The two flee together into the mountains, and Anush is later driven from her father's house. Mosi tracks his sister's beloved down and shoots him. When Anush learns that Saro is dead she loses her reason, wanders the gorges calling his name, and throws herself into the river. The poem closes on the mountains, unchanged and indifferent, and on the village that will keep repeating the same customs."
+          "Saro escapes into the mountains and lives there as a fugitive, and Anush, who goes on meeting him in secret, is driven from her father's house. Mosi tracks his sister's beloved down and shoots him. When Anush learns that Saro is dead she loses her reason, wanders the gorges calling his name, and throws herself into the river. The poem closes on the mountains, unchanged and indifferent, and on the village that will keep repeating the same customs."
         ]
       },
       {
@@ -41,7 +41,7 @@ export const workArticles: Article[] = [
         heading: "Main characters",
         paragraphs: [
           "Tumanyan builds the tragedy out of four figures, each of whom acts reasonably by the standards of the world they live in. Nobody in the poem is a villain in the ordinary sense, and that is precisely what makes the ending so painful for readers.",
-          "The supporting figures of the village crowd, the old women and the wandering fortune teller are almost a character in themselves, voicing the collective opinion that decides what is shameful and what is honourable."
+          "The supporting figures of the village crowd, the old women and the wandering fortune teller form almost a character in themselves, voicing the collective opinion that decides what is shameful and what is honourable."
         ],
         bullets: [
           "Anush: a spirited village girl whose love is total and unguarded; her descent into madness after Saro's death is one of the most famous passages in Armenian poetry.",
@@ -81,7 +81,7 @@ export const workArticles: Article[] = [
     ],
     keyFacts: [
       { label: "Author", value: "Hovhannes Tumanyan (1869-1923)" },
-      { label: "Written", value: "First version 1890-1892; final version completed 1901" },
+      { label: "Written", value: "First version 1890-1892; final version completed 1901-1902" },
       { label: "First published", value: "1892, with the revised text published in 1903" },
       { label: "Genre", value: "Narrative poem, romantic tragedy in verse" },
       { label: "Setting", value: "Villages and mountain pastures of Lori, northern Armenia" },
@@ -89,7 +89,7 @@ export const workArticles: Article[] = [
     ],
     importantDates: [
       { year: "1892", event: "The first version, written in 1890, is printed in Tumanyan's second collection of poems in Moscow." },
-      { year: "1901", event: "Tumanyan completes the expanded and final version of Anush." },
+      { year: "1901", event: "Tumanyan completes the expanded version of Anush, finished in its final form the following year." },
       { year: "1912", event: "Armen Tigranian's opera Anush premieres in Alexandropol, today's Gyumri." },
       { year: "1935", event: "A revised staging of the opera enters the permanent repertoire of the Yerevan opera house." },
       { year: "1983", event: "A film version of Tigranian's opera is made for television, following a silent feature film of the poem in 1931." }
@@ -210,7 +210,7 @@ export const workArticles: Article[] = [
       { label: "First published", value: "1858 in Tiflis, ten years after the author's disappearance" },
       { label: "Genre", value: "Historical novel with strong romantic and didactic elements" },
       { label: "Setting", value: "Kanaker, Yerevan and eastern Armenia during the Russo-Persian war of 1826-1828" },
-      { label: "Main characters", value: "Aghasi, Taguhi, his mother, the narrator, Hossein Khan and Hasan Khan" }
+      { label: "Main characters", value: "Aghasi, Taguhi, Aghasi's mother, the narrator, Hossein Khan and Hasan Khan" }
     ],
     importantDates: [
       { year: "1826-1828", event: "The Russo-Persian war, the historical events depicted in the novel." },
@@ -283,7 +283,7 @@ export const workArticles: Article[] = [
         paragraphs: [
           "Vardan is a young man who moves among the villages of the Armenian highlands trading and carrying messages. His plain speaking, his refusal to bow to local powers and his insistence that the villagers could defend themselves earn him the nickname Khente, the fool. He falls in love with Lala, the daughter of the village elder Khacho — a girl raised as a boy under the name Stepanik, so that neither the Kurdish chief Fattah Bey nor the tax collector Thomas Effendi would learn a marriageable daughter lived in the house. Their relationship becomes the emotional centre of the book.",
           "As the Russo-Turkish war spreads, the villages are exposed to raids and reprisals. Raffi describes the destruction of homes, the flight of refugees over mountain passes and the helplessness of communities that have no weapons and no leadership. Vardan works to organise resistance and to move people to safety, while the notables hesitate and negotiate.",
-          "When the Ottoman army besieges Bayazit, Vardan volunteers to carry a message through the enemy lines to the Russian general Ter-Ghukasov, and the relief of the town turns on his success. Lala flees with the refugee column across the border to Vagharshapat, where she falls ill and dies. Vardan, released at last, finds only her grave. The novel closes there with his vision of a future Armenia — free, with an elected parliament, equal rights for women, and its cities called by their Armenian names again — an ending that has been read ever since as either prophecy or wishful thinking."
+          "When the Ottoman army besieges Bayazit, Vardan volunteers to carry a message through the enemy lines to the Russian general Ter-Ghukasov, and the relief of the town turns on his success. Lala flees with the refugee column across the border to Vagharshapat, where she falls ill and dies. Vardan, reaching Vagharshapat at last, finds only her grave. The novel closes there with his vision of a future Armenia — free, with an elected parliament, equal rights for women, and its cities called by their Armenian names again — an ending that has been read ever since as either prophecy or wishful thinking."
         ]
       },
       {
@@ -417,7 +417,7 @@ export const workArticles: Article[] = [
         heading: "Main characters",
         paragraphs: [
           "The four branches are held together by a single family line, and each generation embodies a different aspect of heroism: founding, guarding, liberating and waiting. The women of the epic are unusually strong figures who often drive the plot.",
-          "Alongside the human characters stands David's horse Kurkik Jalali, a speaking, flying steed inherited across generations, and the Lightning Sword, both of which behave almost as characters in their own right."
+          "Alongside the human characters stand David's horse Kurkik Jalali, a speaking, flying steed inherited across generations, and the Lightning Sword, both of which behave almost as characters in their own right."
         ],
         bullets: [
           "Sanasar and Baghdasar: the twin founders of Sassoun, born miraculously and strengthened by a magical spring.",
