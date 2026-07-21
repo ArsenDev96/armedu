@@ -160,7 +160,7 @@ export function ArticleLayout({
           </div>
 
           <figure className="mt-8 md:mt-10">
-            <div className="aspect-[21/9] overflow-hidden rounded-2xl border border-line bg-paper-2">
+            <div className="aspect-[4/3] overflow-hidden rounded-2xl border border-line bg-paper-2 sm:aspect-[3/2] lg:aspect-[16/9]">
               <ContentPhoto
                 src={heroSrc}
                 seed={article.imageSeed}
@@ -178,21 +178,24 @@ export function ArticleLayout({
       <div className="container-page py-10 md:py-14">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_19rem] lg:gap-14">
           {/* On mobile this block sits directly below the introduction; on desktop it
-              becomes a sticky right sidebar. */}
-          <aside className="space-y-5 lg:sticky lg:top-24 lg:order-2 lg:self-start">
+              becomes a sticky right sidebar. It holds the table of contents alone so
+              it stays shorter than the viewport and never strands content below it. */}
+          <aside className="lg:sticky lg:top-24 lg:order-2 lg:self-start">
             <TableOfContents
               sections={article.sections}
               extra={extraToc}
               heading={ui.article.tableOfContents}
             />
+          </aside>
 
-            <Card className="p-5">
+          <div className="lg:order-1">
+            <Card className="mb-10 p-5 md:p-6">
               <h2 className="font-sans text-xs font-semibold tracking-[0.16em] text-ink-3 uppercase">
                 {ui.article.keyFacts}
               </h2>
-              <dl className="mt-4 space-y-3 text-sm">
+              <dl className="mt-4 grid gap-x-8 gap-y-3 text-sm sm:grid-cols-2">
                 {article.keyFacts.map((fact) => (
-                  <div key={fact.label} className="border-b border-line pb-3 last:border-0 last:pb-0">
+                  <div key={fact.label} className="border-b border-line pb-3">
                     <dt className="text-ink-3">{fact.label}</dt>
                     <dd className="mt-0.5 font-medium text-ink">{fact.value}</dd>
                   </div>
@@ -200,26 +203,6 @@ export function ArticleLayout({
               </dl>
             </Card>
 
-            <Card className="p-5">
-              <h2 className="font-sans text-xs font-semibold tracking-[0.16em] text-ink-3 uppercase">
-                {ui.article.relatedTopics}
-              </h2>
-              <ul className="mt-4 flex flex-wrap gap-2">
-                {related.map((item) => (
-                  <li key={item.slug}>
-                    <Link
-                      href={localePath(locale, item.href)}
-                      className="inline-flex rounded-full border border-line px-3 py-1.5 text-xs font-medium text-ink-2 transition hover:border-burgundy hover:text-burgundy"
-                    >
-                      {item.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </Card>
-          </aside>
-
-          <div className="lg:order-1">
             <div className="prose-article max-w-none">
               {article.sections.map((section) => (
                 <section key={section.id} id={section.id} className="scroll-mt-28">

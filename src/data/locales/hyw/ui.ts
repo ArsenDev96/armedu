@@ -220,7 +220,7 @@ export const ui: UiDictionary = {
     imagePlaceholderCaption:
       "Պատկերի տեղապահ՝ {title}։ Գործարկումէն առաջ փոխարինել արտօնագրուած պատկերով։",
     imageIllustrationCaption:
-      "Պատկերազարդում՝ {title}։ Գեղարուեստական պատկերում մըն է, ոչ թէ պատմական լուսանկար։",
+      "Պատկերազարդում՝ {title}։ Գեղարուեստական պատկերում մըն է։",
     imageAlt: "Պատկերազարդում՝ {title}",
     portraitAlt: "Դիմանկարի տեղապահ՝ {name}",
     portraitIllustrationAlt: "{name}-ի պատկերազարդ դիմանկարը",
