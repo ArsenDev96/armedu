@@ -223,6 +223,120 @@ Note what this implies about the safeguard: the cross-edition check compares the
 editions against *each other*, so an error present in all three — as 1939 was — passes.
 It catches divergence, not shared mistakes.
 
+**Western Armenian language pass over the whole `hyw/` locale (22 July 2026).** All nine
+files reviewed. Orthography was already sound — zero `և`, zero `-ություն`, zero Eastern
+`-յան` — so the errors were lexical and syntactic. Four were systematic:
+
+1. **Negative concord** (11 sites, `pages.ts` / `ui.ts` / `articles/history.ts`). Armenian
+   negates the verb as well as the pronoun; the edition had `ոչ մէկ X կը հաւաքէ`, which
+   states the opposite of what it means. The `hy` edition had it right (`որևէ … չի
+   օգտագործում`), which is what confirmed the intent. Now `որեւէ X չի հաւաքեր`.
+2. **`ամենէն` → `ամէնէն`** (18 sites). `articles/history.ts` used the non-classical form
+   throughout while every other file in the locale used `ամէնէն`.
+3. **`author` field** — `articles/history.ts` said `ArmEdu խմբագրական խումբ`, the other two
+   article files `ArmEdu-ի խմբագրական կազմ`. Normalised.
+4. **`lifespan` format** — three conventions in one locale (`1875-էն 1957`, `1869-1923`,
+   `1869–1923`). Normalised to the en dash.
+
+Also fixed: `ArmEduի` missing its hyphen (2), a missing imperative `՛`, `հետեւցնել`
+(deduce) for "trace to", `բարի գալուստ են` calqued from "are welcome", intransitive
+`վիճաբանիլ` given a direct object, `Սկսի՛լ` (շեշտ on an infinitive), `դասաւորուած`
+(arranged) where the bullet beside it said `ձեւաւորուած` (designed), `լիամեթրաժ` (Russian
+calque), `զրուցագիրներու` (writers) for oral reciters, and a bare `Մոսկուա` after a static
+verb.
+
+**Left for a native editor**, all judgment calls rather than errors: the `ը`→`ն` sweep
+before `եւ` specifically; `Կաթիլ մը մեղր` vs `Մէկ կաթիլ մեղրը` and `Գիրք ճամբու` vs `Գիրք
+ճանապարհի` (same work, two titles across files); `պոէմ` vs `քերթուած` used
+interchangeably; two dangling-participle calques opening `articles/works.ts`; and
+`ոչ-ցանկալի նամակ` for spam.
+
+**Eastern Armenian pass over the whole `hy/` locale (22 July 2026).** All nine files
+reviewed. `hy` is the strongest of the three editions: orthography is uniformly reformed,
+negative concord is correct almost everywhere, and it independently corroborated eight of
+the `hyw` fixes above (`կոլաժ`, `կոչ էր անում`, `Նրան պահեցին Երևանում`, `ստիպված է եղել`,
+`Որոշ ժամանակակիցներ`, `աշխարհայացք`, `էպիգրամներ`, `զրույցասաց`). Note `ձգել`: correct in
+`hy` (to stretch), which is exactly why it was wrong in `hyw`, where it means *to abandon*.
+
+Systematic fixes:
+
+1. **`Սեւակ` → `Սևակ`** (15 sites). This closes the open item in §12.2. It was not a
+   pending decision but a mixed state — `ui.ts` already used the reformed `Սևակ`, and
+   `articles/writers.ts` used both. `hyw` correctly keeps `Սեւակ` (classical orthography).
+2. **`author` field** — 4 of 17 entries said `ArmEdu խմբագրական խումբ` without the `-ի`.
+3. **`lifespan`** — 27 values normalised to the en dash.
+4. **Era abbreviation** — `history.ts` used `Ք.ա.`/`Ք.հ.`, the article files `մ.թ.ա.` (48×).
+
+Individual errors: "Մինչ նա" (*while he*) for "before him", contradicting the parallel
+"Նրանից հետո" in the next sentence; `երկու մարդիկ` (numerals take the singular); "հայ
+արքաները կառավարեցին" where it was Tigran alone; "ևս մեկ տասնամյակ" against the same
+article's "ևս տասնմեկ տարի" for 66–55 BC; `երկրորդել` (*to second a motion*) for "split in
+two"; "նրա պատրաստած գիտնականները" for the students he trained; `դասավորված` (arranged)
+where the adjacent bullet says `Նախագծված`; a doubled "անց … հետո" that also dropped
+Sahak's death; a plural verb on a singular subject; one negative-concord slip
+(`թողել էր … ոչ մի`); `ոչնչացվել էր` for `ոչնչացվեց`; `մինչև` with a finite verb; and
+`հասցնել` (*to deliver*) for tracing a claim to a book.
+
+Also: the `unavailable` UI string claimed the **Armenian** edition is being completed
+article by article. `hy` is complete (17/17) and the About page says Western Armenian is
+the one in progress — rewritten.
+
+**Left for a decision:** `articles/writers.ts` numbers all 32 of its section headings
+("1. Վաղ տարիները…"). No other file in any of the three editions does. Either strip them
+or apply the convention across the archive.
+
+### English edition (`locales/en/`) — full pass
+
+All nine files re-read. `en` is factually the soundest of the three and carries no
+orthographic burden, so the findings are concentrated in consistency and in three facts
+the cross-edition validator could not see because they were wrong in every edition.
+
+*Facts fixed:*
+
+- "for roughly fourteen years **Armenian kings** governed" Antioch — it was Tigran alone,
+  and the surrounding clauses are singular. (Corrected in `hy` during the previous pass;
+  `en` and `hyw` still carried it.)
+- The same Tigran article said "for roughly **two decades** an Armenian king ruled
+  Antioch" in §significance against "roughly **fourteen years**" in §expansion, 83–69 BC.
+  Wrong in all three editions; fixed in all three.
+- Bagratid intro: "ending more than **two centuries** without an Armenian monarchy", and
+  the related-figure note "crowned in 885 after two centuries without an Armenian
+  monarchy". The monarchy was abolished in 428 — 457 years, and this file's own Avarayr
+  article states the 428 date. The "two centuries" figure belongs to Arab *administration*
+  (7th c. → 885), which the article states correctly elsewhere. Corrected to four
+  centuries in `en` and `hy`.
+- `importantDates` gave a flat "83 BC — … founds Tigranocerta" while §tigranocerta says
+  the sources do not fix the date. Softened in all three editions.
+- Abovyan "the two men reached the summit" of Ararat — Parrot's party was six.
+- `Mushkan Nusalavurt` → `Niusalavurt`, matching `hy`.
+
+*Contradiction fixed:* the Sevak article said the village "was renamed in his honour" in
+one paragraph and "renamed … after the title of his most famous poem" in another. The
+rename to Zangakatun predates the 1959 poem, so both causal claims are dropped in favour
+of the undisputed fact that the name and the title are the same word.
+
+*`ui.ts`:* `unavailable.body` in the **English** dictionary told the reader "The Western
+Armenian edition is being built article by article" — copied from `hyw` and never
+adapted. The same class of bug as the `hy` one above; all three now name their own
+edition.
+
+*Consistency (English-only, no counterpart in the Armenian editions):*
+
+- `lifespan` used three conventions at once — `1869-1923` (works, 12), `1875 to 1957`
+  (writers + history, 30), `189–160 BC` (3). Normalised to the en dash, matching `hy`
+  and `en/writers.ts`. Ten other four-digit year ranges normalised with them.
+- Six spelled-out compound numerals were unhyphenated (`fifty four`, `eighty second`,
+  `thirty eight`, `forty seven` ×2, `fifty three`), plus `self reliance`, `self defence`,
+  `single handedly`, `pre revolutionary`, `full length` and two attributive `first hand`.
+- Ten attributive century phrases missing their hyphen (`the eighteenth century
+  troubadour`). The five remaining unhyphenated instances are noun uses and correct.
+- **Heading case.** Five of the six history articles used Title Case ("The Land and Its
+  People"); the Tigran article and all ten writers/works articles used sentence case.
+  27 headings normalised to sentence case, the majority convention. Section `id`s — and
+  therefore anchors and the table of contents — are untouched.
+
+British spelling is already uniform across the edition; no American forms were found.
+
 ## 9. Project review — July 2026
 
 Six parallel reviews covered Next.js correctness, accessibility, the data layer, security

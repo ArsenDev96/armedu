@@ -232,7 +232,7 @@ export const ui: UiDictionary = {
   unavailable: {
     eyebrow: "Not yet translated",
     heading: "This article is not available in English yet",
-    body: "The Western Armenian edition is being built article by article, and this one has not been translated yet. It is available in the languages below.",
+    body: "The archive is being translated article by article, and this one is not in English yet. It is available in the languages below.",
     readInOther: "Read in {language}",
     backToCategory: "Back to {category}",
     metaTitle: "Not available in English",

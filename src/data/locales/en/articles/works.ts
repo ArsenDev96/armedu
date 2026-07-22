@@ -22,7 +22,7 @@ export const workArticles: Article[] = [
         id: "historical-context",
         heading: "Historical context",
         paragraphs: [
-          "Tumanyan grew up in the Lori highlands of northern Armenia, a region of steep gorges, stone villages and seasonal pastures. In the late nineteenth century life there was still shaped by clan loyalty, arranged marriage and an unwritten code of family honour that a young man was expected to defend with his body. Tumanyan knew these customs from the inside, and he wrote about them without either mocking them or pretending they were harmless.",
+          "Tumanyan grew up in the Lori highlands of northern Armenia, a region of steep gorges, stone villages and seasonal pastures. In the late nineteenth century, life there was still shaped by clan loyalty, arranged marriage and an unwritten code of family honour that a young man was expected to defend with his body. Tumanyan knew these customs from the inside, and he wrote about them without either mocking them or pretending they were harmless.",
           "The 1890s were also a period when Armenian writers were consciously building a modern national literature in the Eastern Armenian literary language. Rather than imitating European models, Tumanyan turned to village speech, folk song and local legend. Anush was his attempt to give the everyday tragedy of ordinary highlanders the weight and dignity usually reserved for epic subjects.",
           "Tumanyan wrote the first version in 1890 and printed it in 1892 in his second collection of poems, published in Moscow; he had considered sending it to a magazine and was advised to keep it for a book. He was not satisfied with it and kept reworking the poem for another decade. The version completed in 1901 and 1902, and published in the Tiflis collection of 1903, is the one read in schools today and the one that formed the basis of the opera."
         ]
@@ -80,8 +80,8 @@ export const workArticles: Article[] = [
       }
     ],
     keyFacts: [
-      { label: "Author", value: "Hovhannes Tumanyan (1869-1923)" },
-      { label: "Written", value: "First version 1890-1892; final version completed 1901-1902" },
+      { label: "Author", value: "Hovhannes Tumanyan (1869–1923)" },
+      { label: "Written", value: "First version 1890–1892; final version completed 1901–1902" },
       { label: "First published", value: "1892, with the revised text published in 1903" },
       { label: "Genre", value: "Narrative poem, romantic tragedy in verse" },
       { label: "Setting", value: "Villages and mountain pastures of Lori, northern Armenia" },
@@ -111,17 +111,17 @@ export const workArticles: Article[] = [
     relatedFigures: [
       {
         name: "Hovhannes Tumanyan",
-        lifespan: "1869-1923",
+        lifespan: "1869–1923",
         description: "The poet who wrote Anush and is widely regarded as the national poet of Armenia."
       },
       {
         name: "Armen Tigranian",
-        lifespan: "1879-1950",
+        lifespan: "1879–1950",
         description: "Composer who turned the poem into an opera built on Armenian folk melodies."
       },
       {
         name: "Komitas",
-        lifespan: "1869-1935",
+        lifespan: "1869–1935",
         description: "Priest and musicologist whose collection of village songs made folk-based works like Anush possible."
       }
     ],
@@ -200,20 +200,20 @@ export const workArticles: Article[] = [
         paragraphs: [
           "Abovyan vanished on the morning of 14 April 1848 and was never found, so he never saw his book in print. Wounds of Armenia was finally published in Tiflis in 1858, and it quickly became the model for the writers who followed. Raffi, Perch Proshian and Ghazaros Aghayan all built on the vernacular prose that Abovyan pioneered.",
           "The novel has been reprinted continuously, translated into several languages, adapted for the stage and screen, and set as a core text in Armenian schools. Abovyan's name is attached to a city, a state pedagogical university and countless schools, reflecting his double status as writer and educator.",
-          "For students, the book is valuable both as literature and as a historical document. It preserves the vocabulary, beliefs and daily rituals of early nineteenth century Armenian village life in a detail that few other sources match."
+          "For students, the book is valuable both as literature and as a historical document. It preserves the vocabulary, beliefs and daily rituals of early nineteenth-century Armenian village life in a detail that few other sources match."
         ]
       }
     ],
     keyFacts: [
-      { label: "Author", value: "Khachatur Abovyan (1809-1848)" },
+      { label: "Author", value: "Khachatur Abovyan (1809–1848)" },
       { label: "Written", value: "Composed around 1841 in Yerevan" },
       { label: "First published", value: "1858 in Tiflis, ten years after the author's disappearance" },
       { label: "Genre", value: "Historical novel with strong romantic and didactic elements" },
-      { label: "Setting", value: "Kanaker, Yerevan and eastern Armenia during the Russo-Persian war of 1826-1828" },
+      { label: "Setting", value: "Kanaker, Yerevan and eastern Armenia during the Russo-Persian war of 1826–1828" },
       { label: "Main characters", value: "Aghasi, Taguhi, Aghasi's mother, the narrator, Hossein Khan and Hasan Khan" }
     ],
     importantDates: [
-      { year: "1826-1828", event: "The Russo-Persian war, the historical events depicted in the novel." },
+      { year: "1826–1828", event: "The Russo-Persian war, the historical events depicted in the novel." },
       { year: "1841", event: "Abovyan completes the manuscript of Wounds of Armenia." },
       { year: "1848", event: "Abovyan disappears near Yerevan and is never seen again." },
       { year: "1858", event: "The novel is published for the first time, in Tiflis." },
@@ -223,7 +223,7 @@ export const workArticles: Article[] = [
       heading: "Why Wounds of Armenia matters",
       paragraphs: [
         "Wounds of Armenia changed what Armenian literature could be. By writing a serious book in the language people actually spoke, Abovyan made literature available to villagers, women and children who had no training in classical Grabar. Every modern Eastern Armenian novel, story and play stands on the ground he cleared.",
-        "The book also gave Armenians a modern hero. Aghasi is not a saint or a king but an ordinary young man who acts, and that shift from sacred and dynastic subjects to the life of the people is one of the defining features of nineteenth century national literatures across Europe. Abovyan made the Armenian version of that shift."
+        "The book also gave Armenians a modern hero. Aghasi is not a saint or a king but an ordinary young man who acts, and that shift from sacred and dynastic subjects to the life of the people is one of the defining features of nineteenth-century national literatures across Europe. Abovyan made the Armenian version of that shift."
       ]
     },
     interestingFacts: [
@@ -236,17 +236,17 @@ export const workArticles: Article[] = [
     relatedFigures: [
       {
         name: "Khachatur Abovyan",
-        lifespan: "1809-1848",
+        lifespan: "1809–1848",
         description: "Writer and educator whose novel established modern Eastern Armenian as a literary language."
       },
       {
         name: "Friedrich Parrot",
-        lifespan: "1791-1841",
+        lifespan: "1791–1841",
         description: "German naturalist whose 1829 Ararat expedition Abovyan joined as interpreter and guide."
       },
       {
         name: "Raffi",
-        lifespan: "1835-1888",
+        lifespan: "1835–1888",
         description: "Novelist of the next generation who built on Abovyan's vernacular prose in his historical fiction."
       }
     ],
@@ -331,15 +331,15 @@ export const workArticles: Article[] = [
       }
     ],
     keyFacts: [
-      { label: "Author", value: "Raffi, pen name of Hakob Melik-Hakobian (1835-1888)" },
-      { label: "Written", value: "1879-1880" },
+      { label: "Author", value: "Raffi, pen name of Hakob Melik-Hakobian (1835–1888)" },
+      { label: "Written", value: "1879–1880" },
       { label: "First published", value: "Serialised in Mshak in Tiflis in 1880; first book edition Shusha, 1881" },
       { label: "Genre", value: "Historical and political novel with romantic elements" },
-      { label: "Setting", value: "Bayazit and Alashkert in the Ottoman Empire, and Vagharshapat across the Russian border, during the Russo-Turkish war of 1877-1878" },
+      { label: "Setting", value: "Bayazit and Alashkert in the Ottoman Empire, and Vagharshapat across the Russian border, during the Russo-Turkish war of 1877–1878" },
       { label: "Main characters", value: "Vardan, Lala (Stepanik), Khacho, Thomas Effendi, Salman, Melik-Mansur" }
     ],
     importantDates: [
-      { year: "1877-1878", event: "The Russo-Turkish war, the historical background of the novel." },
+      { year: "1877–1878", event: "The Russo-Turkish war, the historical background of the novel." },
       { year: "1878", event: "The Treaty of Berlin promises reforms for Ottoman Armenians that are never implemented." },
       { year: "1880", event: "The Fool is published and circulates rapidly among young Armenian readers." },
       { year: "1888", event: "Raffi dies in Tiflis; his funeral becomes a large public demonstration." },
@@ -362,17 +362,17 @@ export const workArticles: Article[] = [
     relatedFigures: [
       {
         name: "Raffi",
-        lifespan: "1835-1888",
+        lifespan: "1835–1888",
         description: "Novelist whose historical fiction shaped Armenian national consciousness in the late nineteenth century."
       },
       {
         name: "Khachatur Abovyan",
-        lifespan: "1809-1848",
+        lifespan: "1809–1848",
         description: "Earlier writer whose vernacular prose made Raffi's popular novels possible."
       },
       {
         name: "Grigor Artsruni",
-        lifespan: "1845-1892",
+        lifespan: "1845–1892",
         description: "Editor of the newspaper Mshak, which published and championed Raffi's work."
       }
     ],
@@ -488,17 +488,17 @@ export const workArticles: Article[] = [
     relatedFigures: [
       {
         name: "Garegin Srvandztiants",
-        lifespan: "1840-1892",
+        lifespan: "1840–1892",
         description: "Bishop and ethnographer who first recorded and published the epic in the 1870s."
       },
       {
         name: "Hovhannes Tumanyan",
-        lifespan: "1869-1923",
+        lifespan: "1869–1923",
         description: "Poet whose 1902 retelling made the David branch familiar to readers across the Armenian world."
       },
       {
         name: "Yervand Kochar",
-        lifespan: "1899-1979",
+        lifespan: "1899–1979",
         description: "Sculptor whose equestrian David of Sassoun became a national symbol in Yerevan."
       }
     ],

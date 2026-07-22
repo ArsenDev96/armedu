@@ -49,7 +49,7 @@ export const historyArticles: Article[] = [
         heading: "Expansion of the Armenian Empire",
         paragraphs: [
           "At its greatest extent, in the late 80s and 70s BC, the empire Tigran governed reached from the Caspian Sea in the east to the Mediterranean in the west, and from the Kura river in the north to the edge of Judaea in the south. It was not a unified state in the modern sense. Armenia proper formed the core, while the outer regions were kingdoms and cities that paid tribute and accepted Tigran's overlordship while keeping their own institutions.",
-          "The most significant acquisition was Syria. In 83 BC, exhausted by dynastic wars, the nobles of the Seleucid kingdom invited Tigran to take the throne in Antioch. He accepted, and for roughly fourteen years Armenian kings governed one of the wealthiest regions of the Hellenistic world, minting coins in Antioch that carried Tigran's portrait in the Armenian tiara.",
+          "The most significant acquisition was Syria. In 83 BC, exhausted by dynastic wars, the nobles of the Seleucid kingdom invited Tigran to take the throne in Antioch. He accepted, and for roughly fourteen years an Armenian king governed one of the wealthiest regions of the Hellenistic world, minting coins in Antioch that carried Tigran's portrait in the Armenian tiara.",
           "This expansion brought real wealth. Control of Syria and northern Mesopotamia meant control of the trade routes linking the Mediterranean to Iran and, beyond it, to Central Asia. Tribute and customs revenue funded a large standing army, ambitious building projects, and a court that Greek and Roman writers described as one of the richest of its age.",
         ],
         bullets: [
@@ -100,7 +100,7 @@ export const historyArticles: Article[] = [
       { year: "c. 140 BC", event: "Tigran is born into the Artaxiad royal house." },
       { year: "95 BC", event: "He returns from the Parthian court and is crowned king of Armenia." },
       { year: "c. 94 BC", event: "Annexation of Sophene unites the Armenian lands under one crown." },
-      { year: "83 BC", event: "Tigran takes the Seleucid throne in Antioch and founds Tigranocerta." },
+      { year: "83 BC", event: "Tigran takes the Seleucid throne in Antioch; Tigranocerta is founded around this time." },
       { year: "69 BC", event: "Lucullus defeats the Armenian army at Tigranocerta and sacks the city." },
       { year: "66 BC", event: "Peace with Pompey: Armenia keeps its independence but loses the empire." },
       { year: "55 BC", event: "Tigran dies; his son Artavasdes II succeeds him." },
@@ -108,7 +108,7 @@ export const historyArticles: Article[] = [
     significance: {
       heading: "Why Tigran the Great is important",
       paragraphs: [
-        "Tigran's reign is the moment when Armenia was not a buffer between empires but an empire in its own right. For roughly two decades an Armenian king ruled Antioch, issued coinage across the Near East, and was addressed as King of Kings by rulers from the Caucasus to Mesopotamia. That period gave later generations a concrete answer to the question of what Armenian statehood could look like at its most ambitious.",
+        "Tigran's reign is the moment when Armenia was not a buffer between empires but an empire in its own right. For fourteen years an Armenian king ruled Antioch, issued coinage across the Near East, and was addressed as King of Kings by rulers from the Caucasus to Mesopotamia. That period gave later generations a concrete answer to the question of what Armenian statehood could look like at its most ambitious.",
         "His more durable achievement, however, is the one that receives less attention: the unification of the Armenian lands and the urban and economic growth that followed. Cities, trade routes and administrative structures established in this period shaped Armenian life long after the conquests were reversed, and the diplomatic problem he faced at the end of his reign — how to remain independent between two stronger powers — defined Armenian political history for centuries.",
       ],
     },
@@ -156,7 +156,7 @@ export const historyArticles: Article[] = [
     sections: [
       {
         id: "land-and-people",
-        heading: "The Land and Its People",
+        heading: "The land and its people",
         paragraphs: [
           "The heartland of Urartu lay on the volcanic plateau surrounding Lake Van, in what is today eastern Turkey, and at its widest reach the kingdom controlled territory stretching toward Lake Sevan and Lake Urmia. This is high, difficult country, cut by mountain ridges and fed by short, fast rivers. Winters are long and snow closes the passes for months, while the summer sun bakes the valley floors. Any state that wanted to survive here had to master two things at once: the storage of water and the defence of narrow mountain routes.",
           "The Urartians spoke a language related to Hurrian and unrelated to the Indo-European family, and they wrote it using a cuneiform script borrowed from Assyria. Hundreds of their royal inscriptions survive on cliff faces, temple walls and stone blocks, describing building projects, campaigns and offerings to the gods. Because these inscriptions are formulaic, historians read them carefully and compare them with Assyrian annals written by Urartu's rivals, which describe the same events from the opposite direction.",
@@ -165,7 +165,7 @@ export const historyArticles: Article[] = [
       },
       {
         id: "kings-and-expansion",
-        heading: "Kings, Fortresses and Expansion",
+        heading: "Kings, fortresses and expansion",
         paragraphs: [
           "The traditional founder of the unified kingdom is Aramu, mentioned in Assyrian records around 860 BC. His successor Sarduri I established the capital at Tushpa on the rock of Van, where his inscription proudly names him king of the universe and king of the land of Nairi. Later rulers, above all Menua, Argishti I and Sarduri II, pushed Urartian control north into the Ararat plain and east toward the Caspian slope, turning a defensive federation into an empire that could challenge Assyria for control of the trade routes of the region.",
           "Urartian power rested on fortresses. Royal engineers chose steep outcrops, cut terraces into the rock, and raised massive stone foundations topped by mudbrick walls. Inside these citadels stood temples, barracks and enormous storerooms lined with jars for grain, wine and oil. Erebuni, founded by Argishti I in 782 BC above the modern city of Yerevan, and Teishebaini at Karmir Blur are among the best excavated examples, and their storage capacity shows how carefully the state gathered and redistributed the harvest.",
@@ -181,7 +181,7 @@ export const historyArticles: Article[] = [
       },
       {
         id: "engineering-and-economy",
-        heading: "Water, Farming and Metalwork",
+        heading: "Water, farming and metalwork",
         paragraphs: [
           "The achievement that most impresses modern engineers is Urartian hydraulics. The canal built under King Menua runs for more than fifty kilometres, carrying fresh water from mountain springs to the fields around Van, and parts of it still function today. Urartian builders also created reservoirs by damming mountain valleys, and several of these artificial lakes remain in use. These works transformed a dry plateau into land that could support cities, and they required both surveying skill and the ability to organise large numbers of workers.",
           "With irrigation came orchards and vineyards. Storerooms at excavated fortresses have yielded rows of huge clay jars marked with capacity signs, along with carbonised grain, grape seeds and traces of wine and sesame oil. Cattle, sheep and horses were central to the economy, and Urartian horses were valued across the Near East. The state kept careful accounts, and the standardised jar marks are early evidence of a bureaucratic system that measured and taxed agricultural surplus.",
@@ -190,7 +190,7 @@ export const historyArticles: Article[] = [
       },
       {
         id: "religion",
-        heading: "Gods and Sacred Places",
+        heading: "Gods and sacred places",
         paragraphs: [
           "The Urartian pantheon is known chiefly from a long inscription carved into the rock niches at Meher Dur near Van, which lists dozens of deities and the exact offerings due to each. At the head of the list stands Haldi, the supreme god of war and kingship, followed by Teisheba, a storm god, and Shivini, a sun god. Kings described their victories as the achievements of Haldi, and campaigns were often launched from his sanctuaries.",
           "Urartian temples were compact square towers with thick walls, set within fortress courtyards. Around them archaeologists have found altars, sacrificial deposits and stelae recording gifts of livestock. The sanctuary of Musasir, shown in an Assyrian relief with a columned porch and a triangular gable, was the most famous of these shrines, and its loss to Sargon II in 714 BC was treated as a national catastrophe.",
@@ -240,17 +240,17 @@ export const historyArticles: Article[] = [
     relatedFigures: [
       {
         name: "Menua",
-        lifespan: "reigned about 810 to 786 BC",
+        lifespan: "reigned about 810–786 BC",
         description: "Urartian king remembered above all for the long irrigation canal near Van that still bears his name.",
       },
       {
         name: "Argishti I",
-        lifespan: "reigned about 786 to 764 BC",
+        lifespan: "reigned about 786–764 BC",
         description: "Conqueror of the Ararat plain who founded the fortress of Erebuni, the ancestor of modern Yerevan.",
       },
       {
         name: "Sargon II of Assyria",
-        lifespan: "reigned 722 to 705 BC",
+        lifespan: "reigned 722–705 BC",
         description: "Assyrian ruler whose detailed campaign report of 714 BC is one of the richest sources on Urartian territory and religion.",
       },
     ],
@@ -275,7 +275,7 @@ export const historyArticles: Article[] = [
     sections: [
       {
         id: "the-world-of-mashtots",
-        heading: "The World That Shaped Him",
+        heading: "The world that shaped him",
         paragraphs: [
           "Mesrop Mashtots was born around 361 in the village of Hatsekats in the province of Taron, into a family of modest means. He received a Greek education, learned Persian and Syriac, and entered the service of the Armenian royal chancellery, where documents were written in those foreign languages. That experience placed him at the exact point where the problem became visible: the business of the Armenian state and the worship of the Armenian church were conducted in scripts that ordinary Armenians could not read.",
           "The political background made the problem urgent. In 387 the kingdom was partitioned between the Roman and Sasanian empires, and in 428 the Armenian monarchy was abolished altogether. Greek was the language of learning in the western portion, Persian and Syriac in the eastern. A people divided between two empires with no common written language risked losing the sense that it was one people at all.",
@@ -284,7 +284,7 @@ export const historyArticles: Article[] = [
       },
       {
         id: "creating-the-alphabet",
-        heading: "The Creation of the Script",
+        heading: "The creation of the script",
         paragraphs: [
           "With the support of Catholicos Sahak Partev and King Vramshapuh, Mashtots began a systematic search. He travelled to Edessa, Amid and Samosata, centres of Syriac and Greek learning, studying scripts and consulting scholars. An earlier set of letters attributed to a bishop named Daniel was tested and found inadequate, because it could not represent all the sounds of Armenian. Rather than adapting a foreign alphabet by force, Mashtots analysed the spoken language and designed signs to match it.",
           "The result, completed around 405, was an alphabet of thirty-six letters ordered so that each represented a single distinct sound of Armenian. Two more letters, օ and ֆ, were added in the twelfth century. The alphabet is therefore usually counted as thirty-eight letters, or thirty-nine if the ligature և is counted as a letter in its own right, as the reformed orthography treats it. The system is remarkably close to phonetic, which is why Armenian spelling remained stable for centuries and why the script proved easy to teach. Its letter order also follows the Greek sequence where the sounds correspond, which shows careful and deliberate design rather than improvisation.",
@@ -299,7 +299,7 @@ export const historyArticles: Article[] = [
       },
       {
         id: "translation-movement",
-        heading: "Schools and the Golden Age of Translation",
+        heading: "Schools and the Golden Age of translation",
         paragraphs: [
           "Mashtots and Sahak Partev opened schools across the country and sent their most capable students to Edessa, Constantinople and Alexandria to master Greek and Syriac. These students, later known as the Holy Translators, returned with manuscripts and skills. The fifth century that followed is called the Golden Age of Armenian literature, and its central achievement was the translation of the Bible into Armenian, a version so carefully made that later European scholars nicknamed it the queen of translations.",
           "Translation was never limited to scripture. The Holy Translators produced Armenian versions of theological works, histories, philosophy, grammar and science. Several Greek and Syriac texts survive only because an Armenian translation preserved them after the originals were lost, which makes the fifth-century Armenian corpus a resource for scholars far beyond Armenian studies.",
@@ -308,7 +308,7 @@ export const historyArticles: Article[] = [
       },
       {
         id: "later-life",
-        heading: "Later Work and Death",
+        heading: "Later work and death",
         paragraphs: [
           "Mashtots did not stop with Armenian. Ancient sources credit him with work on scripts for the Georgian and Caucasian Albanian languages, undertaken during missionary journeys to neighbouring lands. Scholars debate how large his role was in each case, but the accounts show that his method of matching signs to sounds was understood by contemporaries as something that could be applied to more than one language.",
           "He continued teaching until his death in 440, only a few months after his friend and collaborator Sahak Partev. He was buried at Oshakan, and the church built over his tomb remains a place of pilgrimage. Armenian children traditionally visit it at the start of their schooling, a custom that ties the alphabet directly to the act of learning to read.",
@@ -317,7 +317,7 @@ export const historyArticles: Article[] = [
       },
       {
         id: "legacy",
-        heading: "The Alphabet Today",
+        heading: "The alphabet today",
         paragraphs: [
           "The Matenadaran in Yerevan, the national repository of ancient manuscripts, holds more than seventeen thousand manuscripts, most of them Armenian and the rest in Arabic, Persian, Greek, Syriac and other languages, along with thousands of fragments and archival documents. It stands as the direct institutional descendant of the workshops Mashtots founded, and its collection allows scholars to trace the development of Armenian handwriting from the earliest surviving parchments to the printed age.",
           "Above the village of Artashavan a monument called the Armenian Alphabet Park displays all thirty-nine carved letter forms in stone across an open hillside, erected in 2005 for the sixteen-hundredth anniversary of the script. Visitors walk among the letters as though among standing stones, which captures something true about how Armenians regard the alphabet: not simply as a tool but as a monument in its own right.",
@@ -358,7 +358,7 @@ export const historyArticles: Article[] = [
     relatedFigures: [
       {
         name: "Sahak Partev",
-        lifespan: "about 348 to 439",
+        lifespan: "about 348–439",
         description: "Catholicos of the Armenian Church who backed the alphabet project and led the translation of the Bible.",
       },
       {
@@ -368,7 +368,7 @@ export const historyArticles: Article[] = [
       },
       {
         name: "Vramshapuh",
-        lifespan: "reigned about 389 to 414",
+        lifespan: "reigned about 389–414",
         description: "Armenian king whose political and financial support made the search for a national script possible.",
       },
     ],
@@ -392,7 +392,7 @@ export const historyArticles: Article[] = [
     sections: [
       {
         id: "before-conversion",
-        heading: "Armenia Before the Conversion",
+        heading: "Armenia before the conversion",
         paragraphs: [
           "Third-century Armenia was ruled by the Arsacid dynasty and squeezed between the Roman Empire and Sasanian Persia. Its official religion blended Iranian Zoroastrian worship with older local and Hellenistic elements. Great temple complexes at Ashtishat, Bagavan and Ani-Kamakh held estates, priests and treasuries, and noble families drew status and income from them. Religion was therefore not a private matter but part of the political structure of the kingdom.",
           "Christianity had nevertheless been present for some time. Missionaries reached Armenia along the trade routes from Syria and Cappadocia during the second and third centuries, and Armenian tradition traces the church back to the apostles Thaddeus and Bartholomew, which is why it calls itself apostolic. Communities of believers existed in towns and among some noble households well before any royal decision was made.",
@@ -410,7 +410,7 @@ export const historyArticles: Article[] = [
       },
       {
         id: "building-a-church",
-        heading: "Building a National Church",
+        heading: "Building a national church",
         paragraphs: [
           "The conversion was followed by construction. Tradition says Gregory saw a vision of Christ striking the ground with a golden hammer to mark the site of the first cathedral, which gave the church of Etchmiadzin its name, meaning the place where the Only Begotten descended. Etchmiadzin remains the spiritual centre of the Armenian Apostolic Church and the seat of its Catholicos.",
           "Former temple sites were converted into churches and their revenues redirected to the new institution. The office of Catholicos remained for several generations in Gregory's family, which tied the church closely to the aristocratic order of the kingdom. Armenian bishops attended the Council of Nicaea in 325, showing that the new church was recognised within the wider Christian world from the beginning.",
@@ -425,7 +425,7 @@ export const historyArticles: Article[] = [
       },
       {
         id: "distinct-tradition",
-        heading: "A Distinct Christian Tradition",
+        heading: "A distinct Christian tradition",
         paragraphs: [
           "In 451 the Council of Chalcedon defined the relationship of the divine and human natures in Christ in terms that the Armenian Church did not accept. Armenian bishops were absent, occupied by the war against Persia that culminated at Avarayr in the same year, and the church later formally rejected the Chalcedonian formula. Armenia thus belongs to the family of Oriental Orthodox churches alongside the Coptic, Syriac and Ethiopian traditions.",
           "This independence gave the Armenian Church its own calendar, liturgy, chant and architecture. Armenian churches are typically compact stone buildings with a conical dome over a drum, a form developed in the early medieval centuries and repeated for more than a thousand years. Illuminated manuscripts, carved cross-stones called khachkars, and a distinctive system of musical notation all grew out of the same tradition.",
@@ -434,7 +434,7 @@ export const historyArticles: Article[] = [
       },
       {
         id: "dating-debate",
-        heading: "How Historians Read the Date",
+        heading: "How historians read the date",
         paragraphs: [
           "The year 301 comes from the Armenian tradition and has been widely accepted as the official date, celebrated as such in 2001 when Armenia marked seventeen hundred years of Christianity. Some historians argue for a date closer to 314, aligning the conversion with the reign of Trdat after Roman recognition and with the Edict of Milan. The evidence does not allow certainty, since Agathangelos wrote well over a century after the events he describes.",
           "What is not in dispute is that Armenia adopted Christianity as a state religion earlier than any other kingdom, and that the change was complete enough by the middle of the fourth century for a full church hierarchy to be operating. For students, the debate is a useful example of how historians weigh a national tradition against outside evidence without simply discarding either.",
@@ -475,12 +475,12 @@ export const historyArticles: Article[] = [
     relatedFigures: [
       {
         name: "Gregory the Illuminator",
-        lifespan: "about 257 to 331",
+        lifespan: "about 257–331",
         description: "First bishop of Armenia, whose preaching and reported healing of the king led to the conversion of the kingdom.",
       },
       {
         name: "Trdat III",
-        lifespan: "about 250 to 330",
+        lifespan: "about 250–330",
         description: "Arsacid king of Armenia who made Christianity the official religion of his state.",
       },
       {
@@ -510,7 +510,7 @@ export const historyArticles: Article[] = [
     sections: [
       {
         id: "background",
-        heading: "Armenia Under Sasanian Rule",
+        heading: "Armenia under Sasanian rule",
         paragraphs: [
           "After the partition of 387, eastern Armenia lay within the Sasanian sphere, and in 428 the Persian court abolished the Armenian monarchy altogether. The country was governed by a Persian official called a marzpan, while local power remained with the great noble houses, the nakharars, who kept their lands, their cavalry and a strong sense of their own rights. Armenia was thus a province in law but a partly self-governing society in practice.",
           "The Sasanian state was closely bound to Zoroastrianism, and its ruling class saw religious unity as a guarantee of political loyalty. Christian Armenia, sharing a faith with the rival Roman Empire, looked to Persian officials like a strategic weakness on a sensitive frontier. Pressure to conform grew steadily through the first half of the fifth century.",
@@ -519,7 +519,7 @@ export const historyArticles: Article[] = [
       },
       {
         id: "the-uprising",
-        heading: "The Uprising of 450",
+        heading: "The uprising of 450",
         paragraphs: [
           "When some Armenian nobles were summoned to the Persian court and pressured into outward compliance, resistance broke into open revolt in 450. Vardan Mamikonian, head of the family that traditionally held the office of sparapet or commander in chief, took charge of the Armenian forces. Churches were defended, Zoroastrian fire temples established by the authorities were dismantled, and the rebels appealed to the Roman Empire and to neighbouring Caucasian rulers for help.",
           "That help did not arrive. The Eastern Roman Empire, occupied with its own frontiers and unwilling to open a war with Persia, gave no military support. Some Armenian nobles, led by Vasak of Syunik, chose accommodation with the Persian court, believing that open war would destroy the country. Their decision split the nobility and reduced the forces available to Vardan.",
@@ -528,7 +528,7 @@ export const historyArticles: Article[] = [
       },
       {
         id: "the-battle",
-        heading: "The Battle on the Plain",
+        heading: "The battle on the plain",
         paragraphs: [
           "The armies met on 26 May 451 on the plain of Avarayr in the province of Vaspurakan, near the river Tghmut. Yeghishe gives the Armenian force as about sixty-six thousand, including cavalry, infantry and clergy, against a Persian army he numbers at well over two hundred thousand, supported by war elephants and the elite Immortals. Both figures come from a single partisan source and are almost certainly inflated, as ancient troop numbers usually are, but every account agrees that the Armenians were heavily outnumbered.",
           "Before the fighting the priest Ghevond addressed the troops, and Vardan is recorded as telling them that conscious death is immortality. The Armenians attacked in the morning and pressed the Persian centre hard, and for a time the outcome was uncertain. The reserve strength of the Sasanian army, and above all its elephants, eventually turned the battle. Vardan was killed together with eight other named commanders and a large part of his force.",
@@ -537,7 +537,7 @@ export const historyArticles: Article[] = [
         bullets: [
           "Date: 26 May 451, on the plain of Avarayr in Vaspurakan",
           "Armenian commander: Vardan Mamikonian, sparapet of Armenia",
-          "Persian commander: Mushkan Nusalavurt, under King Yazdegerd II",
+          "Persian commander: Mushkan Niusalavurt, under King Yazdegerd II",
           "Outcome: Persian victory on the field, followed by decades of resistance",
         ],
       },
@@ -552,7 +552,7 @@ export const historyArticles: Article[] = [
       },
       {
         id: "memory",
-        heading: "Avarayr in Armenian Memory",
+        heading: "Avarayr in Armenian memory",
         paragraphs: [
           "The main source for the battle is Yeghishe's History of Vardan and the Armenian War, written in the fifth century and one of the masterpieces of classical Armenian literature. Yeghishe wrote to explain the meaning of the events rather than to compile a neutral report, and his speeches and figures should be read with that purpose in mind. Even so, his account preserves the political arguments of both sides in unusual detail.",
           "Because of Yeghishe, Avarayr became the central image of principled resistance in Armenian culture. Painters, composers and poets have returned to it repeatedly, and the phrase about conscious death being immortality is quoted far beyond the classroom. The equestrian statue of Vardan Mamikonian in Yerevan is one of the most recognisable monuments in the city.",
@@ -593,7 +593,7 @@ export const historyArticles: Article[] = [
     relatedFigures: [
       {
         name: "Vardan Mamikonian",
-        lifespan: "about 387 to 451",
+        lifespan: "about 387–451",
         description: "Commander in chief of the Armenian forces who died leading the defence of Christian worship at Avarayr.",
       },
       {
@@ -603,7 +603,7 @@ export const historyArticles: Article[] = [
       },
       {
         name: "Vahan Mamikonian",
-        lifespan: "about 440 to 510",
+        lifespan: "about 440–510",
         description: "Nephew of Vardan who renewed the revolt in 481 and negotiated the Treaty of Nvarsak.",
       },
     ],
@@ -621,13 +621,13 @@ export const historyArticles: Article[] = [
     periodId: "medieval",
     imageSeed: "bagratid-armenia",
     intro:
-      "In 885 Ashot Bagratuni was recognised as king of Armenia by both the Caliph in Baghdad and the Emperor in Constantinople, ending more than two centuries without an Armenian monarchy. Over the next hundred and fifty years his dynasty rebuilt the country's cities, churches and trade. Its capital, Ani, became a centre of architecture and learning whose ruins still stand above the gorge of the Akhurian river.",
+      "In 885 Ashot Bagratuni was recognised as king of Armenia by both the Caliph in Baghdad and the Emperor in Constantinople, ending more than four centuries without an Armenian monarchy. Over the next hundred and fifty years his dynasty rebuilt the country's cities, churches and trade. Its capital, Ani, became a centre of architecture and learning whose ruins still stand above the gorge of the Akhurian river.",
     author: "ArmEdu Editorial Team",
     updated: "2026-02-11",
     sections: [
       {
         id: "restoring-a-kingdom",
-        heading: "Restoring a Kingdom",
+        heading: "Restoring a kingdom",
         paragraphs: [
           "Arab rule over Armenia, established in the seventh century, weakened during the ninth as the Abbasid Caliphate lost control of its distant provinces. The Bagratuni family, hereditary holders of high office since Arsacid times, used the opening skilfully. They collected taxes for the caliph, kept peace among rival noble houses, and gradually made themselves indispensable. In 885 the caliph sent Ashot Bagratuni a crown, and the Byzantine emperor Basil I promptly did the same.",
           "The new kingdom was not a centralised state. Armenian society was organised around noble houses with their own castles and cavalry, and the Bagratid king was the leading prince among many rather than an absolute ruler. The Artsruni family established a separate kingdom in Vaspurakan around Lake Van in 908, and smaller kingdoms appeared in Syunik, Kars and Lori. Historians therefore speak of a Bagratid era rather than a single unified state.",
@@ -636,7 +636,7 @@ export const historyArticles: Article[] = [
       },
       {
         id: "ani",
-        heading: "Ani, the City of Forty Gates",
+        heading: "Ani, the city of forty gates",
         paragraphs: [
           "King Ashot III moved the royal seat to Ani in 961, and his successors turned a hilltop fortress into a capital. Smbat II built the outer walls during his reign of 977 to 989, and Gagik I completed a building programme that gave the city cathedrals, palaces, markets, bathhouses and bridges. At its height, in the early eleventh century, Ani may have held around a hundred thousand people, which placed it among the largest cities of its time anywhere in the world.",
           "The site is a natural fortress, a triangular plateau protected on two sides by deep ravines and closed on the third by a double line of walls with towers. Inside, the streets were laid out around a main thoroughfare, and water was brought in through clay pipes. Ani sat on a branch of the Silk Road, and merchants from Persia, Byzantium and the Caucasus traded there, which explains the scale of both its wealth and its construction.",
@@ -651,7 +651,7 @@ export const historyArticles: Article[] = [
       },
       {
         id: "architecture",
-        heading: "Architecture and the Arts",
+        heading: "Architecture and the arts",
         paragraphs: [
           "The cathedral of Ani, completed around 1001 by the architect Trdat, is the most celebrated building of the period. Its interior uses clustered piers and pointed arches that anticipate features of Gothic architecture in western Europe by more than a century, and the proportions of the nave give an impression of height far greater than the actual dimensions. Trdat's reputation was international: he was invited to Constantinople to repair the dome of Hagia Sophia after an earthquake in 989.",
           "Other buildings show the range of Bagratid design. The church of Saint Gregory built for the merchant Tigran Honents in 1215 preserves extensive frescoes, and the round church of the Redeemer once enclosed a relic of the True Cross. Outside Ani, monasteries such as Haghpat and Sanahin, founded in the tenth century, combine churches, libraries, bell towers and covered halls into complexes that served as universities as much as places of worship.",
@@ -660,7 +660,7 @@ export const historyArticles: Article[] = [
       },
       {
         id: "decline",
-        heading: "Byzantine Annexation and Seljuk Conquest",
+        heading: "Byzantine annexation and Seljuk conquest",
         paragraphs: [
           "The Bagratid kingdom fell to a combination of internal division and imperial pressure. The Byzantine Empire, expanding eastward, annexed Vaspurakan in 1021 and pressed claims on Ani after the death of King Hovhannes-Smbat. In 1045 Byzantine forces took the city and deposed the young king Gagik II. Byzantine administration replaced the Armenian nobility, dismantled local defensive arrangements and taxed the province heavily.",
           "The consequences appeared quickly. In 1064 the Seljuk sultan Alp Arslan besieged and captured Ani, and seven years later the Byzantine defeat at Manzikert opened Anatolia to Turkic settlement. The removal of the Armenian nobility had left no organised force able to defend the region. Ani continued as a trading town under successive rulers, but earthquakes, shifting trade routes and the Mongol invasions gradually emptied it, and it was completely abandoned by 1735, when the last monks left.",
@@ -669,7 +669,7 @@ export const historyArticles: Article[] = [
       },
       {
         id: "legacy",
-        heading: "The Legacy of the Bagratid Age",
+        heading: "The legacy of the Bagratid age",
         paragraphs: [
           "Bagratid Armenia is often described as a golden age of medieval Armenian culture, and the description is fair. Within a century and a half the country produced architects whose work influenced building far beyond its borders, poets whose verse is still recited, and monastic schools that trained scholars in theology, philosophy and mathematics. Much of what museums display as classical Armenian art dates from this period.",
           "The ruins of Ani, now on the Turkish side of the closed border with Armenia, remain a powerful symbol. Conservation projects supported by international bodies have stabilised several buildings, and the site attracts historians and visitors from around the world. Its skyline of freestanding churches on an empty plateau is one of the most photographed images in Armenian history.",
@@ -710,17 +710,17 @@ export const historyArticles: Article[] = [
     relatedFigures: [
       {
         name: "Ashot I Bagratuni",
-        lifespan: "about 820 to 890",
-        description: "First Bagratid king of Armenia, crowned in 885 after two centuries without an Armenian monarchy.",
+        lifespan: "about 820–890",
+        description: "First Bagratid king of Armenia, crowned in 885 after more than four centuries without an Armenian monarchy.",
       },
       {
         name: "Trdat the Architect",
-        lifespan: "about 940 to 1020",
+        lifespan: "about 940–1020",
         description: "Designer of the cathedral of Ani who was also entrusted with repairing the dome of Hagia Sophia.",
       },
       {
         name: "Grigor Narekatsi",
-        lifespan: "about 951 to 1003",
+        lifespan: "about 951–1003",
         description: "Monk and poet whose Book of Lamentations became the most beloved work of classical Armenian literature.",
       },
     ],
@@ -744,7 +744,7 @@ export const historyArticles: Article[] = [
     sections: [
       {
         id: "collapse-and-crisis",
-        heading: "Collapse, Genocide and War",
+        heading: "Collapse, genocide and war",
         paragraphs: [
           "The First World War devastated the Armenian population of the Ottoman Empire. Beginning in 1915, deportations and massacres destroyed communities across Anatolia, and hundreds of thousands of survivors fled east into the Russian Caucasus. There they joined a region already strained by war, disease and food shortages, and relief organisations struggled to feed the camps that formed around Yerevan and Etchmiadzin.",
           "The Russian Revolution of 1917 removed the imperial administration and, with it, the Caucasus front. Russian troops left their positions through the winter, and by early 1918 the defence of the region rested on locally raised Armenian units. In April the Transcaucasian Democratic Federative Republic briefly united Armenians, Georgians and Azerbaijanis, but the three national councils wanted different things and the federation dissolved within weeks.",
@@ -753,7 +753,7 @@ export const historyArticles: Article[] = [
       },
       {
         id: "founding",
-        heading: "Founding the Republic",
+        heading: "Founding the republic",
         paragraphs: [
           "The Armenian National Council declared independence on 28 May 1918, and the new state was governed largely by the Armenian Revolutionary Federation, with Hovhannes Kajaznuni as its first prime minister and Aram Manukian, the organiser of the defence of Yerevan, as a central figure until his death from typhus in 1919. The Treaty of Batum, signed in June under Ottoman pressure, left the republic with only a small territory around Yerevan and Lake Sevan.",
           "Conditions were desperate. Roughly a third of the population were refugees, harvests had failed, and epidemics of typhus and cholera spread through overcrowded settlements. Famine and epidemic in the winter of 1918 to 1919 killed on the order of a hundred and fifty thousand people, close to a fifth of the population. American and other international relief efforts, including the organisation later known as Near East Relief, kept large numbers of people, especially orphans, alive.",
@@ -768,7 +768,7 @@ export const historyArticles: Article[] = [
       },
       {
         id: "diplomacy",
-        heading: "Borders and Diplomacy",
+        heading: "Borders and diplomacy",
         paragraphs: [
           "The republic sent delegations to the Paris Peace Conference and pressed for recognition and for a viable territory. In 1920 the Treaty of Sevres awarded Armenia extensive lands in eastern Anatolia, with the boundary to be drawn by United States President Woodrow Wilson. Wilson delivered his arbitration award in November 1920, but by then the treaty had no force on the ground, because the Turkish national movement rejected it and the United States Senate declined to accept a mandate over Armenia.",
           "Relations with neighbours were tense. Disputes with Georgia over the Lori district led to brief fighting in December 1918, and conflict with Azerbaijan over Karabakh, Zangezur and Nakhichevan continued through 1919 and 1920. These wars consumed resources the republic could not spare and left it isolated when a serious threat arrived.",
@@ -777,7 +777,7 @@ export const historyArticles: Article[] = [
       },
       {
         id: "sovietisation",
-        heading: "Sovietisation and the February Uprising",
+        heading: "Sovietisation and the February uprising",
         paragraphs: [
           "Armenia became a Soviet republic, and the new authorities moved rapidly against former officials and officers. Arrests and requisitions provoked a revolt in February 1921, during which insurgents held Yerevan for several weeks before Red Army units retook the city in April. Many of the leaders retreated to Zangezur, where Garegin Nzhdeh had organised a mountain resistance that held out until July 1921.",
           "That resistance had one lasting result. When Nzhdeh finally withdrew, it was on the condition that Zangezur remain part of Soviet Armenia, and the region, today the province of Syunik, has been Armenian territory ever since. Kars and Ardahan were confirmed as Turkish under the treaties of Moscow and Kars in 1921, and Nakhichevan was placed under Azerbaijani jurisdiction.",
@@ -786,7 +786,7 @@ export const historyArticles: Article[] = [
       },
       {
         id: "legacy",
-        heading: "The Republic in Armenian Memory",
+        heading: "The republic in Armenian memory",
         paragraphs: [
           "The First Republic lasted two and a half years, but its achievements were real. It kept a population alive through famine, established a functioning administration in the worst possible conditions, held a democratic election, and founded a university that still operates. It also demonstrated that Armenians could organise a modern state, which mattered enormously to a generation that had just survived the genocide.",
           "Its symbols carried forward. The tricolour flag was readopted in August 1990, a year before independence; the republic that followed recognised 28 May as Republic Day, and treated the First Republic as its legal and moral predecessor. The Sardarapat memorial, built in 1968, is one of the country's principal national monuments, and its bell is rung at commemorations each May.",
@@ -827,17 +827,17 @@ export const historyArticles: Article[] = [
     relatedFigures: [
       {
         name: "Hovhannes Kajaznuni",
-        lifespan: "1868 to 1938",
+        lifespan: "1868–1938",
         description: "Architect and politician who served as the first prime minister of the independent Armenian republic.",
       },
       {
         name: "Aram Manukian",
-        lifespan: "1879 to 1919",
+        lifespan: "1879–1919",
         description: "Organiser of the defence of Van and Yerevan, often called the founder of the First Republic.",
       },
       {
         name: "Garegin Nzhdeh",
-        lifespan: "1886 to 1955",
+        lifespan: "1886–1955",
         description: "Military commander whose campaign in Zangezur secured the region for Armenia after sovietisation.",
       },
     ],

@@ -67,7 +67,7 @@ export const writerArticles: Article[] = [
         paragraphs: [
           "The early twentieth century brought turmoil to the Caucasus. Tumanyan intervened personally during the Armenian and Azerbaijani clashes of 1905 and 1906, travelling to villages to calm hostilities. His public prominence made him a target, and he was twice imprisoned by tsarist authorities, in 1908 and 1911, on suspicion of political activity. Both times he was released without conviction.",
           "During and after the massacres and deportations of 1915 he devoted much of his energy to relief work. As head of the Armenian Writers Union of the Caucasus and later of a major refugee aid committee, he organised shelter, food and orphan care for tens of thousands of survivors, work that consumed years he might otherwise have spent writing.",
-          "His health declined in the early 1920s. He travelled to Moscow for treatment of cancer and died there on 23 March 1923 at the age of fifty four. He was buried in Tiflis, in the Armenian pantheon at Khojivank, mourned as a national figure rather than merely a literary one.",
+          "His health declined in the early 1920s. He travelled to Moscow for treatment of cancer and died there on 23 March 1923 at the age of fifty-four. He was buried in Tiflis, in the Armenian pantheon at Khojivank, mourned as a national figure rather than merely a literary one.",
         ],
       },
       {
@@ -91,7 +91,7 @@ export const writerArticles: Article[] = [
         label: "Notable works",
         value: "Anush, The Capture of Tmkaberd, Gikor, A Drop of Honey",
       },
-      { label: "Literary period", value: "Late nineteenth century Armenian realism" },
+      { label: "Literary period", value: "Late nineteenth-century Armenian realism" },
     ],
     importantDates: [
       { year: "1869", event: "Born in the village of Dsegh in the Lori region." },
@@ -124,19 +124,19 @@ export const writerArticles: Article[] = [
     relatedFigures: [
       {
         name: "Avetik Isahakyan",
-        lifespan: "1875 to 1957",
+        lifespan: "1875–1957",
         description:
           "A close friend and fellow member of the Vernatun circle whose lyric poems shared Tumanyan's folk sensibility.",
       },
       {
         name: "Armen Tigranian",
-        lifespan: "1879 to 1950",
+        lifespan: "1879–1950",
         description:
           "The composer who turned the poem Anush into the opera that made the story famous across the Caucasus.",
       },
       {
         name: "Komitas",
-        lifespan: "1869 to 1935",
+        lifespan: "1869–1935",
         description:
           "The priest and musicologist who collected Armenian folk song, pursuing in music the goal Tumanyan pursued in verse.",
       },
@@ -216,7 +216,7 @@ export const writerArticles: Article[] = [
         id: "legacy",
         heading: "Legacy",
         paragraphs: [
-          "Charents is now read as the pivotal figure of twentieth century Armenian literature, the writer who connected the folk-rooted tradition of Tumanyan to the questioning modern poetry of Paruyr Sevak and later generations. His house in Yerevan is a museum, and the Charents Arch on the road east of the capital frames a famous view of Mount Ararat.",
+          "Charents is now read as the pivotal figure of twentieth-century Armenian literature, the writer who connected the folk-rooted tradition of Tumanyan to the questioning modern poetry of Paruyr Sevak and later generations. His house in Yerevan is a museum, and the Charents Arch on the road east of the capital frames a famous view of Mount Ararat.",
           "His fate also made him a symbol. Because he believed in the Soviet project and was destroyed by it, his life is often studied as a case history of what the purges cost a small nation's culture. Students today usually encounter both the poems and that history together.",
         ],
       },
@@ -249,8 +249,8 @@ export const writerArticles: Article[] = [
     significance: {
       heading: "Why Yeghishe Charents matters",
       paragraphs: [
-        "Charents modernised Armenian literature almost single handedly. He showed that the language could carry free verse, irony, fragmentation and psychological complexity, and he did so without abandoning the medieval and folk traditions he loved. Every serious Armenian poet after him has had to respond to his example in some way.",
-        "He also stands as a witness. His poetry records the genocide, the collapse of empires, the hopes of a new republic and the closing grip of political repression, all from the inside. Reading him gives students a first hand sense of how one talented person experienced a decade that reshaped the Armenian world.",
+        "Charents modernised Armenian literature almost single-handedly. He showed that the language could carry free verse, irony, fragmentation and psychological complexity, and he did so without abandoning the medieval and folk traditions he loved. Every serious Armenian poet after him has had to respond to his example in some way.",
+        "He also stands as a witness. His poetry records the genocide, the collapse of empires, the hopes of a new republic and the closing grip of political repression, all from the inside. Reading him gives students a first-hand sense of how one talented person experienced a decade that reshaped the Armenian world.",
       ],
     },
     interestingFacts: [
@@ -263,19 +263,19 @@ export const writerArticles: Article[] = [
     relatedFigures: [
       {
         name: "Aksel Bakunts",
-        lifespan: "1899 to 1937",
+        lifespan: "1899–1937",
         description:
           "A prose writer and close contemporary of Charents who was also executed during the purges of 1937.",
       },
       {
         name: "Paruyr Sevak",
-        lifespan: "1924 to 1971",
+        lifespan: "1924–1971",
         description:
           "The postwar poet who inherited Charents's intellectual ambition and helped restore his reputation.",
       },
       {
         name: "Vahan Terian",
-        lifespan: "1885 to 1920",
+        lifespan: "1885–1920",
         description:
           "A symbolist poet of the preceding generation whose musical lyricism strongly influenced the young Charents.",
       },
@@ -302,7 +302,7 @@ export const writerArticles: Article[] = [
         id: "early-life",
         heading: "Early life in Persia",
         paragraphs: [
-          "Hakob Melik-Hakobian was born in 1835 in Payajuk, a village in the Salmast district of northwestern Persia, into a prosperous merchant family of Armenian landowners. His childhood among Armenian, Persian, Kurdish and Assyrian neighbours gave him a first hand knowledge of the region that later filled his novels with unusually precise detail.",
+          "Hakob Melik-Hakobian was born in 1835 in Payajuk, a village in the Salmast district of northwestern Persia, into a prosperous merchant family of Armenian landowners. His childhood among Armenian, Persian, Kurdish and Assyrian neighbours gave him a first-hand knowledge of the region that later filled his novels with unusually precise detail.",
           "He was sent to Tiflis for schooling and studied at a Russian secondary school there, but family financial troubles forced him to return home before completing his education. For years he managed the family business, travelling widely through Persian Armenia, Van and the surrounding provinces and recording the conditions of the Armenian villagers he met.",
           "These journeys were decisive. Where other writers of the period wrote about Armenians from the comfort of Tiflis or Constantinople, Raffi had seen isolated highland communities living without protection or education, and the memory of those places gave his later fiction its sense of emergency.",
         ],
@@ -322,7 +322,7 @@ export const writerArticles: Article[] = [
         paragraphs: [
           "Jalaleddin, published in 1878, and The Fool, published in 1880, deal with the Russo-Turkish war and the suffering of Armenian villagers caught in it. The Fool follows Vardan, a young man dismissed as foolish by his neighbours because he refuses to accept passivity, and it became the model for a new kind of Armenian hero who acts rather than laments.",
           "Sparks, issued in two volumes between 1883 and 1887, is his great novel of ideas, tracing a generation of young Armenians who move from private grievance to organised political commitment. Its influence on the founders of Armenian political parties in the 1880s and 1890s was direct and acknowledged.",
-          "His historical novels David Bek, published in 1882, and Samvel, published in 1886, reach back to the eighteenth century struggle in Syunik and to fourth century Armenia respectively. Samvel in particular, with its conflict between family loyalty and national duty, is considered his most accomplished work of construction and character.",
+          "His historical novels David Bek, published in 1882, and Samvel, published in 1886, reach back to the eighteenth-century struggle in Syunik and to fourth-century Armenia respectively. Samvel in particular, with its conflict between family loyalty and national duty, is considered his most accomplished work of construction and character.",
         ],
         bullets: [
           "Jalaleddin, novel, 1878",
@@ -336,7 +336,7 @@ export const writerArticles: Article[] = [
         id: "themes-and-style",
         heading: "Themes and style",
         paragraphs: [
-          "Raffi's central theme is self reliance. His novels argue that neither foreign powers nor prayer will protect Armenian communities, and that education, organisation and, where necessary, self defence are the only realistic answers. This message was controversial in his lifetime and made him both admired and denounced.",
+          "Raffi's central theme is self-reliance. His novels argue that neither foreign powers nor prayer will protect Armenian communities, and that education, organisation and, where necessary, self-defence are the only realistic answers. This message was controversial in his lifetime and made him both admired and denounced.",
           "He wrote in Eastern Armenian at a time when the modern literary language was still settling, and he helped fix its prose vocabulary. His style is descriptive and energetic, rich in landscape, customs, clothing and dialect, giving readers an almost ethnographic picture of communities that were soon to be destroyed.",
           "Alongside the patriotism sits sharp social criticism. He attacked corrupt clergy, greedy landlords, superstition and, notably, the restricted lives of Armenian women, whose education he defended repeatedly in both fiction and journalism.",
         ],
@@ -345,9 +345,9 @@ export const writerArticles: Article[] = [
         id: "legacy",
         heading: "Later years and legacy",
         paragraphs: [
-          "Raffi died in Tiflis on 6 May 1888, aged fifty three, worn down by illness and overwork. His funeral drew an enormous crowd, and he was buried in the Armenian pantheon at Khojivank. He left an unfinished manuscript and a family in modest circumstances.",
+          "Raffi died in Tiflis on 6 May 1888, aged fifty-three, worn down by illness and overwork. His funeral drew an enormous crowd, and he was buried in the Armenian pantheon at Khojivank. He left an unfinished manuscript and a family in modest circumstances.",
           "His novels remained bestsellers for generations and were translated into Russian, French and English. Armenian revolutionary organisations distributed them as recruiting texts, and characters such as Vardan the Fool entered the language as shorthand for principled stubbornness.",
-          "Modern scholars read him with more nuance, noting the melodrama and the political simplifications alongside the storytelling power. What is not disputed is that he created the Armenian historical novel and gave nineteenth century readers a shared imaginative picture of their own past.",
+          "Modern scholars read him with more nuance, noting the melodrama and the political simplifications alongside the storytelling power. What is not disputed is that he created the Armenian historical novel and gave nineteenth-century readers a shared imaginative picture of their own past.",
         ],
       },
     ],
@@ -360,7 +360,7 @@ export const writerArticles: Article[] = [
         value: "Creating the Armenian historical novel and the novel of national awakening",
       },
       { label: "Notable works", value: "The Fool, Sparks, Samvel, David Bek" },
-      { label: "Literary period", value: "Nineteenth century Armenian national revival" },
+      { label: "Literary period", value: "Nineteenth-century Armenian national revival" },
     ],
     importantDates: [
       { year: "1835", event: "Born Hakob Melik-Hakobian in the village of Payajuk." },
@@ -373,7 +373,7 @@ export const writerArticles: Article[] = [
     significance: {
       heading: "Why Raffi matters",
       paragraphs: [
-        "Raffi gave nineteenth century Armenians a usable past. By dramatising figures such as Samvel and David Bek he turned scattered chronicles into vivid narratives that ordinary readers could carry in their heads, and he established the historical novel as the leading Armenian literary form of the era.",
+        "Raffi gave nineteenth-century Armenians a usable past. By dramatising figures such as Samvel and David Bek he turned scattered chronicles into vivid narratives that ordinary readers could carry in their heads, and he established the historical novel as the leading Armenian literary form of the era.",
         "He also changed what literature was expected to do. His books were read as arguments, debated in the press and used by political movements, which made writing itself feel consequential. Whether or not later readers agree with his conclusions, his insistence that a community must take responsibility for its own survival remains a defining theme of Armenian letters.",
       ],
     },
@@ -387,19 +387,19 @@ export const writerArticles: Article[] = [
     relatedFigures: [
       {
         name: "Grigor Artsruni",
-        lifespan: "1845 to 1892",
+        lifespan: "1845–1892",
         description:
           "Editor of the newspaper Mshak, who serialised Raffi's novels and shared his programme of national self improvement.",
       },
       {
         name: "Khachatur Abovyan",
-        lifespan: "1809 to 1848",
+        lifespan: "1809–1848",
         description:
           "The pioneer of modern Armenian prose whose vernacular novel opened the path Raffi later widened.",
       },
       {
         name: "Perch Proshian",
-        lifespan: "1837 to 1907",
+        lifespan: "1837–1907",
         description:
           "A contemporary novelist of Armenian village life whose realism complemented Raffi's historical sweep.",
       },
@@ -469,7 +469,7 @@ export const writerArticles: Article[] = [
         id: "legacy",
         heading: "Later years and legacy",
         paragraphs: [
-          "Isahakyan died in Yerevan on 17 October 1957, shortly before his eighty second birthday, and was buried in the Komitas Pantheon. He had by then become a living link between the pre revolutionary literary world and postwar Soviet Armenia, respected by writers of every generation.",
+          "Isahakyan died in Yerevan on 17 October 1957, shortly before his eighty-second birthday, and was buried in the Komitas Pantheon. He had by then become a living link between the pre-revolutionary literary world and postwar Soviet Armenia, respected by writers of every generation.",
           "His house museum in Yerevan preserves his library and manuscripts, and streets, schools and a major literary prize carry his name. Gyumri, his birthplace, treats him as one of its defining figures.",
           "Above all he survives in performance. Armenian singers, choirs and schoolchildren continue to sing his lyrics, often without knowing who wrote them, which is arguably the outcome a poet working in folk idiom would have wanted most.",
         ],
@@ -511,19 +511,19 @@ export const writerArticles: Article[] = [
     relatedFigures: [
       {
         name: "Hovhannes Tumanyan",
-        lifespan: "1869 to 1923",
+        lifespan: "1869–1923",
         description:
           "Lifelong friend and host of the Vernatun circle, whose folk-rooted poetics closely matched Isahakyan's own.",
       },
       {
         name: "Vahan Terian",
-        lifespan: "1885 to 1920",
+        lifespan: "1885–1920",
         description:
-          "A symbolist contemporary whose musical lyricism formed the other main strand of early twentieth century Armenian poetry.",
+          "A symbolist contemporary whose musical lyricism formed the other main strand of early twentieth-century Armenian poetry.",
       },
       {
         name: "Alexander Blok",
-        lifespan: "1880 to 1921",
+        lifespan: "1880–1921",
         description:
           "The Russian symbolist poet who admired and translated Isahakyan, helping introduce him to a wider readership.",
       },
@@ -552,7 +552,7 @@ export const writerArticles: Article[] = [
         paragraphs: [
           "Khachatur Abovyan was born on 15 October 1809 in Kanaker, then a village outside Yerevan and now part of the city. His family belonged to the minor local nobility, and the region was still under Persian rule, a period he later described as one of insecurity and heavy taxation for Armenian villagers.",
           "He was educated first at the monastery school of Etchmiadzin and then at the Nersisyan School in Tiflis, where he encountered a wider intellectual world. In 1829 he returned to Etchmiadzin as a teacher and translator, a position that placed him at the centre of Armenian religious and educational life.",
-          "That year the German scientist Friedrich Parrot arrived to attempt the ascent of Mount Ararat. Abovyan was assigned as his interpreter and companion, and in October 1829 the two men reached the summit, the first documented ascent of the mountain. The expedition made Abovyan's name and led directly to the next stage of his life.",
+          "That year the German scientist Friedrich Parrot arrived to attempt the ascent of Mount Ararat. Abovyan was assigned as his interpreter and companion, and in October 1829 the expedition reached the summit, the first documented ascent of the mountain. The expedition made Abovyan's name and led directly to the next stage of his life.",
         ],
       },
       {
@@ -593,7 +593,7 @@ export const writerArticles: Article[] = [
         id: "legacy",
         heading: "Disappearance and legacy",
         paragraphs: [
-          "On the morning of 14 April 1848 Abovyan left his home in Yerevan and was never seen again. He was thirty eight. Suicide, murder by his political opponents, and arrest and exile by the Russian authorities have all been proposed, and none can be ruled out; no evidence has ever settled the question and his fate remains unknown.",
+          "On the morning of 14 April 1848 Abovyan left his home in Yerevan and was never seen again. He was thirty-eight. Suicide, murder by his political opponents, and arrest and exile by the Russian authorities have all been proposed, and none can be ruled out; no evidence has ever settled the question and his fate remains unknown.",
           "Recognition came after his death. The publication of Wounds of Armenia in 1858 made him a founding figure, and Eastern Armenian literature developed along the path he had marked out. Raffi, Perch Proshian and later realists all worked in the vernacular tradition he began.",
           "Today his birthplace in Kanaker is a museum, a town and a major Yerevan street carry his name, and Wounds of Armenia is a fixed part of the school curriculum. He is remembered as much for his work as an educator as for his fiction.",
         ],
@@ -611,7 +611,7 @@ export const writerArticles: Article[] = [
         label: "Notable works",
         value: "Wounds of Armenia, Preliminary Path, fables and school textbooks",
       },
-      { label: "Literary period", value: "Early nineteenth century Armenian enlightenment" },
+      { label: "Literary period", value: "Early nineteenth-century Armenian enlightenment" },
     ],
     importantDates: [
       { year: "1809", event: "Born in the village of Kanaker near Yerevan." },
@@ -627,7 +627,7 @@ export const writerArticles: Article[] = [
     significance: {
       heading: "Why Khachatur Abovyan matters",
       paragraphs: [
-        "Abovyan resolved the most important question facing Armenian culture in his century: which language literature should use. By writing a full length novel in the vernacular he showed that the spoken language could carry narrative, argument and emotion, and within a generation the classical language had retreated to liturgy and scholarship.",
+        "Abovyan resolved the most important question facing Armenian culture in his century: which language literature should use. By writing a full-length novel in the vernacular he showed that the spoken language could carry narrative, argument and emotion, and within a generation the classical language had retreated to liturgy and scholarship.",
         "He also modelled the writer as public educator. He built schools, trained teachers, wrote primers and defended the education of girls, believing that literature without literacy achieves nothing. That linking of writing and teaching became a durable feature of Armenian intellectual life.",
       ],
     },
@@ -641,19 +641,19 @@ export const writerArticles: Article[] = [
     relatedFigures: [
       {
         name: "Friedrich Parrot",
-        lifespan: "1791 to 1841",
+        lifespan: "1791–1841",
         description:
           "The German naturalist who led the 1829 Ararat expedition and arranged Abovyan's studies at Dorpat.",
       },
       {
         name: "Raffi",
-        lifespan: "1835 to 1888",
+        lifespan: "1835–1888",
         description:
           "The novelist who built on Abovyan's vernacular prose to create the Armenian historical novel.",
       },
       {
         name: "Mikayel Nalbandian",
-        lifespan: "1829 to 1866",
+        lifespan: "1829–1866",
         description:
           "A writer and reformer of the next generation who continued the campaign for the modern literary language.",
       },
@@ -672,7 +672,7 @@ export const writerArticles: Article[] = [
     periodId: "soviet",
     imageSeed: "paruyr-sevak",
     intro:
-      "Paruyr Sevak was the leading Armenian poet of the postwar Soviet decades. His long poem about the composer Komitas confronted the Armenian Genocide at a time when the subject was barely permitted in print, and his restless, questioning style renewed Armenian poetry. He died in a road accident in 1971 at the age of forty seven.",
+      "Paruyr Sevak was the leading Armenian poet of the postwar Soviet decades. His long poem about the composer Komitas confronted the Armenian Genocide at a time when the subject was barely permitted in print, and his restless, questioning style renewed Armenian poetry. He died in a road accident in 1971 at the age of forty-seven.",
     author: "ArmEdu Editorial Team",
     updated: "2026-05-30",
     sections: [
@@ -690,7 +690,7 @@ export const writerArticles: Article[] = [
         heading: "Literary career",
         paragraphs: [
           "Sevak published his first collection in 1948 and several more in the following decade, but his mature voice arrived at the end of the 1950s. He worked afterwards as a researcher and then as a senior figure at the Institute of Literature in Yerevan, and he was elected secretary of the Writers Union of Armenia in 1966.",
-          "He was also an active translator and critic, writing a substantial scholarly study of the eighteenth century troubadour Sayat-Nova. His literary criticism argued for honesty and craft against formulaic official verse, and he encouraged younger poets who wanted to write about private experience.",
+          "He was also an active translator and critic, writing a substantial scholarly study of the eighteenth-century troubadour Sayat-Nova. His literary criticism argued for honesty and craft against formulaic official verse, and he encouraged younger poets who wanted to write about private experience.",
           "His public standing grew steadily through the 1960s. Readings drew large audiences, his books sold out quickly, and he became one of the few writers whose opinions carried weight with both the intelligentsia and the general reading public.",
         ],
       },
@@ -723,8 +723,8 @@ export const writerArticles: Article[] = [
         id: "legacy",
         heading: "Death and legacy",
         paragraphs: [
-          "On 17 June 1971 Sevak and his wife Nelly were killed in a car crash as they drove back from his native village towards Yerevan. He was forty seven. The suddenness of the loss, and his prominence as a critical national voice, led to widespread and lasting suspicion that the security services were involved. The only inquiry was a Soviet one, and it recorded a traffic accident; the archives that might settle the question have never been opened. He was buried in the garden of his family house in Zangakatun.",
-          "The village home is now the Paruyr Sevak House Museum, and the village itself was renamed in his honour. Schools, streets and a literary prize carry his name, and his poems are standard reading in Armenian classrooms.",
+          "On 17 June 1971 Sevak and his wife Nelly were killed in a car crash as they drove back from his native village towards Yerevan. He was forty-seven. The suddenness of the loss, and his prominence as a critical national voice, led to widespread and lasting suspicion that the security services were involved. The only inquiry was a Soviet one, and it recorded a traffic accident; the archives that might settle the question have never been opened. He was buried in the garden of his family house in Zangakatun.",
+          "The village home is now the Paruyr Sevak House Museum. Schools, streets and a literary prize carry his name, and his poems are standard reading in Armenian classrooms.",
           "His lasting importance lies in what he made sayable. By writing The Unsilenceable Belfry when he did, he helped move remembrance of 1915 from private grief into public culture, a shift that fed directly into the commemorations of 1965 and the building of the memorial at Tsitsernakaberd.",
         ],
       },
@@ -760,27 +760,27 @@ export const writerArticles: Article[] = [
     },
     interestingFacts: [
       "He took his pen name from Ruben Sevak, a young Armenian poet killed in 1915.",
-      "His doctoral research on the eighteenth century troubadour Sayat-Nova is still cited by scholars.",
+      "His doctoral research on the eighteenth-century troubadour Sayat-Nova is still cited by scholars.",
       "The Unsilenceable Belfry appeared six years before the 1965 demonstrations that pushed for public recognition of the genocide.",
-      "His native village of Chanakhchi was renamed Zangakatun, meaning belfry, after the title of his most famous poem.",
+      "His native village of Chanakhchi now bears the name Zangakatun, meaning belfry, the same word as the title of his most famous poem.",
       "He is buried in the garden of his family home, which now serves as his house museum.",
     ],
     relatedFigures: [
       {
         name: "Komitas",
-        lifespan: "1869 to 1935",
+        lifespan: "1869–1935",
         description:
           "The priest and musicologist whose life and breakdown form the subject of The Unsilenceable Belfry.",
       },
       {
         name: "Hovhannes Shiraz",
-        lifespan: "1915 to 1984",
+        lifespan: "1915–1984",
         description:
           "A contemporary Armenian poet of great popularity whose lyric warmth contrasted with Sevak's analytical manner.",
       },
       {
         name: "Sayat-Nova",
-        lifespan: "about 1712 to 1795",
+        lifespan: "about 1712–1795",
         description:
           "The great Armenian troubadour whose songs Sevak studied in a major scholarly monograph.",
       },

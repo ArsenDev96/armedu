@@ -64,7 +64,7 @@ export const writers: Writer[] = [
   },
   {
     slug: "paruyr-sevak",
-    name: "Պարույր Սեւակ",
+    name: "Պարույր Սևակ",
     lifespan: "1924–1971",
     period: "Խորհրդային շրջան",
     periodId: "soviet",
