@@ -1,4 +1,4 @@
-# ArmEdu — Armenian educational content platform
+# Armat — Armenian educational content platform
 
 An informational website about Armenian history, writers, literary works and cultural
 heritage, built for students, teachers, parents and Armenians living abroad.

@@ -5,7 +5,7 @@ test("the Armenian homepage loads with its main landmarks", async ({ page }) => 
   await page.goto("/hy");
   const dict = ui("hy");
 
-  await expect(page).toHaveTitle(/ArmEdu/);
+  await expect(page).toHaveTitle(/Armat/);
   await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
   await expect(page.getByRole("navigation", { name: dict.nav.mainLabel })).toBeVisible();
   await expect(page.getByRole("contentinfo")).toBeVisible();

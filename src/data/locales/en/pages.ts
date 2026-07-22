@@ -4,9 +4,9 @@ export const pages: StaticPagesContent = {
   about: {
     title: "About",
     metaDescription:
-      "ArmEdu is an independent educational platform publishing clear, source-based articles about Armenian history, writers, literary works and cultural heritage.",
+      "Armat is an independent educational platform publishing clear, source-based articles about Armenian history, writers, literary works and cultural heritage.",
     heading: "About the platform",
-    lead: "ArmEdu is an independent educational project. We publish clear articles about Armenian history, writers, literary works and cultural heritage, list the works behind them so that any claim can be checked, and make them free to read for anyone, anywhere.",
+    lead: "Armat is an independent educational project. We publish clear articles about Armenian history, writers, literary works and cultural heritage, list the works behind them so that any claim can be checked, and make them free to read for anyone, anywhere.",
     audiencesEyebrow: "Who it is for",
     audiencesTitle: "Written for four kinds of reader",
     audiencesDescription:
@@ -63,7 +63,7 @@ export const pages: StaticPagesContent = {
   contact: {
     title: "Contact",
     metaDescription:
-      "Get in touch with the ArmEdu editorial team about corrections, classroom use, translations or collaboration.",
+      "Get in touch with the Armat editorial team about corrections, classroom use, translations or collaboration.",
     heading: "Contact us",
     lead: "This is a small editorial project and we read everything that arrives. The fastest way to reach us is by email.",
     reasonsEyebrow: "Why people write to us",
@@ -90,9 +90,9 @@ export const pages: StaticPagesContent = {
   privacy: {
     title: "Privacy Policy",
     metaDescription:
-      "How ArmEdu handles visitor data. The platform collects no personal information beyond an optional newsletter address.",
+      "How Armat handles visitor data. The platform collects no personal information beyond an optional newsletter address.",
     lastUpdated: "Last updated: 1 June 2026",
-    lead: "ArmEdu is an educational project and is built to work without collecting personal data. This page explains, in plain language, what that means in practice.",
+    lead: "Armat is an educational project and is built to work without collecting personal data. This page explains, in plain language, what that means in practice.",
     sections: [
       {
         heading: "What we collect",
@@ -112,7 +112,7 @@ export const pages: StaticPagesContent = {
       },
       {
         heading: "Your rights",
-        body: "You can ask us at any time to remove your email address from the newsletter list. Write to hello@armedu.example.org and we will confirm the deletion.",
+        body: "You can ask us at any time to remove your email address from the newsletter list. Write to hello@armat.site and we will confirm the deletion.",
       },
     ],
   },

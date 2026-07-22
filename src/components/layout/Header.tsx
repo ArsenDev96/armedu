@@ -99,7 +99,7 @@ function HeaderInner({ locale, nav, ui }: HeaderProps) {
             className="flex items-center gap-2.5"
             aria-label={ui.site.homeLinkLabel}
           >
-            <Logo ui={ui} />
+            <Logo ui={ui} priority />
           </Link>
 
           <nav aria-label={ui.nav.mainLabel} className="hidden lg:block">

@@ -1,4 +1,4 @@
-# Translation glossary — ArmEdu
+# Translation glossary — Armat
 
 Shared terminology for the three editions. Anything listed here must be used
 consistently across every file in that locale. Where a choice was uncertain it is
@@ -32,7 +32,7 @@ Sentence structure, verb forms and vocabulary all differ.
 
 | English | `hy` | `hyw` |
 | --- | --- | --- |
-| ArmEdu | ArmEdu (Latin, proper name) | ArmEdu (Latin, proper name) |
+| Armat | Armat (Latin, proper name) | Armat (Latin, proper name) |
 | Home | Գլխավոր | Գլխաւոր |
 | Armenian History | Հայոց պատմություն | Հայոց պատմութիւն |
 | Armenian Writers | Հայ գրողներ | Հայ գրողներ |
@@ -109,7 +109,7 @@ classical orthography.
 
 ## Things that stay in Latin script
 
-- The product name **ArmEdu**
+- The product name **Armat**
 - URL slugs (`tigran-the-great`, `david-of-sassoun`) — shared across all locales
 - Filter and category **ids** (`ancient`, `medieval`, `poetry`) — only labels translate
 - Email addresses and domains
@@ -141,7 +141,7 @@ known error; these are judgement calls made during translation.
    Arabic (`19-րդ դար`), so a listing filter and the article it opened disagreed on
    screen; they have been unified on the Roman form. Switch the whole edition to Arabic if
    house style prefers it, but do not mix the two again.
-7. **`ArmEdu-ի խմբագրական խումբ`** for the author byline — `ArmEdu-ի խմբագրություն` is
+7. **`Armat-ի խմբագրական խումբ`** for the author byline — `Armat-ի խմբագրություն` is
    equally idiomatic.
 8. **`Պարույր Սեւակ`** keeps `եւ` inside the name while reformed `և` is used in running
    prose. Confirm which the project wants for this surname.

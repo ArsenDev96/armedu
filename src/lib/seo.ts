@@ -37,7 +37,7 @@ function absolute(path: string): string {
 /**
  * The publisher node, referenced by every page rather than repeated inline.
  *
- * `Organization` and not `EducationalOrganization`: ArmEdu teaches nobody and
+ * `Organization` and not `EducationalOrganization`: Armat teaches nobody and
  * awards nothing, it publishes. Claiming the stronger type would be the kind of
  * flattering misdescription this project's content rules exist to prevent.
  */

@@ -1,8 +1,15 @@
-# ArmEdu — Project State Report
+# Armat — Project State Report
 
 **Last updated:** 2026-07-22
 **Repo:** `d:\armedu` · branch `main`
 **Status:** Armenian-first multilingual MVP, localhost-complete in three editions.
+
+> **Renamed to Armat (July 2026).** The project was formerly **ArmEdu**; the visible brand,
+> metadata, structured data, editorial bylines, docs and the domain
+> (`armat.site`) now use **Armat**. Occurrences of "ArmEdu" that remain in §8 below are
+> **historical audit records** — they quote the literal strings as they were at the time of
+> that pass — and are left unchanged on purpose. The `d:\armedu` path above is a local
+> filesystem path, outside repository content.
 
 ---
 
@@ -423,7 +430,10 @@ assert coverage that does not exist. Full detail in the review; these are the ba
    unambiguous Eastern markers (`և`, `ություն`). The Eastern participle `-ված` cannot be
    told apart by spelling from correct Western forms like `սորված`, so checking it would
    flag correct Armenian and train editors to ignore the validator.
-8. **Placeholder identity** — `armedu.example.org`, centralised in `src/data/site.ts`.
+8. **Real identity set** — the domain is **`armat.site`** (email `hello@armat.site`),
+   centralised in `src/data/site.ts`; every canonical, OG, hreflang, sitemap and JSON-LD
+   URL derives from it. The site still runs on localhost, but the origin is now a real host
+   rather than a placeholder, so nothing structural blocks indexing once it is deployed.
 9. **No social profiles**, so those blocks are hidden rather than populated.
 10. **No deployment, CI, analytics or Search Console** — excluded by project constraint.
 11. **`npm run lint` has been removed** (it was dead — `next lint` no longer exists in
@@ -465,7 +475,7 @@ fallback — an Armenian page emits Armenian strings and declares its own `inLan
 **What was added**
 
 - `src/lib/seo.ts` — Schema.org JSON-LD builders: `organizationLd` (a plain
-  `Organization`, deliberately not `EducationalOrganization` — ArmEdu publishes, it does
+  `Organization`, deliberately not `EducationalOrganization` — Armat publishes, it does
   not teach or award), `websiteLd` (`WebSite` + a `SearchAction` pointing at the edition's
   own `/search`), `articleLd` (`Article` + `citation[]` derived from `sources.ts`),
   `listingLd` (`CollectionPage` + `ItemList` of URLs only), `pageLd` (`WebPage`), a shared
@@ -489,7 +499,7 @@ fallback — an Armenian page emits Armenian strings and declares its own `inLan
 - `src/app/sitemap.ts` — static pages and listings gained a derived `lastModified`
   (`withLastModified`): a listing is as fresh as its newest article, the home page as fresh
   as the newest article anywhere; about/contact/privacy get none rather than an invented date.
-- **Icons.** `src/app/icon.svg` (favicon, burgundy `#7b2c37` / gold `#b5852f`, from the Logo
+- **Icons.** `src/app/icon.png` (favicon, burgundy `#7b2c37` / gold `#b5852f`, from the Logo
   mark). See the apple-icon note below.
 
 **Verification (built HTML in `.next/server/app/**`, plus the e2e suite)**
@@ -507,12 +517,12 @@ fallback — an Armenian page emits Armenian strings and declares its own `inLan
 - The hreflang guard holds: `/hy/writers/raffi` (translated in hy + en, not hyw) advertises
   `hy`, `en` and `x-default→hy`, and **no** `hyw`. Fully translated articles advertise all three.
 
-**One defect found and fixed.** `src/app/apple-icon.svg` was **inert** — Next 16's
+**One defect found and fixed.** `src/app/apple-icon.png` was **inert** — Next 16's
 `apple-icon` file convention accepts only `.png/.jpg/.jpeg` (Apple touch icons do not render
 SVG), so the file produced no route and no `apple-touch-icon` link. It was rasterised from
 its own mark to a 180×180 `src/app/apple-icon.png` (via the bundled `sharp`; solid burgundy,
 no rounded corners, since iOS applies its own mask) and the SVG removed. The build now emits
-`/apple-icon.png` and the `apple-touch-icon` link on every page. (`icon.svg` was always fine —
+`/apple-icon.png` and the `apple-touch-icon` link on every page. (`icon.png` was always fine —
 the `icon` convention *does* accept SVG.)
 
 **Tests.** `tests/e2e/seo.spec.ts` (6 tests) locks the invariants the rest of the suite could
@@ -533,12 +543,11 @@ indexable edition and absent where the default cannot serve the page. The hrefla
   feed has little to carry and few subscribers to serve. Revisit if a regularly-updated
   section (news, blog) is ever added.
 
-**Blocker, not fixable here — the single most important line before anything can be indexed.**
-`src/data/site.ts` still uses the placeholder `armedu.example.org` (RFC 2606, cannot collide
-with a real host). Every canonical, OG URL, hreflang and sitemap entry therefore points at a
-host that does not exist. The structured data, alternates and sitemap are all correct *in
-shape*; they simply name the wrong origin until a real domain replaces that one constant.
-This follows from the localhost-only project constraint (§11, limitation 8).
+**Origin resolved.** `src/data/site.ts` now names the real domain **`armat.site`**, so every
+canonical, OG URL, hreflang, sitemap entry and JSON-LD `@id` points at a host that will exist
+once the site is deployed. The structured data, alternates and sitemap were always correct in
+shape; they now also carry the right origin. The remaining gap is purely operational —
+deployment, and Search Console verification — both still out of scope for the localhost build.
 
 ---
 

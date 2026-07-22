@@ -15,7 +15,7 @@ export const workArticles: Article[] = [
     featured: true,
     intro:
       "Anush is a narrative poem by Hovhannes Tumanyan, written in 1890, first printed in 1892 and reworked into its final form across 1901 and 1902. Set among the shepherds and highland villages of Lori, it tells of a village girl and her beloved whose happiness is broken by a moment of wrestling pride. Turned into an opera by Armen Tigranian in 1912, it became one of the best known works in all of Armenian culture.",
-    author: "ArmEdu Editorial Team",
+    author: "Armat Editorial Team",
     updated: "2026-04-12",
     sections: [
       {
@@ -140,7 +140,7 @@ export const workArticles: Article[] = [
     imageSeed: "wounds-of-armenia",
     intro:
       "Wounds of Armenia, known in Armenian as Verk Hayastani, was written by Khachatur Abovyan around 1841 and published in 1858, ten years after its author disappeared. It tells the story of Aghasi, a young villager who takes up arms during the Russo-Persian war of 1826 to 1828. Because Abovyan wrote it in everyday spoken Armenian rather than the ancient literary language, it is usually called the first modern Armenian novel.",
-    author: "ArmEdu Editorial Team",
+    author: "Armat Editorial Team",
     updated: "2026-03-08",
     sections: [
       {
@@ -265,7 +265,7 @@ export const workArticles: Article[] = [
     imageSeed: "the-fool",
     intro:
       "The Fool, published in 1880 under its Armenian title Khente, is one of Raffi's best known novels. It moves between the Ottoman districts of Bayazit and Alashkert and the Russian side of the border during the Russo-Turkish war of 1877 to 1878 and follows Vardan, a young man whom the villagers call a fool because he refuses to accept things as they are. The book combines love story, war narrative and political argument.",
-    author: "ArmEdu Editorial Team",
+    author: "Armat Editorial Team",
     updated: "2026-05-21",
     sections: [
       {
@@ -391,7 +391,7 @@ export const workArticles: Article[] = [
     imageSeed: "david-of-sassoun",
     intro:
       "David of Sassoun, known in Armenian as Sasna Tsrer or the Daredevils of Sassoun, is the national epic of the Armenian people. It grew out of oral storytelling in the mountainous district of Sassoun and was first written down in 1873, after circulating by word of mouth for roughly a thousand years. The epic follows four generations of a heroic family and their struggle to remain free.",
-    author: "ArmEdu Editorial Team",
+    author: "Armat Editorial Team",
     updated: "2026-02-17",
     sections: [
       {

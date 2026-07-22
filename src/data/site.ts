@@ -1,16 +1,15 @@
 /**
- * Placeholder identity, centralised.
+ * Site identity, centralised.
  *
- * The project runs on localhost and has no registered domain yet, so the public
- * origin and the mailbox names are derived from these three constants. Changing
- * the domain later is a one-line edit here — nothing else in the app hard-codes
- * it. `example.org` is reserved for documentation (RFC 2606), so the placeholder
- * can never collide with a real address.
+ * The public origin and the mailbox names are derived from these three
+ * constants — nothing else in the app hard-codes the domain, so every canonical
+ * URL, Open Graph tag, hreflang, sitemap entry and JSON-LD `@id` follows from
+ * this one line.
  *
  * Human-readable strings (name, tagline, description) live in each locale's UI
  * dictionary, not here — they are translated.
  */
-const SITE_DOMAIN = "armedu.example.org";
+const SITE_DOMAIN = "armat.site";
 const CONTACT_MAILBOX = "hello";
 const SITE_ORIGIN = `https://${SITE_DOMAIN}`;
 

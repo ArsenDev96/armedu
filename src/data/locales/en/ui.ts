@@ -2,12 +2,12 @@ import type { UiDictionary } from "@/data/ui";
 
 export const ui: UiDictionary = {
   site: {
-    name: "ArmEdu",
+    name: "Armat",
     tagline: "Armenian history, literature and culture",
     description:
       "Clear and accessible articles about Armenian historical events, famous writers, important literary works, and cultural heritage.",
     skipToContent: "Skip to content",
-    homeLinkLabel: "ArmEdu — home",
+    homeLinkLabel: "Armat — home",
   },
 
   nav: {
@@ -162,7 +162,7 @@ export const ui: UiDictionary = {
   search: {
     title: "Search",
     metaDescription:
-      "Search every Armenian history article, writer biography and literary work on ArmEdu.",
+      "Search every Armenian history article, writer biography and literary work on Armat.",
     heading: "Search",
     lead: "One field across the whole site — {count} articles, biographies and literary works.",
     inputLabel: "Search Armenian history, writers and literary works",

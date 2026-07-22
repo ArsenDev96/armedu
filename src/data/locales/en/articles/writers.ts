@@ -15,7 +15,7 @@ export const writerArticles: Article[] = [
     featured: true,
     intro:
       "Hovhannes Tumanyan turned the everyday life of Armenian mountain villages into poetry that readers of every age could understand. He wrote narrative poems, fairy tales, quatrains and essays, and he retold the national epic David of Sassoun for modern readers. Beyond his writing, he became a trusted public figure who used his reputation to help ordinary people during years of war and displacement.",
-    author: "ArmEdu Editorial Team",
+    author: "Armat Editorial Team",
     updated: "2026-04-22",
     sections: [
       {
@@ -157,7 +157,7 @@ export const writerArticles: Article[] = [
     featured: true,
     intro:
       "Yeghishe Charents brought modern European poetic techniques into Armenian literature while writing some of the most quoted patriotic lines in the language. His career spanned revolution, genocide, civil war and the building of Soviet Armenia. He died in 1937, during the Stalinist purges, and his work was restored to readers only two decades later.",
-    author: "ArmEdu Editorial Team",
+    author: "Armat Editorial Team",
     updated: "2026-05-06",
     sections: [
       {
@@ -295,7 +295,7 @@ export const writerArticles: Article[] = [
     imageSeed: "raffi",
     intro:
       "Raffi, the pen name of Hakob Melik-Hakobian, was the most widely read Armenian novelist of the nineteenth century. Writing from Persia and the Caucasus, he produced sweeping historical novels and sharp contemporary ones that asked the same urgent question: what should a scattered, unarmed people do about its own future? His books shaped Armenian political thinking for decades.",
-    author: "ArmEdu Editorial Team",
+    author: "Armat Editorial Team",
     updated: "2026-03-18",
     sections: [
       {
@@ -419,7 +419,7 @@ export const writerArticles: Article[] = [
     imageSeed: "avetik-isahakyan",
     intro:
       "Avetik Isahakyan wrote poems so close to folk song that many Armenians assume they are anonymous traditional lyrics. He spent decades abroad as an emigre before returning to Soviet Armenia, and his long poem Abu Lala Mahari made him known well beyond Armenian readers. His career links the world of Tumanyan to the middle of the twentieth century.",
-    author: "ArmEdu Editorial Team",
+    author: "Armat Editorial Team",
     updated: "2026-04-09",
     sections: [
       {
@@ -543,7 +543,7 @@ export const writerArticles: Article[] = [
     imageSeed: "khachatur-abovyan",
     intro:
       "Khachatur Abovyan is usually called the father of modern Armenian literature. He made a decisive choice to write in the spoken vernacular rather than in the classical language of the church, and his novel Wounds of Armenia opened the way for every Eastern Armenian writer who followed. He was also an energetic educator and the guide on the first recorded ascent of Mount Ararat.",
-    author: "ArmEdu Editorial Team",
+    author: "Armat Editorial Team",
     updated: "2026-02-27",
     sections: [
       {
@@ -673,7 +673,7 @@ export const writerArticles: Article[] = [
     imageSeed: "paruyr-sevak",
     intro:
       "Paruyr Sevak was the leading Armenian poet of the postwar Soviet decades. His long poem about the composer Komitas confronted the Armenian Genocide at a time when the subject was barely permitted in print, and his restless, questioning style renewed Armenian poetry. He died in a road accident in 1971 at the age of forty-seven.",
-    author: "ArmEdu Editorial Team",
+    author: "Armat Editorial Team",
     updated: "2026-05-30",
     sections: [
       {

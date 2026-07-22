@@ -15,7 +15,7 @@ export const historyArticles: Article[] = [
       "The Artaxiad king who expanded Armenia into the strongest state of the Near East, founded Tigranocerta, and met the Roman legions of Lucullus and Pompey.",
     intro:
       "Tigran II, remembered in Armenian tradition as Tigran the Great, ruled the Kingdom of Armenia from 95 to 55 BC. Under his reign Armenia grew from a mountain kingdom into the most powerful state between the Roman Republic and the Parthian Empire, stretching for a short time from the Caspian Sea to the Mediterranean coast. His reign is remembered both for that remarkable expansion and for the collision with Rome that ended it.",
-    author: "ArmEdu Editorial Team",
+    author: "Armat Editorial Team",
     updated: "2026-06-02",
     keyFacts: [
       { label: "Full name", value: "Tigran II, of the Artaxiad dynasty" },
@@ -151,7 +151,7 @@ export const historyArticles: Article[] = [
     imageSeed: "kingdom-of-urartu",
     intro:
       "Between the ninth and sixth centuries BC, a federation of mountain principalities around Lake Van grew into one of the strongest states of the ancient Near East. Assyrian scribes called it Urartu, its own kings called it Biainili, and later Greek and Armenian writers remembered its cities long after its palaces had burned. For students of Armenian history, Urartu is where written evidence about life on the Armenian Highlands truly begins.",
-    author: "ArmEdu Editorial Team",
+    author: "Armat Editorial Team",
     updated: "2026-05-14",
     sections: [
       {
@@ -270,7 +270,7 @@ export const historyArticles: Article[] = [
     featured: true,
     intro:
       "In the early fifth century, Armenia had a church, a literature it could not read in its own language, and a political situation that threatened to divide it in two. Mesrop Mashtots, a court secretary turned monk, answered that crisis by inventing a complete alphabet for the Armenian language. Within a generation, scholars trained by him had translated the Bible, founded schools and begun a national literary tradition that has never been interrupted.",
-    author: "ArmEdu Editorial Team",
+    author: "Armat Editorial Team",
     updated: "2026-04-22",
     sections: [
       {
@@ -387,7 +387,7 @@ export const historyArticles: Article[] = [
     imageSeed: "adoption-of-christianity",
     intro:
       "According to Armenian tradition, in the year 301 King Trdat III accepted baptism from Gregory the Illuminator and declared Christianity the religion of his kingdom. The date is traditional rather than certain, and many historians place the conversion closer to 314; on either dating Armenia was the earliest state anywhere to take that step, since Rome would not make Christianity its own state religion for another eighty years. The consequences reached into every part of Armenian life, from architecture and law to the eventual invention of the alphabet.",
-    author: "ArmEdu Editorial Team",
+    author: "Armat Editorial Team",
     updated: "2026-03-30",
     sections: [
       {
@@ -505,7 +505,7 @@ export const historyArticles: Article[] = [
     featured: true,
     intro:
       "On the plain of Avarayr in the spring of 451, an Armenian army led by Vardan Mamikonian met a Sasanian force several times its size. The Armenians were defending the right to remain Christian against an imperial policy of religious conversion. They lost the field and their commander, yet the resistance they began ended with Persia abandoning the policy, which is why Armenians remember Avarayr as a defeat that achieved its purpose.",
-    author: "ArmEdu Editorial Team",
+    author: "Armat Editorial Team",
     updated: "2026-06-08",
     sections: [
       {
@@ -622,7 +622,7 @@ export const historyArticles: Article[] = [
     imageSeed: "bagratid-armenia",
     intro:
       "In 885 Ashot Bagratuni was recognised as king of Armenia by both the Caliph in Baghdad and the Emperor in Constantinople, ending more than four centuries without an Armenian monarchy. Over the next hundred and fifty years his dynasty rebuilt the country's cities, churches and trade. Its capital, Ani, became a centre of architecture and learning whose ruins still stand above the gorge of the Akhurian river.",
-    author: "ArmEdu Editorial Team",
+    author: "Armat Editorial Team",
     updated: "2026-02-11",
     sections: [
       {
@@ -739,7 +739,7 @@ export const historyArticles: Article[] = [
     imageSeed: "first-republic-of-armenia",
     intro:
       "On 28 May 1918, days after Armenian forces halted an Ottoman advance at Sardarapat, leaders in Yerevan declared an independent republic. It inherited a ruined territory crowded with refugees and survivors of the genocide, and it lasted only until December 1920. Yet in that short time it built a government, wrote laws, opened a university and gave twentieth-century Armenians the model of statehood they returned to in 1991.",
-    author: "ArmEdu Editorial Team",
+    author: "Armat Editorial Team",
     updated: "2026-01-27",
     sections: [
       {

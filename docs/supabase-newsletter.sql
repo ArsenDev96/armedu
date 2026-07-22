@@ -1,5 +1,5 @@
 -- ---------------------------------------------------------------------------
--- ArmEdu — newsletter subscribers
+-- Armat — newsletter subscribers
 --
 -- Run this once in the Supabase SQL editor (Dashboard → SQL Editor → New query).
 --
