@@ -203,6 +203,26 @@ one language and forgotten in another.
 re-derive the articles from the works now cited. Any uncited specific — a number, a plot
 detail, a cause of death — should still be treated as unverified. See limitation 1.
 
+**Follow-up pass on the six writer articles (22 July 2026).** A re-read of
+`locales/*/articles/writers.ts` found seven more items, all fixed in every edition that
+carries the article:
+
+- **Sevak entered Yerevan State University in 1940, not 1939** (he left school in 1940 and
+  graduated in 1945; the article's own graduation date implies a five-year course).
+- *Anush*'s timeline entry still read "**Writes** the first version" under 1892, which the
+  audit had already corrected to 1890 in the prose and in `works.ts`. The entry and the
+  bullet now say written 1890, printed 1892, revised 1901–1902.
+- Isahakyan's twenty-five unbroken years abroad — he returned to Soviet Armenia in 1926,
+  stayed four years, and went back to Paris in 1930 before settling in 1936.
+- Raffi "began publishing in the 1850s and 1860s", contradicting the article's own 1860
+  debut date (the one the audit had corrected).
+- Spelling: `Echmiadzin` → `Etchmiadzin` (the archive's form), `Russo Persian` →
+  `Russo-Persian`, `Sayat Nova` → `Sayat-Nova` (four places, one already hyphenated).
+
+Note what this implies about the safeguard: the cross-edition check compares the three
+editions against *each other*, so an error present in all three — as 1939 was — passes.
+It catches divergence, not shared mistakes.
+
 ## 9. Project review — July 2026
 
 Six parallel reviews covered Next.js correctness, accessibility, the data layer, security

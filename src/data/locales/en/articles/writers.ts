@@ -45,7 +45,7 @@ export const writerArticles: Article[] = [
           "Alongside these he produced dozens of fairy tales and fables, including A Drop of Honey, The Dog and the Cat, The Death of Kikos and The Master and the Servant. Written for children but layered with adult irony, they are still among the first literary texts Armenian children encounter.",
         ],
         bullets: [
-          "Anush, narrative poem, 1892 and revised 1901",
+          "Anush, narrative poem, written 1890, printed 1892, revised 1901 to 1902",
           "The Capture of Tmkaberd, historical ballad, 1902",
           "Gikor, short story, 1895",
           "A Drop of Honey and other fairy tales and fables",
@@ -96,7 +96,7 @@ export const writerArticles: Article[] = [
     importantDates: [
       { year: "1869", event: "Born in the village of Dsegh in the Lori region." },
       { year: "1890", event: "Publishes his first collection of poems in Moscow." },
-      { year: "1892", event: "Writes the first version of the narrative poem Anush." },
+      { year: "1892", event: "Prints the first version of the narrative poem Anush, written in 1890." },
       { year: "1899", event: "Founds the Vernatun literary circle in Tiflis." },
       {
         year: "1912",
@@ -311,7 +311,7 @@ export const writerArticles: Article[] = [
         id: "literary-career",
         heading: "Literary career",
         paragraphs: [
-          "Raffi began publishing in the 1850s and 1860s, first travel notes and then fiction. His breakthrough came through the Tiflis newspaper Mshak, edited by Grigor Artsruni, which serialised his novels and gave him a large and devoted readership across the Caucasus. He also worked for several years as a teacher in Tabriz and Agulis.",
+          "Raffi began publishing in 1860, first travel notes and then fiction. His breakthrough came through the Tiflis newspaper Mshak, edited by Grigor Artsruni, which serialised his novels and gave him a large and devoted readership across the Caucasus. He also worked for several years as a teacher in Tabriz and Agulis.",
           "Serial publication suited him. He wrote quickly, in long instalments, with cliffhangers, subplots and a strong narrative pull, and readers waited for each issue. Critics sometimes complained about looseness of construction, but the popular impact was enormous and no earlier Armenian author had reached so many readers.",
           "In 1879 he settled permanently in Tiflis and devoted himself to writing. The last decade of his life produced his major works in rapid succession, despite poor health and constant financial strain.",
         ],
@@ -436,8 +436,8 @@ export const writerArticles: Article[] = [
         heading: "Literary career and exile",
         paragraphs: [
           "Back in the Caucasus, Isahakyan joined the Vernatun circle around Hovhannes Tumanyan in Tiflis and formed lasting friendships there. Political activity brought him under suspicion, and he was arrested in 1908 in connection with the mass trial of Armenian political figures, held for about six months in Metekhi prison and released on bail in 1909.",
-          "In 1911 he left the Russian Empire and began a long period abroad, living at different times in Berlin, Venice, Vienna and Paris. He continued to write and became an important figure in Armenian emigre culture, particularly after 1915, when he worked to support survivors and to keep the community's literary life alive.",
-          "In 1936 he returned permanently to Soviet Armenia. He was received with honours, elected to the Academy of Sciences and served as chairman of the Writers Union of Armenia from 1946. He continued writing prose sketches, fables and lyrics until the end of his life.",
+          "In 1911 he left the Russian Empire and began a long period abroad, living at different times in Berlin, Venice, Vienna and Paris. He continued to write and became an important figure in Armenian emigre culture, particularly after 1915, when he worked to support survivors and to keep the community's literary life alive. He came back to Soviet Armenia in 1926 and stayed four years, but returned to Paris in 1930.",
+          "In 1936 he came home for good. He was received with honours, elected to the Academy of Sciences and served as chairman of the Writers Union of Armenia from 1946. He continued writing prose sketches, fables and lyrics until the end of his life.",
         ],
       },
       {
@@ -505,7 +505,7 @@ export const writerArticles: Article[] = [
       "Several of his lyrics are sung as folk songs today, with many singers unaware that they have a named author.",
       "The Russian poet Alexander Blok, who translated some of his verse, described him as a poet of the first rank.",
       "He studied at the University of Leipzig, an unusual path for an Armenian writer of his generation.",
-      "He lived abroad for twenty five years, in Germany, Italy, Austria and France, before returning home in 1936.",
+      "He spent most of the years between 1911 and 1936 abroad, in Germany, Italy, Austria and France, apart from a four year stay in Armenia from 1926.",
       "He was a founding member of the Vernatun circle that met in Hovhannes Tumanyan's Tiflis apartment.",
     ],
     relatedFigures: [
@@ -551,7 +551,7 @@ export const writerArticles: Article[] = [
         heading: "Early life and education",
         paragraphs: [
           "Khachatur Abovyan was born on 15 October 1809 in Kanaker, then a village outside Yerevan and now part of the city. His family belonged to the minor local nobility, and the region was still under Persian rule, a period he later described as one of insecurity and heavy taxation for Armenian villagers.",
-          "He was educated first at the monastery school of Echmiadzin and then at the Nersisyan School in Tiflis, where he encountered a wider intellectual world. In 1829 he returned to Echmiadzin as a teacher and translator, a position that placed him at the centre of Armenian religious and educational life.",
+          "He was educated first at the monastery school of Etchmiadzin and then at the Nersisyan School in Tiflis, where he encountered a wider intellectual world. In 1829 he returned to Etchmiadzin as a teacher and translator, a position that placed him at the centre of Armenian religious and educational life.",
           "That year the German scientist Friedrich Parrot arrived to attempt the ascent of Mount Ararat. Abovyan was assigned as his interpreter and companion, and in October 1829 the two men reached the summit, the first documented ascent of the mountain. The expedition made Abovyan's name and led directly to the next stage of his life.",
         ],
       },
@@ -569,7 +569,7 @@ export const writerArticles: Article[] = [
         heading: "Teaching career and major works",
         paragraphs: [
           "Abovyan worked as a school inspector and teacher in Tiflis and then in Yerevan, where he ran the district school from 1843. He opened a private boarding school, taught girls as well as boys, wrote textbooks and pressed the authorities for better facilities and teacher training, usually with limited success and considerable personal cost.",
-          "His masterpiece, Wounds of Armenia, was written in 1841. Set during the Russo Persian war of 1826 to 1828, it follows the young hero Aghasi and the villagers of Kanaker as they are drawn into the conflict, and it combines patriotic narrative, ethnographic detail and open political argument about the condition of the Armenian people.",
+          "His masterpiece, Wounds of Armenia, was written in 1841. Set during the Russo-Persian war of 1826 to 1828, it follows the young hero Aghasi and the villagers of Kanaker as they are drawn into the conflict, and it combines patriotic narrative, ethnographic detail and open political argument about the condition of the Armenian people.",
           "The novel could not be published in his lifetime. It appeared in 1858, ten years after his disappearance, and its impact was immediate: it was the first substantial literary work in Eastern Armenian vernacular prose and it settled the language question in practice by simply demonstrating what the spoken language could do.",
         ],
         bullets: [
@@ -681,7 +681,7 @@ export const writerArticles: Article[] = [
         heading: "Early life and education",
         paragraphs: [
           "Paruyr Ghazaryan was born on 24 January 1924 in Zangakatun, then called Chanakhchi, a village in the Ararat valley south of Yerevan. He grew up in a farming family, and the rural landscape and speech of the region remained present in his poetry throughout his life.",
-          "He entered Yerevan State University in 1939 to study Armenian language and literature, graduating in 1945 and continuing with postgraduate research. The editor Ruben Zaryan gave him the pen name Sevak, in memory of the poet Ruben Sevak, who was killed in 1915 — a name that signalled from the start where his literary loyalties lay.",
+          "He entered Yerevan State University in 1940 to study Armenian language and literature, graduating in 1945 and continuing with postgraduate research. The editor Ruben Zaryan gave him the pen name Sevak, in memory of the poet Ruben Sevak, who was killed in 1915 — a name that signalled from the start where his literary loyalties lay.",
           "From 1951 to 1959 he studied and then taught at the Gorky Literature Institute in Moscow. The years in Moscow exposed him to Russian and translated world poetry and to the cautious loosening of cultural controls that followed 1953, and he returned to Yerevan with a much wider sense of what a poem could attempt.",
         ],
       },
@@ -700,13 +700,13 @@ export const writerArticles: Article[] = [
         paragraphs: [
           "The Unsilenceable Belfry, published in 1959, is his central achievement. Built around the life of Komitas, the priest and musicologist whose mind gave way after the events of 1915, it uses the composer's story to speak about the destruction of Western Armenian life. Published four decades after the genocide and years before public commemoration was permitted, it was received as an act of courage as much as a literary work.",
           "Let There Be Light, issued in 1969, collects the poems of his last decade and shows his range: love lyrics, sharp epigrams, meditations on science and history, and poems about ordinary domestic life. Man in the Palm of the Hand, from 1963, gathers his philosophical verse about human responsibility and the individual conscience.",
-          "He also wrote the long poem The Three Voiced Liturgy and a body of shorter poems that are widely anthologised. His scholarly monograph on Sayat Nova, defended as a doctoral dissertation, remains a respected contribution to Armenian literary history.",
+          "He also wrote the long poem The Three Voiced Liturgy and a body of shorter poems that are widely anthologised. His scholarly monograph on Sayat-Nova, defended as a doctoral dissertation, remains a respected contribution to Armenian literary history.",
         ],
         bullets: [
           "The Unsilenceable Belfry, long poem about Komitas, 1959",
           "Man in the Palm of the Hand, poetry collection, 1963",
           "Let There Be Light, poetry collection, 1969",
-          "A scholarly monograph on the poet Sayat Nova",
+          "A scholarly monograph on the poet Sayat-Nova",
           "Numerous translations and critical essays",
         ],
       },
@@ -760,7 +760,7 @@ export const writerArticles: Article[] = [
     },
     interestingFacts: [
       "He took his pen name from Ruben Sevak, a young Armenian poet killed in 1915.",
-      "His doctoral research on the eighteenth century troubadour Sayat Nova is still cited by scholars.",
+      "His doctoral research on the eighteenth century troubadour Sayat-Nova is still cited by scholars.",
       "The Unsilenceable Belfry appeared six years before the 1965 demonstrations that pushed for public recognition of the genocide.",
       "His native village of Chanakhchi was renamed Zangakatun, meaning belfry, after the title of his most famous poem.",
       "He is buried in the garden of his family home, which now serves as his house museum.",
@@ -779,7 +779,7 @@ export const writerArticles: Article[] = [
           "A contemporary Armenian poet of great popularity whose lyric warmth contrasted with Sevak's analytical manner.",
       },
       {
-        name: "Sayat Nova",
+        name: "Sayat-Nova",
         lifespan: "about 1712 to 1795",
         description:
           "The great Armenian troubadour whose songs Sevak studied in a major scholarly monograph.",
