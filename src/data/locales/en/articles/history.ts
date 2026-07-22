@@ -2,6 +2,143 @@ import type { Article } from "@/data/types";
 
 export const historyArticles: Article[] = [
   {
+    slug: "tigran-the-great",
+    href: "/history/tigran-the-great",
+    category: "history",
+    categoryLabel: "Armenian History",
+    title: "Tigran the Great",
+    period: "Armenian Kingdoms",
+    periodId: "kingdoms",
+    imageSeed: "tigran-the-great",
+    featured: true,
+    excerpt:
+      "The Artaxiad king who expanded Armenia into the strongest state of the Near East, founded Tigranocerta, and met the Roman legions of Lucullus and Pompey.",
+    intro:
+      "Tigran II, remembered in Armenian tradition as Tigran the Great, ruled the Kingdom of Armenia from 95 to 55 BC. Under his reign Armenia grew from a mountain kingdom into the most powerful state between the Roman Republic and the Parthian Empire, stretching for a short time from the Caspian Sea to the Mediterranean coast. His reign is remembered both for that remarkable expansion and for the collision with Rome that ended it.",
+    author: "ArmEdu Editorial Team",
+    updated: "2026-06-02",
+    keyFacts: [
+      { label: "Full name", value: "Tigran II, of the Artaxiad dynasty" },
+      { label: "Lived", value: "c. 140 BC – 55 BC" },
+      { label: "Reigned", value: "95 BC – 55 BC" },
+      { label: "Title", value: "King of Kings" },
+      { label: "Capital", value: "Tigranocerta (founded c. 83–77 BC)" },
+      { label: "Dynasty", value: "Artaxiad (Artashesian)" },
+    ],
+    sections: [
+      {
+        id: "early-life",
+        heading: "Early life",
+        paragraphs: [
+          "Tigran was born around 140 BC into the Artaxiad dynasty, the royal house founded by Artashes I about a century earlier. His youth was shaped by a difficult political reality: the Parthian Empire to the east had grown strong enough to press on Armenia's borders, and after a military defeat the Armenian court was required to send a royal hostage to the Parthian king. That hostage was Tigran, who spent a significant part of his early life at the Parthian court.",
+          "Ancient historians present those years as formative rather than wasted. At the Parthian court the young prince observed how a large multi-ethnic empire was administered, how vassal kings were bound to a central ruler, and how court ceremony was used to project authority. Many of the ideas he later applied in Armenia — the title King of Kings, a network of dependent rulers, a new royal capital — echo what he had seen in exile.",
+          "When the Armenian throne fell vacant in 95 BC, Tigran secured his release by ceding to Parthia a group of border valleys often referred to in the sources as the seventy valleys. He returned to Armenia, was crowned king, and immediately began working to recover what he had given away. Whose son he was is not settled: the ancient evidence is thin enough that historians place him variously as the son or the nephew of his predecessor.",
+        ],
+      },
+      {
+        id: "rise-to-power",
+        heading: "Rise to power",
+        paragraphs: [
+          "Tigran's first task was to unify the Armenian lands. Since the separation of the Kingdom of Sophene from the main Armenian body, the country had been split between two royal branches. Around 94 BC Tigran annexed Sophene, bringing western and eastern Armenia under a single crown for the first time in generations and giving him control of the fertile Upper Euphrates region.",
+          "He then secured his western flank through diplomacy. Tigran married Cleopatra, daughter of Mithridates VI of Pontus, creating an alliance between the two strongest powers of Asia Minor. The alliance allowed each king to expand in his own direction while relying on the other to occupy Rome's attention — an arrangement that served Tigran well for almost thirty years and eventually helped bring about his defeat.",
+          "With his borders stabilised, Tigran turned east. Taking advantage of a succession crisis that weakened Parthia in the 80s BC, he recovered the seventy valleys, pushed into Media Atropatene and Mesopotamia, and forced several Parthian vassals to acknowledge him instead. It was after these campaigns that he assumed the ancient Near Eastern title King of Kings.",
+        ],
+      },
+      {
+        id: "expansion",
+        heading: "Expansion of the Armenian Empire",
+        paragraphs: [
+          "At its greatest extent, in the late 80s and 70s BC, the empire Tigran governed reached from the Caspian Sea in the east to the Mediterranean in the west, and from the Kura river in the north to the edge of Judaea in the south. It was not a unified state in the modern sense. Armenia proper formed the core, while the outer regions were kingdoms and cities that paid tribute and accepted Tigran's overlordship while keeping their own institutions.",
+          "The most significant acquisition was Syria. In 83 BC, exhausted by dynastic wars, the nobles of the Seleucid kingdom invited Tigran to take the throne in Antioch. He accepted, and for roughly fourteen years Armenian kings governed one of the wealthiest regions of the Hellenistic world, minting coins in Antioch that carried Tigran's portrait in the Armenian tiara.",
+          "This expansion brought real wealth. Control of Syria and northern Mesopotamia meant control of the trade routes linking the Mediterranean to Iran and, beyond it, to Central Asia. Tribute and customs revenue funded a large standing army, ambitious building projects, and a court that Greek and Roman writers described as one of the richest of its age.",
+        ],
+        bullets: [
+          "Sophene, annexed around 94 BC, unifying the Armenian lands",
+          "Media Atropatene and parts of northern Mesopotamia, taken from Parthia",
+          "Syria and Cilicia, governed from Antioch after 83 BC",
+          "Vassal kingdoms across the Caucasus and the Iranian plateau",
+        ],
+      },
+      {
+        id: "tigranocerta",
+        heading: "Tigranocerta",
+        paragraphs: [
+          "At some point in the 80s or 70s BC — most often placed around 83, though the sources do not fix it — Tigran founded a new capital, Tigranocerta, in the south-west of his empire. The older capital, Artashat, sat in the Ararat plain — safe, but far from the new southern and western provinces. Tigranocerta was placed to govern the empire he had actually built rather than the kingdom he had inherited.",
+          "Ancient sources describe a planned Hellenistic city with strong walls, a royal palace, parks and a Greek theatre. To populate it quickly, Tigran resettled inhabitants from captured Greek and Syrian cities — a common practice at the time, though the sources note that the resettled communities resented it. The city became a centre of Hellenistic culture, and Greek plays are recorded as having been performed there.",
+          "The location of Tigranocerta is still debated by archaeologists, with several candidate sites in south-eastern Turkey and northern Iraq. What is clear is what happened to it: after the Roman victory of 69 BC the city was sacked, its treasury carried away, and many of the resettled inhabitants returned home. Tigranocerta never regained its brief importance.",
+        ],
+      },
+      {
+        id: "relations-with-rome",
+        heading: "Relations with Rome",
+        paragraphs: [
+          "Conflict with Rome came through Tigran's father-in-law. When Mithridates VI of Pontus was driven from his kingdom by Roman armies, he took refuge at the Armenian court. Tigran refused to hand him over. For Rome, sheltering its most persistent eastern enemy was justification enough for war, and in 69 BC the general Lucullus crossed into Armenian territory.",
+          "The war went badly for Armenia. At the battle of Tigranocerta in 69 BC the Roman force, far smaller but disciplined and experienced, defeated Tigran's much larger but hastily assembled army; the new capital fell soon after. Lucullus pressed on toward Artashat, but a hard mountain campaign, a harsh autumn and mutiny among his own troops forced him to withdraw, and Tigran recovered much of Armenia proper.",
+          "The reprieve was temporary. Pompey took over the eastern command in 66 BC and advanced with Parthian cooperation, while Tigran's own son rebelled against him. Facing enemies on every side, Tigran chose negotiation over a war he could not win. He rode into the Roman camp, laid his diadem at Pompey's feet, and accepted terms: he gave up Syria, Cilicia and his other conquests, paid a large indemnity, and kept Armenia itself as a kingdom allied to Rome.",
+        ],
+      },
+      {
+        id: "final-years",
+        heading: "Final years",
+        paragraphs: [
+          "Tigran ruled for another eleven years after the settlement with Pompey, from 66 to 55 BC. The empire was gone, but the kingdom survived intact and, unusually for a defeated eastern monarch, so did its king. Contemporary Roman writers treat him afterwards as a friend and ally of the Roman people, a status that preserved Armenian independence in domestic affairs.",
+          "These last years were spent rebuilding rather than campaigning. Artashat again served as the capital, the administration was reorganised for a smaller state, and Tigran worked to keep Armenia balanced between Rome and Parthia rather than subordinate to either. That balancing act became the defining problem of Armenian foreign policy for the next several centuries.",
+          "Tigran died in 55 BC, aged about eighty-five, and was succeeded by his son Artavasdes II, a capable ruler and a playwright in Greek. The Artaxiad dynasty, through interruptions and struggles over the succession, continued to rule until AD 12, as Armenia was drawn ever more tightly into the long struggle between Rome and Parthia.",
+        ],
+      },
+      {
+        id: "historical-legacy",
+        heading: "Historical legacy",
+        paragraphs: [
+          "Tigran the Great occupies a particular place in Armenian historical memory as the ruler under whom Armenia was, briefly, a great power rather than a contested frontier. Medieval Armenian historians, most notably Movses Khorenatsi, gave his reign a central position in the national narrative, and that framing has carried into modern textbooks, literature and public monuments.",
+          "Historians today assess the reign more carefully. The empire was assembled quickly, held together largely by tribute and personal authority, and dissolved almost as quickly when Roman armies arrived. But the achievements that outlasted it were real: the political unification of the Armenian lands, a period of significant urban and economic development, and the integration of Armenia into the wider Hellenistic world.",
+          "For students, the reign is also a clear case study in the limits of rapid expansion. Tigran built a state that reached the Mediterranean in under twenty years and lost it in three, largely because it lacked the administrative depth to survive a serious defeat. That question — how much a small country can gain and hold between larger neighbours — runs through the whole of Armenian history.",
+        ],
+      },
+    ],
+    importantDates: [
+      { year: "c. 140 BC", event: "Tigran is born into the Artaxiad royal house." },
+      { year: "95 BC", event: "He returns from the Parthian court and is crowned king of Armenia." },
+      { year: "c. 94 BC", event: "Annexation of Sophene unites the Armenian lands under one crown." },
+      { year: "83 BC", event: "Tigran takes the Seleucid throne in Antioch and founds Tigranocerta." },
+      { year: "69 BC", event: "Lucullus defeats the Armenian army at Tigranocerta and sacks the city." },
+      { year: "66 BC", event: "Peace with Pompey: Armenia keeps its independence but loses the empire." },
+      { year: "55 BC", event: "Tigran dies; his son Artavasdes II succeeds him." },
+    ],
+    significance: {
+      heading: "Why Tigran the Great is important",
+      paragraphs: [
+        "Tigran's reign is the moment when Armenia was not a buffer between empires but an empire in its own right. For roughly two decades an Armenian king ruled Antioch, issued coinage across the Near East, and was addressed as King of Kings by rulers from the Caucasus to Mesopotamia. That period gave later generations a concrete answer to the question of what Armenian statehood could look like at its most ambitious.",
+        "His more durable achievement, however, is the one that receives less attention: the unification of the Armenian lands and the urban and economic growth that followed. Cities, trade routes and administrative structures established in this period shaped Armenian life long after the conquests were reversed, and the diplomatic problem he faced at the end of his reign — how to remain independent between two stronger powers — defined Armenian political history for centuries.",
+      ],
+    },
+    interestingFacts: [
+      "Tigran's coins show him wearing the distinctive five-pointed Armenian tiara decorated with stars and eagles, a symbol later revived on modern Armenian currency.",
+      "He spent much of his youth as a royal hostage at the Parthian court and bought his freedom by ceding seventy border valleys — territory he reconquered within a decade.",
+      "Greek tragedies were staged in the theatre of Tigranocerta; his son Artavasdes II wrote plays in Greek himself.",
+      "Plutarch records that when Tigran first saw how small the approaching Roman force was, he dismissed it with a line that has followed him ever since: if they have come as ambassadors there are too many of them, and if as soldiers, far too few. The Romans won the battle that followed.",
+      "Rather than fight a war he could not win, Tigran surrendered his crown to Pompey in person — and received it back, keeping his kingdom for another eleven years.",
+    ],
+    relatedFigures: [
+      {
+        name: "Artashes I",
+        lifespan: "reigned c. 189–160 BC",
+        description: "Founder of the Artaxiad dynasty and of the capital Artashat, who first consolidated an independent Armenian kingdom.",
+      },
+      {
+        name: "Mithridates VI of Pontus",
+        lifespan: "c. 135–63 BC",
+        description: "Tigran's father-in-law and ally, whose long war against Rome eventually drew Armenia into the conflict.",
+      },
+      {
+        name: "Artavasdes II",
+        lifespan: "reigned 55–34 BC",
+        description: "Tigran's son and successor, a diplomat and Greek-language playwright who continued balancing Rome against Parthia.",
+      },
+    ],
+    relatedSlugs: ["kingdom-of-urartu", "adoption-of-christianity", "battle-of-avarayr"],
+  },
+  {
     slug: "kingdom-of-urartu",
     href: "/history/kingdom-of-urartu",
     category: "history",
@@ -13,7 +150,7 @@ export const historyArticles: Article[] = [
     periodId: "ancient",
     imageSeed: "kingdom-of-urartu",
     intro:
-      "Between the ninth and sixth centuries BCE, a federation of mountain principalities around Lake Van grew into one of the strongest states of the ancient Near East. Assyrian scribes called it Urartu, its own kings called it Biainili, and later Greek and Armenian writers remembered its cities long after its palaces had burned. For students of Armenian history, Urartu is where written evidence about life on the Armenian Highlands truly begins.",
+      "Between the ninth and sixth centuries BC, a federation of mountain principalities around Lake Van grew into one of the strongest states of the ancient Near East. Assyrian scribes called it Urartu, its own kings called it Biainili, and later Greek and Armenian writers remembered its cities long after its palaces had burned. For students of Armenian history, Urartu is where written evidence about life on the Armenian Highlands truly begins.",
     author: "ArmEdu Editorial Team",
     updated: "2026-05-14",
     sections: [
@@ -30,15 +167,15 @@ export const historyArticles: Article[] = [
         id: "kings-and-expansion",
         heading: "Kings, Fortresses and Expansion",
         paragraphs: [
-          "The traditional founder of the unified kingdom is Aramu, mentioned in Assyrian records around 860 BCE. His successor Sarduri I established the capital at Tushpa on the rock of Van, where his inscription proudly names him king of the universe and king of the land of Nairi. Later rulers, above all Menua, Argishti I and Sarduri II, pushed Urartian control north into the Ararat plain and east toward the Caspian slope, turning a defensive federation into an empire that could challenge Assyria for control of the trade routes of the region.",
-          "Urartian power rested on fortresses. Royal engineers chose steep outcrops, cut terraces into the rock, and raised massive stone foundations topped by mudbrick walls. Inside these citadels stood temples, barracks and enormous storerooms lined with jars for grain, wine and oil. Erebuni, founded by Argishti I in 782 BCE above the modern city of Yerevan, and Teishebaini at Karmir Blur are among the best excavated examples, and their storage capacity shows how carefully the state gathered and redistributed the harvest.",
-          "Warfare and diplomacy alternated across two centuries. Urartu suffered a serious defeat when the Assyrian king Sargon II campaigned in the region in 714 BCE, sacking the sanctuary of Musasir and carrying off its treasures. Yet the kingdom recovered and continued to build. Its final decline in the early sixth century BCE came from a combination of pressures, including Median expansion and nomadic incursions, and by the time Persian records list the region it is already called Armina.",
+          "The traditional founder of the unified kingdom is Aramu, mentioned in Assyrian records around 860 BC. His successor Sarduri I established the capital at Tushpa on the rock of Van, where his inscription proudly names him king of the universe and king of the land of Nairi. Later rulers, above all Menua, Argishti I and Sarduri II, pushed Urartian control north into the Ararat plain and east toward the Caspian slope, turning a defensive federation into an empire that could challenge Assyria for control of the trade routes of the region.",
+          "Urartian power rested on fortresses. Royal engineers chose steep outcrops, cut terraces into the rock, and raised massive stone foundations topped by mudbrick walls. Inside these citadels stood temples, barracks and enormous storerooms lined with jars for grain, wine and oil. Erebuni, founded by Argishti I in 782 BC above the modern city of Yerevan, and Teishebaini at Karmir Blur are among the best excavated examples, and their storage capacity shows how carefully the state gathered and redistributed the harvest.",
+          "Warfare and diplomacy alternated across two centuries. Urartu suffered a serious defeat when the Assyrian king Sargon II campaigned in the region in 714 BC, sacking the sanctuary of Musasir and carrying off its treasures. Yet the kingdom recovered and continued to build. Its final decline in the early sixth century BC came from a combination of pressures, including Median expansion and nomadic incursions, and by the time Persian records list the region it is already called Armina.",
         ],
         bullets: [
-          "Aramu, first Urartian king named in Assyrian sources, around 860 BCE",
+          "Aramu, first Urartian king named in Assyrian sources, around 860 BC",
           "Sarduri I, founder of the capital Tushpa on the rock of Van",
           "Menua, builder of the great canal that still carries water near Van",
-          "Argishti I, founder of Erebuni in 782 BCE",
+          "Argishti I, founder of Erebuni in 782 BC",
           "Rusa II, builder of Teishebaini and other late fortresses",
         ],
       },
@@ -56,7 +193,7 @@ export const historyArticles: Article[] = [
         heading: "Gods and Sacred Places",
         paragraphs: [
           "The Urartian pantheon is known chiefly from a long inscription carved into the rock niches at Meher Dur near Van, which lists dozens of deities and the exact offerings due to each. At the head of the list stands Haldi, the supreme god of war and kingship, followed by Teisheba, a storm god, and Shivini, a sun god. Kings described their victories as the achievements of Haldi, and campaigns were often launched from his sanctuaries.",
-          "Urartian temples were compact square towers with thick walls, set within fortress courtyards. Around them archaeologists have found altars, sacrificial deposits and stelae recording gifts of livestock. The sanctuary of Musasir, shown in an Assyrian relief with a columned porch and a triangular gable, was the most famous of these shrines, and its loss to Sargon II in 714 BCE was treated as a national catastrophe.",
+          "Urartian temples were compact square towers with thick walls, set within fortress courtyards. Around them archaeologists have found altars, sacrificial deposits and stelae recording gifts of livestock. The sanctuary of Musasir, shown in an Assyrian relief with a columned porch and a triangular gable, was the most famous of these shrines, and its loss to Sargon II in 714 BC was treated as a national catastrophe.",
           "Burial customs varied. Rock-cut chambers held the remains of the elite together with jewellery, weapons and vessels, while cremation urns have been found in cemeteries near several fortresses. Together with the temple inscriptions, these graves suggest a religion focused on the protection of the community by powerful divine patrons rather than on elaborate ideas of personal afterlife.",
         ],
       },
@@ -64,7 +201,7 @@ export const historyArticles: Article[] = [
         id: "legacy",
         heading: "From Urartu to Armenia",
         paragraphs: [
-          "The Urartian state disappeared in the early sixth century BCE, but the landscape it built did not. Canals kept flowing, fortress mounds remained visible, and the settlements founded by Urartian kings often continued as villages and towns. Erebuni gave its name, through a long chain of sound changes, to Yerevan, and the city officially dates its foundation to Argishti's inscription of 782 BCE, which makes it older than Rome.",
+          "The Urartian state disappeared in the early sixth century BC, but the landscape it built did not. Canals kept flowing, fortress mounds remained visible, and the settlements founded by Urartian kings often continued as villages and towns. Erebuni gave its name, through a long chain of sound changes, to Yerevan, and the city officially dates its foundation to Argishti's inscription of 782 BC, which makes it older than Rome.",
           "Ancient Armenian tradition preserved a memory of this era in legendary form. The story of Ara the Handsome and the Assyrian queen Shamiram, retold by the historian Movses Khorenatsi, places a great builder queen at Van and credits her with the canal and the cliff inscriptions. Modern scholarship attributes those works to Menua, but the legend shows that the monuments never stopped being explained and reinterpreted.",
           "For historians today, Urartu matters because it provides the first detailed written and archaeological picture of organised life in the Armenian Highlands. Studying it teaches a valuable lesson about evidence: royal inscriptions, enemy chronicles, excavated storerooms and later legends each tell part of the story, and only by reading them together can we reconstruct what actually happened.",
         ],
@@ -73,18 +210,18 @@ export const historyArticles: Article[] = [
     keyFacts: [
       { label: "Native name", value: "Biainili, the land around Lake Van" },
       { label: "Capital", value: "Tushpa, on the rock of Van" },
-      { label: "Approximate dates", value: "About 860 to 590 BCE" },
+      { label: "Approximate dates", value: "About 860 to 590 BC" },
       { label: "Language and script", value: "Urartian, written in cuneiform borrowed from Assyria" },
       { label: "Chief deity", value: "Haldi, god of war and kingship" },
-      { label: "Famous foundation", value: "Erebuni, founded in 782 BCE, ancestor of Yerevan" },
+      { label: "Famous foundation", value: "Erebuni, founded in 782 BC, ancestor of Yerevan" },
     ],
     importantDates: [
-      { year: "c. 860 BCE", event: "Assyrian records name Aramu as king of Urartu, the first ruler known by name." },
-      { year: "c. 832 BCE", event: "Sarduri I establishes the capital at Tushpa and leaves the earliest royal inscription at Van." },
-      { year: "c. 800 BCE", event: "King Menua builds the great canal and expands the kingdom northward." },
-      { year: "782 BCE", event: "Argishti I founds the fortress of Erebuni on the hill of Arin Berd." },
-      { year: "714 BCE", event: "Sargon II of Assyria campaigns against Urartu and sacks the sanctuary of Musasir." },
-      { year: "c. 590 BCE", event: "The Urartian state collapses; Persian sources soon refer to the region as Armina." },
+      { year: "c. 860 BC", event: "Assyrian records name Aramu as king of Urartu, the first ruler known by name." },
+      { year: "c. 832 BC", event: "Sarduri I establishes the capital at Tushpa and leaves the earliest royal inscription at Van." },
+      { year: "c. 800 BC", event: "King Menua builds the great canal and expands the kingdom northward." },
+      { year: "782 BC", event: "Argishti I founds the fortress of Erebuni on the hill of Arin Berd." },
+      { year: "714 BC", event: "Sargon II of Assyria campaigns against Urartu and sacks the sanctuary of Musasir." },
+      { year: "c. 590 BC", event: "The Urartian state collapses; Persian sources soon refer to the region as Armina." },
     ],
     significance: {
       heading: "Why the Kingdom of Urartu matters",
@@ -95,7 +232,7 @@ export const historyArticles: Article[] = [
     },
     interestingFacts: [
       "Yerevan celebrates its birthday using the Urartian foundation inscription of Erebuni, making it one of the oldest continuously inhabited cities in the world.",
-      "The canal built by King Menua around 800 BCE still carries water to fields near Van after roughly twenty-eight centuries.",
+      "The canal built by King Menua around 800 BC still carries water to fields near Van after roughly twenty-eight centuries.",
       "Urartian bronze cauldrons have been found as far west as Greece and Italy, evidence of a long-distance luxury trade.",
       "The Urartian language is related to Hurrian and is not connected to Armenian, even though the two peoples shared the same highlands.",
       "Storage jars in Urartian fortresses were marked with capacity signs, an early form of standardised state accounting.",
@@ -103,18 +240,18 @@ export const historyArticles: Article[] = [
     relatedFigures: [
       {
         name: "Menua",
-        lifespan: "reigned about 810 to 786 BCE",
+        lifespan: "reigned about 810 to 786 BC",
         description: "Urartian king remembered above all for the long irrigation canal near Van that still bears his name.",
       },
       {
         name: "Argishti I",
-        lifespan: "reigned about 786 to 764 BCE",
+        lifespan: "reigned about 786 to 764 BC",
         description: "Conqueror of the Ararat plain who founded the fortress of Erebuni, the ancestor of modern Yerevan.",
       },
       {
         name: "Sargon II of Assyria",
-        lifespan: "reigned 722 to 705 BCE",
-        description: "Assyrian ruler whose detailed campaign report of 714 BCE is one of the richest sources on Urartian territory and religion.",
+        lifespan: "reigned 722 to 705 BC",
+        description: "Assyrian ruler whose detailed campaign report of 714 BC is one of the richest sources on Urartian territory and religion.",
       },
     ],
     relatedSlugs: ["tigran-the-great", "adoption-of-christianity", "mesrop-mashtots-armenian-alphabet"],
@@ -126,7 +263,7 @@ export const historyArticles: Article[] = [
     categoryLabel: "Armenian History",
     title: "Mesrop Mashtots and the Armenian Alphabet",
     excerpt:
-      "Around 405 CE the scholar and monk Mesrop Mashtots created an alphabet that gave Armenian its own written voice and reshaped the nation's culture.",
+      "Around 405 the scholar and monk Mesrop Mashtots created an alphabet that gave Armenian its own written voice and reshaped the nation's culture.",
     period: "Ancient Armenia",
     periodId: "ancient",
     imageSeed: "mesrop-mashtots-armenian-alphabet",
@@ -301,7 +438,7 @@ export const historyArticles: Article[] = [
         paragraphs: [
           "The year 301 comes from the Armenian tradition and has been widely accepted as the official date, celebrated as such in 2001 when Armenia marked seventeen hundred years of Christianity. Some historians argue for a date closer to 314, aligning the conversion with the reign of Trdat after Roman recognition and with the Edict of Milan. The evidence does not allow certainty, since Agathangelos wrote well over a century after the events he describes.",
           "What is not in dispute is that Armenia adopted Christianity as a state religion earlier than any other kingdom, and that the change was complete enough by the middle of the fourth century for a full church hierarchy to be operating. For students, the debate is a useful example of how historians weigh a national tradition against outside evidence without simply discarding either.",
-          "The site of the events remains visible in the landscape. Khor Virap stands within sight of Mount Ararat, and the cathedrals of Etchmiadzin, together with the churches of Hripsime and Gayane, are inscribed on the UNESCO World Heritage list as monuments of the earliest Christian state.",
+          "The sites of the events remain visible in the landscape. Khor Virap stands within sight of Mount Ararat, and the cathedrals of Etchmiadzin, together with the churches of Hripsime and Gayane, are inscribed on the UNESCO World Heritage list as monuments of the earliest Christian state.",
         ],
       },
     ],
@@ -408,7 +545,7 @@ export const historyArticles: Article[] = [
         id: "aftermath",
         heading: "The Treaty of Nvarsak",
         paragraphs: [
-          "Resistance revived in 481 under Vahan Mamikonian, a nephew of Vardan, and this time the Sasanian state was distracted by war on its eastern frontier and by internal instability. After several years of fighting the Persian king Balash opened negotiations. The resulting agreement, the Treaty of Nvarsak of 484, guaranteed Armenians the free practice of Christianity, ended attempts at forced conversion, and restored the privileges of the noble houses. Vahan himself was appointed marzpan of Armenia the following year.",
+          "Resistance revived in 481 under Vahan Mamikonian, a nephew of Vardan, and this time the Sasanian state was distracted by war on its eastern frontier and by internal instability. After several years of fighting the Persian king Balash opened negotiations. The resulting agreement, the Treaty of Nvarsak of 484, guaranteed Armenians the free practice of Christianity, ended attempts at forced conversion, and restored the privileges of the noble houses.",
           "Vahan Mamikonian was appointed marzpan of Armenia, meaning that the country was now governed by an Armenian rather than a Persian official. The treaty did not restore the monarchy, but it secured what the war of 451 had been fought for. In practical terms, Avarayr and the campaigns that followed it succeeded.",
           "The Armenian Church later canonised Vardan and his companions, and their feast day, Vardanants, falls in February. It remains a major commemoration, marked with services, school programmes and public ceremonies, and the name Vardan has been given to Armenian boys ever since.",
         ],
