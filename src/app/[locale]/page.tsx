@@ -6,10 +6,12 @@ import { DiasporaBand } from "@/components/sections/DiasporaBand";
 import { ArticleCard } from "@/components/cards/ArticleCard";
 import { CategoryCard } from "@/components/cards/CategoryCard";
 import { WriterCard } from "@/components/cards/WriterCard";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { ArrowLink, RowHeading, Section } from "@/components/ui/primitives";
 import type { Locale } from "@/data/types";
 import { getCategories, getFeaturedArticles, getTimeline, getWriters } from "@/lib/content";
 import { getStaticAlternates, getUi, localePath, resolveLocale } from "@/lib/i18n";
+import { socialImage, websiteLd } from "@/lib/seo";
 
 type Params = { params: Promise<{ locale: string }> };
 
@@ -29,7 +31,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
       title: `${ui.site.name} — ${ui.site.tagline}`,
       description: ui.site.description,
       url: localePath(locale, "/"),
-      images: [{ url: "/og-default.png", width: 1200, height: 630, alt: ui.site.name }],
+      images: socialImage(undefined, ui.site.name),
     },
   };
 }
@@ -68,6 +70,7 @@ export default async function HomePage({ params }: Params) {
 
   return (
     <>
+      <JsonLd data={websiteLd(locale, ui)} />
       <Hero locale={locale} ui={ui} />
 
       {/* Three ways in — icon-medallion cards, no section heading in the design. */}

@@ -161,7 +161,7 @@ export function getContentAlternates(
   for (const locale of getAvailableLocalesForContent(category, slug)) {
     alternates[LOCALE_META[locale].htmlLang] = localePath(locale, `/${category}/${slug}`);
   }
-  return alternates;
+  return withXDefault(alternates);
 }
 
 /** `hreflang` alternates for a page that exists in every edition. */
@@ -170,5 +170,22 @@ export function getStaticAlternates(path: string): Record<string, string> {
   for (const locale of SUPPORTED_LOCALES) {
     alternates[LOCALE_META[locale].htmlLang] = localePath(locale, path);
   }
-  return alternates;
+  return withXDefault(alternates);
+}
+
+/**
+ * Adds `x-default`, the edition served to a reader whose language matches none
+ * of ours.
+ *
+ * It points at the default locale rather than at `/`, because `/` is a 307
+ * redirect and aiming an alternate at a redirect spends a hop on every crawl.
+ *
+ * Applied here rather than at the call sites so that the sitemap, the article
+ * routes and every static page cannot drift apart. The guard matters: an article
+ * the default edition has not translated has no default to offer, and inventing
+ * one would point `x-default` at a `noindex` page.
+ */
+function withXDefault(alternates: Record<string, string>): Record<string, string> {
+  const fallback = alternates[LOCALE_META[DEFAULT_LOCALE].htmlLang];
+  return fallback ? { ...alternates, "x-default": fallback } : alternates;
 }

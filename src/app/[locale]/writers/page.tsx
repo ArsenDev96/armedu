@@ -3,9 +3,11 @@ import { Breadcrumbs } from "@/components/article/Breadcrumbs";
 import { WritersListing } from "@/components/listing/WritersListing";
 import { FeaturedItem } from "@/components/sections/FeaturedItem";
 import { NewsletterForm } from "@/components/sections/NewsletterForm";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { Section, SectionHeading } from "@/components/ui/primitives";
 import type { Locale } from "@/data/types";
 import { getLiteraryPeriods, getWriters } from "@/lib/content";
+import { listingLd, socialImage } from "@/lib/seo";
 import { getStaticAlternates, getUi, localePath, resolveLocale, t } from "@/lib/i18n";
 import { getImageSrc } from "@/lib/media";
 import { toWriterListingItems } from "@/lib/search";
@@ -29,9 +31,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
       description: ui.listing.writers.metaDescription,
       url: localePath(locale, "/writers"),
       type: "website",
-      images: [
-        { url: "/og-default.png", width: 1200, height: 630, alt: ui.listing.writers.title },
-      ],
+      images: socialImage(undefined, ui.listing.writers.title),
     },
   };
 }
@@ -44,17 +44,18 @@ export default async function WritersPage({ params }: Params) {
   const periods = getLiteraryPeriods(locale);
   const featured = writers.find((writer) => writer.featured) ?? writers[0];
 
+  const crumbs = [
+    { label: ui.nav.home, href: localePath(locale, "/") },
+    { label: ui.listing.writers.title },
+  ];
+  const entries = writers.map((writer) => ({ href: `/writers/${writer.slug}` }));
+
   return (
     <>
+      <JsonLd data={listingLd(locale, ui, ui.listing.writers, "/writers", entries, crumbs)} />
       <div className="border-b border-line bg-surface">
         <div className="container-page py-8 md:py-12">
-          <Breadcrumbs
-            label={ui.nav.breadcrumbLabel}
-            items={[
-              { label: ui.nav.home, href: localePath(locale, "/") },
-              { label: ui.listing.writers.title },
-            ]}
-          />
+          <Breadcrumbs label={ui.nav.breadcrumbLabel} items={crumbs} />
           <div className="mt-6 max-w-3xl">
             <h1 className="text-[2.1rem] leading-tight text-ink sm:text-4xl lg:text-[3rem]">
               {ui.listing.writers.title}

@@ -29,6 +29,28 @@ function toAbsolute(alternates: Record<string, string>): Record<string, string> 
   );
 }
 
+/**
+ * `lastModified` for a page that has no revision date of its own.
+ *
+ * A listing is as fresh as the newest article in it, and the home page as fresh
+ * as the newest article anywhere. About, contact and privacy carry their own
+ * dates in prose, not in the content model, so they get nothing — an invented
+ * date is worse than none, because a crawler told that nothing changed has no
+ * reason to come back and check.
+ */
+function withLastModified(
+  path: string,
+  articles: ReturnType<typeof getAllArticles>,
+): { lastModified?: Date } {
+  const category = CATEGORY_IDS.find((id) => path === `/${id}`);
+  if (!category && path !== "/") return {};
+
+  const scope = category ? articles.filter((a) => a.category === category) : articles;
+  const newest = scope.map((a) => a.updated).sort().at(-1);
+
+  return newest ? { lastModified: new Date(newest) } : {};
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [];
 
@@ -36,9 +58,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Static pages and the three category listings exist in every edition.
     const paths = [...STATIC_PATHS, ...CATEGORY_IDS.map((id) => `/${id}`)];
 
+    const articles = getAllArticles(locale);
+
     for (const path of paths) {
       entries.push({
         url: absolute(localePath(locale, path)),
+        ...withLastModified(path, articles),
         changeFrequency: "monthly",
         priority: path === "/" ? 1 : 0.8,
         alternates: { languages: toAbsolute(getStaticAlternates(path)) },

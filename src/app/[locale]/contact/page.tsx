@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/article/Breadcrumbs";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { Card, Section, SectionHeading } from "@/components/ui/primitives";
 import { NewsletterForm } from "@/components/sections/NewsletterForm";
 import { getAvailableSocialLinks, site } from "@/data/site";
 import type { Locale } from "@/data/types";
 import { getPages, getStaticAlternates, getUi, localePath, resolveLocale } from "@/lib/i18n";
+import { pageLd, socialImage } from "@/lib/seo";
 
 type Params = { params: Promise<{ locale: string }> };
 
@@ -26,6 +28,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
       description: contact.metaDescription,
       url: localePath(locale, "/contact"),
       type: "website",
+      images: socialImage(undefined, contact.title),
     },
   };
 }
@@ -37,17 +40,17 @@ export default async function ContactPage({ params }: Params) {
   const { contact } = getPages(locale);
   const socials = getAvailableSocialLinks();
 
+  const crumbs = [
+    { label: ui.nav.home, href: localePath(locale, "/") },
+    { label: contact.title },
+  ];
+
   return (
     <>
+      <JsonLd data={pageLd(locale, ui, contact, "/contact", crumbs)} />
       <div className="border-b border-line bg-surface">
         <div className="container-page py-8 md:py-12">
-          <Breadcrumbs
-            label={ui.nav.breadcrumbLabel}
-            items={[
-              { label: ui.nav.home, href: localePath(locale, "/") },
-              { label: contact.title },
-            ]}
-          />
+          <Breadcrumbs label={ui.nav.breadcrumbLabel} items={crumbs} />
           <div className="mt-6 max-w-3xl">
             <h1 className="text-[2.1rem] leading-tight text-ink sm:text-4xl lg:text-[3rem]">
               {contact.heading}

@@ -3,7 +3,9 @@ import { notFound } from "next/navigation";
 import type { CategoryId, Locale } from "@/data/types";
 import { ArticleLayout } from "@/components/article/ArticleLayout";
 import { UnavailableTranslation } from "@/components/article/UnavailableTranslation";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { getArticle, getCategoryListing, getRelatedArticles } from "@/lib/content";
+import { articleLd, socialImage } from "@/lib/seo";
 import {
   getCanonicalSlugs,
   getContentAlternates,
@@ -62,9 +64,20 @@ export function articleMetadata(
       title: article.title,
       description: article.excerpt,
       url: localePath(locale, path),
+      // `updated` is a revision date. It fills both fields because the content
+      // model records no separate first-publication date; when one exists, this
+      // is where they split.
       publishedTime: article.updated,
+      modifiedTime: article.updated,
       authors: [article.author],
-      images: [{ url: "/og-default.png", width: 1200, height: 630, alt: article.title }],
+      section: article.categoryLabel,
+      images: socialImage(article.slug, article.title),
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: article.title,
+      description: article.excerpt,
+      images: socialImage(article.slug, article.title).map((image) => image.url),
     },
   };
 }
@@ -89,6 +102,8 @@ export function ArticleRoute({
     //   - a slug that exists nowhere → 404
     if (!getCanonicalSlugs(category).includes(slug)) notFound();
 
+    // Deliberately no structured data: this page is not an article, and
+    // describing it as one is exactly the claim the `noindex` above denies.
     return (
       <UnavailableTranslation
         locale={locale}
@@ -100,17 +115,22 @@ export function ArticleRoute({
     );
   }
 
+  const breadcrumbs = [
+    { label: ui.nav.home, href: localePath(locale, "/") },
+    { label: listing.title, href: listing.href },
+    { label: article.title },
+  ];
+
   return (
-    <ArticleLayout
-      locale={locale}
-      article={article}
-      related={getRelatedArticles(locale, article)}
-      breadcrumbs={[
-        { label: ui.nav.home, href: localePath(locale, "/") },
-        { label: listing.title, href: listing.href },
-        { label: article.title },
-      ]}
-    />
+    <>
+      <JsonLd data={articleLd(locale, ui, article, breadcrumbs)} />
+      <ArticleLayout
+        locale={locale}
+        article={article}
+        related={getRelatedArticles(locale, article)}
+        breadcrumbs={breadcrumbs}
+      />
+    </>
   );
 }
 

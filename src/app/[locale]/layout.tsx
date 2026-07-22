@@ -12,6 +12,7 @@ import {
   resolveLocaleOrDefault,
 } from "@/lib/i18n";
 import { getFooterNav, getMainNav } from "@/lib/navigation";
+import { socialImage } from "@/lib/seo";
 import "../globals.css";
 
 /**
@@ -58,13 +59,13 @@ export async function generateMetadata({
       title: `${ui.site.name} — ${ui.site.tagline}`,
       description: ui.site.description,
       url: localePath(locale, "/"),
-      images: [{ url: "/og-default.png", width: 1200, height: 630, alt: ui.site.name }],
+      images: socialImage(undefined, ui.site.name),
     },
     twitter: {
       card: "summary_large_image",
       title: `${ui.site.name} — ${ui.site.tagline}`,
       description: ui.site.description,
-      images: ["/og-default.png"],
+      images: socialImage(undefined, ui.site.name).map((image) => image.url),
     },
     alternates: {
       canonical: localePath(locale, "/"),

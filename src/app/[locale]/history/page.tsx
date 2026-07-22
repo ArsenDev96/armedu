@@ -3,9 +3,11 @@ import { Breadcrumbs } from "@/components/article/Breadcrumbs";
 import { HistoryListing } from "@/components/listing/HistoryListing";
 import { FeaturedItem } from "@/components/sections/FeaturedItem";
 import { Timeline } from "@/components/sections/Timeline";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { Section, SectionHeading } from "@/components/ui/primitives";
 import type { Locale } from "@/data/types";
 import { getArticlesByCategory, getHistoryPeriods, getTimeline } from "@/lib/content";
+import { listingLd, socialImage } from "@/lib/seo";
 import { formatDate } from "@/lib/date";
 import { getStaticAlternates, getUi, localePath, resolveLocale, t } from "@/lib/i18n";
 import { getArticleImageSrc } from "@/lib/media";
@@ -31,9 +33,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
       description: ui.listing.history.metaDescription,
       url: localePath(locale, "/history"),
       type: "website",
-      images: [
-        { url: "/og-default.png", width: 1200, height: 630, alt: ui.listing.history.title },
-      ],
+      images: socialImage(undefined, ui.listing.history.title),
     },
   };
 }
@@ -48,17 +48,17 @@ export default async function HistoryPage({ params }: Params) {
   const featured = articles.find((article) => article.slug === "tigran-the-great") ?? articles[0];
   const items = toHistoryListingItems(locale, articles);
 
+  const crumbs = [
+    { label: ui.nav.home, href: localePath(locale, "/") },
+    { label: ui.listing.history.title },
+  ];
+
   return (
     <>
+      <JsonLd data={listingLd(locale, ui, ui.listing.history, "/history", articles, crumbs)} />
       <div className="border-b border-line bg-surface">
         <div className="container-page py-8 md:py-12">
-          <Breadcrumbs
-            label={ui.nav.breadcrumbLabel}
-            items={[
-              { label: ui.nav.home, href: localePath(locale, "/") },
-              { label: ui.listing.history.title },
-            ]}
-          />
+          <Breadcrumbs label={ui.nav.breadcrumbLabel} items={crumbs} />
           <div className="mt-6 max-w-3xl">
             <h1 className="text-[2.1rem] leading-tight text-ink sm:text-4xl lg:text-[3rem]">
               {ui.listing.history.title}
