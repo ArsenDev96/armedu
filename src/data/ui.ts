@@ -226,12 +226,19 @@ export interface UiDictionary {
     /** `{title}` substituted. Shown only under the generated fallback artwork. */
     imagePlaceholderCaption: string;
     /**
-     * `{title}` substituted. Caption for the commissioned artwork. It must say
-     * plainly that the picture is an illustration rather than a historical
-     * photograph — on a site used by students, an invented likeness presented
-     * as a document is worse than no picture at all.
+     * `{title}` substituted. Caption under the shared, AI-generated artwork. The
+     * provenance it states is recorded once in `ARTWORK_PROVENANCE`
+     * (`lib/media.ts`), next to the files; this is the localized prose of it.
+     *
+     * Two forms, because the honest claim differs. A place or a work gets an
+     * imagined *illustration*; a writer gets an imagined *portrait* — an invented
+     * likeness of a real person for whom real photographs exist. Both must name
+     * the AI origin outright: on a site used by students, a generated likeness
+     * passed off as a document is worse than no picture at all.
      */
-    imageIllustrationCaption: string;
+    imageAiIllustrationCaption: string;
+    /** `{title}` is the writer's name. The portrait counterpart of the above. */
+    imageAiPortraitCaption: string;
     imageAlt: string;
     /** `{name}` substituted. The generated placeholder portrait. */
     portraitAlt: string;

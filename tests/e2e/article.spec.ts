@@ -34,6 +34,23 @@ test("a writer page and a work page open in the primary edition", async ({ page 
   );
 });
 
+test("the hero caption names the AI provenance, per category", async ({ page }) => {
+  const dict = ui("hy");
+
+  // A writer is an invented likeness of a real person — the caption says so, and
+  // says it is not a photograph, because photographs of him exist.
+  await page.goto("/hy/writers/hovhannes-tumanyan");
+  await expect(page.locator("header figcaption")).toHaveText(
+    dict.article.imageAiPortraitCaption.replace("{title}", articleTitle("hy", "hovhannes-tumanyan")),
+  );
+
+  // A place or event gets the imagined-scene illustration form instead.
+  await page.goto("/hy/history/battle-of-avarayr");
+  await expect(page.locator("header figcaption")).toHaveText(
+    dict.article.imageAiIllustrationCaption.replace("{title}", articleTitle("hy", "battle-of-avarayr")),
+  );
+});
+
 test("reading time is shown and localized", async ({ page }) => {
   await page.goto("/hy/history/tigran-the-great");
 

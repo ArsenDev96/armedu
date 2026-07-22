@@ -14,7 +14,7 @@ import { Card, Pill } from "@/components/ui/primitives";
 import { getAdjacentArticles, getCategoryListing } from "@/lib/content";
 import { formatDate } from "@/lib/date";
 import { getUi, localePath, t } from "@/lib/i18n";
-import { getArticleImageSrc, IMAGE_SIZES } from "@/lib/media";
+import { getArticleImageSrc, isGeneratedArtwork, IMAGE_SIZES } from "@/lib/media";
 import { estimateReadingTime } from "@/lib/reading-time";
 
 /**
@@ -79,17 +79,23 @@ export function ArticleLayout({
   const sources = getSources(article.slug);
 
   // Three distinct cases, and the caption has to tell them apart honestly:
-  // content-declared photography (credited), the artwork shipped in `public/`
-  // (an illustration, and the caption says so), and no artwork at all.
+  // content-declared photography (credited), the shared AI-generated artwork
+  // (named as such — and a writer's invented likeness is distinguished from a
+  // place's imagined scene), and no artwork at all.
   const heroSrc = getArticleImageSrc(article);
   const heroAlt = article.image?.alt ?? t(ui.article.imageAlt, { title: article.title });
   const heroCaption = article.image
     ? article.image.credit
       ? t(ui.article.imageCredit, { credit: article.image.credit })
       : article.image.alt
-    : t(heroSrc ? ui.article.imageIllustrationCaption : ui.article.imagePlaceholderCaption, {
-        title: article.title,
-      });
+    : isGeneratedArtwork(article)
+      ? t(
+          article.category === "writers"
+            ? ui.article.imageAiPortraitCaption
+            : ui.article.imageAiIllustrationCaption,
+          { title: article.title },
+        )
+      : t(ui.article.imagePlaceholderCaption, { title: article.title });
 
   const extraToc = [
     { id: "important-dates", heading: ui.article.importantDates },

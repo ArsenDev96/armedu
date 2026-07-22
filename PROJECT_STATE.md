@@ -31,7 +31,7 @@ analytics or Search Console.
 | Styling | Tailwind CSS **v4**, tokens in `src/app/globals.css` |
 | Content | Local, statically typed TypeScript — **no database, no API, no CMS** |
 | Newsletter | Supabase — **email collection only** |
-| Testing | Playwright, 77 tests (desktop + mobile projects) |
+| Testing | Playwright, 78 tests (desktop + mobile projects) |
 | Tooling | `tsx` for the content validation script |
 | Dev port | 3002 |
 
@@ -44,7 +44,7 @@ npm install              → OK
 npm run typecheck        → PASS (0 errors)
 npm run validate:content → PASS (68 entries across 3 locales)
 npm run build            → PASS (79 pages, all statically prerendered)
-npm run test:e2e         → PASS (77/77)
+npm run test:e2e         → PASS (78/78)
 ```
 
 `validate:content` now also checks: every registered image exists on disk; every article
@@ -144,10 +144,12 @@ cards, the three featured blocks, and search thumbnails. The writer artwork is l
 with the figure left of centre, so the narrow portrait crops use a shared focal point
 (`PORTRAIT_FOCUS`) instead of centring and cutting the face.
 
-The pictures are **illustrations, not historical photographs**, and the site says so: the
-article caption uses `imageIllustrationCaption` ("An artistic depiction, not a historical
-photograph"), and writer alt text switched from "portrait placeholder" to "illustrated
-portrait". Provenance is not recorded anywhere — see limitation 5.
+The pictures are **AI-generated illustrations, not historical photographs**, and the site
+now says so outright (see §14). The provenance is recorded once in `ARTWORK_PROVENANCE`
+(`lib/media.ts`), and the article caption states it in each locale: a place or a work gets
+an imagined *illustration* caption, a writer gets an imagined *portrait* one — "not a real
+photograph", because photographs of the writers exist. Writer alt text is "illustrated
+portrait". What is still not recorded is a per-image licence or tool credit — see limitation 5.
 
 `validate:content` now fails if a registered file is missing from `public/`, or if a
 registry key matches no article slug in any edition.
@@ -404,13 +406,15 @@ assert coverage that does not exist. Full detail in the review; these are the ba
 4. **`Պարույր Սեւակ` is spelled with `եւ` in 15 places** in the Armenian edition, where
    reformed orthography would give `Սևակ`. It is a proper name, so the choice is
    editorial rather than mechanical; logged as review item 8 in the glossary.
-5. **The article artwork has no recorded provenance or credit.** It is rendered and
-   captioned as illustration rather than as documentary photography, which is honest, but
-   nothing in the repo records who made each picture or under what licence. If these are
-   AI-generated, the captions should say so explicitly — a student looking at
-   Թումանյան's page is looking at an invented likeness, and real photographs of him
-   exist. Per-image credits have a defined slot already: `image: { src, alt, credit }` on
-   `Article` overrides the registry and renders a credit line.
+5. **The artwork's AI origin is now stated, but a per-image licence/credit still is not.**
+   The captions say plainly that the pictures are AI-generated illustrations, not
+   photographs, and that a writer's portrait is an invented likeness (§14). What remains
+   open: the repo records *that* the images are AI-generated but not *which tool or model*
+   produced each one, nor under what licence, and it is still an open decision whether the
+   six writers should carry a documented historical photograph instead of an illustration.
+   The `ARTWORK_PROVENANCE` record and the per-article `image: { src, alt, credit }` slot
+   are where a tool credit or a real, credited photograph would go — a declared `image`
+   overrides both the registry file and the AI caption.
 6. **The localized 404 renders outside the locale layout.** Next.js resolves `notFound()`
    to the *root* `app/not-found.tsx`, not to one nested under `[locale]`, so the 404 page
    has no header or footer. It is still correctly localized (the language is recovered
@@ -440,10 +444,11 @@ assert coverage that does not exist. Full detail in the review; these are the ba
    wording and orthography, and includes the `Սեւակ` / `Սևակ` decision.
 3. **Decide whether Western Armenian should reach parity** (8 more articles) or stay a
    curated subset. The unavailable-page mechanism makes either honest.
-4. **Decide how the artwork is credited.** State where the 17 illustrations came from and
-   whether the caption should name that source (or say "AI-generated" outright). For the
-   six writers, decide whether a documented historical photograph should replace the
-   illustration.
+4. **Decide how the artwork is credited.** *Partly done (§14):* the captions now say
+   "AI-generated" outright and distinguish a writer's invented likeness from a scene.
+   What is left to decide: whether to record the specific tool/model that produced them
+   (the `ARTWORK_PROVENANCE` record is ready for it), and whether the six writers should
+   carry a documented historical photograph instead of an illustration.
 5. **Content expansion** — how many articles per category constitutes "launchable"?
 6. **Newsletter operations** — who reads the Supabase table, and what gets sent, per
    language segment?
@@ -534,3 +539,48 @@ with a real host). Every canonical, OG URL, hreflang and sitemap entry therefore
 host that does not exist. The structured data, alternates and sitemap are all correct *in
 shape*; they simply name the wrong origin until a real domain replaces that one constant.
 This follows from the localhost-only project constraint (§11, limitation 8).
+
+---
+
+## 14. Artwork provenance and honest captions — July 2026
+
+The 17 illustrations are AI-generated. That was true before but said nowhere; §11.5 flagged
+it as the sharpest honesty gap, because a student on Թումանյան's page sees an *invented
+likeness* of a real man for whom real photographs exist. This pass records the fact and
+states it to the reader — no image, layout or media-mapping change.
+
+**Centralized provenance.** `ARTWORK_PROVENANCE` in `src/lib/media.ts` records, in one
+place beside the file registry, that every shipped image is AI-generated and offered as no
+kind of document. `isGeneratedArtwork(article)` is the predicate the caption reads: true
+only when an article renders the shared registry artwork rather than a content-declared,
+credited `image`. A future real photograph set via `image: { src, alt, credit }` is
+therefore *not* labelled AI — the honesty runs both ways.
+
+**Localized captions.** The vague `imageIllustrationCaption` ("An artistic depiction") is
+gone, replaced by two required `UiDictionary` fields so all three editions must supply the
+wording (a compile error otherwise — the no-silent-fallback rule, §5):
+
+- `imageAiIllustrationCaption` — a place or a work: "AI-generated illustration … an imagined
+  scene, not a historical image."
+- `imageAiPortraitCaption` — a writer: "AI-generated portrait of {name} … an imagined
+  likeness, not a real photograph."
+
+`ArticleLayout` picks the portrait form for `category === "writers"` and the illustration
+form otherwise. All six writer pages now carry the portrait caption; the other eleven carry
+the illustration one. Verified in the built HTML across all three locales and all three
+categories.
+
+**Test.** `article.spec.ts` gained a caption test that reads the expected string from the
+dictionary (so wording changes do not break it) and asserts the writer page shows the
+portrait form and a history page the illustration form. Suite is now **78/78**.
+
+**Left open (still limitation 5).** The repo records *that* the images are AI-generated but
+not *which* tool/model or under what licence, and whether the six writers should instead
+carry a documented historical photograph remains a content decision. `ARTWORK_PROVENANCE`
+and the per-article `image` slot are where either would go.
+
+**Armenian wording — needs a native editor.** The two new Armenian strings each (hy + hyw)
+follow the archive's established orthography and the existing `{name}-ի` genitive pattern,
+but like the rest of the translations (§11.2) they are a model's work and should be checked:
+in particular the hyphen-before-genitive on a proper name (`Սևակ-ի`) and the choice of
+`երևակայված պատկեր` for "imagined likeness".

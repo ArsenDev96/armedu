@@ -219,8 +219,10 @@ export const ui: UiDictionary = {
       "Պատճէնումը չյաջողեցաւ։ Փոխարէնը պատճէնեցէ՛ք հասցէն հասցէագօտիէն։",
     imagePlaceholderCaption:
       "Պատկերի տեղապահ՝ {title}։ Գործարկումէն առաջ փոխարինել արտօնագրուած պատկերով։",
-    imageIllustrationCaption:
-      "Պատկերազարդում՝ {title}։ Գեղարուեստական պատկերում մըն է։",
+    imageAiIllustrationCaption:
+      "Արհեստական բանականութեամբ ստեղծուած պատկերազարդում՝ {title} — երեւակայուած պատկեր է։",
+    imageAiPortraitCaption:
+      "{title}-ի արհեստական բանականութեամբ ստեղծուած դիմանկար — երեւակայուած պատկեր է, ոչ թէ իրական լուսանկար։",
     imageAlt: "Պատկերազարդում՝ {title}",
     portraitAlt: "Դիմանկարի տեղապահ՝ {name}",
     portraitIllustrationAlt: "{name}-ի պատկերազարդ դիմանկարը",

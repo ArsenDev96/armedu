@@ -61,6 +61,40 @@ export function getArticleImageSrc(article: Pick<ArticleSummary, "slug" | "image
 }
 
 /**
+ * Provenance of the shipped artwork, recorded in one place.
+ *
+ * Every file in `IMAGES` is AI-generated: an imagined picture, not a photograph
+ * and not a scan of a historical work. Nothing in the repo said so before, which
+ * is the gap this closes — the caption reads its wording from the locale's UI
+ * dictionary, but the *fact* lives here, beside the files it describes, and is
+ * locale-independent for the same reason the paths are.
+ *
+ * The failure it guards against is specific and real: a student taking the
+ * portrait on Թումանյան's page for a photograph of him, when photographs of him
+ * exist. So the caption says "AI-generated" outright rather than only "not a
+ * photograph".
+ *
+ * One provenance covers the whole registry today. A real, credited image still
+ * wins per article — set `image: { src, alt, credit }` on that `Article` and both
+ * the file here and this AI provenance give way to the credit line.
+ */
+export const ARTWORK_PROVENANCE = {
+  /** How every registry image was produced. */
+  source: "ai-generated",
+  /** None of it is offered as documentary — no photograph, no historical scan. */
+  documentary: false,
+} as const;
+
+/**
+ * True when an article renders the shared AI-generated artwork rather than a
+ * content-declared image. This is what gates the AI caption: a future article
+ * carrying a real credited `image` is not generated and must not claim to be.
+ */
+export function isGeneratedArtwork(article: Pick<ArticleSummary, "slug" | "image">): boolean {
+  return !article.image && getImageSrc(article.slug) !== undefined;
+}
+
+/**
  * `sizes` hints per slot, so the browser never downloads a 1600px file for a
  * 128px search thumbnail. Wrong values here cost bandwidth, not correctness.
  */
