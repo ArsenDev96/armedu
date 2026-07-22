@@ -1,6 +1,6 @@
 # ArmEdu — Project State Report
 
-**Last updated:** 2026-07-21
+**Last updated:** 2026-07-22
 **Repo:** `d:\armedu` · branch `main`
 **Status:** Armenian-first multilingual MVP, localhost-complete in three editions.
 
@@ -31,7 +31,7 @@ analytics or Search Console.
 | Styling | Tailwind CSS **v4**, tokens in `src/app/globals.css` |
 | Content | Local, statically typed TypeScript — **no database, no API, no CMS** |
 | Newsletter | Supabase — **email collection only** |
-| Testing | Playwright, 71 tests (desktop + mobile projects) |
+| Testing | Playwright, 77 tests (desktop + mobile projects) |
 | Tooling | `tsx` for the content validation script |
 | Dev port | 3002 |
 
@@ -44,7 +44,7 @@ npm install              → OK
 npm run typecheck        → PASS (0 errors)
 npm run validate:content → PASS (68 entries across 3 locales)
 npm run build            → PASS (79 pages, all statically prerendered)
-npm run test:e2e         → PASS (71/71)
+npm run test:e2e         → PASS (77/77)
 ```
 
 `validate:content` now also checks: every registered image exists on disk; every article
@@ -368,8 +368,8 @@ unbreakable. Four defects were serious enough to fix immediately.
 third parties (Supabase receives the address and the IP; it is now named), and that the
 browser stores interface preferences (the code stores nothing at all).
 
-**Known and deferred** — real, but none of them misleads a reader: no `og:locale` on any
-page; the 404 has no `lang` and hydrates to a different language than it prerenders; the
+**Known and deferred** — real, but none of them misleads a reader: ~~no `og:locale` on any
+page~~ (fixed in the SEO pass, §13); the 404 has no `lang` and hydrates to a different language than it prerenders; the
 homepage timeline rail is keyboard-unreachable and the focus ring is 1.68:1 on the footer;
 `formatDate("")` silently yields 1 January 1900; `hyw` dates render with Eastern month
 names because `intlLocale` is `hy-AM`; the newsletter has no real test coverage and the
@@ -447,3 +447,90 @@ assert coverage that does not exist. Full detail in the review; these are the ba
 5. **Content expansion** — how many articles per category constitutes "launchable"?
 6. **Newsletter operations** — who reads the Supabase table, and what gets sent, per
    language segment?
+
+---
+
+## 13. SEO and structured data — July 2026
+
+A technical SEO pass, built on the same rule the content work follows: **structured data
+describes what a reader can already see, it never introduces a claim of its own.**
+Everything is derived from the rendered content bundle, per-locale, with no cross-locale
+fallback — an Armenian page emits Armenian strings and declares its own `inLanguage`.
+
+**What was added**
+
+- `src/lib/seo.ts` — Schema.org JSON-LD builders: `organizationLd` (a plain
+  `Organization`, deliberately not `EducationalOrganization` — ArmEdu publishes, it does
+  not teach or award), `websiteLd` (`WebSite` + a `SearchAction` pointing at the edition's
+  own `/search`), `articleLd` (`Article` + `citation[]` derived from `sources.ts`),
+  `listingLd` (`CollectionPage` + `ItemList` of URLs only), `pageLd` (`WebPage`), a shared
+  `BreadcrumbList` built from the same crumb array the visible `<Breadcrumbs>` renders, and
+  `socialImage()`. Each builder returns a single `@graph` so a page carries one script.
+- `src/components/seo/JsonLd.tsx` — renders the graph in a `<script type="application/ld+json">`,
+  escaping `<` to `<` so a string in the content cannot close the tag early. Payload is
+  server-built from the bundle, never from user input.
+- **JSON-LD wired into** the home page (`WebSite`), the three listings (`CollectionPage`),
+  about/contact/privacy (`WebPage`) and translated articles (`Article`). The
+  untranslated-article branch of `ArticleRoute` deliberately emits **none** — it is not an
+  article, and saying so is the exact claim its `noindex` denies.
+- **Per-page Open Graph / Twitter.** Articles use their own artwork via `socialImage()` and
+  gained `og:type=article`, `og:published_time`/`og:modified_time`, `og:section`, `authors`
+  and a `summary_large_image` twitter card. Listings and static pages carry the site card.
+  `og:locale` is now emitted from the root layout (this closes a deferred item in §9).
+- `src/lib/i18n.ts` — `getStaticAlternates` and `getContentAlternates` now append
+  `x-default`, pointing at the **default** locale (not `/`, which is a redirect). Guarded:
+  an article the default edition has not translated has no default to offer, so it claims
+  no `x-default` rather than pointing one at a `noindex` page.
+- `src/app/sitemap.ts` — static pages and listings gained a derived `lastModified`
+  (`withLastModified`): a listing is as fresh as its newest article, the home page as fresh
+  as the newest article anywhere; about/contact/privacy get none rather than an invented date.
+- **Icons.** `src/app/icon.svg` (favicon, burgundy `#7b2c37` / gold `#b5852f`, from the Logo
+  mark). See the apple-icon note below.
+
+**Verification (built HTML in `.next/server/app/**`, plus the e2e suite)**
+
+- Exactly one valid JSON-LD graph per page; graph shapes confirmed:
+  home `Organization+WebSite`, listings `Organization+CollectionPage+BreadcrumbList`,
+  static `Organization+WebPage+BreadcrumbList`, articles `Organization+Article+BreadcrumbList`.
+- `BreadcrumbList` positions are 1-based and contiguous; the final crumb (the current page)
+  carries no `item`, as Schema.org expects.
+- The `ItemList` on each listing states exactly the number of cards the page renders.
+- Articles carry their citations (3/2/2 on the pages checked), image, `datePublished` and
+  `dateModified`.
+- The untranslated page (`/hyw/history/kingdom-of-urartu`, `/hyw/writers/raffi`) emits **zero**
+  JSON-LD, `robots=noindex`, and advertises **no** hreflang alternates at all.
+- The hreflang guard holds: `/hy/writers/raffi` (translated in hy + en, not hyw) advertises
+  `hy`, `en` and `x-default→hy`, and **no** `hyw`. Fully translated articles advertise all three.
+
+**One defect found and fixed.** `src/app/apple-icon.svg` was **inert** — Next 16's
+`apple-icon` file convention accepts only `.png/.jpg/.jpeg` (Apple touch icons do not render
+SVG), so the file produced no route and no `apple-touch-icon` link. It was rasterised from
+its own mark to a 180×180 `src/app/apple-icon.png` (via the bundled `sharp`; solid burgundy,
+no rounded corners, since iOS applies its own mask) and the SVG removed. The build now emits
+`/apple-icon.png` and the `apple-touch-icon` link on every page. (`icon.svg` was always fine —
+the `icon` convention *does* accept SVG.)
+
+**Tests.** `tests/e2e/seo.spec.ts` (6 tests) locks the invariants the rest of the suite could
+not see: at most one JSON-LD block per page and it parses; the home `SearchAction` targets the
+right edition; the `ItemList` count matches the visible cards; the breadcrumb trail is
+well-formed; the untranslated page carries no graph; and `x-default` is present on every
+indexable edition and absent where the default cannot serve the page. The hreflang guards and
+`noindex` were already covered in `locale.spec.ts`. Suite is now **77/77**.
+
+**Deliberately not done, left as decisions**
+
+- **Web app manifest (PWA).** Skipped on purpose: it is a PWA concern rather than SEO, and
+  without 192/512 PNG icons it would be half-done. The former blocker is now cheap to remove —
+  `sharp` is available and just generated the apple icon, so the manifest icons could be
+  produced the same way. Still a product decision, not an SEO one.
+- **Per-locale RSS/Atom feed.** Considered and **recommended deferred**: the archive is a
+  slow-changing encyclopaedia (the sitemap marks articles `changeFrequency: yearly`), so a
+  feed has little to carry and few subscribers to serve. Revisit if a regularly-updated
+  section (news, blog) is ever added.
+
+**Blocker, not fixable here — the single most important line before anything can be indexed.**
+`src/data/site.ts` still uses the placeholder `armedu.example.org` (RFC 2606, cannot collide
+with a real host). Every canonical, OG URL, hreflang and sitemap entry therefore points at a
+host that does not exist. The structured data, alternates and sitemap are all correct *in
+shape*; they simply name the wrong origin until a real domain replaces that one constant.
+This follows from the localhost-only project constraint (§11, limitation 8).
