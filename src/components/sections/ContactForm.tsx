@@ -91,7 +91,7 @@ export function ContactForm({
           // The edition the reader wrote from, so an editor knows which
           // language to reply in.
           locale,
-          website: honeypot,
+          reference_id: honeypot,
         }),
       });
 
@@ -145,15 +145,32 @@ export function ContactForm({
         Honeypot: hidden from readers and from assistive technology, but a bot
         filling every input it finds will complete it. `sr-only` alone would
         still be announced, so it is removed from the tree entirely.
+
+        Two things keep real readers out of it, because getting this wrong
+        rejects genuine messages with no explanation:
+
+        1. The field is NOT named `website`, `url`, `company` or anything else
+           a password manager recognises. 1Password, LastPass, Bitwarden and
+           Dashlane match on the name and label, and they fill off-screen
+           fields as happily as visible ones — `autoComplete="off"` is a hint
+           they are free to ignore, and routinely do.
+        2. The `data-*` attributes below are each vendor's documented opt-out.
+
+        A bot is unaffected by either: it fills every input it can find, which
+        is the whole point.
       */}
       <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
-        <label htmlFor={`${baseId}-website`}>Website</label>
+        <label htmlFor={`${baseId}-reference`}>Reference</label>
         <input
-          id={`${baseId}-website`}
+          id={`${baseId}-reference`}
           type="text"
-          name="website"
+          name="reference_id"
           tabIndex={-1}
           autoComplete="off"
+          data-1p-ignore
+          data-lpignore="true"
+          data-bwignore
+          data-form-type="other"
           value={honeypot}
           onChange={(event) => setHoneypot(event.target.value)}
         />

@@ -122,29 +122,50 @@ function fail(reason: ContactFailure, status: number) {
 }
 
 function parse(body: unknown): Submission | null {
-  if (typeof body !== "object" || body === null) return null;
+  if (typeof body !== "object" || body === null) {
+    console.warn("[contact] rejected: body is not a JSON object");
+    return null;
+  }
   const raw = body as Record<string, unknown>;
 
   // Honeypot. A real reader never sees this field, so anything in it is a bot.
   // Answered with the same shape as a success so the bot learns nothing.
-  if (typeof raw.website === "string" && raw.website.trim() !== "") return null;
+  //
+  // The name is deliberately not `website`: password managers fill anything
+  // that looks like a URL or address field, off-screen or not, and were
+  // rejecting real submissions here. See the matching comment in `ContactForm`.
+  if (typeof raw.reference_id === "string" && raw.reference_id.trim() !== "") {
+    console.warn("[contact] rejected: honeypot filled");
+    return null;
+  }
 
   const name = typeof raw.name === "string" ? raw.name.trim() : "";
   const email = typeof raw.email === "string" ? raw.email.trim().toLowerCase() : "";
   const message = typeof raw.message === "string" ? raw.message.trim() : "";
   const locale = typeof raw.locale === "string" ? raw.locale : "";
 
-  const valid =
-    name.length >= LIMITS.name.min &&
-    name.length <= LIMITS.name.max &&
-    email.length >= LIMITS.email.min &&
-    email.length <= LIMITS.email.max &&
-    EMAIL_PATTERN.test(email) &&
-    message.length >= LIMITS.message.min &&
-    message.length <= LIMITS.message.max &&
-    (SUPPORTED_LOCALES as readonly string[]).includes(locale);
+  // Which constraint failed, for the server log only. The response stays a bare
+  // "invalid" — a bot that is told exactly which check it tripped can iterate
+  // against it. Lengths are logged rather than values, so a reader's name,
+  // address and message never reach the log.
+  const failures: string[] = [];
+  if (name.length < LIMITS.name.min) failures.push("name: empty");
+  if (name.length > LIMITS.name.max) failures.push(`name: ${name.length} > ${LIMITS.name.max}`);
+  if (email.length < LIMITS.email.min || email.length > LIMITS.email.max)
+    failures.push(`email: length ${email.length}`);
+  else if (!EMAIL_PATTERN.test(email)) failures.push("email: failed pattern");
+  if (message.length < LIMITS.message.min)
+    failures.push(`message: ${message.length} < ${LIMITS.message.min}`);
+  if (message.length > LIMITS.message.max)
+    failures.push(`message: ${message.length} > ${LIMITS.message.max}`);
+  if (!(SUPPORTED_LOCALES as readonly string[]).includes(locale))
+    failures.push(`locale: ${JSON.stringify(locale)} not in ${SUPPORTED_LOCALES.join("|")}`);
 
-  if (!valid) return null;
+  if (failures.length > 0) {
+    console.warn(`[contact] rejected: ${failures.join("; ")}`);
+    return null;
+  }
+
   return { name, email, message, locale: locale as Locale };
 }
 
@@ -153,6 +174,7 @@ export async function POST(request: Request) {
   try {
     body = await request.json();
   } catch {
+    console.warn("[contact] rejected: request body was not valid JSON");
     return fail("invalid", 400);
   }
 

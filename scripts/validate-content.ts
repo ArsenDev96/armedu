@@ -48,9 +48,9 @@ const COMPLETE_LOCALES: Locale[] = ["hy", "en"];
  */
 const DECLARED_UNAVAILABLE: Partial<Record<Locale, Record<CategoryId, string[]>>> = {
   hyw: {
-    history: ["first-republic-of-armenia"],
-    writers: ["raffi", "avetik-isahakyan", "khachatur-abovyan"],
-    works: ["wounds-of-armenia", "the-fool"],
+    history: [],
+    writers: [],
+    works: [],
   },
 };
 
