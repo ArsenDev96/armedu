@@ -137,8 +137,9 @@ test("Western Armenian listing search works over its own subset", async ({ page 
   await page.goto("/hyw/history");
 
   const all = await cards(page).count();
-  // Four history articles are translated into Western Armenian.
-  expect(all).toBe(4);
+  // Western Armenian reached full coverage in July 2026: every canonical
+  // history article is translated.
+  expect(all).toBe(7);
 
   await page
     .getByRole("searchbox", { name: ui("hyw").listing.history.searchLabel })
@@ -175,8 +176,8 @@ test("English query parameters still restore listing state", async ({ page }) =>
 test("the writers listing filters within its own edition", async ({ page }) => {
   await page.goto("/hyw/writers");
 
-  // Only the three translated biographies are offered.
-  await expect(cards(page)).toHaveCount(3);
+  // All six biographies are translated since July 2026.
+  await expect(cards(page)).toHaveCount(6);
 
   await page
     .getByRole("searchbox", { name: ui("hyw").listing.writers.searchLabel })

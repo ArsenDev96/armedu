@@ -645,6 +645,56 @@ be extended to `keywords`. Latin script in an Armenian edition is the intended c
 
 ---
 
+## 16. SEO hardening pass — July 2026
+
+The foundation (canonicals, hreflang + `x-default`, per-locale sitemap with
+alternates, JSON-LD graphs, `noindex` on search and untranslated pages) predates
+this pass and was left as it was. What was added, all derived from content the
+reader already sees — the project's structured-data rule:
+
+- **Entity markup.** Writer articles now carry `about: Person` (name, role,
+  birth/death years parsed only from a clean `YYYY–YYYY` lifespan — a qualified
+  span emits nothing) and work articles `about: CreativeWork` (title, genre,
+  and an `author` Person **only** when a writer of exactly that name exists in
+  the same edition, so «Անանուն, բանաւոր աւանդութիւն» is never typed as a
+  person). History articles get no `about`: the content model records no entity
+  for an era, and inventing one is the line `seo.ts` does not cross.
+- **`timeRequired`** on every Article node, from the same `estimateReadingTime`
+  the visible "min read" figure uses, so the two cannot disagree.
+- **Self-contained graphs.** Article/listing/plain pages previously pointed
+  `isPartOf` at a `WebSite` `@id` defined only on the home page; each graph now
+  carries a compact `WebSite` node, and the home page still carries the full
+  one with the search action.
+- **Sitemap images** (`<image:loc>`) on every article entry that ships
+  artwork — no fallback to the site card, which is branding, not an image of
+  the subject.
+- **`og:locale:alternate`** on all pages, deduplicated (hy and hyw share
+  `hy_AM`, and a page never lists its own locale), and **`article:tag`** from
+  the same authored `keywords` list.
+
+**Test consequences of §15 and the contact fix.** Eleven e2e tests went stale:
+
+- Five used `/hyw/history/kingdom-of-urartu` as the untranslated page; with hyw
+  complete no URL renders that state. They self-skip via `hasArticle()` with a
+  rearm note — point them at the next `DECLARED_UNAVAILABLE` entry and they
+  reactivate.
+- Three contact-form tests asserted the honeypot under its old `website` name
+  (renamed `reference_id` — password managers fill URL-ish fields, off-screen
+  or not, and were tripping the bot rejection for real readers).
+- Two hyw listing counts (history 4→7, writers 3→6) and one search test whose
+  "term absent from hyw" was the Urartu title. Its replacement is the one class
+  of term full coverage cannot erode: Eastern orthography (`թագավորություն`),
+  which `easternOrthographyMarker` forbids in hyw prose.
+
+Suite after this pass: **88 passed, 5 skipped (documented), 0 failed.** The
+"78/78" in §14 predates §15.
+
+**Not done here (deployment, not code):** Search Console / Bing verification
+tags, and any decision about an RSS feed or web manifest — none blocks
+indexing.
+
+---
+
 ## 15. Western Armenian coverage — COMPLETE, pending native review
 
 The declared `hyw` gaps are closed. **All 8 articles are translated; `DECLARED_UNAVAILABLE`

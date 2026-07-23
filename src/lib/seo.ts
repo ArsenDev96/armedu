@@ -10,8 +10,10 @@ import {
   type Source,
 } from "@/data/types";
 import type { UiDictionary } from "@/data/ui";
+import { getWorks, getWriters } from "@/lib/content";
 import { localePath } from "@/lib/i18n";
 import { getArticleImageSrc } from "@/lib/media";
+import { estimateReadingTime } from "@/lib/reading-time";
 
 /**
  * Structured data (JSON-LD) for the whole archive.
@@ -57,6 +59,26 @@ export function organizationLd(ui: UiDictionary) {
       width: 1200,
       height: 630,
     },
+  };
+}
+
+/**
+ * The compact `WebSite` node every non-home graph carries.
+ *
+ * Article, listing and plain pages point at the edition through
+ * `isPartOf: { "@id": … }`. A graph that only *references* the id leaves the
+ * crawler with a dangling pointer unless it happens to have crawled the home
+ * page too — so each page carries this minimal definition. The home page
+ * replaces it with the full node, which adds the search action.
+ */
+function websiteNode(locale: Locale, ui: UiDictionary) {
+  return {
+    "@type": "WebSite",
+    "@id": websiteId(locale),
+    url: absolute(localePath(locale, "/")),
+    name: ui.site.name,
+    inLanguage: LOCALE_META[locale].htmlLang,
+    publisher: { "@id": ORG_ID },
   };
 }
 
@@ -113,6 +135,57 @@ function citationLd(source: Source) {
 }
 
 /**
+ * The entity a writer or work article is *about*, so a knowledge graph can tie
+ * the page to the person or the book rather than filing it as prose about
+ * nothing in particular.
+ *
+ * Everything here restates data the reader already sees — the writer's name and
+ * years are on the page and its cards, the work's title, genre and author
+ * likewise — in this locale's own strings. Nothing is invented:
+ *
+ *   - birth/death dates are emitted only when the lifespan is the clean
+ *     `YYYY–YYYY` every `Writer` entry uses. A qualified span ("մօտ 387–451")
+ *     would need a false precision to fit `birthDate`, so it emits nothing.
+ *   - a work's `author` becomes a `Person` only when a writer of exactly that
+ *     name exists in this edition. "Անանուն, բանաւոր աւանդութիւն" is not a
+ *     person, and typing it as one would be wrong; such works carry no author
+ *     node at all.
+ *
+ * History articles get no `about`: their subject is an era or an event, and the
+ * content model records no entity for it — inventing one is the line this file
+ * does not cross.
+ */
+function aboutEntity(locale: Locale, article: Article): object | undefined {
+  if (article.category === "writers") {
+    const writer = getWriters(locale).find((w) => w.slug === article.slug);
+    if (!writer) return undefined;
+
+    const years = /^(\d{3,4})–(\d{3,4})$/.exec(writer.lifespan);
+    return {
+      "@type": "Person",
+      name: writer.name,
+      jobTitle: writer.role,
+      ...(years ? { birthDate: years[1], deathDate: years[2] } : {}),
+    };
+  }
+
+  if (article.category === "works") {
+    const work = getWorks(locale).find((w) => w.slug === article.slug);
+    if (!work) return undefined;
+
+    const author = getWriters(locale).find((w) => w.name === work.author);
+    return {
+      "@type": "CreativeWork",
+      name: work.title,
+      genre: work.genre,
+      ...(author ? { author: { "@type": "Person", name: author.name } } : {}),
+    };
+  }
+
+  return undefined;
+}
+
+/**
  * An article page: the article, its breadcrumb trail, and its bibliography.
  *
  * `Article` rather than `ScholarlyArticle` — these are encyclopaedia entries for
@@ -133,9 +206,11 @@ export function articleLd(
   const path = localePath(locale, article.href);
   const image = getArticleImageSrc(article);
   const sources = getSources(article.slug);
+  const about = aboutEntity(locale, article);
 
   return graph([
     organizationLd(ui),
+    websiteNode(locale, ui),
     {
       "@type": "Article",
       "@id": `${absolute(path)}#article`,
@@ -151,6 +226,10 @@ export function articleLd(
       author: { "@type": "Organization", name: article.author },
       publisher: { "@id": ORG_ID },
       articleSection: article.categoryLabel,
+      // ISO 8601 duration, from the same word count the visible "min read"
+      // figure uses — the two can never disagree.
+      timeRequired: `PT${estimateReadingTime(article)}M`,
+      ...(about ? { about } : {}),
       // Both properties come from the same authored list, because they say the
       // same thing to two different readers: `alternateName` tells a knowledge
       // graph that "Sasna Tsrer" and "Սասնա ծռեր" denote one entity, while
@@ -189,6 +268,7 @@ export function listingLd(
 
   return graph([
     organizationLd(ui),
+    websiteNode(locale, ui),
     {
       "@type": "CollectionPage",
       "@id": `${url}#collection`,
@@ -225,6 +305,7 @@ export function pageLd(
 
   return graph([
     organizationLd(ui),
+    websiteNode(locale, ui),
     {
       "@type": "WebPage",
       "@id": `${url}#page`,
@@ -273,6 +354,20 @@ export function socialImage(slug?: string, alt?: string) {
       ...(src ? {} : { width: 1200, height: 630 }),
       alt: alt ?? "",
     },
+  ];
+}
+
+/**
+ * `og:locale:alternate` values for a page in `locale`: the other editions'
+ * Open Graph locales, deduplicated — hy and hyw share `hy_AM`, and a page must
+ * not list its own locale as an alternate of itself.
+ */
+export function alternateOgLocales(locale: Locale): string[] {
+  const own = LOCALE_META[locale].ogLocale;
+  return [
+    ...new Set(
+      SUPPORTED_LOCALES.map((l) => LOCALE_META[l].ogLocale).filter((tag) => tag !== own),
+    ),
   ];
 }
 

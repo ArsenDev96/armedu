@@ -49,8 +49,12 @@ test("Western Armenian global search searches its own subset", async ({ page }) 
 });
 
 test("a term only in the Armenian edition finds nothing in Western Armenian", async ({ page }) => {
-  // Urartu is not translated into Western Armenian, so its own title cannot hit.
-  await page.goto(`/hyw/search?q=${encodeURIComponent("Ուրարտուի")}`);
+  // Since hyw reached full coverage the two editions carry the same articles,
+  // so the guaranteed-absent term is no longer a missing title but a spelling:
+  // the validator forbids the Eastern suffix `ություն` anywhere in Western
+  // Armenian prose (`easternOrthographyMarker`), so the Eastern spelling of
+  // "kingdom" — which hits the hy Urartu article — can never hit here.
+  await page.goto(`/hyw/search?q=${encodeURIComponent("թագավորություն")}`);
 
   await expect(
     page.getByRole("heading", { name: ui("hyw").search.noResultsHeading }),

@@ -1,5 +1,5 @@
 import { expect, test, type Page } from "@playwright/test";
-import { LOCALES, cards, ui } from "./helpers";
+import { LOCALES, cards, hasArticle, ui } from "./helpers";
 
 /**
  * Structured-data invariants.
@@ -91,10 +91,24 @@ test("an article carries an Article node and a well-formed breadcrumb trail", as
   expect(crumbs.slice(0, -1).every((crumb) => Boolean(crumb.item))).toBe(true);
 });
 
+/**
+ * The next two tests exercise the untranslated-article page. Since July 2026
+ * every canonical article is translated in every edition, so no URL renders
+ * that state any more and they self-skip. The machinery they defend
+ * (`UnavailableTranslation`, its `noindex`, the withheld alternates) is still
+ * live code — when a locale next declares a gap in `DECLARED_UNAVAILABLE`,
+ * point `UNTRANSLATED` at it and the tests rearm themselves.
+ */
+const UNTRANSLATED = { locale: "hyw", category: "history", slug: "kingdom-of-urartu" } as const;
+const untranslatedPath = `/${UNTRANSLATED.locale}/${UNTRANSLATED.category}/${UNTRANSLATED.slug}`;
+const untranslatedExists = !hasArticle(UNTRANSLATED.locale, UNTRANSLATED.slug);
+
 test("the untranslated page carries no structured data at all", async ({ page }) => {
+  test.skip(!untranslatedExists, "every edition is fully translated; no untranslated page exists");
+
   // It is a real page but not an article; describing it as one is the exact
   // claim its `noindex` denies.
-  await page.goto("/hyw/history/kingdom-of-urartu");
+  await page.goto(untranslatedPath);
 
   await expect(page.getByRole("heading", { name: ui("hyw").unavailable.heading, level: 1 })).toBeVisible();
   expect(await readGraph(page)).toBeNull();
@@ -111,8 +125,10 @@ test("every indexable edition of a page advertises an x-default", async ({ page 
 });
 
 test("x-default is omitted where the default edition cannot serve the page", async ({ page }) => {
+  test.skip(!untranslatedExists, "every edition is fully translated; no untranslated page exists");
+
   // The untranslated page advertises no alternates of its own — including no
   // x-default that would point a stranded crawler at a `noindex` page.
-  await page.goto("/hyw/history/kingdom-of-urartu");
+  await page.goto(untranslatedPath);
   await expect(page.locator('link[rel="alternate"]')).toHaveCount(0);
 });

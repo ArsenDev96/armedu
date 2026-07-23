@@ -77,8 +77,11 @@ test("switching language preserves the article slug when translated", async ({ p
 test("switching to an untranslated article shows the unavailable state, not English", async ({
   page,
 }) => {
+  // Self-skips since hyw reached full coverage (July 2026): no URL renders the
+  // unavailable state any more. When a locale next declares a gap in
+  // `DECLARED_UNAVAILABLE`, point `slug` at it and this test rearms itself.
   const slug = "kingdom-of-urartu";
-  expect(hasArticle("hyw", slug)).toBe(false);
+  test.skip(hasArticle("hyw", slug), "every edition is fully translated; no untranslated page exists");
 
   await page.goto(`/hyw/history/${slug}`);
 
@@ -95,14 +98,19 @@ test("switching to an untranslated article shows the unavailable state, not Engl
 });
 
 test("an untranslated article is not advertised as a translation", async ({ page }) => {
-  await page.goto("/hyw/history/kingdom-of-urartu");
+  // Self-skips while every edition is complete; see the note on the previous
+  // test. Rearm by pointing both URLs at the next declared gap.
+  const slug = "kingdom-of-urartu";
+  test.skip(hasArticle("hyw", slug), "every edition is fully translated; no untranslated page exists");
+
+  await page.goto(`/hyw/history/${slug}`);
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute(
     "content",
     /noindex/,
   );
 
   // The Armenian edition of the same article must not offer a hyw alternate.
-  await page.goto("/hy/history/kingdom-of-urartu");
+  await page.goto(`/hy/history/${slug}`);
   await expect(page.locator('link[rel="alternate"][hreflang="hyw"]')).toHaveCount(0);
   await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveCount(1);
 });

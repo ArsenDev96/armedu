@@ -3,6 +3,7 @@ import { site } from "@/data/site";
 import { CATEGORY_IDS, LOCALE_META, SUPPORTED_LOCALES } from "@/data/types";
 import { getAllArticles } from "@/lib/content";
 import { getContentAlternates, getStaticAlternates, localePath } from "@/lib/i18n";
+import { getArticleImageSrc } from "@/lib/media";
 
 /**
  * Locale-aware sitemap.
@@ -72,11 +73,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Only articles that actually exist in this edition.
     for (const article of getAllArticles(locale)) {
+      const image = getArticleImageSrc(article);
+
       entries.push({
         url: absolute(localePath(locale, article.href)),
         lastModified: new Date(article.updated),
         changeFrequency: "yearly",
         priority: 0.7,
+        // The article's illustration, for image search. Only when one actually
+        // ships — no entry falls back to the site card, which is branding, not
+        // an image *of* the subject.
+        ...(image ? { images: [absolute(image)] } : {}),
         alternates: {
           languages: toAbsolute(getContentAlternates(article.category, article.slug)),
         },

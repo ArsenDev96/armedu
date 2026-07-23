@@ -12,7 +12,7 @@ import {
   resolveLocaleOrDefault,
 } from "@/lib/i18n";
 import { getFooterNav, getMainNav } from "@/lib/navigation";
-import { socialImage } from "@/lib/seo";
+import { alternateOgLocales, socialImage } from "@/lib/seo";
 import "../globals.css";
 
 /**
@@ -59,6 +59,7 @@ export async function generateMetadata({
       type: "website",
       siteName: ui.site.name,
       locale: meta.ogLocale,
+      alternateLocale: alternateOgLocales(locale),
       title: `${ui.site.name} — ${ui.site.tagline}`,
       description: ui.site.description,
       url: localePath(locale, "/"),

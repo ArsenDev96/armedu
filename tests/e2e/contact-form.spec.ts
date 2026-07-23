@@ -75,7 +75,10 @@ for (const locale of LOCALES) {
       name: "Reader",
       email: "reader@example.com",
       locale,
-      website: "",
+      // The honeypot. Named `reference_id`, not `website` — password managers
+      // recognise and fill URL-ish fields even off-screen, and were tripping
+      // the server's bot rejection for real readers.
+      reference_id: "",
     });
 
     // A confirmed send clears the form so the same message is not sent twice.

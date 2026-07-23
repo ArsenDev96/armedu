@@ -1,5 +1,5 @@
 import { expect, test } from "@playwright/test";
-import { cards, openHeaderSearch, openMobileMenu, ui } from "./helpers";
+import { cards, hasArticle, openHeaderSearch, openMobileMenu, ui } from "./helpers";
 
 /** Runs only under the `mobile` project (Pixel 5, 393px wide). */
 
@@ -89,7 +89,12 @@ test("listing controls stay usable and do not overflow horizontally", async ({ p
 });
 
 test("the unavailable-translation page fits a small screen", async ({ page }) => {
-  await page.goto("/hyw/history/kingdom-of-urartu");
+  // Self-skips since hyw reached full coverage (July 2026); rearm by pointing
+  // the slug at the next gap declared in `DECLARED_UNAVAILABLE`.
+  const slug = "kingdom-of-urartu";
+  test.skip(hasArticle("hyw", slug), "every edition is fully translated; no untranslated page exists");
+
+  await page.goto(`/hyw/history/${slug}`);
 
   await expect(
     page.getByRole("heading", { name: ui("hyw").unavailable.heading, level: 1 }),

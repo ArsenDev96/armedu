@@ -5,10 +5,11 @@ import { ArticleLayout } from "@/components/article/ArticleLayout";
 import { UnavailableTranslation } from "@/components/article/UnavailableTranslation";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getArticle, getCategoryListing, getRelatedArticles } from "@/lib/content";
-import { articleLd, socialImage } from "@/lib/seo";
+import { alternateOgLocales, articleLd, socialImage } from "@/lib/seo";
 import {
   getCanonicalSlugs,
   getContentAlternates,
+  getLocaleMeta,
   getUi,
   hasTranslation,
   localePath,
@@ -69,6 +70,8 @@ export function articleMetadata(
       title: article.title,
       description: article.excerpt,
       url: localePath(locale, path),
+      locale: getLocaleMeta(locale).ogLocale,
+      alternateLocale: alternateOgLocales(locale),
       // `updated` is a revision date. It fills both fields because the content
       // model records no separate first-publication date; when one exists, this
       // is where they split.
@@ -76,6 +79,8 @@ export function articleMetadata(
       modifiedTime: article.updated,
       authors: [article.author],
       section: article.categoryLabel,
+      // `article:tag`, from the same authored list `keywords` uses.
+      ...(article.keywords?.length ? { tags: article.keywords } : {}),
       images: socialImage(article.slug, article.title),
     },
     twitter: {
