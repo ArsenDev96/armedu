@@ -207,6 +207,7 @@ const LATIN_ALLOWED_KEYS = new Set([
   "newsletter.placeholder",
   "newsletter.unconfigured",
   "newsletter.devNote",
+  "contactForm.emailPlaceholder",
   "article.copyFailed",
   "footer.copyright",
 ]);

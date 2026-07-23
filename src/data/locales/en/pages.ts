@@ -65,7 +65,7 @@ export const pages: StaticPagesContent = {
     metaDescription:
       "Get in touch with the Armat editorial team about corrections, classroom use, translations or collaboration.",
     heading: "Contact us",
-    lead: "This is a small editorial project and we read everything that arrives. The fastest way to reach us is by email.",
+    lead: "This is a small editorial project and we read everything that arrives. Use the form below and we will reply to the address you give us.",
     reasonsEyebrow: "Why people write to us",
     reasonsTitle: "What we can help with",
     reasons: [
@@ -90,17 +90,17 @@ export const pages: StaticPagesContent = {
   privacy: {
     title: "Privacy Policy",
     metaDescription:
-      "How Armat handles visitor data. The platform collects no personal information beyond an optional newsletter address.",
-    lastUpdated: "Last updated: 1 June 2026",
+      "How Armat handles visitor data. The platform collects no personal information beyond an optional newsletter address and anything you choose to write in the contact form.",
+    lastUpdated: "Last updated: 23 July 2026",
     lead: "Armat is an educational project and is built to work without collecting personal data. This page explains, in plain language, what that means in practice.",
     sections: [
       {
         heading: "What we collect",
-        body: "Reading an article on this site requires no account and no personal information. If you subscribe to the newsletter, we store the email address you provide, the page the subscription came from and the language you were reading in — nothing else.",
+        body: "Reading an article on this site requires no account and no personal information. If you subscribe to the newsletter, we store the email address you provide, the page the subscription came from and the language you were reading in — nothing else. If you write to us through the contact form, we store the name, email address and message you send, together with the language you wrote in, and use them only to reply to you.",
       },
       {
         heading: "Analytics",
-        body: "This version of the site runs no analytics and no tracking of any kind. Browsing is not recorded. The one exception is the newsletter: if you submit your address, it is stored by Supabase, a hosting provider acting on our behalf, which also receives your IP address as part of that request. Nothing else about your visit leaves this site.",
+        body: "This version of the site runs no analytics and no tracking of any kind. Browsing is not recorded. The exceptions are the two forms: a newsletter address and a contact message are both stored by Supabase, a hosting provider acting on our behalf, which also receives your IP address as part of that request. A contact message is additionally delivered to our mailbox by email. Nothing else about your visit leaves this site.",
       },
       {
         heading: "Cookies",
@@ -108,11 +108,11 @@ export const pages: StaticPagesContent = {
       },
       {
         heading: "Children",
-        body: "The platform is written for school-age readers and deliberately avoids collecting information from them. No account is needed, no profile is created and no message can be posted.",
+        body: "The platform is written for school-age readers and deliberately avoids collecting information from them. No account is needed, no profile is created and nothing a reader writes is published on the site.",
       },
       {
         heading: "Your rights",
-        body: "You can ask us at any time to remove your email address from the newsletter list. Write to hello@armat.site and we will confirm the deletion.",
+        body: "You can ask us at any time to remove your email address from the newsletter list, or to delete a message you sent us. Send the request through the contact form and we will confirm the deletion.",
       },
     ],
   },

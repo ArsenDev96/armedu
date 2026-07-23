@@ -88,6 +88,7 @@ export interface UiDictionary {
     writersHeading: string;
     writersAction: string;
     newsletterHeading: string;
+    newsletterDescription: string;
     diasporaTitle: string;
     diasporaText: string;
     diasporaCta: string;
@@ -274,6 +275,36 @@ export interface UiDictionary {
     error: string;
     unconfigured: string;
     devNote: string;
+  };
+
+  /**
+   * The contact form on `/contact`. Unlike the newsletter, this posts to a
+   * server route (`/api/contact`) because SMTP credentials must never reach
+   * the browser.
+   */
+  contactForm: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    nameLabel: string;
+    namePlaceholder: string;
+    emailLabel: string;
+    emailPlaceholder: string;
+    messageLabel: string;
+    messagePlaceholder: string;
+    /** Appended to the label of every field, which are all required. */
+    requiredMark: string;
+    submit: string;
+    submitting: string;
+    invalidName: string;
+    invalidEmail: string;
+    invalidMessage: string;
+    success: string;
+    error: string;
+    rateLimited: string;
+    unconfigured: string;
+    devNote: string;
+    privacyNote: string;
   };
 
   notFound: {

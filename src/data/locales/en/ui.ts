@@ -77,7 +77,9 @@ export const ui: UiDictionary = {
     timelineAction: "View full timeline",
     writersHeading: "Popular Writers",
     writersAction: "View all writers",
-    newsletterHeading: "Receive new Armenian history and literature articles",
+    newsletterHeading: "Be the first to discover what’s new on Armat",
+    newsletterDescription:
+      "Join our email list and be the first to hear about new articles, stories, and platform updates.",
     diasporaTitle: "Stay connected to Armenian culture",
     diasporaText:
       "Explore Armenian history and literature through clear articles created for Armenian families, students, and teachers around the world.",
@@ -245,11 +247,11 @@ export const ui: UiDictionary = {
     emailLabel: "Email address",
     placeholder: "your@email.com",
     placeholderInline: "Enter your email address",
-    button: "Subscribe",
-    submitting: "Subscribing…",
+    button: "Join Armat",
+    submitting: "Joining…",
     noteDefault:
-      "One short email per month. No spam, and you can unsubscribe at any time.",
-    noteInline: "No spam. Unsubscribe anytime.",
+      "No spam, and you can unsubscribe at any time.",
+    noteInline: "No spam. Only meaningful updates from Armat.",
     invalid: "Please enter a valid email address, for example name@example.com.",
     success: "Thank you — you are on the list. The next issue will reach this address.",
     duplicate: "This address is already subscribed. Nothing more to do.",
@@ -258,6 +260,37 @@ export const ui: UiDictionary = {
       "Newsletter collection is not configured in this environment, so nothing was saved. Add the Supabase credentials from .env.example to enable it.",
     devNote:
       "Development note: Supabase is not configured, so submissions cannot be stored yet.",
+  },
+
+  contactForm: {
+    eyebrow: "Write to us",
+    title: "Send us a message",
+    description:
+      "Write your question or suggestion and we will get back to you by email.",
+    nameLabel: "Name",
+    namePlaceholder: "Your name",
+    // Deliberately not "Email address": the newsletter form on the same page
+    // already uses that label, and two identical labels are ambiguous both to a
+    // screen reader and to anything selecting a field by name.
+    emailLabel: "Your email address",
+    emailPlaceholder: "name@example.com",
+    messageLabel: "Message",
+    messagePlaceholder: "Write your question or suggestion here…",
+    requiredMark: "required",
+    submit: "Send",
+    submitting: "Sending…",
+    invalidName: "Please enter your name.",
+    invalidEmail: "Please enter a valid email address, for example name@example.com.",
+    invalidMessage: "Please write a message of at least ten characters.",
+    success: "Thank you — your message has reached us. We reply to the address you gave.",
+    error: "The message could not be sent. Please try again, or write to us by email.",
+    rateLimited: "Several messages have already been sent from here. Please try again a little later.",
+    unconfigured:
+      "The contact form is not configured in this environment, so nothing was sent. Add the SMTP settings from .env.example to enable it.",
+    devNote:
+      "Development note: SMTP is not configured, so messages cannot be sent yet.",
+    privacyNote:
+      "Your name, address and message are used only to reply to you.",
   },
 
   notFound: {

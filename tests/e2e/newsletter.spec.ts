@@ -12,12 +12,19 @@ test.beforeEach(async ({ context }) => {
   await context.route("**/*.supabase.co/**", (route) => route.abort());
 });
 
+/**
+ * `exact: true` throughout: the contact page carries both this form and the
+ * contact form, whose own email label ("Your email address") contains this one
+ * as a substring — and `getByLabel` matches substrings case-insensitively by
+ * default, so a loose lookup resolves to two fields and fails.
+ */
+
 for (const locale of LOCALES) {
   test(`[${locale}] an invalid email shows localized validation`, async ({ page }) => {
     await page.goto(`/${locale}/contact`);
     const dict = ui(locale);
 
-    const field = page.getByLabel(dict.newsletter.emailLabel);
+    const field = page.getByLabel(dict.newsletter.emailLabel, { exact: true });
     await field.fill("not-an-email");
     await page.getByRole("button", { name: dict.newsletter.button }).click();
 
@@ -34,7 +41,7 @@ for (const locale of LOCALES) {
     await page.goto(`/${locale}/contact`);
     const dict = ui(locale);
 
-    await page.getByLabel(dict.newsletter.emailLabel).fill("reader@example.com");
+    await page.getByLabel(dict.newsletter.emailLabel, { exact: true }).fill("reader@example.com");
     await page.getByRole("button", { name: dict.newsletter.button }).click();
 
     // Either the "not configured" notice, or — on a machine that does have
@@ -62,7 +69,7 @@ test("validation clears as soon as the address is corrected", async ({ page }) =
   await page.goto("/hy/contact");
   const dict = ui("hy");
 
-  const field = page.getByLabel(dict.newsletter.emailLabel);
+  const field = page.getByLabel(dict.newsletter.emailLabel, { exact: true });
   await field.fill("nope");
   await page.getByRole("button", { name: dict.newsletter.button }).click();
   await expect(page.getByText(dict.newsletter.invalid)).toBeVisible();
@@ -87,7 +94,7 @@ test("the form submits the active route locale", async ({ page }) => {
   await page.goto("/hyw/contact");
   const dict = ui("hyw");
 
-  await page.getByLabel(dict.newsletter.emailLabel).fill("Reader@Example.COM ");
+  await page.getByLabel(dict.newsletter.emailLabel, { exact: true }).fill("Reader@Example.COM ");
   await page.getByRole("button", { name: dict.newsletter.button }).click();
 
   if (payload) {
@@ -107,7 +114,7 @@ test("the homepage newsletter form validates in Armenian too", async ({ page }) 
   await page.goto("/hy");
   const dict = ui("hy");
 
-  await page.getByLabel(dict.newsletter.emailLabel).fill("bad");
+  await page.getByLabel(dict.newsletter.emailLabel, { exact: true }).fill("bad");
   await page.getByRole("button", { name: dict.newsletter.button }).click();
 
   await expect(page.getByText(dict.newsletter.invalid)).toBeVisible();

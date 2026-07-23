@@ -149,6 +149,9 @@ export default async function HomePage({ params }: Params) {
         <h2 className="mx-auto max-w-2xl text-center text-xl leading-tight text-ink sm:text-2xl">
           {ui.home.newsletterHeading}
         </h2>
+        <p className="mx-auto mt-3 max-w-xl text-center text-sm leading-relaxed text-ink-3 sm:text-[0.975rem]">
+          {ui.home.newsletterDescription}
+        </p>
         <div className="mt-6">
           <NewsletterForm locale={locale} ui={ui} variant="inline" source="homepage" />
         </div>

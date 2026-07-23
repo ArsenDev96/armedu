@@ -3,8 +3,10 @@ import { Breadcrumbs } from "@/components/article/Breadcrumbs";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Card, Section, SectionHeading } from "@/components/ui/primitives";
 import { NewsletterForm } from "@/components/sections/NewsletterForm";
-import { getAvailableSocialLinks, site } from "@/data/site";
+import { ContactForm } from "@/components/sections/ContactForm";
+import { getAvailableSocialLinks } from "@/data/site";
 import type { Locale } from "@/data/types";
+import { isContactConfigured } from "@/lib/contact";
 import { getPages, getStaticAlternates, getUi, localePath, resolveLocale } from "@/lib/i18n";
 import { pageLd, socialImage } from "@/lib/seo";
 
@@ -56,17 +58,32 @@ export default async function ContactPage({ params }: Params) {
               {contact.heading}
             </h1>
             <p className="mt-5 text-lg leading-relaxed text-ink-2">{contact.lead}</p>
+            {/*
+              No address is published anywhere on the site: the form below is
+              the only way in. A mailto link here would put the mailbox in front
+              of every scraper that visits.
+            */}
             <p className="mt-6">
               <a
-                href={`mailto:${site.contactEmail}`}
+                href="#contact-form"
                 className="inline-flex items-center gap-2 rounded-full bg-burgundy px-6 py-3 text-sm font-semibold text-white transition hover:bg-burgundy-dark"
               >
-                {site.contactEmail}
+                {ui.contactForm.title}
               </a>
             </p>
           </div>
         </div>
       </div>
+
+      <Section id="contact-form" tone="tinted">
+        <SectionHeading
+          align="center"
+          eyebrow={ui.contactForm.eyebrow}
+          title={ui.contactForm.title}
+          description={ui.contactForm.description}
+        />
+        <ContactForm locale={locale} ui={ui} configured={isContactConfigured()} />
+      </Section>
 
       <Section>
         <SectionHeading eyebrow={contact.reasonsEyebrow} title={contact.reasonsTitle} />

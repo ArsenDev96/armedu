@@ -48,7 +48,9 @@ export function organizationLd(ui: UiDictionary) {
     name: ui.site.name,
     url: site.url,
     description: ui.site.description,
-    email: site.contactEmail,
+    // No `email` node: the project publishes no address at all, and structured
+    // data is the first place a scraper looks. Readers reach us through the
+    // contact form.
     logo: {
       "@type": "ImageObject",
       url: absolute("/og-default.png"),

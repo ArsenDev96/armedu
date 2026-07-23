@@ -1,6 +1,6 @@
 # Armat — Project State Report
 
-**Last updated:** 2026-07-22
+**Last updated:** 2026-07-23
 **Repo:** `d:\armedu` · branch `main`
 **Status:** Armenian-first multilingual MVP, localhost-complete in three editions.
 
@@ -26,6 +26,10 @@ Scope is deliberately content-only. No accounts, login, quizzes, comments, payme
 dashboards, admin pages, or CMS. Finished **on localhost only** — no deployment, CI/CD,
 analytics or Search Console.
 
+The one exception to "no server" is `POST /api/contact`, added July 2026 for the contact
+form. It exists because SMTP credentials cannot live in the browser; every *page* is still
+statically prerendered.
+
 ---
 
 ## 2. Tech stack
@@ -36,9 +40,10 @@ analytics or Search Console.
 | Language | TypeScript 5.9, strict mode |
 | UI | React 19.2 |
 | Styling | Tailwind CSS **v4**, tokens in `src/app/globals.css` |
-| Content | Local, statically typed TypeScript — **no database, no API, no CMS** |
+| Content | Local, statically typed TypeScript — **no CMS** |
 | Newsletter | Supabase — **email collection only** |
-| Testing | Playwright, 78 tests (desktop + mobile projects) |
+| Contact form | `POST /api/contact` — SMTP via nodemailer, with a Supabase copy |
+| Testing | Playwright, 93 tests (desktop + mobile projects) |
 | Tooling | `tsx` for the content validation script |
 | Dev port | 3002 |
 
@@ -50,8 +55,8 @@ analytics or Search Console.
 npm install              → OK
 npm run typecheck        → PASS (0 errors)
 npm run validate:content → PASS (68 entries across 3 locales)
-npm run build            → PASS (79 pages, all statically prerendered)
-npm run test:e2e         → PASS (78/78)
+npm run build            → PASS (79 pages prerendered; `/api/contact` dynamic)
+npm run test:e2e         → PASS (93/93)
 ```
 
 `validate:content` now also checks: every registered image exists on disk; every article
@@ -385,7 +390,7 @@ names because `intlLocale` is `hy-AM`; the newsletter has no real test coverage 
 table accepts unconstrained public writes; `validateAlternates` and `SITEMAP_LOCALE_TAGS`
 assert coverage that does not exist. Full detail in the review; these are the backlog.
 
-## 10. Search, filtering, newsletter
+## 10. Search, filtering, newsletter, contact form
 
 - Search runs in the browser against **the active locale's bundle only**. An Armenian
   query never reaches English text.
@@ -396,6 +401,44 @@ assert coverage that does not exist. Full detail in the review; these are the ba
 - Switching language carries the current path **and query string** across.
 - The newsletter writes `{ email, source, locale }` where `locale` is the active route
   locale (`hy` | `hyw` | `en`), enforced by a `check` constraint in the SQL.
+- **Subscription copy (July 2026)** is framed around *hearing about new content first*, not
+  around a periodical: the homepage section carries `home.newsletterHeading` plus a new
+  `home.newsletterDescription`, the shared submit button reads "Join Armat"
+  (`newsletter.button`), and the inline note is "No spam. Only meaningful updates from
+  Armat." (`newsletter.noteInline`). All three editions carry the equivalent wording; the
+  Supabase insert, validation and status states are unchanged.
+
+### Contact form (July 2026)
+
+A name / email / message form sits on `/[locale]/contact`, above the "why people write to
+us" cards (`ContactForm.tsx`, copy under `ui.contactForm`). It posts to `/api/contact` —
+the project's only server route — rather than talking to a service from the browser,
+because the SMTP password must never be in the client bundle. `SMTP_*` and `CONTACT_*`
+carry no `NEXT_PUBLIC_` prefix, which is what enforces that.
+
+The route does two independent things and needs only one to succeed:
+
+1. **emails** the message over SMTP (nodemailer) to `CONTACT_TO_EMAIL`;
+2. **files a copy** in Supabase `contact_messages` (`docs/supabase-contact.sql`), tagged
+   with whether the email went out (`emailed`).
+
+The copy is the point: if the mail server is down or files the message as spam, it is
+still recoverable from the dashboard. If both fail, the reader is told so — a success
+message for an undelivered message is the one unacceptable outcome, matching the
+newsletter's "no silent fallback" rule. Abuse controls: a honeypot field, an in-memory
+rate limit of 5 submissions per IP per 10 minutes, and length caps enforced both in the
+route and as SQL `check` constraints.
+
+The reader's address is set as `Reply-To`, never as the envelope sender — sending as them
+would fail SPF and land the whole message in spam.
+
+`contactForm.emailLabel` is deliberately "Your email address", not "Email address": the
+newsletter form is on the same page and two identical labels are ambiguous to a screen
+reader. For the same reason the newsletter specs now match labels with `exact: true`.
+
+**The privacy policy was updated in all three editions** to say the contact form's name,
+address and message are stored and emailed — it previously claimed the newsletter address
+was the only personal data collected, which this change made untrue.
 
 ---
 
@@ -430,10 +473,14 @@ assert coverage that does not exist. Full detail in the review; these are the ba
    unambiguous Eastern markers (`և`, `ություն`). The Eastern participle `-ված` cannot be
    told apart by spelling from correct Western forms like `սորված`, so checking it would
    flag correct Armenian and train editors to ignore the validator.
-8. **Real identity set** — the domain is **`armat.site`** (email `hello@armat.site`),
-   centralised in `src/data/site.ts`; every canonical, OG, hreflang, sitemap and JSON-LD
-   URL derives from it. The site still runs on localhost, but the origin is now a real host
-   rather than a placeholder, so nothing structural blocks indexing once it is deployed.
+8. **Real identity set** — the domain is **`armat.site`**, centralised in
+   `src/data/site.ts`; every canonical, OG, hreflang, sitemap and JSON-LD URL derives from
+   it. The site still runs on localhost, but the origin is now a real host rather than a
+   placeholder, so nothing structural blocks indexing once it is deployed.
+   **No email address is published anywhere** (July 2026): the `contactEmail` field, the
+   `mailto:` button on the contact page and the `email` node in the `Organization`
+   structured data were all removed. The contact form is the only route in, and where its
+   messages land is a server-side setting (`CONTACT_TO_EMAIL`, falling back to `SMTP_USER`).
 9. **No social profiles**, so those blocks are hidden rather than populated.
 10. **No deployment, CI, analytics or Search Console** — excluded by project constraint.
 11. **`npm run lint` has been removed** (it was dead — `next lint` no longer exists in

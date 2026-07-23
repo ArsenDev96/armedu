@@ -14,7 +14,9 @@ payments, dashboards or progress tracking.
 - Next.js 16 (App Router) with TypeScript strict mode
 - Tailwind CSS v4 (design tokens declared in `src/app/globals.css`)
 - Local, statically typed content — no database, no CMS
-- Supabase, used for exactly one thing: newsletter email collection
+- Supabase, used for two things only: newsletter email collection and a copy of each
+  contact-form message
+- nodemailer, used only by `/api/contact` to send contact messages over SMTP
 
 ## Getting started
 
@@ -145,6 +147,29 @@ security rationale are in [`docs/supabase-newsletter.md`](docs/supabase-newslett
 
 Without those variables the form shows a development notice instead of a fake success,
 and nothing crashes.
+
+## Contact form (SMTP)
+
+The contact form on `/[locale]/contact` posts to `/api/contact`, the only server route in
+the project. It exists so the SMTP password stays on the server: none of these variables
+carry a `NEXT_PUBLIC_` prefix, and none of them may be given one.
+
+| Variable | Notes |
+| --- | --- |
+| `SMTP_HOST` | Your mail provider's outgoing server |
+| `SMTP_PORT` | `587` (STARTTLS) or `465` (implicit TLS) |
+| `SMTP_SECURE` | `true` only for port 465 |
+| `SMTP_USER` / `SMTP_PASSWORD` | Use an app password where the provider offers one |
+| `CONTACT_FROM_EMAIL` | Defaults to `SMTP_USER`; must be an address you may send as |
+| `CONTACT_TO_EMAIL` | Where messages arrive; defaults to the published contact address |
+
+Run [`docs/supabase-contact.sql`](docs/supabase-contact.sql) once in the Supabase SQL
+editor. The route emails the message *and* files a copy in `contact_messages`, so nothing
+is lost if the mail server rejects or silently drops it. If both fail, the reader is told
+the message did not go through — never a fake success.
+
+Abuse controls: a honeypot field, 5 submissions per IP per 10 minutes (in-memory, per
+process), and length limits enforced in the route and again as SQL constraints.
 
 ## Adding content
 
