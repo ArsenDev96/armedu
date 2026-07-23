@@ -51,6 +51,9 @@ export async function generateMetadata({
       template: `%s | ${ui.site.name}`,
     },
     description: ui.site.description,
+    // Inherited by every page that declares no set of its own. Next replaces
+    // rather than merges, so a page that overrides this must be self-sufficient.
+    keywords: ui.site.keywords,
     applicationName: ui.site.name,
     openGraph: {
       type: "website",

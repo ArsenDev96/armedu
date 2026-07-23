@@ -151,6 +151,14 @@ export function articleLd(
       author: { "@type": "Organization", name: article.author },
       publisher: { "@id": ORG_ID },
       articleSection: article.categoryLabel,
+      // Both properties come from the same authored list, because they say the
+      // same thing to two different readers: `alternateName` tells a knowledge
+      // graph that "Sasna Tsrer" and "Սասնա ծռեր" denote one entity, while
+      // `keywords` is the plain topical list. Neither invents a subject the
+      // article does not cover — that is enforced at the content layer.
+      ...(article.keywords?.length
+        ? { keywords: article.keywords.join(", "), alternateName: article.keywords }
+        : {}),
       ...(image
         ? { image: { "@type": "ImageObject", url: absolute(image) } }
         : {}),

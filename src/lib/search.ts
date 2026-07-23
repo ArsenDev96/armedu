@@ -88,6 +88,9 @@ export function toHistoryListingItems(
       article.period,
       article.categoryLabel,
       article.keyFacts.map((fact) => `${fact.label} ${fact.value}`),
+      // The reason the field exists: "sasna tsrer" appears in no other field of
+      // the Armenian edition, and a reader typing it should still find the epic.
+      article.keywords,
     ),
   }));
 }
@@ -210,6 +213,7 @@ export function buildSearchIndex(locale: Locale): SearchResult[] {
         article.period,
         article.categoryLabel,
         article.keyFacts.map((fact) => `${fact.label} ${fact.value}`),
+        article.keywords,
         writer?.name,
         writer?.role,
         writer?.notableWorks,

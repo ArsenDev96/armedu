@@ -48,7 +48,7 @@ const COMPLETE_LOCALES: Locale[] = ["hy", "en"];
  */
 const DECLARED_UNAVAILABLE: Partial<Record<Locale, Record<CategoryId, string[]>>> = {
   hyw: {
-    history: ["kingdom-of-urartu", "bagratid-armenia", "first-republic-of-armenia"],
+    history: ["first-republic-of-armenia"],
     writers: ["raffi", "avetik-isahakyan", "khachatur-abovyan"],
     works: ["wounds-of-armenia", "the-fool"],
   },
@@ -283,7 +283,51 @@ function validateDictionaries(report: Report): void {
         );
       }
     }
+
+    // `flattenKeys` walks objects and strings only, so the keyword arrays are
+    // invisible to every check above — including key parity. Without this they
+    // could silently go missing from an edition and nothing would complain.
+    validateKeywordList(locale, "site.keywords", getLocaleBundle(locale).ui.site.keywords, report);
+    for (const category of CATEGORY_IDS) {
+      validateKeywordList(
+        locale,
+        `listing.${category}.keywords`,
+        getLocaleBundle(locale).ui.listing[category].keywords,
+        report,
+      );
+    }
   }
+}
+
+/** Shared shape rules for every authored keyword array, UI-level or article-level. */
+function validateKeywordList(
+  locale: Locale,
+  key: string,
+  words: string[] | undefined,
+  report: Report,
+): void {
+  report.check(Array.isArray(words), locale, "ui", key, "keyword list is missing.", key);
+  if (!Array.isArray(words)) return;
+
+  report.check(words.length > 0, locale, "ui", key, "keyword list is empty.", key);
+  report.check(
+    words.every((word) => filled(word)),
+    locale,
+    "ui",
+    key,
+    "keyword list contains a blank entry.",
+    key,
+  );
+
+  const seen = new Set(words.map((word) => word.trim().toLowerCase()));
+  report.check(
+    seen.size === words.length,
+    locale,
+    "ui",
+    key,
+    "keyword list contains duplicate entries (compared case-insensitively).",
+    key,
+  );
 }
 
 /* -------------------------------------------------------------------------- */
@@ -337,6 +381,31 @@ function validateArticle(
     `updated "${article.updated}" is not an ISO date (YYYY-MM-DD).`,
     "updated",
   );
+
+  // `keywords` is optional, but an author who supplies it must supply something
+  // usable. These entries reach a meta tag, the schema.org `keywords` property
+  // and the search haystack, so a blank or repeated string is not a harmless
+  // typo — it is a claim published three times.
+  //
+  // Note what is deliberately *not* checked: Latin script. Armenian editions
+  // carry romanised forms on purpose, because "sasna tsrer" is exactly the
+  // query this field exists to answer. The general "untranslated English"
+  // rule must not be extended here.
+  if (article.keywords) {
+    check(article.keywords.length > 0, "keywords is present but empty; omit it instead.", "keywords");
+    check(
+      article.keywords.every((word) => filled(word)),
+      "keywords contains a blank entry.",
+      "keywords",
+    );
+
+    const seen = new Set(article.keywords.map((word) => word.trim().toLowerCase()));
+    check(
+      seen.size === article.keywords.length,
+      "keywords contains duplicate entries (compared case-insensitively).",
+      "keywords",
+    );
+  }
 
   if (article.periodId) {
     const allowed =

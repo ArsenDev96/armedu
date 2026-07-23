@@ -163,6 +163,23 @@ export interface ArticleSummary {
   /** Licensed cover photograph. Falls back to the generated artwork when absent. */
   image?: ContentImage;
   featured?: boolean;
+  /**
+   * Names this subject is also known by: transliterations, native spellings,
+   * alternative romanisations, older titles.
+   *
+   * Not a ranking device — search engines have ignored `<meta name="keywords">`
+   * for over a decade, and stuffing it would be the kind of flattering
+   * misdescription the content rules exist to prevent. It exists because a
+   * reader who types "Sasna Tsrer" or "Verk Hayastani" in Latin letters is
+   * looking for an article whose title carries neither string, and nothing else
+   * in the content model can match them.
+   *
+   * Three consumers read it, which is what keeps it honest: the on-site search
+   * haystack (where it works today), the schema.org `keywords` property, and
+   * the meta tag. Every entry must be a name a real person would actually type
+   * for *this* subject — never a topic the article does not cover.
+   */
+  keywords?: string[];
 }
 
 /**

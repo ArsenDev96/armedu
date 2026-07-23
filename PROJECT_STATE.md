@@ -598,6 +598,95 @@ deployment, and Search Console verification — both still out of scope for the 
 
 ---
 
+## 14. Keywords and transliterations — July 2026
+
+Added an authored `keywords` field. The honest framing, recorded here so nobody
+re-litigates it later: **`<meta name="keywords">` has been ignored by Google since 2009 and
+by Bing too, and adding it changes no ranking.** The field was built anyway because it earns
+its place through a different consumer, and it is wired to three at once so it cannot decay
+into decoration:
+
+1. **The on-site search haystack** — where it works *today*, and the actual reason it exists.
+   A reader who types `sasna tsrer`, `verk hayastani` or `khente` in Latin letters was
+   previously matched by nothing at all in the Armenian editions, because no field in the
+   content model carried a romanised form. Verified in the built HTML: `/hy/search`'s index
+   now contains `sasna tsrer david of sassoun sasuntsi davit`.
+2. **`schema.org` `keywords` + `alternateName`** on the `Article` node — the one channel
+   search engines *do* read. `alternateName` is the load-bearing half: it tells a knowledge
+   graph that `Sasna Tsrer` and `Սասնա ծռեր` denote one entity.
+3. **The meta tag** — emitted, costs nothing, expected to do nothing.
+
+**Where it lives**
+
+- `ArticleSummary.keywords?: string[]` in `src/data/types.ts` — optional, per article, and
+  documented as *names for this subject*, never topics the article does not cover. 43 articles
+  populated (17 hy, 17 en, 9 hyw), each carrying its own transliterations plus the native
+  spelling of the other script.
+- `ui.site.keywords` and `ui.listing.{history,writers,works}.keywords` — required in the
+  `UiDictionary`, so a missing translation is a build error. Note Next **replaces** rather
+  than merges `keywords` down the layout tree, so a page that overrides the site-level set
+  must be self-sufficient; the listing sets are written that way.
+- Wired into `generateMetadata` in the root layout, the three listings and `ArticleRoute`;
+  into `articleLd` in `src/lib/seo.ts`; and into both haystack builders in `src/lib/search.ts`.
+
+**Western Armenian transliterations use Western romanisation**, which is the whole point of
+having a separate edition: `Dikran the Great`, `Mesrob Mashdots`, `Sasna Dzerer`,
+`Barouyr Sevag`, `Yeghishe Tcharents`. The dominant Eastern spelling is listed alongside
+where a reader plausibly types either.
+
+**Validation.** `scripts/validate-content.ts` gained `validateKeywordList` plus an
+article-level check: non-empty, no blank entries, no case-insensitive duplicates. This was
+not optional housekeeping — `flattenKeys` walks objects and strings only, so **arrays are
+invisible to every existing dictionary check, including key parity**. Without the explicit
+check a keyword list could vanish from an edition silently.
+
+One rule is deliberately *not* enforced: the "untranslated English" leak detector must never
+be extended to `keywords`. Latin script in an Armenian edition is the intended content there.
+
+---
+
+## 15. Western Armenian coverage — IN PROGRESS, resume here
+
+Closing the declared `hyw` gaps. **2 of 8 articles done; 6 remain.** Content count is now
+70 entries (was 68). Repo is green at this checkpoint: `typecheck`, `validate:content` and
+`build` all pass, so this is a safe place to stop.
+
+**⚠️ These translations are machine-produced and have NOT been reviewed by a native Western
+Armenian speaker.** They are written as Western Armenian rather than find-and-replaced from
+the Eastern edition — classical orthography (`-ութիւն`, `-ուած`, spelled-out `եւ`),
+Western verb morphology (`կը գտնուի`, `ցոյց կու տայ`, `կ՚արտասանուի`), Western vocabulary
+(`մատենադարան`, `կոթիք`, `սելճուքեան`, `ԵՈՒՆԵՍՔՕ`) and Western proper-noun forms
+(`Յովհաննէս`, `Պաղտատ`, `Սուրբ Սոփիա`, `Բագրատունեաց`). **A native-speaker pass is required
+before launch.** Note the existing `easternOrthographyMarker` guard only catches `և` and
+`ություն` — it will not catch bad Western Armenian, only find-and-replace Eastern Armenian.
+
+**Done**
+- `kingdom-of-urartu` — Ուրարտուի թագաւորութիւնը
+- `bagratid-armenia` — Բագրատունեաց Հայաստանը եւ Անի քաղաքը
+
+**Remaining (6)**
+- history: `first-republic-of-armenia`
+- writers: `raffi`, `avetik-isahakyan`, `khachatur-abovyan`
+- works: `wounds-of-armenia`, `the-fool`
+
+**Per-article checklist** (what the two completed ones each needed):
+1. Translate the `Article` into `src/data/locales/hyw/articles/<category>.ts`, keeping the
+   canonical `slug`/`href`/`imageSeed` and adding a Western-transliteration `keywords` array.
+2. Writers and works additionally need a matching entry in `src/data/locales/hyw/writers.ts`
+   (`Writer`) or `hyw/works.ts` (`LiteraryWork`) — the article alone is not enough, and
+   `buildSearchIndex` joins them by slug. **Not yet done for any of the 4 remaining.**
+3. Remove the slug from `DECLARED_UNAVAILABLE` in `scripts/validate-content.ts`, or validation
+   fails with "declared unavailable but a translation exists".
+4. Check `relatedSlugs` — the validator rejects a link to an article not published in this
+   locale. `bagratid-armenia` currently points at `tigran-the-great` where the hy edition
+   points at `first-republic-of-armenia`; **once the First Republic lands, restore that link.**
+5. Re-run `validate:content`, `typecheck`, `build`.
+
+Two `DECLARED_UNAVAILABLE` entries were removed so far; the remaining declaration is
+`{ history: ["first-republic-of-armenia"], writers: [...3], works: [...2] }`.
+
+---
+
 ## 14. Artwork provenance and honest captions — July 2026
 
 The 17 illustrations are AI-generated. That was true before but said nowhere; §11.5 flagged

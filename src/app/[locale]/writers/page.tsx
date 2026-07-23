@@ -22,6 +22,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   return {
     title: ui.listing.writers.title,
     description: ui.listing.writers.metaDescription,
+    keywords: ui.listing.writers.keywords,
     alternates: {
       canonical: localePath(locale, "/writers"),
       languages: getStaticAlternates("/writers"),

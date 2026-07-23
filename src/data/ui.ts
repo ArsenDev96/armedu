@@ -15,6 +15,15 @@ export interface UiDictionary {
     name: string;
     tagline: string;
     description: string;
+    /**
+     * Subjects the edition as a whole covers, in this locale's own language.
+     *
+     * Inherited by every page that does not declare its own set, because Next
+     * merges `keywords` down the layout tree rather than concatenating them.
+     * Keep it to what the site genuinely publishes — see `ArticleSummary.keywords`
+     * for why this field is not a place to be ambitious.
+     */
+    keywords: string[];
     skipToContent: string;
     homeLinkLabel: string;
   };
@@ -110,6 +119,8 @@ export interface UiDictionary {
     history: {
       title: string;
       metaDescription: string;
+      /** Overrides `site.keywords` on this listing. */
+      keywords: string[];
       lead: string;
       searchLabel: string;
       searchPlaceholder: string;
@@ -126,6 +137,8 @@ export interface UiDictionary {
     writers: {
       title: string;
       metaDescription: string;
+      /** Overrides `site.keywords` on this listing. */
+      keywords: string[];
       lead: string;
       searchLabel: string;
       searchPlaceholder: string;
@@ -143,6 +156,8 @@ export interface UiDictionary {
     works: {
       title: string;
       metaDescription: string;
+      /** Overrides `site.keywords` on this listing. */
+      keywords: string[];
       lead: string;
       searchLabel: string;
       searchPlaceholder: string;

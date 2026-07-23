@@ -54,6 +54,11 @@ export function articleMetadata(
   return {
     title: article.title,
     description: article.excerpt,
+    // Transliterations and alternative spellings for this subject only. Absent
+    // on articles that have no other name, rather than padded with the
+    // category's keywords — a page claiming every term its section covers is
+    // exactly the pattern that got the tag ignored in the first place.
+    ...(article.keywords?.length ? { keywords: article.keywords } : {}),
     alternates: {
       canonical: localePath(locale, path),
       // Only editions that actually exist are advertised.
