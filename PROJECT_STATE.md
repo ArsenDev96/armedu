@@ -792,3 +792,20 @@ follow the archive's established orthography and the existing `{name}-ի` geniti
 but like the rest of the translations (§11.2) they are a model's work and should be checked:
 in particular the hyphen-before-genitive on a proper name (`Սևակ-ի`) and the choice of
 `երևակայված պատկեր` for "imagined likeness".
+
+## 17. Western Armenian language review — July 2026
+
+A conservative editorial pass was run over the entire `hyw` edition (all 9 locale files,
+~3,000 lines) against `docs/translation-glossary.md`. ~45 corrections were applied directly
+to the files: Eastern Armenian vocabulary under classical spelling (`րոպէ`→`վայրկեան`,
+`լանդշաֆթ`→`բնաշխարհ`, `հէնց`→`նոյնինքն`, `արտերկիր`→`արտասահման`, `հասանելի`→`մատչելի`,
+`ամենա-`→`ամէնէն`), negative-concord fixes (`ոչինչ չղրկուեցաւ`, `կարելի չէ բացառել`),
+Western morphology (`հանդէս կու գան`), English calques ("takes place", "went wrong",
+"soon after"), classical orthography (`պոեմ`→`պոէմ`, `ինք զինք`→`ինքզինք`), proper-name
+forms (`Վասիլ Ա.`→`Բարսեղ Ա.`, `Պլուտարքոս`→`Պղուտարքոս`, `Բաղդատ`→`Պաղտատ` in hyw),
+established titles (`Գիրք ճամբու`→`Գիրք ճանապարհի`, `Մարդն ափի մէջ`→`Մարդը ափի մէջ`,
+`Մէկ կաթիլ մեղրը`→glossary form `Կաթիլ մը մեղր`, `Գրոց-բրոց`→`Գրոց ու բրոց`), and byline
+unification (`խմբագրական խումբ`→`կազմ`). No facts, dates, numbers, slugs or citations were
+changed. A list of flagged-but-unchanged judgement calls is in the review report delivered
+in-chat (2026-07-27). This was an AI editorial pass, not the required native-speaker review;
+§15's warning still stands, though the most mechanical Eastern-isms are now gone.
