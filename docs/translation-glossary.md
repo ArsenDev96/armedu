@@ -81,6 +81,7 @@ Sentence structure, verb forms and vocabulary all differ.
 | --- | --- | --- |
 | Kingdom of Urartu | Ուրարտուի թագավորություն | Ուրարտուի թագաւորութիւն |
 | Tigran the Great | Տիգրան Մեծ | Տիգրան Մեծ |
+| Ancient / historical Syria | Ասորիք | Ասորիք |
 | Mesrop Mashtots | Մեսրոպ Մաշտոց | Մեսրոպ Մաշտոց |
 | Armenian alphabet | հայոց այբուբեն | հայոց այբուբեն |
 | Adoption of Christianity | Քրիստոնեության ընդունում | Քրիստոնէութեան ընդունում |
@@ -92,6 +93,9 @@ Sentence structure, verb forms and vocabulary all differ.
 | Wounds of Armenia | Վերք Հայաստանի | Վէրք Հայաստանի |
 | The Fool | Խենթը | Խենթը |
 | Anush | Անուշ | Անուշ |
+
+In Western Armenian, **`Ասորիք`** names the ancient or historical region;
+**`Սուրիա`** is reserved for the modern country.
 
 ### Writer names
 
@@ -118,6 +122,10 @@ classical orthography.
 
 Source **titles** are translated only when a standard Armenian title exists;
 otherwise the original is kept so the work can be found.
+
+### Editorial byline
+
+- Western Armenian (`hyw`): **`Armat-ի խմբագրական կազմ`**
 
 ## Items for native review
 
