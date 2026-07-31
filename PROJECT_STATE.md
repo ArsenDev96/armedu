@@ -1,6 +1,6 @@
 # Armat — Project State Report
 
-**Last updated:** 2026-07-23
+**Last updated:** 2026-07-31
 **Repo:** `d:\armedu` · branch `main`
 **Status:** Armenian-first multilingual MVP, localhost-complete in three editions.
 
@@ -809,3 +809,40 @@ unification (`խմբագրական խումբ`→`կազմ`). No facts, dates, n
 changed. A list of flagged-but-unchanged judgement calls is in the review report delivered
 in-chat (2026-07-27). This was an AI editorial pass, not the required native-speaker review;
 §15's warning still stands, though the most mechanical Eastern-isms are now gone.
+
+---
+
+## 18. Source-provenance and hostile-material screen — July 2026
+
+**Standing editorial rule (set by the site owner, 2026-07-31):** no anti-Armenian material
+is to be used or cited anywhere in the content or the bibliography. This covers
+genocide-denial literature, state-sponsored denialist publications, and polemics whose
+purpose is to discredit Armenian history rather than study it. `validate:content` **cannot**
+enforce this — a hostile source can carry a valid ISBN and a clean WorldCat record and pass
+every existing check — so it stays a human judgement at the point of writing. It matters most
+for any future article touching 1915, Nagorno-Karabakh or contested territorial history.
+
+**Bibliography screen — clean.** All 31 unique works in `src/data/sources.ts` (42 citations
+across 17 slugs) were reviewed for provenance: all are mainstream Armenian-studies
+scholarship, with no denialist or state-sponsored hostile material. Deliberately **retained**
+as legitimate scholarship, despite superficially looking like removal candidates: Garsoïan
+(conversion dated c. 314 rather than 301) and Thomson's introductions to Agathangelos and
+Eḷishē (Eḷishē described as a partisan source). Both are standard critical editions and the
+only usable sources for those articles.
+
+**Content screen — clean, one wording fix applied.** All 17 articles × 3 locales (51 records)
+plus listing cards and static pages were read. The genocide is named plainly in every
+edition (`The Armenian Genocide` / `Հայոց ցեղասպանությունը` / `Հայոց ցեղասպանութիւնը`); no
+euphemism, false symmetry or denialist framing anywhere. Six occurrences of the phrase
+"events of 1915" — the standard denialist formula, and the only such vocabulary on the site —
+were replaced with a direct naming of the genocide, in `{en,hy,hyw}/writers.ts` (Sevak
+listing card) and `{en,hy,hyw}/articles/writers.ts` (Sevak article body). The now-redundant
+second mention in the same body paragraph was shortened to "four decades later". No facts,
+dates, slugs or citations changed. `typecheck` and `validate:content` both pass.
+
+**Also deliberately retained** as marks of a credible educational site rather than a
+promotional one: the even-handed treatment of Vasak of Syunik (both positions given, framed
+as a genuine dilemma), the 301-vs-314 and 287-vs-298 dating debates, the Movses Khorenatsi
+fifth-vs-eighth-century dispute, the assessment of Tigran's empire as administratively
+shallow, the questioned 100,000 population figure for Ani, and the note that Yeghishe's
+Avarayr troop numbers are almost certainly inflated.

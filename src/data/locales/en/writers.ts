@@ -70,7 +70,7 @@ export const writers: Writer[] = [
     periodId: "soviet",
     role: "Poet and scholar",
     description:
-      "A poet of conscience and memory whose long poem The Unsilenceable Belfry brought the events of 1915 back into public conversation.",
+      "A poet of conscience and memory whose long poem The Unsilenceable Belfry brought the Armenian Genocide back into public conversation.",
     imageSeed: "paruyr-sevak",
     notableWorks: ["The Unsilenceable Belfry", "Let There Be Light", "Man in the Palm of the Hand"],
   },

@@ -738,7 +738,7 @@ export const writerArticles: Article[] = [
         id: "major-works",
         heading: "Major works",
         paragraphs: [
-          "The Unsilenceable Belfry, published in 1959, is his central achievement. Built around the life of Komitas, the priest and musicologist whose mind gave way after the events of 1915, it uses the composer's story to speak about the destruction of Western Armenian life. Published four decades after the genocide and years before public commemoration was permitted, it was received as an act of courage as much as a literary work.",
+          "The Unsilenceable Belfry, published in 1959, is his central achievement. Built around the life of Komitas, the priest and musicologist whose mind gave way after the genocide, it uses the composer's story to speak about the destruction of Western Armenian life. Published four decades later and years before public commemoration was permitted, it was received as an act of courage as much as a literary work.",
           "Let There Be Light, issued in 1969, collects the poems of his last decade and shows his range: love lyrics, sharp epigrams, meditations on science and history, and poems about ordinary domestic life. Man in the Palm of the Hand, from 1963, gathers his philosophical verse about human responsibility and the individual conscience.",
           "He also wrote the long poem The Three Voiced Liturgy and a body of shorter poems that are widely anthologised. His scholarly monograph on Sayat-Nova, defended as a doctoral dissertation, remains a respected contribution to Armenian literary history.",
         ],
