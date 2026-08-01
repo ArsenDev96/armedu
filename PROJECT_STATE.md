@@ -846,3 +846,197 @@ as a genuine dilemma), the 301-vs-314 and 287-vs-298 dating debates, the Movses 
 fifth-vs-eighth-century dispute, the assessment of Tigran's empire as administratively
 shallow, the questioned 100,000 population figure for Ani, and the note that Yeghishe's
 Avarayr troop numbers are almost certainly inflated.
+
+---
+
+## 17. Armenian Cuisine — a fourth category (July 2026)
+
+A fourth content category, **`cuisine`**, was added alongside history, writers and works:
+`/{hy,hyw,en}/cuisine` and `/<locale>/cuisine/[slug]`, with six dishes — **lavash, dolma,
+khorovats, harissa, gata, ghapama** — published in all three editions. **100 pages**
+prerendered (was 79); `validate:content` now reports **99 entries** (was 68).
+
+### Architecture — extended, not forked
+
+The category rides the existing machinery. `CategoryId` gained a fourth member, so the
+sitemap, `hreflang`/`x-default`, coverage checking, keyword validation and
+`DECLARED_UNAVAILABLE` picked it up with no new code. Three things were genuinely new:
+
+1. **`dishType` / `dishTypeId` on `ArticleSummary`** — deliberately *not* folded into
+   `period`/`periodId`. Those name an era; a dish has none, and filing "Bread" under a field
+   called `period` would make the model state something untrue to save two lines. The two
+   pairs are mutually exclusive and the validator enforces it.
+2. **`CuisineDetails` on `Article`** — the at-a-glance panel (ingredients, preparation,
+   occasions, regions, serving). It is *not* a recipe: `preparation` is one paragraph, and
+   the JSON-LD deliberately emits **no `Recipe` node**, because `Recipe` promises
+   `recipeInstructions` a reader can cook from and these pages decline to be that.
+3. **`cuisineTypes: Filter[]`** per locale — `bread`, `main`, `meat`, `ceremonial`,
+   `dessert`. No region or century filter: both would have to assign a single origin to
+   dishes whose origins are shared or unsettled.
+
+`HistoryListingItem`/`toHistoryListingItems` were renamed to `ArticleListingItem`/
+`toArticleListingItems`, since one projection now serves two article-backed listings.
+`relatedFigures` is rendered only when non-empty (and drops out of the table of contents
+with it) — a dish has no biography attached to it, and an empty heading reads as a section
+the archive failed to fill.
+
+### Editorial stance
+
+Nothing states that a dish is exclusively Armenian, because for these six no source says
+that. The bibliography records this on its face: **dolma's UNESCO file was submitted by
+Azerbaijan** (2017, no. 01188) and is cited as such, and **lavash carries two inscriptions**
+— Armenia's (2014, no. 00985) and a five-state one (2016, no. 01181). Ghapama is dated
+from the other end: every *Cucurbita* squash is a New World plant, so the dish in its
+present form cannot be ancient, and the article says so rather than repeating the claim
+that it is.
+
+Sources are weighted to cultural-heritage bodies and academic publishers (UNESCO,
+Smithsonian Folklife Festival, Brill, I.B. Tauris, Indiana UP, Reaktion, OUP, a
+*Food, Culture & Society* article by Susan Paul Pattie on madagh); the two cookbooks
+(Uvezian, Petrosian & Underwood) are cited only for preparation practice and folklore,
+never for a date or an origin.
+
+### Images
+
+All six dishes ship artwork in `public/images/cuisine/`, registered in `IMAGES`
+(`src/lib/media.ts`) like every other slug, so they render in the article hero, the listing
+cards, the search thumbnails and the sitemap's image entries. They inherit
+`ARTWORK_PROVENANCE` — AI-generated editorial illustrations, and the hero caption says so
+outright in each edition (§14), taking the *illustration* form rather than the *portrait*
+one, since a dish is a scene and not a likeness of a real person.
+
+One file arrived as `lavalsh.webp` and was **renamed** to match its slug rather than mapped
+around: the other five match exactly, and a typo in the registry would read as a deliberate
+exception the next time someone edits that file. The two genuine exceptions
+(`first-republic-armenia`, `mesrop-mashtots`) remain the only ones.
+
+`src/lib/media.ts` also gained `PENDING_ARTWORK`, now empty. It is kept rather than deleted
+because it ends the state it was written for — a slug silently rendering the placeholder
+with nothing in the repo saying whether that is a decision or an oversight. The validator
+checks its entries name real articles and are not already in `IMAGES`.
+
+**Still outstanding:** there is no `category-cuisine.png`, so the homepage category card is
+the one cuisine surface still rendering the generated `PlaceholderImage` — next to three
+photographed cards. The other three sections use purpose-made banner images at a different
+crop, so an article illustration was not substituted; the `image` field on the cuisine
+`Category` is the one line to fill when a banner exists.
+
+### Two layout regressions the fourth section caused, and their fixes
+
+**The header nav stopped fitting.** Six sections in Armenian need 767px of horizontal nav,
+and the row only offers `viewport − 449` once the logo and the right-hand controls have
+taken their share — so below 1280px every label broke mid-phrase ("Հայոց / պատմություն").
+The nav now appears at **`xl` rather than `lg`**, with `gap-5` (`2xl:gap-6`) and
+`whitespace-nowrap` on the labels; 1024–1280 gets the drawer instead. That is a real
+trade — a menu tap for a band of desktop widths — taken because a header that looks broken
+is worse. `tests/e2e/header.spec.ts` asserts the fit at 1280/1440/1600 in all three
+editions and the drawer takeover at 1024/1152, so the next long label fails a test rather
+than a layout.
+
+**The cuisine category card had no photograph**, and the generated `PlaceholderImage`
+fallback was the wrong thing to show: at the 35% opacity the banner fades its photograph to,
+it renders as an almost-white smear beside three photographed cards and reads as an image
+that failed to load. `CategoryCard` now skips the photo layer entirely when a section has no
+image and carries a **wash in that section's own medallion colour** over the same geometry —
+visibly a design rather than an absence. `MEDALLIONS` gained a `wash` per section.
+
+The cuisine banner (`/category-armmeal.webp`) arrived shortly afterwards and is now
+registered on the category in all three editions, so all four cards carry photography and
+no section shows the wash today. The wash path is kept for the next section that ships
+ahead of its artwork. The file is named for the meal it depicts rather than for the
+section id, unlike the other three banners; it was left as delivered.
+
+### Content review pass
+
+A full read of the eighteen articles against their cited sources, after the section
+shipped. Every bibliography identifier resolved, and the UNESCO element numbers, the
+Smithsonian ghapama account, the Pattie *madagh* article and the Armenian National
+Institute memorial record all support what is written about them. Three claims did not
+survive and were corrected in all three editions:
+
+- **"seven states"** in the lavash significance block. Armenia's 2014 inscription plus the
+  2016 five-country one is **six**, not seven.
+- **The Musaler memorial** was described as built by descendants of the Musa Dagh villagers
+  and attributed to the Armenian National Institute. ANI's record says something narrower —
+  architects Rafael Israelian and Ara Harutyunyan, opened 1976, above a village that took
+  the mountain's name in 1972 — so the paragraph now reports that and drops the descendants
+  claim, which no cited source carried.
+- **The ghapama song** was said to have been *recorded* by System of a Down. The cited
+  Smithsonian page names the band in connection with the dish but does not say that; the
+  sentence now reports what the source actually does. The documented populariser of
+  "Hey Jan Ghapama" is Harout Pamboukjian, which no citable source in the bibliography
+  covers — see §"Still needing a human".
+
+Language defects found and fixed are listed in `docs/translation-glossary.md`; the
+substantive one was seven Western Armenian clauses missing their negative verb.
+
+### Verification
+
+`typecheck` and `validate:content` pass; `build` prerenders 100 pages; the Playwright suite
+is **131 tests, 126 passing and 5 self-skipping** (the pre-existing untranslated-page tests,
+which have no URL to run against while every edition is complete), stable across three
+consecutive full runs.
+
+**36 tests added, none removed or weakened:** `tests/e2e/cuisine.spec.ts` (28),
+`tests/e2e/header.spec.ts` (6), two mobile tests, and a cuisine leg on the per-locale
+navigation loop. One existing test was **split, not softened**: the "former brand" guard ran
+twenty-one cold dev-server compilations inside a single 30s budget and began timing out once
+the suite grew; it is now one test per edition with the same paths and the same two
+assertions each, plus `/cuisine/lavash` added to its path list.
+
+## 19. Eastern Armenian edition review — August 2026
+
+A full read of `src/data/locales/hy/` — 3,844 lines across the six locale files and the four
+article files — checking the Armenian itself and the factual claims behind it.
+
+**Facts held up.** Dates, regnal years, lifespans and publication years were checked one by
+one across the six history articles, six writer biographies and four literary-work articles.
+The internally-derived numbers are consistent (Avarayr 451 → Nvarsak 484 is stated as
+"thirty-three years"; Tigran born c. 140 BC and dead at c. 85; Abovyan's manuscript waiting
+"seventeen years"), and the hedges are in the right places — the Erebuni/Yerevan etymology,
+the 301-vs-314 conversion date, the Movses Khorenatsi dating dispute, the Sevak car crash,
+and Ani's "hundred thousand" population are all presented as contested rather than settled.
+Three claims that looked risky were verified against sources rather than left: Tigranian's
+*Anush* did enter the Yerevan Opera in **1935** (the theatre itself opened in 1933 with
+Spendiarian's *Almast*), the **1931** silent film and the **1983** film-opera both exist.
+
+**Three things disagreed with themselves.** All are the same failure — the same fact typed
+in two files:
+
+- `first-republic-of-armenia` carried the eyebrow «Ժամանակակից Հայաստան» while the filter
+  chip and the footer both said «Նոր ժամանակների Հայաստան». A reader clicking the chip
+  landed on a card that appeared to name a different era, and «Ժամանակակից» also collided
+  with the literary period of the same name.
+- Isahakyan's 1897 collection was «Երգեր **և** վերքեր» on the listing card and
+  «Երգեր **ու** վերքեր» — the published title — five times in the article.
+- Sevak's 1963 collection was «Մարդ**ը** ափի մեջ» on the card and «Մարդ**ն** ափի մեջ» in
+  the article. The card was right; the published title is «Մարդը ափի մեջ».
+
+**Three Armenian-language corrections.** «ուսումն սկսելիս» → «ուսումը սկսելիս» (the
+definite article takes -ը before a consonant); «Ժամանակակից հռոմեացի հեղինակներ», a literal
+rendering of "Contemporary Roman writers" that in Armenian reads as *present-day* Roman
+writers, → «Այդ ժամանակի…»; and «իմպրովիզացվեր», wrong register for a school audience, →
+«տեղում, բանավոր թարգմանվեր».
+
+Punctuation and script were clean: no Latin `?`/`!` in Armenian prose, no mixed-script words,
+no stray Latin full stops outside the «թ.»/«թթ.» abbreviations.
+
+### The chip-and-card rule, now enforced
+
+`validate:content` gained a check that a card's period/dish-type label must equal the filter
+label carrying the same id, for the three listings that actually filter on that vocabulary —
+history articles, cuisine articles, writers. Works articles are deliberately exempt and the
+code says why: the works listing filters on genre, so their `period` is free prose
+("1890-ական թվականներ") that says more than a chip can.
+
+It caught **seven more instances in the two editions that were not under review**:
+
+- `hyw` named the battles filter «Ճակատամարտ**ներ**» against the article's «Ճակատամարտ**եր**».
+  The article was right — a compound whose final component is a monosyllabic word («մարտ»)
+  keeps the `-եր` plural — so the **chip** was fixed, not the prose.
+- `en` had six writer cards in title case ("19th Century", "Soviet Era") against
+  sentence-case chips. The chips were brought to title case, matching both the cards and the
+  `historyPeriods` list beside them.
+
+`typecheck`, `validate:content` (99 entries), `build` (102 pages) and the Playwright suite
+(126 passed, 5 skipped) all pass. No test was changed to accommodate any of this.

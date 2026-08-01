@@ -31,6 +31,19 @@ export const categories: Category[] = [
     imageSeed: "category-works",
     image: "/category-works.png",
   },
+  {
+    id: "cuisine",
+    title: "Հայկական խոհանոց",
+    description:
+      "Ծանոթացեք հայկական ուտեստներին որպես պատմության, ընտանեկան կյանքի, տոների և սփյուռքի ավանդույթների մաս՝ լավաշից ու տոլմայից մինչև հարիսա և ղափամա։",
+    href: "/cuisine",
+    linkLabel: "Դիտել խոհանոցը",
+    imageSeed: "category-cuisine",
+    // The banner file is named for the meal it shows rather than for the
+    // section id, unlike the other three. Left as delivered: renaming it to
+    // match would break the link back to the artwork the illustrator supplied.
+    image: "/category-armmeal.webp",
+  },
 ];
 
 export const timeline: TimelineEntry[] = [

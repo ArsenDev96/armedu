@@ -77,7 +77,7 @@ export default async function HomePage({ params }: Params) {
       <section id="categories" className="pt-8 pb-5 md:pt-10 md:pb-7">
         <div className="container-page">
           <h2 className="sr-only">{ui.home.categoriesHeading}</h2>
-          <div className="grid gap-5 md:grid-cols-3">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {categories.map((category) => (
               <CategoryCard
                 key={category.id}

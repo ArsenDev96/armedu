@@ -27,6 +27,7 @@ export const ui: UiDictionary = {
     history: "Armenian History",
     writers: "Armenian Writers",
     works: "Literary Works",
+    cuisine: "Armenian Cuisine",
     about: "About",
     contact: "Contact",
     privacy: "Privacy Policy",
@@ -35,6 +36,7 @@ export const ui: UiDictionary = {
     allHistoryArticles: "All history articles",
     allWriters: "All writers",
     allWorks: "All literary works",
+    allCuisineArticles: "All cuisine articles",
     submenuLabel: "{item} submenu",
     toggleMenu: "Toggle navigation menu",
   },
@@ -194,6 +196,33 @@ export const ui: UiDictionary = {
       allDescription:
         "Poems, novels and epics that shaped the modern Armenian literary language.",
     },
+    cuisine: {
+      title: "Armenian Cuisine",
+      metaDescription:
+        "The cultural history of Armenian dishes — lavash, dolma, khorovats, harissa, gata and ghapama: what they are, when they are made, and the place they hold in family and festive traditions.",
+      keywords: [
+        "Armenian cuisine",
+        "Armenian food",
+        "lavash",
+        "dolma",
+        "tolma",
+        "khorovats",
+        "harissa",
+        "gata",
+        "ghapama",
+        "tonir",
+      ],
+      lead: "This section looks at Armenian dishes as part of history, family life, celebrations, regional traditions and diaspora culture. Many of them are shared across the region and belong to more than one cuisine; what follows describes how they are made and what they mean in an Armenian setting.",
+      searchLabel: "Search cuisine articles",
+      searchPlaceholder: "Search dishes, ingredients and occasions…",
+      featuredEyebrow: "Featured dish",
+      featuredTitle: "Where the Armenian table begins",
+      allEyebrow: "All cuisine articles",
+      allTitle: "The dishes and the history behind them",
+      allDescription:
+        "The section grows over time. Use the search field and the filters above to narrow it by kind of dish.",
+      readArticle: "Read the article",
+    },
   },
 
   empty: {
@@ -220,17 +249,20 @@ export const ui: UiDictionary = {
     groupHistory: "History",
     groupWriters: "Writers",
     groupWorks: "Literary Works",
+    groupCuisine: "Cuisine",
     groupCountOne: "{count} result",
     groupCountOther: "{count} results",
     typeHistory: "History",
     typeWriter: "Writer",
     typeWork: "Literary work",
+    typeCuisine: "Dish",
     noQueryHeading: "What are you looking for?",
     noQueryBody:
       "Search covers every history article, writer biography and literary work on the site. Try a name, a century, a battle or the title of a book.",
     browseHistory: "Browse history",
     browseWriters: "Browse writers",
     browseWorks: "Browse works",
+    browseCuisine: "Browse cuisine",
     noResultsHeading: "No results found",
     noResultsBody:
       "Nothing on the site matches “{query}”. Check the spelling, try a shorter term, or browse a section instead.",
@@ -276,6 +308,15 @@ export const ui: UiDictionary = {
     typeHistory: "History",
     typeWriters: "Writers",
     typeWorks: "Works",
+    typeCuisine: "Cuisine",
+    cuisine: {
+      detailsHeading: "The dish at a glance",
+      ingredients: "Common ingredients",
+      preparation: "Traditional preparation",
+      occasions: "Occasions",
+      regions: "Known regions",
+      serving: "Serving traditions",
+    },
   },
 
   unavailable: {

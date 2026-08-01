@@ -10,7 +10,15 @@ import { SectionHeading } from "@/components/ui/primitives";
 import { filterItems, type ArticleListingItem } from "@/lib/search";
 import { useListingParams } from "@/lib/useListingParams";
 
-export function HistoryListing({
+/**
+ * The cuisine listing.
+ *
+ * Structurally the history listing: the same controls, the same cards, the same
+ * URL-held state. It differs in one field — the filter pills select a kind of
+ * dish (`dishTypeId`) rather than an era — and in the URL key, `type`, which is
+ * what the works listing already uses for a classification that is not a period.
+ */
+export function CuisineListing({
   items,
   filters,
   ui,
@@ -23,10 +31,10 @@ export function HistoryListing({
   children?: ReactNode;
 }) {
   const { query, setQuery, filterId, setFilterId, clearAll, isFiltered } =
-    useListingParams("period");
+    useListingParams("type");
 
   const results = useMemo(
-    () => filterItems(items, query, filterId, (item) => item.periodId),
+    () => filterItems(items, query, filterId, (item) => item.dishTypeId),
     [items, query, filterId],
   );
 
@@ -35,8 +43,8 @@ export function HistoryListing({
       <ListingControls
         ui={ui}
         filters={filters}
-        searchLabel={ui.listing.history.searchLabel}
-        placeholder={ui.listing.history.searchPlaceholder}
+        searchLabel={ui.listing.cuisine.searchLabel}
+        placeholder={ui.listing.cuisine.searchPlaceholder}
         query={query}
         onQueryChange={setQuery}
         activeFilter={filterId}
@@ -51,9 +59,9 @@ export function HistoryListing({
 
       <div className="mt-14 md:mt-16">
         <SectionHeading
-          eyebrow={ui.listing.history.allEyebrow}
-          title={ui.listing.history.allTitle}
-          description={ui.listing.history.allDescription}
+          eyebrow={ui.listing.cuisine.allEyebrow}
+          title={ui.listing.cuisine.allTitle}
+          description={ui.listing.cuisine.allDescription}
         />
         {results.length > 0 ? (
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

@@ -25,8 +25,11 @@ export function ArticleCard({
     history: ui.article.typeHistory,
     writers: ui.article.typeWriters,
     works: ui.article.typeWorks,
+    cuisine: ui.article.typeCuisine,
   };
 
+  /** The era for history and literature, the kind of dish for cuisine. */
+  const qualifier = article.period ?? article.dishType;
   const readingTime = t(ui.article.readingTime, { minutes: article.readingTime });
   const imageAlt = article.image?.alt ?? t(ui.article.imageAlt, { title: article.title });
   const imageSrc = getArticleImageSrc(article);
@@ -84,7 +87,7 @@ export function ArticleCard({
       <div className="flex flex-1 flex-col p-5 md:p-6">
         <div className="mb-3 flex items-center gap-2">
           <Pill>{article.categoryLabel}</Pill>
-          {article.period ? <span className="text-xs text-ink-3">{article.period}</span> : null}
+          {qualifier ? <span className="text-xs text-ink-3">{qualifier}</span> : null}
         </div>
         <Heading className="text-lg leading-snug text-ink">
           <Link href={article.href} className="transition hover:text-burgundy">

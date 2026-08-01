@@ -102,8 +102,19 @@ function HeaderInner({ locale, nav, ui }: HeaderProps) {
             <Logo ui={ui} priority />
           </Link>
 
-          <nav aria-label={ui.nav.mainLabel} className="hidden lg:block">
-            <ul className="flex items-center gap-6">
+          {/*
+            The horizontal nav appears at `xl`, not `lg`.
+
+            Six sections in Armenian need 767px of it, and the row only offers
+            `viewport − 449` once the logo and the right-hand controls have taken
+            their share — so anything below 1280px squeezed the labels until
+            "Հայոց պատմություն" broke across two lines. Handing 1024–1280 to the
+            drawer instead is the honest trade: a menu tap beats a header that
+            looks broken, and the widths are asserted in `header.spec.ts` so the
+            next long label fails a test rather than a layout.
+          */}
+          <nav aria-label={ui.nav.mainLabel} className="hidden xl:block">
+            <ul className="flex items-center gap-5 2xl:gap-6">
               {nav.map((item) => {
                 const active = isActive(item.href);
                 const open = openNav === item.href;
@@ -120,7 +131,7 @@ function HeaderInner({ locale, nav, ui }: HeaderProps) {
                         href={item.href}
                         aria-current={active ? "page" : undefined}
                         className={cn(
-                          "relative py-5 text-sm font-medium transition",
+                          "relative py-5 text-sm font-medium whitespace-nowrap transition",
                           active ? "text-burgundy" : "text-ink-2 hover:text-burgundy",
                         )}
                       >
@@ -207,7 +218,7 @@ function HeaderInner({ locale, nav, ui }: HeaderProps) {
               aria-expanded={menuOpen}
               aria-controls="mobile-menu"
               aria-label={ui.nav.toggleMenu}
-              className="rounded-full p-2.5 text-ink-2 transition hover:bg-paper-2 hover:text-ink lg:hidden"
+              className="rounded-full p-2.5 text-ink-2 transition hover:bg-paper-2 hover:text-ink xl:hidden"
             >
               {menuOpen ? <CloseIcon /> : <MenuIcon />}
             </button>
@@ -247,7 +258,7 @@ function HeaderInner({ locale, nav, ui }: HeaderProps) {
       </div>
 
       {menuOpen ? (
-        <nav id="mobile-menu" aria-label={ui.nav.mobileLabel} className="border-t border-line bg-surface lg:hidden">
+        <nav id="mobile-menu" aria-label={ui.nav.mobileLabel} className="border-t border-line bg-surface xl:hidden">
           <ul className="container-page flex flex-col py-2">
             {nav.map((item) => (
               <li key={item.href}>

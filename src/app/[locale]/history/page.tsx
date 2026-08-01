@@ -12,7 +12,7 @@ import { formatDate } from "@/lib/date";
 import { getStaticAlternates, getUi, localePath, resolveLocale, t } from "@/lib/i18n";
 import { getArticleImageSrc } from "@/lib/media";
 import { estimateReadingTime } from "@/lib/reading-time";
-import { toHistoryListingItems } from "@/lib/search";
+import { toArticleListingItems } from "@/lib/search";
 
 type Params = { params: Promise<{ locale: string }> };
 
@@ -47,7 +47,7 @@ export default async function HistoryPage({ params }: Params) {
   const periods = getHistoryPeriods(locale);
   const timeline = getTimeline(locale);
   const featured = articles.find((article) => article.slug === "tigran-the-great") ?? articles[0];
-  const items = toHistoryListingItems(locale, articles);
+  const items = toArticleListingItems(locale, articles);
 
   const crumbs = [
     { label: ui.nav.home, href: localePath(locale, "/") },

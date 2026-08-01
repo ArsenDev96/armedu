@@ -57,6 +57,26 @@ export function BookIcon(props: IconProps) {
   );
 }
 
+/**
+ * Ear of wheat — the Armenian Cuisine section.
+ *
+ * Wheat rather than a plate or a cooking pot: the section is about food as
+ * history and family life, and a place setting would read as a restaurant
+ * listing. It also happens to be the one ingredient that runs through the whole
+ * section, from lavash to harissa.
+ */
+export function WheatIcon(props: IconProps) {
+  return (
+    <Svg {...props}>
+      <path d="M12 21V9" />
+      <path d="M12 9c0-2 1-3.4 2.6-4.4C16.2 5.6 17 7 17 9c0 2-1 3.4-2.6 4.4C12.8 12.4 12 11 12 9Z" />
+      <path d="M12 9c0-2-1-3.4-2.6-4.4C7.8 5.6 7 7 7 9c0 2 1 3.4 2.6 4.4C11.2 12.4 12 11 12 9Z" />
+      <path d="M12 15.5c1.4-1.5 3.1-2.1 5-1.9-.2 1.9-1.3 3.3-3.1 3.9" />
+      <path d="M12 15.5c-1.4-1.5-3.1-2.1-5-1.9.2 1.9 1.3 3.3 3.1 3.9" />
+    </Svg>
+  );
+}
+
 /* ---------- Timeline markers ---------- */
 
 /** Fortress — Kingdom of Urartu. */

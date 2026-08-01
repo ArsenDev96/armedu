@@ -94,6 +94,34 @@ Sentence structure, verb forms and vocabulary all differ.
 | The Fool | Խենթը | Խենթը |
 | Anush | Անուշ | Անուշ |
 
+## Cuisine terminology
+
+| English | `hy` | `hyw` |
+| --- | --- | --- |
+| Armenian Cuisine | Հայկական խոհանոց | Հայկական խոհանոց |
+| Dish (a prepared food) | ուտեստ | կերակուր |
+| Lavash | Լավաշ | Լաւաշ |
+| Dolma / tolma | Տոլմա | Տոլմա |
+| Lenten dolma | Պասուց տոլմա | Պասուց տոլմա |
+| Khorovats | Խորոված | Խորոված |
+| Harissa | Հարիսա | Հարիսա |
+| Gata | Գաթա | Գաթա |
+| Ghapama | Ղափամա | Ղափամա |
+| Tonir (clay oven) | թոնիր | թոնիր |
+| Korkot (hulled wheat) | քորքոտ | քորքոտ |
+| Khoriz (gata filling) | խորիզ | խորիզ |
+| Madagh | մատաղ | մատաղ |
+| Filling (in a dish) | լցոն | լեցոն |
+| Ingredients | բաղադրիչներ | բաղադրիչներ |
+| Embers (to grill over) | ածուխներ | ածուխներ |
+| Cumin | քիմիոն | քիմիոն |
+| Turkic (language family) | թյուրքական | թիւրքական |
+| Bread / Main / Meat / Ceremonial / Desserts (filters) | Հաց / Հիմնական ուտեստներ / Մսեղեն ուտեստներ / Ծիսական ուտեստներ / Անուշեղեն | Հաց / Հիմնական կերակուրներ / Մսեղէն կերակուրներ / Ծիսական կերակուրներ / Անուշեղէն |
+
+Latin transliterations (`lavash`, `tolma`, `khorovats`, `ghapama`, `khoriz`) are carried in
+each article's `keywords`, per the rule in §"Things that stay in Latin script": a reader who
+types the romanised name must still find the article.
+
 In Western Armenian, **`Ասորիք`** names the ancient or historical region;
 **`Սուրիա`** is reserved for the modern country.
 
@@ -141,9 +169,11 @@ known error; these are judgement calls made during translation.
 3. **`Հայոց ամենահայտնի սիրո պատմությունը`** for "Armenia's best-known love story" —
    an editor may prefer `սիրավեպը`.
 4. **`տեղապահ`** for "placeholder" in the image caption — reasonable but not settled.
-5. **`Ժամանակակից Հայաստան`** for the "Modern Armenia" period — Armenian school
-   textbooks more often use `Նորագույն Հայաստան`; `Ժամանակակից` reads as
-   "contemporary" and collides with the literary period of the same name.
+5. **`Նոր ժամանակների Հայաստան`** for the "Modern Armenia" period. The filter, the
+   footer link and the article's own eyebrow now agree on this wording; the article
+   used to say `Ժամանակակից Հայաստան`, which both collided with the literary period
+   of the same name and disagreed with the chip the reader had clicked. Armenian
+   school textbooks more often use `Նորագույն Հայաստան`, which remains the open call.
 6. **Century formatting** — Roman numerals (`XIX դար`, `Ք.ա. IX–VI դարեր`) are used
    throughout, per Armenian editorial convention. The writer biographies originally used
    Arabic (`19-րդ դար`), so a listing filter and the article it opened disagreed on
@@ -193,6 +223,54 @@ known error; these are judgement calls made during translation.
     Eastern original (only `եւ` classicised), since it is a direct quotation.
 18. **Register** — the Western edition addresses a diaspora readership with plural-polite
     imperatives (`Ծանօթացէ՛ք`, `Մնացէ՛ք`). Formality level should be checked as a whole.
+
+### Cuisine section (both Armenian editions, July 2026)
+
+1. **`ուտեստ` (hy) vs `կերակուր` (hyw)** for "dish". Both are current in both varieties;
+   the split follows the dominant usage in each and is applied consistently, but an editor
+   may prefer one word across the site.
+2. **`Ծիսական ուտեստներ` / `Ծիսական կերակուրներ`** for the "Ceremonial dishes" filter —
+   `Տոնական` (festive) is the alternative, and is arguably closer for ghapama than for
+   harissa.
+3. **`Անուշեղեն` / `Անուշեղէն`** for "Desserts" — covers sweets generally; `Աղանդեր` is
+   the narrower dessert-course term.
+4. **`Մուսալեռ`** for the Armavir village and **`Մուսա լեռ`** for the mountain are kept
+   distinct on purpose. Confirm the spacing convention with a native editor.
+5. **`հոն`** (cornelian cherry) in the Goris ghapama variant — regional names vary.
+6. **`Իրինա Պետրոսյան` / `Դեյվիտ Անդերվուդ`** and **`Սոնիա Ուվեզյան`** (hy) against
+   **`Իրինա Պետրոսեան` / `Տէյվիտ Անտըրվուտ`** and **`Սոնիա Ուվեզեան`** (hyw): author names
+   are transliterated per edition. The book *titles* are given in Armenian translation while
+   the ISBN in `sources.ts` identifies the English original.
+7. **`ՅՈՒՆԵՍԿՕ` (hy) / `ԵՈՒՆԵՍՔՕ` (hyw)** — follows the existing per-edition convention
+   already used in the history and works articles.
+8. **`սնգույլել`** (hy) for hollowing out a vegetable, against `պարպել` (hyw). Both are
+   correct; `սնգույլել` is the more literary word and the two editions do not match in
+   register here. The plain verb in both would be the safer choice.
+
+A review pass over the section in July 2026 corrected, rather than flagged, the following —
+they were errors and not judgement calls, and are recorded so a reviewer knows they were
+looked at:
+
+- Seven Western Armenian clauses were missing their negative verb (`ոչ մէկը … կը փորձէ`
+  for `ոչ մէկը … չի փորձեր`). Armenian requires negative concord in both varieties.
+- `թրքական` (Turkish) was used for English "Turkic" in the dolma etymology. Corrected to
+  `թիւրքական`, which is what the UNESCO file supports and what the other two editions say.
+- `չաման` (blue fenugreek, the basturma spice) was used for "cumin". Corrected to `քիմիոն`.
+- `մատաղաբաշխ` was used in the Eastern gata article for a pastry brought to church, which
+  collides with the khorovats article's careful separation of *madagh* from an ordinary
+  meal. Corrected to `հյուրասիրություն`.
+- The Eastern khorovats excerpt said the meat is grilled *beside* the fire (`կրակի կողքին`)
+  rather than over the embers.
+
+### Work titles — checked against published editions
+
+Titles are easy to drift because they are typed in several files. These are the settled
+forms; a listing card and the article it opens must not disagree.
+
+| Work | Correct form | Wrong form seen |
+| --- | --- | --- |
+| Isahakyan, 1897 collection | «Երգեր ու վերքեր» | «Երգեր և վերքեր» |
+| Sevak, 1963 collection | «Մարդը ափի մեջ» | «Մարդն ափի մեջ» |
 
 ### Both Armenian editions
 

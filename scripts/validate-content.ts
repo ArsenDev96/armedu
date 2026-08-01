@@ -30,7 +30,7 @@ import {
   type Writer,
 } from "../src/data/types";
 import type { UiDictionary } from "../src/data/ui";
-import { getImageRegistry } from "../src/lib/media";
+import { getImageRegistry, PENDING_ARTWORK } from "../src/lib/media";
 import { estimateReadingTime } from "../src/lib/reading-time";
 
 /** The editions expected by the product spec. Russian must not come back. */
@@ -51,6 +51,7 @@ const DECLARED_UNAVAILABLE: Partial<Record<Locale, Record<CategoryId, string[]>>
     history: [],
     writers: [],
     works: [],
+    cuisine: [],
   },
 };
 
@@ -127,6 +128,11 @@ function filterIds(filters: Filter[]): Set<string> {
   return new Set(filters.map((filter) => filter.id));
 }
 
+/** id → label, for checking that a card's eyebrow says what its filter chip says. */
+function filterLabels(filters: Filter[]): Map<string, string> {
+  return new Map(filters.map((filter) => [filter.id, filter.label]));
+}
+
 /** Every leaf path in the UI dictionary, e.g. `nav.home`. */
 function flattenKeys(value: unknown, prefix = ""): Map<string, string> {
   const out = new Map<string, string>();
@@ -183,6 +189,16 @@ function articleStrings(article: Article): string[] {
     article.intro,
     article.categoryLabel,
     article.period ?? "",
+    article.dishType ?? "",
+    ...(article.cuisine
+      ? [
+          ...article.cuisine.ingredients,
+          article.cuisine.preparation,
+          ...article.cuisine.occasions,
+          ...article.cuisine.regions,
+          article.cuisine.serving,
+        ]
+      : []),
     ...article.sections.flatMap((section) => [
       section.heading,
       ...section.paragraphs,
@@ -338,7 +354,14 @@ function validateArticle(
   locale: Locale,
   article: Article,
   report: Report,
-  context: { slugs: Set<string>; historyPeriods: Set<string>; literaryPeriods: Set<string> },
+  context: {
+    slugs: Set<string>;
+    historyPeriods: Set<string>;
+    literaryPeriods: Set<string>;
+    cuisineTypes: Set<string>;
+    historyPeriodLabels: Map<string, string>;
+    cuisineTypeLabels: Map<string, string>;
+  },
 ): void {
   const id = article.slug || "(no slug)";
   const check = (ok: boolean, message: string, field?: string) =>
@@ -416,6 +439,68 @@ function validateArticle(
       "periodId",
     );
     check(filled(article.period), "periodId is set but the period label is empty.", "period");
+
+    // The history listing filters on these ids and shows `period` on the card, so
+    // the two must read the same: a reader who clicks «Նոր ժամանակների Հայաստան»
+    // and lands on a card labelled «Ժամանակակից Հայաստան» has no way to tell they
+    // are the same era. That drift is exactly what happened in `hy`.
+    //
+    // Only history is checked. Works articles also carry a periodId, but the works
+    // listing filters on genre, so their `period` is free prose ("1890-ական
+    // թվականներ") that deliberately says more than a filter chip can.
+    if (article.category === "history") {
+      const label = context.historyPeriodLabels.get(article.periodId);
+      check(
+        label === undefined || article.period === label,
+        `period "${article.period}" does not match the "${article.periodId}" filter label "${label}"; the listing chip and the card would disagree.`,
+        "period",
+      );
+    }
+  }
+
+  // `period`/`periodId` names an era and `dishType`/`dishTypeId` a kind of dish.
+  // They are alternatives, not companions: an article carrying both would appear
+  // under two different filter vocabularies and render two eyebrows.
+  if (article.dishTypeId) {
+    check(
+      context.cuisineTypes.has(article.dishTypeId),
+      `dishTypeId "${article.dishTypeId}" does not match any filter in cuisineTypes.`,
+      "dishTypeId",
+    );
+    check(filled(article.dishType), "dishTypeId is set but the dishType label is empty.", "dishType");
+    check(
+      !article.periodId,
+      "declares both a periodId and a dishTypeId; an article belongs to one filter vocabulary.",
+      "dishTypeId",
+    );
+    // Same rule as `period` above: the cuisine listing filters on these ids and
+    // prints `dishType` on the card.
+    const label = context.cuisineTypeLabels.get(article.dishTypeId);
+    check(
+      label === undefined || article.dishType === label,
+      `dishType "${article.dishType}" does not match the "${article.dishTypeId}" filter label "${label}"; the listing chip and the card would disagree.`,
+      "dishType",
+    );
+  }
+
+  if (article.category === "cuisine") {
+    check(
+      Boolean(article.dishTypeId),
+      "is a cuisine article but declares no dishTypeId, so it can never be filtered.",
+      "dishTypeId",
+    );
+    validateCuisineDetails(locale, article, report);
+  } else {
+    check(
+      article.cuisine === undefined,
+      `is a ${article.category} article but carries a cuisine detail block.`,
+      "cuisine",
+    );
+    check(
+      !article.dishTypeId,
+      `is a ${article.category} article but declares a dishTypeId, which only the cuisine listing filters on.`,
+      "dishTypeId",
+    );
   }
 
   check(article.sections.length > 0, "has no sections.", "sections");
@@ -526,11 +611,48 @@ function validateArticle(
   }
 }
 
+/**
+ * The cuisine at-a-glance panel.
+ *
+ * Every field is rendered as a labelled row, so a blank one prints a heading
+ * over nothing. The lists are required rather than optional because the panel is
+ * the article's answer to "what is in it, when is it made, where" — a cuisine
+ * article that cannot answer those is not finished.
+ */
+function validateCuisineDetails(locale: Locale, article: Article, report: Report): void {
+  const id = article.slug || "(no slug)";
+  const check = (ok: boolean, message: string, field?: string) =>
+    report.check(ok, locale, "article", id, message, field);
+
+  const details = article.cuisine;
+  if (!details) {
+    check(false, "is a cuisine article but has no cuisine detail block.", "cuisine");
+    return;
+  }
+
+  const lists: [keyof typeof details, string[]][] = [
+    ["ingredients", details.ingredients],
+    ["occasions", details.occasions],
+    ["regions", details.regions],
+  ];
+  for (const [field, values] of lists) {
+    check(
+      Array.isArray(values) && values.length > 0 && values.every(filled),
+      `cuisine.${field} is empty or contains a blank entry.`,
+      `cuisine.${field}`,
+    );
+  }
+
+  check(filled(details.preparation), "cuisine.preparation is empty.", "cuisine.preparation");
+  check(filled(details.serving), "cuisine.serving is empty.", "cuisine.serving");
+}
+
 function validateWriter(
   locale: Locale,
   writer: Writer,
   report: Report,
   periods: Set<string>,
+  periodLabels: Map<string, string>,
   articleSlugs: Set<string>,
 ): void {
   const id = writer.slug || "(no slug)";
@@ -547,6 +669,14 @@ function validateWriter(
     writer.notableWorks.length > 0 && writer.notableWorks.every(filled),
     "has no notable works, or one of them is empty.",
     "notableWorks",
+  );
+  // The writers listing filters on these ids and prints `period` on the card, so
+  // the chip and the card must read the same. See the note in `validateArticle`.
+  const periodLabel = periodLabels.get(writer.periodId);
+  check(
+    periodLabel === undefined || writer.period === periodLabel,
+    `period "${writer.period}" does not match the "${writer.periodId}" filter label "${periodLabel}"; the listing chip and the card would disagree.`,
+    "period",
   );
   check(
     periods.has(writer.periodId),
@@ -666,17 +796,28 @@ function validateLocale(locale: Locale, content: LocaleContent, report: Report):
   validateFilters(locale, "historyPeriods", content.historyPeriods, report);
   validateFilters(locale, "literaryPeriods", content.literaryPeriods, report);
   validateFilters(locale, "workGenres", content.workGenres, report);
+  validateFilters(locale, "cuisineTypes", content.cuisineTypes, report);
   validateStaticPages(locale, content, report);
 
   const context = {
     slugs: articleSlugs,
     historyPeriods: filterIds(content.historyPeriods),
     literaryPeriods: filterIds(content.literaryPeriods),
+    cuisineTypes: filterIds(content.cuisineTypes),
+    historyPeriodLabels: filterLabels(content.historyPeriods),
+    cuisineTypeLabels: filterLabels(content.cuisineTypes),
   };
 
   for (const article of content.articles) validateArticle(locale, article, report, context);
   for (const writer of content.writers) {
-    validateWriter(locale, writer, report, context.literaryPeriods, articleSlugs);
+    validateWriter(
+      locale,
+      writer,
+      report,
+      context.literaryPeriods,
+      filterLabels(content.literaryPeriods),
+      articleSlugs,
+    );
   }
   for (const work of content.works) {
     validateWork(locale, work, report, filterIds(content.workGenres), articleSlugs);
@@ -936,6 +1077,27 @@ function validateImages(report: Report): void {
       "image",
       slug,
       `file "public${src}" does not exist.`,
+    );
+  }
+
+  // `PENDING_ARTWORK` is the declared version of the note below: slugs whose
+  // artwork is expected but has not arrived. It has to name real articles, and
+  // it must not name one that already has a file — a stale entry would say the
+  // archive is waiting for something it already has.
+  for (const slug of PENDING_ARTWORK) {
+    report.check(
+      knownSlugs.has(slug),
+      "global",
+      "image",
+      slug,
+      "is listed in PENDING_ARTWORK but matches no article slug in any edition.",
+    );
+    report.check(
+      registry[slug] === undefined,
+      "global",
+      "image",
+      slug,
+      "is listed in PENDING_ARTWORK but already has a registered image — remove it from the pending list.",
     );
   }
 

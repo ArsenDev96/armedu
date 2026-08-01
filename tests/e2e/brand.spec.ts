@@ -63,22 +63,36 @@ test("about and privacy name Armat in prose; contact carries it in metadata", as
   }
 });
 
-test("no page — visible or in metadata — still shows the former brand", async ({ page }) => {
-  const paths = [
-    "",
-    "/about",
-    "/contact",
-    "/privacy",
-    "/history/tigran-the-great",
-    "/writers/hovhannes-tumanyan",
-    "/works/david-of-sassoun",
-  ];
-  for (const locale of LOCALES) {
-    for (const path of paths) {
+/**
+ * The guard the rename exists for.
+ *
+ * Split one test per edition rather than one for all three. The assertions are
+ * unchanged — the same seven paths in each of the three locales, each checked
+ * for a 200 and for the absence of the former brand in the served HTML — but a
+ * single test carrying twenty-one cold dev-server compilations ran up against
+ * the suite's 30s budget once the archive grew a fourth section, and a timeout
+ * that is really "the server was busy" is the least useful kind of red.
+ */
+const BRAND_PATHS = [
+  "",
+  "/about",
+  "/contact",
+  "/privacy",
+  "/history/tigran-the-great",
+  "/writers/hovhannes-tumanyan",
+  "/works/david-of-sassoun",
+  "/cuisine/lavash",
+];
+
+for (const locale of LOCALES) {
+  test(`[${locale}] no page — visible or in metadata — still shows the former brand`, async ({
+    page,
+  }) => {
+    for (const path of BRAND_PATHS) {
       const response = await page.goto(`/${locale}${path}`);
       expect(response?.status(), `${locale}${path}`).toBe(200);
       // page.content() is the full served HTML — head metadata, JSON-LD and body.
       expect(await page.content(), `${locale}${path}`).not.toContain(FORMER);
     }
-  }
-});
+  });
+}
