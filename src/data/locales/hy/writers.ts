@@ -72,6 +72,9 @@ export const writers: Writer[] = [
     description:
       "Խղճի և հիշողության բանաստեղծ, ում «Անլռելի զանգակատուն» պոեմը Հայոց ցեղասպանությունը վերադարձրեց հանրային խոսակցության դաշտ։",
     imageSeed: "paruyr-sevak",
+    // «Մարդը ափի մեջ», not «Մարդն ափի մեջ»: the definite article normally takes
+    // -ն before a vowel, but this is the published title of the 1963 collection
+    // and is left exactly as Sevak's publisher set it. Do not "correct" it.
     notableWorks: ["Անլռելի զանգակատուն", "Եղիցի լույս", "Մարդը ափի մեջ"],
   },
 ];

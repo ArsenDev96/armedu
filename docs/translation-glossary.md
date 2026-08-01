@@ -280,3 +280,15 @@ forms; a listing card and the article it opens must not disagree.
 - **`Միքայել Նալբանդյան`** — the English edition used to say "Mkrtich Nalbandian", which
   was simply wrong. The Armenian was right, and the English has now been corrected to
   match it. The three editions agree; nothing here needs a decision.
+
+## Definite article before a vowel (`hy`)
+
+Eastern Armenian takes **`-ն`**, not `-ը`, when the next word begins with a vowel
+(`ա ե է ի ո օ`): «Լավաշ**ն** ալյուրից», not «Լավաշ**ը** ալյուրից». The archive applies this
+without exception — an August 2026 sweep found 0 violations in the history and works
+articles against 675 correct uses, and 23 in the cuisine file, which was written last. Those
+have been corrected.
+
+**One deliberate exception:** Sevak's «Մարդը ափի մեջ» keeps `-ը` because that is the
+published title of the 1963 collection. A regex sweep will flag it; leave it alone. The same
+caution applies to any other title set by its publisher.
