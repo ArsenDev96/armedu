@@ -31,6 +31,16 @@ export const categories: Category[] = [
     imageSeed: "category-works",
     image: "/category-works.png",
   },
+  {
+    id: "cuisine",
+    title: "Հայկական խոհանոց",
+    description:
+      "Ծանօթացէ՛ք հայկական կերակուրներուն՝ որպէս պատմութեան, ընտանեկան կեանքի, տօներու եւ սփիւռքի աւանդութիւններու մաս՝ լաւաշէն ու տոլմայէն մինչեւ հարիսա եւ ղափամա։",
+    href: "/cuisine",
+    linkLabel: "Տեսնել խոհանոցը",
+    imageSeed: "category-cuisine",
+    image: "/category-armmeal.webp",
+  },
 ];
 
 export const timeline: TimelineEntry[] = [
@@ -85,5 +95,8 @@ export const historyPeriods: Filter[] = [
   { id: "medieval", label: "Միջնադարեան Հայաստան" },
   { id: "modern", label: "Արդի Հայաստան" },
   { id: "people", label: "Կարեւոր դէմքեր" },
-  { id: "battles", label: "Ճակատամարտներ եւ դէպքեր" },
+  // «Ճակատամարտեր», not «ճակատամարտներ»: a compound whose final component is a
+  // monosyllabic word («մարտ») keeps the -եր plural. Matches the article's own
+  // period label, which was right where this chip was wrong.
+  { id: "battles", label: "Ճակատամարտեր եւ դէպքեր" },
 ];

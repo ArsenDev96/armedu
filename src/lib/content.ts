@@ -104,6 +104,10 @@ export function getWorkGenres(locale: Locale) {
   return getLocaleBundle(locale).workGenres;
 }
 
+export function getCuisineTypes(locale: Locale) {
+  return getLocaleBundle(locale).cuisineTypes;
+}
+
 /**
  * The article before and after this one, in the order its category is authored.
  * Navigation never crosses categories or locales: a writer biography is only

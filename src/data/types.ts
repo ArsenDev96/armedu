@@ -72,9 +72,9 @@ export function isLocale(value: unknown): value is Locale {
   return typeof value === "string" && (SUPPORTED_LOCALES as readonly string[]).includes(value);
 }
 
-export type CategoryId = "history" | "writers" | "works";
+export type CategoryId = "history" | "writers" | "works" | "cuisine";
 
-export const CATEGORY_IDS: CategoryId[] = ["history", "writers", "works"];
+export const CATEGORY_IDS: CategoryId[] = ["history", "writers", "works", "cuisine"];
 
 export interface Category {
   id: CategoryId;
@@ -160,6 +160,18 @@ export interface ArticleSummary {
   period?: string;
   periodId?: string;
   imageSeed: string;
+  /**
+   * Cuisine listing only: what kind of dish this is, and the filter id it
+   * matches in `cuisineTypes`.
+   *
+   * Deliberately not folded into `period`/`periodId` above. Those name an era —
+   * a historical one for history articles, a literary one for writers and works
+   * — and a dish has no era; filing "Bread" under a field called `period` would
+   * make the content model state something untrue in order to save two lines.
+   * The two pairs are mutually exclusive: an article carries one or the other.
+   */
+  dishType?: string;
+  dishTypeId?: string;
   /** Licensed cover photograph. Falls back to the generated artwork when absent. */
   image?: ContentImage;
   featured?: boolean;
@@ -183,6 +195,35 @@ export interface ArticleSummary {
 }
 
 /**
+ * At-a-glance panel for a cuisine article: the handful of facts a reader wants
+ * before the prose, in the same role `keyFacts` plays for the other categories.
+ *
+ * It exists because the alternative was worse in both directions — forcing a
+ * dish into `relatedFigures` and `importantDates` alone would leave its
+ * ingredients and occasions unstated, while giving cuisine its own article type
+ * would fork the layout, the citation block, the reading time and the
+ * translation machinery for one category.
+ *
+ * What it is **not** is a recipe. `preparation` is one short paragraph
+ * describing how the dish is traditionally made, not quantities and steps: this
+ * archive publishes cultural articles, and a page whose centre of gravity is a
+ * method is a recipe page whatever the surrounding prose says. Every list here
+ * is authored per locale, like all other prose.
+ */
+export interface CuisineDetails {
+  /** Common ingredients. "Common", not "the" — regional versions differ. */
+  ingredients: string[];
+  /** One-paragraph overview of the traditional method. Never a recipe. */
+  preparation: string;
+  /** Occasions the dish is associated with: feasts, fasts, commemorations. */
+  occasions: string[];
+  /** Regions or communities where a documented version is prepared. */
+  regions: string[];
+  /** How it reaches the table and what it is eaten with. */
+  serving: string;
+}
+
+/**
  * Full article payload for a detail page.
  *
  * `readingTime` is deliberately omitted: it is derived from this object's own
@@ -202,11 +243,18 @@ export interface Article extends Omit<ArticleSummary, "readingTime"> {
     paragraphs: string[];
   };
   interestingFacts: string[];
+  /**
+   * People whose lives the subject runs through. Categories that have no such
+   * people — a dish does not — leave it empty, and the section is not rendered
+   * rather than rendered blank.
+   */
   relatedFigures: {
     name: string;
     lifespan: string;
     description: string;
   }[];
+  /** Cuisine articles only; see `CuisineDetails`. */
+  cuisine?: CuisineDetails;
   relatedSlugs: string[];
 }
 
@@ -304,6 +352,8 @@ export interface LocaleContent {
   literaryPeriods: Filter[];
   /** Genre filters for the literary works listing. */
   workGenres: Filter[];
+  /** Dish-type filters for the cuisine listing. Ids are shared across locales. */
+  cuisineTypes: Filter[];
 }
 
 /** The id every filter list uses for its "no filter applied" option. */

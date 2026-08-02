@@ -2,14 +2,29 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Category, CategoryId } from "@/data/types";
 import { PlaceholderImage } from "@/components/ui/PlaceholderImage";
-import { BookIcon, ColumnsIcon, QuillIcon } from "@/components/ui/icons";
+import { BookIcon, ColumnsIcon, QuillIcon, WheatIcon } from "@/components/ui/icons";
 import { ArrowLink, Card } from "@/components/ui/primitives";
+import { cn } from "@/lib/cn";
 
-/** Medallion icon and colour per section, so the data model stays presentation-free. */
-const MEDALLIONS: Record<CategoryId, { Icon: typeof ColumnsIcon; className: string }> = {
-  history: { Icon: ColumnsIcon, className: "bg-burgundy text-white" },
-  writers: { Icon: QuillIcon, className: "bg-gold text-white" },
-  works: { Icon: BookIcon, className: "bg-[#1f3450] text-white" },
+/**
+ * Medallion icon and colour per section, so the data model stays
+ * presentation-free.
+ *
+ * `wash` is the same colour at low opacity, and it is what a section shows in
+ * place of photography while it has none. The generated `PlaceholderImage` was
+ * the obvious fallback and the wrong one here: at the 35% opacity the banner
+ * fades its photograph to, it renders as an almost-white smear beside three
+ * photographed cards, and reads as an image that failed to load rather than as
+ * a card that is not claiming to have one.
+ */
+const MEDALLIONS: Record<
+  CategoryId,
+  { Icon: typeof ColumnsIcon; className: string; wash: string }
+> = {
+  history: { Icon: ColumnsIcon, className: "bg-burgundy text-white", wash: "from-burgundy/12" },
+  writers: { Icon: QuillIcon, className: "bg-gold text-white", wash: "from-gold/15" },
+  works: { Icon: BookIcon, className: "bg-[#1f3450] text-white", wash: "from-[#1f3450]/12" },
+  cuisine: { Icon: WheatIcon, className: "bg-[#5d6b34] text-white", wash: "from-[#5d6b34]/15" },
 };
 
 export function CategoryCard({
@@ -23,18 +38,20 @@ export function CategoryCard({
   /** `banner` is the homepage form: icon medallion, copy, photography behind. */
   variant?: "default" | "banner";
 }) {
-  const { Icon, className: medallion } = MEDALLIONS[category.id];
+  const { Icon, className: medallion, wash } = MEDALLIONS[category.id];
 
   if (variant === "banner") {
     return (
       <Card as="article" interactive className="group relative h-full overflow-hidden">
         {/* Photography is weighted to the right and faded out towards the copy,
-            so the text keeps its contrast against the card. */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-y-0 right-0 w-[52%] opacity-35 photo-fade-left-soft"
-        >
-          {category.image ? (
+            so the text keeps its contrast against the card. A section with no
+            photograph yet carries a wash in its own colour instead — see the
+            note on MEDALLIONS. */}
+        {category.image ? (
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-y-0 right-0 w-[52%] opacity-35 photo-fade-left-soft"
+          >
             <Image
               src={category.image}
               alt=""
@@ -42,13 +59,19 @@ export function CategoryCard({
               sizes="(min-width: 768px) 18vw, 50vw"
               className="object-cover"
             />
-          ) : (
-            <PlaceholderImage seed={category.imageSeed} alt="" variant="wide" />
-          )}
-          {/* Lifts the photograph towards the card's own white, so the copy
-              keeps its contrast where the two overlap. */}
-          <span className="absolute inset-0 bg-gradient-to-r from-surface via-surface/45 to-transparent" />
-        </div>
+            {/* Lifts the photograph towards the card's own white, so the copy
+                keeps its contrast where the two overlap. */}
+            <span className="absolute inset-0 bg-gradient-to-r from-surface via-surface/45 to-transparent" />
+          </div>
+        ) : (
+          <span
+            aria-hidden="true"
+            className={cn(
+              "pointer-events-none absolute inset-y-0 right-0 w-[52%] bg-gradient-to-l to-transparent",
+              wash,
+            )}
+          />
+        )}
 
         <div className="relative flex h-full flex-col p-6">
           <span

@@ -36,6 +36,7 @@ export interface UiDictionary {
     history: string;
     writers: string;
     works: string;
+    cuisine: string;
     about: string;
     contact: string;
     privacy: string;
@@ -44,6 +45,7 @@ export interface UiDictionary {
     allHistoryArticles: string;
     allWriters: string;
     allWorks: string;
+    allCuisineArticles: string;
     /** Accessible name for a nav dropdown toggle; `{item}` is the parent label. */
     submenuLabel: string;
     toggleMenu: string;
@@ -96,6 +98,8 @@ export interface UiDictionary {
     timelineAction: string;
     writersHeading: string;
     writersAction: string;
+    cuisineHeading: string;
+    cuisineAction: string;
     newsletterHeading: string;
     newsletterDescription: string;
     diasporaTitle: string;
@@ -168,6 +172,21 @@ export interface UiDictionary {
       allTitle: string;
       allDescription: string;
     };
+    cuisine: {
+      title: string;
+      metaDescription: string;
+      /** Overrides `site.keywords` on this listing. */
+      keywords: string[];
+      lead: string;
+      searchLabel: string;
+      searchPlaceholder: string;
+      featuredEyebrow: string;
+      featuredTitle: string;
+      allEyebrow: string;
+      allTitle: string;
+      allDescription: string;
+      readArticle: string;
+    };
   };
 
   empty: {
@@ -194,17 +213,20 @@ export interface UiDictionary {
     groupHistory: string;
     groupWriters: string;
     groupWorks: string;
+    groupCuisine: string;
     /** `{count}` substituted, used under each group heading. */
     groupCountOne: string;
     groupCountOther: string;
     typeHistory: string;
     typeWriter: string;
     typeWork: string;
+    typeCuisine: string;
     noQueryHeading: string;
     noQueryBody: string;
     browseHistory: string;
     browseWriters: string;
     browseWorks: string;
+    browseCuisine: string;
     noResultsHeading: string;
     /** `{query}` substituted. */
     noResultsBody: string;
@@ -264,6 +286,21 @@ export interface UiDictionary {
     typeHistory: string;
     typeWriters: string;
     typeWorks: string;
+    typeCuisine: string;
+    /**
+     * Headings for the cuisine at-a-glance panel (`CuisineDetails`). Grouped
+     * rather than flattened into `article` because they are rendered by one
+     * block that only cuisine articles have, and a reader of any other category
+     * never sees them.
+     */
+    cuisine: {
+      detailsHeading: string;
+      ingredients: string;
+      preparation: string;
+      occasions: string;
+      regions: string;
+      serving: string;
+    };
   };
 
   /** Shown when an article exists in the project but not in this language. */

@@ -154,6 +154,15 @@ function citationLd(source: Source) {
  * History articles get no `about`: their subject is an era or an event, and the
  * content model records no entity for it — inventing one is the line this file
  * does not cross.
+ *
+ * Cuisine articles get none either, and the reason is worth stating because the
+ * tempting shape is right there. Schema.org has `Recipe`, and a cuisine article
+ * carries ingredients and a preparation note, so it would validate. It would
+ * also be false: `Recipe` promises `recipeIngredient` and `recipeInstructions`
+ * a reader can cook from, and these pages are cultural articles that decline to
+ * be that. Emitting it would tell a crawler the opposite of what the editorial
+ * rule says, and rich results would then advertise a recipe the page does not
+ * contain.
  */
 function aboutEntity(locale: Locale, article: Article): object | undefined {
   if (article.category === "writers") {

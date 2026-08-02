@@ -383,6 +383,225 @@ const SOURCES: Record<string, Source[]> = {
       identifier: { kind: "url", value: "https://ich.unesco.org/en/RL/00743" },
     },
   ],
+
+  /* ---------------------------------------------------------------- cuisine */
+
+  /*
+   * The cuisine bibliography is weighted towards cultural-heritage bodies and
+   * academic publishers rather than cookbooks, because the claims these
+   * articles make are cultural and historical rather than culinary. Two
+   * cookbooks appear (Uvezian, Petrosian & Underwood) and both are cited only
+   * for preparation practice and for the folklore attached to a dish, never for
+   * a date or an origin.
+   *
+   * Where a dish is shared across the region the citation says so on the
+   * record: dolma's UNESCO file was submitted by Azerbaijan, and lavash carries
+   * two inscriptions naming seven states between them. Citing only the Armenian
+   * one would let the bibliography imply an exclusivity the articles are
+   * careful not to claim.
+   */
+
+  lavash: [
+    {
+      title:
+        "Lavash, the preparation, meaning and appearance of traditional bread as an expression of culture in Armenia",
+      publisher:
+        "UNESCO Representative List of the Intangible Cultural Heritage of Humanity, no. 00985",
+      year: "inscribed 2014",
+      identifier: { kind: "url", value: "https://ich.unesco.org/en/RL/00985" },
+      note: "Submitted by Armenia. The nomination file is the source for the tonir method, the six-month keeping and the wedding practice.",
+    },
+    {
+      title: "Flatbread making and sharing culture: Lavash, Katyrma, Jupka, Yufka",
+      publisher:
+        "UNESCO Representative List of the Intangible Cultural Heritage of Humanity, no. 01181",
+      year: "inscribed 2016",
+      identifier: { kind: "url", value: "https://ich.unesco.org/en/RL/01181" },
+      note: "A separate, multinational inscription submitted by Azerbaijan, Iran, Kazakhstan, Kyrgyzstan and Turkey — cited here because the same bread name is inscribed twice, for different communities.",
+    },
+    {
+      author: "Levon Abrahamian and Nancy Sweezy (eds.)",
+      title: "Armenian Folk Arts, Culture, and Identity",
+      publisher: "Indiana University Press, Bloomington",
+      year: "2001",
+      identifier: { kind: "isbn", value: "9780253337047" },
+      note: "Hripsime Pikichian's chapter on festival and feast is the ethnographic source used across this section.",
+    },
+    {
+      title: "Armenia: Creating Home — The Hearth",
+      publisher: "Smithsonian Folklife Festival, Center for Folklife and Cultural Heritage",
+      year: "2018",
+      identifier: { kind: "url", value: "https://festival.si.edu/2018/armenia/feasting/hearth" },
+      note: "The 2018 Festival programme's description of the tonir, its dimensions and its place in the house.",
+    },
+  ],
+
+  dolma: [
+    {
+      title: "Dolma making and sharing tradition, a marker of cultural identity",
+      publisher:
+        "UNESCO Representative List of the Intangible Cultural Heritage of Humanity, no. 01188",
+      year: "inscribed 2017",
+      identifier: { kind: "url", value: "https://ich.unesco.org/en/RL/01188" },
+      note: "Submitted by Azerbaijan, not by Armenia. Cited for the dish's regional spread and for the Turkic etymology it records.",
+    },
+    {
+      author: "Priscilla Mary Işın",
+      title: "Bountiful Empire: A History of Ottoman Cuisine",
+      publisher: "Reaktion Books, London",
+      year: "2018",
+      identifier: { kind: "isbn", value: "9781780239040" },
+      note: "Documents stuffed-vegetable dishes in Ottoman kitchen records, the context in which the shared regional forms are first written down.",
+    },
+    {
+      author: "Alan Davidson, ed. Tom Jaine",
+      title: "The Oxford Companion to Food",
+      publisher: "Oxford University Press, 3rd edition",
+      year: "2014",
+      identifier: { kind: "isbn", value: "9780199677337" },
+    },
+    {
+      author: "Irina Petrosian and David Underwood",
+      title: "Armenian Food: Fact, Fiction & Folklore",
+      publisher: "Yerkir Publishing",
+      year: "2006",
+      identifier: { kind: "isbn", value: "9781411698659" },
+      note: "Cited for Armenian preparation practice and for the folklore attached to particular dishes, not for dates or origins.",
+    },
+  ],
+
+  khorovats: [
+    {
+      title: "Armenia: Creating Home — Foodways",
+      publisher: "Smithsonian Folklife Festival, Center for Folklife and Cultural Heritage",
+      year: "2018",
+      identifier: { kind: "url", value: "https://festival.si.edu/2018/armenia/feasting/foodways" },
+    },
+    {
+      author: "Susan Paul Pattie",
+      title: "This is not a sacrifice: interpretations of the Madagh among Armenians",
+      publisher: "Food, Culture & Society, vol. 25 no. 5, pp. 783–794",
+      year: "2022",
+      identifier: { kind: "doi", value: "10.1080/15528014.2021.2000126" },
+      note: "The anthropological account of madagh, the communal meat meal, and of how differently it is understood in Armenia and in the diaspora.",
+    },
+    {
+      author: "Levon Abrahamian and Nancy Sweezy (eds.)",
+      title: "Armenian Folk Arts, Culture, and Identity",
+      publisher: "Indiana University Press, Bloomington",
+      year: "2001",
+      identifier: { kind: "isbn", value: "9780253337047" },
+    },
+    {
+      author: "Irina Petrosian and David Underwood",
+      title: "Armenian Food: Fact, Fiction & Folklore",
+      publisher: "Yerkir Publishing",
+      year: "2006",
+      identifier: { kind: "isbn", value: "9781411698659" },
+    },
+  ],
+
+  harissa: [
+    {
+      author: "Nawal Nasrallah (trans.)",
+      title:
+        "Annals of the Caliphs' Kitchens: Ibn Sayyār al-Warrāq's Tenth-Century Baghdadi Cookbook",
+      publisher: "Brill, Leiden",
+      year: "2007",
+      identifier: { kind: "isbn", value: "9789004158672" },
+      note: "The earliest written record of harīsa as a pounded wheat-and-meat dish, in a tenth-century Baghdadi collection.",
+    },
+    {
+      author: "Raymond Kévorkian",
+      title: "The Armenian Genocide: A Complete History",
+      publisher: "I.B. Tauris, London",
+      year: "2011",
+      identifier: { kind: "isbn", value: "9781848855618" },
+      note: "The scholarly account of the 1915 Musa Dagh resistance, to which the September commemoration is attached.",
+    },
+    {
+      title: "Musa Dagh Memorial, Musaler, Armavir Province",
+      publisher: "Armenian National Institute, Washington DC",
+      identifier: {
+        kind: "url",
+        value:
+          "https://www.armenian-genocide.org/Memorial.198/current_category.52/memorials_detail.html",
+      },
+      note: "The institutional record of the memorial at which the commemoration is held.",
+    },
+    {
+      author: "Irina Petrosian and David Underwood",
+      title: "Armenian Food: Fact, Fiction & Folklore",
+      publisher: "Yerkir Publishing",
+      year: "2006",
+      identifier: { kind: "isbn", value: "9781411698659" },
+    },
+  ],
+
+  gata: [
+    {
+      title: "Armenia: Creating Home — Foodways",
+      publisher: "Smithsonian Folklife Festival, Center for Folklife and Cultural Heritage",
+      year: "2018",
+      identifier: { kind: "url", value: "https://festival.si.edu/2018/armenia/feasting/foodways" },
+    },
+    {
+      author: "Sonia Uvezian",
+      title: "The Cuisine of Armenia",
+      publisher: "Siamanto Press",
+      identifier: { kind: "isbn", value: "9780970971678" },
+      note: "Cited for preparation practice. First published by Harper & Row, New York, in 1974.",
+    },
+    {
+      author: "Irina Petrosian and David Underwood",
+      title: "Armenian Food: Fact, Fiction & Folklore",
+      publisher: "Yerkir Publishing",
+      year: "2006",
+      identifier: { kind: "isbn", value: "9781411698659" },
+    },
+    {
+      author: "Levon Abrahamian and Nancy Sweezy (eds.)",
+      title: "Armenian Folk Arts, Culture, and Identity",
+      publisher: "Indiana University Press, Bloomington",
+      year: "2001",
+      identifier: { kind: "isbn", value: "9780253337047" },
+    },
+  ],
+
+  ghapama: [
+    {
+      author: "Kathy Phung",
+      title: "Armenian Recipe: Ghapama, Stuffed Pumpkin",
+      publisher: "Smithsonian Folklife Festival, Center for Folklife and Cultural Heritage",
+      year: "2018",
+      identifier: {
+        kind: "url",
+        value: "https://festival.si.edu/blog/armenian-recipe-ghapama-stuffed-pumpkin",
+      },
+      note: "Written for the Festival's Armenia programme; the source for the dish's festive rather than everyday place, and for the Goris version.",
+    },
+    {
+      author: "Alan Davidson, ed. Tom Jaine",
+      title: "The Oxford Companion to Food",
+      publisher: "Oxford University Press, 3rd edition",
+      year: "2014",
+      identifier: { kind: "isbn", value: "9780199677337" },
+      note: "Cited for the botany: every Cucurbita squash, the pumpkin included, is a New World plant, which dates the dish in its present form.",
+    },
+    {
+      author: "Sonia Uvezian",
+      title: "The Cuisine of Armenia",
+      publisher: "Siamanto Press",
+      identifier: { kind: "isbn", value: "9780970971678" },
+    },
+    {
+      author: "Irina Petrosian and David Underwood",
+      title: "Armenian Food: Fact, Fiction & Folklore",
+      publisher: "Yerkir Publishing",
+      year: "2006",
+      identifier: { kind: "isbn", value: "9781411698659" },
+    },
+  ],
 };
 
 /** The bibliography for one article. Empty only if the slug is unknown. */

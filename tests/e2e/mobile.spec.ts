@@ -88,6 +88,41 @@ test("listing controls stay usable and do not overflow horizontally", async ({ p
   expect(overflow).toBeLessThanOrEqual(1);
 });
 
+test("the mobile menu reaches the cuisine section", async ({ page }) => {
+  await page.goto("/hy");
+  const dict = ui("hy");
+
+  const menu = await openMobileMenu(page, "hy");
+  await menu.getByRole("link", { name: dict.nav.cuisine, exact: true }).click();
+
+  await expect(page).toHaveURL(/\/hy\/cuisine$/);
+  await expect(
+    page.getByRole("heading", { name: dict.listing.cuisine.title, level: 1 }),
+  ).toBeVisible();
+});
+
+test("the cuisine listing and a dish article fit a small screen", async ({ page }) => {
+  const overflow = () =>
+    page.evaluate(
+      () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
+    );
+
+  await page.goto("/hy/cuisine");
+  await page
+    .getByRole("searchbox", { name: ui("hy").listing.cuisine.searchLabel })
+    .fill("լավաշ");
+  expect(await cards(page).count()).toBeGreaterThan(0);
+  expect(await overflow()).toBeLessThanOrEqual(1);
+
+  // The dish panel is the one block cuisine adds to the article layout, and a
+  // long ingredient list is the obvious way for it to push the page sideways.
+  await page.goto("/hy/cuisine/ghapama");
+  await expect(
+    page.getByRole("heading", { name: ui("hy").article.cuisine.detailsHeading }),
+  ).toBeVisible();
+  expect(await overflow()).toBeLessThanOrEqual(1);
+});
+
 test("the unavailable-translation page fits a small screen", async ({ page }) => {
   // Self-skips since hyw reached full coverage (July 2026); rearm by pointing
   // the slug at the next gap declared in `DECLARED_UNAVAILABLE`.

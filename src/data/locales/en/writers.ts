@@ -79,8 +79,10 @@ export const writers: Writer[] = [
 export const literaryPeriods: Filter[] = [
   { id: "all", label: "All periods" },
   { id: "medieval", label: "Medieval" },
-  { id: "19th-century", label: "19th century" },
-  { id: "20th-century", label: "20th century" },
-  { id: "soviet", label: "Soviet era" },
+  // Title case, matching the writer cards these chips filter and the
+  // `historyPeriods` list next door ("Ancient Armenia", "Battles and Events").
+  { id: "19th-century", label: "19th Century" },
+  { id: "20th-century", label: "20th Century" },
+  { id: "soviet", label: "Soviet Era" },
   { id: "contemporary", label: "Contemporary" },
 ];

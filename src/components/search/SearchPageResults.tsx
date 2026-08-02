@@ -59,8 +59,9 @@ export function SearchPageResults({
       history: ui.search.groupHistory,
       writers: ui.search.groupWriters,
       works: ui.search.groupWorks,
+      cuisine: ui.search.groupCuisine,
     };
-    return (["history", "writers", "works"] as CategoryId[]).map((type) => ({
+    return (["history", "writers", "works", "cuisine"] as CategoryId[]).map((type) => ({
       type,
       label: labels[type],
       results: hits.filter((hit) => hit.type === type),
@@ -164,6 +165,9 @@ function NoQueryState({ ui, locale }: { ui: UiDictionary; locale: Locale }) {
         </ButtonLink>
         <ButtonLink href={localePath(locale, "/works")} variant="secondary">
           {ui.search.browseWorks}
+        </ButtonLink>
+        <ButtonLink href={localePath(locale, "/cuisine")} variant="secondary">
+          {ui.search.browseCuisine}
         </ButtonLink>
       </div>
     </Card>

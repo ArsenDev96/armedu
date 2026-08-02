@@ -57,15 +57,20 @@ function haystack(...parts: (string | string[] | undefined)[]): string {
  * handed to the browser stays small.
  *
  * `href` is already locale-prefixed here — cards link straight to it.
+ *
+ * One shape serves every article-backed listing (history and cuisine today).
+ * They differ only in which field the filter pills key off — `periodId` for an
+ * era, `dishTypeId` for a kind of dish — and that is the listing component's
+ * business, not this projection's.
  */
-export interface HistoryListingItem extends ArticleSummary {
+export interface ArticleListingItem extends ArticleSummary {
   haystack: string;
 }
 
-export function toHistoryListingItems(
+export function toArticleListingItems(
   locale: Locale,
   articles: Article[],
-): HistoryListingItem[] {
+): ArticleListingItem[] {
   return articles.map((article) => ({
     slug: article.slug,
     href: localePath(locale, article.href),
@@ -78,6 +83,8 @@ export function toHistoryListingItems(
     readingTime: estimateReadingTime(article),
     period: article.period,
     periodId: article.periodId,
+    dishType: article.dishType,
+    dishTypeId: article.dishTypeId,
     imageSeed: article.imageSeed,
     image: article.image,
     featured: article.featured,
@@ -86,8 +93,13 @@ export function toHistoryListingItems(
       article.excerpt,
       article.intro,
       article.period,
+      article.dishType,
       article.categoryLabel,
       article.keyFacts.map((fact) => `${fact.label} ${fact.value}`),
+      // A dish is searched for by what is in it and where it is made at least
+      // as often as by its name, and neither is anywhere else in this payload.
+      article.cuisine?.ingredients,
+      article.cuisine?.regions,
       // The reason the field exists: "sasna tsrer" appears in no other field of
       // the Armenian edition, and a reader typing it should still find the epic.
       article.keywords,
@@ -196,7 +208,9 @@ export function buildSearchIndex(locale: Locale): SearchResult[] {
 
     const meta =
       writer?.lifespan ??
-      (work ? `${work.author} · ${work.publicationPeriod}` : article.period);
+      (work
+        ? `${work.author} · ${work.publicationPeriod}`
+        : (article.period ?? article.dishType));
 
     return {
       type: article.category,
@@ -211,9 +225,13 @@ export function buildSearchIndex(locale: Locale): SearchResult[] {
         article.excerpt,
         article.intro,
         article.period,
+        article.dishType,
         article.categoryLabel,
         article.keyFacts.map((fact) => `${fact.label} ${fact.value}`),
         article.keywords,
+        article.cuisine?.ingredients,
+        article.cuisine?.regions,
+        article.cuisine?.occasions,
         writer?.name,
         writer?.role,
         writer?.notableWorks,
@@ -226,6 +244,11 @@ export function buildSearchIndex(locale: Locale): SearchResult[] {
 }
 
 /** The history listing items for one edition, ready for the client component. */
-export function getHistoryListingItems(locale: Locale): HistoryListingItem[] {
-  return toHistoryListingItems(locale, getArticlesByCategory(locale, "history"));
+export function getHistoryListingItems(locale: Locale): ArticleListingItem[] {
+  return toArticleListingItems(locale, getArticlesByCategory(locale, "history"));
+}
+
+/** The cuisine listing items for one edition, ready for the client component. */
+export function getCuisineListingItems(locale: Locale): ArticleListingItem[] {
+  return toArticleListingItems(locale, getArticlesByCategory(locale, "cuisine"));
 }

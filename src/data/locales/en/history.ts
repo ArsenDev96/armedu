@@ -31,6 +31,16 @@ export const categories: Category[] = [
     imageSeed: "category-works",
     image: "/category-works.png",
   },
+  {
+    id: "cuisine",
+    title: "Armenian Cuisine",
+    description:
+      "Meet Armenian dishes as part of history, family life, celebrations and diaspora tradition — from lavash and dolma to harissa and ghapama.",
+    href: "/cuisine",
+    linkLabel: "View Cuisine",
+    imageSeed: "category-cuisine",
+    image: "/category-armmeal.webp",
+  },
 ];
 
 export const timeline: TimelineEntry[] = [

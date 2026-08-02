@@ -15,6 +15,11 @@ import type { ArticleSummary } from "@/data/types";
  * Two filenames deliberately differ from their slug — `first-republic-armenia`
  * and `mesrop-mashtots` — which is exactly why this is an explicit map and not a
  * `/images/${category}/${slug}.webp` convention.
+ *
+ * The cuisine artwork arrived with one file misspelled (`lavalsh.webp`). It was
+ * renamed rather than mapped: the other five match their slug exactly, so the
+ * two exceptions above stay the only ones, and a typo recorded here would read
+ * as a deliberate difference the next time someone edits this file.
  */
 const IMAGES: Record<string, string> = {
   // History
@@ -39,7 +44,33 @@ const IMAGES: Record<string, string> = {
   "david-of-sassoun": "/images/works/david-of-sassoun.webp",
   "wounds-of-armenia": "/images/works/wounds-of-armenia.webp",
   "the-fool": "/images/works/the-fool.webp",
+
+  // Cuisine
+  lavash: "/images/cuisine/lavash.webp",
+  dolma: "/images/cuisine/dolma.webp",
+  khorovats: "/images/cuisine/khorovats.webp",
+  harissa: "/images/cuisine/harissa.webp",
+  gata: "/images/cuisine/gata.webp",
+  ghapama: "/images/cuisine/ghapama.webp",
 };
+
+/**
+ * Slugs whose artwork is commissioned but not yet delivered.
+ *
+ * Empty today — every article slug has a file. It is kept rather than deleted
+ * because the alternative is the state this list was introduced to end: a slug
+ * silently rendering the generated placeholder, with nothing in the repo saying
+ * whether that is a decision or an oversight. When the next article is written
+ * ahead of its picture, name it here; when the file lands, add it to `IMAGES`
+ * and drop it from this list. Nothing else changes, because every consumer
+ * already asks `getImageSrc`.
+ *
+ * Anything in `IMAGES` inherits `ARTWORK_PROVENANCE` below: an AI-generated
+ * editorial illustration, captioned as one. A real, credited photograph is
+ * declared on the article itself as `image: { src, alt, credit }`, which
+ * overrides both the file here and the AI caption.
+ */
+export const PENDING_ARTWORK: readonly string[] = [];
 
 /** Path under `public/` for a slug's artwork, or `undefined` when none ships. */
 export function getImageSrc(slug: string): string | undefined {

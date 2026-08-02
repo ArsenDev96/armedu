@@ -97,11 +97,20 @@ export function ArticleLayout({
         )
       : t(ui.article.imagePlaceholderCaption, { title: article.title });
 
+  // The eyebrow beside the category pill: an era for history and literature, a
+  // kind of dish for cuisine. Exactly one of the two is ever set.
+  const qualifier = article.period ?? article.dishType;
+
+  // Two sections are conditional, so the contents list has to be too — an entry
+  // pointing at an anchor that is not on the page is a broken link in the one
+  // component whose whole job is finding things.
   const extraToc = [
     { id: "important-dates", heading: ui.article.importantDates },
     { id: "significance", heading: article.significance.heading },
     { id: "interesting-facts", heading: ui.article.interestingFacts },
-    { id: "related-figures", heading: ui.article.relatedFigures },
+    ...(article.relatedFigures.length > 0
+      ? [{ id: "related-figures", heading: ui.article.relatedFigures }]
+      : []),
     { id: "sources", heading: ui.article.sources },
   ];
 
@@ -114,9 +123,7 @@ export function ArticleLayout({
           <div className="mt-6 max-w-3xl">
             <div className="flex flex-wrap items-center gap-2.5">
               <Pill>{article.categoryLabel}</Pill>
-              {article.period ? (
-                <span className="text-sm text-ink-3">{article.period}</span>
-              ) : null}
+              {qualifier ? <span className="text-sm text-ink-3">{qualifier}</span> : null}
             </div>
             <h1 className="mt-4 text-[2rem] leading-[1.15] text-ink sm:text-4xl lg:text-[2.9rem]">
               {article.title}
@@ -209,6 +216,46 @@ export function ArticleLayout({
               </dl>
             </Card>
 
+            {/* The cuisine at-a-glance panel sits beside key facts, not inside
+                it: `keyFacts` is free-form label/value prose in every category,
+                while these five slots are a fixed, translated shape. Absent on
+                every other category, so nothing else changes. */}
+            {article.cuisine ? (
+              <Card className="mb-10 p-5 md:p-6">
+                <h2 className="font-sans text-xs font-semibold tracking-[0.16em] text-ink-3 uppercase">
+                  {ui.article.cuisine.detailsHeading}
+                </h2>
+                <dl className="mt-4 space-y-3 text-sm">
+                  <div className="border-b border-line pb-3">
+                    <dt className="text-ink-3">{ui.article.cuisine.ingredients}</dt>
+                    <dd className="mt-0.5 text-ink">
+                      {article.cuisine.ingredients.join(", ")}
+                    </dd>
+                  </div>
+                  <div className="border-b border-line pb-3">
+                    <dt className="text-ink-3">{ui.article.cuisine.preparation}</dt>
+                    <dd className="mt-0.5 leading-relaxed text-ink">
+                      {article.cuisine.preparation}
+                    </dd>
+                  </div>
+                  <div className="border-b border-line pb-3">
+                    <dt className="text-ink-3">{ui.article.cuisine.occasions}</dt>
+                    <dd className="mt-0.5 text-ink">{article.cuisine.occasions.join(", ")}</dd>
+                  </div>
+                  <div className="border-b border-line pb-3">
+                    <dt className="text-ink-3">{ui.article.cuisine.regions}</dt>
+                    <dd className="mt-0.5 text-ink">{article.cuisine.regions.join(", ")}</dd>
+                  </div>
+                  <div>
+                    <dt className="text-ink-3">{ui.article.cuisine.serving}</dt>
+                    <dd className="mt-0.5 leading-relaxed text-ink">
+                      {article.cuisine.serving}
+                    </dd>
+                  </div>
+                </dl>
+              </Card>
+            ) : null}
+
             <div className="prose-article max-w-none">
               {article.sections.map((section) => (
                 <section key={section.id} id={section.id} className="scroll-mt-28">
@@ -271,6 +318,11 @@ export function ArticleLayout({
               </ul>
             </section>
 
+            {/* Rendered only when there are figures. A dish has no biography
+                attached to it, and an empty heading over an empty list reads as
+                a section the archive failed to fill rather than one it does not
+                claim to have. */}
+            {article.relatedFigures.length > 0 ? (
             <section id="related-figures" className="mt-14 scroll-mt-28">
               <h2 className="text-2xl text-ink">{ui.article.relatedFigures}</h2>
               <ul className="mt-6 grid gap-4 sm:grid-cols-3">
@@ -291,6 +343,7 @@ export function ArticleLayout({
                 ))}
               </ul>
             </section>
+            ) : null}
 
             <section id="sources" className="mt-14 scroll-mt-28">
               <h2 className="text-2xl text-ink">{ui.article.sources}</h2>

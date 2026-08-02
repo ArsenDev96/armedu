@@ -29,6 +29,9 @@ for (const locale of LOCALES) {
 
     await nav().getByRole("link", { name: dict.nav.works, exact: true }).click();
     await expect(page).toHaveURL(new RegExp(`/${locale}/works$`));
+
+    await nav().getByRole("link", { name: dict.nav.cuisine, exact: true }).click();
+    await expect(page).toHaveURL(new RegExp(`/${locale}/cuisine$`));
   });
 }
 

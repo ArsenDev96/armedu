@@ -1,0 +1,794 @@
+import type { Article } from "@/data/types";
+
+/**
+ * Armenian cuisine — cultural articles about six dishes.
+ *
+ * Two editorial rules govern this file and its two translations.
+ *
+ * The first is that these are not recipes. Each article carries a short
+ * preparation overview because a reader cannot understand a dish without
+ * knowing roughly how it is made, but quantities, timings and steps are
+ * deliberately absent: the subject is what the dish means, not how to cook it.
+ *
+ * The second is about ownership. Most of these dishes are made across a wide
+ * region under related names, and several are claimed by more than one national
+ * cuisine. Nothing here states that a dish is exclusively Armenian unless a
+ * source says exactly that — and for these six, none does. Where a practice
+ * varies, the wording says so ("a common Armenian version", "in some regions",
+ * "many families"), because naming one family's method as the authentic one is
+ * the specific error this section is most likely to make.
+ */
+export const cuisineArticles: Article[] = [
+  {
+    slug: "lavash",
+    href: "/cuisine/lavash",
+    category: "cuisine",
+    categoryLabel: "Armenian Cuisine",
+    title: "Lavash",
+    dishType: "Bread",
+    dishTypeId: "bread",
+    imageSeed: "lavash",
+    keywords: ["lavash", "lavash bread", "Լավաշ", "Լաւաշ", "tonir", "թոնիր", "Armenian flatbread"],
+    excerpt:
+      "The thin flatbread baked against the wall of a clay tonir, inscribed by UNESCO in 2014 for the way it is made, shared and used in Armenian life — and inscribed again in 2016 for five other countries.",
+    intro:
+      "Lavash is a thin, soft flatbread of flour, water and salt, baked in seconds against the hot wall of a tonir, the clay oven sunk into the ground. It is the everyday bread of Armenian households and, at the same time, an object with a ritual life of its own: it is laid on the shoulders of a bride and groom, dried in sheets for the winter, and used as a plate, a wrapper and a utensil. UNESCO inscribed the Armenian practice on its Representative List of the Intangible Cultural Heritage of Humanity in 2014, and inscribed a separate, multinational flatbread element under the same name in 2016.",
+    author: "Armat Editorial Team",
+    updated: "2026-07-31",
+    keyFacts: [
+      { label: "Kind of dish", value: "Thin unleavened flatbread" },
+      { label: "Ingredients", value: "Wheat flour, water, salt" },
+      { label: "Traditional oven", value: "Tonir — a clay oven set into the ground" },
+      { label: "Baking time", value: "Under a minute" },
+      { label: "Keeps for", value: "Up to six months when dried" },
+      { label: "UNESCO", value: "Representative List, 2014, no. 00985" },
+    ],
+    sections: [
+      {
+        id: "what-it-is",
+        heading: "What lavash is",
+        paragraphs: [
+          "Lavash is an unleavened flatbread made from three ingredients: wheat flour, water and salt. What distinguishes it is not the dough but the shaping and the oven. The dough is kneaded and divided into balls, each ball is rolled and then stretched until it is thin enough to see light through, and the sheet is spread over an oval cushion and slapped against the inner wall of a tonir. It bakes in well under a minute and is lifted out while still soft.",
+          "The result is a bread that behaves differently from a loaf. Fresh, it is pliable and is torn rather than cut. Dried, it stacks flat, keeps for months, and returns to softness when sprinkled with water and left under a cloth — which is why a household could bake once and eat lavash through a winter.",
+          "The word covers a family of breads rather than a single fixed product. Sheets differ in length, thickness and colour from one village and one baker to the next, and the same name is used across a wide region for breads that an Armenian baker would not necessarily recognise as her own.",
+        ],
+      },
+      {
+        id: "cultural-role",
+        heading: "Its place in Armenian life",
+        paragraphs: [
+          "The UNESCO nomination file describes lavash-making as work that binds a household together. Women do the baking, with younger girls learning by assisting; men build the ovens and make the cushions the dough is stretched on, and pass those skills on in turn. Baking days are collaborative by necessity — the work is fast, hot and continuous once the tonir is lit.",
+          "The bread also carries meanings that have nothing to do with eating. The best-documented is the wedding practice recorded in the same file, in which lavash is placed on the shoulders of the newlyweds as a wish for prosperity and children. The Smithsonian Folklife Festival's 2018 Armenia programme described the tonir itself as one of the most sacred places in a traditional house — a sunken hearth at the centre of the home, and in some villages a substitute for a church in the sanctifying of a marriage.",
+          "In diaspora communities where no tonir exists, lavash is bought rather than baked, and the ritual uses survive better than the craft. This is a common pattern in the section: the meaning travels more easily than the method.",
+        ],
+      },
+      {
+        id: "history",
+        heading: "Documented background",
+        paragraphs: [
+          "The tonir is the oldest verifiable element of the story. Sunken clay ovens of this kind are a long-established feature of houses across the Armenian highland and the wider region, and the bread is inseparable from the oven that shapes it — a flatbread slapped onto a vertical wall is what that oven can produce.",
+          "The written record of lavash as a named tradition is recent and institutional rather than ancient. In 2014 UNESCO inscribed \"Lavash, the preparation, meaning and appearance of traditional bread as an expression of culture in Armenia\" on the Representative List, on Armenia's nomination. In 2016 the same body inscribed \"Flatbread making and sharing culture: Lavash, Katyrma, Jupka, Yufka\", submitted jointly by Azerbaijan, Iran, Kazakhstan, Kyrgyzstan and Turkey.",
+          "The two inscriptions are worth reading together, because they are often quoted separately to prove opposite things. Neither awards ownership of a bread. What each records is a living practice within particular communities, and the fact that the same name appears twice is a statement about how widely the bread is made, not a contradiction.",
+        ],
+      },
+      {
+        id: "ingredients-and-preparation",
+        heading: "Ingredients and preparation",
+        paragraphs: [
+          "The dough is flour, water and salt, worked until smooth and rested. Portions are rolled out and then stretched — over the backs of the hands, or on a board — until the sheet is very thin and considerably wider than the rolling stage left it. It is transferred to an oval cushion, and the cushion is used to press the sheet firmly against the tonir wall.",
+          "The oven does the rest. A tonir holds a strong, dry heat, and the bread blisters and sets in seconds; a baker judges it by sight and lifts it off with a hooked tool. Sheets to be kept are stacked and dried, and revived later with water.",
+          "A common Armenian version uses no yeast at all, and many bakers add nothing beyond the three ingredients. Enriched and leavened variants exist, and gas-fired or metal ovens are now widespread; the bread they produce is recognisably lavash, and is not treated as a lesser thing.",
+        ],
+      },
+      {
+        id: "occasions",
+        heading: "Occasions and traditions",
+        paragraphs: [
+          "Lavash is not a festival bread. It belongs to ordinary days, which is precisely what gives it standing: it is the thing always on the table, and the thing a guest is first offered. Autumn baking, when sheets are prepared in quantity and dried for the winter, is the closest it comes to an event of its own.",
+          "Its ceremonial appearances are borrowed from that ordinariness. At a wedding it stands for the household the couple are joining; at a table it stands for hospitality. Many families keep the habit of not putting bread down carelessly or throwing it away, and the same respect is extended to lavash specifically.",
+        ],
+      },
+      {
+        id: "variations",
+        heading: "Regional variations",
+        paragraphs: [
+          "Within Armenia the differences are mostly of size and handling: sheets a metre long in some villages, shorter and thicker elsewhere, and doughs slightly softer or firmer according to the flour available.",
+          "Across the wider region, breads called lavash range from the very thin Armenian sheet to thicker, chewier breads that are folded rather than rolled. In Armenian communities of the Middle East, commercial bakeries have standardised the product considerably.",
+          "In some regions the same tonir is used for other breads on the same day, and lavash is the first thing baked because it needs the fiercest heat.",
+        ],
+      },
+    ],
+    importantDates: [
+      {
+        year: "2014",
+        event:
+          "UNESCO inscribes Armenia's lavash tradition on the Representative List of the Intangible Cultural Heritage of Humanity, no. 00985.",
+      },
+      {
+        year: "2016",
+        event:
+          "A separate flatbread element under the same name is inscribed on the nomination of Azerbaijan, Iran, Kazakhstan, Kyrgyzstan and Turkey.",
+      },
+      {
+        year: "2018",
+        event:
+          "Lavash baking is demonstrated in Washington as part of the Smithsonian Folklife Festival's Armenia programme.",
+      },
+    ],
+    significance: {
+      heading: "Why lavash matters",
+      paragraphs: [
+        "Lavash is the clearest case in this section of a food that is also a technology and a social arrangement. The bread cannot be separated from the tonir, and the tonir cannot be separated from the household that builds, heats and works around it — which is why the heritage listing describes a practice rather than a product.",
+        "It is also a useful corrective to the idea that a dish belongs to one people. The same bread name is inscribed twice by the same organisation, for communities in six states. That does not diminish the Armenian tradition; it locates it accurately, as one strongly documented practice within a shared regional foodway.",
+      ],
+    },
+    interestingFacts: [
+      "The dough is stretched over an oval cushion and slapped onto the wall of the oven; the sheet bakes in less than a minute.",
+      "Dried lavash keeps for up to six months and is brought back to softness with a sprinkle of water.",
+      "The UNESCO file records the wedding practice of laying lavash on the shoulders of the bride and groom as a wish for prosperity.",
+      "The same bread name carries two separate UNESCO inscriptions: Armenia's in 2014, and a five-country one in 2016.",
+      "In the nomination file the baking is described as women's work, while men build the ovens and make the cushions — and both pass the skill on to apprentices.",
+    ],
+    relatedFigures: [],
+    cuisine: {
+      ingredients: ["Wheat flour", "Water", "Salt"],
+      preparation:
+        "The dough is kneaded, divided and rolled, then stretched until very thin, spread over an oval cushion and pressed against the hot wall of a tonir, where it bakes in seconds and is lifted off while still soft.",
+      occasions: ["Everyday meals", "Weddings", "Autumn baking for the winter store"],
+      regions: [
+        "Throughout the Republic of Armenia",
+        "Armenian communities of the Middle East",
+        "Diaspora households, usually bought rather than baked",
+      ],
+      serving:
+        "Torn by hand and used to wrap cheese, herbs and grilled meat, or laid under other dishes to take up their juices; dried sheets are stacked and revived with water.",
+    },
+    relatedSlugs: ["khorovats", "dolma", "harissa"],
+  },
+
+  {
+    slug: "dolma",
+    href: "/cuisine/dolma",
+    category: "cuisine",
+    categoryLabel: "Armenian Cuisine",
+    title: "Dolma",
+    dishType: "Main dishes",
+    dishTypeId: "main",
+    imageSeed: "dolma",
+    keywords: ["dolma", "tolma", "Տոլմա", "pasuts tolma", "stuffed vine leaves", "Armenian dolma"],
+    excerpt:
+      "Vine leaves and hollowed vegetables filled with rice, herbs and often meat — a dish made across the whole region, and one of the clearest examples of why this section does not assign dishes to a single owner.",
+    intro:
+      "Dolma — tolma in Armenian usage — is a filling of rice, onion, herbs and often minced meat, wrapped in leaves or packed into hollowed vegetables and cooked slowly. It is made throughout the Caucasus, Anatolia, Iran and the eastern Mediterranean, under names that all derive from the same verb. In Armenian households it is a dish for gatherings rather than for a quick weekday meal, and it exists in a meatless form eaten during fasting. In 2017 UNESCO inscribed a dolma tradition on its Representative List; that nomination was submitted by Azerbaijan, and the fact is stated here rather than left out, because how such an inscription is read is part of the story of this dish.",
+    author: "Armat Editorial Team",
+    updated: "2026-07-31",
+    keyFacts: [
+      { label: "Kind of dish", value: "Filled leaves and vegetables" },
+      { label: "Common filling", value: "Rice, onion, herbs, minced meat" },
+      { label: "Meatless version", value: "Pasuts tolma, filled with beans, grains and lentils" },
+      { label: "Wrappers", value: "Vine leaves, cabbage; peppers, aubergines, tomatoes, quinces" },
+      { label: "Name", value: "From a Turkic verb meaning to be filled or stuffed" },
+      { label: "UNESCO", value: "Representative List, 2017, no. 01188, on Azerbaijan's nomination" },
+    ],
+    sections: [
+      {
+        id: "what-it-is",
+        heading: "What dolma is",
+        paragraphs: [
+          "Dolma is defined by a method rather than by a recipe: something edible is filled with something else and cooked gently until both are done. In practice that means two broad families. Leaf dolma — vine leaves most often, cabbage in colder seasons — is rolled into small cylinders. Vegetable dolma uses peppers, aubergines, tomatoes, courgettes or quinces, hollowed and capped.",
+          "The standard filling is short-grain rice with onion and a large quantity of herbs, with or without minced lamb or beef. The pot is packed tightly, weighted, and cooked with a modest amount of liquid so that the parcels steam rather than boil apart.",
+          "The Armenian form of the name, tolma, is the same word. Folk etymologies deriving it from an Armenian root for vine leaf circulate widely; UNESCO's file records the straightforward derivation from a Turkic verb meaning to be filled, and that is the explanation this article follows.",
+        ],
+      },
+      {
+        id: "cultural-role",
+        heading: "Its place in Armenian life",
+        paragraphs: [
+          "Tolma is labour that is normally shared. Rolling several hundred leaves is a task for several pairs of hands at a kitchen table, and in many families it is the point at which a household's cooking knowledge is actually transmitted — not by instruction, but by sitting alongside someone who rolls faster.",
+          "It is also a dish of display. A tightly packed pot of even, small parcels is understood as evidence of care and skill, and tolma is accordingly a common centrepiece when guests are expected. The Smithsonian Folklife Festival's 2018 Armenia programme listed it among the staples of an Armenian feast, alongside bread and grilled meat.",
+          "The meatless version, pasuts tolma, gives the dish a second life in the church calendar. Made with beans, chickpeas, lentils and grains and served cold, it belongs to fasting periods, and is one of the few festive-looking dishes that a fast permits.",
+        ],
+      },
+      {
+        id: "history",
+        heading: "Documented background",
+        paragraphs: [
+          "Stuffed-vegetable and stuffed-leaf dishes have a long written history in the region, and the surviving records are mostly Ottoman and Arabic rather than Armenian. Priscilla Mary Işın's history of Ottoman cuisine traces the dish family through palace kitchen documents and other archival material — the kind of evidence that shows what was cooked and when, without telling us who cooked it first.",
+          "That is the honest limit of the historical claim. The technique is old and regionally widespread; the specific Armenian repertoire of tolma is documented in modern cookbooks and ethnography rather than in medieval sources.",
+          "In 2017 UNESCO inscribed \"Dolma making and sharing tradition, a marker of cultural identity\" on the Representative List. The nomination came from Azerbaijan, and the file describes the practice within that country. An inscription of this kind records a living tradition in the community that nominated it; it does not adjudicate origin, and it does not exclude the equivalent practice elsewhere.",
+        ],
+      },
+      {
+        id: "ingredients-and-preparation",
+        heading: "Ingredients and preparation",
+        paragraphs: [
+          "Vine leaves are used fresh in early summer and preserved in brine for the rest of the year; brined leaves are rinsed before use. The filling is mixed raw — rice, finely chopped onion, herbs, salt and pepper, with meat if it is a meat version — and a small spoonful is placed on each leaf, which is folded at the sides and rolled.",
+          "The parcels are laid in a heavy pot in close rows, often over a layer of leaves or sliced vegetable to protect the bottom, weighted with a plate, and cooked slowly with a little water, stock or tomato until the rice is done.",
+          "Many families finish leaf tolma with lemon or with matsun, and vegetable tolma with a tomato-based liquid; both practices are usual, and neither is the correct one.",
+        ],
+      },
+      {
+        id: "occasions",
+        heading: "Occasions and traditions",
+        paragraphs: [
+          "Tolma belongs to occasions where people sit for a long time: family gatherings, holidays, and the meals that follow church services and commemorations. Its preparation time is part of the point — the dish signals that the day was planned for.",
+          "Pasuts tolma is tied to fasting periods, and is served cold, which also makes it practical for a table that has to stand for hours.",
+          "In Armenia, festivals devoted to tolma have been held in recent years, with cooks presenting many regional versions side by side. They are a modern, deliberate act of promotion rather than an inherited custom, and are described that way here.",
+        ],
+      },
+      {
+        id: "variations",
+        heading: "Regional variations",
+        paragraphs: [
+          "The clearest internal division is between meat and meatless. Beyond that, proportions of rice to meat, the herb mixture, and the sourness of the finish differ by region and by family.",
+          "In some regions cooks wrap the filling in leaves other than the vine's — cabbage most commonly, but also quince, beet or sour cherry leaves where those are to hand, each of which changes the flavour of the finished dish.",
+          "Armenian communities of the Middle East tend towards smaller, tighter rolls and a more pronounced lemon finish; households in the Republic of Armenia often serve larger parcels with matsun. Both are ordinary practice, and describing either as the authentic one would be wrong.",
+        ],
+      },
+    ],
+    importantDates: [
+      {
+        year: "2017",
+        event:
+          "UNESCO inscribes \"Dolma making and sharing tradition, a marker of cultural identity\" on the Representative List, no. 01188, on Azerbaijan's nomination.",
+      },
+      {
+        year: "2018",
+        event:
+          "Tolma is presented among the staples of an Armenian feast at the Smithsonian Folklife Festival's Armenia programme.",
+      },
+    ],
+    significance: {
+      heading: "Why dolma matters",
+      paragraphs: [
+        "Tolma is the dish in this section where the question of ownership is most often asked and least usefully answered. It is made, under related names and by the same method, by communities across a very large area, and the written history documents the technique rather than an inventor.",
+        "What can be said with confidence is what the dish does in Armenian life: it gathers people around a table to make it, it marks an occasion as important, and in its meatless form it carries a religious calendar. Those are the claims this article makes, and they do not require the dish to be exclusively Armenian in order to hold.",
+      ],
+    },
+    interestingFacts: [
+      "The name is a verbal noun: UNESCO's file derives it from a Turkic word meaning stuffed, and Armenian uses the same word in the form tolma.",
+      "Pasuts tolma contains no meat at all — beans, chickpeas, lentils and grains — and is eaten cold during fasting periods.",
+      "Vine leaves are seasonal, so most tolma outside early summer is made with leaves preserved in brine.",
+      "The parcels are weighted with a plate during cooking, which is what keeps them from unrolling in the pot.",
+      "The 2017 UNESCO inscription was submitted by Azerbaijan; the same dish is made in Armenia and across the region, and the listing records a practice rather than an origin.",
+    ],
+    relatedFigures: [],
+    cuisine: {
+      ingredients: [
+        "Vine or cabbage leaves, or vegetables for hollowing",
+        "Short-grain rice",
+        "Onion and herbs",
+        "Minced lamb or beef, in the meat versions",
+        "Beans, chickpeas and grains, in pasuts tolma",
+      ],
+      preparation:
+        "A raw filling of rice, onion and herbs, with or without minced meat, is spooned onto leaves and rolled, or packed into hollowed vegetables; the parcels are packed tightly into a pot, weighted and cooked slowly in a little liquid.",
+      occasions: ["Family gatherings and feast tables", "Fasting periods, in the pasuts form", "Commemorative meals"],
+      regions: [
+        "Throughout the Republic of Armenia",
+        "Armenian communities of the Middle East",
+        "The wider region, under related names",
+      ],
+      serving:
+        "Served warm from the pot with matsun or lemon, or cold in the meatless version; lavash is usually on the table with it.",
+    },
+    relatedSlugs: ["ghapama", "lavash", "khorovats"],
+  },
+
+  {
+    slug: "khorovats",
+    href: "/cuisine/khorovats",
+    category: "cuisine",
+    categoryLabel: "Armenian Cuisine",
+    title: "Khorovats",
+    dishType: "Meat dishes",
+    dishTypeId: "meat",
+    imageSeed: "khorovats",
+    keywords: ["khorovats", "Խորոված", "Armenian barbecue", "khorovats salad", "madagh", "մատաղ"],
+    excerpt:
+      "Meat grilled over open embers, and the social occasion built around it: who lights the fire, who tends it, and how it differs from the communal meal of a madagh.",
+    intro:
+      "Khorovats is meat cooked over an open fire — the word is a form of the Armenian verb meaning to roast or grill, and it names the method rather than a single recipe. In practice it is also an occasion: a fire lit outdoors, one person tending the skewers while everyone else waits, and a table assembled around whatever comes off. It is among the dishes the Smithsonian Folklife Festival presented in 2018 as a staple of the Armenian feast, and it sits close to, but is not the same as, the older communal meat meal called madagh.",
+    author: "Armat Editorial Team",
+    updated: "2026-07-31",
+    keyFacts: [
+      { label: "Kind of dish", value: "Meat grilled over open embers" },
+      { label: "Name", value: "From the Armenian verb meaning to roast or grill" },
+      { label: "Common meats", value: "Pork, lamb, beef, chicken, according to region and community" },
+      { label: "Cooked on", value: "Long skewers over wood or vine embers" },
+      { label: "Usually eaten", value: "Outdoors, in company, straight off the skewer" },
+      { label: "Not the same as", value: "Madagh, the communal meal from an animal offered and shared" },
+    ],
+    sections: [
+      {
+        id: "what-it-is",
+        heading: "What khorovats is",
+        paragraphs: [
+          "Khorovats is meat cut into large pieces, threaded onto long flat skewers and cooked over embers rather than flame. The meat is usually salted and left with onion, herbs and sometimes wine or sparkling water for some hours beforehand; the seasoning is deliberately restrained, because the point of the dish is the fire.",
+          "Vegetables go on alongside — aubergine, sweet pepper, tomato — and are often peeled once blackened and chopped together into a dish of its own, commonly called khorovats salad.",
+          "Because the name is a method, it stretches: the same word covers a skewer of lamb over vine cuttings in a village and a portion cooked on a metal grill on a city balcony.",
+        ],
+      },
+      {
+        id: "cultural-role",
+        heading: "Its place in Armenian life",
+        paragraphs: [
+          "Khorovats is the outdoor counterpart to the tonir. Where the ethnographic literature describes bread-baking at the hearth as women's ground, the fire and the skewers at a family gathering are conventionally handled by men, and the person tending them holds a recognised position for the afternoon.",
+          "The occasion is more elaborate than the food. A khorovats is an excuse to be somewhere — a garden, a riverbank, a mountain road — for several hours, with the cooking spread across the whole of it rather than confined to a mealtime. Much of the eating happens standing up, as each batch comes off.",
+          "In the diaspora it is one of the most durable Armenian practices, because it needs no special equipment and no tonir. A grill, skewers and lavash are enough.",
+        ],
+      },
+      {
+        id: "history",
+        heading: "Documented background",
+        paragraphs: [
+          "Grilling meat over fire is not a tradition that can be dated, and no serious source tries. What can be described is the practice as it is documented now, and its relationship to older ritual forms of eating meat together.",
+          "The relevant scholarship here is on madagh. In her study of the practice among Armenians, the anthropologist Susan Paul Pattie describes madagh as a meal from an animal offered and shared — often glossed in English as \"sacrifice\", a translation she shows to be misleading — and traces how differently it is understood across communities. In the Republic of Armenia and in the Middle East the public slaughter of the animal remains ordinary; in much of the diaspora it is treated as backward, and the meal survives without it.",
+          "Khorovats is not madagh. But the two share a shape — meat cooked in quantity and eaten together, in the open, by a group larger than a household — and the modern secular gathering has absorbed some of what the older ritual carried.",
+        ],
+      },
+      {
+        id: "ingredients-and-preparation",
+        heading: "Ingredients and preparation",
+        paragraphs: [
+          "Meat is cut into pieces large enough to stay juicy, salted, and left with sliced onion and herbs. Many families add nothing else; others use wine, sparkling water, or a little pepper and paprika.",
+          "The fire is built and allowed to burn down; the skewers go on only once there is a bed of embers and no flame. Vine cuttings and fruitwood are prized where they are available, for the smoke.",
+          "Skewers are turned by hand and judged by eye. When the meat comes off it is frequently slid straight onto lavash, which takes up the juices and is eaten with it.",
+        ],
+      },
+      {
+        id: "occasions",
+        heading: "Occasions and traditions",
+        paragraphs: [
+          "Khorovats belongs to holidays, family outings, weekends and any occasion where a group of people has an afternoon. It is the default form of celebration for a birthday or a visit home, and it is portable in a way that few other dishes here are.",
+          "It also appears at gatherings with a religious frame — after a baptism, a commemoration or a pilgrimage — where the boundary between an ordinary grill and a madagh can be indistinct, and where families themselves describe the difference in different ways.",
+        ],
+      },
+      {
+        id: "variations",
+        heading: "Regional variations",
+        paragraphs: [
+          "The most visible difference is the meat. In the Republic of Armenia pork is very common; lamb is more usual in Armenian communities of the Middle East, where it also carries the associations of the ritual meal. Beef and chicken are ordinary everywhere.",
+          "In some regions the meat is cooked in large pieces on the bone; in others it is cubed. Some cooks grill the vegetables first and hold them warm; many families do the reverse.",
+          "There is also a version cooked in a covered pot with vegetables rather than over a fire, and it takes the same name in ordinary speech — a reminder that the word describes what is being done to the meat more than where it is being done.",
+        ],
+      },
+    ],
+    importantDates: [
+      {
+        year: "2018",
+        event:
+          "Khorovats is cooked in Washington as one of the staples of the Armenian feast, in the Smithsonian Folklife Festival's Armenia programme.",
+      },
+      {
+        year: "2022",
+        event:
+          "Susan Paul Pattie's study of madagh appears in Food, Culture & Society, setting out how differently the communal meat meal is understood in Armenia and in the diaspora.",
+      },
+    ],
+    significance: {
+      heading: "Why khorovats matters",
+      paragraphs: [
+        "Khorovats is the least ceremonious dish in this section and, for that reason, one of the most revealing. It has no heritage inscription, no fixed recipe and no origin story worth defending, and it is nonetheless the form an Armenian celebration most often takes.",
+        "It also shows how a ritual practice can leave its shape behind after the ritual itself has thinned out. The communal meat meal of a madagh and an afternoon of grilling in a garden are different things, and confusing them would be an error — but the second is recognisably descended from a world in which the first was ordinary.",
+      ],
+    },
+    interestingFacts: [
+      "The word is the past participle of the Armenian verb for roasting: it names a method, not a recipe.",
+      "The grilled vegetables cooked beside the meat are peeled and chopped into a separate dish, usually called khorovats salad.",
+      "Skewers go on only after the flame has died down; cooking over embers rather than fire is the part of the technique cooks argue about least.",
+      "Meat is often slid off the skewer directly onto lavash, which is then eaten with it.",
+      "Madagh, the communal meal from an animal offered and shared, is a different practice — and Susan Paul Pattie's study found the visible slaughter it involves is ordinary in Armenia and the Middle East but widely rejected in the diaspora.",
+    ],
+    relatedFigures: [],
+    cuisine: {
+      ingredients: [
+        "Pork, lamb, beef or chicken in large pieces",
+        "Onion, salt and herbs",
+        "Aubergine, sweet pepper and tomato for the accompanying grill",
+        "Lavash, to take the meat off the skewer",
+      ],
+      preparation:
+        "Meat is salted and left with onion and herbs for some hours, threaded onto long skewers and cooked over embers rather than flame, turned by hand until done; vegetables are grilled beside it.",
+      occasions: ["Family gatherings and outings", "Holidays and celebrations", "Meals following commemorations"],
+      regions: [
+        "Throughout the Republic of Armenia",
+        "Armenian communities of the Middle East, more often with lamb",
+        "Diaspora gatherings, where it needs no special equipment",
+      ],
+      serving:
+        "Slid off the skewer onto lavash and eaten immediately, with raw onion, herbs and the grilled-vegetable salad alongside.",
+    },
+    relatedSlugs: ["harissa", "lavash", "dolma"],
+  },
+
+  {
+    slug: "harissa",
+    href: "/cuisine/harissa",
+    category: "cuisine",
+    categoryLabel: "Armenian Cuisine",
+    title: "Harissa",
+    dishType: "Ceremonial dishes",
+    dishTypeId: "ceremonial",
+    imageSeed: "harissa",
+    keywords: ["harissa", "harisa", "Հարիսա", "korkot", "քորքոտ", "Musa Dagh", "Musaler", "Մուսա Լեռ"],
+    excerpt:
+      "Wheat and meat stirred together for hours until they become one substance — a dish recorded in a tenth-century Baghdadi cookbook, and the food around which the Musa Dagh resistance is commemorated every September.",
+    intro:
+      "Harissa is hulled wheat and meat cooked together for many hours and stirred until neither can be told from the other. It is not a delicate dish and was never meant to be: it feeds a great many people from very little, and it can be kept going in a large pot through a night. Its written history reaches back to a tenth-century Baghdadi cookbook, where harīsa appears as a pounded wheat-and-meat dish. Its best-known Armenian occasion is far more recent — the September commemoration at Musaler, in Armavir, of the 1915 resistance on Musa Dagh.",
+    author: "Armat Editorial Team",
+    updated: "2026-07-31",
+    keyFacts: [
+      { label: "Kind of dish", value: "Wheat and meat cooked to a thick porridge" },
+      { label: "Ingredients", value: "Hulled wheat (korkot), chicken or lamb, butter, salt" },
+      { label: "Method", value: "Long, slow cooking with continuous stirring" },
+      { label: "Earliest written record", value: "A tenth-century Baghdadi cookbook" },
+      { label: "Best-known Armenian occasion", value: "The September commemoration at Musaler" },
+      { label: "Served", value: "From a communal pot, with melted butter poured over" },
+    ],
+    sections: [
+      {
+        id: "what-it-is",
+        heading: "What harissa is",
+        paragraphs: [
+          "Harissa is made from two things: hulled wheat, known in Armenian as korkot, and meat — most often chicken, sometimes lamb. They are cooked together in a large pot with water and salt for a long time, and stirred until the meat has broken down completely and the wheat has burst, so that the finished dish is a single smooth, heavy mass rather than a stew with pieces in it.",
+          "The consistency is the dish. A harissa that has not been stirred enough is a wheat soup with meat in it; one that has been stirred properly pulls away from the spoon. Melted butter is poured over at the end, and pepper or cumin offered separately.",
+          "It is filling out of proportion to what goes into it, and that is not incidental. Harissa is a dish for feeding a crowd, a monastery, a village or a column of refugees.",
+        ],
+      },
+      {
+        id: "cultural-role",
+        heading: "Its place in Armenian life",
+        paragraphs: [
+          "For most Armenians today harissa is a dish of commemoration, and specifically of one commemoration. Every September, at the Musa Dagh memorial in the village of Musaler in Armavir Province, harissa is cooked in quantity and distributed. The pots are set going in the evening and stirred through the night, with music and dancing around the fires, and the food is handed out the following day.",
+          "What is being remembered is the 1915 resistance on Musa Dagh, when the Armenians of several villages on the mountain refused deportation, held out, and were eventually taken off by French warships. The Armenian National Institute's record of the memorial at Musaler credits it to the architects Rafael Israelian and Ara Harutyunyan, gives its opening as 1976, and notes that the village below it took the mountain's name in 1972.",
+          "Beyond that, harissa remains a communal and church dish: cooked for a parish, for a saint's day, for a gathering too large for anyone to cater individually. The scale is part of what it means.",
+        ],
+      },
+      {
+        id: "history",
+        heading: "Documented background",
+        paragraphs: [
+          "The oldest evidence is textual and not Armenian. Harīsa — pounded wheat cooked with meat — is recorded in the tenth-century Baghdadi cookbook of Ibn Sayyār al-Warrāq, translated into English by Nawal Nasrallah and published in 2007. The dish therefore has a written history of more than a thousand years, and belongs to a shared culinary tradition across the Middle East, where versions under closely related names are still made.",
+          "Its attachment to Armenian commemoration is a twentieth-century development, and a specific one. The Musa Dagh episode of 1915 is documented in detail in Raymond Kévorkian's history of the Armenian Genocide. The link that survivors and their descendants drew between that event and this dish — that wheat and meat were what they had, and that harissa was what could be made from it — is preserved as community memory rather than as an archival record, and is presented here on that footing.",
+          "A legend repeated in Armenian food folklore attaches the dish instead to Gregory the Illuminator. It is a story told about harissa, not a record of where it came from, and it is worth knowing as folklore rather than as history.",
+        ],
+      },
+      {
+        id: "ingredients-and-preparation",
+        heading: "Ingredients and preparation",
+        paragraphs: [
+          "Korkot is wheat that has been hulled and usually parboiled and dried, so it collapses under long cooking. It is soaked, then simmered with the meat and plenty of water.",
+          "The work is in the stirring. As the pot thickens it must be worked constantly with a long paddle or spoon, both to prevent catching and to break the meat down; in a communal cooking, people take this in turns through the night.",
+          "Butter is poured over the surface before serving. Many families add nothing else at all; some finish with cumin, and others serve pepper on the side rather than in the pot.",
+        ],
+      },
+      {
+        id: "occasions",
+        heading: "Occasions and traditions",
+        paragraphs: [
+          "The September gathering at Musaler is the occasion most people associate with harissa, and it is a commemoration rather than a food festival: the cooking, the all-night vigil at the pots and the distribution are its form.",
+          "Elsewhere it is cooked for church and community events, and in winter as a family dish, where the same long cooking is simply spread over an afternoon. In some households it is made on the anniversary of a death.",
+        ],
+      },
+      {
+        id: "variations",
+        heading: "Regional variations",
+        paragraphs: [
+          "The main variable is the meat. Chicken is now the most usual in the Republic of Armenia; lamb is common in Armenian communities of the eastern Mediterranean, and gives a heavier dish.",
+          "Wheat varies too — coarser or finer korkot, and in some places barley — which changes how long the cooking takes and how smooth the result is.",
+          "Closely related dishes are made across the Middle East and beyond under names descended from the same word, with different grains, different meats and different finishing fats. They are relatives of this dish rather than versions of it, and Armenian harissa is one member of that family.",
+        ],
+      },
+    ],
+    importantDates: [
+      {
+        year: "1915",
+        event:
+          "The Armenians of the Musa Dagh villages refuse deportation, hold out on the mountain, and are taken off by French warships.",
+      },
+      {
+        year: "2007",
+        event:
+          "Nawal Nasrallah's English translation of Ibn Sayyār al-Warrāq's tenth-century Baghdadi cookbook is published, making the earliest written harīsa recipes generally available.",
+      },
+    ],
+    significance: {
+      heading: "Why harissa matters",
+      paragraphs: [
+        "Harissa is the clearest example in this section of a dish whose meaning has been rewritten by history. Its written record is a thousand years old and regional; its emotional weight for Armenians today comes from a single event in 1915 and from the commemoration that grew out of it.",
+        "It is also a reminder of what a dish of scarcity is. Wheat, meat, water, salt and many hours of stirring will feed a very large number of people, which is why it appears wherever a community has had to eat together with little — and why it is still cooked in a pot too big for one family to have any use for.",
+      ],
+    },
+    interestingFacts: [
+      "Harīsa is recorded in a tenth-century Baghdadi cookbook, centuries before it was attached to any modern national cuisine.",
+      "At Musaler the pots are lit in the evening and stirred through the night, with singing and dancing around the fires until the food is given out the next day.",
+      "Franz Werfel's novel fixed \"forty days\" of resistance in the public imagination; historical accounts of the Musa Dagh episode count rather more.",
+      "A legend repeated in Armenian food folklore attributes the dish to Gregory the Illuminator — a story about harissa rather than a record of its origin.",
+      "The dish's texture is the test of it: properly made, it pulls away from the spoon in one mass rather than behaving like a soup.",
+    ],
+    relatedFigures: [],
+    cuisine: {
+      ingredients: ["Hulled wheat (korkot)", "Chicken or lamb", "Butter", "Salt", "Cumin or pepper, optionally"],
+      preparation:
+        "Soaked hulled wheat and meat are simmered together for many hours and stirred continuously with a long paddle until the meat breaks down and the two become a single smooth mass; melted butter is poured over before serving.",
+      occasions: [
+        "The September commemoration at Musaler",
+        "Church and community gatherings",
+        "Winter family meals and death anniversaries",
+      ],
+      regions: [
+        "Musaler and Armavir Province",
+        "Armenian communities of the eastern Mediterranean, more often with lamb",
+        "Diaspora commemorations",
+      ],
+      serving:
+        "Ladled from a communal pot into shallow bowls, with melted butter poured over and cumin or pepper offered separately.",
+    },
+    relatedSlugs: ["khorovats", "lavash", "ghapama"],
+  },
+
+  {
+    slug: "gata",
+    href: "/cuisine/gata",
+    category: "cuisine",
+    categoryLabel: "Armenian Cuisine",
+    title: "Gata",
+    dishType: "Desserts",
+    dishTypeId: "dessert",
+    imageSeed: "gata",
+    keywords: ["gata", "kata", "Գաթա", "khoriz", "խորիզ", "nazook", "Armenian sweet bread"],
+    excerpt:
+      "A sweet pastry built around khoriz — flour worked into butter and sugar — made in a different shape and marked with a different pattern in nearly every village that bakes it.",
+    intro:
+      "Gata is a sweet pastry with a filling of its own name: khoriz, flour rubbed into butter and sugar until it is crumbly, which melts back into the dough as it bakes. Beyond that description almost everything varies. Gata can be a disc the width of a table or a roll that fits in a hand; it can be plain or heavily patterned; it can be a celebration cake, a gift carried on a visit, or the thing eaten with afternoon coffee. It was among the sweets demonstrated at the Smithsonian Folklife Festival's Armenia programme in 2018.",
+    author: "Armat Editorial Team",
+    updated: "2026-07-31",
+    keyFacts: [
+      { label: "Kind of dish", value: "Sweet baked pastry" },
+      { label: "Filling", value: "Khoriz — flour worked into butter and sugar" },
+      { label: "Dough", value: "Enriched with butter and often yoghurt or sour cream" },
+      { label: "Shapes", value: "Large marked discs, small rolls, braided loaves" },
+      { label: "Decoration", value: "Patterns scored or pricked into the top before baking" },
+      { label: "Usually eaten with", value: "Tea or coffee" },
+    ],
+    sections: [
+      {
+        id: "what-it-is",
+        heading: "What gata is",
+        paragraphs: [
+          "Gata is made in two parts. The dough is enriched — butter, and in many recipes yoghurt or sour cream, sometimes egg — and is closer to a pastry than to a bread dough. The filling, khoriz, is flour worked into softened butter with sugar until it holds together in crumbs.",
+          "The two are combined either by spreading khoriz over rolled dough and folding it, or by enclosing a quantity of it and flattening the whole. The top is brushed with egg and marked, and the pastry is baked until deep gold.",
+          "The result is dry rather than moist, which is not a flaw. Gata keeps and travels, and both of its main social uses depend on that.",
+        ],
+      },
+      {
+        id: "cultural-role",
+        heading: "Its place in Armenian life",
+        paragraphs: [
+          "Gata is the standard thing to arrive with. A whole one, wrapped, is an ordinary gift when visiting a household, and cutting it is part of the visit; the same pastry appears on the table when guests are received.",
+          "It is also strongly associated with places rather than only with families. Marked discs sold at monastery gates and roadside stalls are, for many people, the form gata takes in memory — bought on a journey, eaten in a car, brought home as a token of where you had been.",
+          "The decoration matters more than it looks. Many villages and families keep a pattern, and the marking is how a particular gata is recognised on a table with several.",
+        ],
+      },
+      {
+        id: "history",
+        heading: "Documented background",
+        paragraphs: [
+          "Gata belongs to the part of Armenian cooking that is documented well in the modern period and thinly before it. There is no dated origin to give, and this article does not manufacture one.",
+          "What is recorded is the repertoire. Sonia Uvezian's The Cuisine of Armenia, first published in 1974, was the first wide-ranging English-language account of Armenian cooking and set down the standard forms of pastries like this one for readers outside the community. Irina Petrosian and David Underwood's Armenian Food: Fact, Fiction & Folklore, published in 2006, took the further step of separating what is documented about Armenian dishes from what is merely repeated about them — a distinction that matters for a pastry surrounded by as much unsourced story as gata.",
+          "Ethnographic work on Armenian folk culture, including the material collected in Armenian Folk Arts, Culture, and Identity, places baking of this kind within the household and calendar practices it belongs to rather than treating it as a recipe in isolation.",
+        ],
+      },
+      {
+        id: "ingredients-and-preparation",
+        heading: "Ingredients and preparation",
+        paragraphs: [
+          "The dough is made with flour, butter and a souring dairy element, worked briefly and rested. The khoriz is made separately by rubbing flour into softened butter with sugar; some cooks toast the flour first, and many add vanilla, and in the south walnuts are commonly worked in.",
+          "The assembly is where the versions separate. A thin, wide gata is made by spreading khoriz over rolled dough, rolling or folding it, and flattening the result; a thick one encloses a much larger quantity of filling in a smaller circle.",
+          "The top is egg-washed and then marked — with a fork, a knife, or a carved wooden stamp — before going into a hot oven. The marking is decorative, but it also stops the surface from doming.",
+        ],
+      },
+      {
+        id: "occasions",
+        heading: "Occasions and traditions",
+        paragraphs: [
+          "Gata is a celebration pastry without belonging to any one celebration. It appears at family gatherings, on feast days, at the table for guests, and at the end of ordinary afternoons with coffee.",
+          "Many families bake it for particular days in the church calendar, and the practice differs between households and regions rather than following a single rule. It is also common as an offering brought to a church or shared after a service.",
+          "In the diaspora it survives strongly, partly because it needs no special equipment and partly because it is the kind of thing an older relative teaches by making it in front of someone.",
+        ],
+      },
+      {
+        id: "variations",
+        heading: "Regional variations",
+        paragraphs: [
+          "The best-known versions are large, round and decorated, and are closely associated with the villages around Geghard and Garni, where they are sold to visitors.",
+          "Elsewhere gata is thicker and denser, with a much heavier proportion of filling, or is made as small individual rolls, or as a braided loaf sliced across.",
+          "In some regions walnuts are worked into the khoriz, and the version made that way in the south and among Armenians of Iran is often called nazook instead. Whether that is a different pastry or the same one under another name is a question families answer differently, and there is no need to settle it.",
+        ],
+      },
+    ],
+    importantDates: [
+      {
+        year: "1974",
+        event:
+          "Sonia Uvezian's The Cuisine of Armenia is published, the first wide-ranging English-language account of Armenian cooking.",
+      },
+      {
+        year: "2006",
+        event:
+          "Irina Petrosian and David Underwood publish Armenian Food: Fact, Fiction & Folklore, separating what is documented about Armenian dishes from what is repeated about them.",
+      },
+      {
+        year: "2018",
+        event:
+          "Gata is among the sweets demonstrated in the Armenia programme of the Smithsonian Folklife Festival.",
+      },
+    ],
+    significance: {
+      heading: "Why gata matters",
+      paragraphs: [
+        "Gata is the dish in this section with the least documented history and the clearest present-day function. It is what an Armenian household gives, receives and offers, and its keeping quality is what makes that possible.",
+        "Its variety is also instructive. There is no single correct gata — the shape, the thickness, the proportion of filling and the pattern on top all change from village to village — and a section that presented one household's version as the authentic one would be describing a family rather than a tradition.",
+      ],
+    },
+    interestingFacts: [
+      "The filling has its own name, khoriz: flour rubbed into butter and sugar until crumbly.",
+      "Many villages and families keep their own pattern for the top, and the marking is how a particular gata is identified.",
+      "Sizes run from discs wide enough to fill a table to rolls that fit in one hand.",
+      "The scoring is not only decorative — it keeps the surface from doming in the oven.",
+      "A walnut-filled version made in the south and among Armenians of Iran is often called nazook; whether it is the same pastry under another name is answered differently by different families.",
+    ],
+    relatedFigures: [],
+    cuisine: {
+      ingredients: [
+        "Flour",
+        "Butter",
+        "Sugar",
+        "Yoghurt or sour cream",
+        "Egg, for the dough and the glaze",
+        "Walnuts, in some regional versions",
+      ],
+      preparation:
+        "An enriched dough is rolled out and spread or filled with khoriz — flour rubbed into butter and sugar — then folded or enclosed, flattened, glazed with egg, marked on top and baked until deep gold.",
+      occasions: ["Family visits and gifts", "Church feast days", "Everyday tea and coffee"],
+      regions: [
+        "Villages around Geghard and Garni, for the large decorated discs",
+        "Southern Armenia and Armenian communities of Iran, for the walnut versions",
+        "Diaspora households and bakeries",
+      ],
+      serving:
+        "Cut into wedges or slices and served with tea or coffee; a whole gata, wrapped, is a usual gift when visiting.",
+    },
+    relatedSlugs: ["ghapama", "lavash", "dolma"],
+  },
+
+  {
+    slug: "ghapama",
+    href: "/cuisine/ghapama",
+    category: "cuisine",
+    categoryLabel: "Armenian Cuisine",
+    title: "Ghapama",
+    dishType: "Ceremonial dishes",
+    dishTypeId: "ceremonial",
+    imageSeed: "ghapama",
+    keywords: ["ghapama", "khapama", "Ղափամա", "stuffed pumpkin", "Goris", "Armenian festive dish"],
+    excerpt:
+      "A whole pumpkin filled with rice, dried fruit and nuts and baked until it can be opened at the table — a festive dish whose ingredients place it firmly in the modern era.",
+    intro:
+      "Ghapama is a whole pumpkin, hollowed and filled with rice, dried fruit, nuts, butter and honey, and baked until the flesh is soft enough to eat with the filling. It is brought to the table whole and cut down its ridges so that it opens outwards, which is a large part of why it is made. It is a dish for feasts rather than for weekdays — historically because dried fruit and nuts were expensive — and it is the one dish in this section whose age can be bounded, because the pumpkin it is built around is not an Old World plant.",
+    author: "Armat Editorial Team",
+    updated: "2026-07-31",
+    keyFacts: [
+      { label: "Kind of dish", value: "Whole filled pumpkin, baked" },
+      { label: "Filling", value: "Rice, dried apricots, raisins, walnuts or almonds, butter, honey" },
+      { label: "Seasoning", value: "Cinnamon, and sometimes other warm spices" },
+      { label: "Served", value: "Whole, then cut open at the table" },
+      { label: "Place in the meal", value: "Towards the end, among the sweet dishes" },
+      { label: "Age", value: "Cannot predate the arrival of the pumpkin from the Americas" },
+    ],
+    sections: [
+      {
+        id: "what-it-is",
+        heading: "What ghapama is",
+        paragraphs: [
+          "A pumpkin is cut open at the stem to make a lid, seeded, and filled with rice that has been partly cooked and mixed with dried fruit, nuts, butter, honey and cinnamon. The lid goes back on and the whole thing is baked slowly until the flesh gives.",
+          "It is served whole and opened in front of the people eating it. The Smithsonian Folklife Festival's account of the dish describes the pumpkin being sliced along its natural indentations so that it falls open like the petals of a flower, revealing the filling.",
+          "In the order of an Armenian meal it belongs with the sweet dishes, towards the end, rather than as a main course — although the filling is substantial enough that it is not treated as a light finish.",
+        ],
+      },
+      {
+        id: "cultural-role",
+        heading: "Its place in Armenian life",
+        paragraphs: [
+          "Ghapama is a dish of display. It requires a large pumpkin, a long bake and expensive fillings, and it is designed to be revealed rather than served out of sight in the kitchen. That makes it a natural centrepiece for a table set for a celebration.",
+          "The Smithsonian's account notes that families reserved it for feasts and festivals precisely because nuts and dried fruit were costly, and that it is traditionally associated with Christmas. Its festive character is therefore economic in origin as much as ceremonial.",
+          "It is also unusually well known outside kitchens, because of a folk song about ghapama that is widely sung at Armenian gatherings — familiar enough beyond them that the Smithsonian's account of the dish introduces it by way of the Armenian-American rock band System of a Down.",
+        ],
+      },
+      {
+        id: "history",
+        heading: "Documented background",
+        paragraphs: [
+          "Ghapama is the one dish here that can be given an outer limit. Every pumpkin and squash of the genus Cucurbita is a plant of the Americas, and none was grown in the Old World before transatlantic contact. Whatever traditions of filling and baking vegetables preceded it, the dish as it now exists is therefore a comparatively modern one.",
+          "That is worth stating plainly, because ghapama is often described as ancient. The technique it uses — hollowing a vegetable and filling it — is old and is shared with the dolma family; the specific combination of that technique with a New World squash is not.",
+          "Its documentation, like gata's, is modern: cookbooks, ethnographic collection and, more recently, institutional programmes such as the Smithsonian Folklife Festival's Armenia season in 2018, which published an account of the dish and of a Goris version made with dried Armenian apricots and foraged cornelian cherries.",
+        ],
+      },
+      {
+        id: "ingredients-and-preparation",
+        heading: "Ingredients and preparation",
+        paragraphs: [
+          "The pumpkin has to be sound, roughly spherical and large enough to hold the filling without being so thick-skinned that it will not cook through. It is opened at the top, seeded and scraped.",
+          "Rice is partly cooked and mixed with dried apricots, raisins, prunes, walnuts or almonds, butter, honey and cinnamon. Many families add more butter than seems reasonable; that is what keeps the rice from drying against the shell.",
+          "The filled pumpkin is closed with its lid and baked slowly for a long time. It is done when a skewer passes easily through the flesh, and it is left to settle before being carried to the table.",
+        ],
+      },
+      {
+        id: "occasions",
+        heading: "Occasions and traditions",
+        paragraphs: [
+          "Ghapama is a winter dish by ingredient and a festive one by cost. It is associated in particular with Christmas and New Year tables, and appears at weddings and other large celebrations where a centrepiece is wanted.",
+          "The cutting is part of the occasion. Because the dish is opened in front of everyone, it functions as a small ceremony of its own, and the song about it is commonly sung at exactly that point.",
+        ],
+      },
+      {
+        id: "variations",
+        heading: "Regional variations",
+        paragraphs: [
+          "The most-documented regional version is that of Goris, in the south, which uses dried Armenian apricots and cornelian cherries gathered locally.",
+          "Elsewhere the fruit follows what a household dries: prunes, raisins, sour plums, apple. The nuts follow the same logic — walnuts most often, almonds where they are cheaper.",
+          "Meat versions exist, in which the rice is mixed with lamb or chicken and the dish moves from the sweet end of the meal to the savoury. In some regions no honey is used at all and the sweetness comes only from the fruit. All of these are ordinary; none is the standard against which the others should be measured.",
+        ],
+      },
+    ],
+    importantDates: [
+      {
+        year: "2006",
+        event:
+          "Irina Petrosian and David Underwood publish Armenian Food: Fact, Fiction & Folklore, one of the few book-length attempts to separate what is documented about Armenian dishes from what is repeated about them.",
+      },
+      {
+        year: "2018",
+        event:
+          "The Smithsonian Folklife Festival's Armenia programme publishes an account of ghapama, including the Goris version with dried apricots and cornelian cherries.",
+      },
+    ],
+    significance: {
+      heading: "Why ghapama matters",
+      paragraphs: [
+        "Ghapama is the clearest demonstration in this section that a dish can be genuinely traditional without being ancient. Its ingredients place it after transatlantic contact, and it is nonetheless embedded in Armenian celebration, memory and song.",
+        "It is also a dish about abundance in a cuisine that is largely about making a great deal from very little. Harissa feeds a crowd from wheat and one animal; ghapama exists to look like more than a household can normally afford, and to be opened where everyone can see it.",
+      ],
+    },
+    interestingFacts: [
+      "The pumpkin is cut along its natural ridges so that it opens outwards like the petals of a flower when it reaches the table.",
+      "Every pumpkin and squash of the genus Cucurbita comes from the Americas, which puts an outer limit on how old the dish can be.",
+      "The Smithsonian's account records that families reserved ghapama for feasts because the nuts and dried fruit in it were expensive.",
+      "A folk song about ghapama is sung at Armenian gatherings, and the Smithsonian's account of the dish opens by pairing it with the Armenian-American rock band System of a Down.",
+      "The version documented from Goris uses dried Armenian apricots together with foraged cornelian cherries.",
+    ],
+    relatedFigures: [],
+    cuisine: {
+      ingredients: [
+        "A whole pumpkin",
+        "Rice",
+        "Dried apricots, raisins and prunes",
+        "Walnuts or almonds",
+        "Butter and honey",
+        "Cinnamon",
+      ],
+      preparation:
+        "The pumpkin is opened at the stem and seeded, filled with part-cooked rice mixed with dried fruit, nuts, butter, honey and cinnamon, closed with its own lid and baked slowly until the flesh is soft.",
+      occasions: ["Christmas and New Year tables", "Weddings and large celebrations", "Winter feasts"],
+      regions: [
+        "Goris and southern Armenia, for the apricot and cornelian cherry version",
+        "Throughout the Republic of Armenia",
+        "Diaspora celebrations",
+      ],
+      serving:
+        "Carried to the table whole and cut open along its ridges in front of the guests; served towards the end of the meal, with the filling spooned out together with the flesh.",
+    },
+    relatedSlugs: ["gata", "dolma", "harissa"],
+  },
+];

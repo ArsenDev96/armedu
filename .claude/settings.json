@@ -6,7 +6,41 @@
       "Bash(npm i *)",
       "Bash(npm ls *)",
       "Bash(sed 's/^ *//')",
-      "Bash(echo \"TYPECHECK_EXIT=$?\")"
+      "Bash(echo \"TYPECHECK_EXIT=$?\")",
+      "WebFetch(domain:escs.am)",
+      "WebFetch(domain:www.armenianinstitute.org.uk)",
+      "WebFetch(domain:festival.si.edu)",
+      "WebFetch(domain:www.tandfonline.com)",
+      "WebFetch(domain:api.crossref.org)",
+      "Bash(git mv *)",
+      "Bash(cp \"/c/Users/DoC/AppData/Local/Temp/claude/c--Users-DoC-Desktop-armedu/40fd29df-58e1-4402-94ca-8b0362ca8fbc/scratchpad/measure.spec.ts\" tests/e2e/zz-measure.spec.ts && npx playwright test zz-measure --project desktop --reporter list 2>&1 | grep -E \"===|row|logo|nav|controls|text|\\\\\"w\\\\\"|\\\\\"h\\\\\"\" | head -80)",
+      "Bash(grep -n -o \"[^։.]\\\\{0,90\\\\}\\\\\\(ոչ մէկը\\\\|ոչինչ\\\\|բնաւ\\\\|ոչ ոք\\\\|երբեք\\\\\\)[^։.]\\\\{0,90\\\\}\" src/data/locales/hyw/articles/cuisine.ts)",
+      "WebFetch(domain:historyofadown.com)",
+      "WebFetch(domain:en.wikipedia.org)",
+      "WebFetch(domain:doi.org)",
+      "WebFetch(domain:www.armenian-genocide.org)",
+      "Bash(grep -n -o \"[^։]\\\\{0,60\\\\}կայծ[^։]\\\\{0,60\\\\}\" src/data/locales/hyw/articles/cuisine.ts)",
+      "Bash(grep -n -o \"[^։]\\\\{0,55\\\\}շրջանակ[^։]\\\\{0,55\\\\}\" src/data/locales/hyw/articles/cuisine.ts)",
+      "Bash(perl -CSD -i -pe 's/շրջանակ/շրջան/g if $. != 333' src/data/locales/hyw/articles/cuisine.ts)",
+      "Bash(grep -n -o \"[^։]\\\\{0,45\\\\}շրջան[^։]\\\\{0,45\\\\}\" src/data/locales/hyw/articles/cuisine.ts)",
+      "Bash(grep -o \"[ա-ֆ]\\\\{2,\\\\}ը [աեէիոօ][ա-ֆ]*\" src/data/locales/hy/articles/cuisine.ts)",
+      "WebFetch(domain:bararan.am)",
+      "WebFetch(domain:nayiri.com)",
+      "Bash(cp src/data/locales/hy/articles/cuisine.ts /tmp/cuisine.bak)",
+      "Bash(perl -CSDA -Mutf8 -i -pe 's/\\([ա-ֆ]{2,}\\)ը \\(?=[աեէիոօ]\\)/$1ն /g' src/data/locales/hy/articles/cuisine.ts)",
+      "Bash(grep -cE \"[ա-ֆ]{2,}ը \\(ա|ե|է|ի|ո|օ\\)[ա-ֆ]+\" src/data/locales/hy/articles/cuisine.ts)",
+      "Bash(grep -n -o \"[^\\\\\"]\\\\{0,50\\\\}սնգույլ[ա-ֆ]*[^\\\\\"]\\\\{0,40\\\\}\" src/data/locales/hy/articles/cuisine.ts)",
+      "Bash(perl -CSDA -Mutf8 -i -pe ' *)",
+      "Bash(perl -CSDA -Mutf8 -i -pe 's/«Մարդն ափի մեջ»/«Մարդը ափի մեջ»/g' src/data/locales/hy/articles/writers.ts)",
+      "Bash(perl -CSDA -Mutf8 -i -pe 's/Առաջինը իմացեք/Առաջինն իմացեք/g; s/առաջինը իմացեք/առաջինն իմացեք/g' src/data/locales/hy/ui.ts)",
+      "Bash(perl -CSDA -Mutf8 -i -pe 's/հայկական ուտեստները որպես/հայկական ուտեստներն որպես/g' src/data/locales/hy/ui.ts)",
+      "PowerShell(npm run build)",
+      "PowerShell(npx playwright test tests/e2e/cuisine.spec.ts)",
+      "PowerShell(npx playwright test tests/e2e/cuisine.spec.ts 2>$null)",
+      "PowerShell(npx playwright test 2>$null)"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\DoC\\AppData\\Local\\Temp\\claude\\c--Users-DoC-Desktop-armedu\\40fd29df-58e1-4402-94ca-8b0362ca8fbc\\scratchpad"
     ]
   }
 }
