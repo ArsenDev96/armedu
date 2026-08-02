@@ -292,3 +292,41 @@ have been corrected.
 **One deliberate exception:** Sevak's «Մարդը ափի մեջ» keeps `-ը` because that is the
 published title of the 1963 collection. A regex sweep will flag it; leave it alone. The same
 caution applies to any other title set by its publisher.
+
+## Western Armenian cuisine pass — August 2026
+
+A dedicated language pass over `hyw/articles/cuisine.ts` corrected the following. They were
+errors, not judgement calls:
+
+- **Case and agreement:** «նոյն բայ**ին** ծագող» → «բայ**էն**» (derive-from takes the
+  ablative); «դանդաղ կ՚եփ**ուի**» → «կ՚եփ**ուին**» where the parcels, not the plate, are
+  being cooked; «իսկ **հարաւը** … կը խառնեն» → «հարաւ**ի մէջ**»; «իբրեւ գաղութ**ին
+  յիշողութիւնը**» → «իբրեւ գաղութի յիշողութիւն».
+- **Passive voice:** «այր**ելէ** ետք» → «այր**ուելէ** ետք» (the vegetables are charred,
+  they do not char something).
+- **Spelling:** «թանձր**ն**ալուն» → «թանձր**ան**ալուն»; «շիլա**յ**» → «շիլա» (matching
+  «տոլմա», «ղափամա» in the same file); «բ**ոկ**ոն» → «բ**ոք**ոն».
+- **Wrong word:** «ձեւ մըն է» → «արհեստագիտութիւն մըն է» (English *technology*; the
+  Eastern edition was corrected earlier and hyw had been missed); «իմաստը **վերագրած** է
+  պատմութիւնը» → «պատմութիւնը **վերաձեւած** է» (*attribute* vs *rewrite*); «հոգեկան
+  կշիռ» → «զգացական կշիռ» (*emotional*, not *mental*); «ամէնէն պարզ **ցոյցն** է» →
+  «**ապացոյցն**»; «մինչեւ միջուկը **զիջի**» → «**կակուղնայ**»; «մինչեւ **խոր** ոսկեգոյն» →
+  «**մուգ**»; «փառատօնին հայկական **եղանակը**» → «**ծրագիրը**» (the festival's Armenia
+  *season*); «կ՚**անցնին** փառատօներ» → «տեղի կ՚ունենան» (an Eastern «անցկացվել» calque).
+- **Time words:** the file uses «վայրկեան» as *minute* («վայրկեանէ մը պակաս» = under a
+  minute), so "in seconds" is now «**երկվայրկեան**ներու մէջ» throughout. Mixing the two
+  senses of «վայրկեան» in one article was the alternative, and it read as a contradiction.
+- **Rolling dough:** «կը գլորուի» (to roll along the ground) → «գրտնակով կը բացուի» for
+  rolling out, «կ՚ոլորուիլ» for rolling up. Same correction is pending in `hy`
+  («գլորվել» → «գրտնակել»).
+- **Terminology:** «քորքոտ» → «**կորկոտ**» for hulled wheat, per the dictionary form
+  (hy.wiktionary «կորկոտ»; hy.wikipedia's harissa article). The Eastern edition still says
+  «քորքոտ» and should be aligned when its pending pass is applied.
+- **Restored hedges from the English:** dolma is "one of" the clearest examples (not "the");
+  the modern gathering absorbed "some of" (`մաս մը`) what the madagh carried; alternative
+  dolma leaves are used "where those are to hand" (`հոն ուր անոնք ձեռքի տակ են`); the
+  khorovats excerpt now says *embers*, not *fire*, matching en and hy.
+
+Still open for a native Western Armenian editor (deliberately not changed): «ծրար» for a
+dolma parcel; «նշմար» for the gata marking; «մահուան տարեդարձ» vs «տարելից»; «հոսի»
+was replaced with «այս բաժինին» but a better idiom may exist.

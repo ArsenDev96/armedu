@@ -98,6 +98,8 @@ export interface UiDictionary {
     timelineAction: string;
     writersHeading: string;
     writersAction: string;
+    cuisineHeading: string;
+    cuisineAction: string;
     newsletterHeading: string;
     newsletterDescription: string;
     diasporaTitle: string;

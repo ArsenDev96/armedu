@@ -33,7 +33,11 @@
       "Bash(perl -CSDA -Mutf8 -i -pe ' *)",
       "Bash(perl -CSDA -Mutf8 -i -pe 's/«Մարդն ափի մեջ»/«Մարդը ափի մեջ»/g' src/data/locales/hy/articles/writers.ts)",
       "Bash(perl -CSDA -Mutf8 -i -pe 's/Առաջինը իմացեք/Առաջինն իմացեք/g; s/առաջինը իմացեք/առաջինն իմացեք/g' src/data/locales/hy/ui.ts)",
-      "Bash(perl -CSDA -Mutf8 -i -pe 's/հայկական ուտեստները որպես/հայկական ուտեստներն որպես/g' src/data/locales/hy/ui.ts)"
+      "Bash(perl -CSDA -Mutf8 -i -pe 's/հայկական ուտեստները որպես/հայկական ուտեստներն որպես/g' src/data/locales/hy/ui.ts)",
+      "PowerShell(npm run build)",
+      "PowerShell(npx playwright test tests/e2e/cuisine.spec.ts)",
+      "PowerShell(npx playwright test tests/e2e/cuisine.spec.ts 2>$null)",
+      "PowerShell(npx playwright test 2>$null)"
     ],
     "additionalDirectories": [
       "C:\\Users\\DoC\\AppData\\Local\\Temp\\claude\\c--Users-DoC-Desktop-armedu\\40fd29df-58e1-4402-94ca-8b0362ca8fbc\\scratchpad"

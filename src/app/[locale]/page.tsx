@@ -9,7 +9,14 @@ import { WriterCard } from "@/components/cards/WriterCard";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { ArrowLink, RowHeading, Section } from "@/components/ui/primitives";
 import type { Locale } from "@/data/types";
-import { getCategories, getFeaturedArticles, getTimeline, getWriters } from "@/lib/content";
+import {
+  getArticlesByCategory,
+  getCategories,
+  getFeaturedArticles,
+  getTimeline,
+  getWriters,
+  toArticleSummary,
+} from "@/lib/content";
 import { getStaticAlternates, getUi, localePath, resolveLocale } from "@/lib/i18n";
 import { socialImage, websiteLd } from "@/lib/seo";
 
@@ -58,6 +65,9 @@ export default async function HomePage({ params }: Params) {
   const categories = getCategories(locale);
   const timeline = getTimeline(locale);
   const writers = getWriters(locale).slice(0, 4);
+  // The first four dishes in section order, not an editorial pick — cuisine has
+  // only six articles, so a curated list would be most of the section anyway.
+  const dishes = getArticlesByCategory(locale, "cuisine").slice(0, 4).map(toArticleSummary);
   const all = getFeaturedArticles(locale, 100);
 
   const picked = FEATURED_SLUGS.map((slug) => all.find((a) => a.slug === slug)).filter(
@@ -136,6 +146,24 @@ export default async function HomePage({ params }: Params) {
               href={localePath(locale, `/writers/${writer.slug}`)}
               ui={ui}
               variant="horizontal"
+            />
+          ))}
+        </div>
+      </Section>
+
+      <Section id="cuisine" padding="tight">
+        <RowHeading
+          title={ui.home.cuisineHeading}
+          action={
+            <ArrowLink href={localePath(locale, "/cuisine")}>{ui.home.cuisineAction}</ArrowLink>
+          }
+        />
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {dishes.map((article) => (
+            <ArticleCard
+              key={article.slug}
+              article={{ ...article, href: localePath(locale, article.href) }}
+              ui={ui}
             />
           ))}
         </div>

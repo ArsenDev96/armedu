@@ -88,6 +88,8 @@ export const ui: UiDictionary = {
     timelineAction: "View full timeline",
     writersHeading: "Popular Writers",
     writersAction: "View all writers",
+    cuisineHeading: "From the Armenian Kitchen",
+    cuisineAction: "View all dishes",
     newsletterHeading: "Be the first to discover what’s new on Armat",
     newsletterDescription:
       "Join our email list and be the first to hear about new articles, stories, and platform updates.",

@@ -88,6 +88,8 @@ export const ui: UiDictionary = {
     timelineAction: "Տեսնել ամբողջ ժամանակագրութիւնը",
     writersHeading: "Սիրուած գրողներ",
     writersAction: "Տեսնել բոլոր գրողները",
+    cuisineHeading: "Հայկական խոհանոցէն",
+    cuisineAction: "Տեսնել բոլոր կերակուրները",
     newsletterHeading: "Առաջինը գիտցէ՛ք ինչ նոր է Armat-ի վրայ",
     newsletterDescription:
       "Միացէ՛ք մեր ելեկտրոնային ցանկին եւ առաջինը լսեցէ՛ք նոր յօդուածներու, պատմութիւններու եւ հարթակի թարմացումներու մասին։",

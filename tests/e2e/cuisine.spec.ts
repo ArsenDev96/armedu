@@ -281,6 +281,23 @@ test("the homepage category row offers cuisine alongside the other three", async
   );
 });
 
+test("the homepage cuisine row shows four dishes from this edition", async ({ page }) => {
+  const dict = ui("hyw");
+  await page.goto("/hyw");
+
+  const row = page.locator("#cuisine");
+  await expect(row.getByRole("heading", { name: dict.home.cuisineHeading })).toBeVisible();
+  await expect(row.getByRole("article")).toHaveCount(4);
+
+  // Every link in the row stays inside this edition's cuisine section — the
+  // row is built from the locale bundle, so a leak here means a locale leak.
+  const hrefs = await row
+    .getByRole("link")
+    .evaluateAll((links) => links.map((link) => link.getAttribute("href") ?? ""));
+  expect(hrefs.length).toBeGreaterThan(0);
+  expect(hrefs.every((href) => href.startsWith("/hyw/cuisine"))).toBe(true);
+});
+
 test("the cuisine dropdown only offers pages inside this edition", async ({ page }) => {
   const dict = ui("hyw");
   await page.goto("/hyw");
