@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { site } from "@/data/site";
@@ -113,6 +114,7 @@ export default async function LocaleLayout({
           {children}
         </main>
         <Footer locale={locale} groups={getFooterNav(locale)} ui={ui} />
+        <GoogleAnalytics />
       </body>
     </html>
   );

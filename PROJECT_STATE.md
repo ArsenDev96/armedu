@@ -23,8 +23,8 @@ The platform is now **Armenian-first**: Eastern Armenian is the default and comp
 edition, Western Armenian is a growing second edition, English is third.
 
 Scope is deliberately content-only. No accounts, login, quizzes, comments, payments,
-dashboards, admin pages, or CMS. Finished **on localhost only** — no deployment, CI/CD,
-analytics or Search Console.
+dashboards, admin pages, or CMS. Finished **on localhost only** — no deployment, CI/CD
+or Search Console. Google Analytics is the one exception, added August 2026 (§20).
 
 The one exception to "no server" is `POST /api/contact`, added July 2026 for the contact
 form. It exists because SMTP credentials cannot live in the browser; every *page* is still
@@ -43,6 +43,7 @@ statically prerendered.
 | Content | Local, statically typed TypeScript — **no CMS** |
 | Newsletter | Supabase — **email collection only** |
 | Contact form | `POST /api/contact` — SMTP via nodemailer, with a Supabase copy |
+| Analytics | Google Analytics 4 (`G-BQ1HWH334Y`) via `next/script` — **production builds only** |
 | Testing | Playwright, 93 tests (desktop + mobile projects) |
 | Tooling | `tsx` for the content validation script |
 | Dev port | 3002 |
@@ -482,7 +483,8 @@ was the only personal data collected, which this change made untrue.
    structured data were all removed. The contact form is the only route in, and where its
    messages land is a server-side setting (`CONTACT_TO_EMAIL`, falling back to `SMTP_USER`).
 9. **No social profiles**, so those blocks are hidden rather than populated.
-10. **No deployment, CI, analytics or Search Console** — excluded by project constraint.
+10. **No deployment, CI or Search Console** — excluded by project constraint. Analytics is
+   now the sole exception (§20); the rest of the list stands.
 11. **`npm run lint` has been removed** (it was dead — `next lint` no longer exists in
    Next 16). No ESLint was added, per the "avoid unnecessary dependencies" constraint.
 
@@ -1040,3 +1042,47 @@ It caught **seven more instances in the two editions that were not under review*
 
 `typecheck`, `validate:content` (99 entries), `build` (102 pages) and the Playwright suite
 (126 passed, 5 skipped) all pass. No test was changed to accommodate any of this.
+
+---
+
+## 20. Google Analytics — August 2026
+
+The one deliberate exception to the "no analytics" constraint, added at the user's
+request. GA4 property `G-BQ1HWH334Y`.
+
+`src/components/analytics/GoogleAnalytics.tsx` renders the two halves of the gtag
+snippet through `next/script` and is mounted at the end of `<body>` in the locale
+layout, so it is present on all 102 pages of all three editions. No dependency was
+added — `@next/third-parties` would have installed a package to wrap `next/script`,
+which is already in the framework.
+
+Three decisions worth keeping:
+
+- **The measurement ID is a constant in the component, not an env variable.** It is
+  site identity like the domain in `src/data/site.ts`, not a secret, and it is baked
+  into the client bundle either way. `.env.example` stays untouched.
+- **Nothing renders outside a production build** (`NODE_ENV !== "production"` returns
+  null). `npm run dev` and the Playwright suite therefore send no hits and the property
+  stays clean. To check the tag by hand, `npm run build && npm run start` — `next start`
+  sets NODE_ENV=production, so the tag loads. Verified: the prerendered
+  `.next/server/app/hy.html` contains both the loader `src` and the `gtag-init` config.
+- **`afterInteractive`, not `beforeInteractive` or `lazyOnload`.** The first would delay
+  hydration behind an analytics script; the last drops the hits of readers who leave
+  quickly, who are exactly the readers analytics exists to count. The inline half must
+  also be a `<Script>` rather than a raw `<script>` — React does not execute inline
+  scripts it renders on the client, so a plain tag would work on first load and silently
+  stop after any client-side navigation.
+
+### The privacy policy had to change with it
+
+The policy said, in all three editions, that the site "runs no analytics and no tracking
+of any kind" and "sets no cookies". Shipping GA would have made both statements false, so
+the **Analytics** and **Cookies** sections were rewritten in `hy`, `hyw` and `en`: what GA
+records (pages, language edition, approximate location from IP, device and browser), that
+it does not identify the reader and is never joined to a newsletter address or contact
+message, that GA sets its own cookies carrying a random identifier, and that blocking
+cookies or enabling Do Not Track disables it with no loss of function. `lastUpdated` moved
+to 3 August 2026 in all three.
+
+The **Supabase** disclosure inside those sections was preserved word for word — it was
+already correct and is unrelated to this change.
