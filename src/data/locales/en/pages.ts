@@ -91,7 +91,7 @@ export const pages: StaticPagesContent = {
     title: "Privacy Policy",
     metaDescription:
       "How Armat handles visitor data. The platform collects no personal information beyond an optional newsletter address and anything you choose to write in the contact form.",
-    lastUpdated: "Last updated: 23 July 2026",
+    lastUpdated: "Last updated: 3 August 2026",
     lead: "Armat is an educational project and is built to work without collecting personal data. This page explains, in plain language, what that means in practice.",
     sections: [
       {
@@ -100,11 +100,11 @@ export const pages: StaticPagesContent = {
       },
       {
         heading: "Analytics",
-        body: "This version of the site runs no analytics and no tracking of any kind. Browsing is not recorded. The exceptions are the two forms: a newsletter address and a contact message are both stored by Supabase, a hosting provider acting on our behalf, which also receives your IP address as part of that request. A contact message is additionally delivered to our mailbox by email. Nothing else about your visit leaves this site.",
+        body: "The site uses Google Analytics to count visits and see which articles are read. It records the pages you open, the language edition you read in, an approximate location derived from your IP address, and general details about your device and browser. It does not tell us who you are, and we never combine it with a newsletter address or a contact message. Those two forms are the other exception: both are stored by Supabase, a hosting provider acting on our behalf, which also receives your IP address as part of that request, and a contact message is additionally delivered to our mailbox by email. You can switch analytics off for every site by turning on \"Do Not Track\" or a content blocker in your browser.",
       },
       {
         heading: "Cookies",
-        body: "The site sets no cookies and stores nothing in your browser. Your chosen language is part of the web address, not something we save about you.",
+        body: "The site itself sets no cookies and stores nothing in your browser about you. Google Analytics does set its own cookies, which is how it tells a returning reader from a new one; they carry a random identifier and no personal information. Blocking cookies for this site disables them and the site keeps working exactly as before. Your chosen language is part of the web address, not something we save about you.",
       },
       {
         heading: "Children",
