@@ -82,23 +82,36 @@ export interface FooterGroup {
 /**
  * Thematic history links in the footer. Each points at a specific article; any
  * whose slug is not translated in this locale is dropped rather than linked.
+ *
+ * These labels are the footer's own editorial vocabulary, not a mirror of the
+ * listing filters — but they must not contradict them either. Until August 2026
+ * Tigran the Great was labelled «Հայկական թագավորություններ» here, which was the
+ * `kingdoms` period label his article also carried. When that period was removed
+ * as naming no era (§21) the two fell out of step: the footer would have offered
+ * a link under a heading the article itself no longer used anywhere.
+ *
+ * So Tigran now takes `importantFigures`, which is what he is on the new type
+ * axis, and Mashtots takes a label naming what his article is actually about. All
+ * five labels are now true of the article they point at.
  */
 const FOOTER_HISTORY: { slug: string; key: keyof ReturnType<typeof historyLabelKeys> }[] = [
   { slug: "kingdom-of-urartu", key: "ancientArmenia" },
-  { slug: "tigran-the-great", key: "armenianKingdoms" },
+  { slug: "tigran-the-great", key: "importantFigures" },
+  { slug: "adoption-of-christianity", key: "christianity" },
+  { slug: "mesrop-mashtots-armenian-alphabet", key: "armenianAlphabet" },
   { slug: "bagratid-armenia", key: "medievalArmenia" },
   { slug: "first-republic-of-armenia", key: "modernArmenia" },
-  { slug: "mesrop-mashtots-armenian-alphabet", key: "importantFigures" },
 ];
 
 function historyLabelKeys(locale: Locale) {
   const { ui } = getLocaleBundle(locale);
   return {
     ancientArmenia: ui.footer.ancientArmenia,
-    armenianKingdoms: ui.footer.armenianKingdoms,
+    importantFigures: ui.footer.importantFigures,
+    christianity: ui.footer.christianity,
+    armenianAlphabet: ui.footer.armenianAlphabet,
     medievalArmenia: ui.footer.medievalArmenia,
     modernArmenia: ui.footer.modernArmenia,
-    importantFigures: ui.footer.importantFigures,
   };
 }
 

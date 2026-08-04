@@ -1,15 +1,22 @@
 import type { ArticleSection } from "@/data/types";
 
 export function TableOfContents({
+  leading = [],
   sections,
   extra = [],
   heading,
 }: {
+  /** Entries that sit above the prose on the page, so they sit above it here too. */
+  leading?: { id: string; heading: string }[];
   sections: ArticleSection[];
   extra?: { id: string; heading: string }[];
   heading: string;
 }) {
-  const items = [...sections.map((s) => ({ id: s.id, heading: s.heading })), ...extra];
+  const items = [
+    ...leading,
+    ...sections.map((s) => ({ id: s.id, heading: s.heading })),
+    ...extra,
+  ];
 
   return (
     <nav aria-labelledby="toc-heading" className="rounded-2xl border border-line bg-surface p-5">

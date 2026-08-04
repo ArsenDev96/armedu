@@ -7,8 +7,10 @@ export const historyArticles: Article[] = [
     category: "history",
     categoryLabel: "Armenian History",
     title: "Tigran the Great",
-    period: "Armenian Kingdoms",
-    periodId: "kingdoms",
+    period: "Ancient Armenia",
+    periodId: "ancient",
+    topicTypeId: "person",
+    chronoOrder: 2,
     imageSeed: "tigran-the-great",
     keywords: [
       "Tigran the Great",
@@ -158,6 +160,8 @@ export const historyArticles: Article[] = [
       "Urartu was a powerful highland kingdom around Lake Van whose fortresses, canals and cuneiform records shaped the later history of the Armenian Highlands.",
     period: "Ancient Armenia",
     periodId: "ancient",
+    topicTypeId: "state",
+    chronoOrder: 1,
     imageSeed: "kingdom-of-urartu",
     keywords: [
       "Kingdom of Urartu",
@@ -285,6 +289,8 @@ export const historyArticles: Article[] = [
       "Around 405 the scholar and monk Mesrop Mashtots created an alphabet that gave Armenian its own written voice and reshaped the nation's culture.",
     period: "Ancient Armenia",
     periodId: "ancient",
+    topicTypeId: "person",
+    chronoOrder: 4,
     imageSeed: "mesrop-mashtots-armenian-alphabet",
     keywords: [
       "Mesrop Mashtots",
@@ -412,6 +418,8 @@ export const historyArticles: Article[] = [
       "Armenia is traditionally recognised as the first state to adopt Christianity as its official religion, a decision that reshaped its law, art and identity.",
     period: "Ancient Armenia",
     periodId: "ancient",
+    topicTypeId: "event",
+    chronoOrder: 3,
     imageSeed: "adoption-of-christianity",
     keywords: [
       "Adoption of Christianity in Armenia",
@@ -538,8 +546,10 @@ export const historyArticles: Article[] = [
     title: "The Battle of Avarayr",
     excerpt:
       "In 451 Armenian forces under Vardan Mamikonian faced a far larger Persian army to defend their faith, losing the battle but winning religious freedom.",
-    period: "Battles and Events",
-    periodId: "battles",
+    period: "Marzpanate Armenia",
+    periodId: "marzpanate",
+    topicTypeId: "battle",
+    chronoOrder: 5,
     imageSeed: "battle-of-avarayr",
     keywords: [
       "Battle of Avarayr",
@@ -667,6 +677,8 @@ export const historyArticles: Article[] = [
       "The Bagratid kings restored Armenian statehood after two centuries of foreign rule and built Ani into one of the great cities of the medieval world.",
     period: "Medieval Armenia",
     periodId: "medieval",
+    topicTypeId: "state",
+    chronoOrder: 6,
     imageSeed: "bagratid-armenia",
     keywords: [
       "Bagratid Armenia",
@@ -794,6 +806,8 @@ export const historyArticles: Article[] = [
       "Declared in 1918 amid war and famine, the First Republic gave Armenians a modern independent state for two and a half difficult years.",
     period: "Modern Armenia",
     periodId: "modern",
+    topicTypeId: "state",
+    chronoOrder: 7,
     imageSeed: "first-republic-of-armenia",
     keywords: [
       "First Republic of Armenia",
@@ -907,6 +921,9 @@ export const historyArticles: Article[] = [
         description: "Military commander whose campaign in Zangezur secured the region for Armenia after sovietisation.",
       },
     ],
-    relatedSlugs: ["yeghishe-charents", "hovhannes-tumanyan", "bagratid-armenia"],
+    // History first. Two of the three used to be writer biographies, which left
+    // the section's last article recommending its way out of the section. Charents
+    // stays as the third and earns it: he is the poet of exactly this generation.
+    relatedSlugs: ["bagratid-armenia", "battle-of-avarayr", "yeghishe-charents"],
   },
 ];

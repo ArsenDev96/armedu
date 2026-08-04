@@ -17,11 +17,13 @@ import { join } from "node:path";
 import { getLocaleBundle } from "../src/data";
 import { getSourceRegistry } from "../src/data/sources";
 import {
+  ALL_FILTER_ID,
   CATEGORY_IDS,
   DEFAULT_LOCALE,
   LOCALE_META,
   SUPPORTED_LOCALES,
   type Article,
+  type ArticleSection,
   type CategoryId,
   type Filter,
   type LiteraryWork,
@@ -46,6 +48,25 @@ const COMPLETE_LOCALES: Locale[] = ["hy", "en"];
  * Anything missing from a locale and NOT declared here is a validation error,
  * which is what stops a translation quietly disappearing.
  */
+/**
+ * Articles whose `hy` edition has been revised and whose `hyw` and `en` editions
+ * are waiting for the adaptation pass.
+ *
+ * `validateCrossLocaleNumbers` compares the three editions against each other,
+ * which is exactly right when they are meant to agree and exactly wrong while one
+ * is deliberately ahead. Revising `hy` first is the intended order — the Armenian
+ * edition is the reference text and the other two are adapted from it, not
+ * mechanically translated — so the alternative to declaring the gap is either
+ * three simultaneous rewrites or a switched-off check.
+ *
+ * This list is a debt, not a setting. Every entry is printed at the end of a run,
+ * and an entry that outlives its adaptation pass is a divergence nobody is
+ * checking any more.
+ *
+ * August 2026: the two articles revised in the first SEO batch.
+ */
+const AWAITING_TRANSLATION: string[] = ["adoption-of-christianity", "kingdom-of-urartu"];
+
 const DECLARED_UNAVAILABLE: Partial<Record<Locale, Record<CategoryId, string[]>>> = {
   hyw: {
     history: [],
@@ -357,6 +378,7 @@ function validateArticle(
   context: {
     slugs: Set<string>;
     historyPeriods: Set<string>;
+    historyTopicTypes: Set<string>;
     literaryPeriods: Set<string>;
     cuisineTypes: Set<string>;
     historyPeriodLabels: Map<string, string>;
@@ -458,6 +480,98 @@ function validateArticle(
     }
   }
 
+  // The second, independent history axis. Unlike `periodId` it carries no label
+  // on the article — the label lives once in `historyTopicTypes` — so there is no
+  // chip-versus-card drift to check here, only that the id is real.
+  if (article.category === "history") {
+    check(
+      filled(article.topicTypeId),
+      "is a history article but declares no topicTypeId, so it cannot be found on the type axis.",
+      "topicTypeId",
+    );
+    if (article.topicTypeId) {
+      check(
+        context.historyTopicTypes.has(article.topicTypeId),
+        `topicTypeId "${article.topicTypeId}" does not match any filter in historyTopicTypes.`,
+        "topicTypeId",
+      );
+      check(
+        article.topicTypeId !== ALL_FILTER_ID,
+        `topicTypeId is "${ALL_FILTER_ID}", which is the "no filter applied" option and not a real type.`,
+        "topicTypeId",
+      );
+    }
+    check(
+      article.periodId !== ALL_FILTER_ID,
+      `periodId is "${ALL_FILTER_ID}", which is the "no filter applied" option and not a real era.`,
+      "periodId",
+    );
+  } else {
+    check(
+      !article.topicTypeId,
+      `is a ${article.category} article but declares a topicTypeId, which only the history listing filters on.`,
+      "topicTypeId",
+    );
+  }
+
+  if (article.chronoOrder !== undefined) {
+    check(
+      Number.isInteger(article.chronoOrder) && article.chronoOrder > 0,
+      `chronoOrder "${article.chronoOrder}" is not a positive integer.`,
+      "chronoOrder",
+    );
+  }
+
+  // Optional SEO overrides. Each exists to be *different* from the field it
+  // overrides — one that merely restates it is a second copy to keep in sync for
+  // no gain, so an exact duplicate is an error rather than a harmless no-op.
+  if (article.seoTitle !== undefined) {
+    check(filled(article.seoTitle), "seoTitle is present but empty.", "seoTitle");
+    check(
+      article.seoTitle !== article.title,
+      "seoTitle repeats the title exactly; omit it and the title is used.",
+      "seoTitle",
+    );
+    // 60 characters is the conventional budget for the whole `<title>`, and the
+    // layout appends " | Armat" (8) to whatever this field holds.
+    check(
+      article.seoTitle.length <= 60 - " | Armat".length,
+      `seoTitle is ${article.seoTitle.length} characters; with " | Armat" appended that exceeds the 60-character budget.`,
+      "seoTitle",
+    );
+  }
+
+  if (article.metaDescription !== undefined) {
+    check(filled(article.metaDescription), "metaDescription is present but empty.", "metaDescription");
+    check(
+      article.metaDescription !== article.excerpt,
+      "metaDescription repeats the excerpt exactly; omit it and the excerpt is used.",
+      "metaDescription",
+    );
+    check(
+      article.metaDescription.length >= 70 && article.metaDescription.length <= 165,
+      `metaDescription is ${article.metaDescription.length} characters; aim for 70–165 so a results page shows it whole.`,
+      "metaDescription",
+    );
+  }
+
+  if (article.summary !== undefined) {
+    check(filled(article.summary), "summary is present but empty.", "summary");
+    check(
+      article.summary !== article.intro && article.summary !== article.excerpt,
+      "summary repeats the intro or the excerpt; it exists to state the outcome those two do not.",
+      "summary",
+    );
+    // Long enough to answer the question, short enough that a reader who wanted
+    // only the answer has not been handed a second article.
+    const words = article.summary.trim().split(/\s+/).length;
+    check(
+      words >= 40 && words <= 140,
+      `summary is ${words} words; aim for 40–140.`,
+      "summary",
+    );
+  }
+
   // `period`/`periodId` names an era and `dishType`/`dishTypeId` a kind of dish.
   // They are alternatives, not companions: an article carrying both would appear
   // under two different filter vocabularies and render two eyebrows.
@@ -520,6 +634,27 @@ function validateArticle(
         `sections.${label}.bullets`,
       );
     }
+    validateSectionLinks(locale, article, section, report, context.slugs);
+  }
+  // A whole article's worth of links, capped together. A page whose prose is a
+  // field of underlines is harder to read than one with none, and the point of
+  // these links is to be followed rather than to be counted.
+  const linkCount = article.sections.reduce((n, s) => n + (s.links?.length ?? 0), 0);
+  check(
+    linkCount <= MAX_LINKS_PER_ARTICLE,
+    `declares ${linkCount} contextual prose links; at most ${MAX_LINKS_PER_ARTICLE} per article.`,
+    "sections.links",
+  );
+  for (const duplicate of findDuplicates(
+    article.sections.flatMap((s) => (s.links ?? []).map((link) => link.slug)),
+  )) {
+    report.add(
+      locale,
+      "article",
+      id,
+      `links to "${duplicate}" from more than one section; one contextual link per target is enough.`,
+      "sections.links",
+    );
   }
   for (const duplicate of findDuplicates(article.sections.map((s) => s.id))) {
     report.add(
@@ -619,6 +754,89 @@ function validateArticle(
  * the article's answer to "what is in it, when is it made, where" — a cuisine
  * article that cannot answer those is not finished.
  */
+/** Caps on contextual prose links. See `SectionLink` for why they exist at all. */
+const MAX_LINKS_PER_SECTION = 3;
+const MAX_LINKS_PER_ARTICLE = 6;
+/**
+ * Shortest phrase an editor may declare.
+ *
+ * The renderer matches a plain substring, and nothing in it can tell an Armenian
+ * word from a word fragment. A three-letter phrase would sooner or later light up
+ * inside an unrelated word, so the safeguard has to be the length of what can be
+ * declared in the first place.
+ */
+const MIN_LINK_PHRASE_LENGTH = 6;
+
+/**
+ * Contextual prose links for one section.
+ *
+ * The renderer is deliberately unable to fail loudly — a phrase it cannot find is
+ * simply left as text, and a slug missing from this edition is skipped so the
+ * other editions still read correctly. That makes this function the only place a
+ * mistake surfaces, so it checks every precondition the renderer relies on.
+ */
+function validateSectionLinks(
+  locale: Locale,
+  article: Article,
+  section: ArticleSection,
+  report: Report,
+  slugs: Set<string>,
+): void {
+  if (!section.links?.length) return;
+
+  const id = article.slug || "(no slug)";
+  const field = `sections.${section.id || "(no id)"}.links`;
+  const check = (ok: boolean, message: string) =>
+    report.check(ok, locale, "article", id, message, field);
+
+  check(
+    section.links.length <= MAX_LINKS_PER_SECTION,
+    `section "${section.id}" declares ${section.links.length} contextual links; at most ${MAX_LINKS_PER_SECTION} per section.`,
+  );
+
+  const prose = section.paragraphs.join("\n");
+
+  for (const link of section.links) {
+    check(filled(link.phrase), `section "${section.id}" has a link with an empty phrase.`);
+    check(filled(link.slug), `section "${section.id}" has a link with an empty slug.`);
+    if (!filled(link.phrase) || !filled(link.slug)) continue;
+
+    check(
+      link.phrase.length >= MIN_LINK_PHRASE_LENGTH,
+      `link phrase "${link.phrase}" is shorter than ${MIN_LINK_PHRASE_LENGTH} characters; a short phrase matches inside other words and the renderer cannot tell.`,
+    );
+    // The phrase must be in *this* section's prose. A link declared against a
+    // paragraph that was later reworded renders as nothing at all, which is the
+    // silent failure this rule exists to prevent.
+    check(
+      prose.includes(link.phrase),
+      `link phrase "${link.phrase}" does not appear in section "${section.id}", so nothing would be linked.`,
+    );
+    // Never to a page that does not exist. `slugs` is this edition's own set, so
+    // a link to an article that has not been written yet fails here rather than
+    // shipping as a 404 — and one that exists only in `hy` fails in `hyw` and
+    // `en`, where the renderer would have silently dropped it.
+    check(
+      slugs.has(link.slug),
+      `link target "${link.slug}" is not an article in the "${locale}" edition.`,
+    );
+    check(
+      link.slug !== article.slug,
+      `link target "${link.slug}" is the article's own slug.`,
+    );
+  }
+
+  for (const duplicate of findDuplicates(section.links.map((link) => link.phrase))) {
+    report.add(
+      locale,
+      "article",
+      id,
+      `section "${section.id}" declares the phrase "${duplicate}" twice; only the first occurrence is ever linked.`,
+      field,
+    );
+  }
+}
+
 function validateCuisineDetails(locale: Locale, article: Article, report: Report): void {
   const id = article.slug || "(no slug)";
   const check = (ok: boolean, message: string, field?: string) =>
@@ -744,6 +962,38 @@ function validateFilters(locale: Locale, name: string, filters: Filter[], report
   }
 }
 
+/**
+ * Every filter must actually match something.
+ *
+ * This is the rule that was missing. The history listing shipped a «Կարևոր
+ * դեմքեր» pill for months: `historyPeriods` declared `people`, no article ever
+ * carried it, and clicking it produced the empty-results page on a listing that
+ * had seven articles in it. Nothing in the type system can catch that — the id
+ * was a valid string in a valid list — so it has to be counted here.
+ *
+ * `all` is exempt: it is the "no filter applied" option and matches by clearing
+ * itself rather than by matching a field.
+ */
+function validateFilterCoverage(
+  locale: Locale,
+  name: string,
+  filters: Filter[],
+  used: (string | undefined)[],
+  report: Report,
+): void {
+  const present = new Set(used.filter((value): value is string => Boolean(value)));
+  for (const filter of filters) {
+    if (filter.id === ALL_FILTER_ID) continue;
+    report.check(
+      present.has(filter.id),
+      locale,
+      "filters",
+      name,
+      `filter "${filter.id}" (“${filter.label}”) matches no content, so selecting it always shows the empty state. Remove the filter or file an entry under it.`,
+    );
+  }
+}
+
 function validateStaticPages(locale: Locale, content: LocaleContent, report: Report): void {
   const { about, contact, privacy } = content.pages;
   const check = (ok: boolean, id: string, message: string, field?: string) =>
@@ -794,14 +1044,97 @@ function validateLocale(locale: Locale, content: LocaleContent, report: Report):
   }
 
   validateFilters(locale, "historyPeriods", content.historyPeriods, report);
+  validateFilters(locale, "historyTopicTypes", content.historyTopicTypes, report);
   validateFilters(locale, "literaryPeriods", content.literaryPeriods, report);
   validateFilters(locale, "workGenres", content.workGenres, report);
   validateFilters(locale, "cuisineTypes", content.cuisineTypes, report);
+
+  // No filter may match nothing. Every listing's pills are checked against the
+  // field they actually filter on, in this edition.
+  const historyArticles = content.articles.filter((article) => article.category === "history");
+  const cuisineArticles = content.articles.filter((article) => article.category === "cuisine");
+  validateFilterCoverage(
+    locale,
+    "historyPeriods",
+    content.historyPeriods,
+    historyArticles.map((article) => article.periodId),
+    report,
+  );
+  validateFilterCoverage(
+    locale,
+    "historyTopicTypes",
+    content.historyTopicTypes,
+    historyArticles.map((article) => article.topicTypeId),
+    report,
+  );
+  validateFilterCoverage(
+    locale,
+    "cuisineTypes",
+    content.cuisineTypes,
+    cuisineArticles.map((article) => article.dishTypeId),
+    report,
+  );
+  // `literaryPeriods` is one vocabulary serving two content types: the writers
+  // listing renders it as pills, and works articles file themselves under it too
+  // (the works *listing* filters on genre instead). Both count, or the check
+  // would call «Միջնադար» dead when the epic is filed under it.
+  validateFilterCoverage(
+    locale,
+    "literaryPeriods",
+    content.literaryPeriods,
+    [
+      ...content.writers.map((writer) => writer.periodId),
+      ...content.articles
+        .filter((article) => article.category === "works" || article.category === "writers")
+        .map((article) => article.periodId),
+    ],
+    report,
+  );
+  validateFilterCoverage(
+    locale,
+    "workGenres",
+    content.workGenres,
+    content.works.map((work) => work.genreId),
+    report,
+  );
+
   validateStaticPages(locale, content, report);
+
+  // Previous/next sorts on `chronoOrder`, and a category opts in as a whole: a
+  // partial ordering would silently fall back to the array order, which is the
+  // bug the field exists to fix. So it must be either absent from every article
+  // in a category or present, unique and gapless across all of them.
+  for (const category of CATEGORY_IDS) {
+    const inCategory = content.articles.filter((article) => article.category === category);
+    if (inCategory.length === 0) continue;
+
+    const orders = inCategory.map((article) => article.chronoOrder);
+    const declared = orders.filter((order): order is number => order !== undefined);
+    if (declared.length === 0) continue;
+
+    report.check(
+      declared.length === inCategory.length,
+      locale,
+      "articles",
+      category,
+      `${declared.length} of ${inCategory.length} articles declare chronoOrder; previous/next would fall back to the authored order for the whole category. Declare it on all of them or none.`,
+      "chronoOrder",
+    );
+    const expected = Array.from({ length: inCategory.length }, (_, i) => i + 1).join(",");
+    report.check(
+      [...declared].sort((a, b) => a - b).join(",") === expected,
+      locale,
+      "articles",
+      category,
+      `chronoOrder values are ${[...declared].sort((a, b) => a - b).join(", ")}; expected exactly 1–${inCategory.length}, each once.`,
+      "chronoOrder",
+    );
+  }
 
   const context = {
     slugs: articleSlugs,
     historyPeriods: filterIds(content.historyPeriods),
+    historyTopicTypes: filterIds(content.historyTopicTypes),
     literaryPeriods: filterIds(content.literaryPeriods),
     cuisineTypes: filterIds(content.cuisineTypes),
     historyPeriodLabels: filterLabels(content.historyPeriods),
@@ -1219,6 +1552,7 @@ function validateSources(report: Report): void {
  */
 function validateCrossLocaleNumbers(report: Report): void {
   const numbersIn = (text: string): string[] => (text.match(/\d{2,}/g) ?? []).sort();
+  const pending = new Set(AWAITING_TRANSLATION);
 
   const fieldsOf = (locale: Locale, slug: string): Map<string, string[]> | null => {
     const article = getLocaleBundle(locale).articles.find((a) => a.slug === slug);
@@ -1234,6 +1568,11 @@ function validateCrossLocaleNumbers(report: Report): void {
   };
 
   for (const article of getLocaleBundle(DEFAULT_LOCALE).articles) {
+    // Declared as mid-revision: the `hy` edition is deliberately ahead and the
+    // other two have not been adapted yet. Skipped here and reported by name at
+    // the end of the run, so it is a visible debt rather than a silent one.
+    if (pending.has(article.slug)) continue;
+
     const base = fieldsOf(DEFAULT_LOCALE, article.slug);
     if (!base) continue;
 
@@ -1261,6 +1600,55 @@ function validateCrossLocaleNumbers(report: Report): void {
           "numbers",
           article.slug,
           `states different numbers from the "${DEFAULT_LOCALE}" edition — ${detail}.`,
+          field,
+        );
+      }
+    }
+  }
+}
+
+/**
+ * The structural taxonomy is shared, not translated, so the three editions must
+ * agree on it exactly.
+ *
+ * `periodId`, `topicTypeId` and `chronoOrder` are ids and an ordinal — the labels
+ * are per-locale, these are not. A divergence would mean the same article sits in
+ * a different era or a different place in the chronology depending on which
+ * language a reader chose, which is a factual disagreement between editions and
+ * not a translation choice.
+ *
+ * Deliberately not covered by `AWAITING_TRANSLATION`: prose can legitimately be
+ * ahead in one edition, an id cannot.
+ */
+function validateCrossLocaleTaxonomy(report: Report): void {
+  for (const base of getLocaleBundle(DEFAULT_LOCALE).articles) {
+    for (const locale of SUPPORTED_LOCALES) {
+      if (locale === DEFAULT_LOCALE) continue;
+
+      const other = getLocaleBundle(locale).articles.find((a) => a.slug === base.slug);
+      if (!other) continue; // declared translation gap, handled by validateCoverage
+
+      const fields: [string, unknown, unknown][] = [
+        ["periodId", base.periodId, other.periodId],
+        ["topicTypeId", base.topicTypeId, other.topicTypeId],
+        ["chronoOrder", base.chronoOrder, other.chronoOrder],
+        ["dishTypeId", base.dishTypeId, other.dishTypeId],
+        ["href", base.href, other.href],
+        ["category", base.category, other.category],
+        // Navigation, not prose. `getRelatedArticles` already drops a target that
+        // this edition has not translated, so the list itself is shared — and
+        // three editions quietly recommending three different things is how the
+        // First Republic ended up pointing out of its own section in all of them.
+        ["relatedSlugs", base.relatedSlugs.join(","), other.relatedSlugs.join(",")],
+      ];
+
+      for (const [field, expected, actual] of fields) {
+        report.check(
+          expected === actual,
+          locale,
+          "taxonomy",
+          base.slug,
+          `${field} is ${JSON.stringify(actual)} but the "${DEFAULT_LOCALE}" edition has ${JSON.stringify(expected)}; this field is shared across editions, not translated.`,
           field,
         );
       }
@@ -1298,6 +1686,7 @@ function main(): void {
   validateImages(report);
   validateSources(report);
   validateCrossLocaleNumbers(report);
+  validateCrossLocaleTaxonomy(report);
   validateNewsletterLocales(report);
 
   let items = 0;
@@ -1308,6 +1697,13 @@ function main(): void {
   }
 
   report.print();
+
+  if (AWAITING_TRANSLATION.length > 0) {
+    console.log(
+      `\n  note: ${AWAITING_TRANSLATION.length} article(s) are declared as awaiting the hyw/en adaptation pass, ` +
+        `so the cross-edition number check is skipped for them: ${AWAITING_TRANSLATION.join(", ")}.`,
+    );
+  }
 
   if (report.problems.length > 0) {
     console.error(`\n✖ Content validation failed — ${report.problems.length} problem(s).\n`);

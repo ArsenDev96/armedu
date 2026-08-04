@@ -7,8 +7,10 @@ export const historyArticles: Article[] = [
     category: "history",
     categoryLabel: "Հայոց պատմութիւն",
     title: "Տիգրան Մեծ",
-    period: "Հայկական թագաւորութիւններ",
-    periodId: "kingdoms",
+    period: "Հին Հայաստան",
+    periodId: "ancient",
+    topicTypeId: "person",
+    chronoOrder: 2,
     imageSeed: "tigran-the-great",
     keywords: [
       "Տիգրան Մեծ",
@@ -156,6 +158,8 @@ export const historyArticles: Article[] = [
       "Ուրարտուն Վանայ լիճին շուրջ կազմուած հզօր լեռնային թագաւորութիւն մըն էր, որուն բերդերը, ջրանցքներն ու սեպագիր արձանագրութիւնները կերտեցին Հայկական լեռնաշխարհի յետագայ պատմութիւնը։",
     period: "Հին Հայաստան",
     periodId: "ancient",
+    topicTypeId: "state",
+    chronoOrder: 1,
     imageSeed: "kingdom-of-urartu",
     keywords: [
       "Ուրարտու",
@@ -282,6 +286,8 @@ export const historyArticles: Article[] = [
       "Մօտ 405 Ք.Ե.-ին գիտնական ու կրօնաւոր Մեսրոպ Մաշտոց ստեղծեց այբուբեն մը, որ հայերէնին տուաւ իր սեփական գրաւոր ձայնն եւ վերակազմեց ազգին մշակոյթը։",
     period: "Հին Հայաստան",
     periodId: "ancient",
+    topicTypeId: "person",
+    chronoOrder: 4,
     imageSeed: "mesrop-mashtots-armenian-alphabet",
     keywords: [
       "Մեսրոպ Մաշտոց",
@@ -407,6 +413,8 @@ export const historyArticles: Article[] = [
       "Հայաստան աւանդաբար կը ճանչցուի որպէս առաջին պետութիւնը, որ քրիստոնէութիւնն ընդունեց իբրեւ պաշտօնական կրօն. որոշում մը, որ վերակազմեց իր օրէնքը, արուեստն ու ինքնութիւնը։",
     period: "Հին Հայաստան",
     periodId: "ancient",
+    topicTypeId: "event",
+    chronoOrder: 3,
     imageSeed: "adoption-of-christianity",
     keywords: [
       "Քրիստոնէութեան ընդունումը",
@@ -530,8 +538,10 @@ export const historyArticles: Article[] = [
     title: "Աւարայրի ճակատամարտը",
     excerpt:
       "451-ին Վարդան Մամիկոնեանի գլխաւորած հայկական ուժերը դիմագրաւեցին շատ աւելի մեծ պարսկական բանակ մը՝ իրենց հաւատքը պաշտպանելու համար, կորսնցնելով ճակատամարտը, բայց շահելով կրօնական ազատութիւնը։",
-    period: "Ճակատամարտեր եւ դէպքեր",
-    periodId: "battles",
+    period: "Մարզպանական Հայաստան",
+    periodId: "marzpanate",
+    topicTypeId: "battle",
+    chronoOrder: 5,
     imageSeed: "battle-of-avarayr",
     keywords: [
       "Աւարայրի ճակատամարտ",
@@ -657,6 +667,8 @@ export const historyArticles: Article[] = [
       "Բագրատունի արքաները երկու դարու օտար տիրապետութենէ ետք վերականգնեցին հայկական պետականութիւնը եւ Անին դարձուցին միջնադարեան աշխարհի մեծ քաղաքներէն մէկը։",
     period: "Միջնադարեան Հայաստան",
     periodId: "medieval",
+    topicTypeId: "state",
+    chronoOrder: 6,
     imageSeed: "bagratid-armenia",
     keywords: [
       "Բագրատունեաց Հայաստան",
@@ -784,6 +796,8 @@ export const historyArticles: Article[] = [
       "Հռչակուած 1918-ին՝ պատերազմի եւ սովի պայմաններուն մէջ, Առաջին Հանրապետութիւնը հայերուն տուաւ արդիական անկախ պետութիւն մը՝ երկուքուկէս դժուարին տարիներու ընթացքին։",
     period: "Արդի Հայաստան",
     periodId: "modern",
+    topicTypeId: "state",
+    chronoOrder: 7,
     imageSeed: "first-republic-of-armenia",
     keywords: [
       "Հայաստանի Առաջին Հանրապետութիւն",
@@ -901,6 +915,9 @@ export const historyArticles: Article[] = [
         description: "Զօրավար, որուն Զանգեզուրի արշաւանքը այդ շրջանը ապահովեց Հայաստանին համար՝ խորհրդայնացումէն ետք։",
       },
     ],
-    relatedSlugs: ["yeghishe-charents", "hovhannes-tumanyan", "bagratid-armenia"],
+    // History first. Two of the three used to be writer biographies, which left
+    // the section's last article recommending its way out of the section. Charents
+    // stays as the third and earns it: he is the poet of exactly this generation.
+    relatedSlugs: ["bagratid-armenia", "battle-of-avarayr", "yeghishe-charents"],
   },
 ];

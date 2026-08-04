@@ -91,12 +91,36 @@ export const timeline: TimelineEntry[] = [
   },
 ];
 
+/**
+ * Chronological eras. This list is one axis of the history listing; the kind of
+ * subject an article has is the other, in `historyTopicTypes`.
+ *
+ * `kingdoms`, `people` and `battles` were removed in August 2026. The first
+ * named no era («Հայկական թագավորություններ» spans Urartu to the Bagratids), and
+ * the other two named content types rather than periods — which is why «Կարևոր
+ * դեմքեր» matched no history article at all and always returned an empty
+ * listing, and why the Battle of Avarayr, filed under `battles`, could not be
+ * found under any century.
+ */
 export const historyPeriods: Filter[] = [
-  { id: "all", label: "Բոլոր թեմաները" },
+  { id: "all", label: "Բոլոր ժամանակաշրջանները" },
   { id: "ancient", label: "Հին Հայաստան" },
-  { id: "kingdoms", label: "Հայկական թագավորություններ" },
+  { id: "marzpanate", label: "Մարզպանական Հայաստան" },
   { id: "medieval", label: "Միջնադարյան Հայաստան" },
   { id: "modern", label: "Նոր ժամանակների Հայաստան" },
-  { id: "people", label: "Կարևոր դեմքեր" },
-  { id: "battles", label: "Ճակատամարտեր և իրադարձություններ" },
+];
+
+/**
+ * What kind of subject an article has, independent of when it happened.
+ *
+ * Every id here is carried by at least one article — `validate:content` fails
+ * the build otherwise, which is the rule that would have caught the old
+ * «Կարևոր դեմքեր» pill.
+ */
+export const historyTopicTypes: Filter[] = [
+  { id: "all", label: "Բոլոր տեսակները" },
+  { id: "state", label: "Պետություններ և թագավորություններ" },
+  { id: "person", label: "Պատմական դեմքեր" },
+  { id: "event", label: "Իրադարձություններ" },
+  { id: "battle", label: "Ճակատամարտեր" },
 ];

@@ -11,6 +11,24 @@ import { plural } from "@/lib/i18n";
 export type ResultNoun = "articles" | "writers" | "works";
 
 /**
+ * One row of filter pills: its own visible heading, its own vocabulary, its own
+ * selection.
+ *
+ * A group carries a heading rather than borrowing one, because the moment a
+ * listing has two axes an unlabelled row of pills stops being self-explanatory —
+ * «Հին Հայաստան» and «Ճակատամարտեր» look like one flat vocabulary when they are
+ * two, which is exactly the confusion the old single mixed list created.
+ */
+export interface FilterGroup {
+  /** URL key this group writes, and its React key. */
+  paramKey: string;
+  heading: string;
+  filters: Filter[];
+  selected: string;
+  onSelect: (id: string) => void;
+}
+
+/**
  * Search field and filter pills for listing pages.
  *
  * Fully controlled: the owning listing holds the state and keeps it in the URL,
@@ -19,32 +37,32 @@ export type ResultNoun = "articles" | "writers" | "works";
  */
 export function ListingControls({
   ui,
-  filters,
+  groups,
   searchLabel,
   placeholder,
   query,
   onQueryChange,
-  activeFilter,
-  onFilterChange,
   onClear,
   resultCount,
   resultNoun,
   isFiltered,
 }: {
   ui: UiDictionary;
-  filters: Filter[];
+  /** One entry per filter axis. Most listings pass one; history passes two. */
+  groups: FilterGroup[];
   searchLabel: string;
   placeholder: string;
   query: string;
   onQueryChange: (value: string) => void;
-  activeFilter: string;
-  onFilterChange: (id: string) => void;
   onClear: () => void;
   resultCount: number;
   resultNoun: ResultNoun;
   isFiltered: boolean;
 }) {
   const searchId = useId();
+  // One id prefix per instance; each group appends its own param key, so two
+  // groups on one page cannot collide (the responsive audit checks for
+  // duplicate element ids, and a shared `useId` here would produce them).
   const filtersId = useId();
 
   const countTemplates = {
@@ -87,33 +105,51 @@ export function ListingControls({
         </div>
       </form>
 
-      <div className="mt-5">
-        <h2 id={filtersId} className="sr-only">
-          {ui.listing.filtersHeading}
-        </h2>
-        <ul aria-labelledby={filtersId} className="flex flex-wrap gap-2">
-          {filters.map((filter) => {
-            const active = activeFilter === filter.id;
-            return (
-              <li key={filter.id}>
-                <button
-                  type="button"
-                  onClick={() => onFilterChange(filter.id)}
-                  aria-pressed={active}
-                  className={cn(
-                    "rounded-full border px-4 py-2 text-sm font-medium transition",
-                    active
-                      ? "border-burgundy bg-burgundy text-white"
-                      : "border-line text-ink-2 hover:border-line-strong hover:text-ink",
-                  )}
-                >
-                  {filter.label}
-                </button>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
+      {groups.map((group, index) => {
+        const groupId = `${filtersId}-${group.paramKey}`;
+        return (
+          <div key={group.paramKey} className={index === 0 ? "mt-5" : "mt-4"}>
+            {/* Visible when there is more than one axis to tell apart, screen-reader
+                only when there is one — a lone row of era pills was already
+                unambiguous and gaining a heading would be a visual regression. */}
+            <h2
+              id={groupId}
+              className={
+                groups.length > 1
+                  ? "font-sans text-xs font-semibold tracking-[0.16em] text-ink-3 uppercase"
+                  : "sr-only"
+              }
+            >
+              {group.heading}
+            </h2>
+            <ul
+              aria-labelledby={groupId}
+              className={cn("flex flex-wrap gap-2", groups.length > 1 && "mt-2.5")}
+            >
+              {group.filters.map((filter) => {
+                const active = group.selected === filter.id;
+                return (
+                  <li key={filter.id}>
+                    <button
+                      type="button"
+                      onClick={() => group.onSelect(filter.id)}
+                      aria-pressed={active}
+                      className={cn(
+                        "rounded-full border px-4 py-2 text-sm font-medium transition",
+                        active
+                          ? "border-burgundy bg-burgundy text-white"
+                          : "border-line text-ink-2 hover:border-line-strong hover:text-ink",
+                      )}
+                    >
+                      {filter.label}
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        );
+      })}
 
       <div className="mt-5 flex flex-wrap items-center justify-between gap-x-4 gap-y-2 border-t border-line pt-4">
         <p aria-live="polite" className="text-sm text-ink-3">

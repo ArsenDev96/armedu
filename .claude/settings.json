@@ -37,7 +37,17 @@
       "PowerShell(npm run build)",
       "PowerShell(npx playwright test tests/e2e/cuisine.spec.ts)",
       "PowerShell(npx playwright test tests/e2e/cuisine.spec.ts 2>$null)",
-      "PowerShell(npx playwright test 2>$null)"
+      "PowerShell(npx playwright test 2>$null)",
+      "WebFetch(domain:haykpiliposyanmskh.wordpress.com)",
+      "Bash(curl -sS https://armat.site/hy/search)",
+      "Bash(curl -sS -o /dev/null -w \"root: %{http_code} -> %{redirect_url}\\\\n\" https://armat.site/)",
+      "Bash(curl -sS -I https://armat.site/)",
+      "Bash(curl -sS https://armat.site/hy)",
+      "Bash(sed -n '/^export const historyPeriods/,/^];/p' src/data/locales/en/history.ts)",
+      "Bash(sed -n '/^export const historyPeriods/,/^];/p' src/data/locales/hyw/history.ts)",
+      "Bash(cat)",
+      "Bash(python /tmp/listings.py)",
+      "Bash(python /tmp/fix.py)"
     ],
     "additionalDirectories": [
       "C:\\Users\\DoC\\AppData\\Local\\Temp\\claude\\c--Users-DoC-Desktop-armedu\\40fd29df-58e1-4402-94ca-8b0362ca8fbc\\scratchpad"

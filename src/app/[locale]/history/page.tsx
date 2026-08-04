@@ -6,7 +6,12 @@ import { Timeline } from "@/components/sections/Timeline";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Section, SectionHeading } from "@/components/ui/primitives";
 import type { Locale } from "@/data/types";
-import { getArticlesByCategory, getHistoryPeriods, getTimeline } from "@/lib/content";
+import {
+  getArticlesByCategory,
+  getHistoryPeriods,
+  getHistoryTopicTypes,
+  getTimeline,
+} from "@/lib/content";
 import { listingLd, socialImage } from "@/lib/seo";
 import { formatDate } from "@/lib/date";
 import { getStaticAlternates, getUi, localePath, resolveLocale, t } from "@/lib/i18n";
@@ -45,6 +50,7 @@ export default async function HistoryPage({ params }: Params) {
   const ui = getUi(locale);
   const articles = getArticlesByCategory(locale, "history");
   const periods = getHistoryPeriods(locale);
+  const topicTypes = getHistoryTopicTypes(locale);
   const timeline = getTimeline(locale);
   const featured = articles.find((article) => article.slug === "tigran-the-great") ?? articles[0];
   const items = toArticleListingItems(locale, articles);
@@ -70,7 +76,7 @@ export default async function HistoryPage({ params }: Params) {
       </div>
 
       <Section>
-          <HistoryListing items={items} filters={periods} ui={ui}>
+          <HistoryListing items={items} periods={periods} topicTypes={topicTypes} ui={ui}>
             {featured ? (
               <div className="mt-10 md:mt-12">
                 <SectionHeading

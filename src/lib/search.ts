@@ -59,9 +59,9 @@ function haystack(...parts: (string | string[] | undefined)[]): string {
  * `href` is already locale-prefixed here — cards link straight to it.
  *
  * One shape serves every article-backed listing (history and cuisine today).
- * They differ only in which field the filter pills key off — `periodId` for an
- * era, `dishTypeId` for a kind of dish — and that is the listing component's
- * business, not this projection's.
+ * They differ only in which fields the filter pills key off — `periodId` and
+ * `topicTypeId` for history, `dishTypeId` for a kind of dish — and that is the
+ * listing component's business, not this projection's.
  */
 export interface ArticleListingItem extends ArticleSummary {
   haystack: string;
@@ -83,6 +83,7 @@ export function toArticleListingItems(
     readingTime: estimateReadingTime(article),
     period: article.period,
     periodId: article.periodId,
+    topicTypeId: article.topicTypeId,
     dishType: article.dishType,
     dishTypeId: article.dishTypeId,
     imageSeed: article.imageSeed,
@@ -92,6 +93,9 @@ export function toArticleListingItems(
       article.title,
       article.excerpt,
       article.intro,
+      // Visible prose, so it belongs in the haystack: a reader who searches a
+      // phrase they can see on the page should find the page.
+      article.summary,
       article.period,
       article.dishType,
       article.categoryLabel,
@@ -155,20 +159,36 @@ export interface FilterableItem {
 }
 
 /**
- * Applies the search term and the selected filter together — an item must
- * satisfy both (AND), not either.
+ * One filter axis: the id the reader selected, and how to read the matching
+ * field off an item. `all` (or an empty string) means the axis is not filtering.
+ */
+export interface FilterCriterion<T> {
+  selected: string;
+  keyOf: (item: T) => string | undefined;
+}
+
+/**
+ * Applies the search term and every filter axis together — an item must satisfy
+ * all of them (AND), not any.
+ *
+ * Takes a list of axes rather than one, because the history listing has two:
+ * an era and a kind of subject. Passing a single-element list is the normal case
+ * and reads the same as the old single-filter signature did.
  */
 export function filterItems<T extends FilterableItem>(
   items: T[],
   query: string,
-  filterId: string,
-  filterKeyOf: (item: T) => string | undefined,
+  criteria: FilterCriterion<T>[],
 ): T[] {
   const needle = normalize(query);
-  const filtering = Boolean(filterId) && filterId !== ALL_FILTER_ID;
+  const active = criteria.filter(
+    (criterion) => Boolean(criterion.selected) && criterion.selected !== ALL_FILTER_ID,
+  );
 
   return items.filter((item) => {
-    if (filtering && filterKeyOf(item) !== filterId) return false;
+    for (const criterion of active) {
+      if (criterion.keyOf(item) !== criterion.selected) return false;
+    }
     if (needle && !matches(item.haystack, needle)) return false;
     return true;
   });
@@ -224,6 +244,7 @@ export function buildSearchIndex(locale: Locale): SearchResult[] {
         article.title,
         article.excerpt,
         article.intro,
+        article.summary,
         article.period,
         article.dishType,
         article.categoryLabel,
