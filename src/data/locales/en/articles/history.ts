@@ -155,9 +155,18 @@ export const historyArticles: Article[] = [
     href: "/history/kingdom-of-urartu",
     category: "history",
     categoryLabel: "Armenian History",
-    title: "The Kingdom of Urartu",
+    // Both names in the headline. English has no single settled form for what
+    // Armenian historiography calls «Վանի թագավորություն», so the two are named
+    // rather than one being transliterated: "Kingdom of Van" is the term used in
+    // English-language scholarship for the same state.
+    title: "Urartu: the Kingdom of Van",
+    seoTitle: "Urartu (Kingdom of Van), 9th–6th Centuries BC",
     excerpt:
       "Urartu was a powerful highland kingdom around Lake Van whose fortresses, canals and cuneiform records shaped the later history of the Armenian Highlands.",
+    metaDescription:
+      "Urartu, the Kingdom of Van or Ararat kingdom (9th–6th centuries BC): its kings, Tushpa and Erebuni, its canals and cuneiform, and the fall of the kingdom.",
+    summary:
+      "Urartu was a state that existed around Lake Van from the ninth century BC to the beginning of the sixth: the earliest kingdom of the Armenian Highlands for which we have both its own written records and extensive archaeological material. Its capital was Tushpa, on the rock of Van. At the height of its power, under Menua, Argishti I and Sarduri II, the kingdom controlled territory stretching toward Lake Sevan and Lake Urmia and competed with Assyria for the trade routes of the region. Its most visible legacy is its fortresses and its water engineering: Argishti I's Erebuni of 782 BC gave Yerevan its name, and Menua's canal still carries water to the fields near Van.",
     period: "Ancient Armenia",
     periodId: "ancient",
     topicTypeId: "state",
@@ -178,6 +187,16 @@ export const historyArticles: Article[] = [
     updated: "2026-05-14",
     sections: [
       {
+        id: "names",
+        heading: "Urartu, Biainili, Van, Ararat: four names for one state",
+        paragraphs: [
+          "This state appears in scholarly and school literature under several different names, and that usually causes confusion. The names all refer to one state; what differs is who did the naming, and when. The form Urartu is Assyrian: it is what the scribes of the neighbouring empire called the country they fought for two centuries, and because the Assyrian annals are among the earliest written references to this region, that is the form that passed into European scholarship.",
+          "The Urartian kings themselves called their country Biainili in their own inscriptions, the land around Lake Van. It is this word that connects, through a long chain of linguistic change, to the place name Van, and it is from this genuine self-designation that the form Kingdom of Van used in Armenian historiography derives — the form under which the state is usually presented in Armenian-language educational writing. Assyrian sources also used the name Nairi for the lands of the same region, and the Urartian kings adopted it into their titles: the inscription of Sarduri I calls him king of the land of Nairi.",
+          "The fourth name comes from the Bible. The Ararat of the Hebrew text is accepted in scholarship as a rendering of the same name Urartu in the Hebrew consonantal script, and it is from this form that the name Ararat kingdom arises, used in Armenian alongside Kingdom of Van. It is worth noting that this is the name of a state and not the name of Mount Ararat: the connection between the two is one of naming, and Urartian inscriptions do not call that mountain by this name.",
+          "One thing these names do not tell us is the linguistic affiliation of the Urartians. Urartian is related to Hurrian and does not belong to the Indo-European family, so it is not an ancestor of Armenian. The use of the forms Kingdom of Van and Ararat kingdom in Armenian historiography rests on geography and on later historical continuity rather than on linguistic descent, and confusing the two is the commonest error on this subject.",
+        ],
+      },
+      {
         id: "land-and-people",
         heading: "The land and its people",
         paragraphs: [
@@ -192,7 +211,9 @@ export const historyArticles: Article[] = [
         paragraphs: [
           "The traditional founder of the unified kingdom is Aramu, mentioned in Assyrian records around 860 BC. His successor Sarduri I established the capital at Tushpa on the rock of Van, where his inscription proudly names him king of the universe and king of the land of Nairi. Later rulers, above all Menua, Argishti I and Sarduri II, pushed Urartian control north into the Ararat plain and east toward the Caspian slope, turning a defensive federation into an empire that could challenge Assyria for control of the trade routes of the region.",
           "Urartian power rested on fortresses. Royal engineers chose steep outcrops, cut terraces into the rock, and raised massive stone foundations topped by mudbrick walls. Inside these citadels stood temples, barracks and enormous storerooms lined with jars for grain, wine and oil. Erebuni, founded by Argishti I in 782 BC above the modern city of Yerevan, and Teishebaini at Karmir Blur are among the best excavated examples, and their storage capacity shows how carefully the state gathered and redistributed the harvest.",
-          "Warfare and diplomacy alternated across two centuries. Urartu suffered a serious defeat when the Assyrian king Sargon II campaigned in the region in 714 BC, sacking the sanctuary of Musasir and carrying off its treasures. Yet the kingdom recovered and continued to build. Its final decline in the early sixth century BC came from a combination of pressures, including Median expansion and nomadic incursions, and by the time Persian records list the region it is already called Armina.",
+          // The fall used to be the tail of this paragraph, in one clause. It now
+          // has its own section below, so the preview stops at the recovery.
+          "Warfare and diplomacy alternated across two centuries. Urartu suffered a serious defeat when the Assyrian king Sargon II campaigned in the region in 714 BC, sacking the sanctuary of Musasir and carrying off its treasures. Yet the kingdom recovered and continued to build, raising fortresses even in the last decades of its existence.",
         ],
         bullets: [
           "Aramu, first Urartian king named in Assyrian sources, around 860 BC",
@@ -219,6 +240,22 @@ export const historyArticles: Article[] = [
           "Urartian temples were compact square towers with thick walls, set within fortress courtyards. Around them archaeologists have found altars, sacrificial deposits and stelae recording gifts of livestock. The sanctuary of Musasir, shown in an Assyrian relief with a columned porch and a triangular gable, was the most famous of these shrines, and its loss to Sargon II in 714 BC was treated as a national catastrophe.",
           "Burial customs varied. Rock-cut chambers held the remains of the elite together with jewellery, weapons and vessels, while cremation urns have been found in cemeteries near several fortresses. Together with the temple inscriptions, these graves suggest a religion focused on the protection of the community by powerful divine patrons rather than on elaborate ideas of personal afterlife.",
         ],
+      },
+      {
+        id: "fall",
+        heading: "The fall of the kingdom",
+        paragraphs: [
+          "Urartu ceased to exist in the early sixth century BC, and this is the worst-documented part of the kingdom's history. No Urartian inscription describes the end of the state: the royal texts break off, and the next written evidence in which this territory appears is already Persian and calls the region Armina. Everything about the fall is therefore reconstructed indirectly, from archaeology and from the history of the neighbours.",
+          "The difficulty is compounded by the loss, in the same period, of the source that observed Urartu from outside. Assyria — Urartu's chief rival and the author of the richest external testimony about it — itself collapsed in 612 BC. At precisely the moment Urartu was approaching its end, the steady flow of records about it stops as well. This is why the exact date and the circumstances of the fall remain an open question.",
+          "What is usually named as a combination of pressures includes Median expansion from the east and incursions by nomadic peoples from the north. Archaeology confirms that the end was violent in at least some centres: excavations at the fortress of Teishebaini at Karmir Blur have exposed a destruction layer with traces of fire, and this fortress was one of the largest building projects of the late period. At the same time it should be remembered that the destruction of one fortress is not an explanation for the fall of an entire state.",
+          "There is also a second, non-military explanation that receives more attention today. Urartian power rested on fortresses, storerooms and a strictly centralised system of redistribution. A structure of that kind is strong for as long as the centre functions, and quickly becomes useless once the centre stops gathering and distributing the harvest. The available evidence therefore gives no final answer to the question of conquest or collapse, and the most cautious formulation is that external pressure and the vulnerability of the internal system worked together.",
+          "What is not in dispute is that the state disappeared and that what it had built did not. In the following centuries the Armenian Highlands passed under Median and then Achaemenid rule, and a united Armenian kingdom would reach its greatest extent very much later, under Tigran the Great.",
+        ],
+        // The article's one contextual link. Every other subject its prose names —
+        // Erebuni, Menua, Argishti I, Teishebaini — is a page the archive has not
+        // written yet, and the validator rejects a link to a slug that does not
+        // exist in this edition.
+        links: [{ phrase: "Tigran the Great", slug: "tigran-the-great" }],
       },
       {
         id: "legacy",
@@ -413,9 +450,14 @@ export const historyArticles: Article[] = [
     href: "/history/adoption-of-christianity",
     category: "history",
     categoryLabel: "Armenian History",
-    title: "The Adoption of Christianity",
+    title: "The Adoption of Christianity in Armenia (301)",
+    seoTitle: "Armenia's Adoption of Christianity in 301",
     excerpt:
       "Armenia is traditionally recognised as the first state to adopt Christianity as its official religion, a decision that reshaped its law, art and identity.",
+    metaDescription:
+      "In 301 Armenia adopted Christianity as its state religion. Trdat III, Gregory the Illuminator, the causes of the decision, and why the date is disputed.",
+    summary:
+      "According to Armenian tradition, in 301 King Trdat III and his court accepted baptism from Gregory the Illuminator, and Christianity became the official religion of the Armenian kingdom. The change was imposed from the top down: the estates of the pagan temples passed to the new church, the seat of the Catholicos was established at Etchmiadzin, and by 325 Armenian bishops were already present at the Council of Nicaea. The date itself is disputed, with a number of historians arguing for something closer to 314. On either dating Armenia was the earliest state to take the step, more than seven decades ahead of Rome. The most far-reaching consequence came a century later: the need for Armenian scripture led directly to the creation of the Armenian alphabet.",
     period: "Ancient Armenia",
     periodId: "ancient",
     topicTypeId: "event",
@@ -447,6 +489,22 @@ export const historyArticles: Article[] = [
         ],
       },
       {
+        id: "causes",
+        heading: "The causes of the conversion",
+        paragraphs: [
+          "The reason most often cited is foreign policy. The Sasanian dynasty that took power in Persia in 224 made Zoroastrianism a state ideology and pressed it on its neighbours as well. For the Armenian court this meant that sharing the same religion would sooner or later turn into political subordination. Adopting Christianity therefore drew a clear line between Armenia and the great power to its east, without also making Armenia religiously identical to Rome, which had not yet stopped persecuting Christians.",
+          "The second reason was internal: Christianity already had a foothold in Armenia. Communities of believers existed in towns and among some noble households during the second and third centuries, along the trade routes from Syria and Cappadocia. The royal decision was therefore not the import of an entirely unfamiliar faith but the granting of official standing to something already spreading. That is what explains how quickly the change took hold: by the middle of the fourth century a full ecclesiastical hierarchy was in operation.",
+          "The third reason is economic and administrative, and it is what makes the conversion a redistribution of power rather than only a change of belief. The great pagan temples controlled estates, priests and treasuries, and noble families drew both status and income from them. When those estates were transferred to the church, the wealth moved with them — to an institution whose head remained in Gregory's family for several generations and which was tied closely to the court.",
+          "What the sources do not permit is weighing these reasons against one another, or separating them from personal conviction. The principal narrative source for the conversion, Agathangelos's History of the Armenians, was written more than a century after the events it describes and presents the adoption as the consequence of a healing miracle rather than of a calculation of state. The political and economic reading is a later interpretation, made on the basis of what is known about the period. The most cautious formulation is therefore that these factors worked together, and that the order of their importance remains disputed.",
+        ],
+        bullets: [
+          "External: separation from Sasanian Persia, which had made Zoroastrianism a state ideology",
+          "Internal: Christian communities already present in towns and noble households",
+          "Economic: the transfer of temple estates and their revenues to the new church",
+          "Unresolved: the sources do not allow these factors to be ranked",
+        ],
+      },
+      {
         id: "gregory-and-trdat",
         heading: "Gregory the Illuminator and King Trdat",
         paragraphs: [
@@ -469,6 +527,7 @@ export const historyArticles: Article[] = [
           "Armenian bishops present at the Council of Nicaea in 325",
           "Need for Armenian scripture leads to the alphabet of 405",
         ],
+        links: [{ phrase: "Mesrop Mashtots", slug: "mesrop-mashtots-armenian-alphabet" }],
       },
       {
         id: "distinct-tradition",
@@ -478,6 +537,7 @@ export const historyArticles: Article[] = [
           "This independence gave the Armenian Church its own calendar, liturgy, chant and architecture. Armenian churches are typically compact stone buildings with a conical dome over a drum, a form developed in the early medieval centuries and repeated for more than a thousand years. Illuminated manuscripts, carved cross-stones called khachkars, and a distinctive system of musical notation all grew out of the same tradition.",
           "Because the church operated across every political border that divided Armenians, it functioned as a unifying institution during the long centuries without an Armenian state. Monasteries served as schools, libraries and courts, and their scriptoria preserved the manuscripts that fill the Matenadaran today.",
         ],
+        links: [{ phrase: "Avarayr", slug: "battle-of-avarayr" }],
       },
       {
         id: "dating-debate",

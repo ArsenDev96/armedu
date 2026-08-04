@@ -63,9 +63,13 @@ const COMPLETE_LOCALES: Locale[] = ["hy", "en"];
  * and an entry that outlives its adaptation pass is a divergence nobody is
  * checking any more.
  *
- * August 2026: the two articles revised in the first SEO batch.
+ * August 2026: emptied. `adoption-of-christianity` and `kingdom-of-urartu` were
+ * declared here during the first SEO batch and adapted into `hyw` and `en` in the
+ * pass that follows it, so the cross-edition check applies to all 23 articles
+ * again. It is left in place, like `DECLARED_UNAVAILABLE`, because it is the right
+ * mechanism for the next batch rather than a one-off.
  */
-const AWAITING_TRANSLATION: string[] = ["adoption-of-christianity", "kingdom-of-urartu"];
+const AWAITING_TRANSLATION: string[] = [];
 
 const DECLARED_UNAVAILABLE: Partial<Record<Locale, Record<CategoryId, string[]>>> = {
   hyw: {
@@ -1559,6 +1563,14 @@ function validateCrossLocaleNumbers(report: Report): void {
     if (!article) return null;
     return new Map<string, string[]>([
       ["intro", numbersIn(article.intro)],
+      // The three SEO fields are prose too, and the summary in particular is where
+      // a date is most likely to be restated — it is the block written to state the
+      // outcome. They are optional per edition, so an absent field compares as no
+      // numbers at all rather than crashing; what this catches is an edition that
+      // authors one and gets a year wrong in it.
+      ["summary", numbersIn(article.summary ?? "")],
+      ["seoTitle", numbersIn(article.seoTitle ?? "")],
+      ["metaDescription", numbersIn(article.metaDescription ?? "")],
       ["keyFacts", article.keyFacts.flatMap((f) => numbersIn(f.value)).sort()],
       ["importantDates", article.importantDates.flatMap((d) => numbersIn(`${d.year} ${d.event}`)).sort()],
       ["sections", article.sections.flatMap((s) => s.paragraphs.flatMap(numbersIn)).sort()],
