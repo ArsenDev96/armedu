@@ -167,9 +167,10 @@ The seven history articles, in chronological order (`chronoOrder`, §21):
 | 6 | `bagratid-armenia` | `medieval` | `state` |
 | 7 | `first-republic-of-armenia` | `modern` | `state` |
 
-**Western Armenian (`hyw`)** — complete since July 2026 (§15). It is the one edition whose
-prose has **not** been reviewed by a native speaker; that caveat is about quality, not
-coverage. This section previously listed 9 translated articles and 8 "intentionally not
+**Western Armenian (`hyw`)** — complete since July 2026 (§15) and reviewed through multiple
+AI-assisted Western Armenian editorial passes; it has **not** been reviewed by a native
+Western Armenian editor. That caveat is about quality, not coverage. This section previously
+listed 9 translated articles and 8 "intentionally not
 translated"; both lists were superseded by §15 and are gone.
 
 **English (`en`)** — complete, under `/en`. No longer the reference text for accuracy: the
