@@ -82,5 +82,4 @@ export const literaryPeriods: Filter[] = [
   { id: "19th-century", label: "19-րդ դար" },
   { id: "20th-century", label: "20-րդ դար" },
   { id: "soviet", label: "Խորհրդային շրջան" },
-  { id: "contemporary", label: "Ժամանակակից" },
 ];

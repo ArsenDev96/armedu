@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, type ReactNode } from "react";
-import type { Filter } from "@/data/types";
+import { ALL_FILTER_ID, type Filter } from "@/data/types";
 import type { UiDictionary } from "@/data/ui";
 import { WorkCard } from "@/components/cards/WorkCard";
 import { EmptyResults } from "@/components/sections/EmptyResults";
@@ -9,6 +9,9 @@ import { ListingControls } from "@/components/sections/ListingControls";
 import { SectionHeading } from "@/components/ui/primitives";
 import { filterItems, type WorkListingItem } from "@/lib/search";
 import { useListingParams } from "@/lib/useListingParams";
+
+/** Module-level so the array identity is stable across renders. */
+const FILTER_KEYS = ["type"] as const;
 
 export function WorksListing({
   items,
@@ -24,25 +27,35 @@ export function WorksListing({
 }) {
   // Works are filtered by genre — the one structured axis the work model
   // already has. `type` keeps the query parameter readable: /works?type=poetry
-  const { query, setQuery, filterId, setFilterId, clearAll, isFiltered } =
-    useListingParams("type");
+  // Renamed on destructuring: `filters` is already this component's prop,
+  // which is the filter *vocabulary*, not the reader's current selection.
+  const { query, setQuery, filters: selection, setFilter, clearAll, isFiltered } =
+    useListingParams(FILTER_KEYS);
+
+  const selected = selection.type ?? ALL_FILTER_ID;
 
   const results = useMemo(
-    () => filterItems(items, query, filterId, (item) => item.genreId),
-    [items, query, filterId],
+    () => filterItems(items, query, [{ selected, keyOf: (item) => item.genreId }]),
+    [items, query, selected],
   );
 
   return (
     <>
       <ListingControls
         ui={ui}
-        filters={filters}
+        groups={[
+          {
+            paramKey: "type",
+            heading: ui.listing.filtersHeading,
+            filters,
+            selected,
+            onSelect: (id) => setFilter("type", id),
+          },
+        ]}
         searchLabel={ui.listing.works.searchLabel}
         placeholder={ui.listing.works.searchPlaceholder}
         query={query}
         onQueryChange={setQuery}
-        activeFilter={filterId}
-        onFilterChange={setFilterId}
         onClear={clearAll}
         resultCount={results.length}
         resultNoun="works"

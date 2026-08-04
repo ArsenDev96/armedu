@@ -6,6 +6,7 @@ import { ArticleNav } from "@/components/article/ArticleNav";
 import { Breadcrumbs, type Crumb } from "@/components/article/Breadcrumbs";
 import { CopyLinkButton } from "@/components/article/CopyLinkButton";
 import { RelatedArticles } from "@/components/article/RelatedArticles";
+import { SectionProse } from "@/components/article/SectionProse";
 import { TableOfContents } from "@/components/article/TableOfContents";
 import { ContentPhoto } from "@/components/ui/ContentPhoto";
 import { ClockIcon } from "@/components/ui/icons";
@@ -104,6 +105,9 @@ export function ArticleLayout({
   // Two sections are conditional, so the contents list has to be too — an entry
   // pointing at an anchor that is not on the page is a broken link in the one
   // component whose whole job is finding things.
+  const leadingToc = article.summary
+    ? [{ id: "summary", heading: ui.article.summary }]
+    : [];
   const extraToc = [
     { id: "important-dates", heading: ui.article.importantDates },
     { id: "significance", heading: article.significance.heading },
@@ -195,6 +199,7 @@ export function ArticleLayout({
               it stays shorter than the viewport and never strands content below it. */}
           <aside className="lg:sticky lg:top-24 lg:order-2 lg:self-start">
             <TableOfContents
+              leading={leadingToc}
               sections={article.sections}
               extra={extraToc}
               heading={ui.article.tableOfContents}
@@ -202,6 +207,25 @@ export function ArticleLayout({
           </aside>
 
           <div className="lg:order-1">
+            {/* Above the key facts and the prose, because the reader it exists for
+                is the one who wants the answer and not the article. `<section>`
+                with its own heading rather than a styled paragraph: it is a
+                distinct, linkable part of the document, it is the first entry in
+                the table of contents, and a screen reader should be able to skip
+                straight past it to the body. */}
+            {article.summary ? (
+              <section id="summary" className="mb-10 scroll-mt-28">
+                <Card className="border-l-4 border-l-burgundy p-5 md:p-6">
+                  <h2 className="font-sans text-xs font-semibold tracking-[0.16em] text-ink-3 uppercase">
+                    {ui.article.summary}
+                  </h2>
+                  <p className="mt-3 text-[1.0625rem] leading-relaxed text-ink-2">
+                    {article.summary}
+                  </p>
+                </Card>
+              </section>
+            ) : null}
+
             <Card className="mb-10 p-5 md:p-6">
               <h2 className="font-sans text-xs font-semibold tracking-[0.16em] text-ink-3 uppercase">
                 {ui.article.keyFacts}
@@ -260,9 +284,7 @@ export function ArticleLayout({
               {article.sections.map((section) => (
                 <section key={section.id} id={section.id} className="scroll-mt-28">
                   <h2>{section.heading}</h2>
-                  {section.paragraphs.map((paragraph, index) => (
-                    <p key={index}>{paragraph}</p>
-                  ))}
+                  <SectionProse locale={locale} section={section} selfSlug={article.slug} />
                   {section.bullets ? (
                     <ul>
                       {section.bullets.map((bullet) => (

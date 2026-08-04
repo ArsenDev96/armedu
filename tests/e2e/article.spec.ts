@@ -72,9 +72,12 @@ test("previous and next navigation stays inside the locale and category", async 
   await expect(page.locator("html")).toHaveAttribute("lang", "hy");
 });
 
-test("the first article in a category has no previous link", async ({ page }) => {
-  // Tigran the Great is authored first in the history collection.
-  await page.goto("/hy/history/tigran-the-great");
+test("the chronologically first article in a category has no previous link", async ({ page }) => {
+  // Urartu is `chronoOrder: 1` in history. Note this is *not* the first article
+  // in the authored array — Tigran is — which is exactly what this test now
+  // distinguishes. Until August 2026 previous/next followed the array, so this
+  // spec asserted no-previous on Tigran and passed against the bug.
+  await page.goto("/hy/history/kingdom-of-urartu");
   const dict = ui("hy");
 
   await expect(
@@ -83,6 +86,63 @@ test("the first article in a category has no previous link", async ({ page }) =>
   await expect(
     page.getByRole("link", { name: new RegExp(`^${dict.article.next}`) }).first(),
   ).toBeVisible();
+});
+
+test("previous and next follow the chronology, not the authored order", async ({ page }) => {
+  const dict = ui("hy");
+
+  // Tigran is authored first but is second chronologically, so he must offer a
+  // previous — and it must be Urartu, the ninth-century BC kingdom, rather than
+  // Urartu being offered as what comes *next* after him.
+  await page.goto("/hy/history/tigran-the-great");
+
+  const previous = page.getByRole("link", { name: new RegExp(`^${dict.article.previous}`) }).first();
+  await expect(previous).toBeVisible();
+  await expect(previous).toContainText(articleTitle("hy", "kingdom-of-urartu"));
+
+  const next = page.getByRole("link", { name: new RegExp(`^${dict.article.next}`) }).first();
+  await expect(next).toContainText(articleTitle("hy", "adoption-of-christianity"));
+
+  // And the last one chronologically closes the chain.
+  await page.goto("/hy/history/first-republic-of-armenia");
+  await expect(page.getByRole("link", { name: new RegExp(`^${dict.article.next}`) })).toHaveCount(0);
+});
+
+test("an article summary renders as a linkable block and leads the contents", async ({ page }) => {
+  await page.goto("/hy/history/adoption-of-christianity");
+  const dict = ui("hy");
+
+  const summary = page.locator("#summary");
+  await expect(summary).toBeVisible();
+  await expect(summary.getByRole("heading", { name: dict.article.summary })).toBeVisible();
+
+  // First entry in the table of contents, because it is first on the page.
+  const toc = page.getByRole("navigation", { name: dict.article.tableOfContents });
+  await expect(toc.getByRole("link").first()).toHaveAttribute("href", "#summary");
+
+  // An article without one renders no empty heading.
+  await page.goto("/hy/history/tigran-the-great");
+  await expect(page.locator("#summary")).toHaveCount(0);
+  await expect(page.getByRole("heading", { name: dict.article.summary })).toHaveCount(0);
+});
+
+test("a contextual prose link points at the article it names, in the same edition", async ({
+  page,
+}) => {
+  await page.goto("/hy/history/adoption-of-christianity");
+
+  // Declared on the `building-a-church` section: the sentence names Mashtots as
+  // the consequence of the conversion, and the archive has that article.
+  const link = page.locator("#building-a-church").getByRole("link", { name: "Մեսրոպ Մաշտոցի" });
+  await expect(link).toHaveCount(1);
+  await expect(link).toHaveAttribute(
+    "href",
+    "/hy/history/mesrop-mashtots-armenian-alphabet",
+  );
+
+  await link.click();
+  await expect(page).toHaveURL(/\/hy\/history\/mesrop-mashtots-armenian-alphabet$/);
+  await expect(page.locator("html")).toHaveAttribute("lang", "hy");
 });
 
 test("related links stay inside the locale", async ({ page }) => {

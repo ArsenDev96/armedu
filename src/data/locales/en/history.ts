@@ -88,12 +88,24 @@ export const timeline: TimelineEntry[] = [
   },
 ];
 
+/**
+ * Chronological eras — one axis of the history listing; `historyTopicTypes` is
+ * the other. See the note in the `hy` edition for why `kingdoms`, `people` and
+ * `battles` were removed in August 2026.
+ */
 export const historyPeriods: Filter[] = [
-  { id: "all", label: "All topics" },
+  { id: "all", label: "All periods" },
   { id: "ancient", label: "Ancient Armenia" },
-  { id: "kingdoms", label: "Armenian Kingdoms" },
+  { id: "marzpanate", label: "Marzpanate Armenia" },
   { id: "medieval", label: "Medieval Armenia" },
   { id: "modern", label: "Modern Armenia" },
-  { id: "people", label: "Important People" },
-  { id: "battles", label: "Battles and Events" },
+];
+
+/** What kind of subject an article has, independent of when it happened. */
+export const historyTopicTypes: Filter[] = [
+  { id: "all", label: "All types" },
+  { id: "state", label: "States and kingdoms" },
+  { id: "person", label: "Historical figures" },
+  { id: "event", label: "Events" },
+  { id: "battle", label: "Battles" },
 ];

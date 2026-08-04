@@ -1,8 +1,9 @@
 # Armat — Project State Report
 
-**Last updated:** 2026-07-31
-**Repo:** `d:\armedu` · branch `main`
-**Status:** Armenian-first multilingual MVP, localhost-complete in three editions.
+**Last updated:** 2026-08-04
+**Repo:** `d:\armedu` · branch `seo`
+**Status:** Armenian-first multilingual site, complete in three editions and **live in
+production at [armat.site](https://armat.site)** (Vercel). Crawlable and indexable today.
 
 > **Renamed to Armat (July 2026).** The project was formerly **ArmEdu**; the visible brand,
 > metadata, structured data, editorial bylines, docs and the domain
@@ -20,11 +21,27 @@ works and cultural heritage. Target audience: students, teachers, parents, and A
 in the diaspora.
 
 The platform is now **Armenian-first**: Eastern Armenian is the default and complete
-edition, Western Armenian is a growing second edition, English is third.
+edition, Western Armenian is a complete second edition, and English is third.
 
 Scope is deliberately content-only. No accounts, login, quizzes, comments, payments,
-dashboards, admin pages, or CMS. Finished **on localhost only** — no deployment, CI/CD
-or Search Console. Google Analytics is the one exception, added August 2026 (§20).
+dashboards, admin pages, or CMS.
+
+**Deployment status (verified 4 August 2026).** The site is **live** at `https://armat.site`,
+served by Vercel. This corrects the previous statement in this document that the project was
+"finished on localhost only — no deployment, CI/CD or Search Console", which was true when it
+was written and had not been revised after the deploy. What is verified from outside:
+
+| Check | Result |
+|---|---|
+| `https://armat.site/hy/history` | `200`, fully prerendered HTML |
+| `https://armat.site/` | `307` → `/hy` (deliberate; see `next.config.ts`) |
+| `robots.txt` | `User-Agent: * / Allow: /`, declares the sitemap |
+| `sitemap.xml` | served, 30 URLs per edition incl. all 4 categories and 23 articles |
+| Canonicals, hreflang (`hy`/`hyw`/`en`/`x-default`), OG, JSON-LD | present on the article pages spot-checked |
+| GA4 `G-BQ1HWH334Y` | firing in production |
+| Search Console | **unconfirmed — needs checking by the owner.** No `google-site-verification` meta tag is emitted, but that proves nothing: a domain property is verified through DNS and leaves no trace in the HTML. Confirm whether the property already exists before creating one. |
+
+There is still no CI/CD and no automated deploy pipeline in the repo.
 
 The one exception to "no server" is `POST /api/contact`, added July 2026 for the contact
 form. It exists because SMTP credentials cannot live in the browser; every *page* is still
@@ -44,7 +61,7 @@ statically prerendered.
 | Newsletter | Supabase — **email collection only** |
 | Contact form | `POST /api/contact` — SMTP via nodemailer, with a Supabase copy |
 | Analytics | Google Analytics 4 (`G-BQ1HWH334Y`) via `next/script` — **production builds only** |
-| Testing | Playwright, 93 tests (desktop + mobile projects) |
+| Testing | Playwright end-to-end suite (desktop + mobile projects; current totals in §3) |
 | Tooling | `tsx` for the content validation script |
 | Dev port | 3002 |
 
@@ -52,17 +69,24 @@ statically prerendered.
 
 ## 3. Verification status (all run and passing)
 
+Current as of 4 August 2026. The figures below had been left at their January values
+(68 entries, 79 pages, 93 tests) long after the cuisine category, the Western Armenian
+completion and the SEO batch changed all three.
+
 ```
 npm install              → OK
 npm run typecheck        → PASS (0 errors)
-npm run validate:content → PASS (68 entries across 3 locales)
-npm run build            → PASS (79 pages prerendered; `/api/contact` dynamic)
-npm run test:e2e         → PASS (93/93)
+npm run validate:content → PASS (99 entries across 3 locales)
+npm run build            → PASS (102 pages prerendered; `/api/contact` dynamic)
+npm run test:e2e         → PASS (134 passed, 5 skipped)
 ```
 
 `validate:content` now also checks: every registered image exists on disk; every article
 has a bibliography entry; every citation carries a valid ISBN, DOI, URL or archival
-reference; and the three editions state the same numbers as each other.
+reference; the three editions state the same numbers as each other; **no filter matches
+zero articles**; the two history filter axes are both populated; `chronoOrder` is complete
+and gapless per category; the shared taxonomy ids agree across editions; and every
+contextual prose link names a phrase that exists and a slug that resolves (§21).
 
 A separate responsive/accessibility audit ran 112 checks across 4 widths
 (375/768/1024/1440) × 28 page states × 3 locales: no horizontal overflow, no duplicate
@@ -75,9 +99,15 @@ links, no unnamed buttons, no unsubstituted `{placeholder}` tokens.
 
 | Locale | Edition | Coverage |
 |---|---|---|
-| `hy` | Հայերեն (Eastern Armenian) | **Default.** Complete — 17/17 articles |
-| `hyw` | Արեւմտահայերէն (Western Armenian) | Complete UI, 9/17 articles |
-| `en` | English | Complete — 17/17 articles |
+| `hy` | Հայերեն (Eastern Armenian) | **Default.** Complete — 23/23 articles |
+| `hyw` | Արեւմտահայերէն (Western Armenian) | Complete — 23/23 articles (see §15: not natively reviewed) |
+| `en` | English | Complete — 23/23 articles |
+
+All three editions are complete. The "9/17" figure this table carried until August 2026
+described the state before the Western Armenian completion pass (§15) and before the cuisine
+category (§17); `DECLARED_UNAVAILABLE` in `scripts/validate-content.ts` is empty for every
+category in every locale, so the untranslated-article page is currently unreachable by any
+route. The mechanism is kept because it is still the right home for a future gap.
 
 ```
 /                    → 307 redirect to /hy
@@ -93,7 +123,7 @@ links, no unnamed buttons, no unsubstituted `{placeholder}` tokens.
 carry each page's real language. `/` is redirected in `next.config.ts` (no middleware).
 `/ru` and any other unsupported segment return 404 via `dynamicParams = false`.
 
-79 pages, every one statically prerendered.
+102 pages, every one statically prerendered.
 
 ---
 
@@ -121,17 +151,27 @@ build.
 
 ## 6. Content inventory
 
-**Eastern Armenian (`hy`)** — complete: 7 history articles, 6 writer biographies,
-4 literary works, plus homepage, categories, timeline, filters, About/Contact/Privacy.
+**23 articles per edition, in all three editions** — 7 history, 6 writer biographies,
+4 literary works, 6 cuisine — plus homepage, four category listings, timeline, filters and
+About/Contact/Privacy. 69 article pages in total.
 
-**Western Armenian (`hyw`)** — complete interface and page copy; 9 articles:
-- History (4): Mesrop Mashtots, Tigran the Great, Adoption of Christianity, Avarayr
-- Writers (3): Tumanyan, Charents, Sevak
-- Works (2): Anush, David of Sassoun
+The seven history articles, in chronological order (`chronoOrder`, §21):
 
-**Intentionally not translated into Western Armenian (8)** — these render the localized
-unavailable page: Kingdom of Urartu, Bagratid Armenia, First Republic of Armenia, Raffi,
-Isahakyan, Abovyan, Wounds of Armenia, The Fool.
+| # | Slug | `periodId` | `topicTypeId` |
+|---|---|---|---|
+| 1 | `kingdom-of-urartu` | `ancient` | `state` |
+| 2 | `tigran-the-great` | `ancient` | `person` |
+| 3 | `adoption-of-christianity` | `ancient` | `event` |
+| 4 | `mesrop-mashtots-armenian-alphabet` | `ancient` | `person` |
+| 5 | `battle-of-avarayr` | `marzpanate` | `battle` |
+| 6 | `bagratid-armenia` | `medieval` | `state` |
+| 7 | `first-republic-of-armenia` | `modern` | `state` |
+
+**Western Armenian (`hyw`)** — complete since July 2026 (§15) and reviewed through multiple
+AI-assisted Western Armenian editorial passes; it has **not** been reviewed by a native
+Western Armenian editor. That caveat is about quality, not coverage. This section previously
+listed 9 translated articles and 8 "intentionally not
+translated"; both lists were superseded by §15 and are gone.
 
 **English (`en`)** — complete, under `/en`. No longer the reference text for accuracy: the
 July 2026 audit corrected it more heavily than either Armenian edition, and on two points
@@ -145,7 +185,7 @@ labels and prose are translated.
 
 ## 7. Imagery
 
-All 17 articles now render real artwork from `public/images/{history,writers,works}/`.
+All 23 articles now render real artwork from `public/images/{history,writers,works,cuisine}/`.
 `src/lib/media.ts` maps **slug → file** in one place (two filenames deliberately differ
 from their slug, which is why it is an explicit map and not a path convention), and
 `src/components/ui/ContentPhoto.tsx` renders `next/image` when a slug has artwork and the
@@ -169,7 +209,10 @@ registry key matches no article slug in any edition.
 
 ---
 
-## 8. Content audit — July 2026
+## 8. Historical content audit — July 2026
+
+> **Historical record.** Counts and coverage statements in this section describe the
+> repository at the time of the audit. §§3–7 are the current source of truth.
 
 The whole archive was fact-checked against external sources. It found a correct skeleton
 and unreliable details, because the articles were originally drafted from a language
@@ -352,7 +395,7 @@ edition.
 
 British spelling is already uniform across the edition; no American forms were found.
 
-## 9. Project review — July 2026
+## 9. Historical project review — July 2026
 
 Six parallel reviews covered Next.js correctness, accessibility, the data layer, security
 and privacy, test coverage, and cross-edition content. The base held up: no secrets, no
@@ -453,7 +496,8 @@ was the only personal data collected, which this change made untrue.
 2. **Translations need a native-speaker pass.** ~30 specific judgement calls are listed
    at the end of `docs/translation-glossary.md`, split by edition. None are known errors;
    all are used consistently, so each can be changed in one pass.
-3. **Western Armenian is a partial edition by design** — 8 of 17 articles pending.
+3. **Western Armenian native-language review remains pending.** Coverage is now 23/23;
+   the former 8-of-17 gap is retained here only as audit history (§16).
 4. **`Պարույր Սեւակ` is spelled with `եւ` in 15 places** in the Armenian edition, where
    reformed orthography would give `Սևակ`. It is a proper name, so the choice is
    editorial rather than mechanical; logged as review item 8 in the glossary.
@@ -476,15 +520,19 @@ was the only personal data collected, which this change made untrue.
    flag correct Armenian and train editors to ignore the validator.
 8. **Real identity set** — the domain is **`armat.site`**, centralised in
    `src/data/site.ts`; every canonical, OG, hreflang, sitemap and JSON-LD URL derives from
-   it. The site still runs on localhost, but the origin is now a real host rather than a
-   placeholder, so nothing structural blocks indexing once it is deployed.
+   it. The site is **live at that origin** as of August 2026, so every one of those URLs now
+   resolves; nothing structural blocks indexing.
    **No email address is published anywhere** (July 2026): the `contactEmail` field, the
    `mailto:` button on the contact page and the `email` node in the `Organization`
    structured data were all removed. The contact form is the only route in, and where its
    messages land is a server-side setting (`CONTACT_TO_EMAIL`, falling back to `SMTP_USER`).
 9. **No social profiles**, so those blocks are hidden rather than populated.
-10. **No deployment, CI or Search Console** — excluded by project constraint. Analytics is
-   now the sole exception (§20); the rest of the list stands.
+10. **No CI/CD pipeline, and Search Console status unconfirmed.** The *deployment* half of
+   this limitation is gone: the site is live on Vercel at `armat.site` (§1). What remains is
+   that there is no automated build/deploy pipeline in the repo, and that nobody has
+   confirmed whether a Search Console property exists for the domain — it may already be
+   verified through DNS, which leaves no trace in the served HTML. **Confirm before creating
+   one.** Google Analytics is live (§20).
 11. **`npm run lint` has been removed** (it was dead — `next lint` no longer exists in
    Next 16). No ESLint was added, per the "avoid unnecessary dependencies" constraint.
 
@@ -514,7 +562,10 @@ was the only personal data collected, which this change made untrue.
 
 ---
 
-## 13. SEO and structured data — July 2026
+## 13. Historical SEO and structured-data audit — July 2026
+
+> **Historical record.** The unavailable-route examples below were valid during this pass.
+> Today `DECLARED_UNAVAILABLE` is empty, so no unavailable article route is reachable.
 
 A technical SEO pass, built on the same rule the content work follows: **structured data
 describes what a reader can already see, it never introduces a claim of its own.**
@@ -561,8 +612,10 @@ fallback — an Armenian page emits Armenian strings and declares its own `inLan
 - The `ItemList` on each listing states exactly the number of cards the page renders.
 - Articles carry their citations (3/2/2 on the pages checked), image, `datePublished` and
   `dateModified`.
-- The untranslated page (`/hyw/history/kingdom-of-urartu`, `/hyw/writers/raffi`) emits **zero**
-  JSON-LD, `robots=noindex`, and advertises **no** hreflang alternates at all.
+- A future route declared in `DECLARED_UNAVAILABLE` must emit **zero** JSON-LD,
+  `robots=noindex`, and no hreflang alternates. The former examples
+  `/hyw/history/kingdom-of-urartu` and `/hyw/writers/raffi` are now published routes; rearm
+  this verification with the next deliberately unavailable slug.
 - The hreflang guard holds: `/hy/writers/raffi` (translated in hy + en, not hyw) advertises
   `hy`, `en` and `x-default→hy`, and **no** `hyw`. Fully translated articles advertise all three.
 
@@ -595,12 +648,13 @@ indexable edition and absent where the default cannot serve the page. The hrefla
 **Origin resolved.** `src/data/site.ts` now names the real domain **`armat.site`**, so every
 canonical, OG URL, hreflang, sitemap entry and JSON-LD `@id` points at a host that will exist
 once the site is deployed. The structured data, alternates and sitemap were always correct in
-shape; they now also carry the right origin. The remaining gap is purely operational —
-deployment, and Search Console verification — both still out of scope for the localhost build.
+shape; they now also carry the right origin — and as of August 2026 that origin is live, so
+they are being served rather than merely being correct. The one operational item still open
+is confirming Search Console (§1).
 
 ---
 
-## 14. Keywords and transliterations — July 2026
+## 14. Historical keywords and transliterations audit — July 2026
 
 Added an authored `keywords` field. The honest framing, recorded here so nobody
 re-litigates it later: **`<meta name="keywords">` has been ignored by Google since 2009 and
@@ -647,7 +701,7 @@ be extended to `keywords`. Latin script in an Armenian edition is the intended c
 
 ---
 
-## 16. SEO hardening pass — July 2026
+## 15. Historical SEO hardening pass — July 2026
 
 The foundation (canonicals, hreflang + `x-default`, per-locale sitemap with
 alternates, JSON-LD graphs, `noindex` on search and untranslated pages) predates
@@ -697,7 +751,7 @@ indexing.
 
 ---
 
-## 15. Western Armenian coverage — COMPLETE, pending native review
+## 16. Western Armenian coverage — COMPLETE, pending native review
 
 The declared `hyw` gaps are closed. **All 8 articles are translated; `DECLARED_UNAVAILABLE`
 is now empty for every category.** Content count is 81 entries (was 68 at the start of this
@@ -752,7 +806,7 @@ the article-level `period` field is not compared and keeps the edition's `19-ր�
 
 ---
 
-## 14. Artwork provenance and honest captions — July 2026
+## 17. Artwork provenance and honest captions — July 2026
 
 The 17 illustrations are AI-generated. That was true before but said nowhere; §11.5 flagged
 it as the sharpest honesty gap, because a student on Թումանյան's page sees an *invented
@@ -795,7 +849,7 @@ but like the rest of the translations (§11.2) they are a model's work and shoul
 in particular the hyphen-before-genitive on a proper name (`Սևակ-ի`) and the choice of
 `երևակայված պատկեր` for "imagined likeness".
 
-## 17. Western Armenian language review — July 2026
+## 18. Western Armenian language review — July 2026
 
 A conservative editorial pass was run over the entire `hyw` edition (all 9 locale files,
 ~3,000 lines) against `docs/translation-glossary.md`. ~45 corrections were applied directly
@@ -814,7 +868,7 @@ in-chat (2026-07-27). This was an AI editorial pass, not the required native-spe
 
 ---
 
-## 18. Source-provenance and hostile-material screen — July 2026
+## 19. Historical source-provenance and hostile-material screen — July 2026
 
 **Standing editorial rule (set by the site owner, 2026-07-31):** no anti-Armenian material
 is to be used or cited anywhere in the content or the bibliography. This covers
@@ -832,7 +886,8 @@ as legitimate scholarship, despite superficially looking like removal candidates
 Eḷishē (Eḷishē described as a partisan source). Both are standard critical editions and the
 only usable sources for those articles.
 
-**Content screen — clean, one wording fix applied.** All 17 articles × 3 locales (51 records)
+**Historical content screen — clean, one wording fix applied.** At that time, all 17 articles
+× 3 locales (51 records)
 plus listing cards and static pages were read. The genocide is named plainly in every
 edition (`The Armenian Genocide` / `Հայոց ցեղասպանությունը` / `Հայոց ցեղասպանութիւնը`); no
 euphemism, false symmetry or denialist framing anywhere. Six occurrences of the phrase
@@ -851,7 +906,7 @@ Avarayr troop numbers are almost certainly inflated.
 
 ---
 
-## 17. Armenian Cuisine — a fourth category (July 2026)
+## 20. Armenian Cuisine — a fourth category (July 2026)
 
 A fourth content category, **`cuisine`**, was added alongside history, writers and works:
 `/{hy,hyw,en}/cuisine` and `/<locale>/cuisine/[slug]`, with six dishes — **lavash, dolma,
@@ -986,7 +1041,7 @@ twenty-one cold dev-server compilations inside a single 30s budget and began tim
 the suite grew; it is now one test per edition with the same paths and the same two
 assertions each, plus `/cuisine/lavash` added to its path list.
 
-## 19. Eastern Armenian edition review — August 2026
+## 21. Eastern Armenian edition review — August 2026
 
 A full read of `src/data/locales/hy/` — 3,844 lines across the six locale files and the four
 article files — checking the Armenian itself and the factual claims behind it.
@@ -1045,7 +1100,7 @@ It caught **seven more instances in the two editions that were not under review*
 
 ---
 
-## 20. Google Analytics — August 2026
+## 22. Google Analytics — August 2026
 
 The one deliberate exception to the "no analytics" constraint, added at the user's
 request. GA4 property `G-BQ1HWH334Y`.
@@ -1086,3 +1141,198 @@ to 3 August 2026 in all three.
 
 The **Supabase** disclosure inside those sections was preserved word for word — it was
 already correct and is unrelated to this change.
+
+---
+
+## 23. SEO batch 1 — History taxonomy, navigation and content fields (August 2026)
+
+The first controlled batch out of a full SEO and content audit of the History section. The
+audit compared all seven Armenian-language history articles against what actually ranks for
+the same topics; the findings that became code are below. Deliberately **not** in this batch:
+new articles, period hub pages, maps, Wikidata entities, named human authorship, FAQ content
+or FAQ schema, and any hreflang change.
+
+Three corrections to the audit's own recommendations were applied before implementing, and
+are recorded because they would otherwise be re-proposed:
+
+- **FAQ structured data was dropped from the plan entirely.** Google stopped showing FAQ rich
+  results on 7 May 2026. FAQ *content* may still be worth writing for readers; `FAQPage`
+  markup is not, and no FAQ field was added.
+- **The Search Console hreflang / International Targeting report is deprecated**, so it cannot
+  be used to answer the `hyw` question below.
+- **Competitor word counts are not targets.** Length is not a ranking factor, and the two
+  articles revised here gained sections because a specific intent was unserved
+  («պատճառները», the four names of Urartu, the fall), not to reach a number.
+
+### The taxonomy defect
+
+`periodId` carried two taxonomies at once — four eras (`ancient`, `kingdoms`, `medieval`,
+`modern`) and two content types (`people`, `battles`) — on a field that holds one value. Two
+concrete consequences:
+
+- **«Կարևոր դեմքեր» (`people`) matched no article at all.** The pill shipped on
+  `/hy/history`, `/hyw/history` and `/en/history` and always rendered the empty-results page
+  on a listing with seven articles behind it.
+- **The Battle of Avarayr was invisible chronologically.** Filed under `battles`, a 451 event
+  appeared under no century, and Tigran the Great sat under `kingdoms` rather than under
+  «Հին Հայաստան».
+
+Now two independent axes, both in the URL and combining with search as AND:
+
+- `?period=` — `ancient` (4) · `marzpanate` (1) · `medieval` (1) · `modern` (1)
+- `?type=` — `state` (3) · `person` (2) · `event` (1) · `battle` (1)
+
+`kingdoms` was removed too: it named no era. The era ids that survive keep their old values,
+so `/hy/history?period=ancient` and `?period=medieval` still resolve exactly as before.
+
+**Only the type *id* is authored on an article.** Its label lives once in
+`historyTopicTypes`, unlike `period`/`periodId` and `dishType`/`dishTypeId`, which each keep
+a second copy of the label on every article and each need a validator rule to catch the drift.
+
+### The rule that was missing, and what it found
+
+`validateFilterCoverage` fails the build when any filter matches zero content, across every
+listing. Nothing in the type system could catch the old `people` pill — it was a valid string
+in a valid list — so it had to be counted.
+
+It immediately found **two more dead filters that the audit had not spotted**, both in
+`literaryPeriods` on the writers listing:
+
+- **`contemporary` («Ժամանակակից») matched nothing in any edition** and was removed from all
+  three.
+- `medieval` («Միջնադար») matched no *writer* but does match the `david-of-sassoun` works
+  article. `literaryPeriods` is one vocabulary serving two content types, so the check counts
+  both and the filter stays.
+
+### Navigation
+
+- **Previous/next is chronological.** A new `chronoOrder` sorts a copy of the category, so the
+  listing, the featured fallback and the `ItemList` in the listing's structured data keep the
+  authored order. Before this, «Տիգրան Մեծ» offered «Ուրարտուի թագավորությունը» as its *next*
+  article. A category opts in as a whole: the validator requires `chronoOrder` on all of a
+  category's articles or none, unique and gapless.
+- **`RelatedArticles` fillers are confined to the article's own category.** An authored
+  `relatedSlugs` entry may still cross categories deliberately; a filler has made no editorial
+  judgement, and one deleted slug was all it took for a history article to recommend a recipe.
+  If the same-category pool cannot reach three, fewer than three are shown.
+- **`first-republic-of-armenia` linked out of its own section**, two of three related slugs
+  being writer biographies. Now `bagratid-armenia`, `battle-of-avarayr`, `yeghishe-charents` —
+  Charents stays and earns it as the poet of that generation. Fixed in all three editions, and
+  `relatedSlugs` is now checked for cross-edition agreement, because it is navigation rather
+  than prose.
+
+### Three optional article fields
+
+| Field | Falls back to | Why it exists |
+|---|---|---|
+| `seoTitle?` | `title` | `title` is the H1 and stays what the reader sees. A `<title>` is read in a results row with no page around it: «Քրիստոնեության ընդունումը» needs to say *in Armenia* and *301* there. **Not** used for `og:title` or the JSON-LD `headline` — a share card and a knowledge graph want the clean human headline. |
+| `metaDescription?` | `excerpt` | `excerpt` is authored for a card beside an image and several run past 170 characters, which a results page truncates mid-clause. |
+| `summary?` | — | A visible `<section id="summary">` above the key facts, first in the table of contents. Not a second intro: the intro sets a scene, the summary states the outcome. The commonest way these subjects are searched is a request for exactly this («համառոտ»), and the archive answered it only by making the reader read the whole article. |
+
+The validator rejects an override that merely restates what it overrides, and bounds each:
+`seoTitle` at most 52 characters (60 minus the `" | Armat"` the layout appends),
+`metaDescription` 70–165, `summary` 40–140 words.
+
+### Contextual prose links
+
+Prose stays plain typed strings; there is no markup language in the content model and this
+does not introduce one. A section declares, out of band, that one phrase in its own paragraphs
+links to one article (`ArticleSection.links`), and `SectionProse` links the **first**
+occurrence and nothing else.
+
+Rejected alternatives, so they are not re-proposed: markup inside the strings would make every
+translator hand-edit HTML; a site-wide keyword map would link the same word on every page it
+appears, including pages where the link is wrong and including inside quotations.
+
+`validate:content` enforces every precondition the renderer relies on — the phrase must occur
+in *that* section, the slug must resolve **in that same edition**, never to the article's own
+slug, phrases of at least 6 characters (a substring match cannot tell an Armenian word from a
+word fragment, so the safeguard is the length of what may be declared), at most 3 links per
+section, at most 6 per article, and no target linked from two sections. **A link to an article
+that has not been written yet fails the build rather than shipping as a 404.**
+
+Backfilled: three links, all in the two revised articles.
+
+| From | Phrase | To |
+|---|---|---|
+| `adoption-of-christianity` § building-a-church | Մեսրոպ Մաշտոցի | `mesrop-mashtots-armenian-alphabet` |
+| `adoption-of-christianity` § distinct-tradition | Ավարայրում | `battle-of-avarayr` |
+| `kingdom-of-urartu` § fall | Տիգրան Մեծի | `tigran-the-great` |
+
+Urartu got one link and not five for a reason worth recording: every other subject its prose
+names — Erebuni, Menua, Argishti I, Teishebaini, Musasir, Movses Khorenatsi — is a page the
+archive has not written. The constraint is the mechanism working, and it names the next
+articles to write.
+
+### Historical first phase: the two revised articles (`hy` only)
+
+**`adoption-of-christianity`.** H1 is now «Քրիստոնեության ընդունումը Հայաստանում (301 թ.)» —
+the old «Քրիստոնեության ընդունումը» could have been any country's conversion. Gained a
+`summary`, a `seoTitle`, a `metaDescription`, and a new **«Ընդունման պատճառները»** section:
+external (Sasanian Zoroastrianism as state ideology from 224), internal (communities already
+present via the Syrian and Cappadocian trade routes), economic (temple estates and their
+revenues transferring to the new church), and an explicit fourth paragraph saying the sources
+do **not** let these be weighted against each other or separated from personal conviction —
+Agathangelos writes a healing miracle, and the political reading is a later inference. Every
+element restates something the article already stated across other sections and is covered by
+the existing bibliography (Agathangelos/Thomson; Garsoïan). No new factual claim was added.
+The 301-versus-314 discussion is untouched.
+
+**`kingdom-of-urartu`.** H1 is now «Ուրարտու՝ Վանի թագավորությունը». The Armenian
+historiographic name for this state — the title Armenian Wikipedia itself uses — appeared
+nowhere on the page except an invisible `keywords` array, while «Արարատյան» occurred only
+inside «Արարատյան **դաշտ**», the plain and not the kingdom. Gained a `summary`, a `seoTitle`,
+a `metaDescription`, and two sections:
+
+- **«Ուրարտու, Բիայնիլի, Վան, Արարատ՝ մեկ պետության չորս անուն»** — the Assyrian exonym, the
+  kings' own Biainili, the Nairi designation already quoted in the article from Sarduri I's
+  inscription, and the biblical Ararat form. It closes by stating plainly that Urartian is
+  Hurrian-related and **not** an ancestor of Armenian, and that the Armenian names are
+  geographic and historiographic rather than linguistic — the commonest error on this topic.
+  No claim about ethnic or linguistic continuity was strengthened.
+- **«Թագավորության անկումը»** — previously one clause at the tail of another paragraph, which
+  is now trimmed. Says outright that this is the worst-documented part of the kingdom's
+  history: no Urartian text records the end, and Assyria — the source that observed Urartu
+  from outside — itself fell in 612. Names the pressures usually cited (Median expansion,
+  nomadic incursions), the burnt destruction layer at Teishebaini/Karmir Blur, the competing
+  "collapse of a centralised fortress-and-redistribution system" reading, and that the
+  evidence does not settle conquest versus collapse.
+
+This was the initial `hy`-only phase. The `hyw` and `en` adaptations of both articles are now
+complete, including their metadata, summaries, added sections and contextual links.
+`AWAITING_TRANSLATION` was emptied after that adaptation and Stage 1 closed. The same mechanism
+is now used for SEO batch 2 (§24), while shared ids, `chronoOrder`, `relatedSlugs` and filter
+vocabularies continue to agree across all three editions.
+
+### Still open
+
+- **`hreflang="hyw"` needs its own investigation.** Google's hreflang documentation specifies
+  ISO 639-1 language codes and `hyw` is ISO 639-3, so the annotation may be ignored — which
+  would leave `/hy` and `/hyw` as two closely related Armenian editions with no declared
+  relationship. **Nothing was changed:** `<html lang="hyw">` is valid BCP 47 and stays,
+  `/hyw` is not deindexed, and `hyw` was not replaced with `hy`. The deprecated Search Console
+  International Targeting report cannot answer this, so it needs a different method.
+- Deferred from the audit's priority list on purpose, as future improvements that must not
+  delay title, content, internal-linking, taxonomy and indexing work: `og:site_name` (missing
+  site-wide, because Next replaces rather than merges `openGraph`), schema `about`/`sameAs`
+  entities on history articles, named human authorship, and splitting `datePublished` from
+  `dateModified`.
+
+---
+
+## 24. SEO batch 2 — complete in all editions (August 2026)
+
+Eastern Armenian drafts were revised for `bagratid-armenia`,
+`first-republic-of-armenia` and `battle-of-avarayr`. Each now has a dedicated SEO title,
+meta description and 80–120-word summary. The work adds only demonstrated educational intent:
+Ani's role as capital and the kingdom's decline; the May battles, Sardarapat and the First
+Republic's fall; and Avarayr's causes, consequences and strengthened Nvarsak treatment.
+
+The approved changes are adapted into `hyw` and `en`, and `AWAITING_TRANSLATION` is empty again.
+All three editions share the same dates, section ids, link targets, chronology and related
+articles. URLs, canonicals, hreflang behavior, two-axis History taxonomy and navigation are
+unchanged.
+
+The Avarayr troop figures remain a human-review item. They are attributed to Eghishe and
+described as uncertain rather than established fact, in line with the existing Thomson
+bibliography entry.

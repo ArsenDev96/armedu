@@ -12,6 +12,11 @@ const periodLabel = (locale: "hy" | "hyw" | "en", id: string) => {
   if (!filter) throw new Error(`No "${id}" history period in "${locale}".`);
   return filter.label;
 };
+const topicTypeLabel = (locale: "hy" | "hyw" | "en", id: string) => {
+  const filter = bundle(locale).historyTopicTypes.find((entry) => entry.id === id);
+  if (!filter) throw new Error(`No "${id}" history topic type in "${locale}".`);
+  return filter.label;
+};
 
 test("Armenian listing search narrows results while typing", async ({ page }) => {
   await page.goto("/hy/history");
@@ -48,6 +53,73 @@ test("Armenian period filters narrow the listing", async ({ page }) => {
   expect(filtered).toBeGreaterThan(0);
   expect(filtered).toBeLessThan(all);
   await expect(page).toHaveURL(/[?&]period=ancient/);
+});
+
+test("every history filter on both axes matches at least one article", async ({ page }) => {
+  // The rule this locks is the one that was missing: «Կարևոր դեմքեր» shipped for
+  // months on a listing with seven articles and always rendered the empty state.
+  // `validate:content` now fails the build for a dead filter; this checks the
+  // rendered page agrees, on both axes, in every edition.
+  for (const locale of ["hy", "hyw", "en"] as const) {
+    await page.goto(`/${locale}/history`);
+    const dict = ui(locale);
+
+    for (const filter of bundle(locale).historyPeriods) {
+      await page.getByRole("button", { name: filter.label, exact: true }).click();
+      expect(await cards(page).count(), `${locale} period "${filter.id}"`).toBeGreaterThan(0);
+    }
+    await page.getByRole("button", { name: dict.listing.clearAllFilters }).click();
+
+    for (const filter of bundle(locale).historyTopicTypes) {
+      await page.getByRole("button", { name: filter.label, exact: true }).click();
+      expect(await cards(page).count(), `${locale} type "${filter.id}"`).toBeGreaterThan(0);
+    }
+  }
+});
+
+test("the two history axes are independent and combine as AND", async ({ page }) => {
+  await page.goto("/hy/history");
+  const all = await cards(page).count();
+
+  // Avarayr is the only `marzpanate` article and the only `battle`. Selecting the
+  // era used to be impossible for it at all: it was filed under a content type.
+  await page.getByRole("button", { name: periodLabel("hy", "marzpanate"), exact: true }).click();
+  await expect(cards(page)).toHaveCount(1);
+  await expect(cards(page).first()).toContainText(articleTitle("hy", "battle-of-avarayr"));
+
+  await page.getByRole("button", { name: topicTypeLabel("hy", "battle"), exact: true }).click();
+  await expect(page).toHaveURL(/[?&]period=marzpanate/);
+  await expect(page).toHaveURL(/[?&]type=battle/);
+  await expect(cards(page)).toHaveCount(1);
+
+  // A contradictory pair matches nothing, which is what proves the two axes are
+  // being applied together rather than one overwriting the other.
+  await page.getByRole("button", { name: topicTypeLabel("hy", "person"), exact: true }).click();
+  await expect(page.getByRole("heading", { name: HY().empty.heading })).toBeVisible();
+
+  await page.getByRole("button", { name: HY().listing.clearAllFilters }).click();
+  await expect(cards(page)).toHaveCount(all);
+  await expect(page).toHaveURL(/\/hy\/history$/);
+});
+
+test("the type axis round-trips through the URL", async ({ page }) => {
+  await page.goto("/hy/history?type=person");
+
+  await expect(
+    page.getByRole("button", { name: topicTypeLabel("hy", "person"), exact: true }),
+  ).toHaveAttribute("aria-pressed", "true");
+  // Tigran and Mashtots.
+  await expect(cards(page)).toHaveCount(2);
+});
+
+test("Tigran is reachable under the ancient era, not a kingdoms bucket", async ({ page }) => {
+  // He carried `periodId: "kingdoms"` — a label that named no era — so he was
+  // absent from «Հին Հայաստան» despite being a first-century-BC king.
+  await page.goto("/hy/history?period=ancient");
+
+  const titles = await cards(page).allInnerTexts();
+  expect(titles.join(" ")).toContain(articleTitle("hy", "tigran-the-great"));
+  await expect(cards(page)).toHaveCount(4);
 });
 
 test("Armenian search and filters combine with AND behaviour", async ({ page }) => {

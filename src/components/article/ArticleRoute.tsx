@@ -52,9 +52,14 @@ export function articleMetadata(
     };
   }
 
+  // `<title>` and the meta description are read in a results list with no page
+  // around them, so an article may author its own; the visible headline and the
+  // card excerpt are the fallbacks and stay unchanged when it does not.
+  const description = article.metaDescription ?? article.excerpt;
+
   return {
-    title: article.title,
-    description: article.excerpt,
+    title: article.seoTitle ?? article.title,
+    description,
     // Transliterations and alternative spellings for this subject only. Absent
     // on articles that have no other name, rather than padded with the
     // category's keywords — a page claiming every term its section covers is
@@ -67,8 +72,12 @@ export function articleMetadata(
     },
     openGraph: {
       type: "article",
+      // Deliberately `title`, not `seoTitle`. A share card is not a results row:
+      // it appears with the site name, the image and often the reader's own
+      // comment around it, and the clean human headline is the honest value
+      // there. The same reasoning keeps `seoTitle` out of the JSON-LD headline.
       title: article.title,
-      description: article.excerpt,
+      description,
       url: localePath(locale, path),
       locale: getLocaleMeta(locale).ogLocale,
       alternateLocale: alternateOgLocales(locale),
@@ -86,7 +95,7 @@ export function articleMetadata(
     twitter: {
       card: "summary_large_image",
       title: article.title,
-      description: article.excerpt,
+      description,
       images: socialImage(article.slug, article.title).map((image) => image.url),
     },
   };

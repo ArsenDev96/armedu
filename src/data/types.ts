@@ -88,11 +88,44 @@ export interface Category {
   image?: string;
 }
 
+/**
+ * One contextual in-prose link.
+ *
+ * Prose stays plain typed strings — there is no markup language in the content
+ * model and this does not introduce one. Instead a section declares, out of
+ * band, that one phrase appearing in its own paragraphs should link to one
+ * article. The renderer links the **first** occurrence of `phrase` in the
+ * section and nothing else.
+ *
+ * The alternative shapes were both worse. Markup inside the strings would mean
+ * every translator hand-edits HTML, and a site-wide keyword map would silently
+ * link the same word on every page it ever appears — including pages where the
+ * link is wrong, and including words inside quotations.
+ *
+ * `validate:content` enforces the invariants that make this safe: the phrase
+ * must actually occur in this section, the slug must resolve to an article that
+ * exists **in this same edition**, and the counts are capped. A link to an
+ * article that has not been written yet therefore fails the build rather than
+ * shipping as a 404.
+ */
+export interface SectionLink {
+  /**
+   * Exact substring of one of this section's paragraphs. Must be long enough to
+   * be unambiguous — a two-letter phrase would match inside other words, which
+   * no validator can detect for us.
+   */
+  phrase: string;
+  /** Target article slug, in this same locale. Never the article's own slug. */
+  slug: string;
+}
+
 export interface ArticleSection {
   id: string;
   heading: string;
   paragraphs: string[];
   bullets?: string[];
+  /** Contextual links into this section's own prose. See `SectionLink`. */
+  links?: SectionLink[];
 }
 
 export interface KeyFact {
@@ -157,8 +190,33 @@ export interface ArticleSummary {
   title: string;
   excerpt: string;
   readingTime: number;
+  /**
+   * The era this article belongs to, and the filter id it matches in
+   * `historyPeriods` (history) or `literaryPeriods` (works).
+   *
+   * **Chronology only.** Until August 2026 this one field carried two different
+   * taxonomies at once: four eras (`ancient`, `kingdoms`, `medieval`, `modern`)
+   * alongside two content types (`people`, `battles`). Because an article holds
+   * exactly one value, filing the Battle of Avarayr under `battles` removed a
+   * fifth-century event from every chronological filter, and `people` matched no
+   * history article at all — a pill that always returned an empty listing. The
+   * content-type axis now lives in `topicTypeId`, and the two are independent.
+   */
   period?: string;
   periodId?: string;
+  /**
+   * History listing only: what *kind* of subject the article has — a state, a
+   * person, an event, a battle — as a filter id in `historyTopicTypes`.
+   *
+   * Only the id is authored; the label lives once in the locale's filter list
+   * and is rendered from there. That is deliberately unlike `period`/`periodId`
+   * and `dishType`/`dishTypeId`, which each keep a second copy of the label on
+   * every article and therefore each need a validator rule to catch the drift.
+   *
+   * Orthogonal to `periodId` on purpose: Tigran the Great is *ancient* **and** a
+   * *person*, and a reader browsing either axis should find him.
+   */
+  topicTypeId?: string;
   imageSeed: string;
   /**
    * Cuisine listing only: what kind of dish this is, and the filter id it
@@ -232,6 +290,54 @@ export interface CuisineDetails {
  * one rendered the stored number and the other recomputed it.
  */
 export interface Article extends Omit<ArticleSummary, "readingTime"> {
+  /**
+   * `<title>` for this page, when the visible headline is not the best one.
+   *
+   * `title` is the H1 and stays exactly what a reader sees at the top of the
+   * article. A `<title>` has a different job and a different audience: it is
+   * read in a results list with no page around it, so «Քրիստոնեության
+   * ընդունումը» — unambiguous under its own H1 — needs to say *in Armenia* and
+   * *301* to mean anything on its own. Absent on articles whose headline already
+   * works standalone; `articleMetadata` then falls back to `title`.
+   *
+   * Not used for `og:title` or the JSON-LD `headline`. Those are share and
+   * knowledge-graph surfaces where the clean human headline is the honest value,
+   * and structured data in this project restates what the reader can see.
+   */
+  seoTitle?: string;
+  /**
+   * `<meta name="description">`, when the card excerpt is the wrong length or
+   * the wrong emphasis for a results page.
+   *
+   * `excerpt` is authored for the listing card, where it sits under a title with
+   * an image beside it and can run long. Several run past 170 characters, which
+   * a results page truncates mid-clause. Absent by default; `articleMetadata`
+   * then falls back to `excerpt`.
+   */
+  metaDescription?: string;
+  /**
+   * A short standalone answer to the article's own question, rendered above the
+   * body as a visible block.
+   *
+   * This is not a second `intro`. The intro sets a scene in prose; the summary
+   * states the outcome — who, when, what changed — in the handful of sentences a
+   * reader who needs only that can stop after. It exists because the commonest
+   * way this archive's subjects are searched for is a request for exactly this
+   * («համառոտ»), and the archive answered it only by making the reader read a
+   * whole article.
+   */
+  summary?: string;
+  /**
+   * Position in this category's real chronology, `1` = earliest.
+   *
+   * Separate from the array order, which drives the listing and the featured
+   * fallback and is not chronological. Previous/next used the array position
+   * until August 2026, so «Տիգրան Մեծ» (first century BC) offered «Ուրարտուի
+   * թագավորությունը» (ninth century BC) as its *next* article. Sorting the
+   * listing by this instead would be the other bug: it would reorder a page
+   * nobody asked to have reordered.
+   */
+  chronoOrder?: number;
   intro: string;
   author: string;
   updated: string;
@@ -348,7 +454,13 @@ export interface LocaleContent {
   writers: Writer[];
   works: LiteraryWork[];
   timeline: TimelineEntry[];
+  /** Chronological era filters for the history listing. Ids shared across locales. */
   historyPeriods: Filter[];
+  /**
+   * Content-type filters for the history listing — the second, independent axis
+   * beside `historyPeriods`. Ids shared across locales.
+   */
+  historyTopicTypes: Filter[];
   literaryPeriods: Filter[];
   /** Genre filters for the literary works listing. */
   workGenres: Filter[];

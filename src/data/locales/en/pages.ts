@@ -51,7 +51,7 @@ export const pages: StaticPagesContent = {
     ],
     languagesHeading: "Languages",
     languagesBody:
-      "The platform is published in Eastern Armenian, Western Armenian and English. Armenian is the primary edition; the Western Armenian edition is being completed article by article. The content structure is translation-first, so each article is translated rather than rewritten, and readers can switch language without losing their place.",
+      "The platform is published in Eastern Armenian, Western Armenian and English. Armenian is the primary edition. The Western Armenian edition is complete and has undergone multiple AI-assisted editorial reviews, but it has not been reviewed by a native Western Armenian editor. The content structure is translation-first, so each article is translated rather than rewritten, and readers can switch language without losing their place.",
     nextHeading: "What is next",
     nextBody:
       "This is an early version. The article archive will keep growing. The pictures are illustrations made for the site rather than documentary photographs, and replacing them with licensed museum material is still on the list. Suggestions and corrections from teachers are especially welcome.",
@@ -78,8 +78,8 @@ export const pages: StaticPagesContent = {
         text: "Teachers are welcome to use these articles in lessons. Write to us if you need a topic that is not covered yet.",
       },
       {
-        title: "Translation and images",
-        text: "We are looking for help completing the Western Armenian edition, and for museums and archives willing to share imagery.",
+        title: "Language review and images",
+        text: "We are looking for help reviewing and improving the Western Armenian language, and for museums and archives willing to share imagery.",
       },
     ],
     alsoHere: "Also here:",

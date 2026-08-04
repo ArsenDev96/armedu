@@ -1,7 +1,7 @@
 import type { LocaleContent } from "@/data/types";
 import { ui } from "./ui";
 import { pages } from "./pages";
-import { categories, historyPeriods, timeline } from "./history";
+import { categories, historyPeriods, historyTopicTypes, timeline } from "./history";
 import { literaryPeriods, writers } from "./writers";
 import { workGenres, works } from "./works";
 import { cuisineTypes } from "./cuisine";
@@ -16,6 +16,7 @@ export const hyw: LocaleContent = {
   categories,
   timeline,
   historyPeriods,
+  historyTopicTypes,
   literaryPeriods,
   workGenres,
   cuisineTypes,

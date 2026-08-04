@@ -72,8 +72,14 @@ export interface UiDictionary {
     resourcesTitle: string;
     timeline: string;
     allArticles: string;
+    /**
+     * Labels for the footer's five thematic history links. Each names the one
+     * article it points at, and none may restate a listing filter the taxonomy no
+     * longer has — see the note on `FOOTER_HISTORY` in `src/lib/navigation.ts`.
+     */
     ancientArmenia: string;
-    armenianKingdoms: string;
+    christianity: string;
+    armenianAlphabet: string;
     medievalArmenia: string;
     modernArmenia: string;
     importantFigures: string;
@@ -128,6 +134,13 @@ export interface UiDictionary {
       lead: string;
       searchLabel: string;
       searchPlaceholder: string;
+      /**
+       * Headings for the two filter axes. History is the only listing with more
+       * than one, and a second unlabelled row of pills would read as one flat
+       * vocabulary — which is the confusion the old mixed period list created.
+       */
+      periodFilterHeading: string;
+      topicTypeFilterHeading: string;
       featuredEyebrow: string;
       featuredTitle: string;
       allEyebrow: string;
@@ -242,6 +255,11 @@ export interface UiDictionary {
     /** `{category}` substituted. */
     backToCategory: string;
     tableOfContents: string;
+    /**
+     * Heading over the article's `summary` block. Rendered only when the article
+     * declares one, so the heading is never shown above nothing.
+     */
+    summary: string;
     keyFacts: string;
     relatedTopics: string;
     importantDates: string;

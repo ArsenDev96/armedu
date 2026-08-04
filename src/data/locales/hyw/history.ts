@@ -77,7 +77,7 @@ export const timeline: TimelineEntry[] = [
     period: "Ք.Ե. 885–1045",
     title: "Բագրատունեաց Հայաստան",
     description:
-      "Վերականգնուած թագաւորութիւն մը կը ծաղկի իր մայրաքաղաքին՝ Անիի շուրջ, հազար ու մէկ եկեղեցիներու քաղաքն եւ իր դարուն ամէնէն մեծ քաղաքներէն մէկը։",
+      "Վերականգնուած թագաւորութիւնը կը ծաղկի իր մայրաքաղաք Անիի շուրջ։ Հազար ու մէկ եկեղեցիներու քաղաքը իր դարուն ամէնէն մեծ քաղաքներէն մէկն է։",
   },
   {
     id: "first-republic",
@@ -88,15 +88,29 @@ export const timeline: TimelineEntry[] = [
   },
 ];
 
+/**
+ * Chronological eras — one axis of the history listing; `historyTopicTypes` is
+ * the other. See the note in the `hy` edition for why `kingdoms`, `people` and
+ * `battles` were removed in August 2026.
+ */
 export const historyPeriods: Filter[] = [
-  { id: "all", label: "Բոլոր նիւթերը" },
+  { id: "all", label: "Բոլոր ժամանակաշրջանները" },
   { id: "ancient", label: "Հին Հայաստան" },
-  { id: "kingdoms", label: "Հայկական թագաւորութիւններ" },
+  { id: "marzpanate", label: "Մարզպանական Հայաստան" },
   { id: "medieval", label: "Միջնադարեան Հայաստան" },
   { id: "modern", label: "Արդի Հայաստան" },
-  { id: "people", label: "Կարեւոր դէմքեր" },
-  // «Ճակատամարտեր», not «ճակատամարտներ»: a compound whose final component is a
-  // monosyllabic word («մարտ») keeps the -եր plural. Matches the article's own
-  // period label, which was right where this chip was wrong.
-  { id: "battles", label: "Ճակատամարտեր եւ դէպքեր" },
+];
+
+/**
+ * What kind of subject an article has, independent of when it happened.
+ *
+ * «Ճակատամարտեր», not «ճակատամարտներ»: a compound whose final component is a
+ * monosyllabic word («մարտ») keeps the -եր plural.
+ */
+export const historyTopicTypes: Filter[] = [
+  { id: "all", label: "Բոլոր տեսակները" },
+  { id: "state", label: "Պետութիւններ եւ թագաւորութիւններ" },
+  { id: "person", label: "Պատմական դէմքեր" },
+  { id: "event", label: "Դէպքեր" },
+  { id: "battle", label: "Ճակատամարտեր" },
 ];

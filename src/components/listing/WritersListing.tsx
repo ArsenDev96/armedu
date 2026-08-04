@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, type ReactNode } from "react";
-import type { Filter } from "@/data/types";
+import { ALL_FILTER_ID, type Filter } from "@/data/types";
 import type { UiDictionary } from "@/data/ui";
 import { WriterCard } from "@/components/cards/WriterCard";
 import { EmptyResults } from "@/components/sections/EmptyResults";
@@ -9,6 +9,9 @@ import { ListingControls } from "@/components/sections/ListingControls";
 import { SectionHeading } from "@/components/ui/primitives";
 import { filterItems, type WriterListingItem } from "@/lib/search";
 import { useListingParams } from "@/lib/useListingParams";
+
+/** Module-level so the array identity is stable across renders. */
+const FILTER_KEYS = ["period"] as const;
 
 export function WritersListing({
   items,
@@ -22,25 +25,35 @@ export function WritersListing({
   /** Server-rendered editorial block shown between the controls and the grid. */
   children?: ReactNode;
 }) {
-  const { query, setQuery, filterId, setFilterId, clearAll, isFiltered } =
-    useListingParams("period");
+  // Renamed on destructuring: `filters` is already this component's prop,
+  // which is the filter *vocabulary*, not the reader's current selection.
+  const { query, setQuery, filters: selection, setFilter, clearAll, isFiltered } =
+    useListingParams(FILTER_KEYS);
+
+  const selected = selection.period ?? ALL_FILTER_ID;
 
   const results = useMemo(
-    () => filterItems(items, query, filterId, (item) => item.periodId),
-    [items, query, filterId],
+    () => filterItems(items, query, [{ selected, keyOf: (item) => item.periodId }]),
+    [items, query, selected],
   );
 
   return (
     <>
       <ListingControls
         ui={ui}
-        filters={filters}
+        groups={[
+          {
+            paramKey: "period",
+            heading: ui.listing.filtersHeading,
+            filters,
+            selected,
+            onSelect: (id) => setFilter("period", id),
+          },
+        ]}
         searchLabel={ui.listing.writers.searchLabel}
         placeholder={ui.listing.writers.searchPlaceholder}
         query={query}
         onQueryChange={setQuery}
-        activeFilter={filterId}
-        onFilterChange={setFilterId}
         onClear={clearAll}
         resultCount={results.length}
         resultNoun="writers"
