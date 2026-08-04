@@ -603,9 +603,14 @@ export const historyArticles: Article[] = [
     href: "/history/battle-of-avarayr",
     category: "history",
     categoryLabel: "Armenian History",
-    title: "The Battle of Avarayr",
+    title: "The Battle of Avarayr (451)",
+    seoTitle: "Battle of Avarayr (451): Causes and Consequences",
     excerpt:
       "In 451 Armenian forces under Vardan Mamikonian faced a far larger Persian army to defend their faith, losing the battle but winning religious freedom.",
+    metaDescription:
+      "The Battle of Avarayr in 451: its causes, Vardan Mamikonian's stand, uncertain troop figures, consequences, and the Treaty of Nvarsak in 484.",
+    summary:
+      "On 26 May 451, forces led by Vardan Mamikonian fought the army of Sasanian Persia on the plain of Avarayr. The conflict grew from Yazdegerd II's policy of imposing Zoroastrianism on Armenians and pressure on the autonomy of the noble houses. The Armenian army lost and Vardan was killed, but resistance continued. The troop figures reported by Yeghishe are inflated and uncertain, so they are not reliable modern estimates. After a new revolt led by Vahan Mamikonian, the Treaty of Nvarsak in 484 recognised freedom of Christian worship and restored some noble rights. Avarayr is therefore remembered as a military defeat whose political and religious aims were later partly achieved.",
     period: "Marzpanate Armenia",
     periodId: "marzpanate",
     topicTypeId: "battle",
@@ -624,16 +629,17 @@ export const historyArticles: Article[] = [
     intro:
       "On the plain of Avarayr in the spring of 451, an Armenian army led by Vardan Mamikonian met a Sasanian force several times its size. The Armenians were defending the right to remain Christian against an imperial policy of religious conversion. They lost the field and their commander, yet the resistance they began ended with Persia abandoning the policy, which is why Armenians remember Avarayr as a defeat that achieved its purpose.",
     author: "Armat Editorial Team",
-    updated: "2026-06-08",
+    updated: "2026-08-04",
     sections: [
       {
-        id: "background",
-        heading: "Armenia under Sasanian rule",
+        id: "causes",
+        heading: "Causes of the Battle of Avarayr",
         paragraphs: [
           "After the partition of 387, eastern Armenia lay within the Sasanian sphere, and in 428 the Persian court abolished the Armenian monarchy altogether. The country was governed by a Persian official called a marzpan, while local power remained with the great noble houses, the nakharars, who kept their lands, their cavalry and a strong sense of their own rights. Armenia was thus a province in law but a partly self-governing society in practice.",
           "The Sasanian state was closely bound to Zoroastrianism, and its ruling class saw religious unity as a guarantee of political loyalty. Christian Armenia, sharing a faith with the rival Roman Empire, looked to Persian officials like a strategic weakness on a sensitive frontier. Pressure to conform grew steadily through the first half of the fifth century.",
           "In 449 King Yazdegerd II sent an edict ordering the Armenian nobility to abandon Christianity and accept Zoroastrian worship. A council of clergy and nobles gathered at Artashat and replied that they would obey the king in all worldly matters but would not surrender their faith. Their answer, recorded by the historian Yeghishe, states that no one can move them from their belief, neither angels nor men, neither fire nor sword.",
         ],
+        links: [{ phrase: "Christian Armenia", slug: "adoption-of-christianity" }],
       },
       {
         id: "the-uprising",
@@ -648,7 +654,7 @@ export const historyArticles: Article[] = [
         id: "the-battle",
         heading: "The battle on the plain",
         paragraphs: [
-          "The armies met on 26 May 451 on the plain of Avarayr in the province of Vaspurakan, near the river Tghmut. Yeghishe gives the Armenian force as about sixty-six thousand, including cavalry, infantry and clergy, against a Persian army he numbers at well over two hundred thousand, supported by war elephants and the elite Immortals. Both figures come from a single partisan source and are almost certainly inflated, as ancient troop numbers usually are, but every account agrees that the Armenians were heavily outnumbered.",
+          "The armies met on 26 May 451 on the plain of Avarayr in the province of Vaspurakan, near the river Tghmut. Yeghishe reports about sixty-six thousand for the Armenian force and more than two hundred thousand for the Persian army, together with war elephants and the elite Immortals. Those figures come from Yeghishe's narrative rather than an independent count. Robert Thomson's scholarly translation likewise supports reading them as literary-historical claims: ancient and medieval troop numbers are often inflated, so the precise numerical balance between the armies is not established.",
           "Before the fighting the priest Ghevond addressed the troops, and Vardan is recorded as telling them that conscious death is immortality. The Armenians attacked in the morning and pressed the Persian centre hard, and for a time the outcome was uncertain. The reserve strength of the Sasanian army, and above all its elephants, eventually turned the battle. Vardan was killed together with eight other named commanders and a large part of his force.",
           "The Persians held the field, but their losses were heavy and they were unable to follow up quickly. Surviving Armenian nobles and clergy withdrew into the mountains, where they continued a guerrilla resistance that persisted for decades. What began as one battle became a long war of attrition that the Sasanian administration could not end.",
         ],
@@ -660,11 +666,12 @@ export const historyArticles: Article[] = [
         ],
       },
       {
-        id: "aftermath",
-        heading: "The Treaty of Nvarsak",
+        id: "consequences",
+        heading: "Consequences and the Treaty of Nvarsak",
         paragraphs: [
           "Resistance revived in 481 under Vahan Mamikonian, a nephew of Vardan, and this time the Sasanian state was distracted by war on its eastern frontier and by internal instability. After several years of fighting the Persian king Balash opened negotiations. The resulting agreement, the Treaty of Nvarsak of 484, guaranteed Armenians the free practice of Christianity, ended attempts at forced conversion, and restored the privileges of the noble houses.",
           "Vahan Mamikonian was appointed marzpan of Armenia, meaning that the country was now governed by an Armenian rather than a Persian official. The treaty did not restore the monarchy, but it secured what the war of 451 had been fought for. In practical terms, Avarayr and the campaigns that followed it succeeded.",
+          "Nvarsak matters not as a peace concluded immediately after Avarayr, but as the political settlement of the same prolonged conflict. It gave legal protection to the demand for which the Vardanants movement had fought—freedom of Christian worship—and restored part of the noble houses' autonomy.",
           "The Armenian Church later canonised Vardan and his companions, and their feast day, Vardanants, falls in February. It remains a major commemoration, marked with services, school programmes and public ceremonies, and the name Vardan has been given to Armenian boys ever since.",
         ],
       },
@@ -733,8 +740,13 @@ export const historyArticles: Article[] = [
     category: "history",
     categoryLabel: "Armenian History",
     title: "Bagratid Armenia and the City of Ani",
+    seoTitle: "Bagratid Armenia (885–1045): Ani as Capital",
     excerpt:
       "The Bagratid kings restored Armenian statehood after two centuries of foreign rule and built Ani into one of the great cities of the medieval world.",
+    metaDescription:
+      "Bagratid Armenia, 885–1045: Ashot I's coronation, Ani as the city of a thousand and one churches, its cultural rise, and the kingdom's decline.",
+    summary:
+      "The Bagratid kingdom restored the Armenian monarchy with the coronation of Ashot I in 885 and lasted until the Byzantine annexation of Ani in 1045. It was not a single centralised state: separate Armenian kingdoms formed in Vaspurakan, Syunik, Kars and Lori. From 961, Ani was the Bagratid capital and a major centre of trade, architecture and learning, remembered as the city of a thousand and one churches. Succession disputes, political fragmentation and Byzantine expansion weakened the kingdom. Byzantium took Ani in 1045, and the city fell to the Seljuks in 1064. The churches, monasteries, manuscripts and poetry of the Bagratid age remain a central legacy of medieval Armenian culture.",
     period: "Medieval Armenia",
     periodId: "medieval",
     topicTypeId: "state",
@@ -753,20 +765,21 @@ export const historyArticles: Article[] = [
     intro:
       "In 885 Ashot Bagratuni was recognised as king of Armenia by both the Caliph in Baghdad and the Emperor in Constantinople, ending more than four centuries without an Armenian monarchy. Over the next hundred and fifty years his dynasty rebuilt the country's cities, churches and trade. Its capital, Ani, became a centre of architecture and learning whose ruins still stand above the gorge of the Akhurian river.",
     author: "Armat Editorial Team",
-    updated: "2026-02-11",
+    updated: "2026-08-04",
     sections: [
       {
         id: "restoring-a-kingdom",
         heading: "Restoring a kingdom",
         paragraphs: [
-          "Arab rule over Armenia, established in the seventh century, weakened during the ninth as the Abbasid Caliphate lost control of its distant provinces. The Bagratuni family, hereditary holders of high office since Arsacid times, used the opening skilfully. They collected taxes for the caliph, kept peace among rival noble houses, and gradually made themselves indispensable. In 885 the caliph sent Ashot Bagratuni a crown, and the Byzantine emperor Basil I promptly did the same.",
+          "Arab rule over Armenia, established in the seventh century, weakened during the ninth as the Abbasid Caliphate lost control of its distant provinces. The Bagratuni family, hereditary holders of high office since Arsacid times, used the opening skilfully. The nakharar system preserved after the Battle of Avarayr was an important foundation of their power. They collected taxes for the caliph, kept peace among rival noble houses, and gradually made themselves indispensable. In 885 the caliph sent Ashot Bagratuni a crown, and the Byzantine emperor Basil I promptly did the same.",
           "The new kingdom was not a centralised state. Armenian society was organised around noble houses with their own castles and cavalry, and the Bagratid king was the leading prince among many rather than an absolute ruler. The Artsruni family established a separate kingdom in Vaspurakan around Lake Van in 908, and smaller kingdoms appeared in Syunik, Kars and Lori. Historians therefore speak of a Bagratid era rather than a single unified state.",
           "Even so, the restoration brought real benefits. Fighting between noble houses declined, trade routes reopened, and taxes stayed in the country instead of flowing to distant capitals. Population grew, new towns were founded, and the monasteries that had preserved learning through the difficult centuries were able to expand their schools and scriptoria.",
         ],
+        links: [{ phrase: "Battle of Avarayr", slug: "battle-of-avarayr" }],
       },
       {
         id: "ani",
-        heading: "Ani, the city of forty gates",
+        heading: "Ani, the city of a thousand and one churches",
         paragraphs: [
           "King Ashot III moved the royal seat to Ani in 961, and his successors turned a hilltop fortress into a capital. Smbat II built the outer walls during his reign of 977 to 989, and Gagik I completed a building programme that gave the city cathedrals, palaces, markets, bathhouses and bridges. At its height, in the early eleventh century, Ani may have held around a hundred thousand people, which placed it among the largest cities of its time anywhere in the world.",
           "The site is a natural fortress, a triangular plateau protected on two sides by deep ravines and closed on the third by a double line of walls with towers. Inside, the streets were laid out around a main thoroughfare, and water was brought in through clay pipes. Ani sat on a branch of the Silk Road, and merchants from Persia, Byzantium and the Caucasus traded there, which explains the scale of both its wealth and its construction.",
@@ -789,12 +802,18 @@ export const historyArticles: Article[] = [
         ],
       },
       {
-        id: "decline",
-        heading: "Byzantine annexation and Seljuk conquest",
+        id: "decline-causes",
+        heading: "Why the Bagratid kingdom declined",
         paragraphs: [
           "The Bagratid kingdom fell to a combination of internal division and imperial pressure. The Byzantine Empire, expanding eastward, annexed Vaspurakan in 1021 and pressed claims on Ani after the death of King Hovhannes-Smbat. In 1045 Byzantine forces took the city and deposed the young king Gagik II. Byzantine administration replaced the Armenian nobility, dismantled local defensive arrangements and taxed the province heavily.",
           "The consequences appeared quickly. In 1064 the Seljuk sultan Alp Arslan besieged and captured Ani, and seven years later the Byzantine defeat at Manzikert opened Anatolia to Turkic settlement. The removal of the Armenian nobility had left no organised force able to defend the region. Ani continued as a trading town under successive rulers, but earthquakes, shifting trade routes and the Mongol invasions gradually emptied it, and it was completely abandoned by 1735, when the last monks left.",
           "Many Armenians moved south and west during these upheavals, and in Cilicia on the Mediterranean coast they established a new principality that became the Kingdom of Cilician Armenia. That state, with its ports and its links to the crusader world, carried Armenian political life forward for another three hundred years.",
+        ],
+        bullets: [
+          "Succession disputes and the political fragmentation of the Armenian kingdoms",
+          "Sustained Byzantine expansion and claims on Ani",
+          "The weakening of local military power after Byzantine annexation",
+          "Seljuk invasions following the Byzantine capture of Ani in 1045",
         ],
       },
       {
@@ -861,9 +880,14 @@ export const historyArticles: Article[] = [
     href: "/history/first-republic-of-armenia",
     category: "history",
     categoryLabel: "Armenian History",
-    title: "The First Republic of Armenia",
+    title: "The First Republic of Armenia (1918–1920)",
+    seoTitle: "The First Republic of Armenia, 1918–1920",
     excerpt:
       "Declared in 1918 amid war and famine, the First Republic gave Armenians a modern independent state for two and a half difficult years.",
+    metaDescription:
+      "The First Republic of Armenia, 1918–1920: the May Battles and Sardarapat, state-building, and the causes of the republic's fall.",
+    summary:
+      "The First Republic of Armenia existed from 28 May 1918 to 2 December 1920. It emerged after the Armenian Genocide, the collapse of the Russian Empire and the disintegration of the Caucasus front. The May Battles at Sardarapat, Bash Aparan and Karakilisa halted the Ottoman advance and made a declaration of independence possible. Amid famine, epidemics and hundreds of thousands of refugees, the republic formed a government, parliament, army, currency and state university. Its fall resulted from a Turkish invasion, the advance of the Soviet Red Army, border wars, and extreme economic and demographic weakness. Although it lasted only two and a half years, its tricolour, institutions and idea of independent statehood became an important precedent for the Republic of Armenia in 1991.",
     period: "Modern Armenia",
     periodId: "modern",
     topicTypeId: "state",
@@ -880,7 +904,7 @@ export const historyArticles: Article[] = [
     intro:
       "On 28 May 1918, days after Armenian forces halted an Ottoman advance at Sardarapat, leaders in Yerevan declared an independent republic. It inherited a ruined territory crowded with refugees and survivors of the genocide, and it lasted only until December 1920. Yet in that short time it built a government, wrote laws, opened a university and gave twentieth-century Armenians the model of statehood they returned to in 1991.",
     author: "Armat Editorial Team",
-    updated: "2026-01-27",
+    updated: "2026-08-04",
     sections: [
       {
         id: "collapse-and-crisis",
@@ -888,7 +912,14 @@ export const historyArticles: Article[] = [
         paragraphs: [
           "The First World War devastated the Armenian population of the Ottoman Empire. Beginning in 1915, deportations and massacres destroyed communities across Anatolia, and hundreds of thousands of survivors fled east into the Russian Caucasus. There they joined a region already strained by war, disease and food shortages, and relief organisations struggled to feed the camps that formed around Yerevan and Etchmiadzin.",
           "The Russian Revolution of 1917 removed the imperial administration and, with it, the Caucasus front. Russian troops left their positions through the winter, and by early 1918 the defence of the region rested on locally raised Armenian units. In April the Transcaucasian Democratic Federative Republic briefly united Armenians, Georgians and Azerbaijanis, but the three national councils wanted different things and the federation dissolved within weeks.",
-          "Ottoman forces advanced into the Caucasus in the spring of 1918. In late May they were stopped in three engagements, at Sardarapat, Bash Aparan and Karakilisa, fought by regular units alongside volunteers and villagers. Sardarapat in particular is remembered as the battle that prevented the destruction of the remaining Armenian population of the region and made a declaration of independence possible.",
+        ],
+      },
+      {
+        id: "may-battles",
+        heading: "The May Battles and Sardarapat",
+        paragraphs: [
+          "In May 1918 Ottoman forces were advancing towards Yerevan and the Ararat plain. Armenian regular units, militia, volunteers and villagers resisted them at Sardarapat, Bash Aparan and Karakilisa. The fighting near Sardarapat from 21 to 29 May halted the advance on Yerevan, while resistance on the other two fronts prevented Ottoman forces from quickly outflanking the Armenian defence.",
+          "These battles did not remove the military danger or bring an unconditional victory: the new state had to sign the harsh Treaty of Batum in June. But they preserved Yerevan and part of the Armenian population, creating the minimum political space in which an independent republic could be declared on 28 May.",
         ],
       },
       {
@@ -916,13 +947,23 @@ export const historyArticles: Article[] = [
         ],
       },
       {
+        id: "fall",
+        heading: "Why the First Republic fell",
+        paragraphs: [
+          "The republic's fall had no single cause. The mass arrival of genocide survivors, famine, epidemics and economic blockade had exhausted the state's limited resources. Border conflicts with Georgia and Azerbaijan divided the army's attention, while promises from the great powers brought no practical military protection.",
+          "In autumn 1920 the Turkish nationalist army attacked from the west and captured Kars and Alexandropol, while the Red Army and Soviet authorities applied pressure from the east. Unable to fight on two fronts, the government transferred power to Soviet bodies on 2 December. As with the fall of the Bagratid kingdom, external invasion combined with the internal weakness of a state worn down by war. The collapse should therefore not be reduced to one treaty or one political decision.",
+        ],
+        links: [{ phrase: "fall of the Bagratid kingdom", slug: "bagratid-armenia" }],
+      },
+      {
         id: "sovietisation",
         heading: "Sovietisation and the February uprising",
         paragraphs: [
           "Armenia became a Soviet republic, and the new authorities moved rapidly against former officials and officers. Arrests and requisitions provoked a revolt in February 1921, during which insurgents held Yerevan for several weeks before Red Army units retook the city in April. Many of the leaders retreated to Zangezur, where Garegin Nzhdeh had organised a mountain resistance that held out until July 1921.",
           "That resistance had one lasting result. When Nzhdeh finally withdrew, it was on the condition that Zangezur remain part of Soviet Armenia, and the region, today the province of Syunik, has been Armenian territory ever since. Kars and Ardahan were confirmed as Turkish under the treaties of Moscow and Kars in 1921, and Nakhichevan was placed under Azerbaijani jurisdiction.",
-          "Soviet Armenia brought stability, industrialisation and mass literacy, alongside political repression that fell heavily on writers and intellectuals in the 1930s. Independence returned only in 1991, when the Armenian population voted overwhelmingly for it and the Republic of Armenia declared itself the successor to the state founded in 1918.",
+          "Soviet Armenia brought stability, industrialisation and mass literacy, alongside political repression that fell heavily on writers and intellectuals in the 1930s, including Yeghishe Charents. Independence returned only in 1991, when the Armenian population voted overwhelmingly for it and the Republic of Armenia declared itself the successor to the state founded in 1918.",
         ],
+        links: [{ phrase: "Yeghishe Charents", slug: "yeghishe-charents" }],
       },
       {
         id: "legacy",
