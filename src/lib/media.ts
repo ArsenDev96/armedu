@@ -20,6 +20,10 @@ import type { ArticleSummary } from "@/data/types";
  * renamed rather than mapped: the other five match their slug exactly, so the
  * two exceptions above stay the only ones, and a typo recorded here would read
  * as a deliberate difference the next time someone edits this file.
+ *
+ * The extensions are not a convention either. Everything here is WebP except the
+ * places artwork, which is PNG — another reason the paths are written out in
+ * full rather than derived from the slug.
  */
 const IMAGES: Record<string, string> = {
   // History
@@ -52,6 +56,30 @@ const IMAGES: Record<string, string> = {
   harissa: "/images/cuisine/harissa.webp",
   gata: "/images/cuisine/gata.webp",
   ghapama: "/images/cuisine/ghapama.webp",
+
+  /*
+   * Places
+   *
+   * `khor-virap.png` is byte-for-byte the same file as `public/hero-ararat.png`,
+   * the homepage hero — same 1355×793 image, same SHA-256, copied into the
+   * registry's directory rather than referenced across. That is an editorial
+   * decision, recorded here because §17 of PROJECT_STATE.md exists to stop
+   * unrecorded claims about artwork: the hero is hereby declared Armat-generated
+   * editorial artwork on the same terms as everything else in this map, which is
+   * what lets it inherit `ARTWORK_PROVENANCE` below and be captioned
+   * AI-generated. The provenance is now stated for both copies, not neither.
+   *
+   * Two consequences to keep in mind rather than rediscover. The same picture is
+   * now the homepage hero *and* one article's cover, so it appears twice on a
+   * reader's first visit; and it is a 1.4 MB PNG where the rest of the registry
+   * is 110–160 KB WebP, so this slug's card and hero are the heaviest images on
+   * the site. Neither file is altered, optimised or renamed here — replacing this
+   * entry with a lighter, place-specific WebP is a later piece of work, and it is
+   * a one-line change because every consumer already asks `getImageSrc`.
+   *
+   * `Hero.tsx` still points at `/hero-ararat.png` directly and is untouched.
+   */
+  "khor-virap": "/images/places/khor-virap.png",
 };
 
 /**
@@ -70,30 +98,7 @@ const IMAGES: Record<string, string> = {
  * declared on the article itself as `image: { src, alt, credit }`, which
  * overrides both the file here and the AI caption.
  */
-export const PENDING_ARTWORK: readonly string[] = [
-  /*
-   * Places launched before its artwork. `public/hero-ararat.png` shows this very
-   * monastery and was considered for reuse, and was rejected on provenance
-   * grounds rather than on looks.
-   *
-   * Everything in `IMAGES` inherits `ARTWORK_PROVENANCE` below, which states
-   * that the file is AI-generated. That claim is recorded for the registry and
-   * has never been recorded for the homepage hero, which sits outside
-   * `public/images/` with the category banners and carries no provenance of its
-   * own. Registering it here would assert something about it that this
-   * repository has not established — the exact failure §17 of PROJECT_STATE.md
-   * was written to end. It is also a 1.4 MB PNG where the registry is 110–160 KB
-   * WebP, and reusing the site's signature image as one article's cover would
-   * make it the homepage hero, the category card, the article hero, the Open
-   * Graph image and the sitemap image all at once.
-   *
-   * So the slug is declared pending instead. `ArticleLayout` already has an
-   * honest branch for it: no artwork renders the generated placeholder and the
-   * `imagePlaceholderCaption` wording, and `isGeneratedArtwork` stays false, so
-   * nothing is captioned AI-generated that has not been established as such.
-   */
-  "khor-virap",
-];
+export const PENDING_ARTWORK: readonly string[] = [];
 
 /** Path under `public/` for a slug's artwork, or `undefined` when none ships. */
 export function getImageSrc(slug: string): string | undefined {

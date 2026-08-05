@@ -165,6 +165,91 @@ test("the empty search page offers places as a place to start", async ({ page })
 });
 
 /* -------------------------------------------------------------------------- */
+/*  Artwork                                                                    */
+/* -------------------------------------------------------------------------- */
+
+/*
+  Khor Virap shipped without a cover and rendered the generated placeholder. The
+  file now exists at `/images/places/khor-virap.png` and is registered in
+  `IMAGES`, which is a single entry that has to light up six different surfaces —
+  every one of them reached through `getImageSrc`, and every one of them silent
+  if the registration is wrong.
+
+  The caption is the assertion that matters most. `isGeneratedArtwork` flips to
+  true the moment a slug enters the registry, and that is what makes the page
+  state "AI-generated" rather than "placeholder". A registration that rendered
+  the picture without the disclosure would look completely correct.
+*/
+
+test("the article hero renders the registered artwork and names the AI provenance", async ({
+  page,
+}) => {
+  const dict = ui("hy");
+  await page.goto("/hy/places/khor-virap");
+
+  // Next's optimizer rewrites `src` into `/_next/image?url=…`, so the encoded
+  // original is what identifies the file.
+  const hero = page.locator("header figure img");
+  await expect(hero).toHaveAttribute("src", /khor-virap\.png/);
+
+  // A place is a scene, not a likeness, so it takes the illustration wording —
+  // the same branch the cuisine artwork uses, and not the portrait one.
+  await expect(page.locator("header figcaption")).toHaveText(
+    dict.article.imageAiIllustrationCaption.replace("{title}", articleTitle("hy", "khor-virap")),
+  );
+});
+
+test("the listing's featured block and card both render the artwork", async ({ page }) => {
+  await page.goto("/en/places");
+
+  // `ArticleCard` is the shared component — the same one a related-articles
+  // block renders — so this covers both surfaces through one lookup.
+  const images = page.locator("main img");
+  await expect(images).not.toHaveCount(0);
+
+  const sources = await images.evaluateAll((nodes) =>
+    nodes.map((node) => node.getAttribute("src") ?? ""),
+  );
+  expect(
+    sources.every((src) => /khor-virap\.png/.test(decodeURIComponent(src))),
+    `every image on the places listing should be the registered artwork, got ${sources.join(", ")}`,
+  ).toBe(true);
+});
+
+test("a place's search thumbnail renders the artwork", async ({ page }) => {
+  await page.goto("/en/search?q=Khor%20Virap");
+
+  const thumb = page.getByRole("main").locator("img").first();
+  await expect(thumb).toHaveAttribute("src", /khor-virap\.png/);
+});
+
+test("the artwork reaches Open Graph, Twitter and the article's structured data", async ({
+  page,
+}) => {
+  await page.goto("/en/places/khor-virap");
+
+  // Absolute, because several scrapers do not resolve relative image URLs.
+  const expected = "https://armat.site/images/places/khor-virap.png";
+  await expect(page.locator('meta[property="og:image"]')).toHaveAttribute("content", expected);
+  await expect(page.locator('meta[name="twitter:image"]')).toHaveAttribute("content", expected);
+  // Not the generic site card any more.
+  await expect(page.locator('meta[property="og:image"]')).not.toHaveAttribute(
+    "content",
+    /og-default/,
+  );
+
+  const raw = await page.locator('script[type="application/ld+json"]').first().textContent();
+  const graph = (JSON.parse(raw ?? "") as { "@graph": Record<string, unknown>[] })["@graph"];
+  const article = graph.find((entry) => entry["@type"] === "Article");
+  expect(article?.image).toEqual({ "@type": "ImageObject", url: expected });
+});
+
+test("the sitemap carries the place's illustration for image search", async ({ request }) => {
+  const xml = await (await request.get("/sitemap.xml")).text();
+  expect(xml).toContain("https://armat.site/images/places/khor-virap.png");
+});
+
+/* -------------------------------------------------------------------------- */
 /*  SEO                                                                        */
 /* -------------------------------------------------------------------------- */
 
