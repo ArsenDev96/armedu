@@ -19,16 +19,19 @@
  *
  * ## Provenance
  *
- * Values are the published position for the site as carried by the open
- * geographic gazetteers (OpenStreetMap and Wikidata), rounded to four decimal
- * places — about 11 metres, which is finer than any use here needs and coarse
- * enough not to imply a survey that was never done.
+ * Each value is taken from OpenStreetMap, or from a gazetteer derived from it,
+ * and names the built complex itself rather than a car park, a village centre or
+ * a nearby road junction.
+ *
+ * **The rounding is deliberate.** Four decimal places is about 11 metres, which
+ * is finer than anything here needs and coarse enough not to imply a survey that
+ * was never done. A gazetteer position carried out to five or six places would
+ * assert a precision the source does not have; it is rounded on the way in, not
+ * on the way out, so nothing downstream can reintroduce the false digits.
  *
  * The repository has no structured mechanism for citing a coordinate the way
  * `sources.ts` cites a claim, and this file is deliberately not inventing one
- * for a single entry. **Every value below should be checked against an
- * authoritative gazetteer by an editor before anything renders a map**; that is
- * recorded as an open item in `PROJECT_STATE.md` §28.
+ * for a single entry. The provenance of each value is the comment beside it.
  */
 
 export interface PlacePoint {
@@ -40,7 +43,9 @@ export interface PlacePoint {
    * What the point actually means, so a consumer does not read false precision
    * into it.
    *
-   * - `site`       — a building or enclosure; the point is the thing itself.
+   * - `site`       — a specific built complex: a church, an enclosure, a
+   *                  fortress. The point is the thing itself, not the place it
+   *                  is near.
    * - `settlement` — a town or village; the point is its centre, not an address.
    * - `area`       — a lake, a valley, a range; the point is a centroid, and a
    *                  map that drops a pin on it is marking the middle of a large
@@ -53,8 +58,10 @@ export interface PlacePoint {
 }
 
 export const PLACE_COORDINATES: Record<string, PlacePoint> = {
-  // The monastery enclosure on its hill above the Ararat plain, Ararat Province.
-  "khor-virap": { lat: 39.8783, lon: 44.5772, precision: "site" },
+  // The monastery complex — the walled enclosure with Surb Astvatsatsin and the
+  // chapel over the pit — on its hill above the Ararat plain, Ararat Province.
+  // OpenStreetMap places it at 39.87836, 44.57615; rounded to four places here.
+  "khor-virap": { lat: 39.8784, lon: 44.5762, precision: "site" },
 };
 
 /** The recorded position for a place slug, or `undefined` when none is held. */

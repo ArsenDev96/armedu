@@ -78,7 +78,7 @@ npm install              → OK
 npm run typecheck        → PASS (0 errors)
 npm run validate:content → PASS (102 entries across 3 locales)
 npm run build            → PASS (108 pages prerendered; `/api/contact` dynamic)
-npm run test:e2e         → PASS (161 passed, 5 skipped)
+npm run test:e2e         → PASS (163 passed, 5 skipped, at the normal 2 workers)
 ```
 
 `validate:content` now also checks: every registered image exists on disk; every article
@@ -1587,9 +1587,9 @@ present border, and nothing further is claimed.
 `adoption-of-christianity` — the same two texts carry the same claim, and citing a
 different pair would imply a second body of evidence that does not exist. Two are new to
 the repository: Hewsen's *Armenia: A Historical Atlas* (geography and Artashat) and
-Maranci's *The Art of Armenia* (building history). **Both new ISBNs, and the 1662 date for
-Surb Astvatsatsin, should be confirmed against the catalogues by an editor** — see the
-open items below.
+Maranci's *The Art of Armenia* (building history). Both new ISBNs were flagged for
+confirmation here and were confirmed in §29; the 1662 date was audited there and did not
+survive.
 
 ### No image, on purpose
 
@@ -1641,24 +1641,183 @@ the four existing listings still render the counts they did.
 `cuisine.spec.ts` walks 18 pages in a single test and aborted twice under two parallel
 workers against the dev server, at two different lines, passing alone each time. The full
 suite run with `--workers=1` is green at 161/161. Places did not change that test's
-subject; it added routes for the dev server to compile on demand. Worth splitting or
-pinning if it recurs.
+subject; it added routes for the dev server to compile on demand. **Split in §29.**
 
 ### Open items
 
-- **Confirm the two new ISBNs and the 1662 date** for Surb Astvatsatsin against publisher
-  catalogues. They are cited in good faith from standard works but were not verifiable
-  offline, and this repository has a documented history of fabricated citations — see the
-  header of `sources.ts`.
-- **Confirm the coordinate.** `39.8783, 44.5772` is the gazetteer position rounded to four
-  decimal places. `geo.ts` deliberately introduces no structured provenance mechanism for a
-  single entry; every value should be checked against an authoritative gazetteer before
-  anything renders a map.
 - **Western Armenian wording is pending native review** — the whole `hyw` article, the
   `placeTypes` labels and the Places UI strings. This adds to the queue §16 already records
   for the edition as a whole. Terminology was taken from the reviewed `hyw` articles rather
   than converted from Eastern Armenian (`Ք.Ա.`, `մօտ`, classical orthography, the
   `կը`/`կ՚` verb forms, `մը`/`մըն`), but proper nouns are the hardest part and
   `Ռոպերթ Հիւսըն`, `Քրիստինա Մարանչի` and `Ագաթանգեղոս` should be checked.
+- **Khor Virap has no article artwork.** Still true; see §29.
+
+The coordinate and citation items recorded here were resolved in §29 and are not repeated.
+
+No deployment was performed.
+
+---
+
+## 29. Places — hardening the foundation (August 2026)
+
+§28 shipped the Places category with three things left open and one test known to be
+fragile. This section closes them. No article, filter, route or feature was added.
+
+### The coordinate
+
+`khor-virap` is now `39.8784, 44.5762`, `precision: "site"` — the OpenStreetMap position
+`39.87836, 44.57615` rounded to four decimal places. The previous entry, `39.8783,
+44.5772`, was about 90 metres east of the enclosure.
+
+The provenance comment in `geo.ts` now states the four things a later editor needs: the
+point is the monastery *complex* (the walled enclosure with Surb Astvatsatsin and the
+chapel over the pit, not a car park or the nearest village), the source is OpenStreetMap
+or a gazetteer derived from it, the rounding is deliberate rather than sloppy, and
+`precision: "site"` means a specific built complex. Four places is about 11 metres —
+finer than anything here needs, and coarse enough not to imply a survey nobody did. It is
+rounded on the way *in*, so nothing downstream can reintroduce digits the source never
+had.
+
+The §28 open item asking an editor to check the value is removed: it has been checked.
+
+### The two ISBNs
+
+Confirmed against the publishers and left exactly as they were:
+
+- Hewsen, *Armenia: A Historical Atlas* — 9780226332284, University of Chicago Press.
+- Maranci, *The Art of Armenia: An Introduction* — 9780190269005, Oxford University Press.
+
+Both records already carried those identifiers, publishers and years, so nothing in
+`sources.ts` changed. Given §17, "the entry was already right" is a result worth recording
+rather than a non-event.
+
+### The 1662 date — audited, and it did not survive
+
+**Result: not directly supported by any of the article's four registered sources, so the
+claim is now "seventeenth century" in all three editions.**
+
+The four sources are Agathangelos/Thomson, Garsoïan, Hewsen and Maranci. The first two are
+about the fourth century and cannot speak to a seventeenth-century church. Hewsen is a
+historical atlas of the Armenian lands, cited for the position of Artashat. That leaves
+Maranci's survey, which does cover the period — but no page of it was in hand stating
+`1662` for this church, and "a survey that covers the century" is not the same claim as "a
+source that gives the year".
+
+What the general web carries is a tourism and encyclopedia consensus with no footnote
+behind it — and, tellingly, it does not agree with itself: several accounts say the church
+was *begun* in 1662 and finished later in the century, which makes the flat sentence "built
+in 1662" wrong even on its own sources' terms. Under the rule in the header of
+`sources.ts`, an unfootnoted snippet is not evidence.
+
+So the exact year is gone, and the *whole* claim moved together — there is no field left
+saying 1662 while another says the century:
+
+| field | before | after (en) |
+| --- | --- | --- |
+| `summary` | "dates from 1662" | "is a seventeenth-century building" |
+| `keyFacts` | "Surb Astvatsatsin …, 1662" | "…, seventeenth century" |
+| `sections.the-monastery` | "built in 1662" | "built in the seventeenth century" |
+| `importantDates[2].year` | "1662" | "Seventeenth century" |
+| `interestingFacts` | "was built in 1662" | "is a seventeenth-century building" |
+
+`significance` already said "seventeenth-century" in all three editions and is unchanged —
+which is the tell that the year was never load-bearing.
+
+Armenian follows each edition's own prose rather than a Roman numeral: `hy` uses
+`տասնյոթերորդ դար`, matching the `տասնյոթերորդ դարի` already in its `significance`, and
+`hyw` uses `տասնեօթներորդ դար`. Neither spelling introduces Arabic digits, which matters:
+`validateCrossLocaleNumbers` compares digit runs across editions, and a `hyw` reading
+`17-րդ դար` would have failed against `Seventeenth century`.
+
+Nothing else moved. The article still names Maranci for the *kind* of building — compact,
+domed, ornament at the drum and doorway — which is what a survey of the period can actually
+support.
+
+### Places validation — the rules the first version shipped without
+
+`validate:content` gains a Places block. As everywhere else in this script there is no
+warning tier: each of these exits 1.
+
+**Classification.** A `places` article must declare a non-empty `placeTypeId`; it must
+match an id in that locale's `placeTypes`; and it must not be `all`, which is the
+"no filter applied" option rather than a kind of site. An article in any other category
+must *not* declare one. `placeTypes` now goes through `validateFilters` like every other
+list, and through `validateFilterCoverage` — which is what makes "one filter per article
+that earns it" a build rule instead of a habit. No translated place-type label was added
+to any article: the id still travels alone.
+
+**The coordinate registry.** `PLACE_COORDINATES` is a `Record<string, PlacePoint>`, so
+TypeScript happily accepts a key for an article that does not exist, a place with no key,
+and a latitude of 900. Now: every canonical (`hy`) places slug must have an entry, every
+entry must name a real places article, `lat`/`lon` must be finite, latitude within ±90,
+longitude within ±180, and `0, 0` is rejected outright — a valid pair in the Gulf of Guinea
+and exactly what an unfilled coordinate looks like. `precision` is re-checked at runtime
+even though the union already forbids anything else, because this script reads the registry
+as data and a cast upstream would walk straight past the type.
+
+Two rules were considered and deliberately left out, both recorded in the function's
+comment so they are not "forgotten" and re-proposed:
+
+- **No Armenia-shaped bounding box.** The archive has not decided how it frames culturally
+  Armenian sites beyond the present border (§28 defers Ani for exactly this reason). A
+  hardcoded national box would settle that question by failing the build on the first
+  article that tested it.
+- **No duplicate-coordinate check.** Two sites can legitimately round to the same four
+  places — a chapel inside a monastery wall, a church and its bell tower. That belongs in a
+  warning tier this script does not have, and as an error it would be an obstruction.
+
+**Locale parity.** `placeTypeId` joins `periodId`, `topicTypeId`, `dishTypeId`, `href`,
+`category` and `relatedSlugs` in `validateCrossLocaleTaxonomy`. A place is the same kind of
+site in every language; without this the Armenian reader could find Khor Virap under
+monasteries and the English reader under nothing at all, with three valid files and no
+error. Slug existence across editions was already covered by `validateCoverage` (`hy` is
+canonical, `en` must be complete, and any `hyw` gap must be declared), and the numerals by
+`validateCrossLocaleNumbers`.
+
+**These were proved by breaking the data on purpose**, not by reading the code: a run with
+`0, 0`, a registry key pointing at `lavash`, `lat: 91`, `lon: 200` and a mismatched
+`placeTypeId` produced seven errors and exit 1 — the coordinate rules, the filter-coverage
+rule, the unknown-id rule and the cross-locale parity rule each firing by name. The data was
+then restored and the run is clean again.
+
+### The Cuisine flake — split, not suppressed
+
+The "no English leak" test walked eighteen article pages inside one 30-second budget. It
+was the longest test in the suite by a wide margin and aborted intermittently under the
+normal two workers, at a *different dish* each time — the signature of a timeout, not a
+defect.
+
+It is now three tests, one per edition, generated from the same `LOCALES` loop the rest of
+the file uses. Every assertion is unchanged and every dish in every edition is still
+visited: six navigations per test instead of eighteen, and the three run concurrently.
+Worst observed run time dropped to 11.6s. Nothing was skipped, marked slow, given a longer
+timeout, or pinned to one worker, and the suite grew by two tests (161 → 163).
+
+### Still open
+
+- **Khor Virap has no article artwork.** Unchanged and deliberate: the slug stays in
+  `PENDING_ARTWORK`, the homepage hero was not registered and was not touched,
+  `ARTWORK_PROVENANCE` was not altered, no placeholder file was generated, and the existing
+  placeholder behaviour in `ArticleLayout` is intact. `validate:content` still prints
+  `note: 1 slug(s) render generated artwork: khor-virap`. A dedicated image is a separate
+  piece of work.
+- **Western Armenian is still pending native review** — the `hyw` article, the `placeTypes`
+  labels and the Places UI strings, now including `տասնեօթներորդ դար`. The transliterated
+  proper nouns (`Ռոպերթ Հիւսըն`, `Քրիստինա Մարանչի`, `Ագաթանգեղոս`, `Նինա Կարսոյեան`) and
+  `Սուրբ Գէորգ` remain the weakest part.
+- **A page reference for the building history.** The audit above closes the exact-year
+  question, but a page in Maranci pinning the church to its century would let the article
+  cite rather than merely describe. `Source` has a `note` field that could carry it.
+
+### Verification
+
+`typecheck` PASS · `validate:content` PASS (102 entries; the artwork note still prints) ·
+`build` PASS (108 pages, all six Places routes prerendered).
+
+`npx playwright test` was run **twice at the repository's normal two workers** — 163 passed,
+5 skipped, 0 failed, in 4.4 and 4.1 minutes. `places.spec.ts` 15/15 on its own; the three
+split Cuisine leak tests 3/3 on their own. The built English page contains no `1662` and
+eleven mentions of the century.
 
 No deployment was performed.

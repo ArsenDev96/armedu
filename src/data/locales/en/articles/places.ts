@@ -44,7 +44,7 @@ export const placeArticles: Article[] = [
     metaDescription:
       "Khor Virap monastery on the Ararat plain: the pit linked with Gregory the Illuminator, the ancient capital of Artashat beneath it, and what to know before seeing it.",
     summary:
-      "Khor Virap is a monastery in Ararat Province, on a low hill rising out of the Ararat plain in the south-west of the Republic of Armenia. Its name means \"deep pit\", and the site is known for the underground chamber beneath its smaller chapel, which Armenian tradition identifies as the place where Gregory the Illuminator was held prisoner before the Armenian king accepted Christianity. That tradition comes from Agathangelos, a narrative written well over a century after the events it describes. The hill also stands on the site of Artashat, a royal capital founded in the second century BC. The buildings a visitor sees are much later than either story: the principal church, Surb Astvatsatsin, dates from 1662.",
+      "Khor Virap is a monastery in Ararat Province, on a low hill rising out of the Ararat plain in the south-west of the Republic of Armenia. Its name means \"deep pit\", and the site is known for the underground chamber beneath its smaller chapel, which Armenian tradition identifies as the place where Gregory the Illuminator was held prisoner before the Armenian king accepted Christianity. That tradition comes from Agathangelos, a narrative written well over a century after the events it describes. The hill also stands on the site of Artashat, a royal capital founded in the second century BC. The buildings a visitor sees are much later than either story: the principal church, Surb Astvatsatsin, is a seventeenth-century building.",
     intro:
       "Khor Virap is a monastery on a low hill above the Ararat plain, about thirty kilometres south of Yerevan in Ararat Province. Its name means \"deep pit\", and it is built over an underground chamber that Armenian tradition identifies as the prison of Gregory the Illuminator. The hill it stands on was once part of Artashat, a royal capital founded in the second century BC, and the view south from its walls is dominated by Mount Ararat. Almost everything that draws people here is therefore older than the buildings themselves — which is the first thing worth understanding about the place.",
     author: "Armat Editorial Team",
@@ -54,7 +54,7 @@ export const placeArticles: Article[] = [
       { label: "Where", value: "Ararat Province, on the Ararat plain, south of Yerevan" },
       { label: "Name", value: "Khor Virap — \"deep pit\" in Armenian" },
       { label: "Stands on", value: "The site of Artashat, a royal capital of ancient Armenia" },
-      { label: "Principal church", value: "Surb Astvatsatsin (Holy Mother of God), 1662" },
+      { label: "Principal church", value: "Surb Astvatsatsin (Holy Mother of God), seventeenth century" },
       { label: "Associated with", value: "Gregory the Illuminator, by tradition" },
     ],
     sections: [
@@ -93,7 +93,7 @@ export const placeArticles: Article[] = [
         heading: "The monastery above the pit",
         paragraphs: [
           "Nothing a visitor sees is ancient. The tradition is old; the buildings are not. A chapel was raised over the pit in the early medieval period, and the enclosure has been rebuilt more than once since.",
-          "The church that dominates the site today is Surb Astvatsatsin, the Holy Mother of God, built in 1662. It is a compact domed church of the kind Christina Maranci's survey of Armenian art describes for the period: solid, plainly built, with its ornament concentrated at the drum and the doorway rather than spread across the walls.",
+          "The church that dominates the site today is Surb Astvatsatsin, the Holy Mother of God, built in the seventeenth century. It is a compact domed church of the kind Christina Maranci's survey of Armenian art describes for the period: solid, plainly built, with its ornament concentrated at the drum and the doorway rather than spread across the walls.",
           "Beside it, and much smaller, is the chapel of Surb Gevorg, which covers the pit itself. The whole group is enclosed by a fortified wall, which is what gives Khor Virap its silhouette from the plain and why photographs of it look more like a small fortress than a church.",
           "It remains a working monastery of the Armenian Apostolic Church, in regular use for services, baptisms and pilgrimage. It is not a ruin and is not presented as one.",
         ],
@@ -129,7 +129,7 @@ export const placeArticles: Article[] = [
           "The traditional date for the Armenian kingdom's adoption of Christianity, the event the tradition of the pit leads to. A number of historians argue for a date closer to 314.",
       },
       {
-        year: "1662",
+        year: "Seventeenth century",
         event: "The present church of Surb Astvatsatsin is built inside the monastery's walls.",
       },
     ],
@@ -144,7 +144,7 @@ export const placeArticles: Article[] = [
       "The name is literally descriptive: khor means deep and virap means pit.",
       "The pit is entered by a ladder through a narrow opening in the floor of the chapel of Surb Gevorg.",
       "The hill was part of Artashat, a royal capital founded in the second century BC — the site was significant for roughly five hundred years before any Christian tradition attached to it.",
-      "Almost everything visible today postdates the tradition by more than a millennium; the principal church was built in 1662.",
+      "Almost everything visible today postdates the tradition by more than a millennium; the principal church is a seventeenth-century building.",
       "Mount Ararat, which dominates the view south from the walls, lies across the border in present-day Turkey.",
     ],
     relatedFigures: [

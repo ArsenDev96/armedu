@@ -247,10 +247,22 @@ test("cuisine related links stay inside the section and the edition", async ({ p
 /*  No untranslated fallback                                                   */
 /* -------------------------------------------------------------------------- */
 
-test("every dish is published in every edition — no unavailable page, no English leak", async ({
-  page,
-}) => {
-  for (const locale of LOCALES) {
+/*
+  One test per edition, not one test for all three.
+
+  The assertions are unchanged and every dish in every edition is still visited;
+  what changed is that eighteen sequential navigations no longer sit inside a
+  single 30-second budget. Against the dev server, which compiles a route the
+  first time it is asked for, that one test was the longest in the suite by a
+  wide margin and aborted intermittently under the normal two workers — at a
+  different dish each time, which is the signature of a timeout rather than a
+  defect. Three tests of six navigations each also run concurrently, so the
+  split is faster as well as steadier.
+*/
+for (const locale of LOCALES) {
+  test(`[${locale}] every dish is published in this edition — no unavailable page, no English leak`, async ({
+    page,
+  }) => {
     const dict = ui(locale);
 
     for (const slug of SLUGS) {
@@ -266,8 +278,8 @@ test("every dish is published in every edition — no unavailable page, no Engli
       // The article is indexable: the unavailable branch is what emits noindex.
       await expect(page.locator('meta[name="robots"][content*="noindex"]')).toHaveCount(0);
     }
-  }
-});
+  });
+}
 
 test("the Armenian editions never fall back to the English dish titles", async ({ page }) => {
   await page.goto("/hy/cuisine");
