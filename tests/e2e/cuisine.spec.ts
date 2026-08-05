@@ -108,6 +108,43 @@ test("cuisine listing search narrows on an ingredient, not only a title", async 
   expect(all).toBe(SLUGS.length);
 });
 
+test("cuisine listing search narrows on an occasion", async ({ page }) => {
+  /*
+    The listing haystack carried `cuisine.ingredients` and `cuisine.regions` but
+    not `cuisine.occasions`, while the global index carried all three. So this
+    exact query returned nothing here and returned ghapama on `/search` — from a
+    box whose placeholder offers "dishes, ingredients and occasions".
+
+    "Christmas" is the right probe because of where it does *not* appear: it is
+    in no dish title and no card excerpt, so the assertion below that the card
+    never shows the word is what proves the match came from the occasions list
+    rather than from the text on screen. It is also in ghapama's section prose,
+    which the listing deliberately leaves out of the payload — so `occasions` is
+    the only field that can satisfy it here.
+  */
+  await page.goto("/en/cuisine");
+  const all = await cards(page).count();
+
+  await page
+    .getByRole("searchbox", { name: ui("en").listing.cuisine.searchLabel })
+    .fill("Christmas");
+
+  const result = cards(page);
+  await expect(result).toHaveCount(1);
+  await expect(result.first()).toContainText(articleTitle("en", "ghapama"));
+
+  // The matched term is nowhere in what the card renders.
+  await expect(result.first()).not.toContainText("Christmas");
+
+  // And the other five dishes are gone, not merely reordered.
+  for (const slug of SLUGS.filter((entry) => entry !== "ghapama")) {
+    await expect(
+      page.getByRole("link", { name: articleTitle("en", slug), exact: true }),
+    ).toHaveCount(0);
+  }
+  expect(all).toBe(SLUGS.length);
+});
+
 /* -------------------------------------------------------------------------- */
 /*  Articles                                                                   */
 /* -------------------------------------------------------------------------- */

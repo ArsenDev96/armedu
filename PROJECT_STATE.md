@@ -78,7 +78,7 @@ npm install              → OK
 npm run typecheck        → PASS (0 errors)
 npm run validate:content → PASS (99 entries across 3 locales)
 npm run build            → PASS (102 pages prerendered; `/api/contact` dynamic)
-npm run test:e2e         → PASS (144 passed, 5 skipped)
+npm run test:e2e         → PASS (145 passed, 5 skipped)
 ```
 
 `validate:content` now also checks: every registered image exists on disk; every article
@@ -1413,3 +1413,46 @@ trusting the declaration.
 
 Footer group headings stay `<h2>`: each `<nav>` already carries the group title as its
 accessible name, and the outline cost is not worth a regression.
+
+---
+
+## 26. Cuisine listing search — occasions were missing from the haystack (August 2026)
+
+A cuisine article's at-a-glance panel answers three questions — what is in it, where it is
+made, when it is eaten — and the cuisine listing's search box offers all three: «Որոնել
+ուտեստներ, բաղադրիչներ և առիթներ…», "Search dishes, ingredients and occasions…".
+
+Only two of the three were searchable. `toArticleListingItems` in `src/lib/search.ts` fed
+`cuisine.ingredients` and `cuisine.regions` into its haystack and omitted
+`cuisine.occasions`, while `buildSearchIndex` — the global `/search` index, forty lines
+below in the same file — carried all three. So the two search boxes disagreed about the
+same content:
+
+```
+/en/cuisine  search "Christmas"  → no results
+/en/search   search "Christmas"  → ghapama
+```
+
+Every occasion string was affected — 17 per edition, all three editions — because the
+field was absent rather than mis-joined. "Church feast" (gata), "commemorative" (dolma)
+and "Christmas" (ghapama) all returned an empty grid on the category page.
+
+The fix is the one missing line. Nothing else changed: no schema, no locale content, no
+translations, no UI, no placeholder text, and no new search logic — `occasions` is a
+`string[]`, which is what the existing `haystack()` helper already flattens and normalizes
+for `ingredients` and `regions`.
+
+**Why it survived.** `cuisine.spec.ts` covered the ingredient path (`korkot` → harissa)
+and stopped there, so the one field with no test was the one field with no code. The
+regression test added beside it searches `Christmas` and asserts ghapama is the only card
+left — and asserts the card does *not* contain the word. That last assertion is the point:
+"Christmas" is in no dish title and no card excerpt, so a card that matches without
+displaying the term can only have matched on `occasions`. It is also in ghapama's section
+prose, which the listing deliberately leaves out of the client payload, so no other field
+can satisfy the query there.
+
+The test was confirmed to fail against the pre-fix code with exactly the reported symptom
+(0 cards) before being accepted.
+
+The two unused exports below it, `getCuisineListingItems` and `getHistoryListingItems`,
+were left alone — both are dead today, and removing them is not this change's business.
