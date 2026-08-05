@@ -401,6 +401,45 @@ test("the empty search page offers cuisine as a place to start", async ({ page }
 /*  SEO: hreflang, structured data, sitemap                                    */
 /* -------------------------------------------------------------------------- */
 
+test("every dish's metadata comes from its own SEO fields, in every edition", async ({ page }) => {
+  /*
+    Cuisine was the one category the August 2026 SEO batch skipped, so all six
+    dishes fell back to `title` and `excerpt` for their `<title>` and their
+    description. Nothing else in the suite asserts that `seoTitle` and
+    `metaDescription` reach the head at all, in any category.
+
+    The H1 assertion is the other half of it: `seoTitle` is written to be read
+    in a results list with no page around it, and it must not replace the
+    headline a reader sees. `articleMetadata` keeps them apart deliberately —
+    see the note on `og:title` in `ArticleRoute.tsx`.
+  */
+  for (const locale of LOCALES) {
+    for (const slug of SLUGS) {
+      const article = bundle(locale).articles.find((entry) => entry.slug === slug);
+      if (!article) throw new Error(`No "${slug}" in the "${locale}" bundle.`);
+      const { seoTitle, metaDescription, title } = article;
+
+      expect(seoTitle, `${locale}/${slug} has no seoTitle`).toBeTruthy();
+      expect(metaDescription, `${locale}/${slug} has no metaDescription`).toBeTruthy();
+      // A fallback would make these identical to the fields they override.
+      expect(seoTitle).not.toBe(title);
+      expect(metaDescription).not.toBe(article.excerpt);
+
+      await page.goto(`/${locale}/cuisine/${slug}`);
+
+      await expect(page).toHaveTitle(`${seoTitle} | ${ui(locale).site.name}`);
+      await expect(page.locator('meta[name="description"]')).toHaveAttribute(
+        "content",
+        metaDescription!,
+      );
+
+      // The visible headline stays the plain title, and the summary is rendered.
+      await expect(page.getByRole("heading", { level: 1 })).toHaveText(title);
+      await expect(page.locator("#summary")).toBeVisible();
+    }
+  }
+});
+
 test("a cuisine article advertises all three editions and an x-default", async ({ page }) => {
   await page.goto("/hy/cuisine/dolma");
 

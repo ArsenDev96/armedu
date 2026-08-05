@@ -78,7 +78,7 @@ npm install              → OK
 npm run typecheck        → PASS (0 errors)
 npm run validate:content → PASS (99 entries across 3 locales)
 npm run build            → PASS (102 pages prerendered; `/api/contact` dynamic)
-npm run test:e2e         → PASS (145 passed, 5 skipped)
+npm run test:e2e         → PASS (146 passed, 5 skipped)
 ```
 
 `validate:content` now also checks: every registered image exists on disk; every article
@@ -1456,3 +1456,71 @@ The test was confirmed to fail against the pre-fix code with exactly the reporte
 
 The two unused exports below it, `getCuisineListingItems` and `getHistoryListingItems`,
 were left alone — both are dead today, and removing them is not this change's business.
+
+---
+
+## 27. Cuisine SEO fields — complete in all three editions (August 2026)
+
+Cuisine was the one category the August 2026 SEO batches did not reach. All six dishes
+carried a `title` and an `excerpt` and nothing else, so every dish page fell back to those
+two for its `<title>` and its meta description, and none had the standalone `summary`
+block that History gained in §23.
+
+All six now have dedicated `seoTitle`, `metaDescription` and `summary` in `hy`, `hyw` and
+`en` — **18 article-locale entries**, none left to fall back.
+
+### What each field targets
+
+Each `seoTitle` names the dish and the one thing a searcher is most likely to be after:
+the tonir and the two UNESCO inscriptions for lavash; the shared-origin question for
+dolma; the fire and the occasion for khorovats; wheat, meat and Musaler for harissa —
+which also distinguishes it from the unrelated North African pepper paste of the same
+name; khoriz for gata; and for ghapama the whole baked pumpkin. `metaDescription` runs
+121–156 characters and `summary` 40–140 words, the envelope the validator enforces and
+the History entries already sit in.
+
+### What the fields do not say
+
+The editorial rules of §20 governed every line. No dish is described as exclusively
+Armenian, because no source says so for any of these six: lavash's summary states that
+the same bread name carries two inscriptions and that each records a practice rather than
+ownership; dolma's records that the 2017 inscription was submitted by Azerbaijan and
+documents a practice, not an origin; harissa's gives the tenth-century Baghdadi record and
+the related dishes made across the Middle East. Ghapama's states the botanical limit —
+every *Cucurbita* is a New World plant — rather than calling the dish ancient.
+
+Nothing promises a recipe. `summary` describes what a dish is, when it is eaten and what
+it means, never quantities or steps, which is the same line `preparation` holds in
+`CuisineDetails` and the reason **no `Recipe` structured data was added** (the standing
+argument is in `lib/seo.ts`: `Recipe` promises `recipeIngredient` and
+`recipeInstructions` a reader can cook from, and these pages decline to be that).
+
+### What did not change
+
+Article bodies, titles, slugs, excerpts, sources, key facts, dates, keywords, related
+articles, `CuisineDetails`, the schema, components, routes and the search implementation
+are all untouched. Verified on the built output for `/en`, `/hy`, `/hyw` `cuisine/lavash`
+and `/en/cuisine/ghapama`: canonical URLs, the four `hreflang` alternates including
+`x-default`, and the JSON-LD graph (`Organization`, `WebSite`, `Article`,
+`BreadcrumbList`, four citations, no `about`, no `Recipe`) are unchanged. `og:title` and
+the JSON-LD `headline` still carry the plain `title`, not `seoTitle` — the distinction
+`ArticleRoute.tsx` documents.
+
+### Verification
+
+`typecheck` PASS · `validate:content` PASS (99 entries) · `build` PASS (102 pages) ·
+`test:e2e` PASS (146 passed, 5 skipped).
+
+One test was added, which is why the count moved from 145. Nothing in the suite asserted
+that `seoTitle` and `metaDescription` reach the document head *in any category* — the
+existing `article.spec.ts` summary test covers only the visible block. The new test walks
+all six dishes in all three editions, asserts the `<title>` and description come from the
+new fields and are not the values they override, and asserts the H1 is still the plain
+title so `seoTitle` cannot leak into the headline.
+
+The Western Armenian wording follows the terminology already reviewed in the `hyw` dish
+articles (`կերակուր`, `լեցոն`, `կորկոտ`, `գառնուկ`, `արջառ`, `որթատունկի տերեւ`,
+`ԵՈՒՆԵՍՔՕ`, `Պաղտատ`, `Ազրպէյճան`) rather than converting the Eastern Armenian text. It
+remains subject to the native review §16 records as outstanding for the edition as a whole.
+
+No deployment was performed.
