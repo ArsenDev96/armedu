@@ -14,10 +14,19 @@ import type { UiDictionary } from "@/data/ui";
 export function Logo({
   ui,
   tone = "dark",
+  placement = "header",
   priority = false,
 }: {
   ui: UiDictionary;
   tone?: "dark" | "light";
+  /**
+   * Both placements hide the tagline on phones. The header hides it again
+   * between `lg` and `xl`, because that band is where the horizontal nav is
+   * tightest and the Armenian tagline is ~155px wide — the difference between
+   * a nav bar and a hamburger on every laptop in it. The footer has a column
+   * to itself and keeps it.
+   */
+  placement?: "header" | "footer";
   /** Eager-load above the fold (header); the footer instance leaves it lazy. */
   priority?: boolean;
 }) {
@@ -43,8 +52,8 @@ export function Logo({
         </span>
         <span
           className={`hidden text-[11px] tracking-wide sm:block ${
-            tone === "light" ? "text-white/60" : "text-ink-3"
-          }`}
+            placement === "header" ? "lg:hidden xl:block" : ""
+          } ${tone === "light" ? "text-white/60" : "text-ink-3"}`}
         >
           {ui.site.tagline}
         </span>

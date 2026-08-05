@@ -250,7 +250,7 @@ for (const locale of LOCALES) {
 
     await page
       .getByRole("navigation", { name: dict.nav.mainLabel })
-      .getByRole("link", { name: dict.nav.cuisine, exact: true })
+      .getByRole("link", { name: dict.nav.cuisineShort, exact: true })
       .click();
 
     await expect(page).toHaveURL(new RegExp(`/${locale}/cuisine$`));

@@ -69,7 +69,7 @@ statically prerendered.
 
 ## 3. Verification status (all run and passing)
 
-Current as of 4 August 2026. The figures below had been left at their January values
+Current as of 5 August 2026. The figures below had been left at their January values
 (68 entries, 79 pages, 93 tests) long after the cuisine category, the Western Armenian
 completion and the SEO batch changed all three.
 
@@ -78,7 +78,7 @@ npm install              → OK
 npm run typecheck        → PASS (0 errors)
 npm run validate:content → PASS (99 entries across 3 locales)
 npm run build            → PASS (102 pages prerendered; `/api/contact` dynamic)
-npm run test:e2e         → PASS (134 passed, 5 skipped)
+npm run test:e2e         → PASS (144 passed, 5 skipped)
 ```
 
 `validate:content` now also checks: every registered image exists on disk; every article
@@ -1336,3 +1336,80 @@ unchanged.
 The Avarayr troop figures remain a human-review item. They are attributed to Eghishe and
 described as uncertain rather than established fact, in line with the existing Thomson
 bibliography entry.
+
+---
+
+## 25. Navigation and footer pass — August 2026
+
+A review of the header and footer found thirteen issues. All are fixed; the notable ones
+are recorded here because several are decisions, not repairs.
+
+### The nav bar came back to `lg`
+
+The horizontal nav had been held at `xl` (1280px) on purpose: measured in Armenian, six
+items at their full names ran **808px** against the **767px** the row had left at 1280px,
+so every label broke mid-phrase («Հայոց / պատմություն»). The fix at the time was to give
+1024–1280px to the drawer — which handed every ordinary laptop a hamburger to avoid a
+wrapping label.
+
+The width came out of the labels instead:
+
+- **"Home" left the bar.** The logo beside it is already a link home. It stays in the
+  drawer, where the drawer is the whole map of the site and there is no logo to lean on.
+- **The four sections use bare nouns in the bar** — `nav.historyShort` etc. — because the
+  logo directly overhead already says whose history this is. The qualified names
+  («Հայոց պատմություն») are unchanged and still used by breadcrumbs, the drawer and the
+  footer, where they stand alone.
+- **The logo tagline hides between `lg` and `xl`**, via `Logo`'s new `placement` prop. It
+  was already hidden on phones; that band is where the row is tightest.
+
+Measured after: 520px of nav in a row with **175px to spare at 1024px** in the widest
+edition. `header.spec.ts` now asserts one-line fit at 1024/1152/1280/1440 across all three
+editions and a five-item bar, so putting "Home" back or lengthening a label fails a test.
+
+### The drawer is a real overlay
+
+It was an in-flow block with every section pre-expanded — a flat ~35-link scroll — that
+let the page scroll behind it and never returned focus. It now locks the body (with
+scrollbar compensation), scrolls itself, traps Tab, hands focus back to the toggle on
+Escape, and opens with its sections **collapsed**.
+
+**The scrim needed care.** `backdrop-blur` on the header sets a `backdrop-filter`, which
+makes the header a containing block for `position: fixed` descendants — so a `fixed
+inset-0` scrim inside it resolves to the header's own 64px strip and dims nothing. It is
+`absolute top-full h-dvh` instead, and a test measures the covered area rather than
+trusting the declaration.
+
+### Other header fixes
+
+- Escape and outside-clicks now reach the **search panel**, which was previously
+  dismissable only by finding its button again; focus returns to that button.
+- A dropdown opened by **clicking** its chevron no longer closes when the pointer wanders
+  off; hover-opened ones close after a 140ms grace period, which stops the menu shutting
+  mid-reach when the cursor cuts the corner.
+- The **language pill is visible at every width** (was `sm` and up). On a trilingual site
+  it is the one control worth the space.
+- Submenus carry `aria-controls`/`id`.
+
+### Footer
+
+- **Three bands** — masthead + signup, four link columns, small print — replacing a
+  six-column row that left each column ~160px. Armenian does not fit in 160px:
+  «Նոր ժամանակների Հայաստան» broke across three lines. Columns are now ~280px and no
+  label wraps past two lines at 1024px.
+- **Every href appears exactly once.** `/works` had sat in both Explore and Resources and
+  `/writers` three times — 27 links covering 23 destinations. `/sitemap.xml` is gone: raw
+  XML behind a human label, and crawlers find it via `robots.txt` regardless.
+- **The newsletter is in the footer**, where the reader who has just finished an article
+  is finally offered it. `NewsletterForm` gained a `tone` prop; `source: "footer"`
+  already existed in `NewsletterSource`.
+- **Language links preserve the reader's page.** They always went to `/{code}` while the
+  identical header control kept the path. Both now share one client component,
+  `LanguageSwitcher`, in three layouts. Its `useSearchParams` boundary falls back to the
+  full switcher minus the query string, so every locale link is still in the prerendered
+  HTML with the right path — all routes remain SSG.
+- **The copyright year is computed**, not the literal `2026` that would have gone quietly
+  wrong on all thirteen routes in January.
+
+Footer group headings stay `<h2>`: each `<nav>` already carries the group title as its
+accessible name, and the outline cost is not worth a regression.

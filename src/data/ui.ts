@@ -38,6 +38,17 @@ export interface UiDictionary {
     works: string;
     cuisine: string;
     about: string;
+    /**
+     * Header-bar labels. The names above carry the "Armenian" qualifier because
+     * breadcrumbs and the footer show them standing alone; in the header the
+     * logo already supplies that context, and repeating it on four items was
+     * 200px of the width that kept the horizontal nav off 1024px screens. See
+     * the note above the nav in `Header.tsx`.
+     */
+    historyShort: string;
+    writersShort: string;
+    worksShort: string;
+    cuisineShort: string;
     contact: string;
     privacy: string;
     search: string;
@@ -84,6 +95,8 @@ export interface UiDictionary {
     modernArmenia: string;
     importantFigures: string;
     languageTitle: string;
+    /** Heading above the footer's newsletter form. */
+    newsletterTitle: string;
     /** `{year}` and `{name}` are substituted. */
     copyright: string;
   };

@@ -42,6 +42,7 @@ export function NewsletterForm({
   ui,
   compact = false,
   variant = "default",
+  tone = "dark",
   source = "homepage",
 }: {
   /** The edition the reader subscribed from; stored in the `locale` column. */
@@ -50,6 +51,12 @@ export function NewsletterForm({
   compact?: boolean;
   /** `inline` is the homepage form: mail glyph inside a squared-off field. */
   variant?: "default" | "inline";
+  /**
+   * Which way the text runs, following `Logo`: `dark` is the default ink-on-paper
+   * form, `light` is for the burgundy footer — where the standing note would
+   * otherwise be `text-ink-3` on a near-black bar, i.e. invisible.
+   */
+  tone?: "dark" | "light";
   /** Recorded in the `source` column so signups can be attributed to a page. */
   source?: NewsletterSource;
 }) {
@@ -60,6 +67,7 @@ export function NewsletterForm({
   const messageId = `${fieldId}-message`;
 
   const inline = variant === "inline";
+  const onDark = tone === "light";
   const submitting = status === "submitting";
   const settled = status === "success" || status === "duplicate";
 
@@ -180,7 +188,12 @@ export function NewsletterForm({
           type="submit"
           disabled={submitting}
           className={cn(
-            "shrink-0 bg-burgundy font-semibold text-white transition hover:bg-burgundy-dark disabled:cursor-not-allowed disabled:opacity-60",
+            "shrink-0 font-semibold transition disabled:cursor-not-allowed disabled:opacity-60",
+            // Burgundy on burgundy would all but disappear, so on the footer bar
+            // the button inverts instead.
+            onDark
+              ? "bg-white text-burgundy hover:bg-white/90"
+              : "bg-burgundy text-white hover:bg-burgundy-dark",
             inline ? "rounded-lg px-7 py-3 text-sm" : "rounded-full px-7 py-3.5 text-sm",
           )}
         >
@@ -194,7 +207,13 @@ export function NewsletterForm({
         className={cn(
           "mt-3",
           inline ? "text-center text-xs" : "text-sm",
-          settled || isProblem ? "text-burgundy" : "text-ink-3",
+          onDark
+            ? settled || isProblem
+              ? "text-white"
+              : "text-white/60"
+            : settled || isProblem
+              ? "text-burgundy"
+              : "text-ink-3",
         )}
       >
         {message || (inline ? ui.newsletter.noteInline : ui.newsletter.noteDefault)}
@@ -202,7 +221,11 @@ export function NewsletterForm({
 
       {!isSupabaseConfigured() && status === "idle" ? (
         <p
-          className={cn("mt-1.5 text-ink-3/80", inline ? "text-center text-[0.6875rem]" : "text-xs")}
+          className={cn(
+            "mt-1.5",
+            onDark ? "text-white/45" : "text-ink-3/80",
+            inline ? "text-center text-[0.6875rem]" : "text-xs",
+          )}
         >
           {ui.newsletter.devNote}
         </p>

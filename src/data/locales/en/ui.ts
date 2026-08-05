@@ -29,6 +29,10 @@ export const ui: UiDictionary = {
     works: "Literary Works",
     cuisine: "Armenian Cuisine",
     about: "About",
+    historyShort: "History",
+    writersShort: "Writers",
+    worksShort: "Literary Works",
+    cuisineShort: "Cuisine",
     contact: "Contact",
     privacy: "Privacy Policy",
     search: "Search",
@@ -69,6 +73,7 @@ export const ui: UiDictionary = {
     modernArmenia: "Modern Armenia",
     importantFigures: "Important Figures",
     languageTitle: "Language",
+    newsletterTitle: "Stay in touch",
     copyright: "© {year} {name}. All rights reserved.",
   },
 

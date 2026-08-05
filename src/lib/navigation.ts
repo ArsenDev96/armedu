@@ -10,6 +10,20 @@ export interface NavLink {
 export interface NavItem extends NavLink {
   /** Rendered as a dropdown under the header item. Every entry is a real page. */
   children?: NavLink[];
+  /**
+   * What the header bar shows instead of `label`. The full names qualify
+   * themselves ("Armenian History") because breadcrumbs and the footer show
+   * them out of context; the header bar sits under a logo that already says
+   * whose history this is, so it uses the bare noun and saves the width.
+   */
+  shortLabel?: string;
+  /**
+   * Offered in the drawer but not the header bar. Home is the only one: the
+   * logo immediately to its left is already a link home, so the item is a
+   * duplicate on desktop — but on a phone the drawer is the whole map of the
+   * site, and leaving home off it would be a hole.
+   */
+  drawerOnly?: boolean;
 }
 
 /** How many articles each header dropdown lists before the "all …" link. */
@@ -37,10 +51,11 @@ export function getMainNav(locale: Locale): NavItem[] {
   const path = (p: string) => localePath(locale, p);
 
   return [
-    { href: path("/"), label: ui.nav.home },
+    { href: path("/"), label: ui.nav.home, drawerOnly: true },
     {
       href: path("/history"),
       label: ui.nav.history,
+      shortLabel: ui.nav.historyShort,
       children: [
         ...articleLinks(locale, "history", DROPDOWN_LIMIT),
         { href: path("/history"), label: ui.nav.allHistoryArticles },
@@ -49,6 +64,7 @@ export function getMainNav(locale: Locale): NavItem[] {
     {
       href: path("/writers"),
       label: ui.nav.writers,
+      shortLabel: ui.nav.writersShort,
       children: [
         ...articleLinks(locale, "writers", DROPDOWN_LIMIT),
         { href: path("/writers"), label: ui.nav.allWriters },
@@ -57,6 +73,7 @@ export function getMainNav(locale: Locale): NavItem[] {
     {
       href: path("/works"),
       label: ui.nav.works,
+      shortLabel: ui.nav.worksShort,
       children: [
         ...articleLinks(locale, "works", DROPDOWN_LIMIT),
         { href: path("/works"), label: ui.nav.allWorks },
@@ -65,6 +82,7 @@ export function getMainNav(locale: Locale): NavItem[] {
     {
       href: path("/cuisine"),
       label: ui.nav.cuisine,
+      shortLabel: ui.nav.cuisineShort,
       children: [
         ...articleLinks(locale, "cuisine", DROPDOWN_LIMIT),
         { href: path("/cuisine"), label: ui.nav.allCuisineArticles },
@@ -125,6 +143,20 @@ export function getFooterNav(locale: Locale): FooterGroup[] {
     bundle.articles.filter((a) => a.category === "history").map((a) => a.slug),
   );
 
+  /*
+    Every href below appears exactly once in the footer.
+
+    It used to not: `/works` sat in both Explore and Resources, and `/writers`
+    in Explore *and* again as "all writers" atop the Writers column — 27 links
+    covering 23 destinations. Repeating a link in the block that renders on all
+    thirteen routes buys nothing for a reader and spends internal-link weight
+    saying the same thing twice, so each column now owns its targets: Explore
+    holds the section indexes, History and Writers go straight to articles
+    nothing else links to, and Resources keeps the site-level pages.
+
+    `/sitemap.xml` is gone with them. It was raw XML behind a human-facing
+    label; crawlers find it through `robots.txt` regardless.
+  */
   return [
     {
       title: ui.footer.exploreTitle,
@@ -146,17 +178,12 @@ export function getFooterNav(locale: Locale): FooterGroup[] {
     },
     {
       title: ui.footer.writersTitle,
-      links: [
-        { href: path("/writers"), label: ui.nav.allWriters },
-        ...articleLinks(locale, "writers", 4),
-      ],
+      links: articleLinks(locale, "writers", 5),
     },
     {
       title: ui.footer.resourcesTitle,
       links: [
         { href: path("/about"), label: ui.nav.about },
-        { href: path("/works"), label: ui.nav.works },
-        { href: "/sitemap.xml", label: ui.nav.sitemap },
         { href: path("/contact"), label: ui.nav.contact },
         { href: path("/privacy"), label: ui.nav.privacy },
       ],

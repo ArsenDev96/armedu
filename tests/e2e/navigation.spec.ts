@@ -1,4 +1,5 @@
 import { expect, test } from "@playwright/test";
+import { LOCALE_META, type Locale } from "@/data/types";
 import { LOCALES, ui } from "./helpers";
 
 test("the Armenian homepage loads with its main landmarks", async ({ page }) => {
@@ -18,19 +19,21 @@ for (const locale of LOCALES) {
 
     await page.goto(`/${locale}`);
 
-    await nav().getByRole("link", { name: dict.nav.history, exact: true }).click();
+    // The bar carries the short labels; the full ones are what breadcrumbs,
+    // the drawer and the footer show.
+    await nav().getByRole("link", { name: dict.nav.historyShort, exact: true }).click();
     await expect(page).toHaveURL(new RegExp(`/${locale}/history$`));
     await expect(
       page.getByRole("heading", { name: dict.listing.history.title, level: 1 }),
     ).toBeVisible();
 
-    await nav().getByRole("link", { name: dict.nav.writers, exact: true }).click();
+    await nav().getByRole("link", { name: dict.nav.writersShort, exact: true }).click();
     await expect(page).toHaveURL(new RegExp(`/${locale}/writers$`));
 
-    await nav().getByRole("link", { name: dict.nav.works, exact: true }).click();
+    await nav().getByRole("link", { name: dict.nav.worksShort, exact: true }).click();
     await expect(page).toHaveURL(new RegExp(`/${locale}/works$`));
 
-    await nav().getByRole("link", { name: dict.nav.cuisine, exact: true }).click();
+    await nav().getByRole("link", { name: dict.nav.cuisineShort, exact: true }).click();
     await expect(page).toHaveURL(new RegExp(`/${locale}/cuisine$`));
   });
 }
@@ -56,17 +59,45 @@ test("the header dropdown only offers pages that exist in this edition", async (
   );
 });
 
-test("the footer language column links to every edition", async ({ page }) => {
+test("the footer language bar links to every edition and marks the current one", async ({
+  page,
+}) => {
   await page.goto("/hy");
+  const dict = ui("hy");
 
   const footer = page.getByRole("contentinfo");
-  await expect(footer.getByRole("link", { name: "English" })).toHaveAttribute("href", "/en");
-  await expect(footer.getByRole("link", { name: "Արեւմտահայերէն" })).toHaveAttribute(
-    "href",
-    "/hyw",
-  );
-  // The current edition is marked, not linked.
-  await expect(footer.getByRole("link", { name: "Հայերեն" })).toHaveCount(0);
+  const switcher = (locale: Locale) =>
+    footer.getByRole("link", {
+      name: dict.header.switchToLanguage.replace("{language}", LOCALE_META[locale].label),
+    });
+
+  await expect(switcher("en")).toHaveAttribute("href", "/en");
+  await expect(switcher("hyw")).toHaveAttribute("href", "/hyw");
+
+  // The edition being read is a link too — the same control in the header
+  // always was — but it is the one carrying `aria-current`.
+  await expect(
+    footer.getByRole("link", {
+      name: dict.header.currentLanguage.replace("{language}", LOCALE_META.hy.label),
+    }),
+  ).toHaveAttribute("aria-current", "true");
+});
+
+test("the footer keeps the reader on their page when they switch edition", async ({ page }) => {
+  // The footer used to send every language link to the homepage while the
+  // identical header control preserved the path.
+  await page.goto("/hy/history/tigran-the-great");
+  const dict = ui("hy");
+
+  await page
+    .getByRole("contentinfo")
+    .getByRole("link", {
+      name: dict.header.switchToLanguage.replace("{language}", LOCALE_META.en.label),
+    })
+    .click();
+
+  await expect(page).toHaveURL(/\/en\/history\/tigran-the-great$/);
+  await expect(page.locator("html")).toHaveAttribute("lang", "en");
 });
 
 test("no page links to a bare fragment", async ({ page }) => {

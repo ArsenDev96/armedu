@@ -29,6 +29,10 @@ export const ui: UiDictionary = {
     works: "Գրական երկեր",
     cuisine: "Հայկական խոհանոց",
     about: "Մեր մասին",
+    historyShort: "Պատմութիւն",
+    writersShort: "Գրողներ",
+    worksShort: "Գրական երկեր",
+    cuisineShort: "Խոհանոց",
     contact: "Կապ",
     privacy: "Գաղտնիութեան քաղաքականութիւն",
     search: "Փնտռում",
@@ -69,6 +73,7 @@ export const ui: UiDictionary = {
     modernArmenia: "Արդի Հայաստան",
     importantFigures: "Կարեւոր դէմքեր",
     languageTitle: "Լեզու",
+    newsletterTitle: "Մնացէ՛ք կապի մէջ",
     copyright: "© {year} {name}։ Բոլոր իրաւունքները վերապահուած են։",
   },
 
