@@ -44,6 +44,15 @@ export const categories: Category[] = [
     // match would break the link back to the artwork the illustrator supplied.
     image: "/category-armmeal.webp",
   },
+  {
+    id: "places",
+    title: "Վայրեր",
+    description:
+      "Վանքեր, ամրոցներ, թանգարաններ և բնաշխարհ Հայաստանում՝ ներկայացված որպես պատմություն, ոչ թե ուղեգիծ. սկսած Արարատի ստորոտի Խոր Վիրապից։",
+    href: "/places",
+    linkLabel: "Դիտել վայրերը",
+    imageSeed: "category-places",
+  },
 ];
 
 export const timeline: TimelineEntry[] = [

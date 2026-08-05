@@ -17,6 +17,7 @@ export function SearchResultCard({ result, ui }: { result: SearchResult; ui: UiD
     writers: ui.search.typeWriter,
     works: ui.search.typeWork,
     cuisine: ui.search.typeCuisine,
+    places: ui.search.typePlace,
   };
 
   const portrait = result.type === "writers";

@@ -70,7 +70,30 @@ const IMAGES: Record<string, string> = {
  * declared on the article itself as `image: { src, alt, credit }`, which
  * overrides both the file here and the AI caption.
  */
-export const PENDING_ARTWORK: readonly string[] = [];
+export const PENDING_ARTWORK: readonly string[] = [
+  /*
+   * Places launched before its artwork. `public/hero-ararat.png` shows this very
+   * monastery and was considered for reuse, and was rejected on provenance
+   * grounds rather than on looks.
+   *
+   * Everything in `IMAGES` inherits `ARTWORK_PROVENANCE` below, which states
+   * that the file is AI-generated. That claim is recorded for the registry and
+   * has never been recorded for the homepage hero, which sits outside
+   * `public/images/` with the category banners and carries no provenance of its
+   * own. Registering it here would assert something about it that this
+   * repository has not established — the exact failure §17 of PROJECT_STATE.md
+   * was written to end. It is also a 1.4 MB PNG where the registry is 110–160 KB
+   * WebP, and reusing the site's signature image as one article's cover would
+   * make it the homepage hero, the category card, the article hero, the Open
+   * Graph image and the sitemap image all at once.
+   *
+   * So the slug is declared pending instead. `ArticleLayout` already has an
+   * honest branch for it: no artwork renders the generated placeholder and the
+   * `imagePlaceholderCaption` wording, and `isGeneratedArtwork` stays false, so
+   * nothing is captioned AI-generated that has not been established as such.
+   */
+  "khor-virap",
+];
 
 /** Path under `public/` for a slug's artwork, or `undefined` when none ships. */
 export function getImageSrc(slug: string): string | undefined {

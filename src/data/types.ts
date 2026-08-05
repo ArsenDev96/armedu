@@ -72,9 +72,9 @@ export function isLocale(value: unknown): value is Locale {
   return typeof value === "string" && (SUPPORTED_LOCALES as readonly string[]).includes(value);
 }
 
-export type CategoryId = "history" | "writers" | "works" | "cuisine";
+export type CategoryId = "history" | "writers" | "works" | "cuisine" | "places";
 
-export const CATEGORY_IDS: CategoryId[] = ["history", "writers", "works", "cuisine"];
+export const CATEGORY_IDS: CategoryId[] = ["history", "writers", "works", "cuisine", "places"];
 
 export interface Category {
   id: CategoryId;
@@ -230,6 +230,20 @@ export interface ArticleSummary {
    */
   dishType?: string;
   dishTypeId?: string;
+  /**
+   * Places listing only: what kind of site this is, as a filter id in
+   * `placeTypes`.
+   *
+   * Id-only, following `topicTypeId` above rather than the `period`/`periodId`
+   * and `dishType`/`dishTypeId` pairs beside it. Those each keep a second copy
+   * of the translated label on every article, and each therefore needs its own
+   * validator rule to catch the two copies drifting apart. The label for a place
+   * type lives once, in the locale's `placeTypes` list, and is rendered from
+   * there — so there is nothing to drift and no rule to write.
+   *
+   * Never author a `placeType` label field to sit beside this one.
+   */
+  placeTypeId?: string;
   /** Licensed cover photograph. Falls back to the generated artwork when absent. */
   image?: ContentImage;
   featured?: boolean;
@@ -466,6 +480,15 @@ export interface LocaleContent {
   workGenres: Filter[];
   /** Dish-type filters for the cuisine listing. Ids are shared across locales. */
   cuisineTypes: Filter[];
+  /**
+   * Site-type filters for the places listing. Ids are shared across locales.
+   *
+   * Deliberately short: a filter that matches no article is a pill that always
+   * returns an empty listing, which `validateFilterCoverage` fails the build
+   * over. A type id is added in the same change as the first article that uses
+   * it, never ahead of one.
+   */
+  placeTypes: Filter[];
 }
 
 /** The id every filter list uses for its "no filter applied" option. */

@@ -33,6 +33,7 @@ export const ui: UiDictionary = {
     writersShort: "Writers",
     worksShort: "Literary Works",
     cuisineShort: "Cuisine",
+    places: "Places",
     contact: "Contact",
     privacy: "Privacy Policy",
     search: "Search",
@@ -41,6 +42,7 @@ export const ui: UiDictionary = {
     allWriters: "All writers",
     allWorks: "All literary works",
     allCuisineArticles: "All cuisine articles",
+    allPlaces: "All places",
     submenuLabel: "{item} submenu",
     toggleMenu: "Toggle navigation menu",
   },
@@ -233,6 +235,28 @@ export const ui: UiDictionary = {
         "The section grows over time. Use the search field and the filters above to narrow it by kind of dish.",
       readArticle: "Read the article",
     },
+    places: {
+      title: "Places in Armenia",
+      metaDescription:
+        "Monasteries, fortresses, museums and landscapes in Armenia, explained as history rather than as an itinerary: what each site is, what happened there, and what to understand before seeing it.",
+      keywords: [
+        "places in Armenia",
+        "Armenian monasteries",
+        "Armenian historical sites",
+        "Khor Virap",
+        "Armenian heritage sites",
+      ],
+      lead: "This section explains places in Armenia the way the rest of the archive explains its subjects: what a site is, when it was built, what happened there, and why it still matters. It is written for readers who want to understand a place, whether or not they are standing in front of it.",
+      searchLabel: "Search places",
+      searchPlaceholder: "Search monasteries, sites and landscapes\u2026",
+      featuredEyebrow: "Featured place",
+      featuredTitle: "Where the section begins",
+      allEyebrow: "All places",
+      allTitle: "Sites and landscapes",
+      allDescription:
+        "The section is new and grows article by article. Each entry explains one place, and links to the history, writers and works it belongs with.",
+      readArticle: "Read the article",
+    },
   },
 
   empty: {
@@ -260,12 +284,14 @@ export const ui: UiDictionary = {
     groupWriters: "Writers",
     groupWorks: "Literary Works",
     groupCuisine: "Cuisine",
+    groupPlaces: "Places",
     groupCountOne: "{count} result",
     groupCountOther: "{count} results",
     typeHistory: "History",
     typeWriter: "Writer",
     typeWork: "Literary work",
     typeCuisine: "Dish",
+    typePlace: "Place",
     noQueryHeading: "What are you looking for?",
     noQueryBody:
       "Search covers every history article, writer biography and literary work on the site. Try a name, a century, a battle or the title of a book.",
@@ -273,6 +299,7 @@ export const ui: UiDictionary = {
     browseWriters: "Browse writers",
     browseWorks: "Browse works",
     browseCuisine: "Browse cuisine",
+    browsePlaces: "Browse places",
     noResultsHeading: "No results found",
     noResultsBody:
       "Nothing on the site matches “{query}”. Check the spelling, try a shorter term, or browse a section instead.",
@@ -320,6 +347,7 @@ export const ui: UiDictionary = {
     typeWriters: "Writers",
     typeWorks: "Works",
     typeCuisine: "Cuisine",
+    typePlaces: "Places",
     cuisine: {
       detailsHeading: "The dish at a glance",
       ingredients: "Common ingredients",

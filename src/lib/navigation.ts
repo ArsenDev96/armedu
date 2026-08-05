@@ -88,6 +88,16 @@ export function getMainNav(locale: Locale): NavItem[] {
         { href: path("/cuisine"), label: ui.nav.allCuisineArticles },
       ],
     },
+    {
+      href: path("/places"),
+      // No `shortLabel`: this label is already the bare noun the four above had
+      // to be shortened into, so there is nothing to shorten.
+      label: ui.nav.places,
+      children: [
+        ...articleLinks(locale, "places", DROPDOWN_LIMIT),
+        { href: path("/places"), label: ui.nav.allPlaces },
+      ],
+    },
     { href: path("/about"), label: ui.nav.about },
   ];
 }
@@ -165,6 +175,7 @@ export function getFooterNav(locale: Locale): FooterGroup[] {
         { href: path("/writers"), label: ui.nav.writers },
         { href: path("/works"), label: ui.nav.works },
         { href: path("/cuisine"), label: ui.nav.cuisine },
+        { href: path("/places"), label: ui.nav.places },
         { href: `${path("/")}#timeline`, label: ui.footer.timeline },
         { href: path("/search"), label: ui.nav.search },
       ],

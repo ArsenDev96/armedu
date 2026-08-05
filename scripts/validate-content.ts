@@ -77,6 +77,7 @@ const DECLARED_UNAVAILABLE: Partial<Record<Locale, Record<CategoryId, string[]>>
     writers: [],
     works: [],
     cuisine: [],
+    places: [],
   },
 };
 

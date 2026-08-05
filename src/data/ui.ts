@@ -49,6 +49,12 @@ export interface UiDictionary {
     writersShort: string;
     worksShort: string;
     cuisineShort: string;
+    /**
+     * Places has no `…Short` twin: the label is already the bare noun the four
+     * above had to be shortened into, so `NavItem.shortLabel` is left unset and
+     * the header falls back to this one.
+     */
+    places: string;
     contact: string;
     privacy: string;
     search: string;
@@ -57,6 +63,7 @@ export interface UiDictionary {
     allWriters: string;
     allWorks: string;
     allCuisineArticles: string;
+    allPlaces: string;
     /** Accessible name for a nav dropdown toggle; `{item}` is the parent label. */
     submenuLabel: string;
     toggleMenu: string;
@@ -213,6 +220,21 @@ export interface UiDictionary {
       allDescription: string;
       readArticle: string;
     };
+    places: {
+      title: string;
+      metaDescription: string;
+      /** Overrides `site.keywords` on this listing. */
+      keywords: string[];
+      lead: string;
+      searchLabel: string;
+      searchPlaceholder: string;
+      featuredEyebrow: string;
+      featuredTitle: string;
+      allEyebrow: string;
+      allTitle: string;
+      allDescription: string;
+      readArticle: string;
+    };
   };
 
   empty: {
@@ -240,6 +262,7 @@ export interface UiDictionary {
     groupWriters: string;
     groupWorks: string;
     groupCuisine: string;
+    groupPlaces: string;
     /** `{count}` substituted, used under each group heading. */
     groupCountOne: string;
     groupCountOther: string;
@@ -247,12 +270,14 @@ export interface UiDictionary {
     typeWriter: string;
     typeWork: string;
     typeCuisine: string;
+    typePlace: string;
     noQueryHeading: string;
     noQueryBody: string;
     browseHistory: string;
     browseWriters: string;
     browseWorks: string;
     browseCuisine: string;
+    browsePlaces: string;
     noResultsHeading: string;
     /** `{query}` substituted. */
     noResultsBody: string;
@@ -318,6 +343,7 @@ export interface UiDictionary {
     typeWriters: string;
     typeWorks: string;
     typeCuisine: string;
+    typePlaces: string;
     /**
      * Headings for the cuisine at-a-glance panel (`CuisineDetails`). Grouped
      * rather than flattened into `article` because they are rendered by one

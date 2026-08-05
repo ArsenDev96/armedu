@@ -86,6 +86,11 @@ export function toArticleListingItems(
     topicTypeId: article.topicTypeId,
     dishType: article.dishType,
     dishTypeId: article.dishTypeId,
+    // The projection is written field by field rather than spread, so a new
+    // filter key is invisible to the compiler here — every field is optional on
+    // `ArticleSummary`. Omitting this one left the places listing rendering its
+    // pills and matching nothing.
+    placeTypeId: article.placeTypeId,
     imageSeed: article.imageSeed,
     image: article.image,
     featured: article.featured,

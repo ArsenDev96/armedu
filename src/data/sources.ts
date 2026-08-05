@@ -602,6 +602,55 @@ const SOURCES: Record<string, Source[]> = {
       identifier: { kind: "isbn", value: "9781411698659" },
     },
   ],
+
+  /* ----------------------------------------------------------------- places */
+
+  /*
+   * A place article makes two different kinds of claim, and they need different
+   * kinds of source. What the site *is* — where it stands, when it was built,
+   * what survives — is architectural and geographic. What is *remembered* there
+   * is a narrative tradition, and the narrative is later than the events it
+   * describes. The first two entries below are the same Agathangelos and
+   * Garsoïan already cited by `adoption-of-christianity`, deliberately: Khor
+   * Virap's tradition and that article's subject rest on the same two texts, and
+   * citing a different pair for the same claim would imply a second, independent
+   * body of evidence that does not exist.
+   */
+
+  "khor-virap": [
+    {
+      author: "Agathangelos, trans. and comm. R. W. Thomson",
+      title: "History of the Armenians",
+      publisher: "State University of New York Press, Albany",
+      year: "1976",
+      identifier: { kind: "isbn", value: "9780873953238" },
+      note: "The fifth-century narrative in which Gregory is imprisoned in the pit at Artashat. It is the source of the tradition attached to this site, and it was written well over a century after the events it describes.",
+    },
+    {
+      author: "Nina G. Garsoïan",
+      title: "Studies on the Formation of Christian Armenia",
+      publisher: "Variorum / Ashgate",
+      year: "2010",
+      identifier: { kind: "isbn", value: "9781409403661" },
+      note: "Cited for the critical treatment of the conversion narrative and its dating, which is what keeps the tradition at this site described as tradition.",
+    },
+    {
+      author: "Robert H. Hewsen",
+      title: "Armenia: A Historical Atlas",
+      publisher: "University of Chicago Press",
+      year: "2001",
+      identifier: { kind: "isbn", value: "9780226332284" },
+      note: "The standard historical geography of the Armenian lands; cited here for the position of Artashat on the Ararat plain and for the setting of the site.",
+    },
+    {
+      author: "Christina Maranci",
+      title: "The Art of Armenia: An Introduction",
+      publisher: "Oxford University Press",
+      year: "2018",
+      identifier: { kind: "isbn", value: "9780190269005" },
+      note: "A survey of Armenian architecture and its periods; cited for the building history of the monastery rather than for the tradition.",
+    },
+  ],
 };
 
 /** The bibliography for one article. Empty only if the slug is unknown. */

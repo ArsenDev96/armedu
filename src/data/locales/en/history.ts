@@ -41,6 +41,15 @@ export const categories: Category[] = [
     imageSeed: "category-cuisine",
     image: "/category-armmeal.webp",
   },
+  {
+    id: "places",
+    title: "Places",
+    description:
+      "Monasteries, fortresses, museums and landscapes in Armenia, explained as history rather than as an itinerary — beginning with Khor Virap below Mount Ararat.",
+    href: "/places",
+    linkLabel: "View Places",
+    imageSeed: "category-places",
+  },
 ];
 
 export const timeline: TimelineEntry[] = [

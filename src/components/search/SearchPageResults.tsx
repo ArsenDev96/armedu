@@ -2,7 +2,7 @@
 
 import { usePathname, useSearchParams } from "next/navigation";
 import { useEffect, useId, useMemo, useRef, useState } from "react";
-import type { CategoryId, Locale } from "@/data/types";
+import { CATEGORY_IDS, type CategoryId, type Locale } from "@/data/types";
 import type { UiDictionary } from "@/data/ui";
 import { ButtonLink, Card } from "@/components/ui/primitives";
 import { SearchIcon } from "@/components/ui/icons";
@@ -60,8 +60,13 @@ export function SearchPageResults({
       writers: ui.search.groupWriters,
       works: ui.search.groupWorks,
       cuisine: ui.search.groupCuisine,
+      places: ui.search.groupPlaces,
     };
-    return (["history", "writers", "works", "cuisine"] as CategoryId[]).map((type) => ({
+    // `CATEGORY_IDS`, not a literal list. The literal that used to be here was a
+    // cast rather than a checked value, so a new category compiled, shipped, and
+    // was indexed and searchable everywhere except the page whose whole job is
+    // showing search results.
+    return CATEGORY_IDS.map((type) => ({
       type,
       label: labels[type],
       results: hits.filter((hit) => hit.type === type),
@@ -168,6 +173,9 @@ function NoQueryState({ ui, locale }: { ui: UiDictionary; locale: Locale }) {
         </ButtonLink>
         <ButtonLink href={localePath(locale, "/cuisine")} variant="secondary">
           {ui.search.browseCuisine}
+        </ButtonLink>
+        <ButtonLink href={localePath(locale, "/places")} variant="secondary">
+          {ui.search.browsePlaces}
         </ButtonLink>
       </div>
     </Card>

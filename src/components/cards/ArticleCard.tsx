@@ -26,9 +26,14 @@ export function ArticleCard({
     writers: ui.article.typeWriters,
     works: ui.article.typeWorks,
     cuisine: ui.article.typeCuisine,
+    places: ui.article.typePlaces,
   };
 
-  /** The era for history and literature, the kind of dish for cuisine. */
+  /**
+   * The era for history and literature, the kind of dish for cuisine. Places
+   * carry `placeTypeId` without a label twin, so a place card shows no
+   * qualifier chip rather than a raw id — see `ArticleSummary.placeTypeId`.
+   */
   const qualifier = article.period ?? article.dishType;
   const readingTime = t(ui.article.readingTime, { minutes: article.readingTime });
   const imageAlt = article.image?.alt ?? t(ui.article.imageAlt, { title: article.title });

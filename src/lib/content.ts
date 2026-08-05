@@ -123,6 +123,10 @@ export function getCuisineTypes(locale: Locale) {
   return getLocaleBundle(locale).cuisineTypes;
 }
 
+export function getPlaceTypes(locale: Locale) {
+  return getLocaleBundle(locale).placeTypes;
+}
+
 /**
  * The article before and after this one within its category.
  *

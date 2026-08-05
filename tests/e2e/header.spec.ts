@@ -59,7 +59,7 @@ for (const width of WIDE) {
     await expect(nav.getByRole("link", { name: dict.nav.cuisineShort, exact: true })).toBeVisible();
 
     const lines = await navLinkLineCounts(page, dict.nav.mainLabel);
-    expect(lines.length, "the bar carries five sections, without Home").toBe(5);
+    expect(lines.length, "the bar carries six sections, without Home").toBe(6);
     expect(lines, "a nav label wrapped onto a second line").toEqual(lines.map(() => 1));
 
     expect(await overflow(page), "the page scrolls sideways").toBeLessThanOrEqual(1);

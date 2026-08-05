@@ -302,15 +302,16 @@ test("the homepage category row offers cuisine alongside the other three", async
   await page.goto("/hy");
 
   const categories = page.locator("#categories");
-  await expect(categories.getByRole("article")).toHaveCount(4);
+  await expect(categories.getByRole("article")).toHaveCount(5);
   await expect(
     categories.getByRole("link", { name: dict.listing.cuisine.title }),
   ).toBeVisible();
 
   // Cuisine shipped without a banner and wore a colour wash until one arrived.
-  // Now that it has one, all four cards carry photography — which is what the
-  // row is designed around, so a section quietly losing its banner should fail
-  // here rather than only look wrong.
+  // Places is now in the same position: five cards, four banners, and the fifth
+  // carrying its section colour instead. The count is pinned so that a section
+  // quietly losing its banner fails here rather than only looking wrong — and so
+  // that Places gaining one is a deliberate change to this number.
   await expect(categories.locator("article img")).toHaveCount(4);
   await expect(categories.locator("article").nth(3).locator("img")).toHaveAttribute(
     "src",

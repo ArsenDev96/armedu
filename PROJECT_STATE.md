@@ -76,9 +76,9 @@ completion and the SEO batch changed all three.
 ```
 npm install              → OK
 npm run typecheck        → PASS (0 errors)
-npm run validate:content → PASS (99 entries across 3 locales)
-npm run build            → PASS (102 pages prerendered; `/api/contact` dynamic)
-npm run test:e2e         → PASS (146 passed, 5 skipped)
+npm run validate:content → PASS (102 entries across 3 locales)
+npm run build            → PASS (108 pages prerendered; `/api/contact` dynamic)
+npm run test:e2e         → PASS (161 passed, 5 skipped)
 ```
 
 `validate:content` now also checks: every registered image exists on disk; every article
@@ -1522,5 +1522,143 @@ The Western Armenian wording follows the terminology already reviewed in the `hy
 articles (`կերակուր`, `լեցոն`, `կորկոտ`, `գառնուկ`, `արջառ`, `որթատունկի տերեւ`,
 `ԵՈՒՆԵՍՔՕ`, `Պաղտատ`, `Ազրպէյճան`) rather than converting the Eastern Armenian text. It
 remains subject to the native review §16 records as outstanding for the edition as a whole.
+
+No deployment was performed.
+
+---
+
+## 28. Places — category foundation and first article (August 2026)
+
+Places is the fifth category. This change adds the infrastructure and **one** article;
+everything a travel section would eventually need is deliberately absent.
+
+**Product decisions, taken and implemented as given:** id `places`; labels `Places` /
+`Վայրեր` / `Վայրեր`; `/[locale]/places` and `/[locale]/places/[slug]`; no `/visit` prefix;
+current coordinates only; relationships through the existing `relatedSlugs` and
+`SectionLink`; no `PlaceDetails` in v1.
+
+### What was added
+
+- `CategoryId` and `CATEGORY_IDS` gain `places`, appended after cuisine.
+- `ArticleSummary.placeTypeId?: string` — **id only**. It follows `topicTypeId`, not
+  `dishType`/`dishTypeId`: the translated label lives once in the locale's `placeTypes`
+  list, so there is no second copy to drift and no validator rule to write. A place card
+  therefore shows no qualifier chip rather than a raw id.
+- `LocaleContent.placeTypes: Filter[]`, shipped with **two** entries — `all` and
+  `monastery`. `museum`, `nature`, `historical` and `settlement` are not written ahead of
+  the articles that would earn them, because `validateFilterCoverage` fails the build on a
+  pill that matches nothing.
+- `src/data/geo.ts` — a coordinate registry keyed by slug, modelled on `IMAGES` in
+  `lib/media.ts` for the same reason: a coordinate is a property of the place, not of an
+  edition, and three copies is three chances to typo a digit. `PlacePoint` carries
+  `precision: "site" | "settlement" | "area"` from the first entry, so a lake's centroid
+  can never later be mistaken for a doorway. Nothing renders it yet.
+- Routes, `PlacesListing` (single `type` axis on `placeTypeId`), and the category card,
+  navigation, footer, search-group, search-result and article-card registrations.
+
+### Two defects this work surfaced
+
+**The search-group list was a cast, not a checked value.** `SearchPageResults` built its
+groups from a literal `["history","writers","works","cuisine"] as CategoryId[]`, so a new
+category would have been indexed, findable from its own listing, and silently missing from
+`/search`. It now maps `CATEGORY_IDS`.
+
+**`toArticleListingItems` builds its projection field by field**, and every field on
+`ArticleSummary` is optional — so omitting `placeTypeId` compiled cleanly and left the
+places listing rendering its filter pills and matching nothing. The e2e filter test caught
+it; the field is now in the projection with a note explaining why the compiler cannot.
+
+### The first article
+
+`khor-virap`, in all three editions, with `placeTypeId: "monastery"` and `featured: true`
+(the listing reads the flag, never a hard-coded slug). Six sections, six key facts, three
+dates, five facts, two related figures, a `SectionLink` into `adoption-of-christianity`,
+and `relatedSlugs: ["adoption-of-christianity", "tigran-the-great"]` — both genuine: the
+first is what the site's tradition leads to, the second is the article that already
+discusses Artashat, the capital the monastery's hill belonged to.
+
+It is written as a place article, not a listing: no hours, prices, transport or
+restaurants. Where the story is tradition it says so and names the text it comes from,
+because Agathangelos was written well over a century after the events it describes. Mount
+Ararat is described as a geographic fact of the view, including that it lies across the
+present border, and nothing further is claimed.
+
+**Sources (4).** Agathangelos/Thomson and Garsoian are reused verbatim from
+`adoption-of-christianity` — the same two texts carry the same claim, and citing a
+different pair would imply a second body of evidence that does not exist. Two are new to
+the repository: Hewsen's *Armenia: A Historical Atlas* (geography and Artashat) and
+Maranci's *The Art of Armenia* (building history). **Both new ISBNs, and the 1662 date for
+Surb Astvatsatsin, should be confirmed against the catalogues by an editor** — see the
+open items below.
+
+### No image, on purpose
+
+`public/hero-ararat.png` shows this monastery and was assessed for reuse. It was rejected:
+everything in `IMAGES` inherits `ARTWORK_PROVENANCE`, which asserts the file is
+AI-generated, and that has never been established for the homepage hero — it sits outside
+`public/images/` with the category banners and carries no provenance of its own.
+Registering it would assert something unrecorded, which is the failure §17 exists to
+prevent. It is also a 1.4 MB PNG against a registry of 110–160 KB WebP, and it would have
+become the homepage hero, the category card, the article hero, the Open Graph image and the
+sitemap image simultaneously. The slug is declared in `PENDING_ARTWORK` instead;
+`ArticleLayout` already renders the generated placeholder with `imagePlaceholderCaption`,
+and `isGeneratedArtwork` stays false so nothing is captioned AI-generated without cause.
+`validate:content` prints the debt on every run.
+
+### Layout
+
+The header bar goes from five items to six and still fits on one line at 1024/1152/1280/
+1440 in all three editions — `Վայրեր` is short enough, which is why the label mattered. The
+homepage category row goes from four cards to five, laid out three-then-two over a
+twelve-column track rather than five narrow columns or a four-column row with one card
+stranded.
+
+### Out of scope, and still out
+
+No `PlaceDetails`, `regionId`, regions, `nearbyPlaceSlugs`, `relatedDishSlugs`, visit
+duration, seasons, accessibility, transport, hours, prices, venues, restaurants, routes,
+map components or place-specific JSON-LD. The article emits the generic `Article` +
+`BreadcrumbList` graph, and a test asserts that `Place`, `TouristAttraction` and
+`LocalBusiness` are **not** present.
+
+**Ani and places outside the current Republic of Armenia are deferred**, pending an
+editorial decision on how the archive frames culturally Armenian sites beyond the present
+border. That decision should be taken before the second batch, not settled implicitly by a
+coordinate.
+
+### Verification
+
+`typecheck` PASS · `validate:content` PASS (102 entries) · `build` PASS (108 pages) ·
+`test:e2e` PASS (161 passed, 5 skipped).
+
+`places.spec.ts` adds 15 tests: listing and article in all three editions, no English
+fallback, the filter and its URL state, the featured flag, header and footer links, the
+five-card homepage row, the search group, the browse link, SEO fields, canonical and
+hreflang, the JSON-LD types with the tourism-type exclusions, the sitemap, and a guard that
+the four existing listings still render the counts they did.
+
+**One pre-existing flake, now more likely.** The "no English leak" test in
+`cuisine.spec.ts` walks 18 pages in a single test and aborted twice under two parallel
+workers against the dev server, at two different lines, passing alone each time. The full
+suite run with `--workers=1` is green at 161/161. Places did not change that test's
+subject; it added routes for the dev server to compile on demand. Worth splitting or
+pinning if it recurs.
+
+### Open items
+
+- **Confirm the two new ISBNs and the 1662 date** for Surb Astvatsatsin against publisher
+  catalogues. They are cited in good faith from standard works but were not verifiable
+  offline, and this repository has a documented history of fabricated citations — see the
+  header of `sources.ts`.
+- **Confirm the coordinate.** `39.8783, 44.5772` is the gazetteer position rounded to four
+  decimal places. `geo.ts` deliberately introduces no structured provenance mechanism for a
+  single entry; every value should be checked against an authoritative gazetteer before
+  anything renders a map.
+- **Western Armenian wording is pending native review** — the whole `hyw` article, the
+  `placeTypes` labels and the Places UI strings. This adds to the queue §16 already records
+  for the edition as a whole. Terminology was taken from the reviewed `hyw` articles rather
+  than converted from Eastern Armenian (`Ք.Ա.`, `մօտ`, classical orthography, the
+  `կը`/`կ՚` verb forms, `մը`/`մըն`), but proper nouns are the hardest part and
+  `Ռոպերթ Հիւսըն`, `Քրիստինա Մարանչի` and `Ագաթանգեղոս` should be checked.
 
 No deployment was performed.
