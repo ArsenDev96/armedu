@@ -1,4 +1,5 @@
 import { expect, test } from "@playwright/test";
+import { getPlaceCoordinateRegistry } from "@/data/geo";
 import { LOCALES, articleTitle, bundle, cards, ui } from "./helpers";
 
 /**
@@ -17,6 +18,19 @@ import { LOCALES, articleTitle, bundle, cards, ui } from "./helpers";
  */
 
 const SLUG = "khor-virap";
+
+/**
+ * The second place. It ships without artwork on purpose — no file in `public/`
+ * depicts this cathedral — so it is declared in `PENDING_ARTWORK` and renders the
+ * generated placeholder. That makes it the counterpart to `SLUG` throughout this
+ * file: one slug with a registered image and one without, which is the only way
+ * to prove the artwork branch is a branch rather than something the layout always
+ * does.
+ */
+const PENDING = "etchmiadzin-cathedral";
+
+/** Both places, for the assertions that must hold of every article in the section. */
+const PLACES = [SLUG, PENDING] as const;
 
 const placeTypeLabel = (locale: "hy" | "hyw" | "en", id: string) => {
   const filter = bundle(locale).placeTypes.find((entry) => entry.id === id);
@@ -40,35 +54,52 @@ for (const locale of LOCALES) {
     await expect(
       page.getByRole("heading", { name: dict.listing.places.title, level: 1 }),
     ).toBeVisible();
-    await expect(cards(page)).toHaveCount(1);
+    await expect(cards(page)).toHaveCount(2);
 
-    const article = await page.goto(`/${locale}/places/${SLUG}`);
-    expect(article?.status(), `${locale}/places/${SLUG}`).toBe(200);
-    await expect(page.getByRole("heading", { level: 1 })).toHaveText(
-      articleTitle(locale, SLUG),
-    );
+    // Both places open in this edition, under their own titles. The loop is what
+    // catches an article authored in `hy` and forgotten in the other two — the
+    // listing would still render, with one card short and no error anywhere.
+    for (const slug of PLACES) {
+      const article = await page.goto(`/${locale}/places/${slug}`);
+      expect(article?.status(), `${locale}/places/${slug}`).toBe(200);
+      await expect(page.getByRole("heading", { level: 1 })).toHaveText(
+        articleTitle(locale, slug),
+      );
 
-    // Published, not "not translated in this language", and indexable.
-    await expect(
-      page.getByRole("heading", { name: dict.unavailable.heading, level: 1 }),
-    ).toHaveCount(0);
-    await expect(page.locator('meta[name="robots"][content*="noindex"]')).toHaveCount(0);
+      // Published, not "not translated in this language", and indexable.
+      await expect(
+        page.getByRole("heading", { name: dict.unavailable.heading, level: 1 }),
+      ).toHaveCount(0);
+      await expect(page.locator('meta[name="robots"][content*="noindex"]')).toHaveCount(0);
+    }
   });
 }
 
 test("the Armenian editions never fall back to the English place title", async ({ page }) => {
   await page.goto("/hy/places");
-  await expect(page.getByText("Khor Virap", { exact: true })).toHaveCount(0);
-  await expect(page.getByRole("link", { name: articleTitle("hy", SLUG) }).first()).toBeVisible();
+  for (const english of ["Khor Virap", "Etchmiadzin Cathedral"]) {
+    await expect(page.getByText(english, { exact: true })).toHaveCount(0);
+  }
+  for (const slug of PLACES) {
+    await expect(page.getByRole("link", { name: articleTitle("hy", slug) }).first()).toBeVisible();
+  }
 });
 
 test("the places listing filters by kind of site, and keeps it in the URL", async ({ page }) => {
   await page.goto("/en/places");
-  await expect(cards(page)).toHaveCount(1);
+  await expect(cards(page)).toHaveCount(2);
 
   await page.getByRole("button", { name: placeTypeLabel("en", "monastery") }).click();
 
-  await expect(cards(page)).toHaveCount(1);
+  // Both places are monasteries and churches, so the filter returns both rather
+  // than narrowing. That is the assertion: the pill matches on `placeTypeId` and
+  // is not quietly pinned to whichever article happened to be written first.
+  await expect(cards(page)).toHaveCount(2);
+  for (const slug of PLACES) {
+    await expect(
+      page.getByRole("link", { name: articleTitle("en", slug) }).first(),
+    ).toBeVisible();
+  }
   await expect(page).toHaveURL(/[?&]type=monastery/);
   // The filter key is `type`, like cuisine and works — not `period`.
   await expect(page).not.toHaveURL(/period=/);
@@ -90,9 +121,14 @@ test("the featured block comes from the flag, not a hard-coded slug", async ({ p
     page.getByRole("link", { name: dict.listing.places.readArticle }).first(),
   ).toHaveAttribute("href", `/en/places/${SLUG}`);
 
-  // The article carries the flag the listing reads.
-  const article = bundle("en").articles.find((entry) => entry.slug === SLUG);
-  expect(article?.featured, "khor-virap should be the flagged entry").toBe(true);
+  // The article carries the flag the listing reads. With a second place in the
+  // section this is no longer trivially true: the listing takes the *first*
+  // article when nothing is flagged, so exactly one flag is what keeps the
+  // featured block deliberate rather than incidental.
+  const flagged = bundle("en")
+    .articles.filter((entry) => entry.category === "places" && entry.featured)
+    .map((entry) => entry.slug);
+  expect(flagged, "exactly one place should carry featured: true").toEqual([SLUG]);
 });
 
 /* -------------------------------------------------------------------------- */
@@ -157,6 +193,15 @@ test("a place appears under its own group in global search", async ({ page }) =>
   await expect(main.getByRole("link", { name: articleTitle("en", SLUG) }).first()).toBeVisible();
 });
 
+test("the second place is findable under the places group too", async ({ page }) => {
+  const dict = ui("en");
+  await page.goto("/en/search?q=Etchmiadzin");
+
+  const main = page.getByRole("main");
+  await expect(main.getByRole("heading", { name: dict.search.groupPlaces, level: 2 })).toBeVisible();
+  await expect(main.getByRole("link", { name: articleTitle("en", PENDING) }).first()).toBeVisible();
+});
+
 test("the empty search page offers places as a place to start", async ({ page }) => {
   await page.goto("/en/search");
   await expect(
@@ -204,6 +249,12 @@ test("the listing's featured block and card both render the artwork", async ({ p
 
   // `ArticleCard` is the shared component — the same one a related-articles
   // block renders — so this covers both surfaces through one lookup.
+  //
+  // Every real `<img>` on this listing is still Khor Virap's, because it is the
+  // only registered place image. The second article renders `PlaceholderImage`,
+  // which is an inline `<svg role="img">` and so is deliberately outside this
+  // selector; the assertion below is that nothing *else* leaked in — a stray
+  // og-default or a wrong file would fail here.
   const images = page.locator("main img");
   await expect(images).not.toHaveCount(0);
 
@@ -212,7 +263,7 @@ test("the listing's featured block and card both render the artwork", async ({ p
   );
   expect(
     sources.every((src) => /khor-virap\.png/.test(decodeURIComponent(src))),
-    `every image on the places listing should be the registered artwork, got ${sources.join(", ")}`,
+    `every raster image on the places listing should be the registered artwork, got ${sources.join(", ")}`,
   ).toBe(true);
 });
 
@@ -249,53 +300,110 @@ test("the sitemap carries the place's illustration for image search", async ({ r
   expect(xml).toContain("https://armat.site/images/places/khor-virap.png");
 });
 
+/*
+  The other half of the artwork branch: a place with no file.
+
+  `etchmiadzin-cathedral` is in `PENDING_ARTWORK` because nothing in `public/`
+  depicts this cathedral. The failure this guards against is not a missing
+  picture — that is the declared state — but a page that claims one. If the slug
+  were registered against some other illustration, `isGeneratedArtwork` would
+  flip and the hero would be captioned "AI-generated illustration" under a
+  picture of a different building, which is exactly the false provenance the
+  registry exists to prevent.
+*/
+test("a place with no artwork renders the placeholder and claims no provenance", async ({
+  page,
+}) => {
+  const dict = ui("hy");
+  await page.goto(`/hy/places/${PENDING}`);
+
+  const hero = page.locator("header figure");
+
+  // The placeholder is an inline `<svg role="img">`, not a raster file.
+  await expect(hero.getByRole("img")).toBeVisible();
+  await expect(hero.locator("img")).toHaveCount(0);
+
+  // And it must not be captioned as AI-generated artwork, because there is none.
+  const aiCaption = dict.article.imageAiIllustrationCaption.replace(
+    "{title}",
+    articleTitle("hy", PENDING),
+  );
+  await expect(page.locator("header figcaption")).not.toHaveText(aiCaption);
+});
+
+test("a pending place falls back to the site card for Open Graph, not another place's art", async ({
+  page,
+}) => {
+  await page.goto(`/en/places/${PENDING}`);
+
+  // The specific regression: inheriting Khor Virap's file because both are
+  // places would be invisible on the page and wrong in every share preview.
+  for (const meta of ['meta[property="og:image"]', 'meta[name="twitter:image"]']) {
+    await expect(page.locator(meta)).not.toHaveAttribute("content", /khor-virap/);
+  }
+});
+
 /* -------------------------------------------------------------------------- */
 /*  SEO                                                                        */
 /* -------------------------------------------------------------------------- */
 
 test("the place article uses its own SEO fields and advertises every edition", async ({ page }) => {
   for (const locale of LOCALES) {
-    const article = bundle(locale).articles.find((entry) => entry.slug === SLUG);
-    if (!article) throw new Error(`No "${SLUG}" in the "${locale}" bundle.`);
+    for (const slug of PLACES) {
+      const article = bundle(locale).articles.find((entry) => entry.slug === slug);
+      if (!article) throw new Error(`No "${slug}" in the "${locale}" bundle.`);
 
-    await page.goto(`/${locale}/places/${SLUG}`);
+      await page.goto(`/${locale}/places/${slug}`);
 
-    // Metadata from `seoTitle`/`metaDescription`, not from title/excerpt.
-    expect(article.seoTitle, `${locale} seoTitle`).toBeTruthy();
-    expect(article.metaDescription, `${locale} metaDescription`).toBeTruthy();
-    await expect(page).toHaveTitle(`${article.seoTitle} | ${ui(locale).site.name}`);
-    await expect(page.locator('meta[name="description"]')).toHaveAttribute(
-      "content",
-      article.metaDescription!,
-    );
+      // Metadata from `seoTitle`/`metaDescription`, not from title/excerpt.
+      expect(article.seoTitle, `${locale} ${slug} seoTitle`).toBeTruthy();
+      expect(article.metaDescription, `${locale} ${slug} metaDescription`).toBeTruthy();
+      await expect(page).toHaveTitle(`${article.seoTitle} | ${ui(locale).site.name}`);
+      await expect(page.locator('meta[name="description"]')).toHaveAttribute(
+        "content",
+        article.metaDescription!,
+      );
 
-    // Canonical, and one alternate per edition plus x-default.
-    await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
-      "href",
-      `https://armat.site/${locale}/places/${SLUG}`,
-    );
-    for (const other of LOCALES) {
-      await expect(page.locator(`link[rel="alternate"][hreflang="${other}"]`)).toHaveCount(1);
+      // The visible heading stays on `title`. `seoTitle` is longer and written for
+      // a results page; rendering it as the H1 is the easy mistake here, and it
+      // would be invisible to every other assertion in this file.
+      await expect(page.getByRole("heading", { level: 1 })).toHaveText(article.title);
+      expect(article.seoTitle, `${locale} ${slug} seoTitle should differ from title`).not.toBe(
+        article.title,
+      );
+
+      // Canonical, and one alternate per edition plus x-default.
+      await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+        "href",
+        `https://armat.site/${locale}/places/${slug}`,
+      );
+      for (const other of LOCALES) {
+        await expect(page.locator(`link[rel="alternate"][hreflang="${other}"]`)).toHaveCount(1);
+      }
+      const xDefault = page.locator('link[rel="alternate"][hreflang="x-default"]');
+      await expect(xDefault).toHaveCount(1);
+      await expect(xDefault).toHaveAttribute("href", new RegExp(`/hy/places/${slug}$`));
     }
-    const xDefault = page.locator('link[rel="alternate"][hreflang="x-default"]');
-    await expect(xDefault).toHaveCount(1);
-    await expect(xDefault).toHaveAttribute("href", new RegExp(`/hy/places/${SLUG}$`));
   }
 });
 
 test("a place emits the generic Article schema and no tourism types", async ({ page }) => {
-  await page.goto("/en/places/khor-virap");
+  for (const slug of PLACES) {
+    await page.goto(`/en/places/${slug}`);
 
-  const raw = await page.locator('script[type="application/ld+json"]').first().textContent();
-  const graph = (JSON.parse(raw ?? "") as { "@graph": { "@type"?: string }[] })["@graph"];
-  const types = graph.map((entry) => entry["@type"]);
+    const raw = await page.locator('script[type="application/ld+json"]').first().textContent();
+    const graph = (JSON.parse(raw ?? "") as { "@graph": { "@type"?: string }[] })["@graph"];
+    const types = graph.map((entry) => entry["@type"]);
 
-  expect(types).toContain("Article");
-  expect(types).toContain("BreadcrumbList");
-  // v1 deliberately ships no place-specific structured data: the page does not
-  // carry the properties `Place`, `TouristAttraction` or `LocalBusiness` promise.
-  for (const forbidden of ["Place", "TouristAttraction", "LocalBusiness"]) {
-    expect(types, `${forbidden} must not be emitted yet`).not.toContain(forbidden);
+    expect(types, slug).toContain("Article");
+    expect(types, slug).toContain("BreadcrumbList");
+    // v1 deliberately ships no place-specific structured data: the page does not
+    // carry the properties `Place`, `TouristAttraction` or `LocalBusiness` promise.
+    // Etchmiadzin is where that would be most tempting — it has a coordinate in
+    // the registry and a UNESCO inscription — so it is checked too.
+    for (const forbidden of ["Place", "TouristAttraction", "LocalBusiness", "Church"]) {
+      expect(types, `${forbidden} must not be emitted for ${slug}`).not.toContain(forbidden);
+    }
   }
 });
 
@@ -304,10 +412,58 @@ test("the sitemap carries every places URL in every edition", async ({ request }
 
   for (const locale of LOCALES) {
     expect(xml, `${locale} listing`).toContain(`https://armat.site/${locale}/places</loc>`);
-    expect(xml, `${locale} article`).toContain(
-      `https://armat.site/${locale}/places/${SLUG}</loc>`,
-    );
+    for (const slug of PLACES) {
+      expect(xml, `${locale} ${slug}`).toContain(
+        `https://armat.site/${locale}/places/${slug}</loc>`,
+      );
+    }
   }
+});
+
+/* -------------------------------------------------------------------------- */
+/*  Coordinates                                                                */
+/* -------------------------------------------------------------------------- */
+
+/*
+  `validate:content` already range-checks this registry and fails on a place with
+  no entry. What it deliberately does not check — the file says so — is whether a
+  point is the *right* point: there is no bounding box, and no duplicate check.
+
+  This is the assertion those rules leave out. A coordinate typed one digit wrong
+  still validates, and nothing renders these yet, so a mistake here would sit
+  unnoticed until the first map. Pinning each point to the place it names is
+  cheap now and archaeology later.
+*/
+test("the coordinate registry holds one checked point per place", () => {
+  const registry = getPlaceCoordinateRegistry();
+  const slugs = bundle("hy")
+    .articles.filter((entry) => entry.category === "places")
+    .map((entry) => entry.slug);
+
+  expect(slugs.slice().sort()).toEqual(PLACES.slice().sort());
+  expect(Object.keys(registry).sort()).toEqual(slugs.slice().sort());
+
+  for (const slug of PLACES) {
+    const point = registry[slug];
+    expect(point, slug).toBeDefined();
+    // Every entry so far is a built complex, not a town or a region.
+    expect(point.precision, slug).toBe("site");
+    // Rounded on the way in, so no entry may carry a fifth decimal place.
+    for (const value of [point.lat, point.lon]) {
+      expect(Math.round(value * 10_000) / 10_000, `${slug} ${value} is not 4dp`).toBe(value);
+    }
+  }
+
+  // The cathedral, not the middle of Vagharshapat. OSM puts the town centre near
+  // 40.1703, 44.2888 and the Mother Cathedral at 40.1618, 44.2911 — close enough
+  // that a lazy coordinate would look plausible, far enough that this catches it.
+  const cathedral = registry[PENDING];
+  expect(cathedral.lat).toBeCloseTo(40.1618, 4);
+  expect(cathedral.lon).toBeCloseTo(44.2911, 4);
+  expect(
+    Math.abs(cathedral.lat - 40.1703),
+    "the point should be the cathedral, not the town centre",
+  ).toBeGreaterThan(0.005);
 });
 
 /* -------------------------------------------------------------------------- */

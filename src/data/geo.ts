@@ -62,6 +62,13 @@ export const PLACE_COORDINATES: Record<string, PlacePoint> = {
   // chapel over the pit — on its hill above the Ararat plain, Ararat Province.
   // OpenStreetMap places it at 39.87836, 44.57615; rounded to four places here.
   "khor-virap": { lat: 39.8784, lon: 44.5762, precision: "site" },
+
+  // The Mother Cathedral itself, inside the walled precinct of the Mother See at
+  // Vagharshapat, Armavir Province — not the centre of the town, which lies a few
+  // hundred metres north. OpenStreetMap way 133909119 (`Էջմիածնի Մայր Տաճար`,
+  // amenity=place_of_worship) gives 40.1618404, 44.2911157; rounded to four places
+  // here. Wikipedia's infobox agrees at 40°09′43″N 44°17′28″E.
+  "etchmiadzin-cathedral": { lat: 40.1618, lon: 44.2911, precision: "site" },
 };
 
 /** The recorded position for a place slug, or `undefined` when none is held. */

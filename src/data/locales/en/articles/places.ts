@@ -163,4 +163,194 @@ export const placeArticles: Article[] = [
     ],
     relatedSlugs: ["adoption-of-christianity", "tigran-the-great"],
   },
+  {
+    slug: "etchmiadzin-cathedral",
+    href: "/places/etchmiadzin-cathedral",
+    category: "places",
+    categoryLabel: "Places",
+    title: "Etchmiadzin Cathedral",
+    seoTitle: "Etchmiadzin Cathedral and the Mother See",
+    placeTypeId: "monastery",
+    featured: false,
+    imageSeed: "etchmiadzin-cathedral",
+    keywords: [
+      "Etchmiadzin Cathedral",
+      "Էջմիածին",
+      "Mother See of Holy Etchmiadzin",
+      "Vagharshapat",
+      "Catholicos of All Armenians",
+      "Armenian Apostolic Church",
+    ],
+    excerpt:
+      "The principal church of the Mother See of Holy Etchmiadzin and the seat of the Catholicos of All Armenians — a place whose tradition reaches back to Armenia's conversion, and whose standing fabric mostly does not.",
+    metaDescription:
+      "Etchmiadzin Cathedral in Vagharshapat: the Mother See of the Armenian Apostolic Church, what the building keeps from each century, and where tradition ends.",
+    summary:
+      "Etchmiadzin Cathedral is the principal church of the Mother See of Holy Etchmiadzin, in Vagharshapat in Armavir Province, and the seat of the Catholicos of All Armenians. Armenian tradition, following Agathangelos, holds that Gregory the Illuminator founded it early in the fourth century, in the years around the kingdom's adoption of Christianity — traditionally dated to 301 — and that the name records a vision of the Only Begotten descending to mark the spot. Very little of that first building stands. The cruciform, four-piered church a visitor walks through goes back to a rebuilding of 483, and the stone dome, the belfry and the eastern sacristy are later again. The see itself was elsewhere for centuries and returned here in 1441.",
+    intro:
+      "Etchmiadzin Cathedral stands in Vagharshapat, in Armavir Province, about twenty kilometres west of Yerevan. It is the principal church of the Mother See of Holy Etchmiadzin, the seat of the Catholicos of All Armenians, and Armenian tradition holds that Gregory the Illuminator founded it early in the fourth century, in the years around the kingdom's adoption of Christianity in 301. The building standing there now is not that church. Its cruciform core belongs to a rebuilding of 483, and the dome above it, the belfry in front of it and the rooms at its eastern end are later still. Separating those layers is the first thing worth doing here.",
+    author: "Armat Editorial Team",
+    updated: "2026-08-05",
+    keyFacts: [
+      { label: "Kind of place", value: "Working cathedral and monastic centre of the Armenian Apostolic Church" },
+      { label: "Where", value: "Vagharshapat, Armavir Province, west of Yerevan" },
+      { label: "Name", value: "Etchmiadzin — where the Only Begotten descended" },
+      { label: "Institution", value: "Mother See of Holy Etchmiadzin, seat of the Catholicos of All Armenians" },
+      { label: "Present fabric", value: "Cruciform plan of the rebuilding of 483; dome, belfry and sacristy later" },
+      { label: "World Heritage", value: "Inscribed 2000, UNESCO list no. 1011" },
+    ],
+    sections: [
+      {
+        id: "where-it-is",
+        heading: "Where Etchmiadzin Cathedral is",
+        paragraphs: [
+          "The cathedral stands in the middle of Vagharshapat, a town on the flat, irrigated plain of Armavir Province, west of Yerevan and well within reach of it. Unlike Khor Virap or the mountain monasteries, it is not set apart in a landscape: it sits inside a walled precinct in an ordinary working town, and the approach to it is through streets rather than across country.",
+          "Vagharshapat is itself old. Robert Hewsen's historical atlas places it among the royal centres of the Armenian kingdom, and it served as a capital before the church was ever built there — which is part of why a cathedral was founded on this spot and not another. The town has carried both names for a long time, and the cathedral's name is now commonly used for the town as well.",
+          "The precinct is a compound rather than a single building. The cathedral is its centre, but the walls also enclose the residence of the Catholicos, a seminary, museums, a library and open ground, and the churches most often visited alongside it stand in other parts of the same town.",
+        ],
+      },
+      {
+        id: "the-conversion",
+        heading: "The cathedral and Armenia's conversion",
+        paragraphs: [
+          "The reason this place matters is that it is where the Armenian church was given a physical centre. The adoption of Christianity as the religion of the Armenian kingdom is the event the whole site refers back to, and the foundation of a cathedral here belongs to the same sequence of events as the baptism of the king and the ordination of the first bishop.",
+          "The traditional date for that conversion is 301. It is not settled: Nina Garsoïan's studies on the formation of Christian Armenia set out the arguments for a date closer to 314, and this archive's own article on the conversion follows that discussion rather than treating the traditional year as fixed. The date of the cathedral's foundation is looser still, because it depends on the same narrative source and is not independently documented.",
+          "What can be said plainly is the order of things. A kingdom converted; a church was organised; and a cathedral was built at Vagharshapat to be its head. Everything else on this site — the see, the seminary, the treasuries — grew out of that decision rather than preceding it.",
+        ],
+        links: [
+          { phrase: "adoption of Christianity as the religion of the Armenian kingdom", slug: "adoption-of-christianity" },
+        ],
+      },
+      {
+        id: "the-vision",
+        heading: "The vision, and the name",
+        paragraphs: [
+          "The name is the tradition in a single word. Agathangelos, in R. W. Thomson's translation and commentary, tells that Gregory the Illuminator saw Christ descend and strike the ground with a golden hammer to mark where the cathedral was to be built. Etchmiadzin means the place where the Only Begotten descended, and the church is named for that vision rather than for a saint or a founder.",
+          "It is worth being exact about what kind of statement that is. Agathangelos is a fifth-century narrative, composed well over a century after the events it describes and written to explain how Armenia became Christian. The vision is the account the Armenian church gives of its own beginning; it is not a record made at the time, and no other kind of evidence stands behind it.",
+          "That is the same distinction the archive draws at Khor Virap, where the pit is a place a tradition is kept rather than a documented cell. The two sites belong to one story and are told from one source, and a visitor who takes either narrative as reportage will misread both.",
+        ],
+        links: [{ phrase: "Khor Virap", slug: "khor-virap" }],
+      },
+      {
+        id: "what-survives",
+        heading: "What survives, and from when",
+        paragraphs: [
+          "Almost nothing a visitor sees is fourth-century. Excavation has identified remains of an earlier building beneath and within the present fabric, and the original is generally reconstructed as a basilica rather than as the church standing today — but it is remains and reconstruction, not a surviving fourth-century building.",
+          "The decisive moment is a rebuilding of 483, carried out under Vahan Mamikonian and reported by the historian Ghazar Parpetsi. This is when the cathedral took a cruciform plan with a dome carried on four free-standing piers, and that plan is the core of the building today. The timing is not incidental: it follows directly on the settlement that ended the long revolt against Sasanian rule, the Treaty of Nvarsak of 484, and it is what a restored church built for itself once it could.",
+          "After that the building kept changing, and the parts a photograph shows most clearly are the newest. The present stone dome replaced an earlier one in the seventeenth century. The belfry that fronts the west end was built between 1653 and 1658, and smaller bell turrets were added over the other arms in 1682. A sacristy was added at the eastern end in 1868. Christina Maranci's survey of Armenian art sets these additions in the wider pattern of the period rather than treating them as accidents of one building.",
+          "So the honest summary is layered rather than simple: a traditional fourth-century foundation, a fifth-century church that supplies the plan, a seventeenth-century skyline and a nineteenth-century east end, with restoration work continuing into recent decades. The cathedral is old, and it is not old in one piece.",
+        ],
+        links: [{ phrase: "Treaty of Nvarsak", slug: "battle-of-avarayr" }],
+      },
+      {
+        id: "the-mother-see",
+        heading: "The Mother See and the Catholicos",
+        paragraphs: [
+          "Etchmiadzin is the Mother See of the Armenian Apostolic Church: the seat of the Catholicos of All Armenians and the administrative centre of the church worldwide. That is its main significance today, and it is an institutional fact rather than an architectural one.",
+          "The continuity is real but it is not unbroken, and the site is often described as though it were. The see left Vagharshapat in the early medieval centuries and moved with Armenian political power — to Dvin, later into Cilicia — and it was only in 1441 that an assembly of clergy restored the Catholicosate at Etchmiadzin. The Armenian church has had a second catholicosate at Cilicia ever since, with its own jurisdiction.",
+          "The office is what makes the compound more than a monument. Ordination, the consecration of bishops and the preparation of holy oil are performed here, and the residence and offices of the Catholicos stand inside the same walls as the cathedral. This is a working headquarters, and the buildings are used as one.",
+        ],
+      },
+      {
+        id: "the-complex",
+        heading: "The wider complex",
+        paragraphs: [
+          "Inside the precinct, the cathedral is surrounded by the institutions the see needs. The Gevorgian Seminary, opened in 1874, is the principal theological school of the Armenian church and has trained its clergy since; the site also holds museums, a library and the treasuries in which the church's relics and liturgical objects are kept.",
+          "Beyond the walls, three churches in Vagharshapat are normally understood as part of the same heritage: Saint Hripsime, Saint Gayane and Shoghakat, each associated with the martyrdom narrative that Agathangelos attaches to the conversion. They are separate buildings on separate sites, not parts of the cathedral, and the early medieval churches among them are in some respects better preserved than the cathedral itself.",
+          "The cathedral, those churches and the archaeological site of Zvartnots were inscribed together on the UNESCO World Heritage list in 2000, under criteria that describe them as showing the development of the Armenian domed church. The inscription covers a group of monuments across the town rather than a single building.",
+        ],
+      },
+      {
+        id: "manuscripts-and-learning",
+        heading: "Manuscripts, learning and what left the site",
+        paragraphs: [
+          "A see is also an archive. Etchmiadzin accumulated manuscripts over centuries, and by the modern period its collection was among the largest of Armenian written material anywhere — the product of copying, donation and the steady gathering-in that a central institution makes possible.",
+          "That collection is no longer here, and it is worth knowing before visiting. The manuscripts were declared state property in 1929, and in 1939 the Soviet Armenian government transferred them to Yerevan, where they became the founding collection of the Matenadaran. A reader who wants to see what Etchmiadzin preserved goes to Yerevan to see it.",
+          "What remains on site is the institutional side of the same work: the seminary, the library and the museums, and the continuing role of the see in publishing, liturgy and the training of clergy. The preservation Etchmiadzin is credited with is real, but much of its most famous product is now held elsewhere.",
+        ],
+      },
+      {
+        id: "before-you-see-it",
+        heading: "What to understand before seeing it",
+        paragraphs: [
+          "The first thing is the gap between the tradition and the stones. The site's claim on Armenian history rests on a fourth-century foundation narrated by a fifth-century author; the church a visitor stands in is essentially a fifth-century plan under a seventeenth-century roofline. Both statements are true, and holding them together is the whole skill of reading the place.",
+          "The second is that this is a headquarters and not only a monument. The precinct is in daily institutional use, services are held, and parts of it are closed or busy for reasons that have nothing to do with visitors. The ordinary courtesies of a place of worship apply, and so does a certain amount of patience.",
+          "The third is that the site is a group rather than a point. The cathedral is the centre, but the churches elsewhere in Vagharshapat and the ruins at Zvartnots belong to the same inscribed heritage and to the same period of Armenian building, and seeing the cathedral alone gives a narrower picture than the place deserves.",
+        ],
+      },
+    ],
+    importantDates: [
+      {
+        year: "Early fourth century",
+        event:
+          "Armenian tradition places the foundation of the cathedral here by Gregory the Illuminator, in the years around the kingdom's adoption of Christianity — traditionally dated to 301, though a number of historians argue for a date closer to 314.",
+      },
+      {
+        year: "483",
+        event:
+          "Vahan Mamikonian rebuilds the cathedral from the foundations. The cruciform, domed plan established by that work is the core of the building standing today.",
+      },
+      {
+        year: "1441",
+        event:
+          "An assembly of clergy restores the Catholicosate at Etchmiadzin after centuries during which the see sat elsewhere.",
+      },
+      {
+        year: "1653–1658",
+        event: "The western belfry is built in front of the cathedral, giving the west front the profile it has today.",
+      },
+      {
+        year: "1682",
+        event: "Smaller bell turrets are added over the remaining arms of the church.",
+      },
+      {
+        year: "1868",
+        event: "A sacristy is added at the eastern end of the cathedral.",
+      },
+      {
+        year: "1874",
+        event: "The Gevorgian Seminary opens within the precinct and becomes the principal theological school of the Armenian church.",
+      },
+      {
+        year: "2000",
+        event:
+          "The cathedral, the other churches of Vagharshapat and the archaeological site of Zvartnots are inscribed together on the UNESCO World Heritage list.",
+      },
+    ],
+    significance: {
+      heading: "Why Etchmiadzin Cathedral matters",
+      paragraphs: [
+        "Etchmiadzin is where the Armenian church became an institution with an address. The conversion gave Armenia a religion; this site gave that religion a head, a hierarchy, a treasury and a school, and those are what carried it through the centuries when there was no Armenian state to carry anything. The cathedral matters less as a building than as the place from which a church was run.",
+        "It is also the clearest available lesson in how a heritage site accumulates. Nothing here was built once. A traditional foundation, a fifth-century reconstruction, a seventeenth-century dome and belfry, a nineteenth-century east end and modern restoration are all present in one structure, and the visitor who wants a single date for it will not find one. Reading the layers is more useful than settling on a year.",
+      ],
+    },
+    interestingFacts: [
+      "The name is the tradition stated outright: Etchmiadzin means the place where the Only Begotten descended.",
+      "The cruciform plan a visitor walks through belongs to the rebuilding of 483, not to the original foundation.",
+      "The seat of the Catholicos was away from Etchmiadzin for centuries and was restored here in 1441.",
+      "The belfry that dominates the west front is a seventeenth-century addition, roughly thirteen hundred years younger than the traditional foundation.",
+      "The manuscripts once kept at Etchmiadzin became the founding collection of the Matenadaran in Yerevan, where they were transferred in 1939.",
+    ],
+    relatedFigures: [
+      {
+        name: "Gregory the Illuminator",
+        lifespan: "c. 257 – c. 331",
+        description:
+          "The figure Armenian tradition credits with the conversion of the kingdom and the founding of this cathedral. The vision that gives the site its name is told of him by Agathangelos; the dates given for his life are traditional rather than documented.",
+      },
+      {
+        name: "Trdat III",
+        lifespan: "reigned c. 287–330",
+        description:
+          "The Armenian king whose acceptance of baptism, in the same narrative, made Christianity the religion of the kingdom and created the need for a cathedral at its head.",
+      },
+      {
+        name: "Vahan Mamikonian",
+        lifespan: "about 440–510",
+        description:
+          "Marzpan of Armenia after the settlement that ended the revolt against Sasanian rule. Ghazar Parpetsi credits him with rebuilding the cathedral from its foundations, the work that gave the church its present plan.",
+      },
+    ],
+    relatedSlugs: ["adoption-of-christianity", "khor-virap", "battle-of-avarayr"],
+  },
 ];

@@ -76,9 +76,9 @@ completion and the SEO batch changed all three.
 ```
 npm install              → OK
 npm run typecheck        → PASS (0 errors)
-npm run validate:content → PASS (102 entries across 3 locales)
-npm run build            → PASS (108 pages prerendered; `/api/contact` dynamic)
-npm run test:e2e         → PASS (168 passed, 5 skipped, no --workers flag; see §30)
+npm run validate:content → PASS (105 entries across 3 locales; 1 pending-artwork note)
+npm run build            → PASS (111 pages prerendered; `/api/contact` dynamic)
+npm run test:e2e         → PASS (172 passed, 5 skipped, no --workers flag; see §30)
 ```
 
 `validate:content` now also checks: every registered image exists on disk; every article
@@ -1868,13 +1868,18 @@ The consequence follows automatically: `isGeneratedArtwork` returns true for the
 the article's hero is captioned **"AI-generated illustration"** like every other registry
 image. Nothing about `ARTWORK_PROVENANCE` itself was altered.
 
-### `PENDING_ARTWORK` is empty again
+### `PENDING_ARTWORK` is empty again — until §31
 
 `PENDING_ARTWORK` is back to `[]`. `validate:content` no longer prints
 `note: 1 slug(s) render generated artwork: khor-virap` — the debt line §28 introduced and
 §29 confirmed is gone because the debt is paid. The list is kept rather than deleted, for
 the reason its own doc comment gives: the alternative is a slug silently rendering the
 placeholder with nothing in the repo saying whether that is a decision or an oversight.
+
+> **The list did not stay empty.** §31 added Etchmiadzin Cathedral, for which no artwork
+> exists, so `PENDING_ARTWORK` now holds `etchmiadzin-cathedral` and the note prints again
+> against that slug. Khor Virap's own artwork is unaffected. The mechanism being kept
+> rather than deleted is what made that a one-line declaration.
 
 ### Two live consequences, recorded rather than rediscovered
 
@@ -1949,5 +1954,269 @@ not a convention either) · `tests/e2e/places.spec.ts` (+5 tests) · this docume
 - **Related-articles coverage** for this slug, if and when an article legitimately links to
   it.
 - The `hyw` native review from §28 and §29 is untouched by this pass and still stands.
+
+No deployment was performed.
+
+---
+
+## 31. Places — Etchmiadzin Cathedral, the second place (August 2026)
+
+Places had one article through §28, §29 and §30. It now has two. `etchmiadzin-cathedral`
+is complete in all three editions, uses the existing Places infrastructure unchanged, and
+ships **without artwork on purpose**. No new place type, no new filter, no new component,
+no schema change.
+
+### Why this article, and what it is not
+
+Etchmiadzin is the natural second place because it is the other half of a subject the
+archive already covers. §28's Khor Virap article is about where the conversion narrative is
+*remembered*; this one is about where the church that followed was *administered*. Both
+rest on the same two texts, and the same editorial rule governs both: where a story is
+tradition, the wording says so and names the text it comes from.
+
+It is deliberately not a visitor guide. No opening hours, ticket prices, service times,
+transport directions or restaurant recommendations — the §28 rule, unchanged. `PlaceDetails`
+was not added, no region or accessibility field was introduced, and no map functionality
+exists.
+
+### Terminology was inherited, not invented
+
+The spellings were taken from what the repository already ships rather than chosen fresh,
+which is the whole point of checking first:
+
+| Concept | `en` | `hy` | `hyw` |
+|---|---|---|---|
+| The place | Etchmiadzin | Էջմիածին | Էջմիածին |
+| The town | Vagharshapat | Վաղարշապատ | Վաղարշապատ |
+| The office | Catholicos | Կաթողիկոս | Կաթողիկոս |
+| The saint | Gregory the Illuminator | Գրիգոր Լուսավորիչ | Գրիգոր Լուսաւորիչ |
+| The name's meaning | the Only Begotten descended | Միածնի իջնելը | Միածինին իջնելը |
+| UNESCO | UNESCO | ՅՈՒՆԵՍԿՕ | ԵՈՒՆԵՍՔՕ |
+
+**No second English spelling was introduced.** The archive uses `Etchmiadzin` in ten places
+in `history.ts` and three in `writers.ts`, and this article uses it throughout. `Echmiatsin`
+appears exactly once in the repository — inside the UNESCO citation, because that is the
+official property name and a citation is quoted, not corrected. The source's `note` says so
+explicitly so a later editor does not "fix" it.
+
+Note the two editions genuinely differ on UNESCO: `hy` writes `ՅՈՒՆԵՍԿՕ`, `hyw` writes
+`ԵՈՒՆԵՍՔՕ`. Both were already in the repository, and each edition keeps its own.
+
+### The article
+
+Eight sections, the same ids in all three editions: `where-it-is`, `the-conversion`,
+`the-vision`, `what-survives`, `the-mother-see`, `the-complex`, `manuscripts-and-learning`,
+`before-you-see-it`. Six `keyFacts`, eight `importantDates`, five `interestingFacts`, three
+`relatedFigures` — identical cardinalities across editions, enforced by the validator's
+cross-locale taxonomy and number checks.
+
+### The distinction the article is built around
+
+The central claim is that **the present cathedral is not a fourth-century building**, and
+the article separates four kinds of statement rather than blending them:
+
+1. **Early Christian tradition.** Gregory the Illuminator founds the cathedral after the
+   conversion; Christ descends and strikes the ground with a golden hammer to mark the
+   site, which is what the name records. This is Agathangelos — a fifth-century narrative
+   written well over a century after the events, and the article says so in the section
+   that tells it.
+2. **Later historical reconstruction.** The conversion's traditional date of 301 is not
+   treated as fixed; Garsoïan's arguments for c. 314 are named, exactly as `khor-virap` and
+   `adoption-of-christianity` already do. The cathedral's own foundation date is described
+   as *looser still*, because it depends on the same narrative source and is not
+   independently documented.
+3. **Surviving architectural fabric.** The decisive event is the rebuilding of **483** under
+   Vahan Mamikonian, reported by Ghazar Parpetsi, which gave the church its cruciform,
+   four-piered domed plan — the core of the building today. The article notes the timing
+   follows directly on the Treaty of Nvarsak of 484.
+4. **Later additions and modern use.** Stone dome in the seventeenth century; west belfry
+   1653–1658; smaller bell turrets 1682; eastern sacristy 1868; restoration continuing into
+   recent decades.
+
+The summary sentence in the article is deliberately blunt: *"The cathedral is old, and it is
+not old in one piece."*
+
+**One thing was deliberately left vague.** Sources disagree on *which* walls of the earliest
+building survive — English Wikipedia says the northern and eastern, a Grokipedia-derived
+page says the south and west. Neither is a source this archive would cite, and the two
+cannot both be right, so the article says only that excavation has identified remains of an
+earlier building beneath and within the present fabric. No compass direction is asserted.
+
+Also avoided: the widely repeated claim that this is "the oldest cathedral in the world".
+It is a contested superlative that depends entirely on how "cathedral" is defined, and §28's
+rule against unsupported superlatives covers it.
+
+### Sources
+
+Seven, all verified. Five are works the repository had already audited and registered, cited
+again on purpose — the same reasoning `sources.ts` gives for Khor Virap, that citing a
+different work for the same claim would imply a second body of evidence that does not exist.
+
+| Source | Identifier | Cited for | Status |
+|---|---|---|---|
+| Agathangelos, trans. Thomson, *History of the Armenians* | ISBN 9780873953238 | the vision and the name | already registered |
+| Garsoïan, *Studies on the Formation of Christian Armenia* | ISBN 9781409403661 | dating, tradition-as-tradition | already registered |
+| Maranci, *The Art of Armenia: An Introduction* | ISBN 9780190269005 | building history | already registered |
+| Hovannisian (ed.), *The Armenian People…* Vol. I | ISBN 9781403966360 | institutional history | already registered |
+| Hewsen, *Armenia: A Historical Atlas* | ISBN 9780226332284 | Vagharshapat's position and standing | already registered |
+| UNESCO World Heritage List no. 1011 | `whc.unesco.org/en/list/1011/` | the inscription | already registered |
+| Mother See of Holy Etchmiadzin, official site | `armenianchurch.org/en/mother-see` | **present-day institution only** | **new, fetched and verified** |
+
+The only new registration is the Mother See's own site. Its `note` restricts it explicitly:
+an institution is a reliable source on its own organisation and an interested one on its own
+antiquity, so it carries the Catholicos, the seminary and the museums, and carries nothing
+historical. Nothing was fabricated: no invented title, author, date, ISBN, URL or page
+reference.
+
+### Coordinate
+
+One entry in `src/data/geo.ts`, locale-independent, in the existing provenance style:
+
+```ts
+"etchmiadzin-cathedral": { lat: 40.1618, lon: 44.2911, precision: "site" },
+```
+
+Verified against **OpenStreetMap way 133909119** (`Էջմիածնի Մայր Տաճար`,
+`amenity=place_of_worship`), which gives `40.1618404, 44.2911157`; rounded to four places on
+the way in, as the file requires. Wikipedia's infobox agrees at 40°09′43″N 44°17′28″E.
+
+**The point is the cathedral, not the town.** OSM puts the centre of Vagharshapat near
+40.1703, 44.2888 — close enough that a lazy coordinate would look plausible. A test asserts
+the recorded latitude is more than 0.005° from the town centre, because the validator
+deliberately has no bounding box and no way to catch a plausible-but-wrong point.
+
+### Related content
+
+`relatedSlugs: ["adoption-of-christianity", "khor-virap", "battle-of-avarayr"]`, identical in
+all three editions. Three contextual `SectionLink`s, each in a different section and each on
+a phrase that actually occurs in that section's prose:
+
+- `the-conversion` → `adoption-of-christianity`
+- `the-vision` → `khor-virap`
+- `what-survives` → `battle-of-avarayr`, on the Treaty of Nvarsak
+
+The third is the one worth defending. It is not padding: the article argues the 483
+rebuilding follows directly on the settlement that ended the revolt against Sasanian rule,
+and Vahan Mamikonian is a `relatedFigure` here for that reason. The relationship is carried
+by the prose, which is the standard §28 set.
+
+**No existing article was edited to add a backlink.** History and Khor Virap content is
+untouched, so nothing yet links *to* `etchmiadzin-cathedral` — the same one-directional gap
+§30 recorded for Khor Virap, now applying to both places.
+
+### Artwork — pending, and honestly so
+
+**No artwork ships with this article.** Both candidate files in `public/` were examined and
+both were rejected:
+
+- `hero-ararat.png` — the Khor Virap hill under Ararat. A different building thirty
+  kilometres away. §30 explicitly forbids reusing it here, and reusing it would caption one
+  monastery with another.
+- `images/history/adoption-of-christianity.webp` — the baptism scene. A generic Armenian
+  church stands in the background, but the focal subject is the two figures, and the church
+  is not Etchmiadzin. This is exactly the "generic Christianity illustration" case.
+
+So `etchmiadzin-cathedral` is declared in `PENDING_ARTWORK` with the reasoning recorded
+beside it, `ArticleLayout` renders the generated placeholder, `isGeneratedArtwork` stays
+false, and nothing is captioned AI-generated without cause. `validate:content` prints
+`note: 1 slug(s) render generated artwork: etchmiadzin-cathedral` on every run. **No image
+was generated, copied, renamed or fabricated.**
+
+This reverses §30's "`PENDING_ARTWORK` is empty again" — that section's own note now says so.
+Khor Virap's artwork is unchanged.
+
+### Filters and listing
+
+`placeTypes` is untouched: still `all` and `monastery`, exactly two pills. Both places are
+`placeTypeId: "monastery"`, so the Monastery filter returns both rather than narrowing — and
+that is now a real assertion rather than a tautology.
+
+The listing implementation was **not modified**. It already read
+`articles.find((article) => article.featured)` with no hardcoded slug, so Khor Virap remains
+the featured article purely because it is the one carrying `featured: true`. With a second
+article present this stopped being trivially true — the listing falls back to the *first*
+article when nothing is flagged — so a test now asserts exactly one place carries the flag.
+
+### Tests
+
+`places.spec.ts` goes from 20 to 24 tests. Existing tests were extended rather than
+duplicated: the per-locale loop now opens both articles, the card counts moved from 1 to 2,
+the SEO/canonical/hreflang test loops over both slugs, the sitemap test covers all six
+article URLs, and the JSON-LD test now checks both articles emit `Article` and
+`BreadcrumbList` and **no** `Place`, `TouristAttraction`, `LocalBusiness` or `Church`.
+
+Four are new, and three of them exist because the second article has *no* artwork — which
+turns the artwork code path into a real branch for the first time:
+
+1. **The placeholder state.** The pending article renders an inline `<svg role="img">`, no
+   raster `<img>`, and is *not* captioned "AI-generated illustration". The failure guarded
+   against is not a missing picture — that is the declared state — but a page claiming one.
+2. **Open Graph does not inherit.** The pending article's `og:image` and `twitter:image` must
+   not be Khor Virap's file. Inheriting a sibling's art would be invisible on the page and
+   wrong in every share preview.
+3. **Global search** finds the second place under the Places group.
+4. **The coordinate registry** holds one `site`-precision point per place, no fifth decimal,
+   and the cathedral point is measurably distinct from the town centre.
+
+The SEO test also gained an assertion the suite was missing: **the H1 renders `title`, not
+`seoTitle`**. Nothing else in the file would have caught that swap.
+
+### Western Armenian — written, not converted
+
+The `hyw` article was written in Western Armenian rather than transliterated from Eastern:
+classical orthography throughout (`-ութիւն`, `-ուած`, spelled-out `եւ`), Western verb forms
+(`կը`/`կ՚`, `մը`/`մըն`, `կու տայ`, `կրցաւ`), and Western institutional vocabulary. The
+validator enforces the orthography mechanically — `և` and `ություն` fail the build — but it
+cannot check grammar or register, so the following are flagged for native review:
+
+- **The whole article**, as with every `hyw` text since §16.
+- **Proper names**, the weakest part as always: `Ղազար Փարպեցի`, `Վահան Մամիկոնեան`,
+  `Զուարթնոց`, `Գէորգեան ճեմարան`, `Սուրբ Հռիփսիմէ`, `Սուրբ Գայանէ`, `Շողակաթ`, `Դուին`,
+  `Արմաւիր`, and the already-flagged `Ռոպերթ Հիւսըն`, `Քրիստինա Մարանչի`, `Նինա Կարսոյեան`,
+  `Ագաթանգեղոս`, `Ռ. Վ. Թոմսըն`.
+- **Religious and institutional register** specifically: `Մայր Աթոռ Սուրբ Էջմիածին`,
+  `Ամենայն Հայոց Կաթողիկոս`, `միւռոնի օրհնութիւն`, `ձեռնադրութիւն`, `աւանդատուն`,
+  `հոգեւորականութիւն`. Western Armenian ecclesiastical usage has its own conventions and a
+  diaspora reader will notice a wrong one immediately.
+- **`ԵՈՒՆԵՍՔՕ`**, kept from `history.ts` rather than harmonised with the `hy` `ՅՈՒՆԵՍԿՕ`.
+  Worth confirming that the existing form is the one Western Armenian readers expect.
+
+### Verification
+
+| Command | Result |
+|---|---|
+| `npm run typecheck` | PASS, 0 errors |
+| `npm run validate:content` | PASS — **105 entries** (was 102), with `note: 1 slug(s) render generated artwork: etchmiadzin-cathedral` |
+| `npx playwright test --project=desktop places.spec.ts` | **24/24** |
+| `npx playwright test` | **172 passed, 5 skipped, 0 failed** |
+| `npm run build` | PASS — **111 pages** (was 108), all nine Places routes prerendered |
+
+The three new pages are `{hy,hyw,en}/places/etchmiadzin-cathedral`. Checked directly in the
+prerendered HTML: canonical is `https://armat.site/en/places/etchmiadzin-cathedral`, all
+three `hreflang` alternates plus `x-default` are present, and the sitemap carries the slug
+fifteen times (three URLs, each with four alternate links).
+
+Cross-locale parity is machine-checked rather than asserted: `validateCrossLocaleNumbers`
+compares the multiset of every two-or-more-digit number per field across editions, so `301`,
+`314`, `483`, `484`, `1441`, `1653`, `1658`, `1682`, `1868`, `1874`, `1929`, `1939`, `2000`
+and the `relatedFigures` lifespans all had to match exactly in three languages. Centuries are
+spelled out as words in every edition, which keeps them out of that check by design.
+
+### Still open
+
+- **Artwork for Etchmiadzin Cathedral.** The one real debt this section adds. A
+  place-specific WebP would clear the `PENDING_ARTWORK` note and give the article a hero, a
+  card, a search thumbnail and an OG image in one line, because every consumer goes through
+  `getImageSrc`.
+- **Western Armenian native review**, per the list above. This adds to the queue from §16,
+  §28 and §29.
+- **A dedicated Khor Virap image**, unchanged from §30 — its artwork is still a copy of the
+  homepage hero.
+- **Nothing links *to* either place yet.** `getRelatedArticles` is one-directional and no
+  History article lists a place among its `relatedSlugs`. Adding those backlinks is a
+  content decision for a later pass and was deliberately out of scope here.
+
+Khor Virap's content, artwork and tests are unchanged, the homepage is unchanged, and
+`.claude/settings.json` was not touched.
 
 No deployment was performed.

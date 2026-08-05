@@ -651,6 +651,73 @@ const SOURCES: Record<string, Source[]> = {
       note: "A survey of Armenian architecture and its periods; cited for the building history of the monastery rather than for the tradition.",
     },
   ],
+
+  /*
+   * Etchmiadzin needs a third kind of source that Khor Virap did not. Beyond the
+   * tradition and the fabric, this site is a working institution with a present
+   * tense — a see, a seminary, a treasury — and the body that runs it publishes
+   * its own account of itself. That account is cited here for what the Mother See
+   * currently *is* and not for anything historical: an institution is a reliable
+   * source on its own organisation and an interested one on its own antiquity.
+   * The dating and the tradition are carried by Agathangelos, Garsoïan, Maranci
+   * and Hovannisian below, exactly as they are for Khor Virap.
+   */
+  "etchmiadzin-cathedral": [
+    {
+      author: "Agathangelos, trans. and comm. R. W. Thomson",
+      title: "History of the Armenians",
+      publisher: "State University of New York Press, Albany",
+      year: "1976",
+      identifier: { kind: "isbn", value: "9780873953238" },
+      note: "The fifth-century narrative containing the vision of the Only Begotten that gives the cathedral its name. It is the source of the foundation tradition and was written well over a century after the events it describes.",
+    },
+    {
+      author: "Nina G. Garsoïan",
+      title: "Studies on the Formation of Christian Armenia",
+      publisher: "Variorum / Ashgate",
+      year: "2010",
+      identifier: { kind: "isbn", value: "9781409403661" },
+      note: "Cited for the critical treatment of the conversion narrative and its dating, which is what keeps the foundation date described here as tradition.",
+    },
+    {
+      author: "Christina Maranci",
+      title: "The Art of Armenia: An Introduction",
+      publisher: "Oxford University Press",
+      year: "2018",
+      identifier: { kind: "isbn", value: "9780190269005" },
+      note: "Cited for the building history: the cruciform domed plan of the fifth-century rebuilding and the seventeenth-century dome and belfry, set against the wider periods of Armenian architecture.",
+    },
+    {
+      author: "Richard G. Hovannisian (ed.)",
+      title:
+        "The Armenian People from Ancient to Modern Times, Volume I: The Dynastic Periods, from Antiquity to the Fourteenth Century",
+      publisher: "Palgrave Macmillan",
+      year: "2004",
+      identifier: { kind: "isbn", value: "9781403966360" },
+      note: "Cited for the institutional history — the organisation of the church after the conversion and the movement of the catholicosal see away from Vagharshapat and back.",
+    },
+    {
+      author: "Robert H. Hewsen",
+      title: "Armenia: A Historical Atlas",
+      publisher: "University of Chicago Press",
+      year: "2001",
+      identifier: { kind: "isbn", value: "9780226332284" },
+      note: "The standard historical geography of the Armenian lands; cited here for Vagharshapat's position and its standing as a royal centre before the cathedral was founded.",
+    },
+    {
+      title: "Cathedral and Churches of Echmiatsin and the Archaeological Site of Zvartnots",
+      publisher: "UNESCO World Heritage List, no. 1011",
+      year: "inscribed 2000",
+      identifier: { kind: "url", value: "https://whc.unesco.org/en/list/1011/" },
+      note: "The inscription covers the cathedral, the churches of Hripsime, Gayane and Shoghakat, and the ruins of Zvartnots as one property. \"Echmiatsin\" is UNESCO's own spelling in the official property name and is kept here as cited; the archive's prose uses Etchmiadzin throughout.",
+    },
+    {
+      title: "Mother See of Holy Etchmiadzin — official site",
+      publisher: "Mother See of Holy Etchmiadzin, Vagharshapat",
+      identifier: { kind: "url", value: "https://www.armenianchurch.org/en/mother-see" },
+      note: "Cited only for the present-day institution: the office of the Catholicos of All Armenians, the Gevorgian Theological Seminary, and the museums and library inside the precinct.",
+    },
+  ],
 };
 
 /** The bibliography for one article. Empty only if the slug is unknown. */

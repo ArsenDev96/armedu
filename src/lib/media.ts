@@ -85,20 +85,37 @@ const IMAGES: Record<string, string> = {
 /**
  * Slugs whose artwork is commissioned but not yet delivered.
  *
- * Empty today — every article slug has a file. It is kept rather than deleted
- * because the alternative is the state this list was introduced to end: a slug
- * silently rendering the generated placeholder, with nothing in the repo saying
- * whether that is a decision or an oversight. When the next article is written
- * ahead of its picture, name it here; when the file lands, add it to `IMAGES`
- * and drop it from this list. Nothing else changes, because every consumer
- * already asks `getImageSrc`.
+ * This list exists to end one specific state: a slug silently rendering the
+ * generated placeholder, with nothing in the repo saying whether that is a
+ * decision or an oversight. When an article is written ahead of its picture,
+ * name it here with the reason; when the file lands, add it to `IMAGES` and drop
+ * it from this list. Nothing else changes, because every consumer already asks
+ * `getImageSrc`.
  *
  * Anything in `IMAGES` inherits `ARTWORK_PROVENANCE` below: an AI-generated
  * editorial illustration, captioned as one. A real, credited photograph is
  * declared on the article itself as `image: { src, alt, credit }`, which
  * overrides both the file here and the AI caption.
  */
-export const PENDING_ARTWORK: readonly string[] = [];
+export const PENDING_ARTWORK: readonly string[] = [
+  /*
+   * No file in `public/` depicts this cathedral. The two candidates were both
+   * rejected rather than stretched to fit. `hero-ararat.png` is the Khor Virap
+   * hill under Ararat — a different building thirty kilometres away, and reusing
+   * it here would caption one monastery with another. `history/adoption-of-
+   * christianity.webp` is the baptism scene: a generic Armenian church sits in
+   * its background, but the focal subject is the two figures, and the church is
+   * not Etchmiadzin. Registering either would put a false claim under a picture,
+   * which is the failure `ARTWORK_PROVENANCE` exists to prevent.
+   *
+   * So the slug is declared here and `ArticleLayout` renders the generated
+   * placeholder with `imagePlaceholderCaption`, exactly as Khor Virap's did
+   * before its artwork landed. `isGeneratedArtwork` stays false, so nothing is
+   * captioned AI-generated without cause, and `validate:content` prints the debt
+   * on every run.
+   */
+  "etchmiadzin-cathedral",
+];
 
 /** Path under `public/` for a slug's artwork, or `undefined` when none ships. */
 export function getImageSrc(slug: string): string | undefined {
