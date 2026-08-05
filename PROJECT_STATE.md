@@ -1,6 +1,6 @@
 # Armat — Project State Report
 
-**Last updated:** 2026-08-04
+**Last updated:** 2026-08-05
 **Repo:** `d:\armedu` · branch `seo`
 **Status:** Armenian-first multilingual site, complete in three editions and **live in
 production at [armat.site](https://armat.site)** (Vercel). Crawlable and indexable today.
@@ -78,7 +78,7 @@ npm install              → OK
 npm run typecheck        → PASS (0 errors)
 npm run validate:content → PASS (102 entries across 3 locales)
 npm run build            → PASS (108 pages prerendered; `/api/contact` dynamic)
-npm run test:e2e         → PASS (163 passed, 5 skipped, at the normal 2 workers)
+npm run test:e2e         → PASS (168 passed, 5 skipped, no --workers flag; see §30)
 ```
 
 `validate:content` now also checks: every registered image exists on disk; every article
@@ -1591,7 +1591,13 @@ Maranci's *The Art of Armenia* (building history). Both new ISBNs were flagged f
 confirmation here and were confirmed in §29; the 1662 date was audited there and did not
 survive.
 
-### No image, on purpose
+### No image, on purpose — reversed in §30
+
+> **This section is a historical record of the August 2026 decision. It no longer
+> describes the repository.** §30 registered a copy of the homepage hero as this article's
+> artwork by making the missing claim explicitly rather than working around it, and
+> `PENDING_ARTWORK` is empty again. The reasoning below is kept because it is why the
+> registration had to state the provenance out loud; read it with §30.
 
 `public/hero-ararat.png` shows this monastery and was assessed for reuse. It was rejected:
 everything in `IMAGES` inherits `ARTWORK_PROVENANCE`, which asserts the file is
@@ -1651,7 +1657,9 @@ subject; it added routes for the dev server to compile on demand. **Split in §2
   than converted from Eastern Armenian (`Ք.Ա.`, `մօտ`, classical orthography, the
   `կը`/`կ՚` verb forms, `մը`/`մըն`), but proper nouns are the hardest part and
   `Ռոպերթ Հիւսըն`, `Քրիստինա Մարանչի` and `Ագաթանգեղոս` should be checked.
-- **Khor Virap has no article artwork.** Still true; see §29.
+- ~~**Khor Virap has no article artwork.**~~ **Closed in §30** — a copy of the homepage
+  hero is registered under `"khor-virap"` and `PENDING_ARTWORK` is empty. This bullet said
+  "Still true; see §29" until then.
 
 The coordinate and citation items recorded here were resolved in §29 and are not repeated.
 
@@ -1796,12 +1804,10 @@ timeout, or pinned to one worker, and the suite grew by two tests (161 → 163).
 
 ### Still open
 
-- **Khor Virap has no article artwork.** Unchanged and deliberate: the slug stays in
-  `PENDING_ARTWORK`, the homepage hero was not registered and was not touched,
-  `ARTWORK_PROVENANCE` was not altered, no placeholder file was generated, and the existing
-  placeholder behaviour in `ArticleLayout` is intact. `validate:content` still prints
-  `note: 1 slug(s) render generated artwork: khor-virap`. A dedicated image is a separate
-  piece of work.
+- ~~**Khor Virap has no article artwork.**~~ **Closed in §30.** This bullet recorded that
+  the slug stayed in `PENDING_ARTWORK` and that `validate:content` still printed
+  `note: 1 slug(s) render generated artwork: khor-virap`. Neither is true now. A
+  *dedicated* image is still separate work — what ships is a copy of the homepage hero.
 - **Western Armenian is still pending native review** — the `hyw` article, the `placeTypes`
   labels and the Places UI strings, now including `տասնեօթներորդ դար`. The transliterated
   proper nouns (`Ռոպերթ Հիւսըն`, `Քրիստինա Մարանչի`, `Ագաթանգեղոս`, `Նինա Կարսոյեան`) and
@@ -1819,5 +1825,129 @@ timeout, or pinned to one worker, and the suite grew by two tests (161 → 163).
 5 skipped, 0 failed, in 4.4 and 4.1 minutes. `places.spec.ts` 15/15 on its own; the three
 split Cuisine leak tests 3/3 on their own. The built English page contains no `1662` and
 eleven mentions of the century.
+
+No deployment was performed.
+
+---
+
+## 30. Khor Virap artwork — the hero, copied and declared (August 2026)
+
+The last open item from §28, carried unchanged through §29, is closed. `khor-virap` now
+renders registered artwork on every surface. No article, route, component or feature was
+added, and nothing about the homepage changed.
+
+### What shipped is a copy, not a new picture
+
+`public/images/places/khor-virap.png` is **byte-for-byte identical to
+`public/hero-ararat.png`** — the homepage hero. Same 1355×793 8-bit truecolour PNG, same
+1,471,530 bytes, same SHA-256 `2d7420356bbe4188…3391a47c`. It is a copy placed in the
+registry's own directory, not a reference across to the hero's path and not a new
+illustration. Anyone reading this section should not expect to find a second picture of
+Khor Virap in the repo; there is one picture, stored twice.
+
+**The homepage is unchanged.** `public/hero-ararat.png` was not modified, renamed,
+optimised, cropped or deleted, and `src/components/sections/Hero.tsx` still points at
+`/hero-ararat.png` directly rather than going through `getImageSrc`. Neither file was
+touched by this pass beyond the copy being created.
+
+### The provenance claim §28 would not make, made explicitly
+
+§28 assessed exactly this reuse and rejected it, for a reason worth restating: everything
+in `IMAGES` inherits `ARTWORK_PROVENANCE`, which asserts the file is AI-generated, and that
+had never been recorded anywhere for the homepage hero. Registering it would have asserted
+something unrecorded — the failure §17 exists to prevent.
+
+This pass does not work around that objection; it answers it. **The hero is hereby declared
+Armat-generated editorial artwork**, on the same terms as every other file in the registry,
+and the declaration is written into the `// Places` block of `src/lib/media.ts` beside the
+entry it licenses. The provenance is now stated for both copies rather than for neither,
+which is the actual improvement — the previous state left the homepage hero's origin
+unrecorded too, and merely declined to inherit from it.
+
+The consequence follows automatically: `isGeneratedArtwork` returns true for the slug, so
+the article's hero is captioned **"AI-generated illustration"** like every other registry
+image. Nothing about `ARTWORK_PROVENANCE` itself was altered.
+
+### `PENDING_ARTWORK` is empty again
+
+`PENDING_ARTWORK` is back to `[]`. `validate:content` no longer prints
+`note: 1 slug(s) render generated artwork: khor-virap` — the debt line §28 introduced and
+§29 confirmed is gone because the debt is paid. The list is kept rather than deleted, for
+the reason its own doc comment gives: the alternative is a slug silently rendering the
+placeholder with nothing in the repo saying whether that is a decision or an oversight.
+
+### Two live consequences, recorded rather than rediscovered
+
+1. **The same picture is now the homepage hero and one article's cover.** A reader
+   arriving at the homepage and clicking through to Khor Virap sees it twice. That is the
+   accepted cost of closing the item with the material on hand.
+2. **It is the heaviest image on the site** — a 1.4 MB PNG against a registry of
+   110–160 KB WebP — and it now serves as the article hero, the listing featured block, the
+   listing card, the search thumbnail, the Open Graph and Twitter image and the sitemap
+   image. Replacing it with a lighter, place-specific WebP is **a one-line change**: every
+   consumer already asks `getImageSrc`, so swapping the value on the `"khor-virap"` key
+   reaches all six surfaces at once. That is the intended follow-up.
+
+### Tests
+
+`tests/e2e/places.spec.ts` goes from 15 to 20 tests. The five additions cover the surfaces
+the registration actually changed: the article hero plus its AI-illustration caption; the
+listing's featured block and card; the search thumbnail; the OG, Twitter and JSON-LD image;
+and the sitemap image entry.
+
+**One surface is not exercised, and is not faked.** No page currently renders Khor Virap in
+a *related-articles* block. `getRelatedArticles` is one-directional through `relatedSlugs`,
+and no article lists `khor-virap` among its own, so the block has nothing to render it
+from. The component that block uses is `ArticleCard` — the same component the listing-card
+test covers — so the image lookup through it is proven; the related-articles surface itself
+is not. Adding a `relatedSlugs` entry to some other article purely to manufacture coverage
+was considered and deliberately not done: it would change editorial content to satisfy a
+test.
+
+### Verification
+
+`typecheck` PASS · `validate:content` PASS (102 entries, no pending-artwork note) ·
+`build` PASS (108 pages, all six Places routes prerendered).
+
+`npx playwright test`, no `--workers` flag — **168 passed, 5 skipped, 0 failed** in 1.8
+minutes, up from the 163/5 recorded in §29 by exactly the five new tests. `places.spec.ts`
+20/20 on its own.
+
+**Correction to a figure §29 and §3 both carried.** Those sections describe the suite as
+running "at the repository's normal two workers". There is no such repository setting:
+`playwright.config.ts` sets `fullyParallel: true` and never sets `workers`, so Playwright
+uses its default of half the logical cores. The two-worker figure was a property of the
+machine those runs happened on. This run reported `Running 173 tests using 6 workers` on a
+12-core machine. The worker count is therefore not reproducible across machines and should
+not be quoted as if it were a repo invariant — the reproducible facts are the 173 declared,
+168 passed and 5 skipped. That the suite passes at six-way parallelism is stronger evidence
+than the earlier two-worker runs, which matters for the Cuisine leak tests §29 split
+rather than suppressed.
+
+One false failure is worth recording so it is not diagnosed twice. `playwright.config.ts`
+sets `reuseExistingServer: true`, so a stale dev server left on port 3002 by an earlier
+session gets adopted by the runner and serves a hard Next 404 for
+`/{locale}/places/khor-virap` while the listing loads normally. Kill the listener before a
+full run:
+
+```powershell
+Get-NetTCPConnection -LocalPort 3002 -State Listen -ErrorAction SilentlyContinue |
+  ForEach-Object { Stop-Process -Id $_.OwningProcess -Force }
+```
+
+### Files changed
+
+`public/images/places/khor-virap.png` (added, a copy) · `src/lib/media.ts` (the `// Places`
+block, the emptied `PENDING_ARTWORK`, and the registry doc comment noting the extension is
+not a convention either) · `tests/e2e/places.spec.ts` (+5 tests) · this document.
+
+### Still open
+
+- **A dedicated Khor Virap image.** The item §28 opened is closed in the sense that the
+  slug has artwork; it is not closed in the sense that the artwork is *of nothing else*.
+  A place-specific WebP would fix both the duplication and the weight in one line.
+- **Related-articles coverage** for this slug, if and when an article legitimately links to
+  it.
+- The `hyw` native review from §28 and §29 is untouched by this pass and still stands.
 
 No deployment was performed.
