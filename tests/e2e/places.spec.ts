@@ -1,5 +1,6 @@
 import { expect, test } from "@playwright/test";
 import { getPlaceCoordinateRegistry } from "@/data/geo";
+import { PENDING_ARTWORK, getImageRegistry, getImageSrc } from "@/lib/media";
 import { LOCALES, articleTitle, bundle, cards, ui } from "./helpers";
 
 /**
@@ -20,17 +21,41 @@ import { LOCALES, articleTitle, bundle, cards, ui } from "./helpers";
 const SLUG = "khor-virap";
 
 /**
- * The second place. It ships without artwork on purpose — no file in `public/`
- * depicts this cathedral — so it is declared in `PENDING_ARTWORK` and renders the
- * generated placeholder. That makes it the counterpart to `SLUG` throughout this
- * file: one slug with a registered image and one without, which is the only way
- * to prove the artwork branch is a branch rather than something the layout always
- * does.
+ * The second place. It shipped without artwork and rendered the generated
+ * placeholder; its own illustration has since landed and is registered, so both
+ * places now have covers and `PENDING_ARTWORK` is empty again.
  */
-const PENDING = "etchmiadzin-cathedral";
+const ETCHMIADZIN = "etchmiadzin-cathedral";
 
 /** Both places, for the assertions that must hold of every article in the section. */
-const PLACES = [SLUG, PENDING] as const;
+const PLACES = [SLUG, ETCHMIADZIN] as const;
+
+/**
+ * The registered file per slug — the single source of truth for every artwork
+ * assertion below.
+ *
+ * One entry drives six surfaces (hero, featured block, card, search thumbnail,
+ * social tags, sitemap), all reached through `getImageSrc`, and all silent if the
+ * registration is wrong. Writing the expected path once here is what stops a test
+ * from being updated to match a regression.
+ *
+ * The two extensions differ on purpose and are not a typo: Khor Virap's cover is
+ * a PNG copied from the homepage hero (§30), while Etchmiadzin's is a 1586×992
+ * WebP like the rest of the registry (§32).
+ */
+const ARTWORK = {
+  [SLUG]: "/images/places/khor-virap.png",
+  [ETCHMIADZIN]: "/images/places/etchmiadzin-cathedral.webp",
+} as const satisfies Record<(typeof PLACES)[number], string>;
+
+/**
+ * Matches a registered file inside a rendered `src`.
+ *
+ * Next's optimizer rewrites `src` into `/_next/image?url=%2Fimages%2F…`, so the
+ * full path is percent-encoded and the bare filename is what survives intact.
+ * The dot is escaped because `.webp` would otherwise match `Xwebp`.
+ */
+const fileIn = (path: string) => new RegExp(path.split("/").pop()!.replace(".", "\\."));
 
 const placeTypeLabel = (locale: "hy" | "hyw" | "en", id: string) => {
   const filter = bundle(locale).placeTypes.find((entry) => entry.id === id);
@@ -199,7 +224,7 @@ test("the second place is findable under the places group too", async ({ page })
 
   const main = page.getByRole("main");
   await expect(main.getByRole("heading", { name: dict.search.groupPlaces, level: 2 })).toBeVisible();
-  await expect(main.getByRole("link", { name: articleTitle("en", PENDING) }).first()).toBeVisible();
+  await expect(main.getByRole("link", { name: articleTitle("en", ETCHMIADZIN) }).first()).toBeVisible();
 });
 
 test("the empty search page offers places as a place to start", async ({ page }) => {
@@ -214,133 +239,207 @@ test("the empty search page offers places as a place to start", async ({ page })
 /* -------------------------------------------------------------------------- */
 
 /*
-  Khor Virap shipped without a cover and rendered the generated placeholder. The
-  file now exists at `/images/places/khor-virap.png` and is registered in
-  `IMAGES`, which is a single entry that has to light up six different surfaces —
-  every one of them reached through `getImageSrc`, and every one of them silent
-  if the registration is wrong.
+  Both places now ship a cover, and each registration is a single `IMAGES` entry
+  that has to light up six surfaces — hero, featured block, card, search
+  thumbnail, social tags, sitemap — every one reached through `getImageSrc`, and
+  every one silent if the registration is wrong.
 
   The caption is the assertion that matters most. `isGeneratedArtwork` flips to
   true the moment a slug enters the registry, and that is what makes the page
   state "AI-generated" rather than "placeholder". A registration that rendered
   the picture without the disclosure would look completely correct.
+
+  These run over both slugs rather than duplicating the block, so a third place
+  is covered by adding one line to `ARTWORK`.
 */
 
-test("the article hero renders the registered artwork and names the AI provenance", async ({
+test("each article hero renders its own registered artwork and names the AI provenance", async ({
   page,
 }) => {
   const dict = ui("hy");
-  await page.goto("/hy/places/khor-virap");
 
-  // Next's optimizer rewrites `src` into `/_next/image?url=…`, so the encoded
-  // original is what identifies the file.
-  const hero = page.locator("header figure img");
-  await expect(hero).toHaveAttribute("src", /khor-virap\.png/);
+  for (const slug of PLACES) {
+    await page.goto(`/hy/places/${slug}`);
 
-  // A place is a scene, not a likeness, so it takes the illustration wording —
-  // the same branch the cuisine artwork uses, and not the portrait one.
-  await expect(page.locator("header figcaption")).toHaveText(
-    dict.article.imageAiIllustrationCaption.replace("{title}", articleTitle("hy", "khor-virap")),
-  );
+    // Next's optimizer rewrites `src` into `/_next/image?url=…`, so the encoded
+    // original is what identifies the file.
+    const hero = page.locator("header figure img");
+    await expect(hero, slug).toHaveAttribute("src", fileIn(ARTWORK[slug]));
+
+    // The placeholder must be gone: a registered slug renders a raster file, not
+    // the inline `<svg role="img">` the generated artwork uses.
+    await expect(page.locator("header figure svg[role='img']"), slug).toHaveCount(0);
+
+    // A place is a scene, not a likeness, so it takes the illustration wording —
+    // the same branch the cuisine artwork uses, and not the portrait one.
+    await expect(page.locator("header figcaption"), slug).toHaveText(
+      dict.article.imageAiIllustrationCaption.replace("{title}", articleTitle("hy", slug)),
+    );
+  }
 });
 
-test("the listing's featured block and card both render the artwork", async ({ page }) => {
+test("the listing renders each place's own artwork, and no placeholder", async ({ page }) => {
   await page.goto("/en/places");
 
   // `ArticleCard` is the shared component — the same one a related-articles
   // block renders — so this covers both surfaces through one lookup.
-  //
-  // Every real `<img>` on this listing is still Khor Virap's, because it is the
-  // only registered place image. The second article renders `PlaceholderImage`,
-  // which is an inline `<svg role="img">` and so is deliberately outside this
-  // selector; the assertion below is that nothing *else* leaked in — a stray
-  // og-default or a wrong file would fail here.
   const images = page.locator("main img");
   await expect(images).not.toHaveCount(0);
 
-  const sources = await images.evaluateAll((nodes) =>
-    nodes.map((node) => node.getAttribute("src") ?? ""),
-  );
+  const sources = (
+    await images.evaluateAll((nodes) => nodes.map((node) => node.getAttribute("src") ?? ""))
+  ).map(decodeURIComponent);
+
+  // Both files appear: Khor Virap is the featured block *and* a card, Etchmiadzin
+  // is a card. The failure this catches is the one-line registration reaching
+  // some surfaces and not others.
+  for (const slug of PLACES) {
+    expect(
+      sources.some((src) => src.includes(ARTWORK[slug])),
+      `${slug} artwork missing from the listing; got ${sources.join(", ")}`,
+    ).toBe(true);
+  }
+
+  // Nothing else leaked in — a stray og-default or a wrong file fails here.
+  const allowed = Object.values(ARTWORK) as string[];
   expect(
-    sources.every((src) => /khor-virap\.png/.test(decodeURIComponent(src))),
-    `every raster image on the places listing should be the registered artwork, got ${sources.join(", ")}`,
+    sources.every((src) => allowed.some((path) => src.includes(path))),
+    `unexpected image on the places listing; got ${sources.join(", ")}`,
   ).toBe(true);
+
+  // And no card falls back to the generated placeholder any more.
+  await expect(page.locator("main svg[role='img']")).toHaveCount(0);
 });
 
 test("a place's search thumbnail renders the artwork", async ({ page }) => {
-  await page.goto("/en/search?q=Khor%20Virap");
+  for (const [slug, query] of [
+    [SLUG, "Khor%20Virap"],
+    [ETCHMIADZIN, "Etchmiadzin"],
+  ] as const) {
+    await page.goto(`/en/search?q=${query}`);
 
-  const thumb = page.getByRole("main").locator("img").first();
-  await expect(thumb).toHaveAttribute("src", /khor-virap\.png/);
+    // Scoped to this place's own result card, not `.first()`. "Etchmiadzin" also
+    // matches the history article on the conversion, which legitimately ranks
+    // above it — taking the first thumbnail on the page would assert against
+    // that article's artwork instead.
+    const card = page
+      .getByRole("main")
+      .getByRole("listitem")
+      .filter({ has: page.locator(`a[href="/en/places/${slug}"]`) });
+
+    await expect(card, slug).toHaveCount(1);
+    await expect(card.locator("img"), slug).toHaveAttribute("src", fileIn(ARTWORK[slug]));
+  }
 });
 
 test("the artwork reaches Open Graph, Twitter and the article's structured data", async ({
   page,
 }) => {
-  await page.goto("/en/places/khor-virap");
+  for (const slug of PLACES) {
+    await page.goto(`/en/places/${slug}`);
 
-  // Absolute, because several scrapers do not resolve relative image URLs.
-  const expected = "https://armat.site/images/places/khor-virap.png";
-  await expect(page.locator('meta[property="og:image"]')).toHaveAttribute("content", expected);
-  await expect(page.locator('meta[name="twitter:image"]')).toHaveAttribute("content", expected);
-  // Not the generic site card any more.
-  await expect(page.locator('meta[property="og:image"]')).not.toHaveAttribute(
-    "content",
-    /og-default/,
-  );
+    // Absolute, because several scrapers do not resolve relative image URLs.
+    const expected = `https://armat.site${ARTWORK[slug]}`;
+    await expect(page.locator('meta[property="og:image"]'), slug).toHaveAttribute(
+      "content",
+      expected,
+    );
+    await expect(page.locator('meta[name="twitter:image"]'), slug).toHaveAttribute(
+      "content",
+      expected,
+    );
+    // Not the generic site card, and not the *other* place's file — inheriting a
+    // sibling's art would be invisible on the page and wrong in every preview.
+    for (const meta of ['meta[property="og:image"]', 'meta[name="twitter:image"]']) {
+      await expect(page.locator(meta), `${slug} ${meta}`).not.toHaveAttribute(
+        "content",
+        /og-default/,
+      );
+    }
 
-  const raw = await page.locator('script[type="application/ld+json"]').first().textContent();
-  const graph = (JSON.parse(raw ?? "") as { "@graph": Record<string, unknown>[] })["@graph"];
-  const article = graph.find((entry) => entry["@type"] === "Article");
-  expect(article?.image).toEqual({ "@type": "ImageObject", url: expected });
+    const raw = await page.locator('script[type="application/ld+json"]').first().textContent();
+    const graph = (JSON.parse(raw ?? "") as { "@graph": Record<string, unknown>[] })["@graph"];
+    const article = graph.find((entry) => entry["@type"] === "Article");
+    expect(article?.image, slug).toEqual({ "@type": "ImageObject", url: expected });
+  }
 });
 
-test("the sitemap carries the place's illustration for image search", async ({ request }) => {
+test("the sitemap carries every place's illustration for image search", async ({ request }) => {
   const xml = await (await request.get("/sitemap.xml")).text();
-  expect(xml).toContain("https://armat.site/images/places/khor-virap.png");
+
+  for (const slug of PLACES) {
+    // One image entry per locale route, so three per place.
+    const url = `https://armat.site${ARTWORK[slug]}`;
+    expect(xml.split(url).length - 1, `${slug} image entries`).toBe(LOCALES.length);
+  }
 });
 
 /*
-  The other half of the artwork branch: a place with no file.
+  `PENDING_ARTWORK` is empty, and this asserts it stays that way honestly.
 
-  `etchmiadzin-cathedral` is in `PENDING_ARTWORK` because nothing in `public/`
-  depicts this cathedral. The failure this guards against is not a missing
-  picture — that is the declared state — but a page that claims one. If the slug
-  were registered against some other illustration, `isGeneratedArtwork` would
-  flip and the hero would be captioned "AI-generated illustration" under a
-  picture of a different building, which is exactly the false provenance the
-  registry exists to prevent.
+  The list is the repository's record of a deliberate gap. An entry left behind
+  after its file landed would keep a real cover out of the page; a slug missing
+  from both `IMAGES` and this list would render the placeholder with nothing
+  saying whether that was a decision. Both are silent failures.
 */
-test("a place with no artwork renders the placeholder and claims no provenance", async ({
-  page,
-}) => {
-  const dict = ui("hy");
-  await page.goto(`/hy/places/${PENDING}`);
+test("no place is left declared as pending once its artwork ships", () => {
+  expect(PENDING_ARTWORK).toEqual([]);
 
-  const hero = page.locator("header figure");
-
-  // The placeholder is an inline `<svg role="img">`, not a raster file.
-  await expect(hero.getByRole("img")).toBeVisible();
-  await expect(hero.locator("img")).toHaveCount(0);
-
-  // And it must not be captioned as AI-generated artwork, because there is none.
-  const aiCaption = dict.article.imageAiIllustrationCaption.replace(
-    "{title}",
-    articleTitle("hy", PENDING),
-  );
-  await expect(page.locator("header figcaption")).not.toHaveText(aiCaption);
+  for (const slug of PLACES) {
+    expect(getImageSrc(slug), `${slug} should resolve through the registry`).toBe(ARTWORK[slug]);
+    expect(PENDING_ARTWORK, `${slug} is registered and must not also be pending`).not.toContain(
+      slug,
+    );
+  }
 });
 
-test("a pending place falls back to the site card for Open Graph, not another place's art", async ({
+/*
+  Registering Etchmiadzin must not have disturbed anything else in `IMAGES`.
+
+  The registry is one flat map, and the edit that added a key is exactly the kind
+  that quietly retypes a neighbouring value. This pins every other entry.
+*/
+test("no unrelated article artwork changed", () => {
+  const registry = getImageRegistry();
+
+  // Khor Virap keeps its PNG — the copy of the homepage hero from §30, not a WebP.
+  expect(registry["khor-virap"]).toBe("/images/places/khor-virap.png");
+
+  // Every other entry is still a WebP in one of the category directories, and
+  // nothing but Khor Virap is a PNG.
+  //
+  // Deliberately not asserted: that a filename matches its slug. It is not a
+  // convention here — `mesrop-mashtots-armenian-alphabet` maps to
+  // `mesrop-mashtots.webp` and `first-republic-of-armenia` to
+  // `first-republic-armenia.webp`, both long-standing and both correct.
+  for (const [slug, path] of Object.entries(registry)) {
+    if (slug === "khor-virap") continue;
+    expect(path, `${slug} should be a WebP under /images/`).toMatch(
+      /^\/images\/(history|writers|works|cuisine|places)\/[a-z0-9-]+\.webp$/,
+    );
+  }
+
+  // Only the two places live under /images/places/, so registering Etchmiadzin
+  // cannot have repointed an article from another category.
+  const inPlaces = Object.entries(registry)
+    .filter(([, path]) => path.startsWith("/images/places/"))
+    .map(([slug]) => slug)
+    .sort();
+  expect(inPlaces).toEqual([...PLACES].sort());
+
+  // And the homepage hero is not in the registry at all: `Hero.tsx` points at
+  // `/hero-ararat.png` directly, which is what keeps the homepage independent of
+  // this map.
+  expect(Object.values(registry)).not.toContain("/hero-ararat.png");
+});
+
+test("the homepage still renders its own hero, untouched by the places registry", async ({
   page,
 }) => {
-  await page.goto(`/en/places/${PENDING}`);
-
-  // The specific regression: inheriting Khor Virap's file because both are
-  // places would be invisible on the page and wrong in every share preview.
-  for (const meta of ['meta[property="og:image"]', 'meta[name="twitter:image"]']) {
-    await expect(page.locator(meta)).not.toHaveAttribute("content", /khor-virap/);
-  }
+  await page.goto("/hy");
+  await expect(page.locator('img[src*="hero-ararat"]').first()).toBeVisible();
+  // The homepage must not pick up the new places artwork.
+  await expect(page.locator(`img[src*="etchmiadzin"]`)).toHaveCount(0);
 });
 
 /* -------------------------------------------------------------------------- */
@@ -457,7 +556,7 @@ test("the coordinate registry holds one checked point per place", () => {
   // The cathedral, not the middle of Vagharshapat. OSM puts the town centre near
   // 40.1703, 44.2888 and the Mother Cathedral at 40.1618, 44.2911 — close enough
   // that a lazy coordinate would look plausible, far enough that this catches it.
-  const cathedral = registry[PENDING];
+  const cathedral = registry[ETCHMIADZIN];
   expect(cathedral.lat).toBeCloseTo(40.1618, 4);
   expect(cathedral.lon).toBeCloseTo(44.2911, 4);
   expect(

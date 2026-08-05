@@ -71,15 +71,25 @@ const IMAGES: Record<string, string> = {
    *
    * Two consequences to keep in mind rather than rediscover. The same picture is
    * now the homepage hero *and* one article's cover, so it appears twice on a
-   * reader's first visit; and it is a 1.4 MB PNG where the rest of the registry
-   * is 110–160 KB WebP, so this slug's card and hero are the heaviest images on
-   * the site. Neither file is altered, optimised or renamed here — replacing this
-   * entry with a lighter, place-specific WebP is a later piece of work, and it is
-   * a one-line change because every consumer already asks `getImageSrc`.
+   * reader's first visit; and it is a 1.4 MB PNG against a registry whose WebP
+   * files run from 85 KB to 481 KB, so this slug's card and hero are the heaviest
+   * images on the site by a wide margin. It is also the only entry here that is
+   * not 1586×992. Neither file is altered, optimised or renamed here — replacing
+   * this entry with a lighter, place-specific WebP is a later piece of work, and
+   * it is a one-line change because every consumer already asks `getImageSrc`.
    *
    * `Hero.tsx` still points at `/hero-ararat.png` directly and is untouched.
+   *
+   * `etchmiadzin-cathedral.webp` is what that later piece of work looks like when
+   * it is done properly, and it is the reason the paragraph above is worth
+   * keeping: it is a 1586×992 WebP like every other file in this map, it depicts
+   * the building its slug names, and it replaced a `PENDING_ARTWORK` entry rather
+   * than an approximation. Registering it was a one-line change that reached the
+   * article hero, the listing card and featured block, the search thumbnail, the
+   * Open Graph and Twitter tags and the sitemap image at once.
    */
   "khor-virap": "/images/places/khor-virap.png",
+  "etchmiadzin-cathedral": "/images/places/etchmiadzin-cathedral.webp",
 };
 
 /**
@@ -97,25 +107,7 @@ const IMAGES: Record<string, string> = {
  * declared on the article itself as `image: { src, alt, credit }`, which
  * overrides both the file here and the AI caption.
  */
-export const PENDING_ARTWORK: readonly string[] = [
-  /*
-   * No file in `public/` depicts this cathedral. The two candidates were both
-   * rejected rather than stretched to fit. `hero-ararat.png` is the Khor Virap
-   * hill under Ararat — a different building thirty kilometres away, and reusing
-   * it here would caption one monastery with another. `history/adoption-of-
-   * christianity.webp` is the baptism scene: a generic Armenian church sits in
-   * its background, but the focal subject is the two figures, and the church is
-   * not Etchmiadzin. Registering either would put a false claim under a picture,
-   * which is the failure `ARTWORK_PROVENANCE` exists to prevent.
-   *
-   * So the slug is declared here and `ArticleLayout` renders the generated
-   * placeholder with `imagePlaceholderCaption`, exactly as Khor Virap's did
-   * before its artwork landed. `isGeneratedArtwork` stays false, so nothing is
-   * captioned AI-generated without cause, and `validate:content` prints the debt
-   * on every run.
-   */
-  "etchmiadzin-cathedral",
-];
+export const PENDING_ARTWORK: readonly string[] = [];
 
 /** Path under `public/` for a slug's artwork, or `undefined` when none ships. */
 export function getImageSrc(slug: string): string | undefined {

@@ -76,9 +76,9 @@ completion and the SEO batch changed all three.
 ```
 npm install              → OK
 npm run typecheck        → PASS (0 errors)
-npm run validate:content → PASS (105 entries across 3 locales; 1 pending-artwork note)
+npm run validate:content → PASS (105 entries across 3 locales; no pending-artwork note)
 npm run build            → PASS (111 pages prerendered; `/api/contact` dynamic)
-npm run test:e2e         → PASS (172 passed, 5 skipped, no --workers flag; see §30)
+npm run test:e2e         → PASS (173 passed, 5 skipped, no --workers flag; see §30)
 ```
 
 `validate:content` now also checks: every registered image exists on disk; every article
@@ -1876,10 +1876,12 @@ image. Nothing about `ARTWORK_PROVENANCE` itself was altered.
 the reason its own doc comment gives: the alternative is a slug silently rendering the
 placeholder with nothing in the repo saying whether that is a decision or an oversight.
 
-> **The list did not stay empty.** §31 added Etchmiadzin Cathedral, for which no artwork
-> exists, so `PENDING_ARTWORK` now holds `etchmiadzin-cathedral` and the note prints again
-> against that slug. Khor Virap's own artwork is unaffected. The mechanism being kept
-> rather than deleted is what made that a one-line declaration.
+> **The list did not stay empty, and then it did again.** §31 added Etchmiadzin Cathedral,
+> for which no artwork existed, so `PENDING_ARTWORK` held `etchmiadzin-cathedral` and the
+> note printed against that slug. §32 registered that artwork and emptied the list again.
+> Khor Virap's own artwork was unaffected throughout. The mechanism being kept rather than
+> deleted is what made both changes one-liners — and the round trip is the case it was
+> designed for.
 
 ### Two live consequences, recorded rather than rediscovered
 
@@ -2104,7 +2106,13 @@ by the prose, which is the standard §28 set.
 untouched, so nothing yet links *to* `etchmiadzin-cathedral` — the same one-directional gap
 §30 recorded for Khor Virap, now applying to both places.
 
-### Artwork — pending, and honestly so
+### Artwork — pending, and honestly so — ✅ RESOLVED IN §32
+
+> **This section is a historical record. The artwork has since landed.** §32 registered
+> `public/images/places/etchmiadzin-cathedral.webp`, a 1586×992 WebP that depicts the
+> cathedral, and `PENDING_ARTWORK` is empty again. The reasoning below is kept because it
+> is *why* nothing was stretched to fit in the meantime — the placeholder was the correct
+> state, not a gap left by accident.
 
 **No artwork ships with this article.** Both candidate files in `public/` were examined and
 both were rejected:
@@ -2218,5 +2226,196 @@ spelled out as words in every edition, which keeps them out of that check by des
 
 Khor Virap's content, artwork and tests are unchanged, the homepage is unchanged, and
 `.claude/settings.json` was not touched.
+
+No deployment was performed.
+
+---
+
+## 32. Etchmiadzin Cathedral artwork — the pending entry, cleared (August 2026)
+
+The one real debt §31 opened is paid. `public/images/places/etchmiadzin-cathedral.webp` now
+exists, is registered in `IMAGES`, and the slug is out of `PENDING_ARTWORK`. Nothing else
+changed: no image was generated, edited, cropped, resized, recoloured, renamed or replaced,
+and no layout component, provenance rule or existing artwork was touched.
+
+### The asset
+
+| Property | Value |
+|---|---|
+| Path | `public/images/places/etchmiadzin-cathedral.webp` |
+| Format | WebP, `RIFF`/`WEBP` container, lossy `VP8 ` chunk (sync `9D 01 2A`) |
+| Dimensions | **1586 × 992** (aspect 1.599) |
+| Size | **248,346 bytes (242.5 KB)** |
+| SHA-256 | `0c59237291cbf76a754cca95a20370a3962d8798cc9be397b954fee082338a5e` |
+
+**It is the right building.** The illustration shows the west belfry with its open arcaded
+rotunda standing in front of the church, the central conical dome on a decorated drum, the
+smaller bell turrets over the arms, and the precinct wall and gatehouse behind — which is
+the cathedral §31 describes, not a generic Armenian church. That distinction is the entire
+reason §31 refused the two files already in the repository.
+
+**It fits the layouts without any special handling**, and the evidence is stronger than a
+judgement call: it is *exactly* 1586×992, the same pixel dimensions as every other WebP in
+the registry — `lavash.webp`, `adoption-of-christianity.webp`, `anush.webp`, `raffi.webp`
+all measure the same. The composition is landscape with the subject centred and headroom
+above, so the hero, the featured block, the card and the 128–160 px search thumbnail all
+crop from the centre without needing the `PORTRAIT_FOCUS` bias the writer artwork uses.
+
+**No issue to report.** The file size sits mid-range: the registry's WebP files run from
+85 KB (`raffi.webp`) to 481 KB (`wounds-of-armenia.webp`), so 242.5 KB is unremarkable.
+
+That measurement corrected a claim this document and `media.ts` had both been carrying. §30
+described the registry as "110–160 KB WebP", which was only ever true of the cuisine folder;
+the works illustrations are 384–481 KB. The comment in `media.ts` now says 85 KB to 481 KB.
+Khor Virap's 1.4 MB PNG is still the heaviest image on the site by a wide margin, and it is
+still the only entry that is not 1586×992 — both points survive the correction, which is why
+the paragraph making them was kept rather than deleted.
+
+### Registration
+
+One line in the existing `IMAGES` map, in the `// Places` block, beside Khor Virap:
+
+```ts
+"khor-virap": "/images/places/khor-virap.png",
+"etchmiadzin-cathedral": "/images/places/etchmiadzin-cathedral.webp",
+```
+
+No Etchmiadzin-specific loading path was introduced. Every surface reaches the file through
+the same `getImageSrc` lookup every other article uses, which is why the one line lit up all
+six at once: article hero, listing featured block, listing card, search thumbnail, Open Graph
+and Twitter tags, and the sitemap image entry.
+
+Provenance follows the existing convention rather than a new one. The file is in `IMAGES`,
+so it inherits `ARTWORK_PROVENANCE` — an AI-generated editorial illustration, not a
+photograph — `isGeneratedArtwork` returns true, and the hero is captioned
+"AI-generated illustration" through `imageAiIllustrationCaption`, the same mechanism and the
+same wording branch Khor Virap and the cuisine artwork use. Nothing about
+`ARTWORK_PROVENANCE` itself was altered.
+
+**Khor Virap's entry was not modified.** It still maps to `/images/places/khor-virap.png`.
+
+### Pending-artwork status
+
+`PENDING_ARTWORK` is `[]` again, and the explanatory block §31 put inside it is deleted
+along with the entry — it described a state that no longer exists. The list itself is kept,
+for the reason its doc comment has always given.
+
+`validate:content` no longer prints
+`note: 1 slug(s) render generated artwork: etchmiadzin-cathedral`. The article no longer
+renders `PlaceholderImage` in its hero.
+
+One thing worth recording so it is not mistaken for a leftover: the article's HTML still
+contains three `<svg role="img">` elements. They are the `relatedFigures` portrait
+placeholders for Gregory the Illuminator, Trdat III and Vahan Mamikonian — a different
+feature with no artwork of its own, and Khor Virap's page has the same for its two figures.
+The *hero* placeholder is gone, which is what was asserted.
+
+### Verified from the prerendered output
+
+Checked directly in `.next/server/app/{en,hy,hyw}/places/etchmiadzin-cathedral.html` — all
+three editions resolve the same registered file:
+
+| Check | `en` | `hy` | `hyw` |
+|---|---|---|---|
+| Hero renders `etchmiadzin-cathedral.webp` | ✓ | ✓ | ✓ |
+| `og:image` → `https://armat.site/images/places/etchmiadzin-cathedral.webp` | ✓ | ✓ | ✓ |
+| `twitter:image` → same absolute URL | ✓ | ✓ | ✓ |
+| Canonical unchanged (`/{locale}/places/etchmiadzin-cathedral`) | ✓ | ✓ | ✓ |
+| Three `hreflang` alternates plus `x-default`, unchanged | ✓ | ✓ | ✓ |
+
+JSON-LD is unchanged in shape: the `@graph` is still `Organization, WebSite, Article,
+BreadcrumbList`, and `Article.image` is now
+`{"@type":"ImageObject","url":"https://armat.site/images/places/etchmiadzin-cathedral.webp"}`.
+No `Place`, `TouristAttraction`, `Church` or `LocalBusiness` node was introduced — all four
+were checked explicitly and all four are absent.
+
+The sitemap carries the image once per locale route, three entries in total, matching Khor
+Virap's pattern.
+
+### Tests
+
+`places.spec.ts` goes from 24 to 25. The work was mostly *inversion* rather than addition,
+because four existing tests asserted the absence of this artwork and would have kept passing
+against a broken registration only by being wrong.
+
+Restructured rather than duplicated: an `ARTWORK` map now holds the expected path per slug,
+and the hero, social-tag, JSON-LD, sitemap and search-thumbnail tests all loop over both
+places. A third place is covered by adding one line to that map.
+
+- **Inverted.** "a place with no artwork renders the placeholder and claims no provenance"
+  and "a pending place falls back to the site card for Open Graph" both described the old
+  state and are gone. The hero test now asserts the opposite for both slugs: the registered
+  file renders, no `svg[role="img"]` remains in the hero, and the AI-illustration caption is
+  present.
+- **Listing.** Previously asserted that *every* image was Khor Virap's — true only while the
+  second article had none. It now asserts both files appear, that nothing outside `ARTWORK`
+  leaked in, and that no card falls back to the placeholder.
+- **New — pending-artwork integrity.** `PENDING_ARTWORK` is empty, and no slug is both
+  registered and pending. An entry left behind after its file landed would keep a real cover
+  off the page silently.
+- **New — no unrelated artwork changed.** Pins Khor Virap's PNG, checks every other entry is
+  still a WebP under its own category directory, and asserts only the two places live under
+  `/images/places/`.
+- **New — the homepage.** `/hy` still renders `hero-ararat.png` and does not pick up the new
+  places artwork.
+
+Two of these failed on their first run, and both were faults in the new tests rather than in
+the product. They are recorded because each encodes something about this repository that was
+not obvious:
+
+1. The search-thumbnail test took the first image on `/en/search?q=Etchmiadzin` and got
+   `adoption-of-christianity.webp`. That is correct behaviour — the history article
+   legitimately ranks above the place — so the test now scopes to the result card containing
+   a link to `/en/places/etchmiadzin-cathedral`.
+2. The registry test asserted every file is named after its slug. **That is not a convention
+   here**: `mesrop-mashtots-armenian-alphabet` maps to `mesrop-mashtots.webp` and
+   `first-republic-of-armenia` to `first-republic-armenia.webp`, both long-standing and both
+   correct. The assertion was removed and a comment records why, so it is not reintroduced.
+
+### Verification
+
+| Command | Result |
+|---|---|
+| `npm run typecheck` | PASS, 0 errors |
+| `npm run validate:content` | PASS — 105 entries, **no pending-artwork note** |
+| `npx playwright test --project=desktop places.spec.ts` | **25/25** |
+| `npx playwright test` | **173 passed, 5 skipped, 0 failed** |
+| `npm run build` | PASS — 111 pages, all nine Places routes prerendered |
+
+Page and entry counts are unchanged from §31, as expected: registering artwork adds no route
+and no content entry.
+
+**A second false failure, worth recording beside §30's stale-server one.** The first full
+run of the suite in this pass collapsed — 7 passed, 166 failed, 7.8 minutes — with the
+WebServer log carrying 513 copies of
+`SyntaxError: Unexpected non-whitespace character after JSON at position 1344`. Nothing was
+wrong with the code: `next build` and `next dev` share the `.next` directory, the full suite
+was started immediately after `npm run build`, and the dev server read a cache the build had
+just rewritten underneath it. The tell is the shape of the failure — a genuine regression
+from a one-line registry change cannot break the newsletter form, the contact form and the
+mobile drawer at once.
+
+The fix is to delete `.next` and re-run, after which the suite passed 173/5 in 1.4 minutes.
+The ordering rule that avoids it: **run the Playwright suite before `npm run build`, or clear
+`.next` between them.** Both failure modes now on record — a stale dev server adopted through
+`reuseExistingServer` (§30) and a build-clobbered cache (here) — produce mass failures that
+look nothing like the change under test.
+
+### Preserved, and checked rather than assumed
+
+`public/hero-ararat.png` and `public/images/places/khor-virap.png` both still hash to
+`2d7420356bbe4188…3391a47c` at 1,471,530 bytes — the value §30 recorded, unchanged. `git
+status` shows the only additions under `public/` to be the new WebP itself. The homepage,
+`Hero.tsx`, the History, Writers, Works and Cuisine artwork, `ARTWORK_PROVENANCE` and the
+image layout components were not modified. `.claude/settings.json` was not touched in this
+pass.
+
+### Still open
+
+- **A dedicated Khor Virap image.** Now the only place still using borrowed artwork, and the
+  contrast is sharper than it was: one place has a purpose-made 242 KB WebP of its own
+  subject, the other has a 1.4 MB PNG copied from the homepage hero. Same one-line fix.
+- **Western Armenian native review**, unchanged from §31.
+- **Nothing links *to* either place yet** — `getRelatedArticles` remains one-directional.
 
 No deployment was performed.
