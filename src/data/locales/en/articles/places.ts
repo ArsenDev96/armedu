@@ -742,4 +742,216 @@ export const placeArticles: Article[] = [
     ],
     relatedSlugs: ["mesrop-mashtots-armenian-alphabet", "etchmiadzin-cathedral", "adoption-of-christianity"],
   },
+  {
+    slug: "lake-sevan",
+    href: "/places/lake-sevan",
+    category: "places",
+    categoryLabel: "Places",
+    title: "Lake Sevan",
+    seoTitle: "Lake Sevan: Armenia's High Mountain Lake",
+    placeTypeId: "nature",
+    featured: false,
+    imageSeed: "lake-sevan",
+    keywords: [
+      "Lake Sevan",
+      "Սևան",
+      "Sevana lich",
+      "Sevan",
+      "Gegharkunik",
+      "ishkhan trout",
+      "Armenian lakes",
+    ],
+    excerpt:
+      "The great high-altitude lake of eastern Armenia — a closed mountain basin with many rivers running in and one running out, whose shoreline was deliberately lowered by nineteen metres in the twentieth century and has been argued back up ever since.",
+    metaDescription:
+      "Lake Sevan in Armenia: where it lies, how its water moves, the endemic trout in it, and why the level of the lake is a decision rather than a fact.",
+    summary:
+      "Lake Sevan is the largest body of water in Armenia and one of the largest high-altitude freshwater lakes anywhere, filling a closed basin in Gegharkunik province at about 1900 metres above sea level. That elevation is the whole subject: before the twentieth century the surface stood near 1916 metres, and a Soviet engineering programme begun in 1933 deliberately drained it to run turbines and irrigate the plain below, dropping the water by roughly nineteen metres and turning the island monastery of Sevanavank into a peninsula. Diversion tunnels have since brought water back — the first of them from the Arpa in 1981 — and the level has risen by a few metres. The lake a visitor sees is an engineered one.",
+    intro:
+      "Lake Sevan lies in a high basin in eastern Armenia, ringed by mountains on every side, and it is big enough that Armenian usually calls it a sea rather than a lake. Its surface sits at about 1900 metres above sea level, which makes it one of the largest high-altitude freshwater lakes in the world and the dominant physical feature of the country. That figure, though, is the one thing about Sevan that cannot be stated flatly. Before the twentieth century the water stood at roughly 1916 metres, and almost everything a visitor now sees at the shoreline — the causeway to the monastery, the drowned and undrowned tree stumps, the width of the beaches — is a consequence of the difference between those two numbers. The lake is a natural object with a designed water level, and holding those two facts together is the first thing to do here.",
+    author: "Armat Editorial Team",
+    updated: "2026-08-06",
+    keyFacts: [
+      { label: "Kind of place", value: "High-altitude freshwater lake, national park and river basin" },
+      { label: "Where", value: "Gegharkunik province, eastern Armenia" },
+      { label: "Surface level", value: "About 1900 metres above sea level — a managed figure, not a fixed one" },
+      { label: "Water in and out", value: "Fed by some 28 rivers and streams; drained by the Hrazdan alone" },
+      { label: "Protection", value: "Sevan National Park since 1978; Ramsar Wetland of International Importance since 1993" },
+      { label: "The fish it is known for", value: "The endemic ishkhan trout, alongside introduced whitefish and crayfish" },
+    ],
+    sections: [
+      {
+        id: "where-it-is",
+        heading: "Where Lake Sevan is",
+        paragraphs: [
+          "Lake Sevan occupies most of Gegharkunik province in the east of Armenia, about an hour's drive from Yerevan over the pass at Sevan town. It is the largest lake in the Armenian Highland and the largest body of fresh water in the Caucasus, and on a country the size of Armenia it is impossible to treat as a regional feature: it holds the great majority of the republic's surface fresh water and its basin covers roughly a sixth of the national territory.",
+          "The surface stands at about 1900 metres above sea level, higher than most of the summits of the Carpathians or the Scottish Highlands, and that altitude governs everything else about it. The water is cold, the growing season around it is short, the air is thin and clear enough that the lake changes colour hour by hour, and the whole basin freezes hard in winter although the deep water of the open lake normally does not.",
+          "The figure to hold onto is that the pre-drawdown surface was near 1916 metres, and the shoreline on any map printed before the middle of the twentieth century is drawn at that higher line. Old maps, old photographs and old descriptions of the lake are therefore not describing the same coastline a visitor stands on today, and a good deal of confusion about Sevan comes from comparing the two as though they were.",
+        ],
+      },
+      {
+        id: "the-basin-and-the-mountains",
+        heading: "The basin and the mountains around it",
+        paragraphs: [
+          "Sevan sits in a tectonic hollow closed on every side by mountains: the Areguni and Sevan ranges to the north-east, the Vardenis range to the south, the Gegham range to the west. The basin is a genuine bowl, which is why the lake exists at all — water collecting in a depression with only one low outlet, at an altitude where evaporation alone would not empty it.",
+          "The lake is conventionally read as two parts, and they behave very differently. Small Sevan, the northern and north-western arm, is narrow and deep, reaching down about eighty metres. Great Sevan, the much larger southern and eastern body, is broad and shallow. Almost all the volume of the lake is in the small deep part, and almost all the surface area is in the large shallow one — which is why a fall in level takes far more area away from Great Sevan than from Small Sevan, and why the drawdown changed the map of the lake so drastically at its southern end.",
+          "Around the shore the land rises through pasture and rough grassland to volcanic uplands, and the human geography follows the water: the towns of Sevan, Gavar, Martuni and Vardenis sit on or near the shore, and the fields that were farmed for centuries lie on the shelf between the mountains and the lake. This is a settled agricultural landscape rather than a wilderness, which is a distinction that matters when the lake is described, correctly, as a national park.",
+        ],
+      },
+      {
+        id: "how-the-water-moves",
+        heading: "How the water moves",
+        paragraphs: [
+          "Twenty-eight rivers and streams flow into Lake Sevan and exactly one flows out. The inflows are short mountain rivers draining the ranges around the basin — among them the Argichi, the Vardenis, the Martuni and the Astghadzor, each named for or shared with the settlement at its mouth — and none of them is large by the standards of a continental river. The single outflow is the Hrazdan, which leaves at the north-western corner, runs down past Yerevan and joins the Araxes.",
+          "The arithmetic of that arrangement is the key to the whole history of the lake, and it is counter-intuitive. Only about a tenth of the water arriving in Sevan leaves down the Hrazdan; the other nine tenths leave straight upwards, as evaporation from a very large surface in thin, dry, sunlit mountain air. Sevan is therefore not a river with a wide place in it. It is a basin whose losses are mostly atmospheric, and its level is set by the balance between what the mountains deliver and what the sky takes.",
+          "That balance is also what made the lake look, to a certain kind of engineer, like waste. Water evaporating from a high surface does no work and irrigates nothing on its way. The entire twentieth-century programme described below follows from the observation that if the outlet were enlarged and the surface reduced, the same rainfall could be made to turn turbines and water fields instead of vanishing into the air — an argument that is arithmetically sound and that turned out to be about far more than arithmetic.",
+        ],
+      },
+      {
+        id: "what-lives-in-it",
+        heading: "What lives in it",
+        paragraphs: [
+          "The fish Sevan is known for is the ishkhan, the Sevan trout, whose scientific name means the prince — a species found naturally in this lake and nowhere else on earth. It was not a single uniform fish but a set of distinct forms that spawned in different places and at different seasons: some running up the inflowing rivers to breed, others spawning on gravel beds in the lake itself. That division is the reason the story of the trout is not a simple one.",
+          "Lowering the lake struck at the forms separately and unequally. Falling water exposed the gravel spawning grounds of the lake-spawning forms and left the river mouths of the river-spawning ones perched above the new shoreline or dried out altogether. A fish that breeds in one narrow band of habitat has no room to negotiate when that band is removed, and the summer and winter forms of the ishkhan are now variously extinct, presumed extinct, or surviving only through hatchery work — the status of each form is precisely the thing that is stated too confidently in popular accounts.",
+          "Other fish were introduced deliberately, mostly to replace what was being lost, and they altered the lake in their own right. Sevan whitefish, brought from Lake Ladoga, established themselves so successfully that for a period they dominated the commercial catch; crayfish were introduced and spread widely; and carp and goldfish arrived as well. An introduced species that thrives is not a repair of the damage — it is a second, separate change layered on top of the first.",
+          "Beyond the fish, the lake and its wetlands are a staging and breeding ground for large numbers of birds, including the Armenian gull, which breeds on the islands and shallows in great colonies. It is that wetland function, rather than the scenery, that the Ramsar Convention recognised when it listed the lake: a designation about ecological work being done, not about how a place looks from the road.",
+        ],
+      },
+      {
+        id: "people-and-the-lake",
+        heading: "People and the lake",
+        paragraphs: [
+          "The basin has been inhabited for as long as anywhere in the highland, and the reason is the same one that makes it striking today: a large permanent water body in high, dry country, with pasture around it and passes leading out of it in several directions. Bronze Age settlement and burial sites ring the lake, and the cyclopean fortresses on the heights above the shore belong to a long tradition of building in this basin well before any state we can name held it.",
+          "The kingdom of Urartu reached the Sevan basin from its centre far to the south-west, and left the clearest early evidence of who was here: royal inscriptions in cuneiform recording campaigns and construction in this district. Urartu was a Lake Van power, and the distinction matters — Sevan was territory it took and garrisoned, not the heartland it grew from, and confusing the two lakes is the commonest error made about early Armenian geography.",
+          "In the historical geography of Armenia the basin formed the province of Siwnik' and the district of Gegharkunik, whose name the modern province still carries. It was frontier country in the medieval centuries and repeatedly fought over, and the lake was useful in exactly the way an island is useful: a place to put things that must not be taken. Treasuries, relics and people were moved onto the water when the land around it was not safe.",
+          "The lake also fed people, and did so within a set of arrangements that were themselves old. Fishing rights, seasonal catches and the trout runs up the rivers were regulated by custom and by the monasteries long before they were regulated by a ministry, and the collapse of the fishery in the twentieth century was felt as the loss of a livelihood with a very long history behind it, not merely as an ecological statistic.",
+        ],
+        links: [{ phrase: "The kingdom of Urartu reached the Sevan basin", slug: "kingdom-of-urartu" }],
+      },
+      {
+        id: "what-stands-on-the-shore",
+        heading: "What stands on the shore",
+        paragraphs: [
+          "The building everyone photographs is Sevanavank, on the peninsula at the north-western end of the lake. It was founded in 874 by the princess Mariam, and the two churches that survive there stand on a rock that was, for more than a thousand years, an island — reached by boat, and chosen precisely because it was hard to reach. Its position at the top of a flight of steps above the water is the single most reproduced view in Armenia.",
+          "The island became a peninsula because the water fell. The strip of land a visitor now walks across did not exist when the monastery was built or at any point in its working life, and the change is not a geological curiosity but a direct result of the drawdown described below. Nothing about the monastery moved; the lake moved, and left it connected to the shore.",
+          "Sevanavank is the best known but not the only monument on the water. Hayravank stands on the western shore, and at Noratus, a little inland, lies the largest surviving field of khachkars — Armenian cross-stones — anywhere, a cemetery of carved stelae accumulated over centuries. Several of these foundations were endowed and built under the Bagratid kingdom, which is the political frame in which the monastic building around the lake makes sense, and their survival owes a good deal to the same remoteness that made the basin defensible.",
+        ],
+        links: [{ phrase: "the Bagratid kingdom", slug: "bagratid-armenia" }],
+      },
+      {
+        id: "the-plan-to-lower-it",
+        heading: "The plan to lower it",
+        paragraphs: [
+          "The idea of draining Lake Sevan is older than the Soviet Union, and it began as an argument about waste. In 1910 the engineer Soukias Manasserian published a proposal built on the evaporation figure: the overwhelming majority of the lake's water was being lost to the air, and if the surface were reduced the water saved could irrigate the Ararat plain and generate power on the way down the Hrazdan. He proposed lowering the lake by some fifty metres, leaving only the deep northern part.",
+          "It is worth being fair to the reasoning. Manasserian was not proposing vandalism; he was proposing to convert a loss into a resource, in a poor and largely agricultural country where irrigation water was the binding constraint on how many people the land could feed. The scheme was arithmetically coherent and, on the terms in which it was argued, persuasive. What it did not contain was any account of the lake as anything other than a reservoir with a leak in the roof.",
+          "The Soviet government adopted the logic and began to act on it in 1933, when work started on deepening the outlet so that more water could be drawn off down the Hrazdan. A cascade of hydroelectric stations was planned along the river below, each one using the same water in turn, and the irrigation network of the plain was designed around the expected flow. The lake was, in the planning documents, an input.",
+          "The full scheme was never carried out, and it is important to say so, because the lake as it exists is the product of a plan that was stopped part-way. The fifty metres of the original proposal would have removed Great Sevan almost entirely and left something closer to a deep alpine pool. What was actually achieved was a fraction of that, and even the fraction was enough to change the lake permanently.",
+        ],
+      },
+      {
+        id: "what-the-lowering-did",
+        heading: "What the lowering did",
+        paragraphs: [
+          "The outlet tunnel was inaugurated in 1949, and from that point the level fell fast — by more than a metre a year at the peak of the drawdown. Anyone who has watched a reservoir drop in a dry summer has seen the effect in miniature; here it continued, year after year, and the shoreline retreated across the shallow southern flats at a rate that redrew the map of the district.",
+          "By the time the fall was halted in 1962 the surface had dropped about nineteen metres. The consequences were not confined to the water's edge. The exposed lake bed — tens of thousands of hectares of it — turned out to be poor, dusty ground that neither farmed well nor revegetated quickly, and it became a source of dust storms. Water quality deteriorated as the volume shrank: a smaller, warmer, shallower lake concentrated its nutrients, and the deep water began to suffer the oxygen depletion and algal blooms that had never troubled it before.",
+          "The fishery collapsed, and the trout took the worst of it for the structural reason given above — its spawning grounds were the first thing the falling water removed. Sevanavank ceased to be an island. Timber that had been planted or had grown at the old waterline was left stranded, and stumps that had been drowned reappeared. Almost every visual oddity around the modern shoreline dates from this period.",
+          "By the time Rafael Hovanesian and Harry Bronozian published their assessment of the restoration problem in 1994, the position was clear and unattractive: the engineering had delivered real irrigation and real electricity, and it had also produced a degraded lake that would take far longer to repair than it had taken to damage. Their paper is evidence about the state of the argument in the mid-nineteen-nineties, and it is cited here as that rather than as a current account.",
+        ],
+      },
+      {
+        id: "bringing-water-back",
+        heading: "Bringing the water back",
+        paragraphs: [
+          "The reversal was itself an engineering project, which is the irony at the centre of this story: the same instincts that lowered the lake were turned to raising it. Rather than simply taking less water out, the solution adopted was to bring more water in from outside the basin, by boring tunnels through the mountains to divert other rivers into Sevan.",
+          "The first of these was the Arpa–Sevan tunnel, driven for tens of kilometres under the Vardenis range to bring the waters of the Arpa north into the lake. It came into operation in 1981. Its effect was real but modest against the scale of the loss — a rise of a metre or so — which is the most instructive fact in the whole account: a tunnel of that length and cost bought back a small fraction of what an enlarged outlet had let out.",
+          "A second diversion, from the Vorotan into the Arpa and so onward into Sevan, was begun to add to the flow and was inaugurated in 2004, after long delays and with a working life since then that has been interrupted by repairs. Meanwhile the legal footing changed: independent Armenia legislated specifically for the lake, and in 2001 a Law on Lake Sevan set a target level and required annual programmes for the measures needed to reach it.",
+          "The level has risen by several metres since its lowest point, and the rise has brought its own problems, which is rarely mentioned in accounts that treat restoration as an unambiguous good. Water returning across ground that had been dry for decades has flooded roads, shoreline construction, buried infrastructure and stands of trees planted on the exposed bed, and drowned vegetation decaying in the shallows has affected water quality in its turn. Putting a lake back is not the same operation as not having removed it.",
+        ],
+      },
+      {
+        id: "before-you-see-it",
+        heading: "What to understand before seeing it",
+        paragraphs: [
+          "The first thing is that the shoreline is not a permanent feature and should not be read as one. The lake is monitored from orbit for exactly this reason — a coast that has to be re-surveyed as the water rises is a different kind of object from a coastline on an old map — and a beach, a jetty or a lakeside building may be a few decades old and may be underwater again within a generation.",
+          "The second is the causeway to Sevanavank. Walking out to the monastery on dry land is walking across the evidence: that ground is exposed lake bed, and the view from the steps that appears in every photograph of Armenia is a view that no one saw for the first thousand years of the building's existence. It is the most accessible illustration anywhere of what the drawdown did.",
+          "The third is that the resort strip along the north-western shore is not the lake. Sevan is a working national park, a fishery under restoration, the source of most of the country's fresh water and a piece of contested engineering history, and the beaches near the highway are the smallest and newest part of it. The parts of the shoreline where none of that is visible are where most of the lake actually is.",
+        ],
+      },
+    ],
+    importantDates: [
+      {
+        year: "874",
+        event:
+          "The monastery of Sevanavank is founded by the princess Mariam on the island at the north-western end of the lake, reached only by boat.",
+      },
+      {
+        year: "1910",
+        event:
+          "Soukias Manasserian publishes the proposal to lower the lake, arguing that water evaporating from its surface should instead irrigate the plain and generate power.",
+      },
+      {
+        year: "1933",
+        event:
+          "Work begins on enlarging the outlet into the Hrazdan, and the drawdown scheme starts to be carried out under the Soviet plan.",
+      },
+      {
+        year: "1949",
+        event: "The outlet tunnel is inaugurated and the level begins to fall by more than a metre a year.",
+      },
+      {
+        year: "1962",
+        event:
+          "The fall is halted after the surface has dropped about nineteen metres, with the exposed bed, the ruined fishery and the loss of the island already accomplished.",
+      },
+      {
+        year: "1978",
+        event: "Sevan National Park is established, bringing the lake and the land around it under a single protective regime.",
+      },
+      {
+        year: "1981",
+        event: "The Arpa–Sevan tunnel comes into operation, diverting water from outside the basin into the lake for the first time.",
+      },
+      {
+        year: "1993",
+        event: "The lake and its basin are designated a Wetland of International Importance under the Ramsar Convention.",
+      },
+      {
+        year: "2001",
+        event: "Independent Armenia adopts the Law on Lake Sevan, setting a target level and requiring annual restoration programmes.",
+      },
+      {
+        year: "2004",
+        event: "The Vorotan–Arpa diversion is inaugurated, adding a second transfer of water into the basin from outside it.",
+      },
+    ],
+    significance: {
+      heading: "Why Lake Sevan matters",
+      paragraphs: [
+        "Sevan is the largest thing in Armenia and holds nearly all of its fresh water, so what happens to the lake is a question about the country's water, power and food rather than about a landscape. It is also the clearest case anywhere of a national resource being deliberately spent: the drawdown was not an accident, a leak or a foreign imposition but a decision, taken on stated grounds, carried out over decades, and then reversed at greater cost than it saved.",
+        "That makes the lake unusually valuable as a thing to think with. It records, at a scale a visitor can walk across, what it means to treat a living system as an input to a plan — and equally, in the tunnels driven to refill it and the laws written to protect it, what it costs to change that judgement afterwards. The shoreline is the argument, written on the ground.",
+      ],
+    },
+    interestingFacts: [
+      "The monastery of Sevanavank was founded in 874 on an island; the causeway visitors now walk across is exposed lake bed, and the building has been on a peninsula only since the twentieth century.",
+      "The plan to drain the lake was published in 1910, before the Soviet Union existed, and proposed lowering the water by some fifty metres — several times what was eventually done.",
+      "About 28 rivers and streams flow into Lake Sevan and only one, the Hrazdan, flows out; roughly nine tenths of the incoming water leaves by evaporation instead.",
+      "The surface lies at about 1900 metres above sea level, higher than any summit in Britain, and the lake is one of the largest high-altitude freshwater bodies in the world.",
+      "The endemic ishkhan trout bred as several distinct forms that spawned in different places and seasons, which is why lowering the water damaged them separately rather than all at once.",
+    ],
+    relatedFigures: [
+      {
+        name: "Princess Mariam",
+        lifespan: "ninth century",
+        description:
+          "The Bagratid princess who founded the monastery of Sevanavank on the island in the lake, and endowed the churches that still stand on the peninsula. She is named in the foundation record of the monastery; no reliable dates for her birth or death survive.",
+      },
+      {
+        name: "Soukias Manasserian",
+        lifespan: "late nineteenth to early twentieth century",
+        description:
+          "The engineer whose published proposal argued that Lake Sevan's water was being wasted by evaporation and should be drawn down to irrigate the Ararat plain and generate electricity. The scheme carried out under Soviet rule was a partial execution of his argument; his own dates are not securely recorded.",
+      },
+    ],
+    relatedSlugs: ["kingdom-of-urartu", "bagratid-armenia"],
+  },
 ];

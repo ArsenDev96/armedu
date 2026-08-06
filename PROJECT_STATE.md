@@ -3578,3 +3578,242 @@ Etchmiadzin and Erebuni keep their registrations and their files. The homepage s
 - **The remaining place types.** `nature` and `settlement` still wait for their first articles.
 
 No deployment was performed.
+
+---
+
+## 37. Places — Lake Sevan, and the `nature` filter (August 2026)
+
+The fifth place, and the first that is not a building. `lake-sevan` is authored in all three
+editions, `placeTypes` gains `nature`, and the section is back in the split state: the article
+ships ahead of its artwork, so `PENDING_ARTWORK` is non-empty for the fourth time (§31, §33,
+§35, §37).
+
+Being a lake rather than a monument is what made this step different from the four before it.
+Three things that had been safe to assume across every previous place stopped being true at
+once: that a place has a single point, that its physical figures are constants, and that its
+defining fact is something built. The lake's surface elevation is a *managed* number — it was
+lowered about nineteen metres on purpose and argued part of the way back — and an article that
+stated one area and one depth as fixed would be repeating the specific error the bibliography
+note warns about.
+
+### The inflowing rivers, resolved rather than guessed
+
+The four Wikidata Q-ids carried over from the previous pass were resolved before any prose was
+written, because "the principal rivers flowing into Sevan" is exactly the sentence that gets
+filled in from memory and is wrong.
+
+| Q-id | English | Armenian | `flows into` |
+|---|---|---|---|
+| Q4068821 | Argichi | Արգիճի | Q181932 |
+| Q4103724 | Vardenis | Վարդենիս | Q181932 |
+| Q4282693 | Martuni | Մարտունի | Q181932 |
+| Q4071815 | Astkhadzor | Աստղաձոր | Q181932 |
+
+Two things had to be corrected on the way, and both are worth recording because both would
+have shipped as confident errors.
+
+**Q181932 is Lake Sevan, not the Arax.** The first pass over these entities reported `P403` as
+the Arax for three of the four and as Lake Sevan for the fourth — impossible, since one Q-id is
+one entity. Fetching Q181932 directly settled it: it is the lake, so all four are direct
+inflows and none of them needed the hedge that a chain through the Hrazdan to the Arax would
+have required.
+
+**The Armenian labels were being mangled in transit.** Two successive fetches of the same API
+disagreed on single characters — `Աստխաձոր` against `Աստղաձոր`, and `Արգիճի` against `Արգիչի` —
+which is a summarisation artefact, not a source disagreement. Since these spellings go into the
+`hy` and `hyw` prose, the raw JSON was fetched to disk and the labels read out as codepoints:
+`Արգիճի` carries U+0573 (ճ) and `Աստղաձոր` carries U+0572 (ղ). The first fetch was right about
+one and the second about the other. **Non-Latin strings are not read through a summariser
+again.**
+
+All four are named in `how-the-water-moves` as *among* the inflows. They are not claimed to be
+the largest or a complete set: the Masrik and the Gavaraget are usually cited as the biggest,
+and nothing in the registered bibliography establishes a ranking.
+
+### A planned date that did not survive verification
+
+The numeral inventory carried into this step listed **1963** for the end of the drawdown. It
+was not published, because the sources contradict it and each other:
+
+| Source | What it says |
+|---|---|
+| SIL / limnology chronology | "the lake level was finally stabilized at **-18m in 1962**" |
+| sevan-park.am (registered source) | "In **1964** a project began" (Arpa–Sevan), completed 1981 |
+| Secondary accounts | Arpa–Sevan construction began March **1963** |
+
+1963 is the start of a tunnel that two sources date differently and that the registered source
+dates to 1964. 1962 is the halting of the drawdown, which is both better attested and the more
+meaningful event — it is the moment the policy reversed. **1962 was substituted for 1963** in
+`importantDates` and in `what-the-lowering-did`, and the disputed tunnel start-year is simply
+not stated anywhere in the article. Sevan National Park's founding was verified independently
+and kept: **14 March 1978**, decree N 125 of the Council of Ministers of the Armenian SSR.
+
+### Structure and the numeral inventory
+
+Ten sections, paragraphs 3, 3, 3, 4, 4, 3, 4, 4, 4, 3; six `keyFacts`, ten `importantDates`,
+five `interestingFacts`, two `relatedFigures`, two `SectionLink`s. Identical in all three
+editions.
+
+`validateCrossLocaleNumbers` compares the multiset of `\d{2,}` matches **per field group**, so
+the inventory was planned per group rather than per article and held to exactly:
+
+| Field group | Numbers |
+|---|---|
+| `intro` | 1916, 1900 |
+| `summary` | 1900, 1916, 1933, 1981 |
+| `keyFacts` | 1900, 28, 1978, 1993 |
+| `importantDates` | 874, 1910, 1933, 1949, 1962, 1978, 1981, 1993, 2001, 2004 |
+| `sections` | 874, 1900, 1910, 1916, 1933, 1949, 1962, 1981, 1994, 2001, 2004 |
+| `interestingFacts` | 874, 1910, 1900, 28 |
+| `seoTitle`, `metaDescription`, `relatedFigures` | none |
+
+Two consequences of that regex are worth writing down. **`1,916` would extract as `916`**, so
+the two elevations are written without a thousands separator — the only measurements in the
+article given as numerals, per the plan; everything else (nineteen metres, eighty metres, fifty
+metres, twenty-eight rivers in prose) is spelled as words in house style. And `28` appears as a
+numeral **only** in `keyFacts` and `interestingFacts`, which is why `how-the-water-moves` opens
+with "Twenty-eight rivers" spelled out — a numeral there would have been an extra token in the
+`sections` group and failed the cross-edition check in two locales at once.
+
+`relatedFigures` lifespans are descriptive — "ninth century", "late nineteenth to early
+twentieth century" — because neither Princess Mariam nor Soukias Manasserian has verifiable
+dates. That also keeps the group numeral-free, so it cannot drift.
+
+`sevanavank` is **not** in `relatedSlugs`: it does not exist as a slug, and the validator
+rejects a link to an unpublished article. `relatedSlugs` is `["kingdom-of-urartu",
+"bagratid-armenia"]`, the two that exist in all three editions, and the same two carry the
+`SectionLink`s — Urartu from `people-and-the-lake`, the Bagratids from
+`what-stands-on-the-shore`.
+
+### Parity checking before validating
+
+`scratchpad/check.ts` was written to print section shape and the per-group numeral multiset for
+one slug across the three editions as a table. `validate:content` already enforces both, but it
+enforces them over the whole archive and reports a wall of failures; this prints the two things
+that actually drift while an article is being written in three languages one after another. It
+was run after `en`, after `hy` and after `hyw`, and each edition was correct on the first run of
+the validator as a result.
+
+### Tests
+
+`tests/e2e/places.spec.ts` grew from 32 to 36 tests. `PLACES` is now five slugs; `ILLUSTRATED`
+stays at four, and the split between those two lists is what most of the new work turns on.
+
+- `SEVAN` added, with `PLACES` at five and `ILLUSTRATED` unchanged.
+- Card counts 4 → 5 on the listing, the filter test and the clear-filter assertion.
+- The filter vocabulary is now exactly `all, monastery, historical, museum, nature`, and
+  `under("nature")` is exactly `[SEVAN]`; each edition's `nature` label must be translated
+  rather than the raw id.
+- `nature` joins the single-article filter loop beside `historical` and `museum` — three
+  one-article pills that could be crossed over without any count changing.
+- **The placeholder branch has a subject again.** The §36 test asserting that *no* place renders
+  the placeholder was rescoped to `ILLUSTRATED`, and a new test asserts the positive case: Lake
+  Sevan renders the inline `<svg>`, renders no `<img>`, and is captioned as a placeholder in all
+  three editions.
+- A new test forbids `bagratid-armenia`, `kingdom-of-urartu`, `hero-ararat` and `matenadaran`
+  from the pending article's head, structured data and hero — the four files actually considered
+  and rejected — and asserts `Article.image` is **absent** rather than defaulted.
+- The listing asserts **exactly one** generated `<svg>`, not zero and not two, and
+  `ILLUSTRATED.length + 1` images.
+- Search: a fifth findability test, plus one asserting the pending article's result card renders
+  the placeholder thumbnail and no `<img>`.
+- The sitemap asserts Sevan's three url blocks contain **no** `image:loc` — the state this block
+  asserted for the Matenadaran before §36.
+- `PENDING_ARTWORK` is asserted to equal `[SEVAN]` exactly, in both directions, and
+  `getImageSrc(SEVAN)` to be `undefined`.
+- The coordinate test now expects `precision` to be `"area"` for Sevan and `"site"` for the
+  other four, and pins the point against the three plausible wrong answers on the shore: Sevan
+  town, Sevanavank and the resort strip.
+- The homepage test forbids `lake-sevan` alongside the other three fragments.
+
+### Two deterministic failures, and their fixes
+
+Both were mine, both were real, and neither was a flake.
+
+**1. `npm run typecheck` failed.** `ARTWORK[slug]` was still being indexed with a `PLACES` slug
+in the Matenadaran borrowing test, and `PLACES` now contains `lake-sevan`, which has no
+`ARTWORK` entry:
+
+```
+tests/e2e/places.spec.ts(642,68): error TS7053: Property 'lake-sevan' does not exist on type …
+```
+
+Fixed by drawing that list from `ILLUSTRATED` instead — only a file that exists can be borrowed,
+so this is the correct list as well as the one that compiles.
+
+**2. `places.spec.ts` failed on the first run**, one test of 36, with a 30 s timeout:
+
+```
+Error: locator.getAttribute: Test timeout of 30000ms exceeded.
+  - waiting for locator('header figure img')
+```
+
+The new borrowing test read the hero as `header figure img`, copying the illustrated tests. On
+the pending article there *is* no `<img>` — that is the whole point of it — so the locator waited
+out the timeout instead of returning nothing. Fixed by reading the figure's subtree with
+`innerHTML()`, which covers both branches and still catches a borrowed file inside it.
+
+### Verification
+
+Run in the prescribed order. Port 3002 was confirmed clear and `.next` was removed first,
+because the previous pass ended with `npm run build`.
+
+| Step | Command | Result |
+|---|---|---|
+| 1 | port 3002 | clear |
+| 2 | remove `.next` | removed (previous pass ended with a build) |
+| 3 | `npm run typecheck` | **FAIL then PASS** — TS7053 above, fixed, 0 errors |
+| 4 | `npm run validate:content` | **PASS** — 114 entries across 3 locales, with the pending note naming `lake-sevan` |
+| 5 | `npx playwright test tests/e2e/places.spec.ts` | **FAIL then PASS** — 35/36 then **36 passed** |
+| 6 | `npx playwright test` | **184 passed, 5 skipped, 0 failed** |
+| 7 | `npm run build` | **PASS** — 120 prerendered routes, up 3 (one `lake-sevan` per edition) |
+
+Port 3002 was confirmed clear a second time between steps 6 and 7. **The build was not run
+concurrently with Playwright's dev server.** The three documented false-failure modes (§30 stale
+adopted dev server, §32 build-clobbered `.next`, §34 cold-compile contention) did not occur;
+neither failure above is being attributed to a cache, and both were fixed in the source rather
+than retried.
+
+The 15 place pages (5 places × 3 editions) were confirmed on disk, including
+`.next/server/app/{hy,hyw,en}/places/lake-sevan.html`.
+
+### Files changed
+
+Four source files — the three `articles/places.ts` editions and `tests/e2e/places.spec.ts` —
+plus this document. `src/data/geo.ts`, `src/data/sources.ts`, `src/lib/media.ts` and the three
+`places.ts` filter lists were written in the preparatory half of this step and are unchanged
+since. No asset was added, and no image was generated, edited or renamed.
+
+Two untracked files remain under `scratchpad/`: `check.ts`, the parity checker described above,
+and `sevan-rivers.json`, the raw Wikidata response the river labels were read out of. Neither
+is imported by anything the site builds.
+
+`.claude/settings.json` shows as modified. It was **not** hand-edited: the entries added during
+this step are permission allow-rules appended by the harness as permissions were granted —
+three `WebFetch` domains (`sevan-park.am`, `rsis.ramsar.org`, `limnology.org`) and two Bash
+patterns. It was already modified before this step began.
+
+### Still open
+
+- **The Matenadaran façade colour**, unchanged from §36 and **still open**. The delivered
+  artwork renders the building in pale grey where the building — and this archive's prose, three
+  times over — describes dark basalt. Reported rather than corrected, because a delivered asset
+  is registered as delivered. A revised file would be a one-line change.
+- **Lake Sevan has no artwork.** `PENDING_ARTWORK` names it with the reasoning: nothing in
+  `public/` depicts it, `bagratid-armenia.webp` is Ani with no lake, `kingdom-of-urartu.webp` is
+  Lake Van country, and `hero-ararat.png` is a mountain. The tempting substitute here is not a
+  wrong monument but a *mood* — any blue-water-and-mountains illustration would pass a glance,
+  and that is exactly what must not happen to an article about one specific lake whose shoreline
+  was moved.
+- **A dedicated Khor Virap image**, unchanged since §32.
+- **File weight in Places.** Erebuni at 742 KB and Matenadaran at 701 KB, both with ICC profiles.
+- **Western Armenian native review.** The Lake Sevan `hyw` article is unreviewed machine-written
+  Western Armenian and joins the queue from §16, §28, §29, §31, §33 and §35.
+- **Nothing links *to* any place yet** — `getRelatedArticles` remains one-directional.
+- **The remaining place types.** `nature` is now earned; **`settlement`** still waits for its
+  first article.
+- **The lake's own figures.** Area, depth and volume are stated in words and hedged on purpose,
+  because they are functions of a water level that has moved within living memory. Any future
+  edit that pins them to single numbers should read the `sources.ts` note first.
+
+No deployment was performed.
