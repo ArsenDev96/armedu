@@ -1490,9 +1490,18 @@ function validateImages(report: Report): void {
 
   // The reverse direction: an article with no artwork is allowed (it falls back
   // to the generated placeholder), but it is worth surfacing which ones.
+  //
+  // The wording matters and used to be backwards. This note lists the slugs with
+  // *no* file, and it said they "render generated artwork" — which is precisely
+  // what the registered slugs do, since everything in `IMAGES` is AI-generated and
+  // captioned so. Read literally it reported the opposite of the thing it was
+  // counting. Only the sentence changed; the set it describes is the same one.
   const missing = [...knownSlugs].filter((slug) => !registry[slug]).sort();
   if (missing.length > 0) {
-    console.log(`  note: ${missing.length} slug(s) render generated artwork: ${missing.join(", ")}`);
+    console.log(
+      `  note: ${missing.length} slug(s) have no artwork and render the generated ` +
+        `placeholder: ${missing.join(", ")}`,
+    );
   }
 }
 

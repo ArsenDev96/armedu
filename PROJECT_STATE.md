@@ -3127,7 +3127,15 @@ against.
 **No existing History, Writers or Works article was edited to add a backlink.** The
 one-directional gap now applies to four places.
 
-### Artwork — pending, and honestly so
+### Artwork — pending, and honestly so — ✅ RESOLVED IN §36
+
+> **Superseded.** `public/images/places/matenadaran.webp` landed and was registered in §36.
+> The article now renders its own cover in all three editions, `isGeneratedArtwork` is true,
+> the caption reads *AI-generated illustration*, and `PENDING_ARTWORK` is empty again. The
+> reasoning below is kept because the shortcut it rejects is the kind that gets taken twice —
+> the Mashtots portrait is still the wrong picture for this article, and still sitting in the
+> repository. The validator line quoted at the end of this section no longer prints at all,
+> and its wording was corrected in §36 besides.
 
 **No artwork ships with this article.** Every asset in `public/` was looked at, not reasoned
 about. The only candidate anywhere near the subject is `history/mesrop-mashtots.webp`, and it
@@ -3296,16 +3304,277 @@ places artwork. `.claude/settings.json` was not touched.
 
 ### Still open
 
-- **Artwork for the Matenadaran.** The one real debt this section adds, and the third time the
-  section has carried one. A place-specific WebP of the building on Mashtots Avenue would clear
-  the note and light up the hero, card, search thumbnail, OG image and sitemap entry in one
-  line.
+- ~~**Artwork for the Matenadaran.** The one real debt this section adds, and the third time
+  the section has carried one. A place-specific WebP of the building on Mashtots Avenue would
+  clear the note and light up the hero, card, search thumbnail, OG image and sitemap entry in
+  one line.~~ — **resolved in §36.** The file landed and was registered; it was one line, and
+  it did light up all six surfaces.
 - **A dedicated Khor Virap image**, unchanged from §34.
 - **Western Armenian native review**, per the list above. This adds to the queue from §16,
   §28, §29, §31 and §33.
 - **Nothing links *to* any place yet** — `getRelatedArticles` remains one-directional, and
   `mesrop-mashtots-armenian-alphabet` in particular now has an obvious counterpart it does not
   point at.
+- **The remaining place types.** `nature` and `settlement` still wait for their first articles.
+
+No deployment was performed.
+
+---
+
+## 36. Matenadaran artwork — the pending entry, cleared (August 2026)
+
+`public/images/places/matenadaran.webp` arrived. It was verified, inspected and registered in
+`IMAGES`, and the slug is out of `PENDING_ARTWORK`. Nothing else changed: no image was
+generated, edited, cropped, resized, recoloured, renamed or optimised, no article content
+moved, and no new loading path was introduced. Three files changed — `src/lib/media.ts`,
+`scripts/validate-content.ts` and `tests/e2e/places.spec.ts` — plus the new asset and this
+document.
+
+This is the third time the section has cleared a pending entry (§32 Etchmiadzin, §34 Erebuni,
+§36 Matenadaran) and the third time the whole change was a one-line registration reaching six
+surfaces at once.
+
+### The asset, verified rather than assumed
+
+The container was parsed rather than trusted to its extension.
+
+| Property | Value |
+|---|---|
+| Path | `public/images/places/matenadaran.webp` |
+| Magic | `RIFF` … `WEBP`, RIFF size field 718 086 = file length − 8 (consistent) |
+| Chunks | `VP8X(10)` `ICCP(456)` `VP8 (717592)` — extended container, lossy VP8 |
+| Flags | `0x20` — ICC profile present; no alpha, no EXIF, no XMP, not animated |
+| Dimensions | **1586 × 992** (from the VP8X canvas fields) |
+| Aspect | 1.5988 : 1, i.e. 16:10 |
+| File size | **718 094 bytes (701.3 KB)** |
+| SHA-256 | `832689e8d9ae0781183c1b598b7529cfcbe6bcdb8007293ec6d68ba8fcbc995c` |
+
+Identical in shape to `erebuni-fortress.webp`: same canvas, same lossy VP8, same embedded ICC
+profile. At 701 KB it is the second-heaviest file in the registry behind Erebuni's 742 KB, so
+the two most recent places are now the two heaviest images on the site after Khor Virap's PNG.
+Not a fault, and not a reason to touch either file — but the note in `media.ts` about Erebuni
+being "the only entry carrying an ICC profile" was corrected to *the first*, and the trend is
+worth watching if Places keeps growing.
+
+**The image was opened and looked at, not inferred from its filename.** It is unmistakably the
+Matenadaran and nothing else: the frontal, symmetrical composition; the flat-topped basalt
+block set above the city; the deep recessed arch over the entrance with its filled tympanum
+grille; the paired engaged arcading either side; the six carved scholar figures standing in
+their bays along the terrace; the seated statue of Mashtots with a pupil at the foot of the
+steps, against the inscribed stele; the monumental staircase in three flights; the hillside
+behind and the Yerevan blocks falling away to the right. Every element the article's own prose
+names — "an arcaded front, carved figures of scholars and writers along the facade, and a
+seated statue of Mashtots with a pupil at the foot of the steps" — is present in the picture.
+It is not a generic church, not a monastery, not a fantasy library and not another museum.
+
+**One honest discrepancy, reported and not fixed.** The façade is rendered in a pale warm grey
+rather than the dark grey-black basalt of the real building — which the article describes as
+"dark basalt" three separate times, in the section on the building, in the significance block
+and in Mark Grigoryan's relatedFigure entry. The massing, the staircase, the elevated entrance,
+the arcading and the statuary are all right; the stone reads several shades too light. **The
+file was not modified, recoloured or replaced.** It is registered exactly as delivered, and the
+discrepancy is recorded under "Still open" below rather than silently accepted or silently
+corrected.
+
+**Crops.** The subject is dead-centre and bilaterally symmetric, which is the easiest possible
+case for `object-cover object-center`:
+
+| Slot | Container | What the crop takes |
+|---|---|---|
+| Listing card | `16/9` | image is narrower, so ~5 % of height off top and bottom — sky and foreground plaza, nothing structural |
+| Compact card / hero at mobile | `4/3` | image is wider, so ~8 % of width off each side — the outer trees; the building is untouched |
+| Hero at `sm` | `3/2` | ~3 % off each side |
+| Hero at `lg` | `16/9` | as the card |
+
+No crop reaches the building block, the staircase or the statue in any slot.
+
+### Media registry
+
+One line, in the places group of the existing map:
+
+```ts
+matenadaran: "/images/places/matenadaran.webp",
+```
+
+Reached through `getImageSrc` and `getArticleImageSrc` like every other entry. **No
+Matenadaran-specific loading mechanism was introduced**, no component was changed, and no
+consumer was touched — which is the whole point of the registry, and why this registration
+lit up the listing card, the article hero in three editions, the global-search thumbnail, the
+related-article card, the Open Graph and Twitter tags, the generic `Article.image` and three
+sitemap image entries without a single other edit.
+
+### Provenance
+
+`isGeneratedArtwork({ slug: "matenadaran" })` is now `true` — the slug is in `IMAGES` and the
+article declares no content `image`, which is exactly the condition that function tests. So
+`ArticleLayout` takes the illustration branch: the hero renders the raster file, the inline
+placeholder `<svg role="img">` is gone, and the caption reads the locale's
+`imageAiIllustrationCaption` rather than `imagePlaceholderCaption`. A place is a scene, not a
+likeness, so it takes the illustration wording and not the portrait one the writers use.
+
+`ARTWORK_PROVENANCE` is **unchanged** — still `{ source: "ai-generated", documentary: false }`
+covering the whole registry. **No per-image provenance system was introduced**, and no other
+slug's provenance behaviour was touched.
+
+### Pending-artwork removal
+
+`PENDING_ARTWORK` is `[]` again. The order was deliberate: the file was verified and registered
+first, then the entry was removed — never the other way round, which would have left a window
+where the archive claimed a picture it did not have.
+
+The reasoning that put `matenadaran` on the list is kept in the comment rather than deleted
+with the entry. The rejected shortcut — pointing this article at `history/mesrop-mashtots.webp`
+because the institute carries Mashtots's name — is the kind that gets taken twice, and the
+portrait is still sitting in the repository. §35's artwork section is headed
+✅ RESOLVED IN §36 and its "Still open" entry is struck through, so no contradictory
+current-state statement is left behind.
+
+With this, **every article in the archive ships its own cover.** `PENDING_ARTWORK` has now
+filled and emptied three times; the empty state is the normal end state, not a signal that the
+list can go.
+
+### Validator message — corrected wording, unchanged behaviour
+
+The note in `validateImages` said:
+
+```text
+note: N slug(s) render generated artwork: …
+```
+
+It lists the slugs with **no** file — and "render generated artwork" is precisely what the
+*registered* slugs do, since everything in `IMAGES` is AI-generated and captioned so. Read
+literally the line reported the opposite of the set it was counting. It now reads:
+
+```text
+note: N slug(s) have no artwork and render the generated placeholder: …
+```
+
+**Only the sentence changed.** The set it describes, the condition that computes it and every
+`report.check` in the function are untouched — no validation behaviour was altered. As it
+happens the line no longer prints at all, because `missing` is now empty; it was corrected
+anyway, since a message that is wrong is worse when it fires rarely.
+
+### Verified surfaces
+
+Checked in the built page and the running server, not assumed from the registry:
+
+| Surface | Value |
+|---|---|
+| Places listing card | `/images/places/matenadaran.webp` via `ArticleCard` |
+| Article hero, `hy` / `hyw` / `en` | the file, with the AI-illustration caption in each edition |
+| Placeholder SVG in the hero | **absent** in all three editions |
+| Placeholder caption | **absent** in all three editions |
+| Global search | the card linking to `/en/places/matenadaran` carries the thumbnail |
+| Related-article card | renders it wherever Matenadaran appears |
+| `og:image` | `https://armat.site/images/places/matenadaran.webp` |
+| `twitter:image` | `https://armat.site/images/places/matenadaran.webp` |
+| `Article.image` | `{ "@type": "ImageObject", url: "https://armat.site/images/places/matenadaran.webp" }` |
+| Sitemap | 3 image entries, one per locale route |
+| Listing placeholders | **zero** — `main svg[role='img']` count is 0 |
+
+JSON-LD node census on the built page: `Organization, ImageObject, WebSite, Article,
+CreativeWork, Book, Person, BreadcrumbList, ListItem`. `Museum`, `Place`, `TouristAttraction`,
+`ArchiveOrganization` and `LocalBusiness` are each explicitly absent. **The only structured-data
+consequence of this step is the existing generic `Article.image` resolving to the registered
+file** — no builder was modified.
+
+### Tests
+
+`tests/e2e/places.spec.ts` stays at **32 tests**; this was a state change, not new surface area,
+so existing tests were extended rather than duplicated.
+
+`MATENADARAN` moved from being excluded to being included in `ILLUSTRATED`, and gained its
+`ARTWORK` entry. That one move is what carries the registration through the hero-and-provenance
+loop, the OG/Twitter/JSON-LD loop and the sitemap-image loop, all of which already iterate
+`ILLUSTRATED` — the two-list split kept deliberately since §31 did its job for the third time.
+
+Rewritten rather than deleted, because an assertion with no subject left is still worth
+inverting:
+
+- *"the article hero falls back to the placeholder while the artwork is pending"* →
+  **"no place renders the artwork placeholder any more"**, now looping `LOCALES × PLACES` and
+  asserting zero placeholder SVGs, exactly one hero `<img>`, and that no caption still says
+  *placeholder*.
+- *"the pending place's metadata borrows no other article's artwork"* → **"the newest place's
+  metadata borrows no other article's artwork"**. Kept because the failure it guards survives
+  registration: the article's `relatedSlugs` include Etchmiadzin and the institute carries the
+  name of the history article illustrated by the Mashtots portrait. What changed is the
+  expected value — the site default gives way to the real cover, and `Article.image` goes from
+  absent to present. The assertion is still scoped to `head meta[content]`, the JSON-LD text
+  and `header figure img`, because Etchmiadzin's cover legitimately appears lower down the page
+  on a related card.
+- *"the pending list names the place without artwork, and only that one"* → **"nothing in the
+  section is still waiting for artwork"**, asserting `PENDING_ARTWORK` is `[]` and that every
+  place resolves through the registry. This is the stale-entry half of the invariant — a file
+  registered with its pending entry left behind — which no other test covers.
+- *"…and one honest placeholder"* → **"…and no placeholder at all"**, with the listing's
+  placeholder count asserted at **0** and a new exact-count check that the listing carries
+  `PLACES.length + 1` images (four cards plus the featured block's repeat).
+- The sitemap block that asserted Matenadaran's three url entries contained **no** `image:loc`
+  now asserts each contains its own file.
+- The search-thumbnail loop gained Matenadaran, scoped by `a[href="/en/places/matenadaran"]`
+  rather than `.first()` — the query also matches the History article on the alphabet, which
+  names the institute in its legacy section and can legitimately rank above the place.
+- *"no unrelated article artwork changed"* pins `matenadaran` by name alongside the other three
+  places, and still compares all 23 non-places entries in one object equality — the only check
+  that would catch a History, Writers, Works or Cuisine path retyped in passing.
+- The homepage test forbids `matenadaran` alongside `etchmiadzin` and `erebuni`.
+
+### Verification
+
+Run in the prescribed order. Port 3002 was confirmed clear and `.next` was removed first,
+because the previous pass ended with `npm run build`.
+
+| Step | Command | Result |
+|---|---|---|
+| 1 | port 3002 | clear |
+| 2 | remove `.next` | removed (previous pass ended with a build) |
+| 3 | `npm run typecheck` | **PASS** — 0 errors |
+| 4 | `npm run validate:content` | **PASS** — 111 entries across 3 locales, and **no pending note at all**, because nothing is pending |
+| 5 | `npx playwright test --project=desktop places.spec.ts` | **32 passed** |
+| 6 | `npx playwright test` | **180 passed, 5 skipped, 0 failed** |
+| 7 | `npm run build` | **PASS** — 117 prerendered routes, unchanged (registering artwork adds no route) |
+
+**Every run passed first time.** No rerun was needed, nothing was retried, and no failure is
+being attributed to a cache. The build was not run concurrently with Playwright's dev server.
+
+The three documented false-failure modes (§30 stale adopted dev server, §32 build-clobbered
+`.next`, §34 cold-compile contention) did not occur; step 2 is what keeps the second of them
+away, and the places spec at step 5 warms the routes the full suite then reuses.
+
+### Preserved, and checked rather than assumed
+
+| File | SHA-256 | Status |
+|---|---|---|
+| `public/hero-ararat.png` | `2d7420356bbe4188…3391a47c` | unchanged, still §30's value |
+| `public/images/places/khor-virap.png` | `2d7420356bbe4188…3391a47c` | unchanged, still byte-identical to the hero |
+| `public/images/places/etchmiadzin-cathedral.webp` | `0c59237291cbf76a…82338a5e` | unchanged, still §32's value |
+| `public/images/places/erebuni-fortress.webp` | `3b31e9dbb7672e48…3b1aa26f` | unchanged, still §34's value |
+| `public/images/history/mesrop-mashtots.webp` | `0803f6c68d36db9e…67a3100c` | unchanged — the file inspected and rejected in §35, and still the wrong picture for this article |
+| `public/images/places/matenadaran.webp` | `832689e8d9ae0781…fcbc995c` | **new**, byte-identical to the delivered file |
+
+`git status` shows exactly three modified files and one addition under `public/` — the new
+asset itself. The Matenadaran article content, its chronology, its sources, its coordinate, its
+`placeTypeId`, the filter vocabulary, its `relatedSlugs`, navigation, listing logic, all SEO
+wording, every layout component and the JSON-LD builders were **not modified**. Khor Virap,
+Etchmiadzin and Erebuni keep their registrations and their files. The homepage still renders
+`/hero-ararat.png` through `Hero.tsx` directly and picks up no places artwork.
+`.claude/settings.json` was not touched.
+
+### Still open
+
+- **The façade colour.** The delivered artwork renders the Matenadaran in pale grey where the
+  building — and this archive's own prose, three times over — describes dark basalt. Reported
+  rather than corrected, because the rule for delivered assets is that they are registered as
+  delivered. A revised file would be another one-line change.
+- **A dedicated Khor Virap image**, unchanged since §32. It is still the homepage hero copied
+  into the places directory, still a 1.4 MB PNG, and still the only entry not 1586 × 992.
+- **File weight in Places.** Erebuni at 742 KB and Matenadaran at 701 KB are the two heaviest
+  WebPs in the registry by a wide margin, both carrying ICC profiles. Nothing is being optimised
+  here — noted so a future decision about it is made deliberately.
+- **Western Armenian native review**, per §35's list. The queue from §16, §28, §29, §31, §33
+  and §35 is unchanged by this step.
+- **Nothing links *to* any place yet** — `getRelatedArticles` remains one-directional.
 - **The remaining place types.** `nature` and `settlement` still wait for their first articles.
 
 No deployment was performed.

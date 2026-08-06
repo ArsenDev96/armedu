@@ -96,10 +96,21 @@ const IMAGES: Record<string, string> = {
    * a fault and neither was touched — the file is registered exactly as delivered,
    * unaltered, unoptimised and unrenamed, which is the rule this map has followed
    * since §30.
+   *
+   * `matenadaran.webp` is the fourth place and arrived in the same shape as
+   * Erebuni: 1586×992, lossy VP8, an embedded ICC profile, and 701 KB — so the two
+   * heaviest files in the registry are now the two most recent, and "the only
+   * entry carrying an ICC profile" above should read *the first*. Worth watching
+   * if the places section keeps growing, but not a fault and not a reason to touch
+   * either file: both are registered exactly as delivered.
+   *
+   * With this entry `PENDING_ARTWORK` is empty for the third time (§32, §34, §36).
+   * The list emptying is the normal end state, not a signal that it can go.
    */
   "khor-virap": "/images/places/khor-virap.png",
   "etchmiadzin-cathedral": "/images/places/etchmiadzin-cathedral.webp",
   "erebuni-fortress": "/images/places/erebuni-fortress.webp",
+  matenadaran: "/images/places/matenadaran.webp",
 };
 
 /**
@@ -119,18 +130,19 @@ const IMAGES: Record<string, string> = {
  */
 export const PENDING_ARTWORK: readonly string[] = [
   /*
-   * The fourth place, shipped ahead of its picture — the same state Etchmiadzin
-   * was in at §31 and Erebuni at §33, and resolved the same way both times.
+   * Empty, and it has been empty after each of the three times it filled: §31→§32
+   * (Etchmiadzin), §33→§34 (Erebuni), §35→§36 (Matenadaran). Every article in the
+   * archive now ships its own cover.
    *
-   * Every asset in `public/` was looked at rather than reasoned about. The only
-   * candidate anywhere near the subject is `history/mesrop-mashtots.webp`, and it
-   * is a portrait: Mashtots at a writing desk in a medieval monastic setting.
-   * The institute carries his name, which is exactly what makes that image the
-   * wrong one — it would caption a fifth-century scene as a twentieth-century
-   * basalt building on a Yerevan avenue, and the confusion between those two ages
-   * is the single thing this article was written to prevent.
+   * Matenadaran is the one worth recording as it leaves, because the shortcut
+   * rejected there is the kind that gets taken twice. The only asset anywhere near
+   * the subject was `history/mesrop-mashtots.webp` — a portrait of Mashtots at a
+   * writing desk in a medieval monastic setting. The institute carries his name,
+   * which is exactly what made that image the wrong one: it would have captioned a
+   * fifth-century scene as a twentieth-century basalt building on a Yerevan
+   * avenue, and the confusion between those two ages is the single thing that
+   * article was written to prevent. The picture that landed is the building.
    */
-  "matenadaran",
 ];
 
 /** Path under `public/` for a slug's artwork, or `undefined` when none ships. */
