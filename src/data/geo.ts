@@ -69,6 +69,15 @@ export const PLACE_COORDINATES: Record<string, PlacePoint> = {
   // amenity=place_of_worship) gives 40.1618404, 44.2911157; rounded to four places
   // here. Wikipedia's infobox agrees at 40°09′43″N 44°17′28″E.
   "etchmiadzin-cathedral": { lat: 40.1618, lon: 44.2911, precision: "site" },
+
+  // The excavated Urartian citadel on the hill of Arin Berd, at the south-eastern
+  // edge of Yerevan — not the Erebuni Museum-Reserve at the foot of the hill, not
+  // the Erebuni administrative district, and not Erebuni airport, which lies some
+  // seven kilometres west-south-west and would look entirely plausible on a map.
+  // OpenStreetMap way 445380061 (`Էրեբունու ամրոց`, historic=archaeological_site)
+  // gives 40.1403049, 44.5381466; rounded to four places here. Wikipedia's infobox
+  // agrees at 40°08′26″N 44°32′17″E.
+  "erebuni-fortress": { lat: 40.1403, lon: 44.5381, precision: "site" },
 };
 
 /** The recorded position for a place slug, or `undefined` when none is held. */

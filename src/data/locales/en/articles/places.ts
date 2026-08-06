@@ -353,4 +353,180 @@ export const placeArticles: Article[] = [
     ],
     relatedSlugs: ["adoption-of-christianity", "khor-virap", "battle-of-avarayr"],
   },
+  {
+    slug: "erebuni-fortress",
+    href: "/places/erebuni-fortress",
+    category: "places",
+    categoryLabel: "Places",
+    title: "Erebuni Fortress",
+    seoTitle: "Erebuni Fortress: Urartian Yerevan, 782 BC",
+    placeTypeId: "historical",
+    featured: false,
+    imageSeed: "erebuni-fortress",
+    keywords: [
+      "Erebuni Fortress",
+      "Էրեբունի",
+      "Arin Berd",
+      "Argishti I",
+      "Urartu",
+      "Yerevan",
+    ],
+    excerpt:
+      "An Urartian citadel on the hill of Arin Berd in south-eastern Yerevan, built by King Argishti I and named in a cuneiform inscription that the modern city has adopted as its own birth certificate.",
+    metaDescription:
+      "Erebuni Fortress on Arin Berd in Yerevan: the Urartian citadel of Argishti I, what its foundation inscription records, and what excavation actually found.",
+    summary:
+      "Erebuni is a fortified Urartian citadel on the hill of Arin Berd, at the south-eastern edge of present-day Yerevan. A cuneiform inscription found on the site records that Argishti I, son of Menua, built the fortress and gave it the name Erebuni. The year normally attached to that act, 782 BC, is not written on the stone: it comes from placing the foundation inside Argishti's reign, which is dated in turn by cross-reference to Assyrian records. Behind its wall the citadel held a palace, two temples and long ranges of storerooms, and it served the kingdom of Urartu as an administrative, military and religious centre on the Ararat plain. What stands today is an excavated site, with the finds in a museum at the foot of the hill.",
+    intro:
+      "Erebuni is an Urartian fortress on Arin Berd, a hill at the south-eastern edge of Yerevan, and it is the reason the city counts its own age from 782 BC. The fortress was built by Argishti I, a king of Urartu, and a cuneiform inscription cut in his name records both the building and the name given to it. What a visitor walks through now is an excavated and partly restored archaeological site — stone footings, the stubs of mudbrick walls, and a legible plan — while the inscription and the finds are in the museum at the bottom of the hill. Holding those two things apart, the text and the ruin, is the first thing worth doing here.",
+    author: "Armat Editorial Team",
+    updated: "2026-08-06",
+    keyFacts: [
+      { label: "Kind of place", value: "Urartian fortress and archaeological site, partly restored" },
+      { label: "Where", value: "The hill of Arin Berd, Erebuni district, south-eastern Yerevan" },
+      { label: "Built by", value: "Argishti I, son of Menua, king of Urartu" },
+      { label: "Conventional date", value: "782 BC, from the foundation inscription and Argishti's reign" },
+      { label: "What survives", value: "Citadel wall, palace, two temples and storerooms, largely at foundation level" },
+      { label: "At the site", value: "Erebuni Historical and Archaeological Museum-Reserve, opened 1968" },
+    ],
+    sections: [
+      {
+        id: "where-it-is",
+        heading: "Where Erebuni Fortress is",
+        paragraphs: [
+          "Erebuni stands on Arin Berd, a low hill at the south-eastern edge of Yerevan, in the city district that takes its name from the fortress. The hill rises on its own out of the flat ground where the Ararat plain meets the built-up city, so the citadel looks out over farmland, suburb and the mountains beyond it in one turn of the head.",
+          "The position was chosen for what it controls rather than for what it is. From the top, the plain and the routes crossing it are visible for a long way, and the slopes are steep enough on three sides to do much of the defensive work by themselves. This is the standard Urartian choice of ground, and the same reasoning put fortresses on comparable outcrops across the same plain.",
+          "One distinction is worth making before arriving. The Erebuni Historical and Archaeological Museum-Reserve stands at the foot of the hill and holds the inscription and the finds; the fortress is the excavated citadel on top of it. They are two parts of one visit and two different things, and a photograph captioned Erebuni may show either.",
+        ],
+      },
+      {
+        id: "argishti-and-the-inscription",
+        heading: "Argishti I and the foundation inscription",
+        paragraphs: [
+          "The fortress belongs to one reign. Argishti I, son of Menua, ruled Urartu in the first half of the eighth century BC and was the king under whom Urartian power reached furthest north, across the Ararat plain. Erebuni is the surviving physical record of that reach.",
+          "The record is literal. A basalt block carrying a cuneiform text in the Urartian language states that Argishti, son of Menua, built this fortress by the greatness of the god Khaldi, that he proclaimed it Erebuni for the might of the land of Biainili and to hold the lands of the enemy in awe, and that the ground had been waste before he built on it. The same foundation texts record that the king settled six thousand six hundred warriors here, brought from two conquered lands. Wordings differ slightly between translations, and the standard published edition of the Urartian royal inscriptions is Mirjo Salvini's corpus, which is where the text is cited from rather than from a display label.",
+          "What the inscription does not carry is a year. The date 782 BC comes from placing this foundation within Argishti's reign, using his own annals and the synchronisms with Assyrian records that Urartian chronology depends on — a reconstruction accepted across the scholarship and used by the museum-reserve, not a figure read off the stone. Saying that plainly costs nothing and prevents the commonest misreading of the site.",
+        ],
+      },
+      {
+        id: "erebuni-and-urartu",
+        heading: "Erebuni and the kingdom of Urartu",
+        paragraphs: [
+          "Erebuni did not grow into a fortress; it was founded as one. The kingdom of Urartu, centred on Tushpa by Lake Van, pushed north under Menua and then Argishti I, and the citadels raised on the Ararat plain in those reigns are what that expansion consisted of. A garrison, a store of grain and a temple were placed on a hill, and the plain around them was administered from it.",
+          "The deportation clause in the foundation text belongs to the same logic. A new fortress needed a population, and the population was moved in rather than recruited locally — which tells a reader something exact about how the Urartian state worked, and something it stated about itself without embarrassment.",
+          "Erebuni was one of a group. Argishtikhinili was founded further west on the same plain within a few years, and in the following century the main Urartian centre of the region was Teishebaini at Karmir Blur, a few kilometres from here. Reading Erebuni as the single Urartian site of the Ararat plain gets the pattern wrong: it was a node in a system of them, and the system is the point.",
+        ],
+        links: [
+          { phrase: "kingdom of Urartu, centred on Tushpa by Lake Van", slug: "kingdom-of-urartu" },
+        ],
+      },
+      {
+        id: "inside-the-citadel",
+        heading: "Palace, temple and storeroom",
+        paragraphs: [
+          "The citadel follows the shape of the hilltop inside a defensive wall of stone footings carrying mudbrick above, with buttresses at intervals and a single principal approach. Everything else sits within that outline, which is why the plan reads so clearly from the air and so poorly from the ground.",
+          "Three functions share the enclosure. The royal apartments and a courtyard with a colonnade make up the palace; a temple of Khaldi, the chief god of the Urartian state, stood beside a hall whose walls carried painted decoration in red, blue and white; and a second, tower-like temple of the type Urartian texts call a susi was dedicated to another god. Fragments of the wall paintings were lifted during excavation and conserved, so the colour a visitor sees in place is reconstruction rather than survival.",
+          "The fourth function is the least glamorous and the most informative. Long ranges of storerooms held sunken jars for grain, wine and oil, and their capacity is far beyond what the people living on the hill could consume. Storage on that scale is a statement about the state rather than the garrison: the harvest of the plain was gathered here, held here and redistributed from here.",
+          "So the fortress was administrative, military and religious at once, and the three were not separable. That combination is the ordinary Urartian pattern rather than a peculiarity of this site, and it is the most useful thing to carry up the hill.",
+        ],
+      },
+      {
+        id: "excavations",
+        heading: "What excavation found",
+        paragraphs: [
+          "The hill was known to be ancient long before anyone worked out what it was, and a small dig took place in the late nineteenth century. Systematic excavation began in 1950, when the foundation inscription came to light and the identification became certain, under the archaeologist Konstantine Hovhannisyan; campaigns have continued since, including a joint Franco-Armenian project in recent years whose published work has revised parts of the earlier chronology.",
+          "What the digging produced falls into two kinds. There is architecture — walls, floors, doorways, the plan of the whole citadel — surviving mostly at foundation level, and there are portable finds: pottery, bronze objects, weapons and helmets, seal impressions, further inscriptions, and the fragments of wall painting. Material from later periods was found on the same hill, which is how the site's afterlife is known at all.",
+          "The line between record and interpretation runs through the naming. That one range of rooms is a palace and another a temple is an archaeological argument built from plan, contents and comparison with better-preserved Urartian citadels, not something the Urartians labelled for us. The foundation inscription is a record; the room names are a reading. Both are good work, and they are not the same kind of statement.",
+        ],
+      },
+      {
+        id: "after-urartu",
+        heading: "After the kingdom",
+        paragraphs: [
+          "The Urartian state came to an end in the early sixth century BC, and Erebuni's own importance had already declined before that: in the seventh century the administrative weight of the plain lay with Teishebaini at Karmir Blur. Exactly why is argued over, and the honest position is that the evidence supports a shift of centre better than it supports any single dramatic cause.",
+          "The hill was not abandoned when the kingdom fell. Building continued on the citadel in the Achaemenid period, when this region was a satrapy of the Persian empire, and a columned hall of that date was raised over earlier Urartian work — one of the reasons the site matters to specialists well beyond Urartian studies. Later still the settlement of the district moved off the hill, and Erebuni became what it is now: a mound with a plan under it.",
+          "That is the point at which the popular version of the story usually overreaches. The continuity between Erebuni and Yerevan is a continuity of place and name across a landscape, not an unbroken town on this hilltop; nobody has lived on Arin Berd for a very long time.",
+        ],
+      },
+      {
+        id: "the-name-and-the-city",
+        heading: "Erebuni, Yerevan and a birthday",
+        paragraphs: [
+          "The name written on the stone is Erebuni. The derivation of Yerevan from it is the standard explanation, accepted in Armenian scholarship and resting on a plausible chain of sound change and on the survival of the name in this region; it is a linguistic reconstruction rather than a documented succession of spellings, and scholars have disagreed about what the Urartian word itself meant. A reader is on safe ground with \"the name of the city is generally derived from Erebuni\" and on thinner ground with anything more definite than that.",
+          "The modern use of the site is easier to state exactly. Yerevan celebrated its 2750th anniversary in 1968, counting from 782 BC, and the museum-reserve at the foot of the hill was opened for that anniversary; the name Erebuni now belongs to a city district, a museum and an annual civic festival. The city's official age is a decision to count from an inscription — and the inscription, unlike many things a capital's founding myth is built on, is a real object that can be looked at.",
+          "Both halves of that are worth keeping. The document is genuine and the date is a scholarly reconstruction; the symbolism is modern and the object it rests on is ancient. Neither statement weakens the other.",
+        ],
+      },
+      {
+        id: "before-you-see-it",
+        heading: "What to understand before seeing it",
+        paragraphs: [
+          "The first thing is what survives. This is a site at foundation level, not a standing fortress: the interest is in the plan, the setting and the view, and a visitor expecting walls to walk between will be looking at a metre of stone and a good deal of restoration. Where the reconstruction begins is not always signposted.",
+          "The second is that the objects are elsewhere on the same site. The foundation inscription, the painted fragments, the pottery and the bronze are in the museum-reserve at the foot of the hill, and seeing the citadel without it gives half the visit.",
+          "The third is the habit this article has been practising throughout: four different kinds of claim are made about Erebuni, and they are not equally firm. The inscription records a builder, a name and a purpose. Archaeology reconstructs a palace, temples and a storage economy. Linguistics derives Yerevan from Erebuni. A modern city keeps a birthday. All four are defensible; only the first is written down by the people who were there.",
+        ],
+      },
+    ],
+    importantDates: [
+      {
+        year: "782 BC",
+        event:
+          "The conventional date for the foundation of Erebuni by Argishti I. The foundation inscription records the building and the name; the year is a reconstruction from Argishti's reign rather than part of the text.",
+      },
+      {
+        year: "Eighth century BC",
+        event:
+          "The citadel functions as an administrative, military and religious centre for Urartian control of the Ararat plain.",
+      },
+      {
+        year: "Seventh century BC",
+        event:
+          "The main Urartian centre of the region is Teishebaini at Karmir Blur, and Erebuni's administrative weight declines.",
+      },
+      {
+        year: "Sixth century BC",
+        event:
+          "The Urartian kingdom ends, but building continues on the hill: a columned hall of the Achaemenid period is raised over the earlier citadel.",
+      },
+      {
+        year: "1950",
+        event:
+          "Systematic excavation of Arin Berd begins under Konstantine Hovhannisyan, and the foundation inscription comes to light.",
+      },
+      {
+        year: "1968",
+        event:
+          "The Erebuni Historical and Archaeological Museum-Reserve opens at the foot of the hill, as Yerevan marks its 2750th anniversary.",
+      },
+    ],
+    significance: {
+      heading: "Why Erebuni Fortress matters",
+      paragraphs: [
+        "Erebuni is where the written history of the Armenian Highlands touches the ground of a modern capital. Most of what is claimed about the deep past of any city is inference; here there is a dated reign, a named king, an object with his words on it and an excavated fortress underneath the words. That combination is rare enough that the site carries a weight out of all proportion to what is standing on it.",
+        "It is also the archive's clearest lesson in sorting evidence. A visitor is told several things at once — that the city is nearly three millennia old, that the fortress was a palace and a temple, that Yerevan is Erebuni — and those statements come from a cuneiform text, from archaeological interpretation, from historical linguistics and from a civic anniversary respectively. Separating them is not scepticism about the site. It is the only way to see how much of it is genuinely documented, which turns out to be a great deal.",
+      ],
+    },
+    interestingFacts: [
+      "The inscription that gives Yerevan its official age is a fortress-building record, not a city charter: it states who built, what he named it and why.",
+      "The date 782 BC is nowhere on the stone. It comes from where the foundation falls within Argishti I's reign, which is itself dated by cross-reference to Assyrian records.",
+      "The foundation texts record that six thousand six hundred warriors were settled here from conquered lands — the garrison was moved in, not raised locally.",
+      "Yerevan marked its 2750th anniversary in 1968, and the museum-reserve at the foot of the hill was opened for the occasion.",
+      "The wall paintings were lifted from the citadel during excavation and conserved; the colour visible on the hill today is reconstruction.",
+    ],
+    relatedFigures: [
+      {
+        name: "Argishti I",
+        lifespan: "reigned about 786–764 BC",
+        description:
+          "King of Urartu under whom the kingdom reached furthest north. He founded Erebuni and is named as its builder in the foundation inscription; the dates of his reign are a reconstruction from his annals and Assyrian synchronisms.",
+      },
+      {
+        name: "Menua",
+        lifespan: "reigned about 810–786 BC",
+        description:
+          "Argishti's father, named in the inscription, and the king who began the Urartian push north towards the Ararat plain as well as the canal that still carries water near Van.",
+      },
+    ],
+    relatedSlugs: ["kingdom-of-urartu"],
+  },
 ];

@@ -718,6 +718,73 @@ const SOURCES: Record<string, Source[]> = {
       note: "Cited only for the present-day institution: the office of the Catholicos of All Armenians, the Gevorgian Theological Seminary, and the museums and library inside the precinct.",
     },
   ],
+
+  /*
+   * Erebuni is the first place article whose subject predates the written
+   * tradition the other two rest on, so the shape of its bibliography is
+   * different: there is no narrative source to weigh against the fabric, because
+   * the fabric *is* the source. Four of these six are the same works the
+   * `kingdom-of-urartu` article cites, reused deliberately rather than replaced
+   * with parallel titles — the fortress and the kingdom are supported by one body
+   * of evidence, and citing a second set for the same claims would imply
+   * independent corroboration that does not exist.
+   *
+   * The two additions are what this article needs and that one did not. Salvini's
+   * corpus is where the foundation inscription is edited, so it carries every
+   * statement about what the text actually says; Deschamps reports the recent
+   * excavation programme at the site itself, which is what allows the article to
+   * separate the record from the interpretation built on it.
+   */
+  "erebuni-fortress": [
+    {
+      author: "Mirjo Salvini",
+      title: "Corpus dei testi urartei",
+      publisher: "CNR, Istituto di Studi sulle Civiltà dell'Egeo e del Vicino Oriente, Rome",
+      year: "2008–",
+      identifier: { kind: "isbn", value: "9788878900257" },
+      note: "The standard edition of the Urartian royal inscriptions, including the Erebuni foundation texts. Cited for what the inscription records — the builder, the name, the purpose and the settling of the garrison — and for the fact that it carries no year.",
+    },
+    {
+      author: "Paul E. Zimansky",
+      title: "Ancient Ararat: A Handbook of Urartian Studies",
+      publisher: "Caravan Books, Delmar NY",
+      year: "1998",
+      identifier: { kind: "isbn", value: "9780882060910" },
+      note: "Cited for Urartian chronology and for the reconstruction that places the foundation of Erebuni in 782 BC by way of Argishti I's reign and the Assyrian synchronisms it depends on.",
+    },
+    {
+      author: "S. Kroll, C. Gruber, U. Hellwag, M. Roaf and P. Zimansky (eds.)",
+      title:
+        "Biainili-Urartu: The Proceedings of the Symposium Held in Munich 12–14 October 2007",
+      publisher: "Peeters, Leuven — Acta Iranica 51",
+      year: "2012",
+      identifier: { kind: "isbn", value: "9789042924383" },
+      note: "Thirty scholars on the current state of Urartian archaeology; cited for the fortress system of the Ararat plain, the citadel building types — palace, temple, susi tower, storerooms — and the end of the kingdom.",
+    },
+    {
+      author: "Stéphane Deschamps",
+      title: "Erebuni in the context of Urartean fortresses in the Ararat plain: Sources and problems",
+      publisher: "Quaternary International 395, Elsevier",
+      year: "2016",
+      identifier: { kind: "doi", value: "10.1016/j.quaint.2015.08.056" },
+      note: "Reports the Franco-Armenian excavations at Erebuni from 2008 onwards and reconsiders the chronology of the three Urartian fortresses of the plain — Erebuni, Argishtikhinili and Teishebaini. Cited for the excavation history and for what the site's archaeology does and does not establish.",
+    },
+    {
+      author: "Boris B. Piotrovsky",
+      title: "The Ancient Civilization of Urartu",
+      publisher: "Cowles, New York",
+      year: "1969",
+      identifier: { kind: "url", value: "https://search.worldcat.org/title/22421" },
+      note: "Piotrovsky directed the Karmir Blur excavations from 1939 to 1971. Cited here for Teishebaini, the neighbouring fortress that carried the administrative weight of the plain in the seventh century BC.",
+    },
+    {
+      title: "Erebuni Historical and Archaeological Museum-Reserve",
+      publisher: "Erebuni Historical and Archaeological Museum-Reserve, Yerevan",
+      year: "founded 1968",
+      identifier: { kind: "url", value: "https://erebuni-museum.mus.am/en/" },
+      note: "The institution that holds the foundation inscription and the finds from Arin Berd, and administers the site. Cited for the museum-reserve itself and for the date it uses for the fortress — an institution is a reliable source on its own holdings.",
+    },
+  ],
 };
 
 /** The bibliography for one article. Empty only if the slug is unknown. */

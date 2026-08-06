@@ -107,7 +107,18 @@ const IMAGES: Record<string, string> = {
  * declared on the article itself as `image: { src, alt, credit }`, which
  * overrides both the file here and the AI caption.
  */
-export const PENDING_ARTWORK: readonly string[] = [];
+export const PENDING_ARTWORK: readonly string[] = [
+  /*
+   * The third place, shipped ahead of its picture. The repository holds nothing
+   * that depicts Erebuni: the only candidate is `kingdom-of-urartu.webp`, an
+   * imagined Urartian fortress-city painted for the history article, and reusing
+   * it here would put a generic citadel under a caption naming a specific
+   * excavated site on a specific hill. That is the kind of quiet
+   * misattribution the caption machinery exists to prevent, so the article
+   * renders the generated placeholder and says so here instead.
+   */
+  "erebuni-fortress",
+];
 
 /** Path under `public/` for a slug's artwork, or `undefined` when none ships. */
 export function getImageSrc(slug: string): string | undefined {

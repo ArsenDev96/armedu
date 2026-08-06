@@ -2419,3 +2419,320 @@ pass.
 - **Nothing links *to* either place yet** — `getRelatedArticles` remains one-directional.
 
 No deployment was performed.
+
+---
+
+## 33. Places — Erebuni Fortress, and the first new place type (August 2026)
+
+Places goes from two articles to three, and from two filter pills to three.
+`erebuni-fortress` is complete in `hy`, `hyw` and `en`, is the first article under the new
+`historical` type, and ships **without artwork on purpose**. No new component, no new field,
+no schema change: `PlaceDetails`, `regionId` and category-specific relationship fields were
+all considered and none was added.
+
+### Why this article
+
+The first two places are both monasteries and both rest on the same fifth-century narrative
+source. Erebuni is deliberately the opposite case on every axis: it predates that tradition
+by a millennium, it is not a religious building, it is a ruin rather than a working
+institution, and its central document is a contemporary inscription rather than a later
+account. That is what makes it the article that earns a second filter — and what makes it
+the section's clearest exercise in separating kinds of evidence.
+
+It also closes a loop the archive already opened. §23's `kingdom-of-urartu` article names
+Erebuni four times and hands Yerevan its foundation date in passing; this is the page that
+was implied by those sentences.
+
+### The new filter
+
+`placeTypes` becomes three entries in every edition, ids shared and only labels translated:
+
+| Id | `en` | `hy` | `hyw` |
+|---|---|---|---|
+| `all` | All places | Բոլոր վայրերը | Բոլոր վայրերը |
+| `monastery` | Monasteries and churches | Վանքեր և եկեղեցիներ | Վանքեր եւ եկեղեցիներ |
+| `historical` | Historical sites | Պատմական վայրեր | Պատմական վայրեր |
+
+`museum`, `nature` and `settlement` were **not** added. The discipline §28 set — a type id
+arrives in the same change as the first article that uses it, never ahead of one — is
+enforced by `validateFilterCoverage`, which fails the build on a pill matching no content.
+The three files' header comments were updated to say three entries rather than two, so the
+comment does not drift from the list beneath it.
+
+The counts this produces, asserted in tests: **All → 3, Monastery → 2 (Khor Virap,
+Etchmiadzin), Historical → 1 (Erebuni only)**. The Monastery pill genuinely narrows for the
+first time. Khor Virap remains the sole `featured: true` place, and the listing
+implementation was not touched — no slug is hardcoded anywhere in the filtering path.
+
+### The article
+
+Eight sections, the same ids in all three editions: `where-it-is`,
+`argishti-and-the-inscription`, `erebuni-and-urartu`, `inside-the-citadel`, `excavations`,
+`after-urartu`, `the-name-and-the-city`, `before-you-see-it`. Paragraph counts per section
+are `3,3,3,4,3,3,3,3` in all three; six `keyFacts`, six `importantDates`, five
+`interestingFacts`, two `relatedFigures`, two `significance` paragraphs — identical
+cardinalities, checked before the validator ever ran.
+
+### The four kinds of claim, kept apart
+
+This is the article's organising idea and it is stated outright in its final section. Four
+different sorts of statement are made about Erebuni and they are not equally firm:
+
+1. **What the inscription records.** A basalt block in Urartian cuneiform states that
+   Argishti, son of Menua, built the fortress by the greatness of the god Khaldi, proclaimed
+   it *Erebuni* for the might of the land of Biainili and to hold enemy lands in awe, and
+   that the ground was waste before. The foundation texts also record six thousand six
+   hundred warriors settled there from two conquered lands. This is the only category
+   written down by people who were present.
+2. **What archaeology interprets.** That one range of rooms is a palace and another a
+   temple; the storage economy read off the magazine capacity; the identification of the
+   *susi* tower-temple. The article says in as many words that the room names are a reading
+   built from plan, contents and comparison, not a label the Urartians left.
+3. **What linguistics reconstructs.** Yerevan ← Erebuni is the standard derivation and is
+   accepted in Armenian scholarship, but it is a reconstruction rather than a documented
+   succession of spellings, and scholars have disagreed about the Urartian word's own
+   meaning. The article's formulation — "the name of the city is generally derived from
+   Erebuni" — is deliberately the safe one.
+4. **What the modern city does with it.** Yerevan's 2750th anniversary in 1968, the
+   museum-reserve opened for that anniversary, the district, the festival. Symbolism dated
+   to the twentieth century, resting on a genuinely ancient object.
+
+**Three popular claims were deliberately not made.** That Yerevan is "older than Rome" as an
+unqualified boast (it appears in §23 attributed to the city's own reckoning, and is not
+repeated here as the archive's voice); that the hill has been continuously inhabited into
+the modern city — the article says plainly that nobody has lived on Arin Berd for a very
+long time; and any single dramatic cause for Erebuni's decline. Livius reports an earthquake
+under Rusa II, the excavation literature reports a shift of administrative weight to
+Teishebaini; the article says the evidence supports the shift better than it supports one
+cause.
+
+### Dates, and one that is *not* on the stone
+
+The most important accuracy decision in this step: **782 BC is not written on the
+inscription.** It comes from placing the foundation inside Argishti I's reign, which is
+itself dated by synchronism with Assyrian records. Every edition says so explicitly, in the
+summary, in a section and in an `interestingFact`. The year is kept because it is directly
+supported — Zimansky's handbook for the chronology, the museum-reserve for the institutional
+use of it, and the internal check that Yerevan's 2750th anniversary fell in 1968 — but it is
+presented as a scholarly reconstruction rather than a reading.
+
+Everything else is deliberately broad. Later phases, the decline and the end of the kingdom
+are given as **Eighth / Seventh / Sixth century BC** rather than years. The only exact modern
+dates are **1950** (excavation begins; the museum-reserve and multiple independent sources
+agree) and **1968** (the museum opens, the 2750th anniversary).
+
+**Dating conventions follow the existing project convention per edition, not the task
+wording.** `en` uses `BC` because that is what `history.ts` and the two existing place
+articles use throughout — `BCE` appears nowhere in this repository and introducing it in one
+article would be the mixing §4 warns against. `hy` uses `մ.թ.ա. 782 թ.`, `hyw` uses
+`782 Ք.Ա.` in `importantDates` and `Ք.Ա. 782` in prose, both inherited from
+`kingdom-of-urartu`. Centuries are Roman in the Armenian editions (`Մ.թ.ա. VIII դար`,
+`Ք.Ա. VIII դար`) and spelled out in English, which keeps them out of the number check by
+design.
+
+`6600` is written as words — *six thousand six hundred*, *վեց հազար վեց հարյուր*,
+*վեց հազար վեց հարիւր* — matching the house style ("roughly five hundred years") and, not
+incidentally, keeping a thousands-separator disagreement out of `validateCrossLocaleNumbers`.
+
+Cross-locale number parity was verified field by field before running the validator. The
+sets are identical in all three editions: `intro` {782}, `summary` {782}, `seoTitle` {782},
+`metaDescription` {} , `keyFacts` {782, 1968}, `importantDates` {782, 1950, 1968, 2750},
+`sections` {782, 1950, 1968, 2750}, `interestingFacts` {782, 1968, 2750},
+`relatedFigures` {786, 764, 810}.
+
+### Sources
+
+Six, all verified. Four are works the repository had already registered for
+`kingdom-of-urartu`, reused verbatim on purpose — the fortress and the kingdom rest on one
+body of evidence, and a parallel set of citations would imply corroboration that does not
+exist.
+
+| Source | Identifier | Cited for | Status |
+|---|---|---|---|
+| Salvini, *Corpus dei testi urartei* | ISBN 9788878900257 | what the inscription says, and that it carries no year | already registered |
+| Zimansky, *Ancient Ararat: A Handbook of Urartian Studies* | ISBN 9780882060910 | Urartian chronology; the reconstruction behind 782 BC | already registered |
+| Piotrovsky, *The Ancient Civilization of Urartu* | `search.worldcat.org/title/22421` | Teishebaini at Karmir Blur | already registered |
+| Kroll, Gruber, Hellwag, Roaf & Zimansky (eds.), *Biainili-Urartu*, Acta Iranica 51 | ISBN 9789042924383 | fortress system, citadel building types, end of the kingdom | **new, verified against the Peeters catalogue** |
+| Deschamps, *Erebuni in the context of Urartean fortresses in the Ararat plain* | DOI 10.1016/j.quaint.2015.08.056 | excavation history since 2008; what the archaeology does and does not establish | **new, verified via Crossref** |
+| Erebuni Historical and Archaeological Museum-Reserve | `erebuni-museum.mus.am/en/` | the institution, its holdings, the date it uses | **new, fetched and verified** |
+
+The two new bibliographic records were checked before being written: the Peeters catalogue
+confirms *Biainili-Urartu* (Acta Iranica 51, Leuven 2012, ISBN 9789042924383) and Crossref
+confirms Deschamps, *Quaternary International* 395 (2016), 208–215. `erebuni.am` does not
+resolve; the museum-reserve's page on the Armenian state museum portal does, and that is what
+is registered. **No page references are cited, and nothing was invented** — no title, author,
+publisher, year, ISBN, DOI or URL. The institutional source's `note` restricts it to what an
+institution is reliable about, exactly as §31's Mother See entry does.
+
+Screened against the §19 rule: no denialist or hostile material, and no source was accepted
+on the strength of a well-formed identifier alone.
+
+### Coordinate
+
+One locale-independent entry in `src/data/geo.ts`, in the existing provenance style:
+
+```ts
+"erebuni-fortress": { lat: 40.1403, lon: 44.5381, precision: "site" },
+```
+
+Verified against **OpenStreetMap way 445380061** (`Էրեբունու ամրոց`,
+`historic=archaeological_site`), which gives `40.1403049, 44.5381466`; rounded to four places
+on the way in, as the file requires. Wikipedia's infobox agrees at 40°08′26″N 44°32′17″E.
+
+**The point is the excavated citadel on Arin Berd**, and this slug had more convincing wrong
+answers available than either previous entry: the museum-reserve at the foot of the hill, the
+Erebuni city district, central Yerevan, and — the worst of them — Erebuni airport, which is
+several kilometres west-south-west and would still drop a pin on a plausible part of the
+city. Tests assert the recorded point is more than 0.03° from the airport's longitude and
+more than 0.02° from central Yerevan's latitude, because the validator deliberately has no
+bounding box and cannot catch a plausible-but-wrong point.
+
+### Related content
+
+`relatedSlugs: ["kingdom-of-urartu"]`, identical in all three editions, and one contextual
+`SectionLink` in `erebuni-and-urartu` on a phrase that occurs in that section's prose
+(`kingdom of Urartu, centred on Tushpa by Lake Van` /
+`Ուրարտուի թագավորությունը, որի կենտրոնը Տուշպան էր Վանա լճի ափին` /
+`Ուրարտուի թագաւորութիւնը, որուն կեդրոնը Տուշպան էր Վանայ լիճին եզերքը`).
+
+Nothing else was added. Khor Virap and Etchmiadzin are related to each other and to the
+conversion; Erebuni is not substantively related to either beyond both being places, and
+padding `relatedSlugs` to make the block look fuller would be exactly the kind of
+unsupported claim §28 forbids.
+
+**`kingdom-of-urartu` was not edited to add a backlink.** The one-directional gap recorded in
+§31 now applies to three places instead of two.
+
+### Artwork — pending, and honestly so
+
+**No artwork ships with this article.** `public/` was inspected and holds exactly one
+candidate: `images/history/kingdom-of-urartu.webp`, the illustration made for the §23 history
+article. It was opened and rejected. It depicts an imagined Urartian fortress-city — a
+generic citadel under a snow-capped peak — not the excavated hilltop at Arin Berd, and using
+it here would put a made-up skyline under a caption naming a specific archaeological site.
+That is precisely the "generic illustration for a related topic" case §31 rejected for
+Etchmiadzin.
+
+So `erebuni-fortress` is declared in `PENDING_ARTWORK` with the reasoning recorded beside it,
+`ArticleLayout` renders the generated placeholder, `isGeneratedArtwork` stays false, and the
+caption reads *placeholder* rather than *AI-generated illustration*. `validate:content` prints
+`note: 1 slug(s) render generated artwork: erebuni-fortress` on every run. **No image was
+generated, copied, renamed or fabricated in this step**, and no existing file under `public/`
+was touched.
+
+### SEO
+
+Dedicated `seoTitle`, `metaDescription` and `summary` in all three editions; the H1 continues
+to render `title`. Lengths clear the validator's budgets with room: `seoTitle` 42/39/38
+characters against a 52 limit, `metaDescription` 154/155/148 against 70–165, `summary`
+128/96/98 words against 40–140.
+
+| Edition | `title` | `seoTitle` |
+|---|---|---|
+| `en` | Erebuni Fortress | Erebuni Fortress: Urartian Yerevan, 782 BC |
+| `hy` | Էրեբունի ամրոց | Էրեբունի՝ մ.թ.ա. 782 թ. ամրոցը Երևանում |
+| `hyw` | Էրեբունի բերդ | Էրեբունի՝ Ք.Ա. 782-ի բերդը Երեւանի մէջ |
+
+Structured data is the existing generic `Article` + `BreadcrumbList` graph. **No `Place`,
+`TouristAttraction`, `ArchaeologicalSite`, `LandmarksOrHistoricalBuildings`, `LocalBusiness`
+or `Church` node is emitted**, and the test now checks all six names — Erebuni is where the
+temptation would be strongest, since it has a coordinate in the registry and is a named
+archaeological site.
+
+### Tests
+
+`places.spec.ts` goes from 25 to 29 tests. Existing tests were extended rather than
+duplicated: card counts moved from 2 to 3, the per-locale loop opens all three articles, the
+SEO/canonical/hreflang test covers nine routes, the sitemap test covers nine article URLs,
+and the fallback test adds `Erebuni Fortress` to the English-leakage list.
+
+The structural change worth noting is the split of `PLACES` into `PLACES` (all three) and
+`ILLUSTRATED` (the two with covers). Artwork assertions run over `ILLUSTRATED`; asserting
+provenance for a slug that has none would be asserting a fiction. Moving Erebuni's cover in
+later is moving one slug between two lists.
+
+Four tests are new:
+
+1. **The historical filter returns Erebuni and nothing else**, and clearing it returns all
+   three. `validate:content` catches a filter matching nothing; only a rendered listing
+   catches a filter matching the *wrong* article.
+2. **The filter vocabulary is exactly `all, monastery, historical` in every edition**, labels
+   filled and never equal to the raw id, plus the assertion that exactly one article carries
+   `placeTypeId: "historical"`.
+3. **The article hero falls back to the placeholder while the artwork is pending** — inline
+   `<svg role="img">`, no raster `<img>`, and the *placeholder* caption rather than the
+   AI-illustration one. The guarded failure is not a missing picture, which is the declared
+   state, but a page claiming one.
+4. **Global search finds the third place under the Places group.** Scoped by href rather than
+   by title, because "Erebuni" legitimately also matches the Urartu history article.
+
+Three existing tests gained assertions specific to this step: the listing must render exactly
+one placeholder and must not serve `kingdom-of-urartu.webp` to any card; the registry test
+pins Etchmiadzin's WebP by name and re-asserts the Urartu illustration is still filed under
+history; and the coordinate test pins Erebuni away from the airport and the city centre.
+
+### Western Armenian — written, not converted
+
+The `hyw` article was written in Western Armenian: classical orthography throughout
+(`-ութիւն`, `-ուած`, spelled-out `եւ`), Western verb forms (`կը`/`կ՚`, `մը`/`մըն`,
+`կու տայ`, `կ՚արձանագրէ`), and Western vocabulary choices (`բերդ` rather than `ամրոց`,
+`մթերանոց` rather than `պահեստ`, `կեդրոն`, `պրոնզ`, `պազալթ`), each inherited from the
+existing `hyw` Urartu article rather than invented here. The validator enforces orthography
+mechanically — `և` and `ություն` fail the build — but cannot check grammar or register, so
+the following are flagged for native review:
+
+- **The whole article**, as with every `hyw` text since §16.
+- **Proper names**: `Էրեբունի`, `Արին բերդ`, `Արգիշտի Ա.`, `Մենուա`, `Ուրարտու`, `Բիայնիլի`,
+  `Խալդի`, `Տուշպա`, `Արգիշտիխինիլի`, `Թէյշեբաինի`, `Կարմիր բլուր`, `Երեւան`, and the two
+  modern scholars newly transliterated here — `Միրյօ Սալվինի` and `Կոնստանտին Յովհաննիսեան`.
+  These last two are the weakest points in the file.
+- **Archaeological and Urartological terminology** specifically: `միջնաբերդ`, `բերդ`,
+  `սեպագիր արձանագրութիւն`, `պեղում`, `հնագէտ`, `որմնանկար`, `մթերանոց`, `սիւնազարդ դահլիճ`,
+  `աշտարականման տաճար` and the transliterated `«սուսի»`. Western Armenian archaeological
+  register is not well represented in the repository and a diaspora reader will notice a
+  wrong choice immediately.
+- **`աքեմենեան`** and **`սատրապութիւն`**, both new to the `hyw` edition.
+
+### Verification
+
+Run in the order §32 established, to avoid the `.next` race: port 3002 checked clear,
+typecheck, validator, the places spec, the full suite, then the build.
+
+| Command | Result |
+|---|---|
+| `npm run typecheck` | PASS, 0 errors |
+| `npm run validate:content` | PASS — **108 entries** (was 105), with `note: 1 slug(s) render generated artwork: erebuni-fortress` |
+| `npx playwright test --project=desktop places.spec.ts` | **29/29** |
+| `npx playwright test` | **177 passed, 5 skipped, 0 failed** |
+| `npm run build` | PASS — **114 pages** (was 111), all twelve Places routes prerendered |
+
+The three new pages are `{hy,hyw,en}/places/erebuni-fortress`. No stale-server or
+build-clobbered-cache failure occurred in this pass; the ordering rule held.
+
+### Preserved, and checked rather than assumed
+
+`public/images/places/khor-virap.png` still hashes to `2d7420356bbe4188…3391a47c`, the value
+§30 recorded, and is still byte-identical to `public/hero-ararat.png`.
+`public/images/places/etchmiadzin-cathedral.webp` is unchanged. `git status` shows **no
+additions or modifications under `public/` at all** — the eleven changed files are the nine
+under `src/`, one spec under `tests/`, and this document. The homepage, `Hero.tsx`,
+`ARTWORK_PROVENANCE`, the
+listing and article components, the History/Writers/Works/Cuisine content and the Khor Virap
+and Etchmiadzin articles were not modified. `.claude/settings.json` was not touched.
+
+### Still open
+
+- **Artwork for Erebuni Fortress.** The one real debt this section adds, and the second time
+  the section has carried one. A place-specific WebP of the citadel on Arin Berd would clear
+  the `PENDING_ARTWORK` note and light up the hero, card, search thumbnail, OG image and
+  sitemap entry in one line.
+- **A dedicated Khor Virap image**, unchanged from §32.
+- **Western Armenian native review**, per the list above. This adds to the queue from §16,
+  §28, §29 and §31.
+- **Nothing links *to* any place yet.** `getRelatedArticles` is one-directional and no
+  History article lists a place among its `relatedSlugs` — including `kingdom-of-urartu`,
+  which this step deliberately did not edit.
+- **The remaining place types.** `museum`, `nature` and `settlement` still wait for their
+  first articles, and will arrive with them.
+
+No deployment was performed.
