@@ -87,6 +87,25 @@ export const PLACE_COORDINATES: Record<string, PlacePoint> = {
   // 40.1924614, 44.5222091; rounded to four places here. Wikipedia's infobox
   // agrees to within about a hundred metres at 40°11′31″N 44°31′16″E.
   matenadaran: { lat: 40.1925, lon: 44.5222, precision: "site" },
+
+  // The first `area` entry, and the reason that value exists in the union at all.
+  // A point on Lake Sevan is a centroid, not a place anyone stands: the lake is
+  // L-shaped, with the small north-western arm bent away from the large
+  // south-eastern one, so "the centre" is a convention rather than a fact.
+  //
+  // OpenStreetMap relation 36956 (`Սևանա լիճ`, natural=water, water=lake) gives
+  // 40.3925199, 45.3460867; rounded to four places here. The point was checked to
+  // be *in the water* rather than merely near it — an Overpass `is_in` query at
+  // the rounded value returns the lake polygon itself, together with Sevan
+  // National Park. Wikidata Q181932 puts its own point at 40.3106, 45.3492, some
+  // nine kilometres south and also inside the lake, which is corroboration of the
+  // area and a fair illustration of why this entry is not `site`.
+  //
+  // Deliberately not any of these: Sevan town at 40.5485, 44.9572; Sevanavank at
+  // 40.5640, 45.0108; the resort strip along the north-western shore. All three
+  // sit in the far corner of the lake, twenty-odd kilometres from the water this
+  // point marks, and all three are what a search for "Lake Sevan" tends to return.
+  "lake-sevan": { lat: 40.3925, lon: 45.3461, precision: "area" },
 };
 
 /** The recorded position for a place slug, or `undefined` when none is held. */

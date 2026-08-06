@@ -130,9 +130,28 @@ const IMAGES: Record<string, string> = {
  */
 export const PENDING_ARTWORK: readonly string[] = [
   /*
-   * Empty, and it has been empty after each of the three times it filled: §31→§32
-   * (Etchmiadzin), §33→§34 (Erebuni), §35→§36 (Matenadaran). Every article in the
-   * archive now ships its own cover.
+   * The fifth place, shipped ahead of its picture — the fourth time this has
+   * happened, and resolved the same way the previous three were.
+   *
+   * Every asset in `public/` was opened, not reasoned about from its filename.
+   * Nothing depicts Lake Sevan. The two that came closest were both rejected on
+   * sight: `history/bagratid-armenia.webp` is Ani, a walled city above a river
+   * gorge with no lake in it at all, and `history/kingdom-of-urartu.webp` is an
+   * imagined Urartian city in the country around Lake Van — a different lake, in
+   * a different part of the highland, and the one this article's own prose is at
+   * pains to distinguish. `hero-ararat.png` is Ararat over a plain. The rest are
+   * portraits, dishes and buildings.
+   *
+   * The tempting substitute here is not a wrong monument but a *mood*: any
+   * blue-water-and-mountains illustration would pass a glance. That is exactly
+   * what must not happen to an article whose subject is one specific lake whose
+   * shoreline was moved nineteen metres down and part of the way back up again.
+   */
+  "lake-sevan",
+
+  /*
+   * Emptied after each of the three times it filled before this one: §31→§32
+   * (Etchmiadzin), §33→§34 (Erebuni), §35→§36 (Matenadaran).
    *
    * Matenadaran is the one worth recording as it leaves, because the shortcut
    * rejected there is the kind that gets taken twice. The only asset anywhere near
@@ -144,6 +163,16 @@ export const PENDING_ARTWORK: readonly string[] = [
    * article was written to prevent. The picture that landed is the building.
    */
 ];
+
+/**
+ * A note on the file that did land for the Matenadaran, kept here because it is
+ * the kind of thing that gets forgotten once a slug leaves the list above.
+ *
+ * `matenadaran.webp` renders the facade in pale grey where the building — and
+ * this archive's own prose, three times over — describes dark basalt. Everything
+ * else about it is right, so it was registered as delivered rather than altered,
+ * and the discrepancy is recorded in §36 of PROJECT_STATE.md. It is still open.
+ */
 
 /** Path under `public/` for a slug's artwork, or `undefined` when none ships. */
 export function getImageSrc(slug: string): string | undefined {

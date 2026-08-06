@@ -861,6 +861,86 @@ const SOURCES: Record<string, Source[]> = {
       note: "Already registered for the alphabet article. Cited here for the fifth-century starting point the institute takes its name from: Mashtots, the schools and the translation work that produced the first Armenian books.",
     },
   ],
+
+  /*
+   * Lake Sevan is the first article here whose subject is measured rather than
+   * recorded, and the bibliography is sorted by *what kind of claim* each source
+   * can carry — because the article's argument is that six different kinds are
+   * routinely quoted in one breath.
+   *
+   * The National Park page is the management body under the Ministry of
+   * Environment, and it carries the physical description and the operating
+   * figures: elevation, area, volume, the twenty-eight inflowing rivers, the
+   * Hrazdan as sole outflow, and the size of the drawdown. An agency is a good
+   * source on the water body it administers and a poor one on whether its own
+   * policy is working, so it is used for the first and not the second.
+   *
+   * Ramsar carries the wetland designation and nothing else. Hovanesian and
+   * Bronozian carry the engineering history and the state of the restoration
+   * argument as it stood in the mid-1990s — a contemporary account of the
+   * problem, not a current status report, which is why the article dates it.
+   * Barseghyan and colleagues, at the Scientific Center of Zoology and
+   * Hydroecology of the Armenian Academy of Sciences, carry everything said about
+   * the trout; nothing about fish in this article goes beyond them. Stapanian
+   * carries the fact that the shoreline is monitored from orbit because it moves.
+   * Hewsen, already registered three times over, carries the lake's position in
+   * the highland and its place in historical settlement.
+   *
+   * Deliberately not used: the travel and resort pages that dominate a search for
+   * this subject. Several state a single fixed surface area and a single fixed
+   * depth, which is the specific error this article exists to avoid — those
+   * numbers are functions of the water level, and the water level has moved by
+   * about nineteen metres within living memory.
+   */
+  "lake-sevan": [
+    {
+      title: "Lake Sevan — \"Sevan\" National Park SNCO",
+      publisher: "Ministry of Environment of the Republic of Armenia, Yerevan",
+      identifier: { kind: "url", value: "https://sevan-park.am/en/2019/03/29/lake-sevan/" },
+      note: "The management body's own description of the lake it administers. Cited for the physical figures and their framing — surface elevation, present and historical area, volume and depth, the basin, the twenty-eight inflowing rivers, the Hrazdan as the only outflow, the proportion of water lost to evaporation, and the extent of the twentieth-century drawdown.",
+    },
+    {
+      title: "Lake Sevan — Ramsar Site no. 620",
+      publisher: "Ramsar Sites Information Service, Convention on Wetlands",
+      year: "designated 1993",
+      identifier: { kind: "url", value: "https://rsis.ramsar.org/ris/620" },
+      note: "Cited only for the designation itself: the lake and its basin were listed as a Wetland of International Importance in June 1993. The Convention registers wetlands for their ecological function, which is a different kind of recognition from the World Heritage listing cited for Etchmiadzin or the Memory of the World inscription cited for the Matenadaran.",
+    },
+    {
+      author: "Rafael Hovanesian and Harry Bronozian",
+      title: "Restoration and Management of Lake Sevan in Armenia: Problems and Prospects",
+      publisher: "Lake and Reservoir Management 9(1), 178–182, North American Lake Management Society",
+      year: "1994",
+      identifier: { kind: "doi", value: "10.1080/07438149409354754" },
+      note: "A contemporary account of the engineering programme and of what it had by then produced. Cited for the sequence of interventions — the outlet tunnel, the Sevan–Hrazdan cascade, the Arpa–Sevan diversion — and for the state of the restoration argument in the mid-1990s. Dated in the article rather than quoted as current, because a 1994 assessment of a continuing problem is evidence about 1994.",
+    },
+    {
+      author:
+        "Nelli Barseghyan, Tigran Vardanyan, Marine Dallakyan, Liana Poghosyan, Satenik Galstyan, Roza Barseghyan and Vardan Asatryan",
+      title:
+        "Unveiling Priority Actions and Opportunities for the Restoration of Endemic Trout (Salmo ischchan Kessler, 1877) in Lake Sevan",
+      publisher: "Hydrobiology 5(2), article 9, MDPI — Scientific Center of Zoology and Hydroecology, National Academy of Sciences of Armenia",
+      year: "2026",
+      identifier: { kind: "doi", value: "10.3390/hydrobiology5020009" },
+      note: "The whole of what this article says about fish rests here: the endemic trout and its historical forms, the loss of spawning grounds as the level fell, the introduced whitefish and crayfish, and the restoration work now attempted. Cited rather than paraphrased loosely because the status of each form is precisely the thing that gets stated too confidently elsewhere.",
+    },
+    {
+      author: "Martin A. Stapanian",
+      title: "QuickBird satellite imagery as a tool for restoration and rehabilitation of Lake Sevan, Armenia",
+      publisher: "Hydrobiologia 661(1), 81–83, Springer",
+      year: "2010",
+      identifier: { kind: "doi", value: "10.1007/s10750-010-0513-3" },
+      note: "Cited for one claim only, and a telling one: the shoreline of this lake is monitored from orbit because it is not fixed. A coast that has to be re-surveyed as the water rises is a different object from the coastline on an old map.",
+    },
+    {
+      author: "Robert H. Hewsen",
+      title: "Armenia: A Historical Atlas",
+      publisher: "University of Chicago Press",
+      year: "2001",
+      identifier: { kind: "isbn", value: "9780226332284" },
+      note: "Already registered for three other articles. Cited here for the lake's position within the Armenian Highland and for the historical geography of the basin — the districts around it, and the routes that made a high closed basin worth settling.",
+    },
+  ],
 };
 
 /** The bibliography for one article. Empty only if the slug is unknown. */
