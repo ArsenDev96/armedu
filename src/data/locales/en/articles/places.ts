@@ -529,4 +529,217 @@ export const placeArticles: Article[] = [
     ],
     relatedSlugs: ["kingdom-of-urartu"],
   },
+  {
+    slug: "matenadaran",
+    href: "/places/matenadaran",
+    category: "places",
+    categoryLabel: "Places",
+    title: "Matenadaran",
+    seoTitle: "Matenadaran: Armenian Manuscripts in Yerevan",
+    placeTypeId: "museum",
+    featured: false,
+    imageSeed: "matenadaran",
+    keywords: [
+      "Matenadaran",
+      "Մատենադարան",
+      "Mesrop Mashtots Institute of Ancient Manuscripts",
+      "Armenian manuscripts",
+      "illuminated manuscripts",
+      "Yerevan",
+    ],
+    excerpt:
+      "The national repository of ancient manuscripts in Yerevan — an archive, a research institute and a museum at once, holding a collection assembled over centuries in monasteries and brought here in the twentieth.",
+    metaDescription:
+      "The Matenadaran in Yerevan: what the Mesrop Mashtots Institute of Ancient Manuscripts is, where its collection came from, and what its manuscripts hold.",
+    summary:
+      "The Matenadaran is the national repository of ancient manuscripts in Yerevan, formally the Mesrop Mashtots Institute of Ancient Manuscripts, and it is three things at once: an archive, a research institute and a museum. Its core is the manuscript library of Etchmiadzin, built up over centuries, nationalised by decree in 1920 and moved to Yerevan in 1939. The institution around that collection is far younger than the books in it. It was reorganised as a research institute in 1959, when it moved into the building on Mashtots Avenue that most people picture, and it took Mashtots's name in 1962. Only a small selection of what it holds is ever on display.",
+    intro:
+      "The Matenadaran stands at the top of Mesrop Mashtots Avenue in Yerevan: a dark stone building above a broad flight of steps, with a seated statue of Mashtots in front of it. Its formal name is the Mesrop Mashtots Institute of Ancient Manuscripts, and the plainest description of it is a library that became a museum without ever ceasing to be a working archive. The manuscripts inside are medieval. The institution around them is modern, and the building is younger still — it took its present form in 1959. Holding those three ages apart is the first thing worth doing here, because the site is routinely described as though the building were as old as its contents.",
+    author: "Armat Editorial Team",
+    updated: "2026-08-06",
+    keyFacts: [
+      { label: "Kind of place", value: "Manuscript repository, research institute and museum" },
+      { label: "Where", value: "Top of Mesrop Mashtots Avenue, Kentron district, Yerevan" },
+      { label: "Formal name", value: "Mesrop Mashtots Institute of Ancient Manuscripts" },
+      { label: "The word", value: "Matenadaran — a depository of books, in Armenian" },
+      { label: "Present institution", value: "Research institute since 1959; named after Mashtots in 1962" },
+      { label: "Recognition", value: "Inscribed on the UNESCO Memory of the World Register, 1997" },
+    ],
+    sections: [
+      {
+        id: "where-it-is",
+        heading: "Where the Matenadaran is",
+        paragraphs: [
+          "The Matenadaran closes the north end of Mesrop Mashtots Avenue, one of the main streets of central Yerevan, standing on a terrace at the point where the ground begins to rise towards the hills above the city. The avenue runs straight at it, so the building is visible along its whole length and functions as the street's full stop.",
+          "The building is deliberately unlike the offices around it. It is faced in dark basalt, set behind a flight of steps, and its detailing borrows from Armenian medieval architecture rather than from the classicism of the surrounding blocks — an arcaded front, carved figures of scholars and writers along the facade, and a seated statue of Mashtots with a pupil at the foot of the steps.",
+          "Two neighbours are often confused with it and are not part of it. The Cascade complex lies a few hundred metres to the west and belongs to a different institution entirely, and the statue in front of the steps is a monument rather than the collection. What matters is behind and beneath the facade: the reading rooms, the laboratories and the vaults.",
+        ],
+      },
+      {
+        id: "what-it-is",
+        heading: "What the institution is",
+        paragraphs: [
+          "The Matenadaran does three jobs that are usually done by three separate bodies. It is a repository — the national archive of Armenian manuscripts, responsible for keeping them physically intact. It is a research institute, with scholars employed to edit, catalogue and study what it holds. And it is a museum, with an exhibition open to the public.",
+          "That combination explains most of what a visitor notices. The exhibition is small relative to the collection because the collection is not primarily an exhibition: the great majority of the manuscripts are in storage, in conservation, or being worked on, and were never intended to be shown continuously. Nothing is being withheld; a page of parchment simply cannot spend decades under light.",
+          "The formal name — the Mesrop Mashtots Institute of Ancient Manuscripts — names the research body, and *Matenadaran* is what everyone actually says. The two are the same organisation. Signage, publications and catalogues use both, which is worth knowing before trying to reconcile them.",
+        ],
+      },
+      {
+        id: "the-name",
+        heading: "The word, and whose name it carries",
+        paragraphs: [
+          "*Matenadaran* is an ordinary Armenian compound meaning a depository of books, and it is much older than this institution. Medieval Armenian monasteries kept matenadarans of their own, and the word is used of those collections in medieval sources; the building in Yerevan took a common noun as a proper name, in the way a national library might.",
+          "The institute is named after Mesrop Mashtots, who devised the Armenian alphabet early in the fifth century and, with Sahak Partev, set up the schools and translation work that produced the first Armenian books. Naming a manuscript repository after him is not decorative: every object in the building is written in the script he designed, and the institution presents itself as the descendant of the copying tradition he began.",
+          "The name is also younger than the institution, which is the kind of detail this archive exists to keep straight. The collection was already in Yerevan and already a research institute before it was given Mashtots's name in 1962. That is a naming decision of the Soviet period, not a foundation date, and the two are frequently reported as one.",
+        ],
+        links: [{ phrase: "Mesrop Mashtots, who devised the Armenian alphabet", slug: "mesrop-mashtots-armenian-alphabet" }],
+      },
+      {
+        id: "before-the-institution",
+        heading: "How manuscripts were kept before there was an institute",
+        paragraphs: [
+          "For more than a thousand years, Armenian manuscripts were preserved by the institution that produced them. Monastic scriptoria copied, bound and stored books, and monasteries across the Armenian lands held collections of their own; a manuscript's survival depended on the roof over it and on someone thinking it worth recopying when the parchment wore out.",
+          "That system was effective and extremely fragile. Manuscripts were burned, looted and dispersed in every period of upheaval, and the ones that reached the modern era did so through repeated rescue — carried from one monastery to another, buried, ransomed, and in a number of famous cases divided between two carriers so that at least half would survive.",
+          "The Mother See at Etchmiadzin gradually became the largest single accumulation. Its library grew from the fifteenth century onwards, after the Catholicosate was restored there in 1441, and it was catalogued repeatedly in the modern period: an inventory in 1828 recorded a few hundred manuscripts, and by 1913 the count had passed four thousand. That library is the direct ancestor of what is in Yerevan today.",
+        ],
+      },
+      {
+        id: "how-the-collection-moved",
+        heading: "How the collection came to Yerevan",
+        paragraphs: [
+          "The move happened in stages, over roughly twenty years, and each stage has its own date. During the First World War the manuscript library of Etchmiadzin was evacuated to Moscow for safety and kept there from 1915 until 1922. In the same years the Catholicos organised the rescue of manuscripts from Vaspurakan, Mush and Erzurum, ahead of and during the Armenian Genocide; those that were saved were added to the collection, and a great deal of what was not saved is simply gone.",
+          "In December 1920 the Matenadaran of Etchmiadzin was nationalised by decree of the new Soviet Armenian government. Ownership changed then; location did not. The books stayed at Etchmiadzin, now as state rather than church property, for most of the following two decades.",
+          "The physical transfer to Yerevan came in 1939, when just under ten thousand Armenian manuscripts and several hundred in other languages were moved to the state library in the capital. Those three events — evacuation, nationalisation, transfer — are often compressed into a single sentence about the collection being \"moved to Yerevan\", and separating them is the difference between a history and a slogan.",
+        ],
+        links: [{ phrase: "the manuscript library of Etchmiadzin", slug: "etchmiadzin-cathedral" }],
+      },
+      {
+        id: "the-building-and-the-institute",
+        heading: "The building, and the institute inside it",
+        paragraphs: [
+          "The building most people mean by \"the Matenadaran\" is a work of the mid-twentieth century. It was designed by the architect Mark Grigoryan, begun in 1945, halted for years during the post-war period, and finished in the second half of the 1950s. Sources differ on the exact completion year, which is what usually happens to a project that stopped and restarted.",
+          "Its architecture quotes the medieval without pretending to be medieval. The dark basalt, the arcading and the carved figures are a deliberate reference to Armenian church building, applied to a modern museum-and-archive programme with vaults, reading rooms and laboratories behind them. A visitor who reads the facade as an old building has read it exactly as its designer intended and exactly wrongly.",
+          "In 1959 the collection moved into that building and the organisation was reorganised as a scientific research institute — the moment the modern Matenadaran begins in institutional terms. Three years later it was named after Mesrop Mashtots. Neither of those is the date the collection was formed, and neither is the date the building was designed.",
+          "A second, much larger research building was added behind the original in 2011, which is where most of the storage, conservation and scholarly work now happens. The 1950s building remains the public face and the museum; the working institute has largely moved behind it.",
+        ],
+      },
+      {
+        id: "what-it-holds",
+        heading: "What it holds, and why the numbers differ",
+        paragraphs: [
+          "The collection is overwhelmingly Armenian but not only Armenian: alongside the Armenian manuscripts there are books in Arabic, Persian, Greek, Syriac, Latin, Ethiopic and other languages, some of them acquired through the same monastic networks that produced the Armenian ones. The subjects run far past scripture into history, law, medicine, mathematics, astronomy, philosophy, grammar and music.",
+          "Published totals do not agree, and the reason is worth stating rather than hiding. UNESCO's Memory of the World register entry, made in 1997, describes a collection of about seventeen thousand manuscripts. The institution's own account gives roughly twenty thousand. Figures that count fragments and scrolls separately run higher again, and the archival documents — decrees, deeds, correspondence — are counted in a different series altogether, in the hundreds of thousands.",
+          "None of those figures is wrong; they count different things at different dates. This archive therefore describes the collection rather than pinning it to one number, which is also the honest answer to the question a visitor usually asks first. What can be said flatly is that it is one of the largest collections of Armenian manuscripts anywhere, and that no single visit sees more than a fraction of it.",
+        ],
+      },
+      {
+        id: "inside-the-manuscripts",
+        heading: "Inside the manuscripts",
+        paragraphs: [
+          "An Armenian manuscript is a made object before it is a text, and the museum's exhibition is arranged so that this is visible. Most are written on parchment in the earlier centuries and on paper later, in scripts that changed enough over time for a specialist to date a hand within a century. Bindings are typically wooden boards covered in leather, often blind-stamped, sometimes with metal fittings, and occasionally in silver.",
+          "The illuminated manuscripts are what most visitors come for. Armenian illumination has its own repertoire — canon tables framed as architecture, evangelist portraits, marginal ornament built from birds and plant forms — and its own workshops, some attached to particular monasteries and identifiable by style. The pigments are mineral and organic, and the deep blues and reds have survived on the page with remarkable strength; the catalogue literature on the Morgan Library's 1994 exhibition, *Treasures in Heaven*, is a good introduction to what is being looked at.",
+          "The people who made them are usually named. A manuscript was written by a scribe and, if illustrated, painted by an illuminator, and the two were often different people; the colophon at the end — in Armenian a *hishatakaran*, a memorial record — customarily names them, along with the patron, the place and the date.",
+          "Those colophons are the reason Armenian manuscripts matter to historians who cannot read Armenian. Scribes wrote down what was happening around them: invasions, taxes, famines, prices, the death of a bishop. Avedis Sanjian's edition of the colophons of 1301 to 1480 assembled them as a historical source in their own right, and the practice makes a collection of religious books into a running record of everyday life across four centuries.",
+        ],
+      },
+      {
+        id: "research-and-conservation",
+        heading: "The work behind the exhibition",
+        paragraphs: [
+          "Most of what the Matenadaran does is invisible to a visitor. Manuscripts are catalogued and described, texts are edited and published, and the institute produces scholarly editions, facsimiles and a journal; the catalogue of the collection is itself a decades-long project, because describing a manuscript properly means recording its contents, its hand, its illumination, its binding and its colophons.",
+          "Conservation is the other half. Parchment, paper, pigment and leather each fail in their own way, and the institute runs laboratories for stabilising and repairing them, along with controlled storage — this is the reason the collection is not simply displayed. Digitisation has been added to that work, which is what allows a manuscript to be read by scholars anywhere while the object itself stays in a vault.",
+          "The preservation argument is also why the institution exists at all. A dispersed collection in a hundred monasteries survived by luck; a single, funded, professionally staffed repository is an attempt to stop relying on luck. That is a modern idea, and the Matenadaran is one of the clearest examples of it applied to a medieval inheritance.",
+        ],
+      },
+      {
+        id: "before-you-see-it",
+        heading: "What to understand before seeing it",
+        paragraphs: [
+          "The first thing is the gap between the collection and the display. The exhibition shows a curated selection, rotated for conservation reasons, and a visitor who arrives expecting to see thousands of manuscripts will see dozens. That is the correct arrangement, not a disappointment to be complained about.",
+          "The second is the layering of dates. The manuscripts are medieval; the collection was assembled over centuries at Etchmiadzin; the institution is a creation of the twentieth century; the building is of the 1950s; the name dates from 1962. Every one of those is sometimes reported as \"the Matenadaran was founded in…\", and the article above separates them precisely because the compressed version is so common.",
+          "The third is that this is a working institute rather than only a museum, which affects what a visitor is looking at. Behind the exhibition cases are readers, conservators and cataloguers doing the work that keeps the objects in the cases legible — and the objects themselves are, in the end, the survivors of a very long process of copying, hiding and rescue.",
+        ],
+      },
+    ],
+    importantDates: [
+      {
+        year: "Fifth century",
+        event:
+          "Mesrop Mashtots devises the Armenian alphabet and the first Armenian books are written, beginning the copying tradition the institute descends from.",
+      },
+      {
+        year: "1441",
+        event:
+          "The Catholicosate is restored at Etchmiadzin, and the manuscript library that becomes the core of this collection begins to form there.",
+      },
+      {
+        year: "1828",
+        event: "The first inventory of the Etchmiadzin manuscripts records a few hundred items; later catalogues pass four thousand by 1913.",
+      },
+      {
+        year: "1915–1922",
+        event:
+          "The collection is evacuated to Moscow for safety during the First World War, while manuscripts are rescued from Vaspurakan, Mush and Erzurum during the Armenian Genocide.",
+      },
+      {
+        year: "1920",
+        event: "The Matenadaran of Etchmiadzin is nationalised by decree in December. The books stay where they are; the ownership changes.",
+      },
+      {
+        year: "1939",
+        event:
+          "The collection is physically transferred from Etchmiadzin to the state library in Yerevan — just under ten thousand Armenian manuscripts and several hundred in other languages.",
+      },
+      {
+        year: "1945",
+        event: "Construction of the present building begins to Mark Grigoryan's design; work is halted for years and finished in the second half of the 1950s.",
+      },
+      {
+        year: "1959",
+        event:
+          "The collection moves into the new building and the organisation is reorganised as a scientific research institute — the start of the modern Matenadaran.",
+      },
+      {
+        year: "1962",
+        event: "The institute is named after Mesrop Mashtots.",
+      },
+      {
+        year: "1997",
+        event: "The manuscript collection is inscribed on the UNESCO Memory of the World Register.",
+      },
+      {
+        year: "2011",
+        event: "A large new research and storage building opens behind the original, and most of the institute's working life moves into it.",
+      },
+    ],
+    significance: {
+      heading: "Why the Matenadaran matters",
+      paragraphs: [
+        "The Matenadaran is where a thousand years of Armenian writing ended up, and the reason it exists in one place is that keeping manuscripts scattered had repeatedly proved fatal. Everything in the building came through monasteries that were sacked, evacuations, a genocide and two changes of ownership, and the institution is best understood as the point at which that survival stopped being accidental and started being organised.",
+        "It also holds more than Armenian history. Fifth-century Armenian translators preserved Greek and Syriac works whose originals are lost, and the colophons written by ordinary scribes record events across the medieval Near East that no chronicle bothered with. A collection assembled by one people to keep its own books turns out to be a source for the history of everyone around them.",
+      ],
+    },
+    interestingFacts: [
+      "*Matenadaran* is not a proper name but an ordinary Armenian word for a depository of books; medieval monasteries had matenadarans of their own.",
+      "The institution was nationalised in 1920 but the manuscripts did not physically leave Etchmiadzin until 1939 — ownership and location changed nineteen years apart.",
+      "The institute was given Mashtots's name in 1962, years after it was already a research institute, so the name is not a foundation date.",
+      "The collection was inscribed on the UNESCO Memory of the World Register in 1997, which recognises documentary heritage rather than buildings or sites.",
+      "The colophons Armenian scribes wrote at the end of their manuscripts record wars, taxes, prices and weather, and are used as a historical source by scholars who study the medieval Near East generally.",
+    ],
+    relatedFigures: [
+      {
+        name: "Mesrop Mashtots",
+        lifespan: "about 361 – 440",
+        description:
+          "Creator of the Armenian alphabet and, with Sahak Partev, founder of the schools and translation work that produced the first Armenian books. The institute was given his name in 1962; every manuscript it holds is written in his script.",
+      },
+      {
+        name: "Mark Grigoryan",
+        lifespan: "1900–1978",
+        description:
+          "The architect of the present building, and chief architect of Yerevan in the middle of the twentieth century. His design quotes Armenian medieval building in dark basalt while housing a modern archive, museum and institute behind the facade.",
+      },
+    ],
+    relatedSlugs: ["mesrop-mashtots-armenian-alphabet", "etchmiadzin-cathedral", "adoption-of-christianity"],
+  },
 ];

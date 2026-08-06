@@ -35,18 +35,27 @@ const ETCHMIADZIN = "etchmiadzin-cathedral";
  */
 const EREBUNI = "erebuni-fortress";
 
-/** All three places, for the assertions that must hold of every article in the section. */
-const PLACES = [SLUG, ETCHMIADZIN, EREBUNI] as const;
+/**
+ * The fourth place, and the first under the `museum` filter.
+ *
+ * Like Etchmiadzin (§31) and Erebuni (§33) before it, it ships ahead of its
+ * artwork, so it is the one slug in `PENDING_ARTWORK` and the one card on the
+ * listing that renders the generated placeholder. §34 predicted this would
+ * happen again and kept the two-list split below for exactly this reason.
+ */
+const MATENADARAN = "matenadaran";
+
+/** All four places, for the assertions that must hold of every article in the section. */
+const PLACES = [SLUG, ETCHMIADZIN, EREBUNI, MATENADARAN] as const;
 
 /**
- * The places whose artwork has actually landed — currently all of them.
+ * The places whose artwork has actually landed.
  *
- * Kept as its own list rather than folded back into `PLACES` because the section
- * has now been in the split state twice (§31 and §33), and each time the fix was
- * to move one slug between these two lines. Artwork assertions run over this one:
- * claiming provenance for a slug that has no file would be asserting a fiction,
- * and the moment a fourth place is written ahead of its picture that difference
- * matters again.
+ * Kept as its own list rather than folded into `PLACES` because the section has
+ * now been in the split state three times (§31, §33, §35), and each time the fix
+ * was to move one slug between these two lines. Artwork assertions run over this
+ * one: claiming provenance for a slug that has no file would be asserting a
+ * fiction.
  */
 const ILLUSTRATED = [SLUG, ETCHMIADZIN, EREBUNI] as const;
 
@@ -100,9 +109,9 @@ for (const locale of LOCALES) {
     await expect(
       page.getByRole("heading", { name: dict.listing.places.title, level: 1 }),
     ).toBeVisible();
-    await expect(cards(page)).toHaveCount(3);
+    await expect(cards(page)).toHaveCount(4);
 
-    // All three places open in this edition, under their own titles. The loop is
+    // All four places open in this edition, under their own titles. The loop is
     // what catches an article authored in `hy` and forgotten in the other two —
     // the listing would still render, with one card short and no error anywhere.
     for (const slug of PLACES) {
@@ -123,7 +132,12 @@ for (const locale of LOCALES) {
 
 test("the Armenian editions never fall back to the English place title", async ({ page }) => {
   await page.goto("/hy/places");
-  for (const english of ["Khor Virap", "Etchmiadzin Cathedral", "Erebuni Fortress"]) {
+  for (const english of [
+    "Khor Virap",
+    "Etchmiadzin Cathedral",
+    "Erebuni Fortress",
+    "Matenadaran",
+  ]) {
     await expect(page.getByText(english, { exact: true })).toHaveCount(0);
   }
   for (const slug of PLACES) {
@@ -133,20 +147,22 @@ test("the Armenian editions never fall back to the English place title", async (
 
 test("the places listing filters by kind of site, and keeps it in the URL", async ({ page }) => {
   await page.goto("/en/places");
-  await expect(cards(page)).toHaveCount(3);
+  await expect(cards(page)).toHaveCount(4);
 
   await page.getByRole("button", { name: placeTypeLabel("en", "monastery") }).click();
 
-  // Two of the three places are monasteries and churches, so the filter now
-  // genuinely narrows. With a second type in the vocabulary this is the first
-  // time the pill can be wrong without the count looking wrong.
+  // Two of the four places are monasteries and churches, so the filter genuinely
+  // narrows. With four articles and four pills, a filter that quietly matched
+  // everything would no longer look like a plausible count.
   await expect(cards(page)).toHaveCount(2);
   for (const slug of [SLUG, ETCHMIADZIN]) {
     await expect(
       page.getByRole("link", { name: articleTitle("en", slug) }).first(),
     ).toBeVisible();
   }
-  await expect(page.getByRole("link", { name: articleTitle("en", EREBUNI) })).toHaveCount(0);
+  for (const slug of [EREBUNI, MATENADARAN]) {
+    await expect(page.getByRole("link", { name: articleTitle("en", slug) })).toHaveCount(0);
+  }
   await expect(page).toHaveURL(/[?&]type=monastery/);
   // The filter key is `type`, like cuisine and works — not `period`.
   await expect(page).not.toHaveURL(/period=/);
@@ -158,31 +174,42 @@ test("the places listing filters by kind of site, and keeps it in the URL", asyn
   ).toHaveAttribute("aria-pressed", "true");
 });
 
-test("the historical filter returns Erebuni and nothing else", async ({ page }) => {
+test("each single-article filter returns exactly its own article", async ({ page }) => {
   /*
-    The new type, and the failure worth catching: a filter id added to the
+    The two narrow types, and the failure worth catching: a filter id added to the
     vocabulary but attached to no article — or attached to the wrong one — is a
-    pill that returns the empty state or a monastery. `validate:content` fails on
-    the first of those; only a rendered listing catches the second.
+    pill that returns the empty state or somebody else's article.
+    `validate:content` fails on the first of those; only a rendered listing
+    catches the second, and with two one-article filters side by side the pair
+    could also be crossed over without either count changing.
   */
-  await page.goto("/en/places");
-  await page.getByRole("button", { name: placeTypeLabel("en", "historical") }).click();
+  for (const [type, slug] of [
+    ["historical", EREBUNI],
+    ["museum", MATENADARAN],
+  ] as const) {
+    await page.goto("/en/places");
+    await page.getByRole("button", { name: placeTypeLabel("en", type) }).click();
 
-  await expect(cards(page)).toHaveCount(1);
-  await expect(
-    page.getByRole("link", { name: articleTitle("en", EREBUNI) }).first(),
-  ).toBeVisible();
-  for (const slug of [SLUG, ETCHMIADZIN]) {
-    await expect(page.getByRole("link", { name: articleTitle("en", slug) })).toHaveCount(0);
+    await expect(cards(page), type).toHaveCount(1);
+    await expect(
+      page.getByRole("link", { name: articleTitle("en", slug) }).first(),
+      type,
+    ).toBeVisible();
+    for (const other of PLACES.filter((entry) => entry !== slug)) {
+      await expect(
+        page.getByRole("link", { name: articleTitle("en", other) }),
+        `${type} must not show ${other}`,
+      ).toHaveCount(0);
+    }
+    await expect(page).toHaveURL(new RegExp(`[?&]type=${type}`));
+
+    // Clearing returns all four, so the pill filters rather than replaces the set.
+    await page.getByRole("button", { name: placeTypeLabel("en", "all") }).click();
+    await expect(cards(page), type).toHaveCount(4);
   }
-  await expect(page).toHaveURL(/[?&]type=historical/);
-
-  // Clearing returns all three, so the pill filters rather than replaces the set.
-  await page.getByRole("button", { name: placeTypeLabel("en", "all") }).click();
-  await expect(cards(page)).toHaveCount(3);
 });
 
-test("the filter vocabulary is exactly the three ids, in every edition", () => {
+test("the filter vocabulary is exactly the four ids, in every edition", () => {
   /*
     Ids are shared across editions and only the labels are translated. A locale
     that added, dropped or renamed one would still compile and still render, and
@@ -192,7 +219,7 @@ test("the filter vocabulary is exactly the three ids, in every edition", () => {
     expect(
       bundle(locale).placeTypes.map((filter) => filter.id),
       `${locale} placeTypes`,
-    ).toEqual(["all", "monastery", "historical"]);
+    ).toEqual(["all", "monastery", "historical", "museum"]);
     // Every label is filled and none is the raw id leaking through.
     for (const filter of bundle(locale).placeTypes) {
       expect(filter.label.trim().length, `${locale} ${filter.id} label`).toBeGreaterThan(0);
@@ -200,11 +227,17 @@ test("the filter vocabulary is exactly the three ids, in every edition", () => {
     }
   }
 
-  // And exactly one article carries the new id — the promise §9 of this step makes.
-  const historical = bundle("hy")
-    .articles.filter((entry) => entry.category === "places" && entry.placeTypeId === "historical")
-    .map((entry) => entry.slug);
-  expect(historical).toEqual([EREBUNI]);
+  // Each narrow type matches exactly the article that earned it, and the two
+  // monasteries are still the only articles under `monastery`.
+  const under = (type: string) =>
+    bundle("hy")
+      .articles.filter((entry) => entry.category === "places" && entry.placeTypeId === type)
+      .map((entry) => entry.slug)
+      .sort();
+
+  expect(under("historical")).toEqual([EREBUNI]);
+  expect(under("museum")).toEqual([MATENADARAN]);
+  expect(under("monastery")).toEqual([ETCHMIADZIN, SLUG].sort());
 });
 
 test("the featured block comes from the flag, not a hard-coded slug", async ({ page }) => {
@@ -314,6 +347,20 @@ test("the third place is findable under the places group too", async ({ page }) 
   await expect(main.locator(`a[href="/en/places/${EREBUNI}"]`).first()).toBeVisible();
 });
 
+test("the fourth place is findable under the places group too", async ({ page }) => {
+  /*
+    Scoped by href for the same reason as Erebuni: "Matenadaran" also matches the
+    history article on the alphabet, which names it in its own legacy section and
+    can legitimately rank above the place.
+  */
+  const dict = ui("en");
+  await page.goto("/en/search?q=Matenadaran");
+
+  const main = page.getByRole("main");
+  await expect(main.getByRole("heading", { name: dict.search.groupPlaces, level: 2 })).toBeVisible();
+  await expect(main.locator(`a[href="/en/places/${MATENADARAN}"]`).first()).toBeVisible();
+});
+
 test("the empty search page offers places as a place to start", async ({ page }) => {
   await page.goto("/en/search");
   await expect(
@@ -326,15 +373,18 @@ test("the empty search page offers places as a place to start", async ({ page })
 /* -------------------------------------------------------------------------- */
 
 /*
-  All three places now ship a cover, and each registration is a single `IMAGES`
-  entry that has to light up six surfaces — hero, featured block, card, search
-  thumbnail, social tags, sitemap — every one reached through `getImageSrc`, and
-  every one silent if the registration is wrong.
+  Three of the four places ship a cover, and each registration is a single
+  `IMAGES` entry that has to light up six surfaces — hero, featured block, card,
+  search thumbnail, social tags, sitemap — every one reached through
+  `getImageSrc`, and every one silent if the registration is wrong.
 
   The caption is the assertion that matters most. `isGeneratedArtwork` flips to
   true the moment a slug enters the registry, and that is what makes the page
   state "AI-generated" rather than "placeholder". A registration that rendered
   the picture without the disclosure would look completely correct.
+
+  These run over `ILLUSTRATED`; the pending slug's placeholder branch is asserted
+  separately below.
 */
 
 test("each article hero renders its own registered artwork and names the AI provenance", async ({
@@ -379,7 +429,89 @@ test("each article hero renders its own registered artwork and names the AI prov
   }
 });
 
-test("the listing renders each place's own artwork, and no placeholder", async ({
+test("the article hero falls back to the placeholder while the artwork is pending", async ({
+  page,
+}) => {
+  /*
+    The other half of the caption logic. `isGeneratedArtwork` is false for a slug
+    outside `IMAGES`, so the hero must render the inline generated `<svg>` and the
+    caption must say "placeholder" — not the AI-illustration wording, which would
+    claim a picture that was never made.
+
+    Every edition, because the branch reads a locale dictionary and an article
+    complete in three languages can still take the wrong branch in one of them.
+  */
+  for (const locale of LOCALES) {
+    const dict = ui(locale);
+    await page.goto(`/${locale}/places/${MATENADARAN}`);
+
+    await expect(page.locator("header figure svg[role='img']"), locale).toHaveCount(1);
+    await expect(page.locator("header figure img"), locale).toHaveCount(0);
+    await expect(page.locator("header figcaption"), locale).toHaveText(
+      dict.article.imagePlaceholderCaption.replace("{title}", articleTitle(locale, MATENADARAN)),
+    );
+    await expect(page.locator("header figcaption"), locale).not.toHaveText(
+      dict.article.imageAiIllustrationCaption.replace("{title}", articleTitle(locale, MATENADARAN)),
+    );
+  }
+});
+
+test("the pending place's metadata borrows no other article's artwork", async ({ page }) => {
+  /*
+    A slug with no file falls back to the shared site card, and the failure this
+    guards against is the quiet alternative: inheriting a sibling place's cover,
+    or the Mashtots portrait from the history article whose name this institute
+    carries. Either would be invisible on the page and wrong in every share
+    preview and in the structured data.
+  */
+  await page.goto(`/en/places/${MATENADARAN}`);
+
+  for (const meta of ['meta[property="og:image"]', 'meta[name="twitter:image"]']) {
+    await expect(page.locator(meta)).toHaveAttribute(
+      "content",
+      "https://armat.site/og-default.png",
+    );
+  }
+
+  /*
+    The structured data goes further than the share tags, and correctly so. An
+    `og:image` is a card for a link preview and the site default is the right
+    thing to put there; `Article.image` is a claim that a picture *depicts this
+    article*, so `articleLd` omits the property entirely rather than nominating
+    the generic site card. This asserts that distinction rather than flattening
+    it — the first version of this test expected og-default here and was wrong.
+  */
+  const raw = await page.locator('script[type="application/ld+json"]').first().textContent();
+  const graph = (JSON.parse(raw ?? "") as { "@graph": Record<string, unknown>[] })["@graph"];
+  const article = graph.find((entry) => entry["@type"] === "Article");
+  expect(article, "the Article node itself must still be emitted").toBeDefined();
+  expect(article?.image, "a pending place must declare no Article image at all").toBeUndefined();
+
+  /*
+    And no sibling's file anywhere in the metadata — not in a meta tag, not in the
+    structured data, and not in the hero.
+
+    Scoped to those surfaces rather than to the whole document on purpose: this
+    article's `relatedSlugs` include Etchmiadzin, so that place's cover appears
+    *lower down the page* on a related-article card, which is correct and is what
+    a first, broader version of this assertion wrongly failed on. Borrowing is
+    only a fault when the borrowed file is presented as this article's own.
+  */
+  const metaValues = await page
+    .locator("head meta[content]")
+    .evaluateAll((nodes) => nodes.map((node) => node.getAttribute("content") ?? ""));
+  const surfaces = [...metaValues, raw ?? ""].join(" ");
+
+  for (const fragment of [...Object.values(ARTWORK), "/images/history/mesrop-mashtots.webp"]) {
+    expect(
+      surfaces.includes(fragment),
+      `${fragment} must not appear in the pending place's metadata`,
+    ).toBe(false);
+  }
+  await expect(page.locator("header figure img")).toHaveCount(0);
+});
+
+test("the listing renders each place's own artwork, and one honest placeholder", async ({
   page,
 }) => {
   await page.goto("/en/places");
@@ -404,20 +536,22 @@ test("the listing renders each place's own artwork, and no placeholder", async (
   }
 
   // Nothing else leaked in — a stray og-default or a wrong file fails here. In
-  // particular the history article's Urartu illustration must not have been
-  // pressed into service as a stand-in for Erebuni.
+  // particular no history illustration must have been pressed into service as a
+  // stand-in for a place whose own picture has not arrived.
   const allowed = Object.values(ARTWORK) as string[];
   expect(
     sources.every((src) => allowed.some((path) => src.includes(path))),
     `unexpected image on the places listing; got ${sources.join(", ")}`,
   ).toBe(true);
-  expect(
-    sources.some((src) => src.includes("kingdom-of-urartu")),
-    "the Urartu illustration must not stand in for Erebuni",
-  ).toBe(false);
+  for (const borrowed of ["kingdom-of-urartu", "mesrop-mashtots"]) {
+    expect(
+      sources.some((src) => src.includes(borrowed)),
+      `${borrowed} must not stand in for a place`,
+    ).toBe(false);
+  }
 
-  // And no card falls back to the generated placeholder any more.
-  await expect(page.locator("main svg[role='img']")).toHaveCount(0);
+  // Exactly one card falls back to the generated placeholder: the pending one.
+  await expect(page.locator("main svg[role='img']")).toHaveCount(1);
 });
 
 test("a place's search thumbnail renders the artwork", async ({ page }) => {
@@ -483,26 +617,42 @@ test("the sitemap carries every place's illustration for image search", async ({
     const url = `https://armat.site${ARTWORK[slug]}`;
     expect(xml.split(url).length - 1, `${slug} image entries`).toBe(LOCALES.length);
   }
+
+  // And the pending place contributes no image entry at all. A sitemap that
+  // advertised a picture for it would either 404 for an image crawler or point at
+  // something belonging to another article.
+  const pending = xml
+    .split("<url>")
+    .filter((block) => block.includes(`/places/${MATENADARAN}<`));
+  expect(pending, `${MATENADARAN} url blocks`).toHaveLength(LOCALES.length);
+  for (const block of pending) {
+    expect(block, `${MATENADARAN} must have no sitemap image`).not.toContain("image:loc");
+  }
 });
 
 /*
-  `PENDING_ARTWORK` is empty again, and this asserts it stays that way honestly.
+  `PENDING_ARTWORK` names exactly the gap, and this asserts it stays honest in
+  both directions.
 
   The list is the repository's record of a deliberate absence. An entry left
   behind after its file landed would keep a real cover out of the page; a slug
   missing from both `IMAGES` and this list would render the placeholder with
-  nothing saying whether that was a decision. Both are silent failures, and both
-  have actually happened in this section's history.
+  nothing saying whether that was a decision. Both are silent failures, and the
+  section currently contains one slug of each kind.
 */
-test("no place is left declared as pending once its artwork ships", () => {
-  expect(PENDING_ARTWORK).toEqual([]);
+test("the pending list names the place without artwork, and only that one", () => {
+  expect(PENDING_ARTWORK).toEqual([MATENADARAN]);
 
-  for (const slug of PLACES) {
+  for (const slug of ILLUSTRATED) {
     expect(getImageSrc(slug), `${slug} should resolve through the registry`).toBe(ARTWORK[slug]);
     expect(PENDING_ARTWORK, `${slug} is registered and must not also be pending`).not.toContain(
       slug,
     );
   }
+
+  // The pending slug resolves to nothing rather than to a borrowed file — the
+  // assertion that would fail if the Mashtots portrait were pointed at it.
+  expect(getImageSrc(MATENADARAN), "a pending slug must have no registered file").toBeUndefined();
 });
 
 test("the registry and the pending list are mutually exclusive", () => {
@@ -767,6 +917,24 @@ test("the coordinate registry holds one checked point per place", () => {
     Math.abs(fortress.lat - 40.1776),
     "the point should be the fortress, not central Yerevan",
   ).toBeGreaterThan(0.02);
+
+  /*
+    The Matenadaran building at the head of Mashtots Avenue, from OSM relation
+    20960090. Its plausible wrong answers are all close by, which is the problem:
+    the Cascade complex is about 44.5152 and central Yerevan about 40.1776,
+    44.5126, both inside the same square kilometre of city.
+  */
+  const institute = registry[MATENADARAN];
+  expect(institute.lat).toBeCloseTo(40.1925, 4);
+  expect(institute.lon).toBeCloseTo(44.5222, 4);
+  expect(
+    Math.abs(institute.lon - 44.5152),
+    "the point should be the Matenadaran, not the Cascade",
+  ).toBeGreaterThan(0.005);
+  expect(
+    Math.abs(institute.lat - 40.1776),
+    "the point should be the Matenadaran, not central Yerevan",
+  ).toBeGreaterThan(0.01);
 });
 
 /* -------------------------------------------------------------------------- */

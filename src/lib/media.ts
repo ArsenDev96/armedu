@@ -117,7 +117,21 @@ const IMAGES: Record<string, string> = {
  * declared on the article itself as `image: { src, alt, credit }`, which
  * overrides both the file here and the AI caption.
  */
-export const PENDING_ARTWORK: readonly string[] = [];
+export const PENDING_ARTWORK: readonly string[] = [
+  /*
+   * The fourth place, shipped ahead of its picture — the same state Etchmiadzin
+   * was in at §31 and Erebuni at §33, and resolved the same way both times.
+   *
+   * Every asset in `public/` was looked at rather than reasoned about. The only
+   * candidate anywhere near the subject is `history/mesrop-mashtots.webp`, and it
+   * is a portrait: Mashtots at a writing desk in a medieval monastic setting.
+   * The institute carries his name, which is exactly what makes that image the
+   * wrong one — it would caption a fifth-century scene as a twentieth-century
+   * basalt building on a Yerevan avenue, and the confusion between those two ages
+   * is the single thing this article was written to prevent.
+   */
+  "matenadaran",
+];
 
 /** Path under `public/` for a slug's artwork, or `undefined` when none ships. */
 export function getImageSrc(slug: string): string | undefined {

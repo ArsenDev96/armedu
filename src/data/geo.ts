@@ -78,6 +78,15 @@ export const PLACE_COORDINATES: Record<string, PlacePoint> = {
   // gives 40.1403049, 44.5381466; rounded to four places here. Wikipedia's infobox
   // agrees at 40°08′26″N 44°32′17″E.
   "erebuni-fortress": { lat: 40.1403, lon: 44.5381, precision: "site" },
+
+  // The Matenadaran building and its precinct at the head of Mesrop Mashtots
+  // Avenue — not the statue of Mashtots on the terrace in front of it, not the
+  // Cascade complex a few hundred metres west, and not the avenue as a whole,
+  // which runs the length of central Yerevan. OpenStreetMap relation 20960090
+  // (`Երևանի Մատենադարան`, tourism=museum, 53 Mesrop Mashtots Avenue) gives
+  // 40.1924614, 44.5222091; rounded to four places here. Wikipedia's infobox
+  // agrees to within about a hundred metres at 40°11′31″N 44°31′16″E.
+  matenadaran: { lat: 40.1925, lon: 44.5222, precision: "site" },
 };
 
 /** The recorded position for a place slug, or `undefined` when none is held. */

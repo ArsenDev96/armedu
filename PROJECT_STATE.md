@@ -2937,3 +2937,375 @@ Writers, Works and Cuisine artwork is untouched and now pinned entry-by-entry in
 - **The remaining place types**, unchanged from §33.
 
 No deployment was performed.
+
+---
+
+## 35. Places — the Matenadaran, and the `museum` filter (August 2026)
+
+Places goes from three articles to four and from three filter pills to four. `matenadaran` is
+complete in `hy`, `hyw` and `en`, is the sole article under the new `museum` type, and ships
+**without artwork on purpose**. No new component, no new field, no schema change: `PlaceDetails`,
+`regionId`, venue fields, opening hours, ticket prices, transport and map UI were all
+considered and none was added.
+
+### Why this article
+
+The section's first three places are a monastery, a cathedral and a ruin. The Matenadaran is
+the first that is primarily an *institution* — a working research body with staff, a
+programme and an administrative history — and that is what earns it both the new filter and a
+different shape of article. It is also the page the archive has been implying since §23: the
+alphabet article names the Matenadaran three times and hands it the whole legacy of Armenian
+manuscript culture in a sentence.
+
+### The new filter
+
+`placeTypes` becomes four entries in every edition, ids shared and only labels translated:
+
+| Id | `en` | `hy` | `hyw` |
+|---|---|---|---|
+| `all` | All places | Բոլոր վայրերը | Բոլոր վայրերը |
+| `monastery` | Monasteries and churches | Վանքեր և եկեղեցիներ | Վանքեր եւ եկեղեցիներ |
+| `historical` | Historical sites | Պատմական վայրեր | Պատմական վայրեր |
+| `museum` | Museums | Թանգարաններ | Թանգարաններ |
+
+`nature` and `settlement` were **not** added — the §28 discipline, enforced by
+`validateFilterCoverage`, that a type id arrives with the first article that uses it. The
+three files' header comments were updated to say four entries rather than three.
+
+Counts after this change, asserted in tests: **All → 4, Monastery → 2 (Khor Virap,
+Etchmiadzin), Historical → 1 (Erebuni), Museum → 1 (Matenadaran)**. Khor Virap remains the
+only `featured: true` place and the filtering path still hardcodes no slug.
+
+### Terminology was inherited, not invented
+
+Checked against the repository before a line was written, exactly as §31 did for Etchmiadzin:
+
+| Concept | `en` | `hy` | `hyw` |
+|---|---|---|---|
+| The institution | Matenadaran | Մատենադարան | Մատենադարան |
+| The formal name | Mesrop Mashtots Institute of Ancient Manuscripts | Մեսրոպ Մաշտոցի անվան հին ձեռագրերի ինստիտուտ | Մեսրոպ Մաշտոցի անուան հին ձեռագիրներու հիմնարկ |
+| Manuscript | manuscript | ձեռագիր | ձեռագիր |
+| Scriptorium | scriptorium | գրչատուն | գրչատուն |
+| Illuminated | illuminated manuscript | մանրանկարազարդ ձեռագիր | ծաղկուած ձեռագիր |
+| Scribe / illuminator | scribe / illuminator | գրիչ / ծաղկող | գրիչ / ծաղկող |
+| Colophon | colophon (*hishatakaran*) | հիշատակարան | յիշատակարան |
+| Parchment | parchment | մագաղաթ | մագաղաթ |
+| UNESCO | UNESCO | ՅՈՒՆԵՍԿՕ | ԵՈՒՆԵՍՔՕ |
+
+Every one of those Armenian forms already existed in `history.ts` or `places.ts`. The two
+editions keep their own UNESCO spellings, as §31 recorded. No second English spelling of the
+institution was introduced: `Matenadaran` appears in History, in the Etchmiadzin article and
+now here, and the formal name is used only where it is genuinely the formal name.
+
+### The article
+
+Ten sections, the same ids in all three editions: `where-it-is`, `what-it-is`, `the-name`,
+`before-the-institution`, `how-the-collection-moved`, `the-building-and-the-institute`,
+`what-it-holds`, `inside-the-manuscripts`, `research-and-conservation`, `before-you-see-it`.
+Paragraphs per section `3,3,3,3,3,4,3,4,3,3`; six `keyFacts`, eleven `importantDates`, five
+`interestingFacts`, two `relatedFigures`, two `significance` paragraphs — identical
+cardinalities, checked before the validator ran.
+
+### Historical and institutional chronology — the point of the article
+
+The central problem with this subject is that six separate events are routinely reported as
+one "founded in" date, and different sources pick a different one. The article separates them
+and says so outright:
+
+1. **Manuscript culture.** From the fifth century: Mashtots's alphabet, the translation
+   movement, and monastic scriptoria that copied, bound and stored books for a thousand years.
+2. **The collection.** The Etchmiadzin library, growing from the restoration of the
+   Catholicosate there in **1441**, catalogued repeatedly in the modern period — an inventory
+   of **1828** recording a few hundred manuscripts, past four thousand by **1913**.
+3. **Displacement and rescue.** Evacuated to Moscow **1915–1922**; manuscripts brought out of
+   Vaspurakan, Mush and Erzurum during the Armenian Genocide.
+4. **Nationalisation.** By decree in December **1920**. *Ownership changed; location did not.*
+5. **Transfer.** The physical move to Yerevan in **1939** — just under ten thousand Armenian
+   manuscripts and several hundred in other languages. Nineteen years after the decree.
+6. **The building.** Mark Grigoryan's design, begun **1945**, halted for years, finished in
+   the second half of the **1950s**.
+7. **The institute.** Reorganised as a scientific research institute in **1959**, moving into
+   that building — the start of the modern Matenadaran in institutional terms.
+8. **The name.** Given Mashtots's name in **1962**, years after it was already an institute.
+9. **Recognition.** UNESCO Memory of the World Register, **1997**.
+10. **Expansion.** A large new research and storage building behind the original, **2011**.
+
+**One disagreement was left open rather than resolved.** Sources differ on the building's
+completion year — the institute's own history implies 1959, other accounts give 1957/58 — so
+the article says "finished in the second half of the 1950s" and dates only what is agreed:
+1945 for the start and 1959 for the move-in and reorganisation. That is the §4 rule applied
+rather than a gap.
+
+**The article states in as many words that the present building is not medieval**, and
+explains that its basalt, arcading and carved figures are a deliberate mid-century quotation
+of Armenian church architecture. A visitor reading the facade as an old building has read it
+exactly as the architect intended and exactly wrongly.
+
+### Collection size — described, not pinned
+
+Three reliable sources give three figures, and the article says why rather than choosing one:
+UNESCO's register entry, made in **1997**, describes about **seventeen thousand** manuscripts;
+the institution's own account gives roughly **twenty thousand**; totals that count fragments
+and scrolls separately run higher again; and archival documents are counted in a different
+series entirely, in the hundreds of thousands. None is wrong — they count different things at
+different dates. All of these are spelled out as words in every edition, which keeps them out
+of the cross-locale number check by design and avoids the archive committing to a number that
+will be stale within a year. The §23 history article's "more than seventeen thousand" remains
+true against all of them and was not edited.
+
+Also avoided, per §5 of the brief: opening hours, ticket prices, exhibition schedules,
+transport, queues, any claim that everything is displayed, and any unsupported "largest in the
+world" superlative. The article says instead that it is *one of the largest collections of
+Armenian manuscripts anywhere* and that no visit sees more than a fraction of it.
+
+### Sources
+
+Six, all verified before registration. Two are already-registered works cited again on
+purpose; four are new.
+
+| Source | Identifier | Cited for | Status |
+|---|---|---|---|
+| Matenadaran, *Historical Review* | `matenadaran.am/en/matenadaran/research-institute/historical-review/` | the institutional chronology only | **new, fetched and verified** |
+| UNESCO Memory of the World, *Mashtots Matenadaran ancient manuscripts collection* | `unesco.org/en/memory-world/mashtots-matenadaran-ancient-manuscripts-collection` | the 1997 inscription and its figure | **new, fetched and verified** |
+| Mathews & Wieck (eds.), *Treasures in Heaven: Armenian Illuminated Manuscripts* | ISBN 9780691037516 | illumination, scripts, bindings, pigments | **new, verified** |
+| Sanjian, *Colophons of Armenian Manuscripts, 1301–1480* | ISBN 9780674142855 | colophons as a historical source | **new, verified** |
+| Maranci, *The Art of Armenia: An Introduction* | ISBN 9780190269005 | manuscript art in the wider development of Armenian art | already registered |
+| Terian (trans.), *The Life of Mashtots' by His Disciple Koriwn* | ISBN 9780192847416 | the fifth-century starting point the name refers to | already registered |
+
+Each new record was checked rather than assumed: both URLs were fetched and their content read
+(the institute's history page supplies every institutional date used; the UNESCO page supplies
+the title, year and figure quoted). The Morgan/Princeton co-publication and the Harvard
+Armenian Texts and Studies volume were confirmed against catalogue listings. **No page
+references are cited and nothing was invented.**
+
+Two deliberate omissions. The Encyclopaedia Iranica entry on the Matenadaran library would
+have been a good scholarly addition, but the site returned 403 and its publication details
+could not be confirmed first-hand, so it was not registered. And the tourism pages that
+dominate a search for this subject were not used at all: several give a single confident
+"founded in" date and they disagree with one another, because each has picked a different one
+of the ten events above. Screened against the §19 rule: no denialist or hostile material.
+
+### Coordinate
+
+One locale-independent entry in `src/data/geo.ts`, in the existing provenance style:
+
+```ts
+matenadaran: { lat: 40.1925, lon: 44.5222, precision: "site" },
+```
+
+Verified against **OpenStreetMap relation 20960090** (`Երևանի Մատենադարան`, `tourism=museum`,
+53 Mesrop Mashtots Avenue), which gives `40.1924614, 44.5222091`; rounded to four places on
+the way in. Wikipedia's infobox agrees to within about a hundred metres at 40°11′31″N
+44°31′16″E.
+
+**The point is the building and its precinct**, not the statue of Mashtots on the terrace in
+front of it, not the Cascade complex a few hundred metres west, and not Mashtots Avenue, which
+runs the length of central Yerevan. This is the tightest cluster of plausible wrong answers of
+any entry so far — the Cascade and the city centre are inside the same square kilometre — so
+tests assert the point is more than 0.005° from the Cascade's longitude and more than 0.01°
+from central Yerevan's latitude.
+
+### Related content
+
+`relatedSlugs: ["mesrop-mashtots-armenian-alphabet", "etchmiadzin-cathedral",
+"adoption-of-christianity"]`, identical in all three editions, and two contextual
+`SectionLink`s, each on a phrase that occurs in its own section's prose:
+
+- `the-name` → `mesrop-mashtots-armenian-alphabet`, on the sentence explaining whose name the
+  institute carries. This is the required link.
+- `how-the-collection-moved` → `etchmiadzin-cathedral`, on "the manuscript library of
+  Etchmiadzin".
+
+None of the three is padding, and each is argued in the article rather than asserted in the
+list: the alphabet is the script every object in the building is written in; Etchmiadzin is
+where the collection physically was until 1939, which that article already states from its own
+side; and the conversion is what created the monastic scriptoria the collection came out of.
+Writers and Works were evaluated and none was added — no writer's archive is a subject of this
+article, and a link on the strength of "both are about books" is exactly the padding §8 warns
+against.
+
+**No existing History, Writers or Works article was edited to add a backlink.** The
+one-directional gap now applies to four places.
+
+### Artwork — pending, and honestly so
+
+**No artwork ships with this article.** Every asset in `public/` was looked at, not reasoned
+about. The only candidate anywhere near the subject is `history/mesrop-mashtots.webp`, and it
+was opened and rejected: it is a portrait of Mashtots at a writing desk in a medieval monastic
+setting, with a church and mountains behind him. The institute carries his name, which is
+precisely what makes that image the wrong one — it would caption a fifth-century scene as a
+twentieth-century basalt building on a Yerevan avenue, and the confusion between those two ages
+is the single thing this article was written to prevent. A generic manuscript illustration, a
+writer portrait and another Yerevan image were all ruled out by the same reasoning.
+
+So `matenadaran` is declared in `PENDING_ARTWORK` with that reasoning recorded beside it,
+`ArticleLayout` renders the generated placeholder, `isGeneratedArtwork` stays false, and the
+caption reads *placeholder* rather than *AI-generated illustration*. `validate:content` prints
+`note: 1 slug(s) render generated artwork: matenadaran` on every run. **No image was generated,
+copied, renamed, cropped or fabricated**, and nothing under `public/` was touched.
+
+Checked in the built page: `og:image` and `twitter:image` fall back to `/og-default.png`, and
+`Article.image` is **absent entirely** rather than nominating the site card — see the test note
+below, because that distinction cost a failed assertion to learn.
+
+### SEO
+
+Dedicated `seoTitle`, `metaDescription` and `summary` in all three editions; the H1 continues
+to render `title`. Lengths clear the validator's budgets: `seoTitle` 44/40/45 characters
+against a 52 limit, `metaDescription` 152/134/136 against 70–165, `summary` 111/86/82 words
+against 40–140.
+
+| Edition | `title` | `seoTitle` |
+|---|---|---|
+| `en` | Matenadaran | Matenadaran: Armenian Manuscripts in Yerevan |
+| `hy` | Մատենադարան | Մատենադարան՝ հայկական ձեռագրերը Երևանում |
+| `hyw` | Մատենադարան | Մատենադարան՝ հայկական ձեռագիրները Երեւանի մէջ |
+
+The English wording targets the real search intents — *Armenian manuscript museum in Yerevan*,
+*what is the Matenadaran* — through the article's own vocabulary rather than by stuffing the
+institution's formal name into every field. Structured data is the existing generic `Article` +
+`BreadcrumbList` graph; the built page's node census is `WebSite`, `Organization`, `Article`,
+`BreadcrumbList`, `ListItem`, `Person`, `Book`, `CreativeWork`, `ImageObject` (the
+organisation logo), with **no `Museum`, `Place`, `TouristAttraction`, `ArchiveOrganization`,
+`ArchaeologicalSite` or `LocalBusiness`**.
+
+Cross-locale number parity was verified field by field before running the validator; the sets
+are identical in all three editions:
+
+| Field | Numbers |
+|---|---|
+| `intro` | 1959 |
+| `summary` | 1920, 1939, 1959, 1962 |
+| `seoTitle`, `metaDescription` | — |
+| `keyFacts` | 1959, 1962, 1997 |
+| `importantDates` | 1441, 1828, 1913, 1915, 1920, 1922, 1939, 1945, 1950, 1959, 1962, 1997, 2011 |
+| `sections` | the above plus 1301, 1480, 1994 |
+| `interestingFacts` | 1920, 1939, 1962, 1997 |
+| `relatedFigures` | 361, 440, 1900, 1978 |
+
+### Tests
+
+`places.spec.ts` goes from 29 to **32 tests**. Existing tests were extended rather than
+duplicated: card counts moved from 3 to 4, the per-locale loop opens all four articles, the
+SEO/canonical/hreflang test covers twelve routes, the sitemap test covers twelve article URLs,
+and the English-leakage list gained `Matenadaran`.
+
+Restored from §33 and generalised: **the placeholder-branch test**, which now runs in all
+three editions and asserts both that the placeholder caption is used *and* that the
+AI-illustration caption is not.
+
+New:
+
+1. **Each single-article filter returns exactly its own article.** Replaces §33's
+   historical-only test and covers both narrow pills in one loop, asserting each excludes
+   every other place. With two one-article filters side by side, the pair could otherwise be
+   crossed over without either count changing.
+2. **The filter vocabulary is exactly the four ids in every edition**, plus per-type
+   membership: `historical` → Erebuni, `museum` → Matenadaran, `monastery` → the two churches.
+3. **The pending place's metadata borrows no other article's artwork** — `og:image` and
+   `twitter:image` are the site default, no sibling's file appears in any meta tag or in the
+   structured data, and the hero renders no `<img>`.
+4. **Global search finds the fourth place under the Places group**, scoped by href because
+   "Matenadaran" also matches the alphabet article, which names it.
+
+Extended: the listing test now expects exactly one placeholder and forbids both
+`kingdom-of-urartu` and `mesrop-mashtots` from standing in for a place; the sitemap image test
+now also asserts the pending place contributes **no** `image:loc` at all; the coordinate test
+pins the Matenadaran away from the Cascade and the city centre.
+
+**Two of the new assertions failed first and both were faults in the test, not the product.**
+They are recorded because each encodes something true about the repository:
+
+1. The metadata test expected `Article.image` to fall back to `/og-default.png`. It does not:
+   `articleLd` omits the property entirely when there is no artwork. That is the more honest
+   behaviour — an `og:image` is a link-preview card and the site default belongs there, while
+   `Article.image` is a claim that a picture *depicts this article* — and the test now asserts
+   the distinction instead of flattening it.
+2. The same test first searched the whole document for sibling artwork paths and found
+   Etchmiadzin's. Correct behaviour: this article lists Etchmiadzin in `relatedSlugs`, so that
+   place's cover legitimately appears on a related-article card lower down the page. Borrowing
+   is only a fault when the borrowed file is presented as *this* article's own, so the check is
+   now scoped to the head metadata, the structured data and the hero.
+
+### Western Armenian — written, not converted
+
+The `hyw` article was written in Western Armenian: classical orthography throughout
+(`-ութիւն`, `-ուած`, spelled-out `եւ`), Western verb forms (`կը`/`կ՚`, `մը`/`մըն`, `կու տայ`,
+`կ՚արձանագրէ`, `չելան`), and Western vocabulary inherited from the existing `hyw` alphabet
+article rather than invented here (`ձեռագիրներ`, `գրչատուն`, `ծաղկուած ձեռագիր`, `մագաղաթ`,
+`հաւաքածոյ`, `դիւանական փաստաթուղթեր`). The validator enforces orthography mechanically — `և`
+and `ություն` fail the build — but cannot check grammar or register, so the following are
+flagged for native review:
+
+- **The whole article**, as with every `hyw` text since §16.
+- **Institutional terminology**, the weakest part here and new to the edition:
+  `գիտահետազօտական հիմնարկ`, `պահոց`, `արխիւ`, `ցուցակագրում`, `վերականգնում`, `թուայնացում`,
+  `լաբորատորիա`, `ընթերցասրահ`, and the formal name
+  `Մեսրոպ Մաշտոցի անուան հին ձեռագիրներու հիմնարկ`. Whether `հիմնարկ` or `հիմնարկութիւն` is
+  the form a diaspora reader expects for a research institute is the single question most
+  worth asking.
+- **Manuscript vocabulary**: `յիշատակարան`, `գրիչ`, `ծաղկող`, `մանրանկարչութիւն`,
+  `լուսանցազարդ`, `խորան`, `կազմ`, `ներկանիւթ`, `դրոշմազարդ`.
+- **Proper names and transliterations**: `Մարկ Գրիգորեան`, `Աւետիս Սանճեան`, `Մորկանի
+  գրադարան`, `Մոսկուա`, `Կարին` (used for Erzurum, per Western Armenian usage, where `hy` has
+  `Էրզրում` — a deliberate divergence worth confirming), and `Կենտրոն թաղամաս` for the Yerevan
+  district.
+- **`ԵՈՒՆԵՍՔՕ`** and **«Աշխարհի Յիշողութիւն»**, the Western form of the UNESCO programme name,
+  which appears here for the first time.
+
+### Verification
+
+Run in the prescribed order. Port 3002 was confirmed clear, and `.next` was removed first
+because the previous pass ended with `npm run build` — the §32 clobbered-cache setup.
+
+| Command | Result |
+|---|---|
+| `npm run typecheck` | PASS, 0 errors |
+| `npm run validate:content` | PASS — **111 entries** (was 108), with `note: 1 slug(s) render generated artwork: matenadaran` |
+| `npx playwright test --project=desktop places.spec.ts` | **32/32** (after the two test fixes above) |
+| `npx playwright test` | **180 passed, 5 skipped, 0 failed** |
+| `npm run build` | PASS — **117 pages** (was 114), all twelve Places routes prerendered |
+
+**No cold-compile rerun was needed this time.** The full suite passed on its first attempt
+because the places spec had already warmed the dev server; the §34 note about the first run
+after wiping `.next` being a warm-up still stands, but it did not bite here. The one failing
+run in this pass was a genuine deterministic failure in two new assertions, fixed in the tests
+rather than reported as a cache issue.
+
+Checked directly in the prerendered HTML: `<title>` is the `seoTitle`, the H1 is the plain
+`Matenadaran`, the canonical is `https://armat.site/en/places/matenadaran`, and all three
+`hreflang` alternates plus `x-default` are present. `sitemap()` returns the three locale URLs
+with no image entries.
+
+### Preserved, and checked rather than assumed
+
+| File | SHA-256 | Status |
+|---|---|---|
+| `public/hero-ararat.png` | `2d7420356bbe4188…3391a47c` | unchanged, still §30's value |
+| `public/images/places/khor-virap.png` | `2d7420356bbe4188…3391a47c` | unchanged, still byte-identical to the hero |
+| `public/images/places/etchmiadzin-cathedral.webp` | `0c59237291cbf76a…82338a5e` | unchanged |
+| `public/images/places/erebuni-fortress.webp` | `3b31e9dbb7672e48…3b1aa26f` | unchanged, still §34's value |
+| `public/images/history/mesrop-mashtots.webp` | `0803f6c68d36db9e…67a3100c` | unchanged — the file that was inspected and rejected |
+
+`git status` shows **no additions or modifications under `public/` at all** — the eleven
+changed files are the nine under `src/`, one spec under `tests/`, and this document. The Khor
+Virap, Etchmiadzin and Erebuni articles, their coordinates, `IMAGES`, `ARTWORK_PROVENANCE`,
+navigation, listing behaviour, every layout component, all existing SEO wording and the JSON-LD
+builders were not modified. The homepage still renders `/hero-ararat.png` and picks up no
+places artwork. `.claude/settings.json` was not touched.
+
+### Still open
+
+- **Artwork for the Matenadaran.** The one real debt this section adds, and the third time the
+  section has carried one. A place-specific WebP of the building on Mashtots Avenue would clear
+  the note and light up the hero, card, search thumbnail, OG image and sitemap entry in one
+  line.
+- **A dedicated Khor Virap image**, unchanged from §34.
+- **Western Armenian native review**, per the list above. This adds to the queue from §16,
+  §28, §29, §31 and §33.
+- **Nothing links *to* any place yet** — `getRelatedArticles` remains one-directional, and
+  `mesrop-mashtots-armenian-alphabet` in particular now has an obvious counterpart it does not
+  point at.
+- **The remaining place types.** `nature` and `settlement` still wait for their first articles.
+
+No deployment was performed.

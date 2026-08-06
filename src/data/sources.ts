@@ -785,6 +785,82 @@ const SOURCES: Record<string, Source[]> = {
       note: "The institution that holds the foundation inscription and the finds from Arin Berd, and administers the site. Cited for the museum-reserve itself and for the date it uses for the fortress — an institution is a reliable source on its own holdings.",
     },
   ],
+
+  /*
+   * The Matenadaran needs its sources sorted by *which* history they support,
+   * because the article's whole argument is that three histories are routinely
+   * collapsed into one: the manuscript culture, the collection, and the modern
+   * institution.
+   *
+   * The institute's own historical review carries the institutional chronology —
+   * the 1920 decree, the 1939 transfer, the building, 1959, 1962, 2011 — because
+   * an organisation is the best source on its own administrative record and
+   * publishes it in dated form. UNESCO carries the 1997 inscription and the
+   * figure attached to it. Mathews/Wieck and Sanjian carry the manuscripts
+   * themselves, which no institutional page is a substitute for: illumination and
+   * making in the first, colophons as a historical source in the second. Maranci
+   * and Terian are already registered here for other articles and are cited again
+   * for the same reason the place articles reuse Agathangelos — one body of
+   * evidence, not two.
+   *
+   * Deliberately not used: the tourism pages that dominate a search for this
+   * subject. Several give a single confident "founded in" date, and they disagree
+   * with each other because each has picked a different one of the events above.
+   */
+  matenadaran: [
+    {
+      title: "Historical Review — Mesrop Mashtots Institute of Ancient Manuscripts (Matenadaran)",
+      publisher: "Matenadaran, Yerevan",
+      identifier: {
+        kind: "url",
+        value: "https://matenadaran.am/en/matenadaran/research-institute/historical-review/",
+      },
+      note: "The institute's own account of its history. Cited for the institutional chronology only — the Etchmiadzin library and its catalogues, the evacuation to Moscow, the nationalisation of 1920, the transfer of 1939, Mark Grigoryan's building, the reorganisation of 1959, the naming of 1962 and the research building of 2011.",
+    },
+    {
+      title: "Mashtots Matenadaran ancient manuscripts collection",
+      publisher: "UNESCO Memory of the World Register",
+      year: "inscribed 1997",
+      identifier: {
+        kind: "url",
+        value: "https://www.unesco.org/en/memory-world/mashtots-matenadaran-ancient-manuscripts-collection",
+      },
+      note: "The Memory of the World programme registers documentary heritage rather than buildings or sites, which is why this inscription is not comparable to the World Heritage listing cited for Etchmiadzin. Its entry describes a collection of about seventeen thousand manuscripts — the figure quoted in the article beside the institution's own, higher one.",
+    },
+    {
+      author: "Thomas F. Mathews and Roger S. Wieck (eds.)",
+      title: "Treasures in Heaven: Armenian Illuminated Manuscripts",
+      publisher: "Pierpont Morgan Library / Princeton University Press",
+      year: "1994",
+      identifier: { kind: "isbn", value: "9780691037516" },
+      note: "Catalogue of the 1994 Morgan Library exhibition, and the standard English-language introduction to Armenian manuscript illumination. Cited for the making of the books — scripts, bindings, pigments, canon tables, workshops — rather than for anything about the institution.",
+    },
+    {
+      author: "Avedis K. Sanjian",
+      title: "Colophons of Armenian Manuscripts, 1301–1480: A Source for Middle Eastern History",
+      publisher: "Harvard University Press, Harvard Armenian Texts and Studies 2",
+      year: "1969",
+      identifier: { kind: "isbn", value: "9780674142855" },
+      note: "The work that established Armenian colophons as a historical source in their own right. Cited for what a hishatakaran records and for the claim that these manuscripts are read by historians who do not read Armenian.",
+    },
+    {
+      author: "Christina Maranci",
+      title: "The Art of Armenia: An Introduction",
+      publisher: "Oxford University Press",
+      year: "2018",
+      identifier: { kind: "isbn", value: "9780190269005" },
+      note: "Already registered for the two monastery articles. Cited here for manuscript illumination in the wider development of Armenian art, which is what keeps the illumination section from reading as though the books existed apart from everything else made around them.",
+    },
+    {
+      author: "Abraham Terian (trans.)",
+      title:
+        "The Life of Mashtots' by His Disciple Koriwn: Translated from the Classical Armenian with Introduction and Commentary",
+      publisher: "Oxford University Press",
+      year: "2022",
+      identifier: { kind: "isbn", value: "9780192847416" },
+      note: "Already registered for the alphabet article. Cited here for the fifth-century starting point the institute takes its name from: Mashtots, the schools and the translation work that produced the first Armenian books.",
+    },
+  ],
 };
 
 /** The bibliography for one article. Empty only if the slug is unknown. */
