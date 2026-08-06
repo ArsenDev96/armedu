@@ -2603,7 +2603,13 @@ unsupported claim §28 forbids.
 **`kingdom-of-urartu` was not edited to add a backlink.** The one-directional gap recorded in
 §31 now applies to three places instead of two.
 
-### Artwork — pending, and honestly so
+### Artwork — pending, and honestly so — ✅ RESOLVED IN §34
+
+> **This section is a historical record. The artwork has since landed.** §34 registered
+> `public/images/places/erebuni-fortress.webp`, a 1586×992 WebP that depicts the excavated
+> citadel on Arin Berd, and `PENDING_ARTWORK` is empty again. The reasoning below is kept
+> because it is *why* nothing was stretched to fit in the meantime — the placeholder was the
+> correct state, not a gap left by accident.
 
 **No artwork ships with this article.** `public/` was inspected and holds exactly one
 candidate: `images/history/kingdom-of-urartu.webp`, the illustration made for the §23 history
@@ -2722,10 +2728,9 @@ and Etchmiadzin articles were not modified. `.claude/settings.json` was not touc
 
 ### Still open
 
-- **Artwork for Erebuni Fortress.** The one real debt this section adds, and the second time
-  the section has carried one. A place-specific WebP of the citadel on Arin Berd would clear
-  the `PENDING_ARTWORK` note and light up the hero, card, search thumbnail, OG image and
-  sitemap entry in one line.
+- ~~**Artwork for Erebuni Fortress.**~~ ✅ **Cleared in §34.** A place-specific WebP of the
+  citadel on Arin Berd landed and was registered; it lit up the hero, card, search thumbnail,
+  OG image, JSON-LD image and sitemap entry in one line, exactly as predicted.
 - **A dedicated Khor Virap image**, unchanged from §32.
 - **Western Armenian native review**, per the list above. This adds to the queue from §16,
   §28, §29 and §31.
@@ -2734,5 +2739,201 @@ and Etchmiadzin articles were not modified. `.claude/settings.json` was not touc
   which this step deliberately did not edit.
 - **The remaining place types.** `museum`, `nature` and `settlement` still wait for their
   first articles, and will arrive with them.
+
+No deployment was performed.
+
+---
+
+## 34. Erebuni Fortress artwork — the pending entry, cleared (August 2026)
+
+The one real debt §33 opened is paid, and this is the second time the Places section has run
+the same play. `public/images/places/erebuni-fortress.webp` now exists, is registered in
+`IMAGES`, and the slug is out of `PENDING_ARTWORK`. Nothing else changed: no image was
+generated, edited, cropped, resized, recoloured, renamed, optimised or replaced, and no
+layout component, provenance rule, article, coordinate, filter or existing artwork entry was
+touched.
+
+### The asset, verified rather than assumed
+
+The file was opened and inspected, not trusted on its filename.
+
+| Property | Value |
+|---|---|
+| Path | `public/images/places/erebuni-fortress.webp` |
+| Format | Valid RIFF/WebP — `RIFF` … `WEBP`, chunks `VP8X` (10 B), `ICCP` (456 B), `VP8 ` (759,718 B) |
+| Dimensions | **1586 × 992** (read from the `VP8X` canvas fields, not from a filename or a caption) |
+| File size | **760,220 bytes** (742 KB) |
+| SHA-256 | `3b31e9dbb7672e48bfbfb3407b37c7353330555f929b9fb9f405b07a3b1aa26f` |
+| Alpha / animation | Neither — flags byte `0x20`, ICC only |
+
+**Subject.** An excavated hilltop citadel seen from above: restored stone-and-mudbrick wall
+lines at foundation level laying out a legible plan of rooms, ranges and a central courtyard,
+with a modern city spreading across the middle distance on one side, dry hills on the other,
+and small human figures for scale. This is Erebuni on Arin Berd as the article describes it,
+not a generic Urartian citadel — the modern city below is what makes it site-specific, and it
+is precisely the picture `kingdom-of-urartu.webp` is not. The §33 article's own line — *"a
+site at foundation level, not a standing fortress: the interest is in the plan, the setting
+and the view"* — reads as a caption for it.
+
+**Crop suitability.** The card uses `aspect-[16/9]` (`aspect-[4/3]` in the compact variant)
+and the hero steps `4/3 → 3/2 → 16/9`, all with `object-cover object-center`. The source is
+≈16/10, so a 16/9 crop trims sky at the top and roadway at the bottom, and a 4/3 crop trims
+the outer city edge and the right-hand hillside. The citadel occupies the centre and
+centre-right and survives every one of those crops intact. No focal-point override was
+needed; `PORTRAIT_FOCUS` remains writers-only.
+
+**Two observations, neither a defect and neither acted on.** At 742 KB this is the heaviest
+WebP in the registry by a wide margin — the next largest is `david-of-sassoun.webp` at 428 KB
+and the median is around 150 KB — though it is still half the weight of Khor Virap's 1.4 MB
+PNG. And it is the only file in the registry carrying an embedded ICC profile; every other
+WebP has none. Both are recorded in the `IMAGES` comment so the next editor does not
+rediscover them, and **neither was "fixed"**: the instruction not to optimise the asset is
+the same rule §30 and §32 followed, and a re-encode would change the hash this document
+records.
+
+### Media registry
+
+One line, in the existing map, reached through the existing `getImageSrc`:
+
+```ts
+"erebuni-fortress": "/images/places/erebuni-fortress.webp",
+```
+
+No Erebuni-specific loading path exists. Every consumer already asks `getImageSrc` or
+`getArticleImageSrc`, so this single entry reached the listing card, the article hero, the
+search-result thumbnail, related-article cards, `og:image`, `twitter:image`, the Article
+JSON-LD `image` and the sitemap image entries without any of those call sites being edited.
+
+The `IMAGES` comment was extended to note that Erebuni is 1586×992 like the rest — so the
+older "the only entry here that is not 1586×992" line still refers to Khor Virap alone — and
+to record the size and ICC observations above.
+
+### Provenance
+
+Unchanged, and inherited rather than restated. `ARTWORK_PROVENANCE` was not modified and no
+per-image provenance was introduced. The article declares no `image: { src, alt, credit }`, so
+`isGeneratedArtwork("erebuni-fortress")` is now `true` and `ArticleLayout` takes the
+AI-illustration branch — the same branch Cuisine and the other two places use, and not the
+portrait branch, because a place is a scene rather than a likeness.
+
+Checked directly in the prerendered HTML rather than only through the test: the figcaption on
+`/en/places/erebuni-fortress` reads *"AI-generated illustration for Erebuni Fortress — an
+imagined scene."* and the placeholder caption is gone. `<header>` contains no
+`svg[role="img"]`; the two remaining `role="img"` elements on the page are the `relatedFigures`
+portrait placeholders for Argishti I and Menua in `<main>`, which is their normal state and
+was not changed.
+
+### Pending-artwork removal
+
+`PENDING_ARTWORK` is `[]` again — the file was verified and registered first, then the entry
+removed, in that order. `validate:content` no longer prints
+`note: 1 slug(s) render generated artwork: erebuni-fortress`, and no other slug took its
+place: every article in the archive now resolves to a registered file.
+
+§33's artwork section is marked ✅ RESOLVED IN §34 with a blockquote at its head, and its
+"Still open" entry is struck through, so no contradictory current-state statement is left
+behind. The reasoning for the original refusal is deliberately preserved: rejecting
+`kingdom-of-urartu.webp` was the correct call, and the record of *why* is what stops the same
+shortcut being taken next time.
+
+### Verified surfaces
+
+| Surface | Evidence |
+|---|---|
+| Places listing card | Listing test: all three registered files present, no `svg[role="img"]` anywhere in `<main>` |
+| Article hero, all three editions | Hero test now loops `LOCALES × ILLUSTRATED` — nine page loads |
+| Search result card | Scoped to the `<li>` containing `a[href="/en/places/erebuni-fortress"]`, never `.first()` |
+| Related-article cards | Same `ArticleCard` component as the listing; one lookup covers both |
+| `og:image` | `https://armat.site/images/places/erebuni-fortress.webp` — read out of the built HTML |
+| `twitter:image` | same absolute URL |
+| Article JSON-LD | `Article.image` = `{ "@type": "ImageObject", url: …/erebuni-fortress.webp }` |
+| Sitemap | All three locale URLs carry the image; confirmed by calling `sitemap()` directly |
+
+The JSON-LD node census on the built page is `WebSite`, `Organization`, `Article`,
+`BreadcrumbList`, `ListItem`, `Person`, `Book`, `CreativeWork`, `ImageObject` — **no `Place`,
+`TouristAttraction`, `ArchaeologicalSite`, `LandmarksOrHistoricalBuildings` or
+`LocalBusiness`**. The only JSON-LD change in this pass is the generic `Article.image`
+resolving to a real file instead of nothing.
+
+### Tests
+
+`places.spec.ts` stays at **29 tests**: one was retired and one added, and the rest were
+extended rather than duplicated.
+
+- `EREBUNI` moved into `ILLUSTRATED` and gained its `ARTWORK` entry. The `PLACES` /
+  `ILLUSTRATED` split from §33 was **kept** even though the two lists now have the same
+  members: the section has been in the split state twice, and each time the fix was to move
+  one slug between two lines. A comment says so, so it is not "simplified" away.
+- **Retired:** the §33 placeholder-branch test. It asserted the opposite of the current
+  state and could not simply be inverted.
+- **Added:** a registry/pending mutual-exclusion test, checked across the whole repository in
+  both directions rather than only for places. `validate:content` catches a pending slug that
+  already has a file; nothing caught the reverse.
+- **Extended:** the hero test now runs every edition, not just `hy`, and additionally asserts
+  the caption is *not* the placeholder wording — the failure mode where a picture renders
+  without its disclosure. The search-thumbnail test gained the Erebuni query, scoped by href
+  because "Erebuni" legitimately also matches the Urartu history article and ranks it higher.
+  The listing test went from "one honest placeholder" to none. The registry test now pins
+  **all twenty-three non-places entries by exact path in a single object comparison**, which
+  is the only assertion that would catch a History or Cuisine path being retyped in passing.
+  The homepage test now checks it picks up neither places file.
+
+### Verification
+
+Run in the prescribed order. Port 3002 was confirmed clear first, and `.next` **was** removed
+before Playwright — the previous pass ended with `npm run build`, which is exactly the
+build-clobbered-cache setup §32 documented.
+
+| Command | Result |
+|---|---|
+| `npm run typecheck` | PASS, 0 errors |
+| `npm run validate:content` | PASS — 108 entries, **no pending-artwork note** |
+| `npx playwright test --project=desktop places.spec.ts` | **29/29** |
+| `npx playwright test` | **177 passed, 5 skipped, 0 failed** |
+| `npm run build` | PASS — 114 pages, all twelve Places routes prerendered |
+
+Page and entry counts are unchanged from §33, as expected: registering artwork adds no route
+and no content entry.
+
+**A third false-failure shape, and it is worth adding to the list.** The first full-suite run
+after clearing `.next` reported 41 failed / 136 passed in 8.2 minutes; a second run on the
+same code gave 1 failed / 176 passed in 5.9 minutes; a third, once the dev server was warm,
+gave 177/5/0 in 5.0 minutes. Nothing changed between them. The cause is not the §30 stale
+server or the §32 clobbered cache but the plainest version of the same family: **three
+parallel workers hitting a dev server that is compiling every route on demand for the first
+time**, against a 30-second per-test budget. The last straggler was
+`brand.spec.ts › [hy] no page … still shows the former brand`, which visits eight routes in
+one test and whose own comment already predicts this; it passes in 40 s when run alone.
+
+The rule that follows: after wiping `.next`, the first suite run is a warm-up, not a result.
+Three failure modes now on record — stale adopted server (§30), build-clobbered cache (§32)
+and cold-compile contention (here) — and all three produce mass reds that look nothing like
+the change under test.
+
+### Preserved, and checked rather than assumed
+
+| File | SHA-256 | Status |
+|---|---|---|
+| `public/hero-ararat.png` | `2d7420356bbe4188…3391a47c` | unchanged, still §30's value |
+| `public/images/places/khor-virap.png` | `2d7420356bbe4188…3391a47c` | unchanged, still byte-identical to the hero |
+| `public/images/places/etchmiadzin-cathedral.webp` | `0c59237291cbf76a…82338a5e` | unchanged |
+| `public/images/places/erebuni-fortress.webp` | `3b31e9dbb7672e48…3b1aa26f` | the new file, as delivered |
+
+`git status` shows exactly three entries: `src/lib/media.ts` and `tests/e2e/places.spec.ts`
+modified, and the new WebP untracked. The Erebuni article content, `src/data/geo.ts`, the
+`placeTypes` filters, `sources.ts`, navigation, listing behaviour, `relatedSlugs`, every
+layout component, all SEO wording and the JSON-LD builders were not modified. History,
+Writers, Works and Cuisine artwork is untouched and now pinned entry-by-entry in a test.
+`.claude/settings.json` was not touched.
+
+### Still open
+
+- **A dedicated Khor Virap image.** Now the only place still using borrowed artwork, and the
+  contrast is sharper again: two places have purpose-made WebPs of their own subjects, the
+  third has a 1.4 MB PNG copied from the homepage hero and shown twice on a reader's first
+  visit. Same one-line fix.
+- **Western Armenian native review**, unchanged from §33.
+- **Nothing links *to* any place yet** — `getRelatedArticles` remains one-directional.
+- **The remaining place types**, unchanged from §33.
 
 No deployment was performed.

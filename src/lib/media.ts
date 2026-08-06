@@ -87,9 +87,19 @@ const IMAGES: Record<string, string> = {
    * than an approximation. Registering it was a one-line change that reached the
    * article hero, the listing card and featured block, the search thumbnail, the
    * Open Graph and Twitter tags and the sitemap image at once.
+   *
+   * `erebuni-fortress.webp` did the same for the third place and is 1586×992 too,
+   * so the "only entry not 1586×992" note above still refers to Khor Virap alone.
+   * Two things about this file are worth knowing rather than rediscovering: at
+   * 742 KB it is the heaviest WebP in the registry by a wide margin (the next is
+   * 470 KB), and it is the only entry carrying an embedded ICC profile. Neither is
+   * a fault and neither was touched — the file is registered exactly as delivered,
+   * unaltered, unoptimised and unrenamed, which is the rule this map has followed
+   * since §30.
    */
   "khor-virap": "/images/places/khor-virap.png",
   "etchmiadzin-cathedral": "/images/places/etchmiadzin-cathedral.webp",
+  "erebuni-fortress": "/images/places/erebuni-fortress.webp",
 };
 
 /**
@@ -107,18 +117,7 @@ const IMAGES: Record<string, string> = {
  * declared on the article itself as `image: { src, alt, credit }`, which
  * overrides both the file here and the AI caption.
  */
-export const PENDING_ARTWORK: readonly string[] = [
-  /*
-   * The third place, shipped ahead of its picture. The repository holds nothing
-   * that depicts Erebuni: the only candidate is `kingdom-of-urartu.webp`, an
-   * imagined Urartian fortress-city painted for the history article, and reusing
-   * it here would put a generic citadel under a caption naming a specific
-   * excavated site on a specific hill. That is the kind of quiet
-   * misattribution the caption machinery exists to prevent, so the article
-   * renders the generated placeholder and says so here instead.
-   */
-  "erebuni-fortress",
-];
+export const PENDING_ARTWORK: readonly string[] = [];
 
 /** Path under `public/` for a slug's artwork, or `undefined` when none ships. */
 export function getImageSrc(slug: string): string | undefined {
