@@ -131,6 +131,37 @@ export const PLACE_COORDINATES: Record<string, PlacePoint> = {
   // decimal places — about 110 m out, and coarser than this registry's rounding.
   // The OSM element was preferred for that reason, not for disagreement.
   "garni-temple": { lat: 40.1123, lon: 44.7302, precision: "site" },
+
+  // The walled monastic enclosure in its side gorge above the Azat, at the head of
+  // the road up from Goght, Kotayk Province. The point is the courtyard, with the
+  // gavit some ten metres off and the Katoghike church twenty. OpenStreetMap way
+  // 405284197 (`Գեղարդի վանք`, name:en=Geghard Monastery, amenity=monastery,
+  // historic=church, denomination=armenian_apostolic, ref:whc=960, wikidata=Q499285)
+  // encloses roughly 86 by 107 metres; its polygon centroid is 40.1404170,
+  // 44.8183600, rounded to four places here. There is no OSM relation for the
+  // complex — the only relation within 600 m is the car park — so the way is the
+  // complex-level entity, and Nominatim resolves "Geghard Monastery" to that way.
+  //
+  // Six independent candidate points were found and they span twenty-one metres:
+  // the OSM centroid above; Wikidata Q499285 at 40.140468, 44.818594 (18 m);
+  // UNESCO's own N40 8 25.58 E44 49 6.69 for World Heritage property 960, which is
+  // 40.140439, 44.818525 (11 m); and the Nominatim label point (8 m). All six fall
+  // inside the enclosure polygon, and so does the rounded value stored here — that
+  // was tested rather than assumed, as it was for Garni above.
+  //
+  // Deliberately not any of these, in rising order of how easy each is to reach for:
+  // the souvenir stalls at 50 m and the visitor car park at 80 m, both of which sit
+  // *outside* the enclosure where this point sits inside it; the viewpoint at 190 m;
+  // the two restaurants on the approach at 460 and 775 m; Geghard village at 2.4 km
+  // and Goght at 2.8 km; Garni, 8.1 km down the valley and the entry directly above
+  // this one; the Azat reservoir, 19 km away.
+  //
+  // The likeliest wrong answer here is not a landmark but a gazetteer record.
+  // Wikidata Q17155656 is named "Monastery of Geghard and the Upper Azat Valley"
+  // and carries the World Heritage id 960 — so it is exactly what a search for the
+  // property's official name returns — and its point, 40.15889, 44.79667, is
+  // Geghard *village*, 2.8 km from the monastery. The monument item is Q499285.
+  "geghard-monastery": { lat: 40.1404, lon: 44.8184, precision: "site" },
 };
 
 /** The recorded position for a place slug, or `undefined` when none is held. */

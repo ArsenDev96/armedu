@@ -1186,4 +1186,248 @@ export const placeArticles: Article[] = [
     ],
     relatedSlugs: ["adoption-of-christianity", "tigran-the-great", "erebuni-fortress"],
   },
+  {
+    slug: "geghard-monastery",
+    href: "/places/geghard-monastery",
+    category: "places",
+    categoryLabel: "Places",
+    title: "Geghard Monastery",
+    seoTitle: "Geghard: The Monastery Cut Into the Rock",
+    placeTypeId: "monastery",
+    featured: false,
+    imageSeed: "geghard-monastery",
+    keywords: [
+      "Geghard Monastery",
+      "Գեղարդ",
+      "Geghardavank",
+      "Ayrivank",
+      "Upper Azat Valley",
+      "rock-cut church",
+      "Proshyan",
+      "Kotayk",
+    ],
+    excerpt:
+      "A medieval monastery at the head of a gorge in the upper Azat valley, half built of masonry and half cut into the cliff behind it — and named after a spear it no longer holds.",
+    metaDescription:
+      "Geghard Monastery: what its inscriptions actually date, why the founding tradition and the standing buildings are a thousand years apart, and what rock-cut means.",
+    summary:
+      "Geghard is a monastic complex in a side gorge of the upper Azat valley in Kotayk Province, and it is two things at once: a group of masonry buildings, and a set of chambers cut directly into the cliff behind them. Tradition associates its foundation with Gregory the Illuminator, and its earlier name, Ayrivank, means the monastery of the cave. What stands today is medieval and unusually well dated, because the dates are cut into the buildings themselves: the main church carries an inscription of 1215, and the rock-cut church of the Proshyan princes one of 1283. The monastery takes its later name from a spear relic once kept here and now at Etchmiadzin. It entered the World Heritage list in 2000.",
+    intro:
+      "Geghard is usually described in one of two ways, and both are half right. It is called a cave monastery, which suggests the whole thing is underground, when the first building a visitor meets is a conventional masonry church standing in the open. And it is called a fourth-century foundation of Gregory the Illuminator, which is a tradition rather than a record: nothing standing at Geghard today is remotely that old. The buildings are medieval, most of them from a single century, and the oldest dated object on the site is an inscribed cross-stone of 1164. What makes the place extraordinary is the join between its two kinds of construction — masonry in front, living rock behind — and that join is the thing worth understanding before anything else.",
+    author: "Armat Editorial Team",
+    updated: "2026-08-07",
+    keyFacts: [
+      { label: "Kind of place", value: "Working monastery of the Armenian Apostolic Church, part built and part cut from the cliff" },
+      { label: "Where", value: "A side gorge of the upper Azat valley, near Goght, Kotayk Province" },
+      { label: "Earlier name", value: "Ayrivank, the monastery of the cave" },
+      { label: "Main church", value: "The Katoghike, by an inscription on its south portal, 1215" },
+      { label: "Rock-cut church of the Proshyans", value: "Founded by Prince Prosh, 1283" },
+      { label: "World Heritage", value: "Inscribed 2000, UNESCO list no. 960, criterion (ii)" },
+    ],
+    sections: [
+      {
+        id: "where-it-is",
+        heading: "Where Geghard is",
+        paragraphs: [
+          "Geghard stands at the head of a side gorge above the Azat river, in Kotayk Province, a short drive east of Yerevan by way of the village of Goght. The approach is the opposite of Khor Virap's open plain. The road leaves the valley floor, climbs, and the walls close in until the monastery appears at the point where the gorge stops being a valley and becomes a cul-de-sac of rock.",
+          "The setting is not scenery arranged around the buildings. It is part of them. Cliffs of grey volcanic rock rise directly behind the courtyard, and several of the monastery's principal spaces are inside those cliffs rather than in front of them. A visitor who photographs the front of the complex and leaves has seen perhaps half of it.",
+          "Downstream, at the mouth of the same valley, is the classical building at Garni, and the two are almost always visited in one morning. The pairing is geographical before it is touristic: they share a river, a road and a province. The World Heritage property inscribed here is named for the monastery and the upper valley together rather than for the buildings alone, and Garni is not part of that inscription — which is the commonest thing people get wrong about both sites at once.",
+        ],
+        links: [
+          { phrase: "the classical building at Garni", slug: "garni-temple" },
+        ],
+      },
+      {
+        id: "the-cliffs",
+        heading: "The rock, and what it allowed",
+        paragraphs: [
+          "The rock at Geghard is what made the monastery possible and what shaped every decision its builders took. It is a volcanic stone soft enough to be worked with hand tools and hard enough to stand unsupported once it has been cut, and that combination is not common. In granite the chambers here could not have been made at all; in a softer stone they would not have held their own roofs.",
+          "The gorge also gave the site its defensive logic and its water. A spring rises inside the cliff and still runs through one of the rock-cut chambers, which is why that chamber has a channel cut across its floor. Accounts describing the spring as an ancient pagan sanctuary taken over by the church are repeating a single unevidenced remark from a modern survey. No excavation has demonstrated pre-Christian cult at this site, and this archive does not assert one.",
+          "What the cliffs do not do is make Geghard a cave monastery in the sense the phrase suggests. The complex has a wall, a gate, a courtyard, roofs, domes and windows, and the carved rooms open off it. Reversing that relationship — imagining a warren in a hillside with a façade attached — gets the building history backwards, because the masonry church came first and the great carved halls were added to it afterwards.",
+        ],
+      },
+      {
+        id: "ayrivank",
+        heading: "Ayrivank, and the tradition",
+        paragraphs: [
+          "The monastery's earlier name was Ayrivank, the monastery of the cave, and under that name it is a good deal older than anything now standing. According to tradition its foundation goes back to Gregory the Illuminator, in the generation of the kingdom's adoption of Christianity.",
+          "That is a tradition, and this archive reports it as one. There is no inscription, no excavated fourth-century layer and no contemporary text placing Gregory here. What the tradition does carry is the memory of a cave, a spring and a hermitage, which is a plausible shape for an early Armenian monastic site — and an entirely different claim from the survival of fourth-century architecture.",
+          "The first firm documentary footing is later and less romantic. Yovhannes Draskhanakerttsi, catholicos and historian, records taking refuge at Ayrivank during the Arab raids of about 923: a working monastery, defensible, and worth fleeing to. A thirteenth-century historian mentions a monk of Ayrivank around the turn of the same century.",
+          "Between Gregory and Draskhanakerttsi lies a gap of six hundred years with nothing in it that can be pointed at. The honest formula is that the site is old, that its name records a cave, that it was a functioning monastery by the tenth century, and that everything a visitor can actually see was built three hundred years after that.",
+        ],
+        links: [
+          { phrase: "the kingdom's adoption of Christianity", slug: "adoption-of-christianity" },
+        ],
+      },
+      {
+        id: "tradition-and-evidence",
+        heading: "Where the evidence starts",
+        paragraphs: [
+          "The distinction between the tradition and the surviving monastery is not a technicality here. It is roughly a thousand years wide, and the buildings themselves record where the evidence begins.",
+          "Outside the defensive wall stands a small chapel, part built and part cut into the rock, which is the oldest datable structure on the site. Its walls carry inscriptions, and those inscriptions are the beginning of Geghard's documented history: a cross-stone of 1164, then texts of 1177 and 1181, the second recording the Catholicos of the Aghvans donating relics. A further inscription of 1200 records work on the water supply and names Zakare and Ivane.",
+          "Two cautions about that chapel, because the published sources disagree about it in ways a reader will meet. UNESCO's own two documents place it on opposite sides of the complex — the advisory evaluation to the east, the later statement of value to the west. And that later statement gives the earliest inscriptions on it as the pair above, where the survey it rests on records an older cross-stone still. Neither discrepancy changes the argument. Both are worth knowing before trusting any single summary of this site.",
+          "So the evidence for the monastery begins in the twelfth century, on a chapel outside the walls, in the form of dated inscriptions cut by the people who paid for the work. Everything inside the walls is later. That is not a diminishment of the tradition — traditions are historical objects in their own right — but it is the difference between a thing believed and a thing recorded, and Geghard is a site where the recorded part happens to be unusually well dated.",
+        ],
+      },
+      {
+        id: "the-katoghike-and-gavit",
+        heading: "The church and the gavit",
+        paragraphs: [
+          "The main church is the Katoghike, and it is a masonry building of a type found all over medieval Armenia: a domed cross-in-square plan, built of dressed stone, standing free in the courtyard. An inscription on its south portal dates it to 1215, and the building inscriptions on the site run from about 1210 to that year.",
+          "The inscription names the patrons, and they are not local men. Zakare and Ivane were the Zakarid brothers who commanded Georgian armies and effectively governed much of northern Armenia in this period, and the text names their sons Shahnshah and Avag alongside them. Zakare himself died in 1212, before the church was finished — a small illustration of how these inscriptions work, since they record an act of patronage rather than a ribbon-cutting.",
+          "Against the church's west front stands the gavit: a large, square, dimly lit hall with four free-standing columns and an opening in the middle of its roof. A gavit is neither a nave nor a porch. It is an Armenian building type with no close western parallel, used for assembly, for teaching, for burial and for the parts of the liturgy that took place outside the church proper, and the earliest known example carries the name in an inscription of the eleventh century. Geghard's was built in the decade following the church, and the chapels attached to its north-east corner are dated 1225.",
+          "This is the point at which the complex is still entirely conventional. A domed church, a gavit in front of it, a wall around both: nothing so far distinguishes Geghard from a hundred other Armenian monasteries. What distinguishes it was cut rather than built, and it was cut afterwards.",
+        ],
+      },
+      {
+        id: "cut-from-the-rock",
+        heading: "Cut from the rock",
+        paragraphs: [
+          "Rock-cut, at Geghard, is a precise description rather than a loose one. The chambers were excavated inward and downward from the cliff face, worked from the top, so that what remains is not a lined cave but a room whose walls, columns, vaults and dome are one continuous piece of the mountain. Nothing in them was assembled. There are no joints, because there are no blocks.",
+          "That produces a set of spaces on a spectrum rather than in a category. Some parts of Geghard are built: the Katoghike, the gavit, the defensive wall, the ruined seventeenth-century ranges along its inner face. Some are carved outright. Some are both — the chapel outside the walls has a masonry front and a hollowed-out back, and several of the monastic cells are recesses in the rock closed with a built wall. Describing the whole monastery as a cave flattens all of that.",
+          "The first of the great carved rooms was made before 1250, on a cruciform plan with equal arms, and it is the one with the spring: the water rises inside it, and the room takes its usual name from the basin. An inscription in the complex records the architect as Galdzak and credits him with the rock-cut churches and the carved halls over a working life of some forty years, which makes Geghard one of the few Armenian monuments whose maker is named.",
+          "The technical achievement is easiest to see overhead. The carved halls are roofed with domes on squinches and, in one case, with a stalactite vault of the kind Armenian builders were developing in this period — a honeycomb of small carved cells stepping up to a central opening. In a masonry dome that geometry is a construction problem solved with cut blocks. Here it had to be arrived at by removal, from a single mass, with no possibility of correcting a mistake.",
+          "The acoustics of these rooms are famous, and they are a consequence rather than a design. A hard, seamless, closed stone volume reverberates. It is worth saying plainly that no medieval source describes them as built for sound, and the modern habit of calling Geghard an acoustic masterpiece is an observation dressed up as an intention.",
+        ],
+      },
+      {
+        id: "the-proshyans",
+        heading: "The Proshyan princes",
+        paragraphs: [
+          "The carved rooms belong to a change of ownership. The family concerned was the Khaghbakian house, which came to be called Proshyan after Prosh, son of Vasak — a vassal of the Zakarids under Mongol overlordship, and by the middle of the century the effective lord of this district.",
+          "The Proshyans took Geghard over from the Zakarids in the decade before the death of Avag, son of Ivane, in 1250. It is usually described as a purchase from him, and one survey reads that out of a later inscription; the UNESCO advisory evaluation does not mention a purchase at all, and no text documenting a sale has been published in a form a reader can check. Accounts giving the year as 1215 have conflated the transfer with the dated inscription on the main church, and they rest besides on a chronological error in a modern survey that the same volume contradicts in its own pages — an error still being reprinted.",
+          "What the Proshyans built is dated and substantial. A second rock-cut church of 1283 was founded by Prosh and carries his name; the great carved hall beside it, used as a burial place for the family, is of the same year; and an upper carved chamber of 1288 was made in the time of Papak, son of Prosh, and his wife Ruzukan. Tombs inscribed with two of the family's names survive in the lower hall. The tombs of Papak and Ruzukan themselves do not.",
+          "On the wall of the burial hall is the carving everyone photographs: an animal's head holding a ring, two facing lions attached to it, and below them an eagle with a smaller animal in its talons. It is generally called the arms of the Proshyan family, an identification credited to Garegin Hovsepian and passed on by specialists for decades with the word probably attached every time — and it deserves more caution than that. Published descriptions do not agree on which animal is at the top, or even on which chamber the carving is in. Patrick Donabédian has objected that motifs of this kind recur on monuments built for unrelated families, which he argues rules out reading them as dynastic emblems at all; a lion and an ox appear on the Zakarid church in this very courtyard. He prefers an apotropaic reading, and medieval Greater Armenia has left neither seals nor coins, so the regulated armorial system that did exist in Cilicia cannot simply be assumed here. No study devoted to this relief has ever been published, and the motto often quoted alongside it — about lions chained together and an eagle holding its prey — has no medieval source of any kind.",
+        ],
+      },
+      {
+        id: "khachkars-and-books",
+        heading: "Inscriptions, khachkars and books",
+        paragraphs: [
+          "Geghard's inscriptions are neither decoration nor incidental. Cut into portals, columns and cliff faces, they are the documentary spine of everything above: who paid, for what, in which year, and what they expected in return. An Armenian monastery of this period is a building that talks about itself, and Geghard talks more than most.",
+          "Khachkars — the carved cross-stones that are among the most characteristic things Armenian sculptors made — stand throughout the complex and are set into the rock around it, including on the slopes above, where some are cut directly into the cliff face. Several are dated, and the oldest object on the whole site is one of them.",
+          "The monastery was also a place where books were made. The clearest evidence is Mkhitar of Ayrivank, a scholar and chronicler whom the standard bibliography of Armenian literature places specifically at this monastery. An inscription of 1291 records him carving Prince Prosh's name on the wall of the chamber where he had long lived and worked, and a visitor in 1387 found his writings still there. Colophons — the notes scribes wrote at the ends of the manuscripts they copied — put copying at Ayrivank in 1444 and repeatedly thereafter down to 1476, with one scribe named at the monastery across a dozen of those years.",
+          "Two qualifications, because the usual account overstates this. The claim that Geghard held a library rests on no cited source, and the monastery has no known curriculum, no faculty and no named graduates; it is not in the class of Gladzor or Tatev and should not be described as though it were. And the second scholar routinely named alongside Mkhitar, Simeon of Ayrivank, was not a thirteenth-century historian: the surviving notices put him around the turn of the fifteenth century and describe him as a teacher and a pupil of Grigor Tatevatsi. That error is UNESCO's own, and it has been copied outward from there into a great many summaries.",
+        ],
+      },
+      {
+        id: "the-spear-and-the-name",
+        heading: "The spear, and the name",
+        paragraphs: [
+          "The name Geghard is short for Geghardavank, the monastery of the spear, and it displaced Ayrivank at some point in the thirteenth century. It is often said that the new name is first recorded in a document of 1250, but no source identifies that document, and the survey the claim is traced to says only that the change probably happened around then.",
+          "According to Armenian church tradition the monastery held the spear used at the Crucifixion, brought to Armenia by the Apostle Thaddeus. The tradition is attested from the twelfth century — a hymn of 1159 is the earliest reference — and it is a tradition of that date rather than a record of the first. The scholar who compiled the standard survey of the monastery's own documents wrote flatly that Thaddeus never reached Armenia, and noted that two rival spearheads were circulating in the medieval Middle East.",
+          "What is documented is the relic's later career as an object. Prince Prosh commissioned a reliquary for it in 1268, and the case that survives is a replacement of 1687 which copies his inscription. The French traveller Tavernier saw and drew the relic at Geghard in 1655. It was moved at some stage to the treasury at Etchmiadzin, where it remains — though the Armenian Church's own institutions give different centuries for the move, and the date of 1766 repeated online cannot be traced to any source at all.",
+          "About the object itself very little can be said with confidence. It is an iron blade pierced by a cross rather than the shape of a Roman spearhead; no scientific examination of it has ever been published; and the assertion that foreign specialists have confirmed its authenticity corresponds to no study in any database. Treating the relic as a documented artefact of the first century is not a conclusion anyone has drawn from evidence. Treating it as the reason a monastery changed its name in the thirteenth century is straightforward institutional history, and that is what it is doing in this article.",
+        ],
+        links: [
+          { phrase: "the treasury at Etchmiadzin", slug: "etchmiadzin-cathedral" },
+        ],
+      },
+      {
+        id: "before-you-see-it",
+        heading: "What to understand before seeing it",
+        paragraphs: [
+          "Geghard and the upper Azat valley entered the World Heritage list in 2000 under a single criterion: that the complex represents an important interchange of human values in the development of architecture. Armenia had proposed two further criteria and they were not adopted, which is worth knowing, because the rejected ones concerned unique artistic achievement and religious significance. The inscription is about architecture.",
+          "Three things are worth carrying through the gate. The tradition and the buildings are separated by roughly a thousand years, and both are real. The monastery is not one kind of construction but three — built, carved, and both at once — and the carved parts came last, added to a conventional church. And almost every date here comes from an inscription on the thing being dated, which is rarer than it sounds and is why this article can afford to be as specific as it is.",
+          "The fourth is what this article has kept saying no to. A great deal of what is told at Geghard — the founding by Gregory, the spear of the Crucifixion, the meaning of the lions and the eagle, the library, acoustics designed for chant — is tradition, attribution or observation presented as fact. None of it needs to be discarded. It needs to be labelled, and the labels are the most useful thing a visitor can bring through the gate.",
+        ],
+      },
+    ],
+    importantDates: [
+      {
+        year: "About 923",
+        event:
+          "Yovhannes Draskhanakerttsi, catholicos and historian, records taking refuge at Ayrivank during the Arab raids. It is the first firm documentary notice of the site.",
+      },
+      {
+        year: "1164",
+        event:
+          "The date on an inscribed cross-stone at the chapel outside the walls — the oldest dated object on the site.",
+      },
+      {
+        year: "1177",
+        event:
+          "The earliest of the wall inscriptions on the same chapel, and the date usually given as the beginning of Geghard's documented history.",
+      },
+      {
+        year: "1181",
+        event:
+          "A second inscription on the chapel records the Catholicos of the Aghvans donating relics to the monastery.",
+      },
+      {
+        year: "1200",
+        event:
+          "An inscription recording work on the water supply names Zakare and Ivane. It is sometimes wrongly attributed to the Proshyans, who were not yet at the site.",
+      },
+      {
+        year: "1215",
+        event:
+          "The Katoghike, the main masonry church, by the inscription on its south portal. It names Zakare and Ivane with their sons Shahnshah and Avag.",
+      },
+      {
+        year: "1225",
+        event:
+          "The date on the chapels attached to the north-east corner of the gavit, which was built in the decade after the church.",
+      },
+      {
+        year: "Before 1250",
+        event:
+          "The first of the great rock-cut churches, on an equal-armed cruciform plan, cut entirely from the living rock. An inscription names the architect as Galdzak.",
+      },
+      {
+        year: "1283",
+        event:
+          "The second rock-cut church, founded by Prince Prosh, and the carved hall beside it used as the family's burial place.",
+      },
+      {
+        year: "1288",
+        event:
+          "The upper carved chamber, made in the time of Papak, son of Prosh, and his wife Ruzukan. Their own tombs have not survived.",
+      },
+      {
+        year: "1291",
+        event:
+          "An inscription records the scholar Mkhitar of Ayrivank carving Prince Prosh's name on the wall of the chamber where he lived and worked.",
+      },
+      {
+        year: "1655",
+        event:
+          "The French traveller Tavernier sees and draws the spear relic at Geghard. It is the last firm evidence of the relic at the monastery it is named after.",
+      },
+      {
+        year: "2000",
+        event:
+          "The monastery and the upper Azat valley are inscribed on the World Heritage list under criterion (ii). Two further criteria proposed by Armenia were not adopted.",
+      },
+    ],
+    significance: {
+      heading: "Why Geghard matters",
+      paragraphs: [
+        "Geghard is the clearest demonstration in Armenia that architecture and geology can be the same decision. A domed church in a courtyard is a building; the halls behind it are the absence of a mountain, shaped by removal, with the same vaults and columns and domes arrived at from the opposite direction. Holding both in view at once is what the site is for, and it is why the World Heritage inscription names the valley alongside the monastery.",
+        "It is also the archive's best case for what a dated inscription is worth. Most medieval sites are argued about; this one is largely signed. Almost every claim in this article rests on a text cut into the object it describes, by the people who paid for it, in a year they recorded themselves — which is precisely what makes the undated parts stand out: the founding tradition, the spear, and the meaning of the carving everyone photographs. The monastery documents itself so well that the places where it stops documenting are visible from a long way off.",
+      ],
+    },
+    interestingFacts: [
+      "The oldest dated object at Geghard is a cross-stone of 1164, and it stands outside the defensive wall rather than inside it.",
+      "The great carved halls have no joints anywhere, because nothing in them was assembled: walls, columns, vaults and dome are one continuous piece of the mountain.",
+      "The architect of the rock-cut churches is named in an inscription — Galdzak — which is unusual for a medieval Armenian monument.",
+      "UNESCO's two documents on Geghard place its oldest chapel on opposite sides of the complex, one to the east and the other to the west.",
+      "The spear the monastery is named after has not been kept there for centuries. It is at Etchmiadzin, and the Armenian Church's own institutions disagree about when it left.",
+    ],
+    relatedFigures: [
+      {
+        name: "Prosh Khaghbakian",
+        lifespan: "active 1223–1284",
+        description:
+          "The prince the Khaghbakian house was renamed after, and a sub-vassal of the Zakarids under Mongol overlordship — lord of Vayots Dzor and the districts around it, not, as is often written, commander of the Zakarid army. He took Geghard over before Avag's death in 1250 and founded the rock-cut church of 1283, with the carving usually called his family's arms in the hall beside it. The figures given here are a floruit rather than life dates: his father was already commanding in 1216, so 1223 cannot be a birth year, and his death circulates as 1283, 1284 or 1285 with nothing to settle it. Kirakos Gandzaketsi, who knew him, names him as the informant for his account of the fall of Baghdad.",
+      },
+      {
+        name: "Mkhitar of Ayrivank",
+        lifespan: "thirteenth and fourteenth centuries",
+        description:
+          "A scholar and chronicler placed at this monastery by the standard bibliography of Armenian literature, and recorded here by an inscription of 1291. His dates are disputed: one authority puts his lists at about 1285, another calls him a fourteenth-century writer whose chronicle runs to 1328. He is the firmest evidence that books were made at Geghard.",
+      },
+    ],
+    relatedSlugs: ["garni-temple", "adoption-of-christianity", "etchmiadzin-cathedral"],
+  },
 ];

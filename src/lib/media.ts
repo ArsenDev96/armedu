@@ -144,8 +144,12 @@ const IMAGES: Record<string, string> = {
    * dedication is not established. See §40 of PROJECT_STATE.md for the one colour
    * reservation, which was reported rather than corrected.
    *
-   * With this entry `PENDING_ARTWORK` is empty for the fifth time (§32, §34, §36,
-   * §38, §40). The list emptying is the normal end state, not a signal that it can go.
+   * With this entry `PENDING_ARTWORK` was empty for the fifth time (§32, §34, §36,
+   * §38, §40). The list emptying is the normal end state, not a signal that it can
+   * go — and §41 is the proof: Geghard was written as the seventh place with no
+   * artwork of any kind in the repository, so the list filled again the moment the
+   * sixth entry above had settled. Six places are registered here; the seventh is
+   * in the pending list below and renders the generated placeholder.
    */
   "khor-virap": "/images/places/khor-virap.png",
   "etchmiadzin-cathedral": "/images/places/etchmiadzin-cathedral.webp",
@@ -209,7 +213,36 @@ export const PENDING_ARTWORK: readonly string[] = [
    * archaeological site's cover to another is the substitution this list exists to
    * prevent. All three are named in a `places.spec.ts` test for the same reason the
    * Lake Sevan three are.
+   *
+   * §41. Geghard is the seventh Place and the sixth time this list has filled.
+   *
+   * Every one of the thirty-six files under `public/` was opened rather than read
+   * off its filename, and none of them shows the thing this article is about:
+   * chambers hollowed out of a cliff, a gavit built against the living rock,
+   * khachkars cut into the rock face, the walls of the upper Azat gorge closing
+   * around a courtyard. There is no near miss to record here — unlike the four
+   * cases above, nothing in the repository is even tempting.
+   *
+   * What has to be recorded instead is which substitutions were available and
+   * refused, because at Geghard the wrong picture is unusually easy to justify.
+   * `garni-temple.webp` is eight kilometres down the same valley and shares this
+   * article's geography section, and it is a pre-Christian classical peristyle
+   * roughly twelve centuries older than the monastery — the exact conflation the
+   * Garni article's own prose was written to prevent. `khor-virap.png` and
+   * `etchmiadzin-cathedral.webp` are the other two entries under the `monastery`
+   * filter, which is precisely what disqualifies them: lending one monastery's
+   * cover to another is the substitution this list exists to stop, and
+   * `khor-virap.png` is in any case still byte-identical to `hero-ararat.png`.
+   * `history/adoption-of-christianity.webp` is a free-standing domed church in a
+   * valley — the generic-monastery trap, and a fourth-century narrative scene
+   * standing in for a thirteenth-century monument.
+   * `history/bagratid-armenia.webp` offers a river gorge, which is the Lake Sevan
+   * mood substitution in another landscape: a gorge is not Geghard.
+   *
+   * All five are named in a `places.spec.ts` test, on the same principle as the
+   * Lake Sevan three and the Garni three.
    */
+  "geghard-monastery",
 ];
 
 /**
