@@ -3784,9 +3784,13 @@ plus this document. `src/data/geo.ts`, `src/data/sources.ts`, `src/lib/media.ts`
 `places.ts` filter lists were written in the preparatory half of this step and are unchanged
 since. No asset was added, and no image was generated, edited or renamed.
 
-Two untracked files remain under `scratchpad/`: `check.ts`, the parity checker described above,
-and `sevan-rivers.json`, the raw Wikidata response the river labels were read out of. Neither
-is imported by anything the site builds.
+Two files remain under `scratchpad/`: `check.ts`, the parity checker described above, and
+`sevan-rivers.json`, the raw Wikidata response the river labels were read out of. Neither is
+imported by anything the site builds.
+
+> **Corrected in §38.** This paragraph called them *untracked*. They were not: `scratchpad/` is
+> not in `.gitignore`, and both were committed with the rest of this step. Both were deleted in
+> §38 — see “Scratchpad files” there for why.
 
 `.claude/settings.json` shows as modified. It was **not** hand-edited: the entries added during
 this step are permission allow-rules appended by the harness as permissions were granted —
@@ -3799,12 +3803,12 @@ patterns. It was already modified before this step began.
   artwork renders the building in pale grey where the building — and this archive's prose, three
   times over — describes dark basalt. Reported rather than corrected, because a delivered asset
   is registered as delivered. A revised file would be a one-line change.
-- **Lake Sevan has no artwork.** `PENDING_ARTWORK` names it with the reasoning: nothing in
-  `public/` depicts it, `bagratid-armenia.webp` is Ani with no lake, `kingdom-of-urartu.webp` is
-  Lake Van country, and `hero-ararat.png` is a mountain. The tempting substitute here is not a
-  wrong monument but a *mood* — any blue-water-and-mountains illustration would pass a glance,
-  and that is exactly what must not happen to an article about one specific lake whose shoreline
-  was moved.
+- ~~**Lake Sevan has no artwork.**~~ **RESOLVED in §38.** `public/images/places/lake-sevan.webp`
+  arrived, was verified and inspected, and is registered. `PENDING_ARTWORK` is empty. The
+  reasoning recorded here — that the tempting substitute was a *mood* rather than a wrong
+  monument, and that `bagratid-armenia.webp`, `kingdom-of-urartu.webp` and `hero-ararat.png` were
+  each rejected on sight — is now carried by a test that forbids those three files by name in the
+  article's own head, structured data and hero.
 - **A dedicated Khor Virap image**, unchanged since §32.
 - **File weight in Places.** Erebuni at 742 KB and Matenadaran at 701 KB, both with ICC profiles.
 - **Western Armenian native review.** The Lake Sevan `hyw` article is unreviewed machine-written
@@ -3815,5 +3819,320 @@ patterns. It was already modified before this step began.
 - **The lake's own figures.** Area, depth and volume are stated in words and hedged on purpose,
   because they are functions of a water level that has moved within living memory. Any future
   edit that pins them to single numbers should read the `sources.ts` note first.
+
+No deployment was performed.
+
+---
+
+## 38. Lake Sevan artwork — the pending entry, cleared (August 2026)
+
+`public/images/places/lake-sevan.webp` arrived. It was verified, inspected and registered in
+`IMAGES`, and the slug is out of `PENDING_ARTWORK`. Nothing else changed: no image was
+generated, edited, cropped, resized, recoloured, renamed or optimised, no article content
+moved, and no new loading path was introduced. Two source files changed — `src/lib/media.ts`
+and `tests/e2e/places.spec.ts` — plus two deleted scratchpad files and this document.
+
+This is the fourth time the section has cleared a pending entry (§32 Etchmiadzin, §34 Erebuni,
+§36 Matenadaran, §38 Lake Sevan) and the fourth time the whole change was a one-line
+registration reaching six surfaces at once. `PENDING_ARTWORK` is empty again, and with five of
+five places illustrated the placeholder branch has no subject in this section once more.
+
+Unlike the previous three, `scripts/validate-content.ts` was **not** touched. The corrected
+wording introduced in §36 — *"have no artwork and render the generated placeholder"* — is
+unchanged, and so is its logic. It simply prints nothing now, because the set it counts is
+empty: every one of the 28 article slugs across the three editions has a registered file.
+
+### The asset, verified rather than assumed
+
+The container was parsed rather than trusted to its extension.
+
+| Property | Value |
+|---|---|
+| Path | `public/images/places/lake-sevan.webp` |
+| Magic | `RIFF` … `WEBP`, RIFF size field 180 258 = file length − 8 (consistent) |
+| Chunks | `VP8 (180246)` — **simple** container, lossy VP8, no `VP8X`, no `ICCP`, no `ALPH`, no `EXIF` |
+| Frame | keyframe, VP8 version 0, start code `9d 01 2a`, no horizontal or vertical scaling bits |
+| Dimensions | **1586 × 992** (1.599, ≈16:10) |
+| Colour | sRGB, no alpha channel |
+| File size | **180 266 bytes (176.0 KB)** |
+| SHA-256 | `66b4c12c6e205d9786769cae980a4875a90cbb79ebbf4baa2d8dcee4cbd2e604` |
+
+Two notes worth keeping, because both reverse things §34 and §36 recorded.
+
+**It is the lightest file under `/images/places/`,** not the heaviest. At 176 KB it comes in
+below Etchmiadzin (242 KB) and far below the Matenadaran (701 KB) and Erebuni (742 KB), so the
+"the two heaviest files in the registry are the two most recent" observation from §36 is no
+longer true of the most recent one. File weight in Places stays open as a watch item, but this
+entry did not add to it.
+
+**It carries no ICC profile.** Erebuni and the Matenadaran are extended-container files with an
+embedded profile; this one is a plain `RIFF/VP8` like Etchmiadzin. The ICC note in
+`src/lib/media.ts` therefore still describes exactly two files, not three.
+
+Dimensions match the other three registry WebPs exactly. Khor Virap remains the only entry that
+is not 1586 × 992 and the only PNG.
+
+### Visual inspection, and the crops it had to survive
+
+The file was opened and looked at, not reasoned about from its filename, and then looked at
+again through each centre crop the project actually applies.
+
+What it depicts: a high, open body of water seen from a rocky slope, running back to bare
+ochre-and-blue ridges under broken cloud. The shores are treeless steppe — grass, scrub,
+rock — with no forest rim, no sand, no surf and no horizon-to-horizon ocean line. A pale gravel
+terrace curves across the foreground with shallow ponds and reed beds stranded behind it. That
+terrace is the single most Sevan-specific thing in the frame: it is the drawdown shoreline this
+article is largely about, and it is what separates the picture from a generic mountain lake.
+
+Checked against each rejection criterion:
+
+| Criterion | Finding |
+|---|---|
+| Lake unmistakably the main subject | Yes — water occupies roughly half the frame and all of the middle distance |
+| Geographically plausible high-altitude Armenian lake | Yes — treeless highland steppe, arid ridges, hazy blue ranges, no tree line above the shore |
+| Not a tropical lagoon | No palms, no turquoise shallows over white sand, no reef colour |
+| Not an ocean coastline | No breaking surf, no dunes, no open horizon — the far shore is continuous |
+| Not a generic forest lake | No conifer or broadleaf rim anywhere on either shore |
+| Not an artificial reservoir | No dam, no spillway, no drowned-timber margin, no concrete |
+| Architecture secondary | A monastery on a far headland at roughly 130 × 60 px of 1586 × 992 — about **0.5 %** of the frame, silhouetted, no detail readable beyond a conical drum |
+| No resorts, hotels, beaches, boats or development dominating | One open fishing boat with two figures, two figures on the shore, a line of gulls. Nothing built anywhere except the distant monastery |
+
+The headland reads as Sevanavank on the Sevan peninsula, which is correct rather than
+convenient — but it is a detail in the picture, not its subject, which is exactly the balance
+§37 asked for. The article is about the lake; the monastery is where it happens to be.
+
+**Crop suitability.** Every slot the project uses is a centre crop with `object-cover` and
+`object-center` (`PORTRAIT_FOCUS` is writers-only and does not apply here). Each was rendered
+from the source and inspected:
+
+| Slot | Component | Crop of 1586 × 992 | Result |
+|---|---|---|---|
+| Compact card (homepage) | `ArticleCard variant="compact"`, `aspect-[4/3]` | 1323 × 992, 132 px trimmed per side | Lake fills the frame, headland and boat both retained |
+| Standard listing card | `ArticleCard`, `aspect-[16/9]` | 1586 × 892, 50 px trimmed top and bottom | Best of the five — loses only sky and a little foreground grass |
+| Mobile article hero | `ArticleLayout`, `aspect-[4/3]` | as compact | Same as compact; nothing important leaves the frame |
+| Tablet article hero | `ArticleLayout`, `sm:aspect-[3/2]` | 1488 × 992, 49 px per side | Everything retained |
+| Desktop article hero | `ArticleLayout`, `lg:aspect-[16/9]` | as listing card | Everything retained |
+| Search thumbnail | `SearchResultCard`, `w-32`/`lg:w-40` at card height (≈128 × 170) | 747 × 992 | The hardest crop, and it still holds: water, far ridges and the headland all survive the narrow portrait |
+
+No visual or technical concern was found that would justify touching the file, and it was not
+touched. The one thing worth recording rather than rediscovering: the headland is small enough
+that at search-thumbnail size the monastery is a few pixels. That is the right trade — a crop
+tight enough to make the building legible would have made the picture a picture of a monastery.
+
+### Media registry
+
+One line, in the places block of `IMAGES`:
+
+```ts
+"lake-sevan": "/images/places/lake-sevan.webp",
+```
+
+Reached through the existing `getImageSrc` and `getArticleImageSrc` only. No Lake Sevan-specific
+image-loading path was introduced, no component was changed, and no call site was added — every
+consumer already asks the registry.
+
+The surrounding comment was extended with what was checked before registering, and with the two
+reversals above so the ICC and file-weight notes stay accurate.
+
+### Provenance
+
+Unchanged mechanism, entirely inherited:
+
+- `isGeneratedArtwork({ slug: "lake-sevan" })` returns `true`, because the slug is now in
+  `IMAGES` and the article declares no `image` of its own.
+- The normal AI-generated illustration disclosure appears. The lake takes the illustration
+  wording, not the portrait wording, like every non-writers article. Confirmed in the built HTML
+  of all three editions:
+  - `en` — "AI-generated illustration for Lake Sevan — an imagined scene."
+  - `hy` — «Արհեստական բանականությամբ ստեղծված նկարազարդում «Սևանա լիճ» հոդվածի համար — երևակայված պատկեր է։»
+  - `hyw` — «Արհեստական բանականութեամբ ստեղծուած պատկերազարդում՝ Սեւանայ լիճ — երեւակայուած պատկեր է։»
+- The placeholder disclosure is gone, and the hero renders `<img>` rather than the generated
+  inline `<svg>`.
+- `ARTWORK_PROVENANCE` is **unchanged** — same object, same two fields, one provenance for the
+  whole registry.
+- No per-image provenance system was introduced, and no other image's provenance behaviour
+  changed.
+
+The two `<svg role="img">` elements still present on the article page are the `relatedFigures`
+portrait placeholders for Princess Mariam and Soukias Manasserian, which is correct: neither has
+a picture and neither is claimed to.
+
+### Pending-artwork removal
+
+`"lake-sevan"` was removed from `PENDING_ARTWORK`, which is now empty for the fourth time. The
+list itself stays, with its comment rewritten to record what was rejected on the way out — the
+Matenadaran's Mashtots portrait from §35, and Ani, Lake Van country and `hero-ararat.png` from
+§37. It emptying is the normal end state, not a signal it can go.
+
+Consequences, each checked rather than assumed:
+
+- `validate:content` no longer names Lake Sevan. It no longer prints the "no artwork" note at
+  all, because the set is empty.
+- The Places listing contains **zero** artwork placeholders — asserted as a count, not as an
+  absence of one slug.
+- All three locale pages use the final WebP.
+
+### Verified surfaces
+
+Every one from the built output, not inferred from the registry:
+
+| Surface | Evidence |
+|---|---|
+| Places listing card | `main img` sources on `/en/places` contain `lake-sevan.webp`; six images for five places plus the featured repeat; zero `svg[role="img"]` |
+| Article hero | `header figure img` in `hy`, `hyw` and `en`, with no `svg[role="img"]` in the figure |
+| Global search card | The result card filtered by `a[href="/en/places/lake-sevan"]` carries the thumbnail — scoped by href, not taken as the first result |
+| Related-article cards | The same `ArticleCard` component as the listing, covered by the same lookup |
+| Open Graph | `og:image` = `https://armat.site/images/places/lake-sevan.webp` in all three editions |
+| Twitter | `twitter:image` = the same absolute URL in all three editions |
+| `Article.image` JSON-LD | `{"@type":"ImageObject","url":"https://armat.site/images/places/lake-sevan.webp"}`, present where §37 asserted it absent |
+| Sitemap | Exactly three `image:loc` entries, one per locale route, each inside its own `<url>` block |
+
+No new JSON-LD type appeared. The graph is still `Article` + `BreadcrumbList`, and the test
+forbidding `Place`, `TouristAttraction`, `LocalBusiness`, `Church`, `ArchaeologicalSite` and
+`LandmarksOrHistoricalBuildings` still passes over all five places. Nothing lake-specific was
+introduced either — no `LakeBodyOfWater`, no `NaturalFeature`. The only structured-data
+consequence of this step is the generic `Article.image` resolving to the registered file.
+
+### Scratchpad files
+
+`scratchpad/check.ts` and `scratchpad/sevan-rivers.json` were **deleted** (`git rm`, not
+committed).
+
+The §37 note calling them untracked was wrong and is corrected there: `scratchpad/` is not in
+`.gitignore` and both were committed with that step. So the question was not whether to leave
+untracked files lying around but whether the repository *deliberately tracks and documents*
+reusable scratchpad research. It does not:
+
+- There is no `scratchpad/README`, no `.gitignore` entry, no `package.json` script and nothing in
+  `docs/` describing a convention. The repository's documented home for reusable tooling is
+  `scripts/`, invoked through an npm script — that is where `validate-content.ts` lives.
+- The only other file there, `RESUME-PROMPT.md`, is a one-off hand-off note from the July `hyw`
+  translation work. One stale artefact is not a convention, and it is left alone.
+- `sevan-rivers.json` is raw Wikidata API output. It is exactly the "temporary raw API output"
+  that should not sit in the project without a stated purpose, and its purpose was served the
+  moment the four labels were read out as codepoints and written into the prose. The *finding* —
+  which codepoint each label carries, and that Q181932 is the lake — is recorded in §37 and does
+  not depend on the file.
+- `check.ts` is the closer call: it is genuinely slug-generic and would work for the next
+  three-edition article. But it duplicates checks `validate:content` already performs, it was
+  written during and for this task, and its value is the technique, which §37 describes. If the
+  next multi-locale article wants it, it belongs in `scripts/` with an npm script and a test —
+  not readmitted to a directory with no convention behind it.
+
+Neither file was imported by anything the site builds, so nothing referenced them.
+`.claude/settings.json` was not modified.
+
+### Tests
+
+`tests/e2e/places.spec.ts` stays at **36 tests**; no test was dropped, and the two that asserted
+the pending state were inverted rather than deleted.
+
+- `SEVAN` moved from the pending case into `ILLUSTRATED`, which is now all five places, and
+  `ARTWORK` gained `"lake-sevan": "/images/places/lake-sevan.webp"`. Every artwork assertion runs
+  off that one map.
+- `ILLUSTRATED` is deliberately **not** collapsed into `PLACES` now that the two coincide. They
+  have coincided three times before and split again every time, and the placeholder assertions
+  read this list to decide what may render an `<svg>`.
+- *"the pending place renders the generated placeholder and says so"* → *"the newest place
+  renders its own file and is captioned as an illustration"*: `<img>` present with the right
+  file, `<svg>` absent, illustration caption present, placeholder caption absent, in `hy`, `hyw`
+  and `en`.
+- *"the pending place borrows no other article's artwork"* → *"the newest place borrows no other
+  article's artwork"*, kept across the registration exactly as the Matenadaran's was. It still
+  forbids `bagratid-armenia`, `kingdom-of-urartu`, `hero-ararat` and `matenadaran` by name in the
+  article's own head, structured data and hero, and now asserts `Article.image` **is** the
+  registered cover where §37 asserted it absent. That is the "not replaced by a previously
+  rejected landscape or monastery asset" requirement.
+- The listing test flipped from *exactly one* generated `<svg>` to **zero**, and its
+  borrowed-file list grew to name `bagratid-armenia` and `hero-ararat` alongside
+  `kingdom-of-urartu` and `mesrop-mashtots`.
+- The search-thumbnail loop gained `[SEVAN, "Sevan"]`, scoped to the card that links to
+  `/en/places/lake-sevan` rather than to the first result — "Sevan" also matches the Urartu
+  article and Paruyr Sevak.
+- *"the pending place is findable in search and shows the placeholder thumbnail"* → *"the newest
+  place's search card carries its own thumbnail and no placeholder"*. Kept separate from the loop
+  above on purpose: `SearchResultCard` calls `getImageSrc` directly while the hero goes through
+  `getArticleImageSrc`, so one can be right while the other is not.
+- The sitemap test's per-block assertion now covers `MATENADARAN` **and** `SEVAN`: three `<url>`
+  blocks each, each containing its own `image:loc`. The whole-document count alone would pass if
+  all three entries landed on one route.
+- *"the pending list names exactly the one place"* → *"no place is waiting for artwork, and every
+  one resolves to its own file"*: `PENDING_ARTWORK` is asserted `toEqual([])`, and every slug in
+  `PLACES` resolves through the registry to its own file. The mutual-exclusion test over the
+  whole repository is unchanged and still passes.
+- `no unrelated article artwork changed` pins `registry[SEVAN]` by name alongside the other four,
+  and its exact-object assertion over History, Writers, Works and Cuisine is untouched — it would
+  fail on any path in those four categories being retyped in passing. Khor Virap is still the
+  PNG, and Etchmiadzin, Erebuni and the Matenadaran still their own WebPs.
+- The homepage test is unchanged and still forbids `lake-sevan` among the fragments that must not
+  appear on `/hy`.
+
+### Verification
+
+Run in the prescribed order. Playwright and the production build were **not** run concurrently.
+
+| Step | Command | Result |
+|---|---|---|
+| 1 | port 3002 | clear |
+| 2 | remove `.next` | removed (§37 ended with a build) |
+| 3 | `npm run typecheck` | **PASS** — 0 errors |
+| 4 | `npm run validate:content` | **PASS** — 114 entries across 3 locales, and **no** "no artwork" note |
+| 5 | `npx playwright test --project=desktop places.spec.ts` | **PASS** — 36 passed |
+| 6 | `npx playwright test` | **PASS** — 184 passed, 5 skipped, 0 failed |
+| 7 | `npm run build` | **PASS** — 120 prerendered routes, compiled in 10.5 s |
+
+Port 3002 was confirmed clear a second time between steps 6 and 7.
+
+**No failures occurred, and nothing was retried.** Unlike §37, which had two deterministic
+failures to fix, every step passed on its first run. The build in step 7 was invoked twice — the
+second time only to capture the summary lines the first invocation's tail had scrolled past. It
+was the same build against the same sources, it also passed, and no code changed between them.
+The three documented false-failure modes (§30 stale adopted dev server, §32 build-clobbered
+`.next`, §34 cold-compile contention) did not occur.
+
+The 15 place pages (5 places × 3 editions) were confirmed on disk, including
+`.next/server/app/{hy,hyw,en}/places/lake-sevan.html`, each carrying the WebP in its `og:image`,
+`twitter:image` and `Article.image`.
+
+### Preserved, and checked rather than assumed
+
+Nothing outside the registry, the pending list and the places test file was touched.
+
+- **Lake Sevan article prose** — the three `articles/places.ts` editions are unchanged since §37.
+  River names, the Wikidata conclusions, every numerical value, the environmental chronology, the
+  registered sources, the coordinate, `precision: "area"`, `placeTypeId: "nature"`, the filters,
+  `relatedSlugs`, navigation, listing logic and SEO wording are all as they were.
+- **Existing artwork files** — all five files under `public/images/places/` are unmodified;
+  `git status` shows no change to any asset. Khor Virap keeps its PNG, and Etchmiadzin, Erebuni
+  and the Matenadaran keep their WebPs.
+- **The homepage** — `Hero.tsx` still points at `/hero-ararat.png` directly, the file is
+  unchanged, and it is still absent from `IMAGES`. The homepage renders no place card and picks
+  up no places artwork.
+- **Layout components and JSON-LD builders** — `ContentPhoto`, `ArticleLayout`, `ArticleCard`,
+  `SearchResultCard`, `seo.ts` and `sitemap.ts` are untouched. The registry entry reached all
+  eight surfaces through code that already existed.
+- **`scripts/validate-content.ts`** — not touched at all. The §36 wording *"have no artwork and
+  render the generated placeholder"* stands, and so does its logic.
+
+### Still open
+
+- **The Matenadaran façade colour — still open.** The delivered artwork renders the building in
+  pale grey where the building, and this archive's prose three times over, describes dark basalt.
+  Registering `matenadaran.webp` in §36 did not resolve this and neither does anything in §38:
+  having artwork and having *correct* artwork are different claims, and only the first is
+  settled. Reported rather than corrected, because a delivered asset is registered as delivered.
+  A revised file would be a one-line change. The note recording it in `src/lib/media.ts` is
+  unchanged.
+- **A dedicated Khor Virap image**, unchanged since §32. It remains the only 1355 × 793 entry, the
+  only PNG, and at 1.4 MB the heaviest file in the registry by a factor of two.
+- **File weight in Places.** Erebuni at 742 KB and the Matenadaran at 701 KB, both with ICC
+  profiles. Lake Sevan at 176 KB did not add to this and is evidence the ceiling is not inherent.
+- **Western Armenian native review.** The Lake Sevan `hyw` article remains unreviewed
+  machine-written Western Armenian, in the queue from §16, §28, §29, §31, §33, §35 and §37. The
+  artwork step did not touch its prose and does not change its status.
+- **Nothing links *to* any place yet** — `getRelatedArticles` remains one-directional.
+- **The remaining place type.** `settlement` still waits for its first article.
+- **The lake's own figures.** Area, depth and volume stay stated in words and hedged on purpose,
+  because they are functions of a water level that has moved within living memory.
 
 No deployment was performed.

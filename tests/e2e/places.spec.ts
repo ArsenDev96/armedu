@@ -49,13 +49,13 @@ const MATENADARAN = "matenadaran";
  * The fifth place, and the first under the `nature` filter.
  *
  * It is also the first place that is not a building. Every assertion in this file
- * that assumed a place is a built complex has to be revisited for it, and two
- * genuinely differ: its coordinate carries `precision: "area"` rather than
- * `"site"`, because a lake has no single point, and it ships ahead of its artwork
- * like Etchmiadzin (§31), Erebuni (§33) and the Matenadaran (§35) did before it.
+ * that assumed a place is a built complex had to be revisited for it, and one
+ * genuinely differs: its coordinate carries `precision: "area"` rather than
+ * `"site"`, because a lake has no single point.
  *
- * So `PENDING_ARTWORK` is non-empty for the fourth time, and the tests below are
- * back in the split state the comment on `ILLUSTRATED` describes.
+ * It shipped ahead of its artwork in §37 like Etchmiadzin (§31), Erebuni (§33) and
+ * the Matenadaran (§35) before it; §38 registered `lake-sevan.webp`, so every
+ * place in the section has a cover again and `PENDING_ARTWORK` is empty.
  */
 const SEVAN = "lake-sevan";
 
@@ -63,20 +63,22 @@ const SEVAN = "lake-sevan";
 const PLACES = [SLUG, ETCHMIADZIN, EREBUNI, MATENADARAN, SEVAN] as const;
 
 /**
- * The places whose artwork has actually landed — currently four of the five.
+ * The places whose artwork has actually landed — currently all five.
  *
  * Kept as its own list rather than folded into `PLACES` because the section has
- * been in the split state four times now (§31, §33, §35, §37) and left it three
- * times (§32, §34, §36), and on every one of those occasions the change was
+ * been in the split state four times now (§31, §33, §35, §37) and left it four
+ * times (§32, §34, §36, §38), and on every one of those occasions the change was
  * to move one slug between these two lines. Artwork assertions run over this one:
  * claiming provenance for a slug that has no file would be asserting a fiction,
  * and the next place written ahead of its picture needs this list to already
  * exist rather than to be reconstructed under pressure.
  *
- * Lake Sevan is deliberately absent: no asset in `public/` depicts it, and the
- * reasoning for rejecting the near misses is recorded on `PENDING_ARTWORK`.
+ * It is deliberately *not* replaced by `PLACES` now that the two coincide. The
+ * last three times they coincided the next place split them again, and the
+ * placeholder assertions below read this list to decide what may render an
+ * `<svg>` — collapsing it would delete that distinction rather than satisfy it.
  */
-const ILLUSTRATED = [SLUG, ETCHMIADZIN, EREBUNI, MATENADARAN] as const;
+const ILLUSTRATED = [SLUG, ETCHMIADZIN, EREBUNI, MATENADARAN, SEVAN] as const;
 
 /**
  * The registered file per slug — the single source of truth for every artwork
@@ -88,14 +90,15 @@ const ILLUSTRATED = [SLUG, ETCHMIADZIN, EREBUNI, MATENADARAN] as const;
  * from being updated to match a regression.
  *
  * The extensions differ on purpose and are not a typo: Khor Virap's cover is a
- * PNG copied from the homepage hero (§30), while the other three are 1586×992
- * WebPs like the rest of the registry (§32, §34, §36).
+ * PNG copied from the homepage hero (§30), while the other four are 1586×992
+ * WebPs like the rest of the registry (§32, §34, §36, §38).
  */
 const ARTWORK = {
   [SLUG]: "/images/places/khor-virap.png",
   [ETCHMIADZIN]: "/images/places/etchmiadzin-cathedral.webp",
   [EREBUNI]: "/images/places/erebuni-fortress.webp",
   [MATENADARAN]: "/images/places/matenadaran.webp",
+  [SEVAN]: "/images/places/lake-sevan.webp",
 } as const satisfies Record<(typeof ILLUSTRATED)[number], string>;
 
 /**
@@ -421,8 +424,8 @@ test("the empty search page offers places as a place to start", async ({ page })
 /* -------------------------------------------------------------------------- */
 
 /*
-  Four of the five places ship a cover, and each registration is a single `IMAGES`
-  entry that has to light up six surfaces — hero, featured block, card, search
+  All five places ship a cover, and each registration is a single `IMAGES` entry
+  that has to light up six surfaces — hero, featured block, card, search
   thumbnail, social tags, sitemap — every one reached through `getImageSrc`, and
   every one silent if the registration is wrong.
 
@@ -431,9 +434,10 @@ test("the empty search page offers places as a place to start", async ({ page })
   state "AI-generated" rather than "placeholder". A registration that rendered
   the picture without the disclosure would look completely correct.
 
-  These run over `ILLUSTRATED`, which is currently four of the five places. The
-  placeholder branch is asserted below as a real case again, not as an absence:
-  Lake Sevan is the subject it lost in §36 and regained in §37.
+  These run over `ILLUSTRATED`, which is currently all five places. The placeholder
+  branch therefore has no subject again and is asserted as an absence, exactly as
+  it was between §36 and §37 — the fourth time this file has switched between the
+  two states.
 */
 
 test("each article hero renders its own registered artwork and names the AI provenance", async ({
@@ -480,14 +484,14 @@ test("each article hero renders its own registered artwork and names the AI prov
 
 test("no illustrated place renders the artwork placeholder", async ({ page }) => {
   /*
-    The other half of the caption logic, asserted as an absence — and scoped to
-    `ILLUSTRATED` again now that the section is back in the split state.
+    The other half of the caption logic, asserted as an absence — and covering all
+    five places again now that `ILLUSTRATED` and `PLACES` coincide.
 
-    Between §36 and §37 this ran over `PLACES`, because every place had a file.
-    Lake Sevan does not, so running it over `PLACES` would now assert that the
-    pending article renders a picture it was deliberately not given. The subject
-    is the four that *are* registered: none of them may fall back to the generated
-    `<svg>`, and none may still be captioned as a picture that was never made.
+    It stays scoped to `ILLUSTRATED` rather than being repointed at `PLACES`: the
+    two lists have coincided three times before and split again every time, and
+    this assertion is only ever true of slugs that have a file. None of them may
+    fall back to the generated `<svg>`, and none may still be captioned as a
+    picture that was never made.
 
     Every edition, because the branch reads a locale dictionary: a registration
     that reached `en` and not `hyw` would leave one edition apologising for a
@@ -510,52 +514,60 @@ test("no illustrated place renders the artwork placeholder", async ({ page }) =>
   }
 });
 
-test("the pending place renders the generated placeholder and says so", async ({ page }) => {
+test("the newest place renders its own file and is captioned as an illustration", async ({
+  page,
+}) => {
   /*
-    The positive half of the same branch, which had no subject at all while
-    `PENDING_ARTWORK` was empty.
+    Lake Sevan's registration, asserted on its own rather than only inside the
+    `ILLUSTRATED` loop, because it is the transition §38 performed and the failure
+    modes either side of it are specific.
 
-    This is the assertion that makes shipping an article ahead of its picture a
-    declared state rather than an oversight: Lake Sevan must render the inline
-    generated `<svg>`, must render no raster file, and must be captioned as a
-    placeholder — in all three editions, because the caption comes from a locale
-    dictionary and a missing key would silently render the wrong sentence.
-
-    The failure this exists to catch is the tempting fix rather than a regression:
-    pointing the slug at `kingdom-of-urartu.webp` or `hero-ararat.png` would make
-    the page look finished and would caption a different lake, or a mountain, as
-    this article's own.
+    Between §37 and §38 this test asserted the opposite: the inline generated
+    `<svg>`, no raster file, and the placeholder caption. Every one of those has to
+    invert, in all three editions — a registration that reached the picture but not
+    the caption would leave the page apologising for a missing image that is
+    sitting right there above the apology.
   */
   for (const locale of LOCALES) {
     const dict = ui(locale);
     await page.goto(`/${locale}/places/${SEVAN}`);
 
+    await expect(page.locator("header figure img"), `${locale} ${SEVAN}`).toHaveCount(1);
+    await expect(page.locator("header figure img"), `${locale} ${SEVAN}`).toHaveAttribute(
+      "src",
+      fileIn(ARTWORK[SEVAN]),
+    );
     await expect(page.locator("header figure svg[role='img']"), `${locale} ${SEVAN}`).toHaveCount(
-      1,
+      0,
     );
-    await expect(page.locator("header figure img"), `${locale} ${SEVAN}`).toHaveCount(0);
+
+    // A lake is a scene, not a likeness, so it takes the illustration wording —
+    // and must no longer take the placeholder wording it carried in §37.
     await expect(page.locator("header figcaption"), `${locale} ${SEVAN}`).toHaveText(
-      dict.article.imagePlaceholderCaption.replace("{title}", articleTitle(locale, SEVAN)),
-    );
-    // And not the AI-illustration wording, which would claim a picture exists.
-    await expect(page.locator("header figcaption"), `${locale} ${SEVAN}`).not.toHaveText(
       dict.article.imageAiIllustrationCaption.replace("{title}", articleTitle(locale, SEVAN)),
+    );
+    await expect(page.locator("header figcaption"), `${locale} ${SEVAN}`).not.toHaveText(
+      dict.article.imagePlaceholderCaption.replace("{title}", articleTitle(locale, SEVAN)),
     );
   }
 });
 
-test("the pending place borrows no other article's artwork anywhere on its page", async ({
+test("the newest place borrows no other article's artwork anywhere on its page", async ({
   page,
 }) => {
   /*
-    Scoped to the surfaces that speak for *this* article — the head and the hero —
-    rather than the whole document, for the same reason the Matenadaran test is:
-    a related-article card lower down legitimately carries a sibling's cover.
+    Kept across the registration for the same reason the Matenadaran test was: the
+    failure it guards against survives the file landing. The named files are the
+    three that were actually considered and rejected when the article was written,
+    plus the Matenadaran, which is the nearest neighbour in the registry — Ani has
+    no lake in it, the Urartu illustration is Lake Van country, and `hero-ararat`
+    is a mountain over a plain. Any of them appearing here now would mean the
+    registration had been repointed at a near miss, which is exactly the substitution
+    §37 refused to make.
 
-    The named files are the three that were actually considered and rejected when
-    the article was written, which is what makes this a regression test rather
-    than a guess: Ani has no lake in it, the Urartu illustration is Lake Van
-    country, and `hero-ararat` is a mountain over a plain.
+    Scoped to the surfaces that speak for *this* article — the head and the hero —
+    rather than the whole document: a related-article card lower down legitimately
+    carries a sibling's cover.
   */
   await page.goto(`/en/places/${SEVAN}`);
 
@@ -566,11 +578,10 @@ test("the pending place borrows no other article's artwork anywhere on its page"
   /*
     The figure's own markup, not `img[src]`.
 
-    Reading the `src` of `header figure img` is what the illustrated tests do, and
-    it deadlocks here: this hero renders the generated `<svg>` and there is no
-    `<img>` to read, so the locator waits out the timeout instead of returning
-    nothing. Taking the subtree covers both branches and would still catch a
-    borrowed file appearing inside it.
+    This hero renders an `<img>` now, so reading its `src` would work — but the
+    subtree covers both branches, cannot deadlock if the slug ever goes back to the
+    placeholder, and still catches a borrowed file appearing anywhere inside the
+    figure rather than only in the one attribute.
   */
   const hero = await page.locator("header figure").innerHTML();
 
@@ -587,16 +598,20 @@ test("the pending place borrows no other article's artwork anywhere on its page"
   }
 
   /*
-    `Article.image` is a claim that a picture depicts this article, so with no file
-    registered the property must be absent entirely rather than nominating the
-    generic site card. `og:image` is a link-preview slot and the default belongs
-    there — the two are different claims, and this is the distinction the
-    Matenadaran test recorded on the way out of its own pending state.
+    `Article.image` is a claim that a picture depicts this article, which is why
+    `articleLd` omitted the property entirely while the slug had no file rather
+    than nominating the generic site card — an `og:image` is a link-preview card
+    and the default belongs there, but the two are not the same claim. Now that a
+    real cover exists, the property is present and is that cover.
   */
+  const own = `https://armat.site${ARTWORK[SEVAN]}`;
   const graph = (JSON.parse(ld) as { "@graph": Record<string, unknown>[] })["@graph"];
   const article = graph.find((entry) => entry["@type"] === "Article");
   expect(article, "the Article node itself must still be emitted").toBeDefined();
-  expect(article?.image, "no image may be claimed while the artwork is pending").toBeUndefined();
+  expect(article?.image, "the registered artwork should now be declared").toEqual({
+    "@type": "ImageObject",
+    url: own,
+  });
 });
 
 test("the newest place's metadata borrows no other article's artwork", async ({ page }) => {
@@ -665,7 +680,7 @@ test("the newest place's metadata borrows no other article's artwork", async ({ 
   );
 });
 
-test("the listing renders each registered place's own artwork, and one placeholder", async ({
+test("the listing renders each registered place's own artwork, and no placeholder", async ({
   page,
 }) => {
   await page.goto("/en/places");
@@ -680,7 +695,7 @@ test("the listing renders each registered place's own artwork, and one placehold
   ).map(decodeURIComponent);
 
   // Every registered file appears: Khor Virap is the featured block *and* a card,
-  // the other three are cards. The failure this catches is the one-line
+  // the other four are cards. The failure this catches is the one-line
   // registration reaching some surfaces and not others.
   for (const slug of ILLUSTRATED) {
     expect(
@@ -697,7 +712,16 @@ test("the listing renders each registered place's own artwork, and one placehold
     sources.every((src) => allowed.some((path) => src.includes(path))),
     `unexpected image on the places listing; got ${sources.join(", ")}`,
   ).toBe(true);
-  for (const borrowed of ["kingdom-of-urartu", "mesrop-mashtots"]) {
+  // The named files are the ones actually considered and rejected as stand-ins:
+  // the Urartu illustration and the Mashtots portrait for the Matenadaran (§35),
+  // and Ani, Urartu and the homepage hero for Lake Sevan (§37). A listing that
+  // looks uniform because one card borrowed a plausible landscape is the failure.
+  for (const borrowed of [
+    "kingdom-of-urartu",
+    "mesrop-mashtots",
+    "bagratid-armenia",
+    "hero-ararat",
+  ]) {
     expect(
       sources.some((src) => src.includes(borrowed)),
       `${borrowed} must not stand in for a place`,
@@ -705,16 +729,15 @@ test("the listing renders each registered place's own artwork, and one placehold
   }
 
   /*
-    Exactly one placeholder, not zero and not two.
+    Zero placeholders, which is what §38 inverted back.
 
-    This assertion inverted in §37. While every place had a file the listing could
-    contain no generated `<svg>` at all; Lake Sevan has none, so precisely one card
-    must take that branch. Pinning the count rather than asserting "at least one"
-    is what catches the two failures either side of it: a second place quietly
-    losing its registration, and Sevan being handed a borrowed file to make the
-    listing look uniform.
+    §37 pinned this at exactly one, because Lake Sevan had no file and precisely
+    one card had to take the generated branch. With its cover registered the
+    listing must contain no generated `<svg>` at all: any remaining one would be a
+    place that had quietly lost its registration, and the count is the only thing
+    on this page that says so — a placeholder card looks perfectly finished.
   */
-  await expect(page.locator("main svg[role='img']")).toHaveCount(1);
+  await expect(page.locator("main svg[role='img']")).toHaveCount(0);
   expect(
     sources,
     "one image per illustrated place, plus the featured block's repeat",
@@ -727,16 +750,18 @@ test("a place's search thumbnail renders the artwork", async ({ page }) => {
     [ETCHMIADZIN, "Etchmiadzin"],
     [EREBUNI, "Erebuni"],
     [MATENADARAN, "Matenadaran"],
+    [SEVAN, "Sevan"],
   ] as const) {
     await page.goto(`/en/search?q=${query}`);
 
     // Scoped to this place's own result card, not `.first()`. Every query here
     // has a rival in History: "Etchmiadzin" matches the article on the conversion,
-    // "Erebuni" the one on Urartu, and "Matenadaran" the one on the alphabet,
-    // which names the institute in its legacy section. Any of them may legitimately
-    // rank above the place — taking the first thumbnail on the page would assert
-    // against that article's artwork instead, and would have passed before these
-    // registrations existed.
+    // "Erebuni" the one on Urartu, "Matenadaran" the one on the alphabet, which
+    // names the institute in its legacy section, and "Sevan" both the Urartu
+    // article, whose prose names the lake, and the writer Paruyr Sevak. Any of them
+    // may legitimately rank above the place — taking the first thumbnail on the
+    // page would assert against that article's artwork instead, and would have
+    // passed before these registrations existed.
     const card = page
       .getByRole("main")
       .getByRole("listitem")
@@ -747,16 +772,23 @@ test("a place's search thumbnail renders the artwork", async ({ page }) => {
   }
 });
 
-test("the pending place is findable in search and shows the placeholder thumbnail", async ({
+test("the newest place's search card carries its own thumbnail and no placeholder", async ({
   page,
 }) => {
   /*
-    Two things at once, because they fail independently: a place with no artwork
-    must still be indexed and reachable, and its card must render the generated
-    thumbnail rather than nothing or somebody else's picture.
+    The inverse of what this test asserted in §37, where the card had to render the
+    generated `<svg>` and no `<img>` at all.
 
-    "Sevan" is a query with a rival — the Urartu article names the lake — so the
-    card is located by its own href rather than taken as the first result.
+    Deliberately not folded into the loop above even though it is now the same
+    shape: the loop proves the thumbnail is the *right* file, and this proves the
+    placeholder is gone from the card as well as from the hero. Registration
+    reaches those two through different components — `SearchResultCard` calls
+    `getImageSrc` directly while the hero goes through `getArticleImageSrc` — so
+    one can be right while the other is not.
+
+    "Sevan" is a query with rivals (the Urartu article names the lake, and Paruyr
+    Sevak's name matches too), so the card is located by its own href rather than
+    taken as the first result.
   */
   await page.goto("/en/search?q=Sevan");
 
@@ -766,8 +798,9 @@ test("the pending place is findable in search and shows the placeholder thumbnai
     .filter({ has: page.locator(`a[href="/en/places/${SEVAN}"]`) });
 
   await expect(card, SEVAN).toHaveCount(1);
-  await expect(card.locator("svg[role='img']"), SEVAN).toHaveCount(1);
-  await expect(card.locator("img"), SEVAN).toHaveCount(0);
+  await expect(card.locator("svg[role='img']"), SEVAN).toHaveCount(0);
+  await expect(card.locator("img"), SEVAN).toHaveCount(1);
+  await expect(card.locator("img"), SEVAN).toHaveAttribute("src", fileIn(ARTWORK[SEVAN]));
 });
 
 test("the artwork reaches Open Graph, Twitter and the article's structured data", async ({
@@ -811,31 +844,23 @@ test("the sitemap carries every place's illustration for image search", async ({
     expect(xml.split(url).length - 1, `${slug} image entries`).toBe(LOCALES.length);
   }
 
-  // The inverse of what this block asserted while Matenadaran was pending: its
-  // three url entries carried no `image:loc` at all, and now each must carry its
-  // own. A sitemap that advertised the wrong file would 404 for an image crawler
-  // or credit the picture to another article.
-  const blocks = xml.split("<url>").filter((block) => block.includes(`/places/${MATENADARAN}<`));
-  expect(blocks, `${MATENADARAN} url blocks`).toHaveLength(LOCALES.length);
-  for (const block of blocks) {
-    expect(block, `${MATENADARAN} sitemap image`).toContain(
-      `https://armat.site${ARTWORK[MATENADARAN]}`,
-    );
-  }
-
   /*
-    And the pending place is the state this block asserted for the Matenadaran
-    before §36: its three url entries must be present and must carry no
-    `image:loc` at all.
+    And each locale route carries its *own* file, checked block by block rather
+    than only by whole-document count.
 
-    Advertising an image for a slug that has no file is the specific failure —
-    an image crawler would fetch a 404, or worse, be handed another article's
-    picture and credit it to this one.
+    Both slugs that have left `PENDING_ARTWORK` most recently are pinned this way.
+    The count above would still pass if all three of a slug's `image:loc` entries
+    landed on one route and none on the others, and Lake Sevan is the case that
+    matters: §37 asserted its three url blocks contained no `image:loc` at all, so
+    this is the exact inversion, and an image crawler handed a 404 or another
+    article's picture is a failure nothing on the rendered page would show.
   */
-  const pending = xml.split("<url>").filter((block) => block.includes(`/places/${SEVAN}<`));
-  expect(pending, `${SEVAN} url blocks`).toHaveLength(LOCALES.length);
-  for (const block of pending) {
-    expect(block, `${SEVAN} must advertise no sitemap image`).not.toContain("image:loc");
+  for (const slug of [MATENADARAN, SEVAN] as const) {
+    const blocks = xml.split("<url>").filter((block) => block.includes(`/places/${slug}<`));
+    expect(blocks, `${slug} url blocks`).toHaveLength(LOCALES.length);
+    for (const block of blocks) {
+      expect(block, `${slug} sitemap image`).toContain(`https://armat.site${ARTWORK[slug]}`);
+    }
   }
 });
 
@@ -849,27 +874,26 @@ test("the sitemap carries every place's illustration for image search", async ({
   nothing saying whether that was a decision. Both are silent failures, and the
   section currently contains neither.
 */
-test("the pending list names exactly the one place that is waiting for artwork", () => {
+test("no place is waiting for artwork, and every one resolves to its own file", () => {
   /*
-    Exactly `[SEVAN]`, in both directions.
+    Empty, in both directions.
 
     Asserting the whole array rather than `toContain` is deliberate: it fails on a
-    stale entry left behind after a file lands — the half of the invariant no
-    other test covers — as well as on a slug quietly added here to silence the
-    placeholder assertions above.
-  */
-  expect(PENDING_ARTWORK).toEqual([SEVAN]);
+    stale entry left behind after a file lands — the half of the invariant no other
+    test covers, and the one §38 had to satisfy — as well as on a slug quietly
+    added here to silence the placeholder assertions above.
 
-  for (const slug of ILLUSTRATED) {
+    `toEqual([])` rather than a length check, so the failure message names whatever
+    is still in there.
+  */
+  expect(PENDING_ARTWORK).toEqual([]);
+
+  for (const slug of PLACES) {
     expect(getImageSrc(slug), `${slug} should resolve through the registry`).toBe(ARTWORK[slug]);
     expect(PENDING_ARTWORK, `${slug} is registered and must not also be pending`).not.toContain(
       slug,
     );
   }
-
-  // And the pending one resolves to nothing at all, which is what makes every
-  // consumer fall through to the generated artwork.
-  expect(getImageSrc(SEVAN), `${SEVAN} must have no registered file`).toBeUndefined();
 });
 
 test("the registry and the pending list are mutually exclusive", () => {
@@ -951,20 +975,20 @@ test("no unrelated article artwork changed", () => {
     );
   }
 
-  // Etchmiadzin keeps its WebP, and Erebuni and Matenadaran each get their own
-  // rather than borrowing one. All four are pinned by name rather than only by
-  // shape: the tempting shortcut in §33 and again in §35 was to point the article
-  // with no picture at a file that already existed, and this is the assertion that
-  // would have caught it.
+  // Etchmiadzin keeps its WebP, and Erebuni, the Matenadaran and Lake Sevan each
+  // get their own rather than borrowing one. All five are pinned by name rather
+  // than only by shape: the tempting shortcut in §33, again in §35 and again in
+  // §37 was to point the article with no picture at a file that already existed,
+  // and this is the assertion that would have caught it.
   expect(registry["etchmiadzin-cathedral"]).toBe("/images/places/etchmiadzin-cathedral.webp");
   expect(registry[EREBUNI]).toBe("/images/places/erebuni-fortress.webp");
   expect(registry[MATENADARAN]).toBe("/images/places/matenadaran.webp");
+  expect(registry[SEVAN]).toBe("/images/places/lake-sevan.webp");
 
-  // Only the four *illustrated* places live under /images/places/, so registering
+  // Only the five *illustrated* places live under /images/places/, so registering
   // a cover cannot have repointed an article from another category — and the
-  // Urartu illustration is still filed under history, where it belongs. Lake
-  // Sevan is absent by design: comparing against `ILLUSTRATED` rather than
-  // `PLACES` is what makes this fail if it is ever given a borrowed file.
+  // Urartu illustration is still filed under history, where it belongs, rather
+  // than having been moved to stand in for the lake.
   const inPlaces = Object.entries(registry)
     .filter(([, path]) => path.startsWith("/images/places/"))
     .map(([slug]) => slug)

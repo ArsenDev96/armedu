@@ -104,13 +104,29 @@ const IMAGES: Record<string, string> = {
    * if the places section keeps growing, but not a fault and not a reason to touch
    * either file: both are registered exactly as delivered.
    *
-   * With this entry `PENDING_ARTWORK` is empty for the third time (§32, §34, §36).
-   * The list emptying is the normal end state, not a signal that it can go.
+   * `lake-sevan.webp` is the fifth place and the first that is not a building. It
+   * breaks the run the paragraph above was worried about rather than continuing
+   * it: 1586×992 like the other three WebPs, but 176 KB — the *lightest* file
+   * under `/images/places/` — and a plain `RIFF/VP8` with no `VP8X`, no ICC
+   * profile and no alpha, so the ICC note stays about Erebuni and the Matenadaran
+   * alone. Registered exactly as delivered, unaltered and unrenamed, like the rest.
+   *
+   * What was checked before it was registered, because a lake is the one subject
+   * where a plausible picture is the real risk: the frame is open water under
+   * treeless highland ridges, the monastery on the far headland is perhaps half a
+   * percent of it, and the only human presence is one open fishing boat. There is
+   * no beach furniture, no hotel, no dam and no forest rim — the four things that
+   * would have made it a generic lake with a Sevan caption. The exposed pale
+   * shoreline terrace across the foreground is the drawdown this article is about.
+   *
+   * With this entry `PENDING_ARTWORK` is empty for the fourth time (§32, §34, §36,
+   * §38). The list emptying is the normal end state, not a signal that it can go.
    */
   "khor-virap": "/images/places/khor-virap.png",
   "etchmiadzin-cathedral": "/images/places/etchmiadzin-cathedral.webp",
   "erebuni-fortress": "/images/places/erebuni-fortress.webp",
   matenadaran: "/images/places/matenadaran.webp",
+  "lake-sevan": "/images/places/lake-sevan.webp",
 };
 
 /**
@@ -130,37 +146,29 @@ const IMAGES: Record<string, string> = {
  */
 export const PENDING_ARTWORK: readonly string[] = [
   /*
-   * The fifth place, shipped ahead of its picture — the fourth time this has
-   * happened, and resolved the same way the previous three were.
+   * Emptied after each of the four times it filled before this one: §31→§32
+   * (Etchmiadzin), §33→§34 (Erebuni), §35→§36 (Matenadaran), §37→§38 (Lake Sevan).
    *
-   * Every asset in `public/` was opened, not reasoned about from its filename.
-   * Nothing depicts Lake Sevan. The two that came closest were both rejected on
-   * sight: `history/bagratid-armenia.webp` is Ani, a walled city above a river
-   * gorge with no lake in it at all, and `history/kingdom-of-urartu.webp` is an
-   * imagined Urartian city in the country around Lake Van — a different lake, in
-   * a different part of the highland, and the one this article's own prose is at
-   * pains to distinguish. `hero-ararat.png` is Ararat over a plain. The rest are
-   * portraits, dishes and buildings.
+   * Two are worth recording as they leave, because the shortcut rejected in each
+   * is the kind that gets taken twice.
    *
-   * The tempting substitute here is not a wrong monument but a *mood*: any
-   * blue-water-and-mountains illustration would pass a glance. That is exactly
-   * what must not happen to an article whose subject is one specific lake whose
-   * shoreline was moved nineteen metres down and part of the way back up again.
-   */
-  "lake-sevan",
-
-  /*
-   * Emptied after each of the three times it filled before this one: §31→§32
-   * (Etchmiadzin), §33→§34 (Erebuni), §35→§36 (Matenadaran).
+   * For the Matenadaran, the only asset anywhere near the subject was
+   * `history/mesrop-mashtots.webp` — a portrait of Mashtots at a writing desk in a
+   * medieval monastic setting. The institute carries his name, which is exactly
+   * what made that image the wrong one: it would have captioned a fifth-century
+   * scene as a twentieth-century basalt building on a Yerevan avenue, and the
+   * confusion between those two ages is the single thing that article was written
+   * to prevent. The picture that landed is the building.
    *
-   * Matenadaran is the one worth recording as it leaves, because the shortcut
-   * rejected there is the kind that gets taken twice. The only asset anywhere near
-   * the subject was `history/mesrop-mashtots.webp` — a portrait of Mashtots at a
-   * writing desk in a medieval monastic setting. The institute carries his name,
-   * which is exactly what made that image the wrong one: it would have captioned a
-   * fifth-century scene as a twentieth-century basalt building on a Yerevan
-   * avenue, and the confusion between those two ages is the single thing that
-   * article was written to prevent. The picture that landed is the building.
+   * For Lake Sevan the tempting substitute was not a wrong monument but a *mood*:
+   * any blue-water-and-mountains illustration would have passed a glance. The
+   * three actually considered and rejected were `history/bagratid-armenia.webp`
+   * (Ani, a walled city above a river gorge, no lake in it at all),
+   * `history/kingdom-of-urartu.webp` (Lake Van country — a different lake, and the
+   * one that article's own prose is at pains to distinguish) and `hero-ararat.png`
+   * (a mountain over a plain). The picture that landed is the lake, and the
+   * `places.spec.ts` test naming those three files by name is what keeps any of
+   * them from being pressed into service later.
    */
 ];
 
