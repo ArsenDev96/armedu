@@ -106,6 +106,31 @@ export const PLACE_COORDINATES: Record<string, PlacePoint> = {
   // sit in the far corner of the lake, twenty-odd kilometres from the water this
   // point marks, and all three are what a search for "Lake Sevan" tends to return.
   "lake-sevan": { lat: 40.3925, lon: 45.3461, precision: "area" },
+
+  // The classical building itself, on the promontory above the Azat gorge at
+  // Garni, Kotayk Province. OpenStreetMap way 108255791 (`Գառնիի հեթանոսական
+  // տաճար`, historic=archaeological_site, archaeological_site=roman_temple,
+  // building=temple, wikidata=Q684072) gives a footprint whose centre is
+  // 40.1123415, 44.7302188; rounded to four places here. Wikipedia's infobox
+  // agrees to about ten metres at 40°06′44.7″N 44°43′49.0″E.
+  //
+  // `site` rather than `area`, and the rounding was checked rather than assumed:
+  // the temple footprint is roughly 23 by 18 metres, and the rounded point still
+  // falls inside both that polygon and the surrounding fortress enclosure
+  // (OSM way 215286758, `Գառնիի ամրոց`). Four decimal places is about eleven
+  // metres, which is inside a building this size — the one case in this file
+  // where that had to be verified rather than reasoned about.
+  //
+  // Deliberately not any of these, all of which a search for "Garni" returns
+  // ahead of the monument: Garni village centre, some 660 m north-east; the
+  // Garni gorge, whose nominal point in Wikidata is the same as the village's,
+  // about 1 km away; the basalt columns known as the Symphony of Stones, 0.9–1.1
+  // km east; the nearest hotel, 280 m north; and Geghard, 8 km up the valley.
+  //
+  // Wikidata Q684072 carries its own point at 40.112, 44.729, but only to three
+  // decimal places — about 110 m out, and coarser than this registry's rounding.
+  // The OSM element was preferred for that reason, not for disagreement.
+  "garni-temple": { lat: 40.1123, lon: 44.7302, precision: "site" },
 };
 
 /** The recorded position for a place slug, or `undefined` when none is held. */

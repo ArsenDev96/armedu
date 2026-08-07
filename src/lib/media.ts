@@ -119,14 +119,40 @@ const IMAGES: Record<string, string> = {
    * would have made it a generic lake with a Sevan caption. The exposed pale
    * shoreline terrace across the foreground is the drawdown this article is about.
    *
-   * With this entry `PENDING_ARTWORK` is empty for the fourth time (§32, §34, §36,
-   * §38). The list emptying is the normal end state, not a signal that it can go.
+   * `garni-temple.webp` is the sixth place and the first file in this map that is
+   * **not 1586×992**, apart from Khor Virap's PNG. It is 1448×1086 — a 4:3 frame
+   * rather than the 16:10 every other WebP here uses — and 120 KB, which takes the
+   * "lightest file under `/images/places/`" note away from Lake Sevan after one
+   * step. Container-wise it matches Etchmiadzin and Lake Sevan: a plain `RIFF/VP8`,
+   * no `VP8X`, no ICC profile, no alpha.
+   *
+   * The aspect ratio is the one thing worth knowing rather than rediscovering,
+   * because it changes what the shared crops do. Every slot is a centre crop, so a
+   * 4:3 source is the *whole* image in the `aspect-[4/3]` slots (compact card and
+   * mobile hero) and loses 136 px top and bottom in the `aspect-[16/9]` ones
+   * (listing card and desktop hero) against the 50 px a 1586×992 file loses. It was
+   * checked rather than assumed: the pediment apex survives the 16:9 crop, with
+   * very little headroom to spare. No crop logic was added and none is needed.
+   *
+   * What was checked before registering, because a temple is the subject where a
+   * plausible picture is the risk: Ionic volute capitals, a plain tympanum, a
+   * dentil course and vegetal frieze carrying no lettering or figures, a hexastyle
+   * front on a high podium with a single stair, and treeless ridges falling away
+   * behind. Nothing in the frame asserts a dedication — no cult image, no altar, no
+   * inscription, no date, no solar emblem — which matters more here than anywhere
+   * else in this map, because the article's whole argument is that the building's
+   * dedication is not established. See §40 of PROJECT_STATE.md for the one colour
+   * reservation, which was reported rather than corrected.
+   *
+   * With this entry `PENDING_ARTWORK` is empty for the fifth time (§32, §34, §36,
+   * §38, §40). The list emptying is the normal end state, not a signal that it can go.
    */
   "khor-virap": "/images/places/khor-virap.png",
   "etchmiadzin-cathedral": "/images/places/etchmiadzin-cathedral.webp",
   "erebuni-fortress": "/images/places/erebuni-fortress.webp",
   matenadaran: "/images/places/matenadaran.webp",
   "lake-sevan": "/images/places/lake-sevan.webp",
+  "garni-temple": "/images/places/garni-temple.webp",
 };
 
 /**
@@ -146,10 +172,11 @@ const IMAGES: Record<string, string> = {
  */
 export const PENDING_ARTWORK: readonly string[] = [
   /*
-   * Emptied after each of the four times it filled before this one: §31→§32
-   * (Etchmiadzin), §33→§34 (Erebuni), §35→§36 (Matenadaran), §37→§38 (Lake Sevan).
+   * Emptied after each of the five times it filled before this one: §31→§32
+   * (Etchmiadzin), §33→§34 (Erebuni), §35→§36 (Matenadaran), §37→§38 (Lake Sevan),
+   * §39→§40 (Garni).
    *
-   * Two are worth recording as they leave, because the shortcut rejected in each
+   * Three are worth recording as they leave, because the shortcut rejected in each
    * is the kind that gets taken twice.
    *
    * For the Matenadaran, the only asset anywhere near the subject was
@@ -169,6 +196,19 @@ export const PENDING_ARTWORK: readonly string[] = [
    * (a mountain over a plain). The picture that landed is the lake, and the
    * `places.spec.ts` test naming those three files by name is what keeps any of
    * them from being pressed into service later.
+   *
+   * For Garni the trap was narrower and sharper than either: a picture with
+   * columns in it. `history/tigran-the-great.webp` has classical pilasters on a
+   * palace terrace behind a royal portrait and would have passed a glance as
+   * "Armenian antiquity with columns", while captioning a first-century-BC king's
+   * capital as a peripteral building on a gorge rim two centuries later.
+   * `history/adoption-of-christianity.webp` is a baptism before a medieval domed
+   * church — the right kingdom five centuries too late, and a building of exactly
+   * the kind Garni is not. `erebuni-fortress.webp` was excluded on principle rather
+   * than resemblance: it is the other `historical` place, and lending one
+   * archaeological site's cover to another is the substitution this list exists to
+   * prevent. All three are named in a `places.spec.ts` test for the same reason the
+   * Lake Sevan three are.
    */
 ];
 

@@ -4136,3 +4136,795 @@ Nothing outside the registry, the pending list and the places test file was touc
   because they are functions of a water level that has moved within living memory.
 
 No deployment was performed.
+
+---
+
+## 39. Places — Garni Temple, the sixth place and the second `historical` site (August 2026)
+
+`garni-temple` is published in all three editions. It is the sixth Places article, the second
+under the `historical` filter, and the first time a place type has held more than one article —
+which changed the shape of several tests rather than only their counts.
+
+No new place type, filter, schema, component, map feature or visitor-information model was
+introduced. The filter vocabulary is unchanged at five ids, and nothing in the filtering
+implementation mentions Garni or any other slug.
+
+Seven source files changed: the three `articles/places.ts` editions, `src/data/geo.ts`,
+`src/data/sources.ts`, `src/lib/media.ts` and `tests/e2e/places.spec.ts`, plus this document.
+No asset was added, and no existing article was edited to create a backlink.
+
+### Counts after this step
+
+| | |
+|---|---|
+| All places | **6** |
+| Monasteries and churches | 2 (Khor Virap, Etchmiadzin) |
+| Historical sites | **2** (Erebuni, Garni) |
+| Museums | 1 (Matenadaran) |
+| Nature | 1 (Lake Sevan) |
+| Featured | Khor Virap, still the only one |
+| Content entries | 117 across 3 locales, up from 114 |
+| Prerendered routes | 123, up 3 |
+
+### Terminology, taken from the repository rather than chosen
+
+The existing corpus was searched before a word was written, and every form below was already in
+use here. Nothing competing was introduced.
+
+| | `en` | `hy` | `hyw` |
+|---|---|---|---|
+| Garni | Garni | Գառնի | Գառնի |
+| Geghard | Geghard | Գեղարդ | Գեղարդ |
+| The king of the conversion | Trdat III (`Tiridates III` as a keyword) | Տրդատ Գ | Տրդատ Գ. |
+| Basalt | basalt | բազալտ | պազալթ |
+| Pagan | pagan | հեթանոսական | հեթանոսական |
+| Hellenistic | Hellenistic | հելլենիստական | հելլենիստական |
+| Roman Empire | Roman Empire | Հռոմեական կայսրություն | Հռոմէական կայսրութիւն |
+| Parthia | Parthia | Պարթևստան | Պարթեւստան |
+| World Heritage | UNESCO | ՅՈՒՆԵՍԿՕ | ԵՈՒՆԵՍՔՕ |
+
+The first-century king therefore takes **Trdat I** in English with `Tiridates I` as a keyword,
+which is exactly the pattern the conversion article already uses for Trdat III. `Միհր` and
+`Ազատ գետ` follow the standard Armenian forms; neither appeared in the repository before.
+
+Two names are new to the archive and are flagged rather than assumed: the mosaic figures and the
+modern scholars are transliterated into Armenian for the first time here.
+
+### Structure
+
+Ten sections, paragraphs 3, 3, 4, 3, 5, 4, 4, 3, 4, 3 — thirty-six in all, identical in the three
+editions. Six `keyFacts`, eleven `importantDates`, five `interestingFacts`, two `relatedFigures`,
+three `SectionLink`s.
+
+| Section | Covers |
+|---|---|
+| `where-it-is` | Where Garni is; the gorge, the Symphony of Stones, Geghard, and the World Heritage distinction |
+| `the-promontory` | The Azat gorge promontory, the wall, the strategic position, Tacitus |
+| `the-building` | The peristyle: columns, order, podium, cella, basalt, iron clamps, and why it is not transplanted Rome |
+| `first-century-armenia` | Arsacid Armenia between Rome and Parthia; Trdat I, Nero, the craftsmen |
+| `the-inscription` | The Greek text, what it actually says, the two regnal-year counts, and the 2022 revision |
+| `temple-or-tomb` | Mihr, the evidentiary gap, Wilkinson, Russell, Maranci |
+| `the-wider-complex` | Palace, bath, hypocaust, mosaic and its Greek line |
+| `after-christianity` | 301, Khorenatsi's passage, Surb Sion, the baptistery hypothesis, why it survived |
+| `earthquake-and-reconstruction` | 1679, the stripped clamps, Marr, Buniatian, Arakelyan, Sahinian's anastylosis |
+| `before-you-see-it` | What a visitor should understand first |
+
+The numeral inventory was planned per validator field group and held to exactly, in all three
+editions: `intro` 77; `summary` 63, 77, 1679, 1975; `metaDescription` 77, 1679; `keyFacts` 63,
+77, 1679, 1975; `importantDates` 63, 66, 77, 301, 1679, 1909, 1945, 1949, 1969, 1975, 2025;
+`sections` those plus 175, 1911, 1930, 1968, 1982, 2022; `interestingFacts` 63, 77, 1679, 1975;
+`seoTitle` and `relatedFigures` none. Everything else — twenty-four columns, three metres, fifteen
+shades, forty per cent, one third, two thirds, the eleventh regnal year — is spelled as words in
+house style, which is also what keeps the groups from drifting.
+
+`relatedFigures` lifespans are descriptive ("first century AD", "twentieth century") for the same
+reason Lake Sevan's are: this is an article about chronological uncertainty, and putting a
+contested regnal span in a sidebar would undercut it.
+
+English dating follows the existing convention — `782 BC` as a suffix, `AD 66` as a prefix — with
+`մ.թ.` / `մ.թ.ա.` in `hy` and `Ք.Ե.` / `Ք.Ա.` in `hyw`.
+
+### The inscription and the date, treated as an evidence problem
+
+This is the part the article was written around, and the conventional sentence "the temple was
+built in AD 77" is not in it in any edition.
+
+**What the text says.** A Greek inscription found at Garni in 1945 records that Helios Tiridates
+the Great of Greater Armenia, having subdued this city as its lord, founded for his sister the
+queen this impregnable fortress, for the safety of his kingdom, in his eleventh regnal year.
+
+**Three things follow, and all three are in the article.** The text names a *fortress*, not a
+temple. `Helios` sits in it where a Hellenistic ruler's epithet sits — a royal title, not a
+theonym. And it was found at the cemetery, not in the building it is normally attached to.
+
+**Where AD 77 comes from.** The eleventh regnal year counted from Trdat I's coronation by Nero in
+66 gives 77; counted from his earlier installation by Vologases it gives about 63. Both counts
+are in the literature. AD 77 is the number everyone repeats because Armenian scholarship has
+generally preferred the coronation as the starting point. So 77 survived the audit — as a
+**regnal-year calculation on a fortress inscription**, which is what the article says it is, and
+what `keyFacts` says too: *"AD 77, or AD 63 on the other reckoning of that year"*.
+
+**And the ground moved during this step.** Bresson and Fagan (2022) argue that the Tiridates of
+the inscription is not Trdat I but Trdat the Great — the king of the conversion — which would move
+the text to the early fourth century and detach it from the first century entirely. That is a live
+argument rather than a conclusion, and it is recorded as one. It was found late, after the section
+was drafted; a paragraph was added to `the-inscription` in all three editions rather than left out
+because the draft was tidier without it.
+
+### Temple function and deity, treated the same way
+
+The article does **not** call Garni a temple of Mihr. It says the identification is traditional,
+that it is not baseless — solar cult is well attested in pre-Christian Armenia and Mihr is a real
+figure in it — and then that nothing found at Garni names Mihr or any other god, and that the
+chain runs from a royal epithet to a theonym to a dedication.
+
+The minority reading is given properly: Wilkinson (1982) argued for a monumental tomb of about
+AD 175 from comparison with the funerary architecture of western Asia Minor, nearby graves and
+sarcophagus fragments; Russell endorsed it; Maranci's survey gives the building an unclear
+function and raises a funerary reading. The article declines to adjudicate and says so.
+
+Four kinds of claim are separated explicitly in the closing section — a document, arithmetic on a
+document, an association, and an argument from comparative architecture — which is the same
+discipline the Erebuni article applies to its own foundation year, and the reason those two
+articles are linked.
+
+Armenian pre-Christian religion is described only as far as the sources go: solar cult attested,
+Mihr real and important, one temple of Mihr known beyond doubt elsewhere. No modern reconstruction
+of a pantheon was used.
+
+### Architecture, and what is actually standing
+
+Stated where supported: peripteral plan, twenty-four Ionic columns (six by eight), entablature and
+pediment, a podium about three metres high with a single steep flight, a small cella, local
+grey-blue basalt laid dry with iron clamps set in lead.
+
+Two things the article insists on. The order is Ionic but handled with a freedom generally read as
+provincial workmanship in a Roman idiom rather than a copy of a model — so it is **not** described
+as a transplanted Roman temple, and the stone, quarry, setting and surrounding fortress are named
+as the local context. And the clamps are introduced here because they matter twice: they are why
+the building is Roman in technique, and why it fell as completely as it did once they had been
+stripped out for metal.
+
+**The reconstruction is stated plainly and early — in the `excerpt`, the `intro`, the `summary`,
+`keyFacts` and twice more in the body.** By Sahinian's own published account roughly a third of
+the standing building is ancient material and two thirds is new stone from a local quarry; only
+about forty per cent of the column shafts survived at all and only two survived whole; the new
+pieces were left unornamented so the join stays visible. The article notes that this figure is the
+restorer's own self-report. Nothing in any edition implies the colonnade survived from antiquity.
+
+### Earthquake and reconstruction chronology
+
+| | |
+|---|---|
+| Earthquake | **4 June 1679** in the Armenian tradition, **14 June** in the Gregorian reckoning of the modern re-analysis — a ten-day Julian offset. Epicentre near the Garni gorge. Equivalent magnitude about 6.7, epicentral intensity X (Mercalli–Cancani–Sieberg). Recorded by the contemporary chronicler Zakaria Kanakertsi. |
+| Clearance | **1909–1911**, Nikolai Marr with Yakov Smirnov and the architect Konstantin Romanov. Later specialists judged it clearance and cataloguing rather than excavation; never published. |
+| Partial re-erection | **Early 1930s**, Nikoghayos Buniatian; taken down again as mistaken. |
+| Systematic excavation | **From 1949**, Babken Arakelyan, with Alexander Sahinian on the classical building. |
+| Anastylosis | Approved **1968**, begun **1969**, colonnade standing again by **1975**. |
+
+Both earthquake dates are given in the article rather than one being silently preferred. The
+magnitude and intensity are written as words to keep the numeral inventory clean.
+
+### Fortress, bath and mosaic
+
+The wall and towers closing the neck of the promontory, the palace ranges, and the third-century
+bath with its hypocaust are all described, and the article states outright that Garni is a
+fortified royal site with a classical building in it rather than a temple with some walls nearby.
+
+The mosaic is treated carefully. It is described as a marine scene in local stone of about fifteen
+natural shades with figures labelled in Greek — Thetis, Glaukos, Eros among them — and the article
+says the sources differ about which pair occupies the centre, naming Ocean and Thalassa as the
+pair most often given. Thalassa, Tethys and Thetis are three different figures and are routinely
+confused in popular accounts, which is why the central pair is hedged rather than asserted.
+
+The Greek line is quoted as **μηδὲν λαβόντες ἠργασάμεθα** — not the ΟΥΔΕΝ variant that circulates,
+for which no source could be found — and translated. Its *meaning* is left open: the "unpaid
+craftsmen" reading is the popular one, but the sense reads equally as a boast, and the article
+says so. Nothing was reconstructed or invented, and the bath does not displace the temple as the
+subject.
+
+### After the conversion
+
+Handled as the thinly-evidenced question it is. Movses Khorenatsi records a cool retreat built
+within the fortress for Khosrovidukht, sister of Trdat III — a reference to a building in the
+enclosure, not to this one — and the step from there to "the temple became a summer house" is
+named as a modern inference. The round church of Surb Sion west of the temple is dated **seventh
+to tenth century**, a range, not the single early date usually quoted. The baptistery argument
+from an inscription inside the cella is given as one study's hypothesis. The article states
+plainly that no source explains why this building alone was left standing, and notes that the tomb
+hypothesis offers the simplest answer while flagging that as an argument from consequence.
+
+### Sources
+
+Ten entries, every one verified for author, title, publisher, year and identifier during this
+step. Three corrections were forced along the way, and each is worth recording because each would
+have shipped as a confident error.
+
+**The Wilkinson citation that circulates does not exist.** "The Temple of Garni: A Reexamination",
+attributed to the *Journal of Ancient Near Eastern Religions*, is untraceable — and JANER did not
+begin publication until 2001. The real article is **R. D. Wilkinson, "A Fresh Look at the Ionic
+Building at Garni", *Revue des Études Arméniennes* NS 16 (1982), 221–244**, confirmed independently
+from Russell's own footnote and from the bibliography entry. It is print-only with no DOI, so the
+identifier is a catalogue search, and the note says the article was not consulted directly.
+
+**Russell does not say "baseless".** That is a paraphrase. What he writes is that nothing supports
+the temple identification save the inscription, and that one cannot be certain the inscription
+refers to the building. The article now says that instead. The note also records that he is not
+wholly consistent — elsewhere in the same book he refers in passing to a temple built by Trdat I
+at Garni — because citing him as a clean anti-temple authority would be tidier than accurate.
+
+**The mosaic phrase is ΜΗΔΕΝ, not ΟΥΔΕΝ.** No source was found for the second form.
+
+| Source | Identifier | Cited for |
+|---|---|---|
+| Wilkinson, "A Fresh Look at the Ionic Building at Garni", REArm NS 16 | catalogue URL (print-only) | The tomb hypothesis at its source |
+| Russell, *Zoroastrianism in Armenia*, Harvard Iranian Series 5 | ISBN 9780674968509 | The Mihr identification and its evidentiary gap |
+| Bresson & Fagan, VDI 82(3) | DOI 10.31857/s032103910017253-1 | The 2022 re-attribution of the inscription |
+| Guidoboni, Haroutiunian & Karakhanian, *J. Seismology* 7(3) | DOI 10.1023/A:1024561622879 | The 1679 earthquake |
+| Magarditchian, REArm 37 | DOI 10.2143/REA.37.0.3237123 | The baptistery hypothesis |
+| Maranci, *The Art of Armenia* | ISBN 9780190269005 | "Unclear function"; a funerary reading |
+| Tacitus, *Annals* 4–6, 11–12, Loeb 312 | ISBN 9780674993457 | Gorneas as a stronghold |
+| Hovannisian (ed.), *The Armenian People* I | ISBN 9781403966360 | The first-century political frame |
+| Hewsen, *Armenia: A Historical Atlas* | ISBN 9780226332284 | Valley geography; Surb Sion's date range |
+| UNESCO tentative list 6808 | whc.unesco.org URL | The tentative-list status |
+| Livius.org (Jona Lendering) | livius.org URL | Inscription text, bath, mosaic |
+
+The two existing Armat sources are reused only where they genuinely support the claim: Hovannisian
+for the Roman–Parthian settlement, Hewsen for the valley and the church's dating. Neither is cited
+for anything about the building. Livius is a scholarly reference site rather than peer-reviewed
+work, and its note says so; where it advances the mausoleum reading it is reporting Wilkinson and
+Russell, who are cited on their own account. **No tourism site is the authority for dating, deity
+identification, inscription interpretation or reconstruction history.** No page reference was
+invented; where a claim rests on a source not read directly, the note says so.
+
+One conflict was preserved rather than resolved: the article carries both earthquake dates, both
+regnal-year counts, both readings of the building's function, and a range rather than a year for
+Surb Sion.
+
+### Coordinate
+
+```ts
+"garni-temple": { lat: 40.1123, lon: 44.7302, precision: "site" },
+```
+
+| | |
+|---|---|
+| Source entity | OpenStreetMap **way 108255791** — `historic=archaeological_site`, `archaeological_site=roman_temple`, `building=temple`, `name=Գառնիի հեթանոսական տաճար`, `wikidata=Q684072` |
+| Raw | 40.1123415, 44.7302188 (footprint centre) |
+| Rounded | 40.1123, 44.7302 |
+| Represents | The temple building itself, inside the walled complex |
+
+The rounding was **checked rather than assumed**, which is new for this file: four decimal places
+is about eleven metres and the temple footprint is roughly 23 × 18 m, so a point-in-polygon test
+was run — the rounded value falls inside both the temple polygon and the surrounding fortress
+enclosure (OSM way 215286758, `Գառնիի ամրոց`). Wikipedia's infobox agrees to about ten metres.
+Wikidata Q684072 carries its own point but only to three decimal places, about 110 m out, so the
+OSM element was preferred — for precision, not disagreement.
+
+Excluded by name and distance in `geo.ts` and pinned in the test: Garni village centre (~660 m),
+the gorge and the Symphony of Stones basalt columns (~0.9–1.1 km), the nearest hotel (~280 m), and
+Geghard (~8 km up the valley).
+
+### Related content
+
+`relatedSlugs`: `adoption-of-christianity`, `tigran-the-great`, `erebuni-fortress` — all existing
+slugs, all published in all three editions.
+
+Three `SectionLink`s, each in a different section and each on a phrase that was already in the
+prose:
+
+- `the-building` → `tigran-the-great`, on "a kingdom that had been inside the Hellenistic world for centuries"
+- `the-inscription` → `erebuni-fortress`, on the distinction between a record and a reconstruction
+- `after-christianity` → `adoption-of-christianity`, on the conversion in 301
+
+`geghard` was **not** invented. It has no article, and a link to it would have failed validation —
+which is the mechanism working as intended. No existing article was modified to create a backlink,
+so `getRelatedArticles` remains one-directional.
+
+### Artwork — pending
+
+Every asset in `public/` was opened rather than reasoned about from its filename. Nothing depicts
+the temple at Garni, so `garni-temple` was added to `PENDING_ARTWORK` and the article renders the
+generated placeholder honestly.
+
+Two near misses were rejected on sight, and the second is the instructive one:
+`history/adoption-of-christianity.webp` is a baptism before a medieval domed church among
+khachkars — the right kingdom five centuries too late, and a building of exactly the kind Garni is
+not. `history/tigran-the-great.webp` **has classical columns in it**, which is precisely the trap:
+they are pilasters on a palace terrace behind a royal portrait, above a Hellenistic city and
+Ararat. It would pass a glance as "Armenian antiquity with columns".
+
+`erebuni-fortress.webp` is excluded on principle rather than resemblance: it is the other
+`historical` place, and lending one archaeological site's cover to another is the substitution this
+list exists to prevent. All three are named in a test that forbids them from Garni's own head,
+structured data and hero. No artwork was generated or fabricated.
+
+### Western Armenian — unreviewed, and flagged
+
+The whole `hyw` article is machine-written Western Armenian and joins the review queue from §16,
+§28, §29, §31, §33, §35 and §37. The `easternOrthographyMarker` guard only catches `և` and
+`ություն`, and it passes — which says nothing about whether the prose is good Western Armenian.
+
+Flagged specifically for a native reviewer, because each is a first use in this repository:
+
+- **Ruler and personal names** — `Տրդատ Ա.`, `Վաղարշ Ա.`, `Ներոն`, `Տիրիդատէս`, `Խոսրովիդուխտ`, `Զաքարիա Քանաքեռցի`, `Մովսէս Խորենացի`.
+- **Modern scholars, transliterated here for the first time** — `Ռ. Տ. Ուիլքինսըն`, `Ճէյմս Ռ. Ռասըլ`, `Քրիստինա Մարանչի`, `Ալէն Պրեսոն`, `Էլիզապէթ Ֆէյկըն`, `Էմանուէլա Կուիտոպոնի`, `Ռուբէն Յարութիւնեան`, `Ալեքսանդր Կարախանեան`, `Նիկողայոս Մառ`, `Բաբկէն Առաքելեան`, `Ալեքսանդր Սահինեան`.
+- **Religious terminology** — `հեթանոսական`, `նախաքրիստոնէական`, `Միհր`, `Միթրա`, `արեգակնային պաշտամունք`, `զոհասեղան`, `մկրտարան`, `սրբավայր`.
+- **Classical-architecture terminology** — `պերիպտերոս`, `սիւնաշար`, `իոնական կարգ`, `խոյակ`, `պատուանդան`, `ցելլա`, `ճակտոն`, `անթապլէմանթ`, `հիպոկաւսթ`, `պազալթ`.
+- **Archaeological terminology** — `պեղում`, `անասթիլոզ`, `վերականգնում`, `սարկոֆագ`, `արձանագրութիւն`, `ամրոց`, `պարիսպ`, `խճանկար`, `բաղնիք`.
+
+`անասթիլոզ` and `անթապլէմանթ` are the two least certain: both are technical loans with no
+established Western Armenian form in this repository, and a reviewer may prefer a description to a
+transliteration.
+
+### Tests
+
+`tests/e2e/places.spec.ts` grew from 36 to **41** tests.
+
+- `GARNI` added; `PLACES` is six slugs, `ILLUSTRATED` stays at five. The split state returns for
+  the fifth time.
+- Listing counts 5 → 6 throughout; the English-title fallback test gains "Garni Temple".
+- **`historical` left the single-article filter loop** and got a test of its own asserting the pair
+  — both present, everything else absent, count exactly two. While it held one article, "the filter
+  works" and "the filter shows Erebuni" were the same statement; they are not any more.
+- `under("historical")` is now `[EREBUNI, GARNI]` sorted, and a new assertion pins the whole
+  distribution: `{historical: 2, monastery: 2, museum: 1, nature: 1}` over six places and five
+  pills. That is what makes a new place type invented for a temple fail here.
+- Monastery stays at 2, museum at 1, nature at 1, all asserted.
+- The placeholder branch has a subject again: Garni renders the inline `<svg>`, no `<img>`, and the
+  placeholder caption in all three editions; a companion test forbids `erebuni-fortress`,
+  `adoption-of-christianity`, `tigran-the-great`, `kingdom-of-urartu` and `hero-ararat` from its
+  head, structured data and hero, asserts `Article.image` is **absent**, and asserts `og:image` and
+  `twitter:image` fall back to `og-default` rather than to a sibling's file.
+- The listing's placeholder count inverted again, 0 → 1 — the third inversion in three steps, which
+  is the argument for pinning the count rather than asserting "none" or "at least one".
+- Sitemap: Garni's three url blocks must contain **no** `image:loc`.
+- Search: a sixth findability test under the Places group, and a thumbnail test asserting the
+  generated `<svg>` and no `<img>`. Both scoped to the card whose href is `/en/places/garni-temple`
+  — "Garni" also matches the ghapama article, which names the villages around Geghard and Garni.
+- `PENDING_ARTWORK` is asserted to equal `[GARNI]` exactly, in both directions.
+- The coordinate test expects `precision: "site"` and pins the point against the village centre,
+  the basalt columns and Geghard by distance.
+- The homepage test forbids `garni` alongside the other four fragments.
+- The existing SEO, JSON-LD, canonical/hreflang and sitemap-URL tests loop `PLACES`, so all six are
+  covered by them without further change — including that the H1 is `title` and not `seoTitle`, and
+  that no `Place`, `TouristAttraction`, `LocalBusiness`, `Church`, `ArchaeologicalSite` or
+  `LandmarksOrHistoricalBuildings` type is emitted.
+
+### Verification
+
+Run in the prescribed order. Playwright and the production build were **not** run concurrently.
+
+| Step | Command | Result |
+|---|---|---|
+| 1 | port 3002 | clear |
+| 2 | remove `.next` | removed (§38 ended with a build) |
+| 3 | `npm run typecheck` | **PASS** — 0 errors |
+| 4 | `npm run validate:content` | **PASS** — 117 entries across 3 locales, pending note naming `garni-temple` |
+| 5 | `npx playwright test --project=desktop places.spec.ts` | **PASS** — 41 passed |
+| 6 | `npx playwright test` | **PASS** — 189 passed, 5 skipped, 0 failed |
+| 7 | `npm run build` | **PASS** — 123 prerendered routes, up 3 |
+
+Port 3002 was checked again between steps 6 and 7: no listener, only a TIME_WAIT socket draining
+from Playwright's dev server, which is a closing connection rather than a held port.
+
+**One deterministic failure occurred and was fixed in the source, not retried.** While inserting
+the bibliography, a double-quoted title inside a double-quoted `note` string was not escaped, which
+broke `src/data/sources.ts`:
+
+```
+src/data/sources.ts(966,401): error TS1005: ',' expected.
+esbuild: ERROR: Expected "}" but found "The"
+```
+
+Both `typecheck` and `validate:content` failed on it. Fixed by using single quotes for the nested
+title. Nothing was retried in the hope of a different result, and none of the three documented
+false-failure modes (§30 stale adopted dev server, §32 build-clobbered `.next`, §34 cold-compile
+contention) occurred.
+
+The 18 place pages (6 places × 3 editions) were confirmed on disk, including
+`.next/server/app/{hy,hyw,en}/places/garni-temple.html`. Each carries `og:image` and
+`twitter:image` pointing at `og-default.png`, an `Article` node with **no** `image` property, and
+the graph `Organization + WebSite + Article + BreadcrumbList`. The sitemap carries three
+`garni-temple` url blocks and no `image:loc` for any of them.
+
+### Preserved
+
+The five existing Places articles are untouched: no prose, coordinate, `placeTypeId`, `featured`
+flag, `relatedSlugs` or source entry of theirs changed. All five registered image paths are
+unchanged and every asset in `public/` is byte-identical — `git status` shows no change under
+`public/`. Khor Virap is still the only featured place and still the only PNG. The homepage still
+points at `/hero-ararat.png` directly. `ARTWORK_PROVENANCE`, `getImageSrc`, `getArticleImageSrc`,
+`isGeneratedArtwork`, the JSON-LD builders, the listing components and `scripts/validate-content.ts`
+are all unchanged.
+
+The deleted §38 scratchpad files were not reintroduced. `.claude/settings.json` was not modified.
+
+### Still open
+
+- **The Matenadaran façade colour — still open**, unchanged from §36 and §38. The delivered
+  artwork renders the building in pale grey where the building, and this archive's prose three
+  times over, describes dark basalt. Having artwork and having *correct* artwork remain different
+  claims.
+- ~~**Garni has no artwork.**~~ **RESOLVED in §40.** `public/images/places/garni-temple.webp`
+  arrived, was verified and inspected, and is registered. `PENDING_ARTWORK` is empty. The trap
+  recorded here — a picture with columns in it, which any classical portico would pass a glance as
+  — is now carried by a test that forbids `tigran-the-great`, `adoption-of-christianity` and
+  `erebuni-fortress` by name in the article's own head, structured data and hero. One colour
+  reservation about the delivered file is recorded in §40 and left open.
+- **A dedicated Khor Virap image — still open**, unchanged since §32. It remains the only
+  1355 × 793 entry, the only PNG, and at 1.4 MB the heaviest file in the registry by a factor of
+  two; its weight is a live performance question, not only an editorial one.
+- **File weight in Places.** Erebuni at 742 KB and the Matenadaran at 701 KB, both carrying ICC
+  profiles. Together with Khor Virap this is one media-optimisation pass rather than three separate
+  problems, and it has not been done.
+- **Western Armenian native review — still open**, and now larger by one article. The Garni `hyw`
+  text joins the queue from §16, §28, §29, §31, §33, §35 and §37, with the five terminology groups
+  listed above flagged specifically.
+- **Nothing links *to* any place yet** — `getRelatedArticles` remains one-directional, and this
+  step deliberately did not change that.
+- **The remaining place type.** `settlement` still waits for its first article. `historical` is the
+  first type to hold two.
+- **Which Tiridates.** Bresson and Fagan's re-attribution is recent and unsettled. If it is taken
+  up, the dating section and `importantDates` will need revisiting — and the article is written so
+  that would be an edit rather than a rewrite.
+- **Wilkinson not read directly.** No copy of REArm NS 16 is online; the argument is taken from
+  Russell's endorsement and from summaries, and the source note says so.
+
+No deployment was performed.
+
+---
+
+## 40. Garni Temple artwork — the pending entry, cleared (August 2026)
+
+`public/images/places/garni-temple.webp` arrived. It was verified, inspected and registered in
+`IMAGES`, and the slug is out of `PENDING_ARTWORK`. Nothing else changed: no image was generated,
+edited, cropped, resized, recoloured, renamed or optimised, no article content moved, and no new
+loading path was introduced. Two source files changed — `src/lib/media.ts` and
+`tests/e2e/places.spec.ts` — plus the new asset and this document.
+
+This is the fifth time the section has cleared a pending entry (§32 Etchmiadzin, §34 Erebuni, §36
+Matenadaran, §38 Lake Sevan, §40 Garni) and the fifth time the whole change was a one-line
+registration reaching six surfaces at once. `PENDING_ARTWORK` is empty again, and with six of six
+places illustrated the placeholder branch has no subject in this section once more.
+
+`scripts/validate-content.ts` was **not** touched. The §36 wording — *"have no artwork and render
+the generated placeholder"* — is unchanged, and so is its logic. It prints nothing now because the
+set it counts is empty: every one of the 29 article slugs across the three editions has a
+registered file.
+
+### The asset, verified rather than assumed
+
+The container was parsed rather than trusted to its extension.
+
+| Property | Value |
+|---|---|
+| Path | `public/images/places/garni-temple.webp` |
+| Magic | `RIFF` … `WEBP`, RIFF size field 122 584 = file length − 8 (consistent) |
+| Chunks | `VP8 (122572)` — **simple** container, lossy VP8, no `VP8X`, no `ICCP`, no `ALPH`, no `EXIF` |
+| Frame | keyframe, VP8 version 0, start code `9d 01 2a`, no horizontal or vertical scaling bits |
+| Dimensions | **1448 × 1086** (1.333, exactly 4:3) |
+| Colour | sRGB, no alpha channel, no embedded ICC profile |
+| File size | **122 592 bytes (119.7 KB)** |
+| SHA-256 | `f0d6e4fd59eddd04ef531b7b1ce2d3f513b75e72eafb7ffe7485802e7a136518` |
+
+Two facts about this file break patterns the registry had settled into, and both are recorded in
+`media.ts` beside the entry rather than left to be rediscovered.
+
+**It is the first WebP here that is not 1586 × 992.** Etchmiadzin, Erebuni, the Matenadaran and
+Lake Sevan are all 1586 × 992, a 16:10 frame; this is 1448 × 1086, a 4:3 one. Until now Khor
+Virap's 1355 × 793 PNG was the only entry with different dimensions. That is not a fault — the
+registry has never required a size — but it changes what the shared centre crops trim, which is
+covered below.
+
+**It is the lightest file under `/images/places/` at 119.7 KB**, taking that note away from Lake
+Sevan (176 KB) after a single step. Container-wise it matches Etchmiadzin and Lake Sevan: a plain
+`RIFF/VP8` with no extended chunks, so the ICC note in `media.ts` still describes exactly two
+files — Erebuni and the Matenadaran.
+
+### Visual inspection
+
+The file was opened and looked at, then examined at magnification on the pediment, the capitals,
+the frieze bands, the stair and the podium.
+
+**It is unmistakably Garni.** A small peripteral building on a high podium: a hexastyle front of
+six columns with the receding flank colonnade behind it, an entablature and pediment above, and a
+single steep stair on the entrance front, standing on a rock shelf with treeless ochre ridges
+falling away behind. The proportions are Garni's — compact, tall-columned, high-podiumed — and not
+the Parthenon's wide octastyle mass, and not a generic Greek temple on level ground.
+
+Checked feature by feature:
+
+| Feature | Finding |
+|---|---|
+| Podium | Present and correctly high, with moulded base and cornice courses and flanking cheek walls |
+| Stair approach | Present, single steep flight on the entrance front |
+| Colonnade | Hexastyle front, receding flank row behind — a peripteral plan reads clearly |
+| Capitals | **Ionic**, with paired volutes and an egg-and-dart echinus. Not Doric, not Corinthian |
+| Pediment | Present, with a raking cornice, a dentil course and an acroterion-like block at the apex |
+| Tympanum | **Plain ashlar** — which is correct for Garni, and matters below |
+| Frieze | Vegetal scrollwork over a dentil band. No figures, no narrative scene |
+| Setting | Treeless arid ridges falling away on the left, a rock shelf underfoot — a plausible Azat-gorge promontory |
+
+**Nothing in the frame asserts a dedication.** There is no cult image, no altar, no statue, no
+solar disc or emblem, no Greek or Armenian lettering anywhere, and no date. The tympanum is blank
+and the frieze is ornament rather than iconography. That mattered more here than for any previous
+entry in this map: the article's central argument is that the building's dedication is *not*
+established, and a picture with a sun-god in the pediment would have contradicted the prose it
+sits above.
+
+**The stone is not marble.** Sampled against the scene, lit faces sit at luminance 108–128 with
+the sky at 223, and shadowed shafts and podium blocks at 47–48. It reads as a rough, dark, coursed
+volcanic stone.
+
+### The one reservation, reported rather than corrected
+
+The stone is **warmer than Garni's basalt actually is**. Measured means:
+
+| Region | RGB | Luminance | R−B |
+|---|---|---|---|
+| Column shaft, lit | 144, 117, 88 | 121 | +56 |
+| Column shaft, shadow | 59, 46, 34 | 48 | +25 |
+| Entablature | 140, 103, 66 | 108 | +74 |
+| Pediment field | 163, 123, 81 | 128 | +82 |
+| Podium block | 57, 46, 34 | 47 | +23 |
+| Hillside (reference) | 151, 126, 103 | 130 | +48 |
+| Sky (reference) | 239, 220, 202 | 223 | +37 |
+
+Real Garni is a grey-**blue** basalt, which would give a negative or near-zero R−B. Everything
+here is positive, and the building is warmer than the hillside behind it (+56 to +82 against +48),
+so the warmth is not only the golden-hour light lying over the whole scene — some of it is in the
+stone. The shadowed faces are the closest to right: dark grey-brown at luminance 47, which reads
+convincingly as volcanic rock.
+
+So: **not white marble, not close to it, but ochre-warm where the real building is cool grey-blue.**
+This is the same *kind* of finding as the Matenadaran façade colour recorded in §36, and it is
+handled the same way — reported here, not corrected, because a delivered asset is registered as
+delivered. It is listed as open below. It is a weaker reservation than the Matenadaran's: that one
+contradicts the article's own prose about dark basalt three times over, whereas this article does
+not describe the stone's hue in a way the picture contradicts.
+
+A second, smaller fidelity note, recorded once so it is not rediscovered as a fault: the rendered
+stair reads as a broader flight of many shallow risers, where Garni's is famously a short flight of
+very high ones. Not visible at card size, and not corrected.
+
+### Crop suitability
+
+Every slot is a centre crop with `object-cover` and `object-center`; `PORTRAIT_FOCUS` is
+writers-only and does not apply. Each was rendered from the source and inspected. The 4:3 source
+makes this file behave differently from the four before it, which is the whole reason this section
+is longer than usual.
+
+| Slot | Component | Crop of 1448 × 1086 | Result |
+|---|---|---|---|
+| Compact card (homepage) | `ArticleCard variant="compact"`, `aspect-[4/3]` | **1448 × 1086 — no crop at all** | The whole frame. The one slot a 4:3 source fits exactly |
+| Mobile article hero | `ArticleLayout`, `aspect-[4/3]` | **no crop** | As above |
+| Tablet article hero | `ArticleLayout`, `sm:aspect-[3/2]` | 1448 × 965, 61 px trimmed top and bottom | Everything retained; strictly looser than the 16:9 below |
+| Standard listing card | `ArticleCard`, `aspect-[16/9]` | 1448 × 815, **136 px trimmed top and bottom** | Pediment apex survives, with little headroom to spare |
+| Desktop article hero | `ArticleLayout`, `lg:aspect-[16/9]` | as listing card | As above |
+| Search thumbnail | `SearchResultCard`, `w-32`/`lg:w-40` at card height (≈128 × 170) | 818 × 1086, 315 px trimmed each side | Holds well: pediment, front colonnade, capitals, stair and podium all present; the rear flank columns are clipped |
+
+The number worth carrying forward is **136**. A 1586 × 992 file loses 50 px top and bottom to the
+16:9 slots; this one loses 136. The pediment apex sits close enough to the top edge that it was
+checked rather than assumed — it is retained, but a future 4:3 delivery with less headroom would
+lose it, and nothing in the code would say so. **No crop logic was added and none is needed.**
+
+### Media registry
+
+One line, in the places block of `IMAGES`:
+
+```ts
+"garni-temple": "/images/places/garni-temple.webp",
+```
+
+Reached through the existing `getImageSrc` and `getArticleImageSrc` only. No Garni-specific media
+logic, no special crop logic, no new image field, no new provenance infrastructure, no component
+change and no new call site — every consumer already asks the registry.
+
+### Provenance
+
+Unchanged mechanism, entirely inherited:
+
+- `isGeneratedArtwork({ slug: "garni-temple" })` returns `true`, because the slug is now in
+  `IMAGES` and the article declares no `image` of its own.
+- The AI-generated **illustration** disclosure appears — the same branch cuisine and the other
+  places use, not the portrait one. Confirmed in the built HTML of all three editions:
+  - `en` — "AI-generated illustration for Garni Temple — an imagined scene."
+  - `hy` — «Արհեստական բանականությամբ ստեղծված նկարազարդում «Գառնիի տաճար» հոդվածի համար — երևակայված պատկեր է։»
+  - `hyw` — «Արհեստական բանականութեամբ ստեղծուած պատկերազարդում՝ Գառնիի տաճար — երեւակայուած պատկեր է։»
+- The placeholder disclosure is gone, and the hero renders `<img>` rather than the generated
+  inline `<svg>`.
+- `ARTWORK_PROVENANCE` is **unchanged** — same object, same two fields, one provenance for the
+  whole registry.
+- No per-image provenance mechanism was introduced, and no other article's provenance behaviour
+  changed.
+
+### Pending-artwork removal
+
+`"garni-temple"` was removed from `PENDING_ARTWORK`, which is now empty for the fifth time. The
+list itself stays, with its comment rewritten to record what was rejected on the way out. Garni is
+the third rejection worth keeping, after the Matenadaran's Mashtots portrait and Lake Sevan's three
+near misses, and it is the sharpest of them: the trap was **a picture with columns in it**.
+`tigran-the-great.webp` has classical pilasters on a palace terrace behind a royal portrait and
+would have passed a glance as "Armenian antiquity with columns" while captioning a
+first-century-BC king's capital as a peripteral building on a gorge rim two centuries later.
+`adoption-of-christianity.webp` is a baptism before a medieval domed church. `erebuni-fortress.webp`
+was excluded on principle: it is the other `historical` place.
+
+Consequences, each checked rather than assumed:
+
+- `validate:content` no longer names Garni, and prints no "no artwork" note at all.
+- The Places listing contains **zero** artwork placeholders — asserted as a count.
+- All three locale pages use the final WebP.
+- No historical-site image leaks into Garni: a test forbids all three rejected files by name from
+  its head, structured data and hero.
+
+### Verified surfaces
+
+Every one read from the built output, not inferred from the registry:
+
+| Surface | Evidence |
+|---|---|
+| Places listing card | `main img` sources on `/en/places` contain `garni-temple.webp`; seven images for six places plus the featured repeat; zero `svg[role="img"]` |
+| Article hero | `header figure img` in `hy`, `hyw` and `en`, with no `svg[role="img"]` in the figure |
+| Global search card | The result card filtered by `a[href="/en/places/garni-temple"]` carries the thumbnail — scoped by href, not taken as the first result, because "Garni" also matches the ghapama article |
+| Related-article cards | The same `ArticleCard` component as the listing, covered by the same lookup |
+| Open Graph | `og:image` = `https://armat.site/images/places/garni-temple.webp` in all three editions |
+| Twitter | `twitter:image` = the same absolute URL in all three editions |
+| `Article.image` JSON-LD | `{"@type":"ImageObject","url":"https://armat.site/images/places/garni-temple.webp"}`, present where §39 asserted it absent |
+| Sitemap | Exactly three `image:loc` entries, one per locale route, each inside its own `<url>` block |
+
+The JSON-LD graph is unchanged in shape: `Organization + WebSite + Article + BreadcrumbList` in
+all three editions. No `Place`, `TouristAttraction`, `ArchaeologicalSite`,
+`LandmarksOrHistoricalBuildings`, `Temple` or `LocalBusiness` type appeared. The only
+structured-data consequence of this step is the generic `Article.image` resolving to the
+registered file.
+
+### Tests
+
+`tests/e2e/places.spec.ts` stays at **41** tests. No test was added or dropped; the ones that
+asserted the pending state were inverted.
+
+- `GARNI` moved into `ILLUSTRATED`, which is now all six places, and `ARTWORK` gained
+  `"garni-temple": "/images/places/garni-temple.webp"`.
+- **`ILLUSTRATED` is deliberately not collapsed into `PLACES`** even though they coincide again.
+  They have coincided four times before and split again every time, and the placeholder assertions
+  read this list to decide what may render an `<svg>`. Its comment says so explicitly.
+- *"the pending place renders the generated placeholder and says so"* → *"the newest place renders
+  its own file and is captioned as an illustration"*: `<img>` present with the right file, `<svg>`
+  absent, illustration caption present, placeholder caption absent, in all three editions.
+- *"the pending place borrows no other article's artwork"* → *"the newest place borrows…"*, kept
+  across the registration exactly as the Matenadaran's and Lake Sevan's were. It still forbids
+  `erebuni-fortress`, `adoption-of-christianity`, `tigran-the-great`, `kingdom-of-urartu` and
+  `hero-ararat` by name, and now asserts `Article.image` **is** the registered cover and that
+  `og:image`/`twitter:image` are the cover rather than `og-default`, where §39 asserted the
+  opposite of all three.
+- The listing flipped from *exactly one* generated `<svg>` to **zero** — the fourth inversion of
+  that count in four steps (§37 one, §38 zero, §39 one, §40 zero), which is the argument for
+  pinning it rather than asserting "none" or "at least one".
+- The search-thumbnail loop gained `[GARNI, "Garni"]`, scoped by href.
+- *"the pending place is findable in search and shows the placeholder thumbnail"* → *"the newest
+  place's search card carries its own thumbnail and no placeholder"*. Kept separate from the loop
+  because `SearchResultCard` calls `getImageSrc` directly while the hero goes through
+  `getArticleImageSrc`, so one can be right while the other is not.
+- The sitemap's per-block assertion now covers `MATENADARAN`, `SEVAN` **and** `GARNI`: three
+  `<url>` blocks each, each carrying its own `image:loc`. The Garni no-`image:loc` block from §39
+  was removed as now false.
+- *"the pending list names exactly the one place"* → *"no place is waiting for artwork, and every
+  one resolves to its own file"*: `PENDING_ARTWORK` asserted `toEqual([])`, and every slug in
+  `PLACES` resolves through the registry to its own file.
+- `no unrelated article artwork changed` pins `registry[GARNI]` by name alongside the other five,
+  and its exact-object assertion over History, Writers, Works and Cuisine is untouched — that is
+  what would fail on any path in those four categories being retyped in passing.
+- Two tests were **renamed** rather than rewritten, because "the newest place" now means Garni:
+  the Lake Sevan hero, borrowing and search-card tests are now named for Lake Sevan, and the
+  Matenadaran metadata test for the Matenadaran.
+
+### Verification
+
+Run in the prescribed order. Playwright and the production build were **not** run concurrently.
+
+| Step | Command | Result |
+|---|---|---|
+| 1 | port 3002 | clear (no listener) |
+| 2 | remove `.next` | removed (§39 ended with a build) |
+| 3 | `npm run typecheck` | **PASS** — 0 errors |
+| 4 | `npm run validate:content` | **PASS** — 117 entries across 3 locales, and **no** "no artwork" note |
+| 5 | `npx playwright test --project=desktop places.spec.ts` | **FAIL then PASS** — see below, then 41 passed |
+| 6 | `npx playwright test` | **1 failed then PASS** — see below, then 189 passed, 5 skipped |
+| 7 | `npm run build` | **PASS** — 123 prerendered routes, compiled in 9.6 s |
+
+Port 3002 was confirmed to have no listener again between steps 6 and 7.
+
+**Failure 1 — mine, deterministic, fixed in the source.** Playwright refused to collect the spec
+at all:
+
+```
+Error: duplicate test title "the newest place's search card carries its own thumbnail and no
+placeholder", first declared in places.spec.ts:991
+```
+
+Renaming the Garni search-card test to "the newest place's…" collided with the Lake Sevan test that
+had carried that title since §38. Fixed by renaming the Lake Sevan one to "Lake Sevan's search card
+carries its own thumbnail and no placeholder", which is what it has actually been about since Garni
+arrived. A duplicate-title scan was then run over the whole file: none remain.
+
+**Failure 2 — not mine, and not deterministic.** The first full run had one failure in a spec this
+step does not touch:
+
+```
+[desktop] › tests/e2e/cuisine.spec.ts:351 › the cuisine dropdown only offers pages inside this edition
+  at cuisine.spec.ts:360
+```
+
+Line 360 is `expect(nav.getByRole("link", { name: dict.nav.allCuisineArticles })).toBeVisible()` —
+the dropdown had not opened. The cause is the hydration window `tests/e2e/helpers.ts` documents:
+the header is server-rendered, so its buttons are clickable a moment before React attaches the
+handler, and a click landing in that window is silently dropped. `openHeaderPanel` exists to retry
+through exactly that, and **this test does not use it** — it calls `.click()` directly on line 355.
+`.next` had been removed at step 2, so the dev server was compiling routes on demand under
+parallel load, which widens that window.
+
+It passed in isolation (1 passed) and passed on a full re-run with **no code changes between
+runs**, 189 passed. It is recorded here rather than fixed: it is a latent flake in a spec outside
+this step's scope, involving no image, no place and no registry, and silently editing another spec
+during an artwork registration is the wrong trade. It is listed as open below.
+
+The 18 place pages (6 places × 3 editions) were confirmed on disk, including
+`.next/server/app/{hy,hyw,en}/places/garni-temple.html`, each carrying the WebP in `og:image`,
+`twitter:image` and `Article.image`, and each rendering an `<img>` in the header figure.
+
+### Preserved
+
+Nothing outside the registry, the pending list and the places test file was touched.
+
+- **The Garni article is unchanged in all three editions.** No prose, no inscription treatment, no
+  AD 77 discussion, no Bresson/Fagan caveat, no Wilkinson caveat, no temple-function or Mihr
+  wording, no architectural interpretation, no earthquake chronology, no reconstruction discussion,
+  no source, no coordinate, no `relatedSlugs`, no `SectionLink`, no SEO field, no `placeTypeId`,
+  and no filter behaviour. `git diff` shows no change to any `articles/places.ts`, to `geo.ts` or
+  to `sources.ts` in this step.
+- **Existing artwork files** — all six files under `public/images/places/` are unmodified; the only
+  change under `public/` is the new file itself. Khor Virap keeps its PNG (still byte-identical to
+  `hero-ararat.png`), and Etchmiadzin, Erebuni, the Matenadaran and Lake Sevan keep their WebPs.
+- **The homepage** — `Hero.tsx` still points at `/hero-ararat.png` directly, the file is unchanged,
+  and it is still absent from `IMAGES`.
+- **Layout components and JSON-LD builders** — `ContentPhoto`, `ArticleLayout`, `ArticleCard`,
+  `SearchResultCard`, `seo.ts` and `sitemap.ts` are untouched.
+- **`scripts/validate-content.ts`** — not touched at all.
+- `.claude/settings.json` was not modified, and the scratchpad files deleted in §38 were not
+  reintroduced.
+
+### Still open
+
+- **The Matenadaran façade colour — still open**, unchanged from §36, §38 and §39. Pale grey where
+  the building and this archive's prose describe dark basalt.
+- **The Garni stone colour — new, and open.** Ochre-warm where the real basalt is grey-blue, with
+  the measurements above. Weaker than the Matenadaran case because this article does not describe
+  the hue in a way the picture contradicts, but recorded for the same reason: a delivered asset is
+  registered as delivered.
+- **A dedicated Khor Virap image — still open**, unchanged since §32. The only 1355 × 793 entry,
+  the only PNG, and at 1.4 MB the heaviest file in the registry by a factor of two. Its weight is a
+  live performance question, not only an editorial one.
+- **File weight in Places — still open.** Erebuni at 742 KB and the Matenadaran at 701 KB, both
+  carrying ICC profiles. With Khor Virap this remains one media-optimisation pass rather than three
+  problems. Garni at 120 KB did not add to it and is further evidence the ceiling is not inherent.
+- **Dimension drift in the registry — new, and minor.** `garni-temple.webp` is the first WebP here
+  that is not 1586 × 992. Nothing requires uniformity, but the 16:9 crops now trim 136 px from this
+  file against 50 px from the others, and a future 4:3 delivery with less headroom would lose the
+  top of its subject with nothing in the code to say so.
+- **Western Armenian native review — still open**, unchanged. The Garni `hyw` article and its five
+  flagged terminology groups remain in the queue from §16, §28, §29, §31, §33, §35, §37 and §39.
+  This step did not touch its prose.
+- **The Bresson and Fagan attribution — still open and unsettled.** Whether the inscription names
+  Trdat I or Trdat the Great remains a live argument, unaffected by the artwork.
+- **Wilkinson not read directly — still open.** No copy of REArm NS 16 is online; the argument is
+  taken from Russell's endorsement and from summaries, and the source note says so.
+- **Nothing links *to* any place yet** — `getRelatedArticles` remains one-directional.
+- **A latent hydration flake in `cuisine.spec.ts` — new.** Line 355 clicks the nav submenu button
+  directly instead of routing through `openHeaderPanel`, so it can lose the click to the
+  pre-hydration window on a cold server. It failed once here and passed on re-run and in isolation.
+  Left unfixed as out of scope for an artwork step; the fix is one call swapped for the helper.
+- **The remaining place type.** `settlement` still waits for its first article.
+
+No deployment was performed.

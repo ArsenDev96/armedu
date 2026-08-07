@@ -59,26 +59,41 @@ const MATENADARAN = "matenadaran";
  */
 const SEVAN = "lake-sevan";
 
-/** All five places, for the assertions that must hold of every article in the section. */
-const PLACES = [SLUG, ETCHMIADZIN, EREBUNI, MATENADARAN, SEVAN] as const;
+/**
+ * The sixth place, and the second under the `historical` filter.
+ *
+ * Its arrival was the first time a place type gained a *second* article, which
+ * changed the shape of several assertions below rather than only their counts:
+ * `historical` left the single-article filter loop, and `under("historical")` is a
+ * pair whose order must not matter.
+ *
+ * Like Etchmiadzin (§31), Erebuni (§33), the Matenadaran (§35) and Lake Sevan
+ * (§37) before it, it shipped ahead of its artwork in §39; §40 registered
+ * `garni-temple.webp`, so every place in the section has a cover again and
+ * `PENDING_ARTWORK` is empty.
+ */
+const GARNI = "garni-temple";
+
+/** All six places, for the assertions that must hold of every article in the section. */
+const PLACES = [SLUG, ETCHMIADZIN, EREBUNI, MATENADARAN, SEVAN, GARNI] as const;
 
 /**
- * The places whose artwork has actually landed — currently all five.
+ * The places whose artwork has actually landed — currently all six.
  *
  * Kept as its own list rather than folded into `PLACES` because the section has
- * been in the split state four times now (§31, §33, §35, §37) and left it four
- * times (§32, §34, §36, §38), and on every one of those occasions the change was
- * to move one slug between these two lines. Artwork assertions run over this one:
- * claiming provenance for a slug that has no file would be asserting a fiction,
- * and the next place written ahead of its picture needs this list to already
- * exist rather than to be reconstructed under pressure.
+ * been in the split state five times now (§31, §33, §35, §37, §39) and left it
+ * five times (§32, §34, §36, §38, §40), and on every one of those occasions the
+ * change was to move one slug between these two lines. Artwork assertions run over
+ * this one: claiming provenance for a slug that has no file would be asserting a
+ * fiction, and the next place written ahead of its picture needs this list to
+ * already exist rather than to be reconstructed under pressure.
  *
  * It is deliberately *not* replaced by `PLACES` now that the two coincide. The
- * last three times they coincided the next place split them again, and the
+ * last four times they coincided the next place split them again, and the
  * placeholder assertions below read this list to decide what may render an
  * `<svg>` — collapsing it would delete that distinction rather than satisfy it.
  */
-const ILLUSTRATED = [SLUG, ETCHMIADZIN, EREBUNI, MATENADARAN, SEVAN] as const;
+const ILLUSTRATED = [SLUG, ETCHMIADZIN, EREBUNI, MATENADARAN, SEVAN, GARNI] as const;
 
 /**
  * The registered file per slug — the single source of truth for every artwork
@@ -90,8 +105,10 @@ const ILLUSTRATED = [SLUG, ETCHMIADZIN, EREBUNI, MATENADARAN, SEVAN] as const;
  * from being updated to match a regression.
  *
  * The extensions differ on purpose and are not a typo: Khor Virap's cover is a
- * PNG copied from the homepage hero (§30), while the other four are 1586×992
- * WebPs like the rest of the registry (§32, §34, §36, §38).
+ * PNG copied from the homepage hero (§30), while the other five are WebPs
+ * (§32, §34, §36, §38, §40). Their dimensions are no longer uniform either —
+ * `garni-temple.webp` is 1448×1086 against the 1586×992 of the four before it,
+ * which changes what the shared centre crops trim but not what this map holds.
  */
 const ARTWORK = {
   [SLUG]: "/images/places/khor-virap.png",
@@ -99,6 +116,7 @@ const ARTWORK = {
   [EREBUNI]: "/images/places/erebuni-fortress.webp",
   [MATENADARAN]: "/images/places/matenadaran.webp",
   [SEVAN]: "/images/places/lake-sevan.webp",
+  [GARNI]: "/images/places/garni-temple.webp",
 } as const satisfies Record<(typeof ILLUSTRATED)[number], string>;
 
 /**
@@ -132,9 +150,9 @@ for (const locale of LOCALES) {
     await expect(
       page.getByRole("heading", { name: dict.listing.places.title, level: 1 }),
     ).toBeVisible();
-    await expect(cards(page)).toHaveCount(5);
+    await expect(cards(page)).toHaveCount(6);
 
-    // All five places open in this edition, under their own titles. The loop is
+    // All six places open in this edition, under their own titles. The loop is
     // what catches an article authored in `hy` and forgotten in the other two —
     // the listing would still render, with one card short and no error anywhere.
     for (const slug of PLACES) {
@@ -161,6 +179,7 @@ test("the Armenian editions never fall back to the English place title", async (
     "Erebuni Fortress",
     "Matenadaran",
     "Lake Sevan",
+    "Garni Temple",
   ]) {
     await expect(page.getByText(english, { exact: true })).toHaveCount(0);
   }
@@ -171,20 +190,21 @@ test("the Armenian editions never fall back to the English place title", async (
 
 test("the places listing filters by kind of site, and keeps it in the URL", async ({ page }) => {
   await page.goto("/en/places");
-  await expect(cards(page)).toHaveCount(5);
+  await expect(cards(page)).toHaveCount(6);
 
   await page.getByRole("button", { name: placeTypeLabel("en", "monastery") }).click();
 
-  // Two of the five places are monasteries and churches, so the filter genuinely
-  // narrows. With five articles and five pills, a filter that quietly matched
-  // everything would no longer look like a plausible count.
+  // Two of the six places are monasteries and churches, so the filter genuinely
+  // narrows. With six articles and five pills, a filter that quietly matched
+  // everything would no longer look like a plausible count. The count stays at
+  // two across §39: Garni is `historical`, and a temple is not a monastery.
   await expect(cards(page)).toHaveCount(2);
   for (const slug of [SLUG, ETCHMIADZIN]) {
     await expect(
       page.getByRole("link", { name: articleTitle("en", slug) }).first(),
     ).toBeVisible();
   }
-  for (const slug of [EREBUNI, MATENADARAN, SEVAN]) {
+  for (const slug of [EREBUNI, MATENADARAN, SEVAN, GARNI]) {
     await expect(page.getByRole("link", { name: articleTitle("en", slug) })).toHaveCount(0);
   }
   await expect(page).toHaveURL(/[?&]type=monastery/);
@@ -200,15 +220,18 @@ test("the places listing filters by kind of site, and keeps it in the URL", asyn
 
 test("each single-article filter returns exactly its own article", async ({ page }) => {
   /*
-    The three narrow types, and the failure worth catching: a filter id added to
-    the vocabulary but attached to no article — or attached to the wrong one — is a
-    pill that returns the empty state or somebody else's article.
+    The two remaining narrow types, and the failure worth catching: a filter id
+    added to the vocabulary but attached to no article — or attached to the wrong
+    one — is a pill that returns the empty state or somebody else's article.
     `validate:content` fails on the first of those; only a rendered listing
-    catches the second, and with three one-article filters side by side any pair
-    could also be crossed over without a single count changing.
+    catches the second, and with two one-article filters side by side they could
+    also be crossed over without a single count changing.
+
+    `historical` left this loop in §39. It was a one-article pill from §33 to §38;
+    Garni is the second article under it, and it is asserted as a pair in the test
+    below rather than being quietly dropped from coverage.
   */
   for (const [type, slug] of [
-    ["historical", EREBUNI],
     ["museum", MATENADARAN],
     ["nature", SEVAN],
   ] as const) {
@@ -228,10 +251,44 @@ test("each single-article filter returns exactly its own article", async ({ page
     }
     await expect(page).toHaveURL(new RegExp(`[?&]type=${type}`));
 
-    // Clearing returns all five, so the pill filters rather than replaces the set.
+    // Clearing returns all six, so the pill filters rather than replaces the set.
     await page.getByRole("button", { name: placeTypeLabel("en", "all") }).click();
-    await expect(cards(page), type).toHaveCount(5);
+    await expect(cards(page), type).toHaveCount(6);
   }
+});
+
+test("the historical filter returns exactly Erebuni and Garni", async ({ page }) => {
+  /*
+    The first place type to hold more than one article, and a genuinely different
+    assertion from the loop above rather than a copy of it.
+
+    While `historical` was a one-article pill, "the filter works" and "the filter
+    shows Erebuni" were the same statement. They are not any more: a filter that
+    silently matched everything, one that dropped the older article when the newer
+    one arrived, and one that returned only the newest would all still render a
+    plausible listing. Pinning the pair — both present, everything else absent, and
+    the count exactly two — separates those cases.
+  */
+  await page.goto("/en/places");
+  await page.getByRole("button", { name: placeTypeLabel("en", "historical") }).click();
+
+  await expect(cards(page)).toHaveCount(2);
+  for (const slug of [EREBUNI, GARNI]) {
+    await expect(
+      page.getByRole("link", { name: articleTitle("en", slug) }).first(),
+      slug,
+    ).toBeVisible();
+  }
+  for (const other of PLACES.filter((entry) => entry !== EREBUNI && entry !== GARNI)) {
+    await expect(
+      page.getByRole("link", { name: articleTitle("en", other) }),
+      `historical must not show ${other}`,
+    ).toHaveCount(0);
+  }
+  await expect(page).toHaveURL(/[?&]type=historical/);
+
+  await page.getByRole("button", { name: placeTypeLabel("en", "all") }).click();
+  await expect(cards(page)).toHaveCount(6);
 });
 
 test("the filter vocabulary is exactly the five ids, in every edition", () => {
@@ -252,18 +309,35 @@ test("the filter vocabulary is exactly the five ids, in every edition", () => {
     }
   }
 
-  // Each narrow type matches exactly the article that earned it, and the two
-  // monasteries are still the only articles under `monastery`.
+  // Each type matches exactly the articles that earned it. The vocabulary is
+  // unchanged in §39 — five ids, exactly as before — and the only movement is that
+  // `historical` now holds two slugs instead of one. Asserting the whole sorted
+  // array rather than membership is what makes a sixth place filed under the wrong
+  // pill fail here rather than merely look odd on the listing.
   const under = (type: string) =>
     bundle("hy")
       .articles.filter((entry) => entry.category === "places" && entry.placeTypeId === type)
       .map((entry) => entry.slug)
       .sort();
 
-  expect(under("historical")).toEqual([EREBUNI]);
+  expect(under("historical")).toEqual([EREBUNI, GARNI].sort());
   expect(under("museum")).toEqual([MATENADARAN]);
   expect(under("nature")).toEqual([SEVAN]);
   expect(under("monastery")).toEqual([ETCHMIADZIN, SLUG].sort());
+
+  // And no new place type was invented for a temple. The count of ids is pinned
+  // above; this pins the shape of the section against it — six places over five
+  // pills, with exactly one pill holding two.
+  const byType = new Map<string, number>();
+  for (const entry of bundle("hy").articles.filter((a) => a.category === "places")) {
+    byType.set(entry.placeTypeId!, (byType.get(entry.placeTypeId!) ?? 0) + 1);
+  }
+  expect(Object.fromEntries([...byType].sort())).toEqual({
+    historical: 2,
+    monastery: 2,
+    museum: 1,
+    nature: 1,
+  });
 
   // `nature` rather than `landscape`, and the id travels untranslated. The label
   // is the only part that differs per edition, so a locale that localised the id
@@ -412,6 +486,22 @@ test("the fifth place is findable under the places group too", async ({ page }) 
   await expect(main.locator(`a[href="/en/places/${SEVAN}"]`).first()).toBeVisible();
 });
 
+test("the sixth place is findable under the places group too", async ({ page }) => {
+  /*
+    Scoped by href like the three above. "Garni" has a rival of its own: the
+    ghapama article names the villages around Geghard and Garni among the places
+    the decorated loaves are sold, and a cuisine hit can legitimately rank above a
+    place. The group heading is what matters — a sixth place must appear under
+    Places, not merely somewhere on the results page.
+  */
+  const dict = ui("en");
+  await page.goto("/en/search?q=Garni");
+
+  const main = page.getByRole("main");
+  await expect(main.getByRole("heading", { name: dict.search.groupPlaces, level: 2 })).toBeVisible();
+  await expect(main.locator(`a[href="/en/places/${GARNI}"]`).first()).toBeVisible();
+});
+
 test("the empty search page offers places as a place to start", async ({ page }) => {
   await page.goto("/en/search");
   await expect(
@@ -424,7 +514,7 @@ test("the empty search page offers places as a place to start", async ({ page })
 /* -------------------------------------------------------------------------- */
 
 /*
-  All five places ship a cover, and each registration is a single `IMAGES` entry
+  All six places ship a cover, and each registration is a single `IMAGES` entry
   that has to light up six surfaces — hero, featured block, card, search
   thumbnail, social tags, sitemap — every one reached through `getImageSrc`, and
   every one silent if the registration is wrong.
@@ -434,10 +524,10 @@ test("the empty search page offers places as a place to start", async ({ page })
   state "AI-generated" rather than "placeholder". A registration that rendered
   the picture without the disclosure would look completely correct.
 
-  These run over `ILLUSTRATED`, which is currently all five places. The placeholder
-  branch therefore has no subject again and is asserted as an absence, exactly as
-  it was between §36 and §37 — the fourth time this file has switched between the
-  two states.
+  These run over `ILLUSTRATED`, which is currently all six places. The placeholder
+  branch therefore has no subject again and is asserted as an absence — the sixth
+  time this file has switched between the two states, and the reason `ILLUSTRATED`
+  survives as a separate list rather than collapsing into `PLACES`.
 */
 
 test("each article hero renders its own registered artwork and names the AI provenance", async ({
@@ -485,13 +575,13 @@ test("each article hero renders its own registered artwork and names the AI prov
 test("no illustrated place renders the artwork placeholder", async ({ page }) => {
   /*
     The other half of the caption logic, asserted as an absence — and covering all
-    five places again now that `ILLUSTRATED` and `PLACES` coincide.
+    six places again now that `ILLUSTRATED` and `PLACES` coincide.
 
     It stays scoped to `ILLUSTRATED` rather than being repointed at `PLACES`: the
-    two lists have coincided three times before and split again every time, and
-    this assertion is only ever true of slugs that have a file. None of them may
-    fall back to the generated `<svg>`, and none may still be captioned as a
-    picture that was never made.
+    two lists have coincided four times before and split again every time, and this
+    assertion is only ever true of slugs that have a file. None of them may fall
+    back to the generated `<svg>`, and none may still be captioned as a picture
+    that was never made.
 
     Every edition, because the branch reads a locale dictionary: a registration
     that reached `en` and not `hyw` would leave one edition apologising for a
@@ -514,7 +604,7 @@ test("no illustrated place renders the artwork placeholder", async ({ page }) =>
   }
 });
 
-test("the newest place renders its own file and is captioned as an illustration", async ({
+test("Lake Sevan renders its own file and is captioned as an illustration", async ({
   page,
 }) => {
   /*
@@ -552,7 +642,7 @@ test("the newest place renders its own file and is captioned as an illustration"
   }
 });
 
-test("the newest place borrows no other article's artwork anywhere on its page", async ({
+test("Lake Sevan borrows no other article's artwork anywhere on its page", async ({
   page,
 }) => {
   /*
@@ -614,7 +704,125 @@ test("the newest place borrows no other article's artwork anywhere on its page",
   });
 });
 
-test("the newest place's metadata borrows no other article's artwork", async ({ page }) => {
+test("the newest place renders its own file and is captioned as an illustration", async ({
+  page,
+}) => {
+  /*
+    Garni's registration, asserted on its own rather than only inside the
+    `ILLUSTRATED` loop, because it is the transition §40 performed and the failure
+    modes either side of it are specific.
+
+    Between §39 and §40 this test asserted the opposite: the inline generated
+    `<svg>`, no raster file, and the placeholder caption. Every one of those has to
+    invert, in all three editions — a registration that reached the picture but not
+    the caption would leave the page apologising for a missing image that is
+    sitting right there above the apology.
+  */
+  for (const locale of LOCALES) {
+    const dict = ui(locale);
+    await page.goto(`/${locale}/places/${GARNI}`);
+
+    await expect(page.locator("header figure img"), `${locale} ${GARNI}`).toHaveCount(1);
+    await expect(page.locator("header figure img"), `${locale} ${GARNI}`).toHaveAttribute(
+      "src",
+      fileIn(ARTWORK[GARNI]),
+    );
+    await expect(page.locator("header figure svg[role='img']"), `${locale} ${GARNI}`).toHaveCount(
+      0,
+    );
+
+    // A temple is a scene, not a likeness, so it takes the illustration wording —
+    // and must no longer take the placeholder wording it carried in §39.
+    await expect(page.locator("header figcaption"), `${locale} ${GARNI}`).toHaveText(
+      dict.article.imageAiIllustrationCaption.replace("{title}", articleTitle(locale, GARNI)),
+    );
+    await expect(page.locator("header figcaption"), `${locale} ${GARNI}`).not.toHaveText(
+      dict.article.imagePlaceholderCaption.replace("{title}", articleTitle(locale, GARNI)),
+    );
+  }
+});
+
+test("the newest place borrows no other article's artwork anywhere on its page", async ({
+  page,
+}) => {
+  /*
+    Kept across the registration for the same reason the Matenadaran and Lake Sevan
+    tests were: the failure it guards against survives the file landing. The named
+    files are the ones actually considered and rejected when the article was
+    written — `adoption-of-christianity` is a baptism before a medieval domed
+    church, `tigran-the-great` has classical pilasters behind a royal portrait, and
+    `erebuni-fortress` is the other `historical` place, the one whose cover it
+    would be easiest to lend. Any of them appearing here now would mean the
+    registration had been repointed at a near miss, which is exactly the
+    substitution §39 refused to make.
+
+    Scoped to the surfaces that speak for *this* article — the head and the hero —
+    rather than the whole document: a related-article card lower down legitimately
+    carries a sibling's cover, and Erebuni is in this article's `relatedSlugs`.
+  */
+  await page.goto(`/en/places/${GARNI}`);
+
+  const metaValues = await page.locator("head meta[content]").evaluateAll((nodes) =>
+    nodes.map((node) => node.getAttribute("content") ?? ""),
+  );
+  const ld = (await page.locator('script[type="application/ld+json"]').first().textContent()) ?? "";
+  /*
+    The figure's own markup, not `img[src]`.
+
+    This hero renders an `<img>` now, so reading its `src` would work — but the
+    subtree covers both branches, cannot deadlock if the slug ever goes back to the
+    placeholder (§37 learned that the expensive way), and still catches a borrowed
+    file appearing anywhere inside the figure rather than only in the one attribute.
+  */
+  const hero = await page.locator("header figure").innerHTML();
+
+  for (const borrowed of [
+    "erebuni-fortress",
+    "adoption-of-christianity",
+    "tigran-the-great",
+    "kingdom-of-urartu",
+    "hero-ararat",
+  ]) {
+    for (const [surface, haystack] of [
+      ["meta", metaValues.join(" ")],
+      ["structured data", ld],
+      ["hero", hero],
+    ] as const) {
+      expect(
+        haystack.includes(borrowed),
+        `${borrowed} must not appear in ${GARNI}'s ${surface}`,
+      ).toBe(false);
+    }
+  }
+
+  /*
+    `Article.image` is a claim that a picture depicts this article, which is why
+    `articleLd` omitted the property entirely while the slug had no file rather
+    than nominating the generic site card — an `og:image` is a link-preview card
+    and the default belongs there, but the two are not the same claim. Now that a
+    real cover exists, the property is present and is that cover.
+  */
+  const own = `https://armat.site${ARTWORK[GARNI]}`;
+  const graph = (JSON.parse(ld) as { "@graph": Record<string, unknown>[] })["@graph"];
+  const article = graph.find((entry) => entry["@type"] === "Article");
+  expect(article, "the Article node itself must still be emitted").toBeDefined();
+  expect(article?.image, "the registered artwork should now be declared").toEqual({
+    "@type": "ImageObject",
+    url: own,
+  });
+
+  // And the social tags carry the article's own file rather than the site default
+  // they fell back to in §39.
+  for (const meta of ['meta[property="og:image"]', 'meta[name="twitter:image"]']) {
+    await expect(page.locator(meta), `${GARNI} ${meta}`).toHaveAttribute("content", own);
+    await expect(page.locator(meta), `${GARNI} ${meta}`).not.toHaveAttribute(
+      "content",
+      /og-default/,
+    );
+  }
+});
+
+test("the Matenadaran's metadata borrows no other article's artwork", async ({ page }) => {
   /*
     Matenadaran kept this test when its picture landed, because the failure it
     guards against survives registration: the article's `relatedSlugs` include
@@ -662,8 +870,10 @@ test("the newest place's metadata borrows no other article's artwork", async ({ 
     .evaluateAll((nodes) => nodes.map((node) => node.getAttribute("content") ?? ""));
   const surfaces = [...metaValues, raw ?? ""].join(" ");
 
-  // Drawn from `ILLUSTRATED`, not `PLACES`: only a file that exists can be
-  // borrowed, and Lake Sevan has none to lend.
+  // Drawn from `ILLUSTRATED` rather than `PLACES` on principle: only a file that
+  // exists can be borrowed. The two lists coincide again as of §40, and this stays
+  // pointed at `ILLUSTRATED` so it keeps meaning the same thing the next time a
+  // place ships ahead of its picture.
   const borrowable = [
     ...ILLUSTRATED.filter((slug) => slug !== MATENADARAN).map((slug) => ARTWORK[slug]),
     "/images/history/mesrop-mashtots.webp",
@@ -695,7 +905,7 @@ test("the listing renders each registered place's own artwork, and no placeholde
   ).map(decodeURIComponent);
 
   // Every registered file appears: Khor Virap is the featured block *and* a card,
-  // the other four are cards. The failure this catches is the one-line
+  // the other five are cards. The failure this catches is the one-line
   // registration reaching some surfaces and not others.
   for (const slug of ILLUSTRATED) {
     expect(
@@ -714,13 +924,16 @@ test("the listing renders each registered place's own artwork, and no placeholde
   ).toBe(true);
   // The named files are the ones actually considered and rejected as stand-ins:
   // the Urartu illustration and the Mashtots portrait for the Matenadaran (§35),
-  // and Ani, Urartu and the homepage hero for Lake Sevan (§37). A listing that
-  // looks uniform because one card borrowed a plausible landscape is the failure.
+  // Ani, Urartu and the homepage hero for Lake Sevan (§37), and the conversion
+  // scene and the Tigran portrait for Garni (§39). A listing that looks uniform
+  // because one card borrowed a plausible image is the failure.
   for (const borrowed of [
     "kingdom-of-urartu",
     "mesrop-mashtots",
     "bagratid-armenia",
     "hero-ararat",
+    "adoption-of-christianity",
+    "tigran-the-great",
   ]) {
     expect(
       sources.some((src) => src.includes(borrowed)),
@@ -729,13 +942,14 @@ test("the listing renders each registered place's own artwork, and no placeholde
   }
 
   /*
-    Zero placeholders, which is what §38 inverted back.
+    Zero placeholders, which is what §40 inverted back.
 
-    §37 pinned this at exactly one, because Lake Sevan had no file and precisely
-    one card had to take the generated branch. With its cover registered the
-    listing must contain no generated `<svg>` at all: any remaining one would be a
-    place that had quietly lost its registration, and the count is the only thing
-    on this page that says so — a placeholder card looks perfectly finished.
+    This assertion has now inverted four times (§37 one, §38 zero, §39 one, §40
+    zero), which is the argument for pinning the count rather than asserting "at
+    least one" or "none". With every place registered the listing must contain no
+    generated `<svg>` at all: any remaining one would be a place that had quietly
+    lost its registration, and the count is the only thing on this page that says
+    so — a placeholder card looks perfectly finished.
   */
   await expect(page.locator("main svg[role='img']")).toHaveCount(0);
   expect(
@@ -751,16 +965,18 @@ test("a place's search thumbnail renders the artwork", async ({ page }) => {
     [EREBUNI, "Erebuni"],
     [MATENADARAN, "Matenadaran"],
     [SEVAN, "Sevan"],
+    [GARNI, "Garni"],
   ] as const) {
     await page.goto(`/en/search?q=${query}`);
 
     // Scoped to this place's own result card, not `.first()`. Every query here
     // has a rival in History: "Etchmiadzin" matches the article on the conversion,
     // "Erebuni" the one on Urartu, "Matenadaran" the one on the alphabet, which
-    // names the institute in its legacy section, and "Sevan" both the Urartu
-    // article, whose prose names the lake, and the writer Paruyr Sevak. Any of them
-    // may legitimately rank above the place — taking the first thumbnail on the
-    // page would assert against that article's artwork instead, and would have
+    // names the institute in its legacy section, "Sevan" both the Urartu article,
+    // whose prose names the lake, and the writer Paruyr Sevak, and "Garni" the
+    // ghapama article, which names the villages around Geghard and Garni. Any of
+    // them may legitimately rank above the place — taking the first thumbnail on
+    // the page would assert against that article's artwork instead, and would have
     // passed before these registrations existed.
     const card = page
       .getByRole("main")
@@ -772,7 +988,7 @@ test("a place's search thumbnail renders the artwork", async ({ page }) => {
   }
 });
 
-test("the newest place's search card carries its own thumbnail and no placeholder", async ({
+test("Lake Sevan's search card carries its own thumbnail and no placeholder", async ({
   page,
 }) => {
   /*
@@ -801,6 +1017,37 @@ test("the newest place's search card carries its own thumbnail and no placeholde
   await expect(card.locator("svg[role='img']"), SEVAN).toHaveCount(0);
   await expect(card.locator("img"), SEVAN).toHaveCount(1);
   await expect(card.locator("img"), SEVAN).toHaveAttribute("src", fileIn(ARTWORK[SEVAN]));
+});
+
+test("the newest place's search card carries its own thumbnail and no placeholder", async ({
+  page,
+}) => {
+  /*
+    The inverse of what this test asserted in §39, where the card had to render the
+    generated `<svg>` and no `<img>` at all.
+
+    Deliberately not folded into the loop above even though it is now the same
+    shape: the loop proves the thumbnail is the *right* file, and this proves the
+    placeholder is gone from the card as well as from the hero. Registration reaches
+    those two through different components — `SearchResultCard` calls `getImageSrc`
+    directly while the hero goes through `getArticleImageSrc` — so one can be right
+    while the other is not.
+
+    "Garni" is a query with a rival — the ghapama article names the villages around
+    Geghard and Garni — so the card is located by its own href rather than taken as
+    the first result.
+  */
+  await page.goto("/en/search?q=Garni");
+
+  const card = page
+    .getByRole("main")
+    .getByRole("listitem")
+    .filter({ has: page.locator(`a[href="/en/places/${GARNI}"]`) });
+
+  await expect(card, GARNI).toHaveCount(1);
+  await expect(card.locator("svg[role='img']"), GARNI).toHaveCount(0);
+  await expect(card.locator("img"), GARNI).toHaveCount(1);
+  await expect(card.locator("img"), GARNI).toHaveAttribute("src", fileIn(ARTWORK[GARNI]));
 });
 
 test("the artwork reaches Open Graph, Twitter and the article's structured data", async ({
@@ -848,20 +1095,21 @@ test("the sitemap carries every place's illustration for image search", async ({
     And each locale route carries its *own* file, checked block by block rather
     than only by whole-document count.
 
-    Both slugs that have left `PENDING_ARTWORK` most recently are pinned this way.
-    The count above would still pass if all three of a slug's `image:loc` entries
-    landed on one route and none on the others, and Lake Sevan is the case that
-    matters: §37 asserted its three url blocks contained no `image:loc` at all, so
-    this is the exact inversion, and an image crawler handed a 404 or another
+    The three slugs that have left `PENDING_ARTWORK` most recently are pinned this
+    way. The count above would still pass if all three of a slug's `image:loc`
+    entries landed on one route and none on the others, and Garni is the case that
+    matters now: §39 asserted its three url blocks contained no `image:loc` at all,
+    so this is the exact inversion, and an image crawler handed a 404 or another
     article's picture is a failure nothing on the rendered page would show.
   */
-  for (const slug of [MATENADARAN, SEVAN] as const) {
+  for (const slug of [MATENADARAN, SEVAN, GARNI] as const) {
     const blocks = xml.split("<url>").filter((block) => block.includes(`/places/${slug}<`));
     expect(blocks, `${slug} url blocks`).toHaveLength(LOCALES.length);
     for (const block of blocks) {
       expect(block, `${slug} sitemap image`).toContain(`https://armat.site${ARTWORK[slug]}`);
     }
   }
+
 });
 
 /*
@@ -880,7 +1128,7 @@ test("no place is waiting for artwork, and every one resolves to its own file", 
 
     Asserting the whole array rather than `toContain` is deliberate: it fails on a
     stale entry left behind after a file lands — the half of the invariant no other
-    test covers, and the one §38 had to satisfy — as well as on a slug quietly
+    test covers, and the one §40 had to satisfy — as well as on a slug quietly
     added here to silence the placeholder assertions above.
 
     `toEqual([])` rather than a length check, so the failure message names whatever
@@ -975,20 +1223,21 @@ test("no unrelated article artwork changed", () => {
     );
   }
 
-  // Etchmiadzin keeps its WebP, and Erebuni, the Matenadaran and Lake Sevan each
-  // get their own rather than borrowing one. All five are pinned by name rather
-  // than only by shape: the tempting shortcut in §33, again in §35 and again in
-  // §37 was to point the article with no picture at a file that already existed,
-  // and this is the assertion that would have caught it.
+  // Etchmiadzin keeps its WebP, and Erebuni, the Matenadaran, Lake Sevan and Garni
+  // each get their own rather than borrowing one. All six are pinned by name rather
+  // than only by shape: the tempting shortcut in §33, again in §35, again in §37
+  // and again in §39 was to point the article with no picture at a file that
+  // already existed, and this is the assertion that would have caught it.
   expect(registry["etchmiadzin-cathedral"]).toBe("/images/places/etchmiadzin-cathedral.webp");
   expect(registry[EREBUNI]).toBe("/images/places/erebuni-fortress.webp");
   expect(registry[MATENADARAN]).toBe("/images/places/matenadaran.webp");
   expect(registry[SEVAN]).toBe("/images/places/lake-sevan.webp");
+  expect(registry[GARNI]).toBe("/images/places/garni-temple.webp");
 
-  // Only the five *illustrated* places live under /images/places/, so registering
+  // Only the six *illustrated* places live under /images/places/, so registering
   // a cover cannot have repointed an article from another category — and the
   // Urartu illustration is still filed under history, where it belongs, rather
-  // than having been moved to stand in for the lake.
+  // than having been moved to stand in for a temple.
   const inPlaces = Object.entries(registry)
     .filter(([, path]) => path.startsWith("/images/places/"))
     .map(([slug]) => slug)
@@ -1009,7 +1258,7 @@ test("the homepage still renders its own hero, untouched by the places registry"
   // The homepage must not pick up any places artwork. `Hero.tsx` points at
   // `/hero-ararat.png` directly and the homepage renders no place card, so a hit
   // here would mean a registration had leaked into a surface it never described.
-  for (const fragment of ["etchmiadzin", "erebuni", "matenadaran", "lake-sevan"]) {
+  for (const fragment of ["etchmiadzin", "erebuni", "matenadaran", "lake-sevan", "garni"]) {
     await expect(page.locator(`img[src*="${fragment}"]`), fragment).toHaveCount(0);
   }
 });
@@ -1216,6 +1465,37 @@ test("the coordinate registry holds one checked point per place", () => {
   // along it — a point that drifted onto the resort strip would still be close in
   // longitude to one of the two above.
   expect(lake.lat, "the point should be south of the north-western tip").toBeLessThan(40.5);
+
+  /*
+    The temple footprint above the Azat gorge, from OSM way 108255791.
+
+    Garni's plausible wrong answers are unusually close, which is what makes this
+    worth pinning by distance rather than by value alone: the village centre is
+    about 660 m north-east, the gorge and the basalt columns known as the Symphony
+    of Stones are roughly a kilometre east, the nearest hotel is under 300 m away,
+    and Geghard — the neighbour that actually carries the World Heritage
+    inscription — is eight kilometres up the valley. A degree of latitude here is
+    about 111 km, so the thresholds below are metres expressed in degrees.
+  */
+  const temple = registry[GARNI];
+  expect(temple.lat).toBeCloseTo(40.1123, 4);
+  expect(temple.lon).toBeCloseTo(44.7302, 4);
+  // Not the village centre (about 40.1175, 44.7341): roughly 660 m away, which is
+  // far too small a gap to catch by eye and easily large enough to assert.
+  expect(
+    Math.hypot(temple.lat - 40.1175, temple.lon - 44.7341),
+    "the point should be the temple, not Garni village centre",
+  ).toBeGreaterThan(0.004);
+  // Not Geghard (about 40.1404, 44.8184), the monastery eight kilometres upstream.
+  expect(
+    Math.abs(temple.lon - 44.8184),
+    "the point should be the temple, not Geghard",
+  ).toBeGreaterThan(0.05);
+  // Not the Symphony of Stones viewpoint (about 40.1143, 44.7401) in the gorge.
+  expect(
+    Math.abs(temple.lon - 44.7401),
+    "the point should be the temple, not the basalt columns in the gorge",
+  ).toBeGreaterThan(0.005);
 });
 
 /* -------------------------------------------------------------------------- */

@@ -954,4 +954,236 @@ export const placeArticles: Article[] = [
     ],
     relatedSlugs: ["kingdom-of-urartu", "bagratid-armenia"],
   },
+  {
+    slug: "garni-temple",
+    href: "/places/garni-temple",
+    category: "places",
+    categoryLabel: "Places",
+    title: "Garni Temple",
+    seoTitle: "Garni Temple: Armenia's Classical Survivor",
+    placeTypeId: "historical",
+    featured: false,
+    imageSeed: "garni-temple",
+    keywords: [
+      "Garni Temple",
+      "Գառնի",
+      "Temple of Garni",
+      "Trdat I",
+      "Tiridates I",
+      "Azat gorge",
+      "Kotayk",
+      "Hellenistic Armenia",
+    ],
+    excerpt:
+      "A colonnaded classical building on a promontory above the Azat gorge, the only one of its kind left in Armenia — brought down by an earthquake, and put back up in the twentieth century from the stones that fell.",
+    metaDescription:
+      "The temple at Garni: what its Greek inscription actually says, why AD 77 is a reconstruction rather than a record, and what the 1679 earthquake left to rebuild.",
+    summary:
+      "Garni is a small colonnaded building in the classical manner, standing on a fortified promontory above the Azat river gorge in Kotayk Province. A Greek inscription found on the site names Trdat I and his eleventh regnal year; counting that year from his coronation by Nero gives AD 77, and counting it from his earlier installation gives AD 63, so the conventional date is an inference from a text that describes the building of a fortress rather than of this monument. Whether the building was a temple, and if so of which god, is genuinely disputed: the identification with Mihr is traditional, and a serious minority reading takes it for a royal tomb. The colonnade fell in the earthquake of 1679 and the building a visitor sees was re-erected from the fallen blocks by 1975.",
+    intro:
+      "Garni is the one building in Armenia that looks like it belongs somewhere else: a small peristyle in the Greco-Roman manner, twenty-four Ionic columns on a high podium, standing on the rim of a basalt gorge in Kotayk Province. It is almost always introduced as Armenia's pagan temple, built by King Trdat I in AD 77 and spared at the conversion to Christianity. Every part of that sentence is either an inference or a matter on which good scholars disagree, and the building is more interesting once the parts are separated. It is also, and this is not a detail, mostly a twentieth-century reconstruction: the colonnade came down in an earthquake and was put back up from its own fallen stone within living memory.",
+    author: "Armat Editorial Team",
+    updated: "2026-08-07",
+    keyFacts: [
+      { label: "Kind of place", value: "Classical building and fortified archaeological complex, largely re-erected" },
+      { label: "Where", value: "A promontory above the Azat river gorge, Garni, Kotayk Province" },
+      { label: "Named in the inscription", value: "Trdat I, in his eleventh regnal year" },
+      { label: "Conventional date", value: "AD 77, or AD 63 on the other reckoning of that year" },
+      { label: "Brought down by", value: "The earthquake of 1679, which felled the whole colonnade" },
+      { label: "Standing today", value: "An anastylosis completed by 1975, roughly a third of it ancient stone" },
+    ],
+    sections: [
+      {
+        id: "where-it-is",
+        heading: "Where Garni is",
+        paragraphs: [
+          "Garni is a village in Kotayk Province, east of Yerevan and reached in well under an hour, and the archaeological complex sits at the edge of it rather than out in open country. The road passes through houses and then simply stops at a gate, which is part of why the site surprises people: there is no approach, no avenue, no long view building up to it.",
+          "The setting does the work instead. The complex occupies a triangular promontory where the Azat river has cut a deep gorge, so the ground falls away on two sides and the building stands against sky rather than against landscape. Downstream the same gorge holds the columnar basalt formation known as the Symphony of Stones, and upstream, further into the Azat valley, is the monastery of Geghard.",
+          "Two things are worth separating before arriving, because photographs conflate them. Geghard and the upper Azat valley are inscribed on the World Heritage list; Garni is not, and was placed on Armenia's tentative list only in 2025, as an archaeological complex together with the basalt columns. They are neighbours in one valley and two different kinds of designation.",
+        ],
+      },
+      {
+        id: "the-promontory",
+        heading: "The promontory and the fortress",
+        paragraphs: [
+          "The site was a fortress long before it was anything a visitor would photograph. The promontory is defensible on the two gorge sides by geology alone, which leaves one landward approach to be walled, and that is exactly what was done: a wall of large blocks with towers along it closes the neck of the triangle, and the excavated line of it is visible on the ground today.",
+          "The ancient name of the place is Gorneas, and it appears in the classical sources as a stronghold rather than as a sanctuary. Tacitus mentions it in his account of the Roman-Parthian struggle over Armenia, which is the earliest secure notice of the place and puts a garrison here in the first century before anything about the standing building is settled.",
+          "This is the first correction the site makes to its own reputation. Garni is a fortified royal site with a classical building in it, not a temple with some walls nearby, and the enclosure held a palace, a bath and residential ranges as well. Reading it the other way round makes the classical building look stranger than it is: it stood inside a working royal complex, not alone on a cliff.",
+        ],
+      },
+      {
+        id: "the-building",
+        heading: "The building itself",
+        paragraphs: [
+          "The building is a peripteral temple of Greco-Roman type, which in plain terms means a single rectangular room surrounded on all four sides by a colonnade. There are twenty-four columns, six across each end and eight along each flank, carrying an entablature and a pediment above them, and the whole thing sits on a podium some three metres high approached by a single steep flight of steps on the entrance front.",
+          "The order is Ionic, with volute capitals, but it is not a textbook Ionic: the details are handled with a freedom that specialists have generally read as provincial workmanship in a broadly Roman idiom rather than as a copy of any particular model. The room inside — the cella — is small, and the disproportion between a modest interior and an elaborate exterior is one of the arguments that gets made about what the building was for.",
+          "The material is the local one. Garni is built of grey-blue basalt quarried nearby, cut and laid dry without mortar, with the blocks held together by iron clamps set in lead. That is a Roman construction technique in an Armenian stone, and it matters twice over: it is why the building is not simply a transplanted marble temple, and it is why it fell the way it did.",
+          "It is worth resisting the description of Garni as a piece of Rome dropped into Armenia. The plan and the order are classical; the stone, the quarry, the setting and the fortress around it are not, and Armenia in this period was a kingdom that had been inside the Hellenistic world for centuries and was being fought over by two empires. A building in classical dress on an Armenian promontory is what that position looks like in architecture.",
+        ],
+        links: [
+          { phrase: "a kingdom that had been inside the Hellenistic world for centuries", slug: "tigran-the-great" },
+        ],
+      },
+      {
+        id: "first-century-armenia",
+        heading: "The kingdom in the first century",
+        paragraphs: [
+          "The Armenia of this period was an Arsacid kingdom caught between the Roman empire and Parthia, and the two powers fought a long war over who would put a king on its throne. The settlement that ended it was unusual and worth knowing, because it is the frame every account of Garni hangs on.",
+          "Trdat I — Tiridates in the Greek and Latin sources — was a Parthian prince installed in Armenia by his brother Vologases I, which Rome would not accept. After a war fought to a draw, the compromise was that Trdat would keep the throne but receive his crown from the Roman emperor. He travelled to Rome and was crowned by Nero in the year 66, in a ceremony the Roman writers describe at length.",
+          "That arrangement is the reason a classical building at Garni is unsurprising. Roman sources record that Nero sent craftsmen back with him, and the reign that follows is exactly when Roman technique, Roman construction and a Roman architectural vocabulary would have reached an Armenian royal site. The context supports the building being of this period; it does not by itself date any particular stone.",
+        ],
+      },
+      {
+        id: "the-inscription",
+        heading: "The Greek inscription, and the date",
+        paragraphs: [
+          "A Greek inscription was found at Garni in 1945, and it is the only text anyone has that ties this site to a named king. It records that Helios Tiridates the Great of Greater Armenia, having subdued this city as its lord, founded for his sister the queen this impregnable fortress, for the safety of his kingdom, in his eleventh regnal year.",
+          "Read that carefully, because two things in it are routinely dropped. The text names a fortress, not a temple. And Helios — Sun — sits in it as part of a royal titulature, in the position a Hellenistic ruler's epithet occupies, rather than as the name of a god being given a house. The inscription is a foundation record for the stronghold, and it was found at the cemetery rather than in the building it is usually attached to.",
+          "The famous date comes out of the last phrase. If the eleventh regnal year is counted from the coronation by Nero, it falls in AD 77; if it is counted from the earlier installation by Vologases, it falls around AD 63. Both counts are defensible and both are in the literature, and the reason AD 77 is the number everyone repeats is that Armenian scholarship has generally preferred the coronation as the starting point.",
+          "The ground has moved again recently. A two-part study published in 2022 by Alain Bresson and Elizabeth Fagan argues that the Tiridates of this inscription is not Trdat I at all, but Trdat the Great — the king of the conversion, two and a half centuries later — which would detach the text from the first century altogether. That is a new argument rather than a settled one, and it is recorded here because the whole point of this section is that the date rests on a reading, and readings can be revised.",
+          "So the honest formula is that the building is commonly dated to AD 77, that the date derives from a regnal-year calculation rather than from anything written on the temple, that the text producing it describes a fortress, and that even the identity of the king in it has been questioned. None of that makes the conventional date wrong. It makes it a reconstruction, which is a different kind of statement from a record — the same distinction this archive has had to draw at Erebuni, where the founding year is likewise not on the stone.",
+        ],
+        links: [
+          { phrase: "the same distinction this archive has had to draw at Erebuni", slug: "erebuni-fortress" },
+        ],
+      },
+      {
+        id: "temple-or-tomb",
+        heading: "Temple of Mihr, or a tomb?",
+        paragraphs: [
+          "The building is traditionally identified as a temple of Mihr, the Armenian form of the Iranian Mithra, a solar deity — an identification that runs from the word Helios in the inscription to a sun god and from there to a sun god's temple. It is the reading on every signboard and in most general accounts, and it is not baseless: solar cult is well attested in pre-Christian Armenia, and Mihr is a real and important figure in it.",
+          "It is also, as an identification of this building, unsupported by any direct evidence. Nothing found at Garni names Mihr. No dedication, no cult image, no altar inscription connects the structure to him or to any other named god, and the chain of reasoning depends on reading a royal epithet as a theonym.",
+          "A minority reading takes the building for a tomb rather than a temple. In a study published in 1982, R. D. Wilkinson argued that it is a monumental mausoleum of about AD 175, comparing it with the funerary architecture of western Asia Minor and pointing to graves of about that date nearby and to fragments of sarcophagi in the Asiatic manner. James R. Russell, whose study of Zoroastrianism in Armenia is the standard treatment of the religious background, wrote that nothing supports the temple identification except the inscription — and that one cannot be certain the inscription refers to this building at all — and called Wilkinson's case convincing. Christina Maranci's survey of Armenian art likewise gives the building an unclear function and raises the possibility of a royal tomb.",
+          "This archive does not adjudicate that. What can be said plainly is the shape of the disagreement: the traditional identification is old, widely repeated and evidentially thin, the tomb hypothesis is a minority position argued by serious scholars from comparative architecture rather than from anything found here, and the building itself has so far declined to settle the question. A visitor told confidently that this is the Temple of Mihr is being told the most popular answer, not the established one.",
+        ],
+      },
+      {
+        id: "the-wider-complex",
+        heading: "Palace, bath and mosaic",
+        paragraphs: [
+          "Behind the wall, and mostly at foundation level, is the rest of the royal site: ranges of rooms identified as a palace, service buildings, and a bath complex on the northern side of the enclosure. Excavation recovered enough of the plan that the classical building can be seen for what it was, one element in a working residence rather than an isolated monument.",
+          "The bath is the part most worth going to see after the temple. It is a Roman-style building of the third century with the usual sequence of heated rooms over a hypocaust — a raised floor carried on brick piers with hot air circulating beneath it — which is a straightforwardly Roman piece of engineering at an Armenian royal seat.",
+          "Its floor carries a mosaic, made from local stone in something like fifteen natural shades, showing a marine scene with figures labelled in Greek: sea deities, nereids and fishermen, with names such as Thetis, Glaukos and Eros set beside them, and abstractions such as Seaside and Depth alongside. Accounts differ about which pair occupies the centre, and the figures most often named there are Ocean and Thalassa — Sea. It is the finest surviving thing at Garni, and it is a floor rather than a wall, so it is easy to walk past.",
+          "The mosaic also carries a short Greek line, μηδὲν λαβόντες ἠργασάμεθα, usually rendered as \"we worked, having received nothing\" or \"without pay, we have been working\". It is quoted everywhere as the complaint of unpaid craftsmen, and it may well be, but the sense is ambiguous in the original: it reads equally as a boast of work done for its own sake. The sentence is genuinely there and its translation is not in doubt; what it meant to the men who set it is.",
+        ],
+      },
+      {
+        id: "after-christianity",
+        heading: "After the conversion",
+        paragraphs: [
+          "Armenia adopted Christianity as the religion of the kingdom in the traditional year 301, and the estates of the pagan temples passed to the church while the sanctuaries themselves were destroyed. Garni is the standing exception, and the usual explanation is that it was spared because it had been turned to secular use.",
+          "The evidence for that is thinner than the explanation suggests. Movses Khorenatsi records that a cool retreat was built within the fortress at Garni for Khosrovidukht, the sister of Trdat III, which is a textual reference to a building in the enclosure rather than to this one; the step from there to \"the temple became a summer house\" is a modern inference, though a reasonable one. A round church dedicated to Surb Sion stood immediately west of the building — its foundations are still visible — and it is dated across a range from the seventh to the tenth century rather than to a single year. One study has argued from an early Armenian inscription inside the cella that the room was used as a baptistery. What the relationship between church and classical building actually was is not known.",
+          "It is also where the tomb hypothesis earns a second look, since it offers the simplest answer to the survival question: a mausoleum is a much smaller problem for a Christian kingdom than a working temple of a rival god. That is an argument from consequence rather than evidence, and it is offered here as one, but the plain fact is that no source explains why this building alone was left standing.",
+        ],
+        links: [
+          { phrase: "Armenia adopted Christianity as the religion of the kingdom in the traditional year 301", slug: "adoption-of-christianity" },
+        ],
+      },
+      {
+        id: "earthquake-and-reconstruction",
+        heading: "The earthquake, and putting it back",
+        paragraphs: [
+          "On 4 June 1679 a large earthquake struck this part of Armenia, with its epicentre close to the Garni gorge, and the colonnade came down. The building split and fell towards the north-east, throwing blocks tens of metres down the slope; the chronicler Zakaria Kanakertsi describes the destruction as a contemporary. The modern re-analysis by Emanuela Guidoboni, Ruben Haroutiunian and Aleksandr Karakhanian puts the event at an equivalent magnitude of about six and three quarters, with an epicentral intensity of ten on the Mercalli-Cancani-Sieberg scale, and dates it in the Gregorian reckoning to the fourteenth of that June.",
+          "One of the reasons it fell so completely is human. The iron clamps and lead that held the dry-laid blocks together had been pulled out of the building generations earlier to be melted down for shot during the wars of the period, so the structure met the earthquake with its fastenings already stripped.",
+          "The site was then worked over for most of a century. Nikolai Marr, with Yakov Smirnov and the architect Konstantin Romanov, cleared and recorded it between 1909 and 1911, though later specialists judged that campaign closer to clearance and cataloguing than to excavation, and it was never published; Nikoghayos Buniatian studied the fallen material in the early 1930s and partly re-erected the lower courses, work afterwards taken down again as mistaken. Systematic excavation of the fortress began in 1949 under Babken Arakelyan, with Alexander Sahinian taking the classical building.",
+          "The re-erection is Sahinian's. Approved in 1968 and begun the following year, it was an anastylosis: the fallen blocks were identified, sorted and put back in their own positions, and what was missing was cut new from a local quarry in matching stone. By Sahinian's own account roughly a third of the standing building is ancient material and two thirds is new, only about forty per cent of the column shafts survived at all, and only two of them survived complete. The new pieces were deliberately left unornamented so that the join between antiquity and 1975 stays visible to anyone who looks. That is an honest reconstruction, and it is still a reconstruction.",
+        ],
+      },
+      {
+        id: "before-you-see-it",
+        heading: "What to understand before seeing it",
+        paragraphs: [
+          "The first thing is that the building is not a survival. Almost every description calls Garni the only standing Greco-Roman building in the former Soviet Union, which is true and misleading in the same breath: it stands because it was rebuilt, mostly in new stone, half a century ago. Knowing that does not diminish it — the anastylosis is careful, documented work — but a reader who thinks these columns have been up since the first century has the central fact wrong.",
+          "The second is that the temple is one building on a fortified site. The wall, the palace foundations and above all the bath with its mosaic are what turn Garni from a curiosity into a place, and they are easy to skip on the way to the photograph.",
+          "The third is the habit this article has been practising. Four different kinds of claim get made about Garni at once: an inscription records a king building a fortress; a regnal-year calculation produces a date; a chain of association produces a god; and comparative architecture produces a tomb. The first is a document, the second is arithmetic on a document, and the last two are arguments. All of them belong in an account of the site. Only one of them is written down by someone who was there.",
+        ],
+      },
+    ],
+    importantDates: [
+      {
+        year: "AD 66",
+        event:
+          "Trdat I is crowned in Rome by Nero, ending the Roman-Parthian war over Armenia. Roman sources record that craftsmen returned to Armenia with him.",
+      },
+      {
+        year: "AD 77",
+        event:
+          "The conventional date for the building, from the eleventh regnal year named in the Greek inscription counted from the coronation. Counted from Trdat's earlier installation the same year falls around AD 63.",
+      },
+      {
+        year: "Second century AD",
+        event:
+          "The date proposed by the minority reading of the building as a royal mausoleum, on the evidence of comparable tombs in Asia Minor and of burials nearby.",
+      },
+      {
+        year: "Third century AD",
+        event:
+          "The bath complex with its mosaic floor is built on the northern side of the enclosure.",
+      },
+      {
+        year: "301",
+        event:
+          "Armenia adopts Christianity as the religion of the kingdom in the traditional date. The pagan sanctuaries are destroyed; the building at Garni is not.",
+      },
+      {
+        year: "1679",
+        event:
+          "A large earthquake with its epicentre near the gorge brings down the colonnade. The chronicler Zakaria Kanakertsi records the destruction.",
+      },
+      {
+        year: "1909",
+        event:
+          "Nikolai Marr begins clearing and recording the site with Yakov Smirnov and the architect Konstantin Romanov. The work stops for lack of funds and is never published.",
+      },
+      {
+        year: "1945",
+        event:
+          "The Greek inscription of Trdat I is found at Garni, and becomes the only text tying the site to a named king.",
+      },
+      {
+        year: "1949",
+        event:
+          "Systematic excavation of the fortress begins under Babken Arakelyan, with Alexander Sahinian working on the classical building.",
+      },
+      {
+        year: "1969",
+        event:
+          "Sahinian's anastylosis begins, approved the previous year. The colonnade is standing again by 1975.",
+      },
+      {
+        year: "2025",
+        event:
+          "The archaeological complex of Garni, together with the basalt columns in the gorge, is placed on Armenia's tentative list for World Heritage nomination.",
+      },
+    ],
+    significance: {
+      heading: "Why Garni matters",
+      paragraphs: [
+        "Garni is the physical evidence for something Armenian history states but rarely shows: that this was a kingdom inside the classical world, not merely next to it. A peristyle on a gorge in Kotayk is what it looks like when a court that dealt with Rome and Parthia as equals builds in the idiom of the age, out of its own basalt, on its own defensible rock.",
+        "It is also the archive's hardest case in telling kinds of claim apart, because here the popular account is not wrong so much as over-certain. A date that is an inference, a dedication that is an association, and a building that is largely modern stone are all presented to visitors with the same flat confidence. Sorting them is not scepticism about Garni. It is what makes the parts that are genuinely documented — a king, a fortress, an inscription, an earthquake, a reconstruction — stand out as firmly as they deserve to.",
+      ],
+    },
+    interestingFacts: [
+      "The inscription that dates the building is a foundation record for a fortress, and does not mention a temple at all.",
+      "AD 77 and AD 63 are the same eleventh regnal year counted from two different starting points — a coronation in Rome and an earlier installation from Parthia.",
+      "Nothing found at Garni names Mihr, or any other god. The dedication rests on reading Helios in a royal title as the name of a deity.",
+      "The clamps holding the blocks together had been stripped out for metal before the earthquake of 1679, which is part of why the colonnade fell so completely.",
+      "Only about forty per cent of the column shafts survived the collapse, and just two of them survived whole; the building standing today was completed in 1975.",
+    ],
+    relatedFigures: [
+      {
+        name: "Trdat I",
+        lifespan: "first century AD",
+        description:
+          "The Arsacid king named in the Greek inscription from Garni, installed in Armenia from Parthia and crowned at Rome by Nero. The inscription credits him with founding the fortress; whether he built the classical structure inside it is inference rather than record.",
+      },
+      {
+        name: "Alexander Sahinian",
+        lifespan: "twentieth century",
+        description:
+          "The architect who excavated the classical building with Arakelyan's expedition and then directed its re-erection. His published account of the work is also the source for how much of the standing building is ancient stone and how much is new.",
+      },
+    ],
+    relatedSlugs: ["adoption-of-christianity", "tigran-the-great", "erebuni-fortress"],
+  },
 ];
