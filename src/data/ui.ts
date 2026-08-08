@@ -38,6 +38,42 @@ export interface UiDictionary {
     works: string;
     cuisine: string;
     about: string;
+    /**
+     * Header-bar labels. The names above carry the "Armenian" qualifier because
+     * breadcrumbs and the footer show them standing alone; in the header the
+     * logo already supplies that context, and repeating it on four items was
+     * 200px of the width that kept the horizontal nav off 1024px screens. See
+     * the note above the nav in `Header.tsx`.
+     */
+    historyShort: string;
+    writersShort: string;
+    worksShort: string;
+    cuisineShort: string;
+    /**
+     * Places has no `…Short` twin: the label is already the bare noun the four
+     * above had to be shortened into, so `NavItem.shortLabel` is left unset and
+     * the header falls back to this one.
+     */
+    places: string;
+    /**
+     * The Visit journey, and the only nav label that is not a content category.
+     *
+     * It names a route rather than a section of the archive: `/visit` curates
+     * places, dishes and background reading that already exist elsewhere. The
+     * header renders it apart from the six category items for that reason — see
+     * the note above the nav in `Header.tsx` — so this label is read by the
+     * journey link and the drawer, never by `shortLabel`.
+     */
+    visit: string;
+    /**
+     * What the header action shows instead of `visit`.
+     *
+     * Same trade as `historyShort` and its siblings, and for the same measured
+     * reason: at 1024px the full Armenian label «Այցելել Հայաստան» pushed the
+     * bar 49px past the viewport. The drawer and the footer show the full label,
+     * where there is room and no logo beside it to supply the country.
+     */
+    visitShort: string;
     contact: string;
     privacy: string;
     search: string;
@@ -46,6 +82,7 @@ export interface UiDictionary {
     allWriters: string;
     allWorks: string;
     allCuisineArticles: string;
+    allPlaces: string;
     /** Accessible name for a nav dropdown toggle; `{item}` is the parent label. */
     submenuLabel: string;
     toggleMenu: string;
@@ -84,6 +121,8 @@ export interface UiDictionary {
     modernArmenia: string;
     importantFigures: string;
     languageTitle: string;
+    /** Heading above the footer's newsletter form. */
+    newsletterTitle: string;
     /** `{year}` and `{name}` are substituted. */
     copyright: string;
   };
@@ -200,6 +239,21 @@ export interface UiDictionary {
       allDescription: string;
       readArticle: string;
     };
+    places: {
+      title: string;
+      metaDescription: string;
+      /** Overrides `site.keywords` on this listing. */
+      keywords: string[];
+      lead: string;
+      searchLabel: string;
+      searchPlaceholder: string;
+      featuredEyebrow: string;
+      featuredTitle: string;
+      allEyebrow: string;
+      allTitle: string;
+      allDescription: string;
+      readArticle: string;
+    };
   };
 
   empty: {
@@ -227,6 +281,7 @@ export interface UiDictionary {
     groupWriters: string;
     groupWorks: string;
     groupCuisine: string;
+    groupPlaces: string;
     /** `{count}` substituted, used under each group heading. */
     groupCountOne: string;
     groupCountOther: string;
@@ -234,12 +289,14 @@ export interface UiDictionary {
     typeWriter: string;
     typeWork: string;
     typeCuisine: string;
+    typePlace: string;
     noQueryHeading: string;
     noQueryBody: string;
     browseHistory: string;
     browseWriters: string;
     browseWorks: string;
     browseCuisine: string;
+    browsePlaces: string;
     noResultsHeading: string;
     /** `{query}` substituted. */
     noResultsBody: string;
@@ -305,6 +362,7 @@ export interface UiDictionary {
     typeWriters: string;
     typeWorks: string;
     typeCuisine: string;
+    typePlaces: string;
     /**
      * Headings for the cuisine at-a-glance panel (`CuisineDetails`). Grouped
      * rather than flattened into `article` because they are rendered by one

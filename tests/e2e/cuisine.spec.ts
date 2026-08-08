@@ -108,6 +108,43 @@ test("cuisine listing search narrows on an ingredient, not only a title", async 
   expect(all).toBe(SLUGS.length);
 });
 
+test("cuisine listing search narrows on an occasion", async ({ page }) => {
+  /*
+    The listing haystack carried `cuisine.ingredients` and `cuisine.regions` but
+    not `cuisine.occasions`, while the global index carried all three. So this
+    exact query returned nothing here and returned ghapama on `/search` — from a
+    box whose placeholder offers "dishes, ingredients and occasions".
+
+    "Christmas" is the right probe because of where it does *not* appear: it is
+    in no dish title and no card excerpt, so the assertion below that the card
+    never shows the word is what proves the match came from the occasions list
+    rather than from the text on screen. It is also in ghapama's section prose,
+    which the listing deliberately leaves out of the payload — so `occasions` is
+    the only field that can satisfy it here.
+  */
+  await page.goto("/en/cuisine");
+  const all = await cards(page).count();
+
+  await page
+    .getByRole("searchbox", { name: ui("en").listing.cuisine.searchLabel })
+    .fill("Christmas");
+
+  const result = cards(page);
+  await expect(result).toHaveCount(1);
+  await expect(result.first()).toContainText(articleTitle("en", "ghapama"));
+
+  // The matched term is nowhere in what the card renders.
+  await expect(result.first()).not.toContainText("Christmas");
+
+  // And the other five dishes are gone, not merely reordered.
+  for (const slug of SLUGS.filter((entry) => entry !== "ghapama")) {
+    await expect(
+      page.getByRole("link", { name: articleTitle("en", slug), exact: true }),
+    ).toHaveCount(0);
+  }
+  expect(all).toBe(SLUGS.length);
+});
+
 /* -------------------------------------------------------------------------- */
 /*  Articles                                                                   */
 /* -------------------------------------------------------------------------- */
@@ -210,10 +247,22 @@ test("cuisine related links stay inside the section and the edition", async ({ p
 /*  No untranslated fallback                                                   */
 /* -------------------------------------------------------------------------- */
 
-test("every dish is published in every edition — no unavailable page, no English leak", async ({
-  page,
-}) => {
-  for (const locale of LOCALES) {
+/*
+  One test per edition, not one test for all three.
+
+  The assertions are unchanged and every dish in every edition is still visited;
+  what changed is that eighteen sequential navigations no longer sit inside a
+  single 30-second budget. Against the dev server, which compiles a route the
+  first time it is asked for, that one test was the longest in the suite by a
+  wide margin and aborted intermittently under the normal two workers — at a
+  different dish each time, which is the signature of a timeout rather than a
+  defect. Three tests of six navigations each also run concurrently, so the
+  split is faster as well as steadier.
+*/
+for (const locale of LOCALES) {
+  test(`[${locale}] every dish is published in this edition — no unavailable page, no English leak`, async ({
+    page,
+  }) => {
     const dict = ui(locale);
 
     for (const slug of SLUGS) {
@@ -229,8 +278,8 @@ test("every dish is published in every edition — no unavailable page, no Engli
       // The article is indexable: the unavailable branch is what emits noindex.
       await expect(page.locator('meta[name="robots"][content*="noindex"]')).toHaveCount(0);
     }
-  }
-});
+  });
+}
 
 test("the Armenian editions never fall back to the English dish titles", async ({ page }) => {
   await page.goto("/hy/cuisine");
@@ -250,7 +299,7 @@ for (const locale of LOCALES) {
 
     await page
       .getByRole("navigation", { name: dict.nav.mainLabel })
-      .getByRole("link", { name: dict.nav.cuisine, exact: true })
+      .getByRole("link", { name: dict.nav.cuisineShort, exact: true })
       .click();
 
     await expect(page).toHaveURL(new RegExp(`/${locale}/cuisine$`));
@@ -265,15 +314,16 @@ test("the homepage category row offers cuisine alongside the other three", async
   await page.goto("/hy");
 
   const categories = page.locator("#categories");
-  await expect(categories.getByRole("article")).toHaveCount(4);
+  await expect(categories.getByRole("article")).toHaveCount(5);
   await expect(
     categories.getByRole("link", { name: dict.listing.cuisine.title }),
   ).toBeVisible();
 
   // Cuisine shipped without a banner and wore a colour wash until one arrived.
-  // Now that it has one, all four cards carry photography — which is what the
-  // row is designed around, so a section quietly losing its banner should fail
-  // here rather than only look wrong.
+  // Places is now in the same position: five cards, four banners, and the fifth
+  // carrying its section colour instead. The count is pinned so that a section
+  // quietly losing its banner fails here rather than only looking wrong — and so
+  // that Places gaining one is a deliberate change to this number.
   await expect(categories.locator("article img")).toHaveCount(4);
   await expect(categories.locator("article").nth(3).locator("img")).toHaveAttribute(
     "src",
@@ -363,6 +413,45 @@ test("the empty search page offers cuisine as a place to start", async ({ page }
 /* -------------------------------------------------------------------------- */
 /*  SEO: hreflang, structured data, sitemap                                    */
 /* -------------------------------------------------------------------------- */
+
+test("every dish's metadata comes from its own SEO fields, in every edition", async ({ page }) => {
+  /*
+    Cuisine was the one category the August 2026 SEO batch skipped, so all six
+    dishes fell back to `title` and `excerpt` for their `<title>` and their
+    description. Nothing else in the suite asserts that `seoTitle` and
+    `metaDescription` reach the head at all, in any category.
+
+    The H1 assertion is the other half of it: `seoTitle` is written to be read
+    in a results list with no page around it, and it must not replace the
+    headline a reader sees. `articleMetadata` keeps them apart deliberately —
+    see the note on `og:title` in `ArticleRoute.tsx`.
+  */
+  for (const locale of LOCALES) {
+    for (const slug of SLUGS) {
+      const article = bundle(locale).articles.find((entry) => entry.slug === slug);
+      if (!article) throw new Error(`No "${slug}" in the "${locale}" bundle.`);
+      const { seoTitle, metaDescription, title } = article;
+
+      expect(seoTitle, `${locale}/${slug} has no seoTitle`).toBeTruthy();
+      expect(metaDescription, `${locale}/${slug} has no metaDescription`).toBeTruthy();
+      // A fallback would make these identical to the fields they override.
+      expect(seoTitle).not.toBe(title);
+      expect(metaDescription).not.toBe(article.excerpt);
+
+      await page.goto(`/${locale}/cuisine/${slug}`);
+
+      await expect(page).toHaveTitle(`${seoTitle} | ${ui(locale).site.name}`);
+      await expect(page.locator('meta[name="description"]')).toHaveAttribute(
+        "content",
+        metaDescription!,
+      );
+
+      // The visible headline stays the plain title, and the summary is rendered.
+      await expect(page.getByRole("heading", { level: 1 })).toHaveText(title);
+      await expect(page.locator("#summary")).toBeVisible();
+    }
+  }
+});
 
 test("a cuisine article advertises all three editions and an x-default", async ({ page }) => {
   await page.goto("/hy/cuisine/dolma");

@@ -86,6 +86,11 @@ export function toArticleListingItems(
     topicTypeId: article.topicTypeId,
     dishType: article.dishType,
     dishTypeId: article.dishTypeId,
+    // The projection is written field by field rather than spread, so a new
+    // filter key is invisible to the compiler here — every field is optional on
+    // `ArticleSummary`. Omitting this one left the places listing rendering its
+    // pills and matching nothing.
+    placeTypeId: article.placeTypeId,
     imageSeed: article.imageSeed,
     image: article.image,
     featured: article.featured,
@@ -100,10 +105,17 @@ export function toArticleListingItems(
       article.dishType,
       article.categoryLabel,
       article.keyFacts.map((fact) => `${fact.label} ${fact.value}`),
-      // A dish is searched for by what is in it and where it is made at least
-      // as often as by its name, and neither is anywhere else in this payload.
+      // A dish is searched for by what is in it, where it is made and when it
+      // is eaten at least as often as by its name, and none of the three is
+      // anywhere else in this payload.
+      //
+      // `occasions` was missing here until August 2026 while the global index
+      // below carried it, so the cuisine listing answered "Christmas" with an
+      // empty grid and the search page answered it with ghapama — from a search
+      // box whose own placeholder offers "dishes, ingredients and occasions".
       article.cuisine?.ingredients,
       article.cuisine?.regions,
+      article.cuisine?.occasions,
       // The reason the field exists: "sasna tsrer" appears in no other field of
       // the Armenian edition, and a reader typing it should still find the epic.
       article.keywords,

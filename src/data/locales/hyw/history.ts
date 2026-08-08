@@ -41,6 +41,15 @@ export const categories: Category[] = [
     imageSeed: "category-cuisine",
     image: "/category-armmeal.webp",
   },
+  {
+    id: "places",
+    title: "Վայրեր",
+    description:
+      "Վանքեր, բերդեր, թանգարաններ եւ բնաշխարհ Հայաստանի մէջ՝ ներկայացուած իբրեւ պատմութիւն եւ ոչ թէ ուղեցոյց. սկսելով Արարատի ստորոտի Խոր Վիրապէն։",
+    href: "/places",
+    linkLabel: "Տեսնել վայրերը",
+    imageSeed: "category-places",
+  },
 ];
 
 export const timeline: TimelineEntry[] = [

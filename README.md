@@ -30,8 +30,10 @@ npm run validate:content  # multilingual content and translation checks
 npm run test:e2e          # Playwright suite (starts the dev server itself)
 ```
 
-The site runs fully without any environment variables. Only the newsletter form
-needs configuration — see [Newsletter](#newsletter-supabase).
+The site runs fully without any environment variables — every page builds and every
+article reads. Three things take optional configuration and degrade honestly without it:
+the [newsletter](#newsletter-supabase) form, the [contact](#contact-form-smtp) form, and
+the Visit [map's basemap](#visit-map-basemap-tiles).
 
 ## Languages and routing
 
@@ -170,6 +172,58 @@ the message did not go through — never a fake success.
 
 Abuse controls: a honeypot field, 5 submissions per IP per 10 minutes (in-memory, per
 process), and length limits enforced in the route and again as SQL constraints.
+
+## Visit map (basemap tiles)
+
+The map on `/[locale]/visit` is rendered by Leaflet from coordinates in
+[`src/data/geo.ts`](src/data/geo.ts). The *basemap* underneath the markers is a separate,
+replaceable decision and lives entirely in
+[`src/lib/map-tiles.ts`](src/lib/map-tiles.ts) — no provider is named anywhere in the map
+component.
+
+**Leaflet remains the renderer.** The production basemap provider is **Stadia Maps**, using
+their `alidade_smooth` raster style — chosen because it is deliberately muted and
+POI-sparse, so the burgundy place markers stay the most important thing on the map.
+Stadia is *configuration, not architecture*: it is named in `.env.example` and nowhere in
+the code, and switching provider is still a change to these three variables.
+
+| Variable | Notes |
+| --- | --- |
+| `NEXT_PUBLIC_MAP_TILE_URL` | Leaflet XYZ template; must contain `{z}`, `{x}` and `{y}` |
+| `NEXT_PUBLIC_MAP_TILE_ATTRIBUTION` | Credit line shown on the map; copy it exactly |
+| `NEXT_PUBLIC_MAP_TILE_MAX_ZOOM` | Highest zoom the style serves — `20` for this one |
+
+All three are public: a tile URL appears in every request the browser makes and the
+attribution is printed on the map by design, so neither is a secret. Copy the block from
+[`.env.example`](.env.example) as-is — there is nothing to fill in.
+
+**No browser API key is required, and none may be added.** Stadia authenticates production
+traffic by *registered domain*, validating the `Origin` and `Referer` headers the browser
+already sends, so there is no token in the URL and no authentication code in the app.
+Authorizing the site's real hostname is an account-side step done in Stadia's dashboard —
+see the checklist in `PROJECT_STATE.md` §46. A key pasted into a `NEXT_PUBLIC_` variable
+would be a key printed in every visitor's network log; the fix for a production 401 is to
+authorize the domain, never to add `api_key=`.
+
+**Local development needs no account.** Stadia serves `localhost` and `127.0.0.1` without a
+key under strict rate limits, so `npm run dev` and the Playwright suite use the same tile
+URL as production. Sustained HTTP 429s locally mean it is time for an account key for
+server-side use — not for one in this file.
+
+Leave all three blank and the map falls back to the public OpenStreetMap tile endpoint.
+That fallback exists only so a fresh checkout has a working map with no setup; it is an
+external community service run by the OpenStreetMap Foundation, not infrastructure this
+project operates or has an agreement with, and **production must set the three variables
+rather than rely on it**. No availability or coverage guarantee is claimed here for any
+provider, Stadia included. If Stadia tiles fail in production the map says so and stops —
+it does **not** silently fall back to OpenStreetMap, because that would hide a
+configuration failure and quietly send readers to a different third party.
+
+Set the URL and the attribution together or not at all. A half-configured or malformed
+basemap is refused rather than patched over: no tiles are requested, the reader is told
+the map could not be loaded, and the list of mapped places — which is server-rendered — is
+unaffected. Leaflet itself is loaded only when the map scrolls into view, so a reader who
+never reaches the section makes no tile request at all.
 
 ## Adding content
 

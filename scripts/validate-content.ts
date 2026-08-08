@@ -15,6 +15,7 @@
 import { existsSync } from "node:fs";
 import { join } from "node:path";
 import { getLocaleBundle } from "../src/data";
+import { getPlaceCoordinateRegistry } from "../src/data/geo";
 import { getSourceRegistry } from "../src/data/sources";
 import {
   ALL_FILTER_ID,
@@ -77,6 +78,7 @@ const DECLARED_UNAVAILABLE: Partial<Record<Locale, Record<CategoryId, string[]>>
     writers: [],
     works: [],
     cuisine: [],
+    places: [],
   },
 };
 
@@ -385,6 +387,7 @@ function validateArticle(
     historyTopicTypes: Set<string>;
     literaryPeriods: Set<string>;
     cuisineTypes: Set<string>;
+    placeTypes: Set<string>;
     historyPeriodLabels: Map<string, string>;
     cuisineTypeLabels: Map<string, string>;
   },
@@ -515,6 +518,40 @@ function validateArticle(
       !article.topicTypeId,
       `is a ${article.category} article but declares a topicTypeId, which only the history listing filters on.`,
       "topicTypeId",
+    );
+  }
+
+  // The places axis. Like `topicTypeId` and unlike `period`/`dishType`, the id
+  // travels alone: the translated label lives once in the locale's `placeTypes`
+  // list. There is deliberately no `placeType` label field on an article to
+  // compare against, so there is no chip-versus-card drift to check here — only
+  // that the id is real, is not the "no filter applied" option, and is present.
+  //
+  // A places article with no id is the failure worth catching. It compiles, it
+  // renders, and it is simply absent from every pill on its own listing.
+  if (article.category === "places") {
+    check(
+      filled(article.placeTypeId),
+      "is a places article but declares no placeTypeId, so it can never be filtered.",
+      "placeTypeId",
+    );
+    if (article.placeTypeId) {
+      check(
+        context.placeTypes.has(article.placeTypeId),
+        `placeTypeId "${article.placeTypeId}" does not match any filter in placeTypes.`,
+        "placeTypeId",
+      );
+      check(
+        article.placeTypeId !== ALL_FILTER_ID,
+        `placeTypeId is "${ALL_FILTER_ID}", which is the "no filter applied" option and not a kind of site.`,
+        "placeTypeId",
+      );
+    }
+  } else {
+    check(
+      !article.placeTypeId,
+      `is a ${article.category} article but declares a placeTypeId, which only the places listing filters on.`,
+      "placeTypeId",
     );
   }
 
@@ -999,7 +1036,7 @@ function validateFilterCoverage(
 }
 
 function validateStaticPages(locale: Locale, content: LocaleContent, report: Report): void {
-  const { about, contact, privacy } = content.pages;
+  const { about, contact, privacy, visit } = content.pages;
   const check = (ok: boolean, id: string, message: string, field?: string) =>
     report.check(ok, locale, "page", id, message, field);
 
@@ -1025,6 +1062,29 @@ function validateStaticPages(locale: Locale, content: LocaleContent, report: Rep
       `section "${section.heading}" is missing a heading or body.`,
       "sections",
     );
+  }
+
+  check(
+    filled(visit.title) && filled(visit.metaDescription),
+    "visit",
+    "missing title or metaDescription.",
+  );
+  // The Visit page is the one static page whose H1 is not its `title`: the title
+  // is written for a results page and the heading has to stay short. Authoring
+  // them the same way is the mistake this catches, and it is invisible on the
+  // rendered page — a heading reading "Visit Armenia: Places, Nature & Food"
+  // looks like a decision rather than a copy-paste.
+  check(
+    filled(visit.heading) && visit.heading !== visit.title,
+    "visit",
+    "heading must be present and must differ from the SEO title.",
+    "heading",
+  );
+  check(filled(visit.lead), "visit", "has no lead paragraph.", "lead");
+  // Every remaining field is a heading or a call to action, and an empty one
+  // renders as a section with no name or a link with no label.
+  for (const [field, value] of Object.entries(visit)) {
+    check(filled(value), "visit", `field "${field}" is empty.`, field);
   }
 }
 
@@ -1052,11 +1112,13 @@ function validateLocale(locale: Locale, content: LocaleContent, report: Report):
   validateFilters(locale, "literaryPeriods", content.literaryPeriods, report);
   validateFilters(locale, "workGenres", content.workGenres, report);
   validateFilters(locale, "cuisineTypes", content.cuisineTypes, report);
+  validateFilters(locale, "placeTypes", content.placeTypes, report);
 
   // No filter may match nothing. Every listing's pills are checked against the
   // field they actually filter on, in this edition.
   const historyArticles = content.articles.filter((article) => article.category === "history");
   const cuisineArticles = content.articles.filter((article) => article.category === "cuisine");
+  const placesArticles = content.articles.filter((article) => article.category === "places");
   validateFilterCoverage(
     locale,
     "historyPeriods",
@@ -1076,6 +1138,16 @@ function validateLocale(locale: Locale, content: LocaleContent, report: Report):
     "cuisineTypes",
     content.cuisineTypes,
     cuisineArticles.map((article) => article.dishTypeId),
+    report,
+  );
+  // Places ships its filter list one entry at a time, alongside the article that
+  // earns it — this is the check that makes that discipline mandatory rather
+  // than a habit.
+  validateFilterCoverage(
+    locale,
+    "placeTypes",
+    content.placeTypes,
+    placesArticles.map((article) => article.placeTypeId),
     report,
   );
   // `literaryPeriods` is one vocabulary serving two content types: the writers
@@ -1141,6 +1213,7 @@ function validateLocale(locale: Locale, content: LocaleContent, report: Report):
     historyTopicTypes: filterIds(content.historyTopicTypes),
     literaryPeriods: filterIds(content.literaryPeriods),
     cuisineTypes: filterIds(content.cuisineTypes),
+    placeTypes: filterIds(content.placeTypes),
     historyPeriodLabels: filterLabels(content.historyPeriods),
     cuisineTypeLabels: filterLabels(content.cuisineTypes),
   };
@@ -1440,9 +1513,101 @@ function validateImages(report: Report): void {
 
   // The reverse direction: an article with no artwork is allowed (it falls back
   // to the generated placeholder), but it is worth surfacing which ones.
+  //
+  // The wording matters and used to be backwards. This note lists the slugs with
+  // *no* file, and it said they "render generated artwork" — which is precisely
+  // what the registered slugs do, since everything in `IMAGES` is AI-generated and
+  // captioned so. Read literally it reported the opposite of the thing it was
+  // counting. Only the sentence changed; the set it describes is the same one.
   const missing = [...knownSlugs].filter((slug) => !registry[slug]).sort();
   if (missing.length > 0) {
-    console.log(`  note: ${missing.length} slug(s) render generated artwork: ${missing.join(", ")}`);
+    console.log(
+      `  note: ${missing.length} slug(s) have no artwork and render the generated ` +
+        `placeholder: ${missing.join(", ")}`,
+    );
+  }
+}
+
+/**
+ * The coordinate registry: one point per place, and every point a real one.
+ *
+ * `PLACE_COORDINATES` is keyed by slug and typed as `Record<string, PlacePoint>`,
+ * so TypeScript will accept a key for an article that does not exist, a place
+ * with no key at all, and a latitude of 900. None of those is visible until
+ * something renders a map, which is exactly the wrong moment to find out.
+ *
+ * Two rules are deliberately *not* here.
+ *
+ * There is no Armenia-shaped bounding box. The archive has not decided how it
+ * frames culturally Armenian sites beyond the present border, and a hardcoded
+ * national box would quietly make that decision by failing the build on the
+ * first article that tested it. The range checks below are the real ones —
+ * latitude and longitude have actual limits.
+ *
+ * There is no duplicate-coordinate check. This script has no warning tier, every
+ * check exits 1, and two sites can legitimately round to the same four decimal
+ * places — a chapel inside a monastery wall, a church and its bell tower. That
+ * would be a warning if warnings existed, and an obstruction as an error.
+ */
+function validatePlaceCoordinates(report: Report): void {
+  const registry = getPlaceCoordinateRegistry();
+  // The primary edition defines which articles exist, exactly as `validateCoverage`
+  // does — a coordinate belongs to a place, and the places are the `hy` ones.
+  const placeSlugs = new Set(
+    getLocaleBundle(DEFAULT_LOCALE)
+      .articles.filter((article) => article.category === "places")
+      .map((article) => article.slug),
+  );
+
+  for (const slug of placeSlugs) {
+    report.check(
+      registry[slug] !== undefined,
+      "global",
+      "coordinate",
+      slug,
+      "is a places article with no entry in PLACE_COORDINATES (src/data/geo.ts).",
+    );
+  }
+
+  for (const [slug, point] of Object.entries(registry)) {
+    report.check(
+      placeSlugs.has(slug),
+      "global",
+      "coordinate",
+      slug,
+      `is registered in src/data/geo.ts but is not a places article in the "${DEFAULT_LOCALE}" edition.`,
+    );
+
+    const check = (ok: boolean, message: string, field?: string) =>
+      report.check(ok, "global", "coordinate", slug, message, field);
+
+    check(Number.isFinite(point.lat), `lat is not a finite number: ${point.lat}.`, "lat");
+    check(Number.isFinite(point.lon), `lon is not a finite number: ${point.lon}.`, "lon");
+    check(
+      point.lat >= -90 && point.lat <= 90,
+      `lat ${point.lat} is outside the valid range −90…90.`,
+      "lat",
+    );
+    check(
+      point.lon >= -180 && point.lon <= 180,
+      `lon ${point.lon} is outside the valid range −180…180.`,
+      "lon",
+    );
+    // Null Island. `0, 0` is a valid pair, sits in the Gulf of Guinea, and is
+    // what an unfilled coordinate looks like when someone reaches for a
+    // placeholder — so it is rejected rather than plotted.
+    check(
+      !(point.lat === 0 && point.lon === 0),
+      "is 0, 0 — the placeholder pair, not a position. Record the real coordinate or remove the entry.",
+    );
+    // The union already forbids anything else at compile time. Kept because this
+    // script reads the registry as data and a `JSON.parse` or an `as` cast
+    // upstream would walk straight past the type.
+    check(
+      ["site", "settlement", "area"].includes(point.precision),
+      `precision "${point.precision}" is not one of site, settlement, area.`,
+      "precision",
+    );
   }
 }
 
@@ -1645,6 +1810,10 @@ function validateCrossLocaleTaxonomy(report: Report): void {
         ["topicTypeId", base.topicTypeId, other.topicTypeId],
         ["chronoOrder", base.chronoOrder, other.chronoOrder],
         ["dishTypeId", base.dishTypeId, other.dishTypeId],
+        // A place is the same kind of site in every edition. Without this, the
+        // Armenian reader could find Khor Virap under monasteries and the English
+        // reader under nothing at all, with three valid files and no error.
+        ["placeTypeId", base.placeTypeId, other.placeTypeId],
         ["href", base.href, other.href],
         ["category", base.category, other.category],
         // Navigation, not prose. `getRelatedArticles` already drops a target that
@@ -1696,6 +1865,7 @@ function main(): void {
   validateCoverage(report);
   validateAlternates(report);
   validateImages(report);
+  validatePlaceCoordinates(report);
   validateSources(report);
   validateCrossLocaleNumbers(report);
   validateCrossLocaleTaxonomy(report);

@@ -17,6 +17,7 @@ import {
   getWriters,
   toArticleSummary,
 } from "@/lib/content";
+import { cn } from "@/lib/cn";
 import { getStaticAlternates, getUi, localePath, resolveLocale } from "@/lib/i18n";
 import { socialImage, websiteLd } from "@/lib/seo";
 
@@ -87,14 +88,32 @@ export default async function HomePage({ params }: Params) {
       <section id="categories" className="pt-8 pb-5 md:pt-10 md:pb-7">
         <div className="container-page">
           <h2 className="sr-only">{ui.home.categoriesHeading}</h2>
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {categories.map((category) => (
-              <CategoryCard
+          {/*
+            Five cards over a twelve-column track rather than five equal columns.
+            Five across leaves each banner about 215px at 1280px, which is too
+            narrow for an icon, a title and two lines of copy; and four across
+            strands the fifth card alone in an otherwise empty row. Three then
+            two — `col-span-4` then `col-span-6` — fills both rows exactly. The
+            same trick at `sm` gives the odd card the full width instead of half
+            a row.
+          */}
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-12">
+            {categories.map((category, index) => (
+              <div
                 key={category.id}
-                category={category}
-                href={localePath(locale, category.href)}
-                variant="banner"
-              />
+                className={cn(
+                  index < 3 ? "lg:col-span-4" : "lg:col-span-6",
+                  index === categories.length - 1 && categories.length % 2 === 1
+                    ? "sm:col-span-2"
+                    : "",
+                )}
+              >
+                <CategoryCard
+                  category={category}
+                  href={localePath(locale, category.href)}
+                  variant="banner"
+                />
+              </div>
             ))}
           </div>
         </div>

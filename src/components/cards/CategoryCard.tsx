@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Category, CategoryId } from "@/data/types";
 import { PlaceholderImage } from "@/components/ui/PlaceholderImage";
-import { BookIcon, ColumnsIcon, QuillIcon, WheatIcon } from "@/components/ui/icons";
+import { BookIcon, ColumnsIcon, FortressIcon, QuillIcon, WheatIcon } from "@/components/ui/icons";
 import { ArrowLink, Card } from "@/components/ui/primitives";
 import { cn } from "@/lib/cn";
 
@@ -25,6 +25,7 @@ const MEDALLIONS: Record<
   writers: { Icon: QuillIcon, className: "bg-gold text-white", wash: "from-gold/15" },
   works: { Icon: BookIcon, className: "bg-[#1f3450] text-white", wash: "from-[#1f3450]/12" },
   cuisine: { Icon: WheatIcon, className: "bg-[#5d6b34] text-white", wash: "from-[#5d6b34]/15" },
+  places: { Icon: FortressIcon, className: "bg-[#2f5d5b] text-white", wash: "from-[#2f5d5b]/14" },
 };
 
 export function CategoryCard({
