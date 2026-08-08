@@ -151,5 +151,6 @@ export const pages: StaticPagesContent = {
     mapSelectPrompt: "Ընտրեք վայր քարտեզի վրա՝ տեսնելու համար, թե ինչ է այն։",
     mapCta: "Իմանալ այս վայրի մասին",
     mapFilterLabel: "Ցուցադրել վայրերն ըստ տեսակի",
+    mapUnavailable: "Քարտեզը չհաջողվեց բեռնել։ Դրա բոլոր վայրերը թվարկված են ստորև։",
   },
 };

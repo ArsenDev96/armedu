@@ -150,5 +150,6 @@ export const pages: StaticPagesContent = {
     mapSelectPrompt: "Ընտրեցէ՛ք վայր մը քարտէսին վրայ՝ տեսնելու համար թէ ինչ է ան։",
     mapCta: "Ծանօթանալ այս վայրին",
     mapFilterLabel: "Ցուցադրել վայրերը ըստ տեսակի",
+    mapUnavailable: "Քարտէսը չկրցաւ բեռնուիլ։ Անոր բոլոր վայրերը թուարկուած են վարը։",
   },
 };

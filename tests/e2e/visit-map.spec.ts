@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 import { expect, test } from "@playwright/test";
 import { getPlaceCoordinateRegistry } from "@/data/geo";
+import { MAP_TILES, resolveMapTileConfig } from "@/lib/map-tiles";
 import { getImageSrc } from "@/lib/media";
 import { getVisitMapPoints } from "@/lib/visit-map";
 import { LOCALES, bundle } from "./helpers";
@@ -64,6 +65,209 @@ async function openMap(page: import("@playwright/test").Page) {
   await expect(page.locator(".leaflet-container")).toHaveCount(1);
   await expect(page.locator("[data-slug]").first()).toBeVisible();
 }
+
+/* -------------------------------------------------------------------------- */
+/*  The configured basemap — §45                                              */
+/* -------------------------------------------------------------------------- */
+
+/**
+ * Everything below is derived from `MAP_TILES`, never from a provider name.
+ *
+ * §44 hardcoded `openstreetmap.org` as the one legal host. That was correct
+ * while the URL was a literal in the component and wrong the moment the basemap
+ * became configuration: the guarantee worth pinning is *only the configured
+ * provider is contacted*, not *this particular company is contacted*. So the
+ * expectations are computed from the same config the app renders from — which
+ * also means these tests keep working, unchanged, on the day the provider
+ * changes, and keep failing on the day an unplanned host appears.
+ *
+ * `playwright.config.ts` calls `loadEnvConfig`, so this process and the dev
+ * server resolve the configuration from the same files.
+ */
+
+/** The registrable host, with any `{s}`-style rotation segment removed. */
+const tileHost = MAP_TILES
+  ? MAP_TILES.url
+      .replace(/^https?:\/\//, "")
+      .split("/")[0]
+      .replace(/^\{[^}]+\}\./, "")
+  : null;
+
+const isTileHost = (hostname: string) =>
+  tileHost !== null && (hostname === tileHost || hostname.endsWith(`.${tileHost}`));
+
+/** The configured template as a matcher for the URLs the browser really asks for. */
+const tileUrlPattern = new RegExp(
+  "^" +
+    (MAP_TILES?.url ?? "")
+      .replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
+      .replace(/\\\{[zxy]\\\}/g, "\\d+")
+      .replace(/\\\{s\\\}/g, "[a-z0-9]+")
+      .replace(/\\\{r\\\}/g, "(@2x)?"),
+);
+
+/** The attribution as the reader sees it: markup stripped, entity resolved. */
+const attributionText = (MAP_TILES?.attribution ?? "")
+  .replace(/<[^>]*>/g, "")
+  .replace(/&copy;/g, "©")
+  .replace(/\s+/g, " ")
+  .trim();
+
+test("the basemap is resolved from configuration, and half-configured is refused", () => {
+  /*
+    The resolver in isolation, because this is the layer that decides what a
+    misconfiguration does — and the answer has to be *refuse*, not *improvise*.
+
+    Falling back to the development provider when a production URL is malformed
+    would serve someone else's tiles while the operator believes their own are
+    live. Keeping the old attribution when the URL changes would print the wrong
+    copyright line under those tiles, which is the failure a licence punishes.
+    Both look like resilience and are neither.
+  */
+  const good = { url: "https://tiles.example.org/{z}/{x}/{y}.png", attribution: "© Example" };
+
+  // Nothing configured is the documented development fallback, not a failure.
+  expect(resolveMapTileConfig({}), "an unconfigured checkout still has a map").not.toBeNull();
+  // Which is the shape a freshly copied `.env.example` produces.
+  expect(resolveMapTileConfig({ url: "  ", attribution: " " })).toEqual(resolveMapTileConfig({}));
+
+  expect(resolveMapTileConfig(good)).toEqual({ ...good, maxZoom: 17 });
+  expect(resolveMapTileConfig({ ...good, maxZoom: "12" })?.maxZoom).toBe(12);
+
+  // Configured together or not at all.
+  expect(resolveMapTileConfig({ url: good.url }), "url without attribution").toBeNull();
+  expect(resolveMapTileConfig({ attribution: good.attribution }), "attribution alone").toBeNull();
+
+  // A template Leaflet cannot fill is a stream of 404s, not a map.
+  for (const url of ["https://tiles.example.org/{z}/{x}.png", "https://tiles.example.org/a.png"]) {
+    expect(resolveMapTileConfig({ ...good, url }), url).toBeNull();
+  }
+
+  for (const maxZoom of ["0", "23", "abc", "12.5"]) {
+    expect(resolveMapTileConfig({ ...good, maxZoom }), `maxZoom=${maxZoom}`).toBeNull();
+  }
+});
+
+test("no tile provider is named anywhere inside the map component", () => {
+  /*
+    The point of §45 in one assertion: swapping provider must be a configuration
+    change, not an edit to Leaflet setup code. A URL template or a copyright
+    line living here is exactly how a provider swap leaves the old company's
+    name printed under the new company's tiles.
+  */
+  const source = readFileSync("src/components/visit/VisitMap.tsx", "utf8");
+
+  expect(source, "no URL template").not.toMatch(/\{[zxy]\}/);
+  expect(source, "no absolute URL of any kind").not.toMatch(/https?:\/\//);
+  expect(source, "no copyright entity").not.toContain("&copy;");
+  expect(source.toLowerCase(), "no provider by name").not.toContain("openstreetmap");
+
+  // And it does read the configuration rather than defaulting on its own.
+  expect(source, "the component consumes the config").toContain("MAP_TILES");
+});
+
+test("the rendered basemap and its attribution both come from the configuration", async ({
+  page,
+}) => {
+  expect(MAP_TILES, "this build has a usable basemap").not.toBeNull();
+
+  await page.goto("/en/visit");
+  await openMap(page);
+
+  // The URLs the browser actually asks for are the configured template, filled.
+  await expect(page.locator(".leaflet-tile").first()).toHaveAttribute("src", tileUrlPattern);
+
+  // The attribution control is present, visible, and carries the configured
+  // text — it cannot quietly disappear when the URL changes, because a config
+  // with an empty attribution is refused before a layer is ever created.
+  const attribution = page.locator(".leaflet-control-attribution");
+  await expect(attribution).toHaveCount(1);
+  await expect(attribution).toBeVisible();
+  await expect(attribution).toContainText(attributionText);
+
+  // Nothing is wrong, so nothing says anything is.
+  await expect(page.locator("[data-map-unavailable]")).toHaveCount(0);
+});
+
+test("no tile is requested until the reader reaches the map", async ({ page }) => {
+  /*
+    The lazy mount, tested by its consequence rather than by chunk names: a
+    reader who never scrolls this far makes no third-party request at all. That
+    is the privacy half of the IntersectionObserver, and it is the half a
+    well-meaning refactor to a plain top-level import would silently remove.
+  */
+  const tiles: string[] = [];
+  page.on("request", (request) => {
+    if (isTileHost(new URL(request.url()).hostname)) tiles.push(request.url());
+  });
+
+  await page.goto("/en/visit");
+  await page.waitForLoadState("networkidle");
+
+  await expect(mapSection(page), "the section is server-rendered").toHaveCount(1);
+  await expect(page.locator(".leaflet-container"), "the map is not mounted").toHaveCount(0);
+  expect(tiles, "no tile request before the section is reached").toEqual([]);
+
+  await openMap(page);
+  await expect
+    .poll(() => tiles.length, { message: "tiles arrive once the section does" })
+    .toBeGreaterThan(0);
+});
+
+test("Leaflet is never imported eagerly", () => {
+  const component = readFileSync("src/components/visit/VisitMap.tsx", "utf8");
+
+  // A static value import here would put the library in the page's first
+  // payload and undo the test above. Types and the stylesheet are erased or
+  // extracted at build time and do not.
+  expect(component, "the library is imported dynamically").toContain('await import("leaflet")');
+  expect(component, "and never statically").not.toMatch(
+    /^import\s+(?!type\b)[^;]*from "leaflet";/m,
+  );
+
+  // Nor anywhere upstream of the component.
+  for (const file of ["src/app/[locale]/visit/page.tsx", "src/app/[locale]/layout.tsx"]) {
+    expect(readFileSync(file, "utf8"), file).not.toContain('"leaflet"');
+  }
+});
+
+test("the map section stays usable when the tile provider is unreachable", async ({ page }) => {
+  /*
+    Not a retry system and not offline detection — the map either drew or it did
+    not, and the reader is told which. What matters is that the seven article
+    links, the marker selection and the rest of the page survive a basemap that
+    never arrives, because the markers are DOM and the list is server HTML.
+  */
+  const copy = bundle("en").pages.visit;
+
+  await page.route(
+    (url) => isTileHost(url.hostname),
+    (route) => route.abort(),
+  );
+
+  await page.goto("/en/visit");
+  await openMap(page);
+
+  const notice = page.locator("[data-map-unavailable]");
+  await expect(notice).toBeVisible();
+  await expect(notice, "localized, and only says what is known").toHaveText(copy.mapUnavailable);
+
+  // Every place is still reachable at its own canonical route.
+  for (const slug of PLACES) {
+    await expect(page.locator(`[data-map-list-item="${slug}"]`), slug).toHaveAttribute(
+      "href",
+      `/en/places/${slug}`,
+    );
+  }
+
+  // And selection still works with nothing underneath the pins.
+  const article = bundle("en").articles.find((entry) => entry.slug === "khor-virap")!;
+  await page.locator('[data-slug="khor-virap"]').click();
+  await expect(mapSection(page).locator("[aria-live='polite']")).toContainText(article.title);
+
+  // The rest of the journey is untouched by a failed basemap.
+  await expect(page.getByRole("heading", { name: copy.foodTitle, level: 2 })).toBeVisible();
+});
 
 /* -------------------------------------------------------------------------- */
 /*  Derived data                                                              */
@@ -426,28 +630,43 @@ test("the map asks for no location, plots no route and sells nothing", async ({ 
   }
 });
 
-test("the map talks to the tile host and nothing else", async ({ page }) => {
+test("the map talks to the configured tile host and nothing else", async ({ page }) => {
   /*
     Every third-party request the page makes, enumerated rather than assumed.
-    The tile host is expected and documented in §44; anything else appearing
-    here would be a network call nobody decided to make.
+
+    §44 wrote the provider's domain into this assertion. §45 makes the provider
+    configurable, so the expectation is derived from `MAP_TILES` instead — the
+    guarantee that is actually worth holding is "only the basemap this build was
+    configured with", not "this one company". Nothing here is loosened to a
+    wildcard: an unconfigured host still fails, it is simply no longer named.
   */
-  const external: string[] = [];
-  page.on("request", (request) => {
-    const url = new URL(request.url());
-    if (url.hostname !== "localhost" && url.hostname !== "127.0.0.1") external.push(url.hostname);
-  });
+  const requests: string[] = [];
+  page.on("request", (request) => requests.push(request.url()));
 
   await page.goto("/en/visit");
   await openMap(page);
   await page.locator('[data-slug="lake-sevan"]').click();
   await page.waitForTimeout(1_500);
 
-  const hosts = [...new Set(external)];
-  for (const host of hosts) {
-    expect(host, `unexpected third-party host: ${hosts.join(", ")}`).toMatch(
-      /(^|\.)openstreetmap\.org$/,
-    );
+  const external = requests.filter((url) => {
+    const { hostname } = new URL(url);
+    return hostname !== "localhost" && hostname !== "127.0.0.1";
+  });
+
+  for (const url of external) {
+    expect(isTileHost(new URL(url).hostname), `unexpected third-party host: ${url}`).toBe(true);
+  }
+
+  /*
+    And nothing that looks like a lookup service, even on the permitted host —
+    geocoding, place search and routing are all things a tile provider will
+    happily also sell you, and all things this map has decided not to have.
+  */
+  for (const banned of ["nominatim", "geocod", "/search", "/route", "/direction", "/autocomplete"]) {
+    expect(
+      external.filter((url) => url.toLowerCase().includes(banned)),
+      `${banned} requests must not exist`,
+    ).toEqual([]);
   }
 });
 

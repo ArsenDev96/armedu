@@ -229,6 +229,7 @@ export default async function VisitPage({ params }: Params) {
             selectPrompt: visit.mapSelectPrompt,
             cta: visit.mapCta,
             filterLabel: visit.mapFilterLabel,
+            unavailable: visit.mapUnavailable,
           }}
         />
       </Section>

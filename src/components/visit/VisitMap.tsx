@@ -8,6 +8,7 @@ import { useEffect, useRef, useState } from "react";
 import { ALL_FILTER_ID, type Filter } from "@/data/types";
 import { ArrowLink, Card } from "@/components/ui/primitives";
 import { cn } from "@/lib/cn";
+import { MAP_TILES } from "@/lib/map-tiles";
 import { IMAGE_SIZES } from "@/lib/media";
 import type { VisitMapPoint } from "@/lib/visit-map";
 
@@ -39,8 +40,21 @@ import type { VisitMapPoint } from "@/lib/visit-map";
  * tile requests that come with it are never made for a reader who does not
  * scroll this far. That is a deliberate privacy choice as much as a performance
  * one — tiles are a third-party request, and the fewer readers who make one
- * without ever seeing a map, the better. See §44 of PROJECT_STATE.md for the
- * tile provider and what it does and does not promise.
+ * without ever seeing a map, the better.
+ *
+ * ## Why no provider is named in this file
+ *
+ * The basemap is configuration, not component logic: `MAP_TILES` carries the
+ * URL template, the attribution and the zoom ceiling, and this component renders
+ * whatever it is handed. Naming a provider here would mean a swap had to be made
+ * inside Leaflet setup code — the kind of edit that leaves the previous
+ * provider's copyright line sitting under someone else's tiles. See
+ * `lib/map-tiles.ts` for what is configured and what deliberately is not.
+ *
+ * `MAP_TILES` can be `null` when the environment is half-configured. That is a
+ * refusal rather than a crash: no tile layer is created, the reader is told the
+ * map is unavailable, and the list of places below is untouched — which is the
+ * same guarantee that holds when JavaScript never runs at all.
  *
  * `reactStrictMode` is on, so the effect runs twice in development. The cleanup
  * calls `map.remove()` and the `cancelled` flag guards the async gap — without
@@ -94,6 +108,8 @@ export interface VisitMapCopy {
   cta: string;
   /** Group label for the type filter. */
   filterLabel: string;
+  /** Shown when no basemap is configured, or when its tiles do not arrive. */
+  unavailable: string;
 }
 
 export function VisitMap({
@@ -114,6 +130,19 @@ export function VisitMap({
   const [ready, setReady] = useState(false);
   const [selected, setSelected] = useState<string | null>(null);
   const [filter, setFilter] = useState<string>(ALL_FILTER_ID);
+  const [tilesFailed, setTilesFailed] = useState(false);
+
+  /*
+    Two different ways the basemap can be missing, one message.
+
+    `MAP_TILES === null` is a refused configuration and is known before mount —
+    there is nothing to draw markers on top of, so Leaflet is never loaded and
+    the map surface is not rendered at all. `tilesFailed` is the runtime case:
+    the map exists, the markers are on it and selectable, and only the pictures
+    underneath them failed to arrive.
+  */
+  const config = MAP_TILES;
+  const mapUnavailable = config === null || tilesFailed;
 
   const labelFor = (placeTypeId: string) =>
     types.find((type) => type.id === placeTypeId)?.label ?? placeTypeId;
@@ -126,9 +155,12 @@ export function VisitMap({
   /* Mount Leaflet once, when the section is close to view. */
   useEffect(() => {
     const container = containerRef.current;
-    if (!container || points.length === 0) return;
+    // No usable basemap configuration means no Leaflet, no chunk and no tile
+    // request — the notice and the list below stand in for the map.
+    if (!container || !config || points.length === 0) return;
 
     let cancelled = false;
+    let loadedTiles = 0;
 
     const start = async () => {
       const L = await import("leaflet");
@@ -143,13 +175,32 @@ export function VisitMap({
         attributionControl: true,
       });
 
-      L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        maxZoom: 17,
-        // Required by the tile licence, and it is the reader's only signal of
-        // where the base layer comes from.
-        attribution:
-          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-      }).addTo(map);
+      /*
+        The base layer, entirely from configuration.
+
+        `attribution` is not optional and not a default: it is required by every
+        tile licence worth using, and it is the reader's only signal of where the
+        base layer comes from. `resolveMapTileConfig` refuses a configuration
+        with an empty attribution, so a layer can never reach this line without
+        one, and Leaflet's attribution control stays on.
+
+        `tileload` / `tileerror` are the only failure signal used here, and they
+        are a direct observation rather than a guess: errors with nothing loaded
+        means this basemap is not rendering. It says nothing about whether the
+        reader is online, because it cannot know that and neither can the notice.
+      */
+      const tiles = L.tileLayer(config.url, {
+        maxZoom: config.maxZoom,
+        attribution: config.attribution,
+      });
+      tiles.on("tileload", () => {
+        loadedTiles += 1;
+        setTilesFailed(false);
+      });
+      tiles.on("tileerror", () => {
+        if (loadedTiles === 0) setTilesFailed(true);
+      });
+      tiles.addTo(map);
 
       /*
         Set the view *before* adding markers.
@@ -236,9 +287,11 @@ export function VisitMap({
       mapRef.current?.remove();
       mapRef.current = null;
       setReady(false);
+      setTilesFailed(false);
     };
-    // `points` is server-rendered data and stable for the life of the page.
-  }, [points]);
+    // `points` is server-rendered data and stable for the life of the page, and
+    // `config` is inlined at build time, so neither ever changes at runtime.
+  }, [points, config]);
 
   /* Filtering hides markers; it never rebuilds the map. */
   useEffect(() => {
@@ -318,16 +371,41 @@ export function VisitMap({
       <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_21rem]">
         <div className="overflow-hidden rounded-2xl border border-line bg-paper-2 shadow-[var(--shadow-card)]">
           {/*
+            The basemap notice.
+
+            Stated as what is actually known — the map could not be loaded — and
+            pointed at the list below, which is the fallback and always present.
+            It claims nothing about the reader's connection, because a failed
+            tile request is not evidence of one.
+          */}
+          {mapUnavailable ? (
+            <p
+              data-map-unavailable=""
+              role="status"
+              className="border-b border-line px-5 py-3 text-sm leading-relaxed text-ink-3"
+            >
+              {copy.unavailable}
+            </p>
+          ) : null}
+
+          {/*
             The map itself. `region` rather than `application`: Leaflet's own
             keyboard handling stays, and the list below is the equivalent that
             does not require it — so this never has to be the only way in.
+
+            Dropped entirely when there is no basemap configuration: an empty
+            bordered box announcing itself as a map is worse than the notice
+            above it. A runtime tile failure keeps it, because the markers are
+            still there and still selectable.
           */}
-          <div
-            ref={containerRef}
-            role="region"
-            aria-label={copy.regionLabel}
-            className="h-[20rem] w-full sm:h-[24rem] lg:h-[28rem]"
-          />
+          {config ? (
+            <div
+              ref={containerRef}
+              role="region"
+              aria-label={copy.regionLabel}
+              className="h-[20rem] w-full sm:h-[24rem] lg:h-[28rem]"
+            />
+          ) : null}
         </div>
 
         {/*

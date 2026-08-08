@@ -150,5 +150,6 @@ export const pages: StaticPagesContent = {
     mapSelectPrompt: "Select a place on the map to see what it is.",
     mapCta: "Learn about this place",
     mapFilterLabel: "Show places by type",
+    mapUnavailable: "The map could not be loaded. All the places on it are listed below.",
   },
 };

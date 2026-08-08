@@ -30,8 +30,10 @@ npm run validate:content  # multilingual content and translation checks
 npm run test:e2e          # Playwright suite (starts the dev server itself)
 ```
 
-The site runs fully without any environment variables. Only the newsletter form
-needs configuration — see [Newsletter](#newsletter-supabase).
+The site runs fully without any environment variables — every page builds and every
+article reads. Three things take optional configuration and degrade honestly without it:
+the [newsletter](#newsletter-supabase) form, the [contact](#contact-form-smtp) form, and
+the Visit [map's basemap](#visit-map-basemap-tiles).
 
 ## Languages and routing
 
@@ -170,6 +172,37 @@ the message did not go through — never a fake success.
 
 Abuse controls: a honeypot field, 5 submissions per IP per 10 minutes (in-memory, per
 process), and length limits enforced in the route and again as SQL constraints.
+
+## Visit map (basemap tiles)
+
+The map on `/[locale]/visit` is rendered by Leaflet from coordinates in
+[`src/data/geo.ts`](src/data/geo.ts). The *basemap* underneath the markers is a separate,
+replaceable decision and lives entirely in
+[`src/lib/map-tiles.ts`](src/lib/map-tiles.ts) — no provider is named anywhere in the map
+component.
+
+All three variables are optional and all three are public: a tile URL appears in every
+request the browser makes and the attribution is printed on the map by design, so neither
+is a secret. The same is true of a provider's browser token if one is ever needed.
+
+| Variable | Notes |
+| --- | --- |
+| `NEXT_PUBLIC_MAP_TILE_URL` | Leaflet URL template; must contain `{z}`, `{x}` and `{y}` |
+| `NEXT_PUBLIC_MAP_TILE_ATTRIBUTION` | Copyright line shown on the map; HTML allowed |
+| `NEXT_PUBLIC_MAP_TILE_MAX_ZOOM` | Highest zoom the provider serves; defaults to `17` |
+
+Leave them blank and the map falls back to the public OpenStreetMap tile endpoint, which
+is what a fresh checkout runs on. That endpoint is an external community service run by
+the OpenStreetMap Foundation, not infrastructure this project operates or has an agreement
+with; production should be pointed at an appropriate provider before meaningful traffic.
+No availability or coverage guarantee is claimed here for any provider. **The production
+provider has not been chosen** — that comparison is deliberately left open.
+
+Set the URL and the attribution together or not at all. A half-configured or malformed
+basemap is refused rather than patched over: no tiles are requested, the reader is told
+the map could not be loaded, and the list of mapped places — which is server-rendered — is
+unaffected. Leaflet itself is loaded only when the map scrolls into view, so a reader who
+never reaches the section makes no tile request at all.
 
 ## Adding content
 

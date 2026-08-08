@@ -509,6 +509,15 @@ export interface StaticPagesContent {
     mapCta: string;
     /** Group label for the map's type filter. */
     mapFilterLabel: string;
+    /**
+     * Shown when the basemap is not configured or its tiles do not arrive.
+     *
+     * Says only what is known — the map did not load — and points at the list
+     * of places, which is server-rendered and therefore always there. It must
+     * not diagnose the reader's connection: a failed tile request is not
+     * evidence that anyone is offline.
+     */
+    mapUnavailable: string;
   };
 }
 

@@ -1,3 +1,4 @@
+import { loadEnvConfig } from "@next/env";
 import { defineConfig, devices } from "@playwright/test";
 
 /**
@@ -8,6 +9,18 @@ import { defineConfig, devices } from "@playwright/test";
  * never breaks a test. Nothing here needs Supabase credentials — the newsletter
  * tests cover client-side validation and the missing-configuration path only.
  */
+
+/*
+  Give the test runner the same environment the dev server reads.
+
+  `next dev` loads `.env.local`; Playwright's own process does not. The map
+  tests compare what the browser rendered against the tile configuration
+  resolved from `process.env`, and without this the two halves would disagree
+  the moment anyone configured a basemap locally — a false failure with a
+  confusing cause. This is Next's own helper, used the way its testing guidance
+  suggests.
+*/
+loadEnvConfig(process.cwd());
 
 const PORT = 3002;
 const BASE_URL = `http://localhost:${PORT}`;

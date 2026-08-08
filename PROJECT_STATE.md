@@ -6601,3 +6601,332 @@ Lake Sevan. No `?place=` URL state. No second map library, geocoder or routing l
 route, and no map-specific structured data.
 
 No deployment was performed.
+
+## 45. Hardening the basemap — one configuration, no vendor (August 2026)
+
+§44 shipped the map with its tile provider written into the component:
+
+```ts
+L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  maxZoom: 17,
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+}).addTo(map);
+```
+
+Two string literals, seven lines into a `useEffect`. That is fine for development and for the low
+volume this site has today, and it is the wrong shape to keep: it makes the choice of basemap a
+property of Leaflet setup code rather than a property of the deployment, and the §44 debt list
+already said the provider must change before real traffic.
+
+This step changes nothing a reader can see. It moves one decision out of a component.
+
+### What was actually wrong with two string literals
+
+Not "hardcoding is bad". The specific failure they set up:
+
+The URL and the attribution have to change **together**. A tile licence is a licence to serve those
+tiles *with that credit line*, and the credit line is the only thing on the map that says whose
+pictures these are. Two literals seven lines apart, in a file that also contains marker glyphs,
+`IntersectionObserver` wiring and three effects, is an arrangement in which someone swaps the URL
+and does not swap the line beneath it. The result is one provider's tiles under another provider's
+copyright — which is the one failure in this area that has a counterparty who cares.
+
+The second problem is smaller and more ordinary: with the provider named in the component, "we are
+moving off the public OSM endpoint" is a code change, a review, and a rebuild reasoned about by
+whoever is comfortable editing Leaflet initialisation. It should be an environment variable.
+
+### `src/lib/map-tiles.ts`
+
+One shape, one resolver, one exported value.
+
+```ts
+export type MapTileConfig = {
+  url: string;          // Leaflet template; must contain {z}, {x}, {y}
+  attribution: string;  // rendered by Leaflet's attribution control
+  maxZoom?: number;
+};
+```
+
+Deliberately **not** a provider framework. There are no adapters, no registry, no plugin interface
+and no `TileProvider` base class, because there is exactly one basemap and abstractions sized for a
+set of one are architecture for its own sake. The bar this file has to clear is narrow and it clears
+it: changing provider is a change to configuration, not to code.
+
+`VisitMap` now reads `MAP_TILES` and renders whatever it is handed:
+
+```ts
+const tiles = L.tileLayer(config.url, {
+  maxZoom: config.maxZoom,
+  attribution: config.attribution,
+});
+```
+
+A test reads the component's source and asserts it contains no URL template, no absolute URL of any
+kind, no `&copy;`, and not the word *openstreetmap* in any case. That is the guarantee in one
+assertion: **no provider is named in the map component**, so a swap cannot leave half of one behind.
+
+### Environment variables
+
+Three, all optional, following the convention `.env.example` already documents:
+
+| Variable | Meaning |
+| --- | --- |
+| `NEXT_PUBLIC_MAP_TILE_URL` | Leaflet URL template; must contain `{z}`, `{x}`, `{y}` |
+| `NEXT_PUBLIC_MAP_TILE_ATTRIBUTION` | Credit line rendered on the map; HTML allowed |
+| `NEXT_PUBLIC_MAP_TILE_MAX_ZOOM` | Highest zoom the provider serves; defaults to `17` |
+
+`maxZoom` is configurable rather than fixed because it is a **property of the provider**, not a
+design choice. A provider serving to z14 with `maxZoom: 17` compiled in produces a screen of missing
+tiles at the two zoom levels a reader is most likely to use — which is precisely the "malformed tile
+requests after a provider swap" failure this step exists to prevent.
+
+All three carry `NEXT_PUBLIC_` and all three are meant to be public. A tile URL appears in every
+request the browser makes and the attribution is printed on the map by design; neither is a secret
+and neither can be made one. **If a provider ever requires a browser token it goes in the URL and is
+public in exactly the same way** — a browser-visible tile token is not a credential, it is a rate-
+limiting handle. That distinction is stated in `.env.example` next to the existing warning that the
+`SMTP_*` block must never take the prefix, because the two rules are the same rule read in opposite
+directions. **No provider token is configured today.**
+
+### Missing configuration fails; it does not improvise
+
+`resolveMapTileConfig` returns `MapTileConfig | null`. The rules:
+
+- **Nothing configured** → the documented development fallback. A fresh checkout has a working map
+  with no account and no setup, which is how it worked before and should keep working.
+- **URL without attribution, or attribution without URL** → `null`.
+- **A template missing `{z}`, `{x}` or `{y}`** → `null`.
+- **`maxZoom` not an integer in 1–22** → `null`.
+
+`null` is the *predictable failure* the step asked for, and the two obvious alternatives are both
+worse than no map:
+
+- falling back to the OSM endpoint when a production URL is malformed would serve one provider's
+  tiles while the operator believes their own are live, and would surface as a block or a bill weeks
+  later rather than as a broken map now;
+- retaining the previous attribution when the URL changes is the licence violation described above,
+  wearing the costume of resilience.
+
+Refusing is safe here in a way it would not be elsewhere on the site, because the thing a reader
+came for — seven places, their types, their article links — is server-rendered markup that does not
+depend on the basemap at all.
+
+`resolveMapTileConfig` is exported separately from `MAP_TILES` so all of this is tested directly,
+without `process.env` and without a browser.
+
+### The development fallback, described accurately
+
+`tile.openstreetmap.org` remains the default and is documented in three places — the module, the
+`.env.example` block and the README — as *an external community service run by the OpenStreetMap
+Foundation, not infrastructure this project operates or has an agreement with*, to be replaced before
+meaningful production traffic.
+
+What none of those three say: unlimited, guaranteed, free forever, SLA, or Armat's production tile
+provider. No claim is made about what the Foundation logs, what it permits, or how much of it is
+available, because none of that is this repository's to assert and §44 already refused to assert it.
+
+### Attribution
+
+Now provider-driven and structurally unable to go missing:
+
+- it comes from the same object as the URL, so the two cannot be changed independently;
+- `resolveMapTileConfig` refuses a configuration with an empty attribution, so a tile layer can never
+  be constructed without one;
+- `attributionControl: true` stays on and Leaflet's control is untouched;
+- a test asserts the control exists, is visible, and contains the configured text with markup
+  stripped — derived from `MAP_TILES`, so it keeps holding after a provider change.
+
+### Tile failure
+
+The Visit page has to survive a basemap that does not arrive, and it does — but the mechanism is
+worth stating precisely, because "handle offline" is where honest UI usually goes wrong.
+
+Two distinct cases, one message:
+
+1. **`MAP_TILES === null`** — a refused configuration, known before mount. Leaflet is never imported,
+   no tile is requested, and the map surface is not rendered at all. An empty bordered box announcing
+   itself as a map is worse than a sentence saying there isn't one.
+2. **`tilesFailed`** — the runtime case. The map is mounted and the markers are on it and selectable;
+   only the pictures underneath them failed. The surface stays.
+
+Detection is `tileload` / `tileerror` on the layer, and the condition is *errors have occurred and
+nothing has loaded*. That is a direct observation of this layer, not an inference about the reader's
+connection: a `tileload` clears the flag, so a transient error that resolves does not leave a false
+notice behind. There is no retry system, no `navigator.onLine`, and no diagnosis of why. The copy
+says the map could not be loaded and points at the list — the two things that are actually known.
+
+`mapUnavailable` was added to `StaticPagesContent.visit` and written in all three editions, so it
+inherits the non-empty check `validateStaticPages` already runs over every field of that block.
+
+A test blocks the configured tile host at the network layer and asserts: the notice appears with the
+edition's own wording, all seven article links still resolve, marker selection still works, and the
+rest of `/visit` still renders. **The accessible list is the fallback**; the notice only explains it.
+
+### Lazy loading — unchanged, and now pinned by its consequence
+
+The `IntersectionObserver` and the `await import("leaflet")` are exactly as §44 left them. Leaflet is
+still its own chunk — **145.0 KB raw / 41.7 KB gzipped, byte-for-byte what §44 measured** — and is
+still absent from `/visit`'s initial payload.
+
+The new test does not look for chunk filenames, which are a build detail that changes with the
+bundler. It asserts the thing worth guaranteeing: load `/visit`, wait for the network to settle, and
+**no request has been made to the tile host at all**, while `[data-visit-map]` is present and
+`.leaflet-container` is not. Then scroll, and tiles arrive. A refactor to a plain top-level import
+would keep every other map test green and fail this one.
+
+A second, cheaper test reads the component source for a static `import … from "leaflet"` and checks
+that neither the Visit page nor the locale layout mentions the library at all.
+
+### Network and privacy
+
+The §44 host-enumeration test named `openstreetmap.org` as the only legal host. That was correct
+while the URL was a literal and wrong the moment the basemap became configuration — so it was
+**generalized rather than deleted or loosened**. The expectation is now computed from `MAP_TILES`:
+
+```ts
+const tileHost = MAP_TILES.url.replace(/^https?:\/\//, "").split("/")[0].replace(/^\{[^}]+\}\./, "");
+```
+
+Any third-party request to anything other than the configured provider still fails the test. Nothing
+was widened to a wildcard, and no external domain was allow-listed. The test also scans the permitted
+host's own request paths for `nominatim`, `geocod`, `/search`, `/route`, `/direction` and
+`/autocomplete` — geocoding, place search and routing are all things a tile vendor will happily also
+sell, and all things this map has decided not to have.
+
+Unchanged and re-asserted: no geolocation, no analytics on marker interaction, no telemetry, no live
+data, and nothing about the reader or the archive sent to the provider.
+
+### `@next/env`, and why it is now declared
+
+The tests compare what the browser rendered against the configuration resolved from `process.env` —
+but `next dev` reads `.env.local` and the Playwright runner does not. Configure a provider locally
+and the two halves disagree, producing a confusing false failure. `playwright.config.ts` now calls
+`loadEnvConfig(process.cwd())`, Next's own helper, so both processes read the same files.
+
+An audit of environment conventions caught that `@next/env` resolved **only as a transitive
+dependency of `next`** — working today, breaking under a stricter installer or a `next` major bump.
+It is now a `devDependency` pinned to the exact `next` version (`16.2.10`) rather than a caret range,
+because the two must move together.
+
+The same audit found `README.md` still claiming *"Only the newsletter form needs configuration"* —
+already untrue when the SMTP block landed, and more untrue now. Corrected to name all three optional
+configurations.
+
+### Tests
+
+`visit-map.spec.ts` **18 → 24**; suite **236 → 242**. Six added, one rewritten:
+
+1. `resolveMapTileConfig` in isolation — fallback, half-configured, malformed template, out-of-range
+   zoom, and the whitespace-only shape a freshly copied `.env.example` produces.
+2. No provider named anywhere in `VisitMap.tsx` — no template, no absolute URL, no `&copy;`, no
+   *openstreetmap*, and `MAP_TILES` present.
+3. The rendered tile URLs match the configured template with `{z}/{x}/{y}` filled, and the
+   attribution control carries the configured text.
+4. No tile requested before the map is scrolled to; tiles once it is.
+5. Leaflet imported dynamically in the component and nowhere upstream.
+6. The tile host blocked at the network layer — notice, seven links, marker selection, rest of page.
+7. **Rewritten:** the host-enumeration test, generalized as described above.
+
+What was deliberately *not* tested: chunk filenames, the number of tile requests, tile image bytes,
+and the internal shape of Leaflet's attribution DOM. Pinning those would make a provider change
+expensive to carry out, which is the opposite of this step's purpose.
+
+### Commands and results
+
+| # | Command | Result |
+| --- | --- | --- |
+| 1 | port 3002 | clear |
+| 2 | remove `.next` | removed (§44 ended on a build) |
+| 3 | `npm run typecheck` | **PASS** |
+| 4 | `npm run validate:content` | **PASS** — 120 entries across 3 locales |
+| 5 | `visit-map.spec.ts` | **PASS** — 24 |
+| 6 | `visit.spec.ts` | **PASS** — 23 |
+| 7 | `places.spec.ts` | **PASS** — 47 |
+| 8 | `npx playwright test` | **PASS** — 242 passed, 5 skipped |
+| 9 | `npm run build` | **PASS** — 129 routes |
+
+**Zero deterministic failures.** Every step passed on its first run; nothing was retried and no
+assertion was adjusted after the fact. Playwright and the build were not run concurrently.
+
+The dev server printed `SyntaxError: Unexpected end of JSON input` for `/hyw/visit` once during the
+`visit.spec.ts` run — the §43 development-server noise, which failed nothing then and failed nothing
+here.
+
+### Bundle and build
+
+129 prerendered routes, **unchanged**. `/[locale]/visit` is still `●` — statically prerendered —
+because `NEXT_PUBLIC_*` variables are substituted textually at build time and no environment-
+dependent logic entered the page. Nothing became a client component that was not one already.
+
+The Leaflet chunk is **145.0 KB raw / 41.7 KB gzipped** and its CSS **10.3 KB / 2.6 KB**, identical
+to §44. The resolved tile URL is inlined into the existing 13.9 KB `VisitMap` client chunk; the
+configuration module adds no chunk of its own and no measurable weight.
+
+### Map UX and data — unchanged
+
+Nothing a reader can see changed except a notice that only appears when the basemap does not.
+
+Unchanged: the seven mapped places; `getVisitMapPoints` and every field it derives; `src/data/geo.ts`
+and every coordinate in it; Lake Sevan's `area` precision; the marker pin and its four type glyphs;
+marker selection and the detail panel; the map-local type filter; the accessible list; the
+"Explore by type" links into `/places`; marker-derived bounds; the responsive layout; and all article
+links. `src/lib/visit-map.ts` was not touched.
+
+Files changed: `src/lib/map-tiles.ts` (new), `src/components/visit/VisitMap.tsx`,
+`src/app/[locale]/visit/page.tsx`, `src/data/types.ts`, `src/data/locales/{en,hy,hyw}/pages.ts`,
+`tests/e2e/visit-map.spec.ts`, `playwright.config.ts`, `.env.example`, `README.md`, `package.json`,
+`package-lock.json`, and this document. `.claude/settings.json` was modified by the permission layer
+and reverted, as in §42.
+
+### Western Armenian items requiring native review
+
+The seven items from §44 stand, plus one:
+
+8. **«Քարտէսը չկրցաւ բեռնուիլ։ Անոր բոլոր վայրերը թուարկուած են վարը։»** for the basemap-unavailable
+   notice — the passive `չկրցաւ բեռնուիլ` and `վարը` for "below" both want a reviewer's eye.
+
+### Still open
+
+Carried forward. Nothing else on this list was fixed here.
+
+- **The production tile provider — still open, and deliberately so.** This step made the provider
+  replaceable; it did not choose one. Mapbox, MapTiler, Stadia, Thunderforest, Jawg, Google and
+  self-hosting were all left uninstalled and unnamed in code, because the choice depends on current
+  terms, pricing, Armenia coverage, attribution obligations and expected traffic — a comparison to
+  make against the market on the day it is made, not against a source file. Until then the public OSM
+  endpoint is the documented development default and the privacy consequences recorded in §44 stand.
+- **No self-hosted tile infrastructure**, and none started: no OSM import pipeline, PostGIS,
+  TileServer GL, Martin, Tegola, PMTiles, planet extract or Armenia `.pbf` processing.
+- **The Matenadaran façade colour**, unchanged since §36.
+- **The Garni stone warmth**, unchanged since §40.
+- **The Garni 4:3 artwork dimensions.**
+- **The Geghard photographic register**, recorded in §42.
+- **A dedicated Khor Virap image** — still the only PNG, still 1.4 MB, still byte-identical to
+  `hero-ararat.png`.
+- **Erebuni and Matenadaran artwork weight** — 742 KB and 701 KB.
+- **Global media optimisation.**
+- **The Cuisine hydration flake** — `cuisine.spec.ts:355`. Did not reproduce here.
+- **One-directional `relatedSlugs`.**
+- **Western Armenian native review** — now eight terminology items.
+- **The Bresson and Fagan Garni attribution.**
+- **Wilkinson's Garni source not read directly.**
+- **The Hovannisian ISBN.**
+- **`scratchpad/check.ts` living outside `scripts/`.**
+- **The weak homepage hero-path assertion** — still a substring match.
+- **`settlement`** — declared in the `precision` union and used by no entry.
+- **No central environment module** — surfaced by the audit, not introduced here. `SMTP_*` is read
+  independently in `lib/contact.ts` and `api/contact/route.ts`, and the Supabase pair in
+  `lib/supabase/client.ts` and the same route. `map-tiles.ts` is currently the only one that
+  separates parsing from reading. Not worth a refactor on its own; worth doing when the next
+  configuration arrives.
+
+### Deliberately not built
+
+No new map features. No new Places. No second map library, geocoder, router or map SDK — Leaflet
+remains the renderer and the only one. No commercial provider signed up for, hardcoded or
+credentialed. No tile server, no tile pipeline. No routes, directions, geolocation, restaurants,
+hotels, tours or live data. No analytics on tile or marker activity. No retry, backoff or offline
+detection. No map-specific structured data. No new route. The Visit page was not converted to a
+client component and did not lose static prerendering.
+
+No deployment was performed.
