@@ -160,10 +160,141 @@ test("no tile provider is named anywhere inside the map component", () => {
   expect(source, "no URL template").not.toMatch(/\{[zxy]\}/);
   expect(source, "no absolute URL of any kind").not.toMatch(/https?:\/\//);
   expect(source, "no copyright entity").not.toContain("&copy;");
-  expect(source.toLowerCase(), "no provider by name").not.toContain("openstreetmap");
+
+  // Both the provider that was here and the provider that replaced it, named
+  // explicitly — a generic "no absolute URL" rule is easy to satisfy by accident
+  // and easy to weaken later, so the two real names are their own assertion.
+  for (const provider of ["openstreetmap", "stadia", "openmaptiles"]) {
+    expect(source.toLowerCase(), `${provider} must not be named here`).not.toContain(provider);
+  }
 
   // And it does read the configuration rather than defaulting on its own.
   expect(source, "the component consumes the config").toContain("MAP_TILES");
+});
+
+/**
+ * Query-parameter names that would mean a credential is travelling in a URL.
+ *
+ * Compared as *parsed parameter names*, never as substrings of the whole URL: a
+ * style slug, a path segment or a benign parameter can easily contain the
+ * letters "key" without carrying one, and a test that fails on `monkey` is a
+ * test someone deletes rather than fixes.
+ */
+const CREDENTIAL_PARAMS = [
+  "api_key",
+  "apikey",
+  "access_token",
+  "token",
+  "key",
+  "auth",
+  "signature",
+];
+
+const credentialParamsIn = (url: string) =>
+  [...new URL(url).searchParams.keys()]
+    .map((name) => name.toLowerCase())
+    .filter((name) => CREDENTIAL_PARAMS.includes(name));
+
+/** Parse the committed example environment, honouring quoted values. */
+function envExample(): Record<string, string> {
+  const out: Record<string, string> = {};
+  for (const line of readFileSync(".env.example", "utf8").split(/\r?\n/)) {
+    const match = /^([A-Z0-9_]+)=(.*)$/.exec(line.trim());
+    if (!match) continue;
+    let value = match[2].trim();
+    const quoted =
+      (value.startsWith("'") && value.endsWith("'")) ||
+      (value.startsWith('"') && value.endsWith('"'));
+    out[match[1]] = quoted ? value.slice(1, -1) : value;
+  }
+  return out;
+}
+
+test("the committed production basemap is Stadia, and is valid, keyless and correctly credited", () => {
+  /*
+    The one test that names the provider on purpose — and the distinction is
+    worth being explicit about, because everything else in this file must not.
+
+    The *network* tests assert an invariant: only the configured host is ever
+    contacted, whoever that is. This test asserts a *decision*: the host Armat
+    configured is Stadia, at a style and zoom that were chosen, with the credit
+    line the licence requires. It is the §46 decision record in executable form,
+    so a silent edit to the shipped configuration fails here rather than in
+    production. Deleting it would not weaken an invariant; it would lose the
+    record.
+
+    It reads `.env.example` rather than `process.env` because that file is the
+    committed configuration. A developer's `.env.local` cannot make this pass.
+  */
+  const env = envExample();
+  const config = resolveMapTileConfig({
+    url: env.NEXT_PUBLIC_MAP_TILE_URL,
+    attribution: env.NEXT_PUBLIC_MAP_TILE_ATTRIBUTION,
+    maxZoom: env.NEXT_PUBLIC_MAP_TILE_MAX_ZOOM,
+  });
+
+  expect(config, "the documented configuration must resolve, not fall back").not.toBeNull();
+  expect(config, "and must not be the OpenStreetMap development fallback").not.toEqual(
+    resolveMapTileConfig({}),
+  );
+
+  // An XYZ template the existing resolver and Leaflet both understand.
+  for (const token of ["{z}", "{x}", "{y}"]) {
+    expect(config!.url, `${token} placeholder`).toContain(token);
+  }
+
+  const parseable = config!.url.replace(/\{[^}]+\}/g, "0");
+  expect(new URL(parseable).hostname, "the chosen provider").toBe("tiles.stadiamaps.com");
+  expect(new URL(parseable).protocol, "tiles are fetched over TLS").toBe("https:");
+
+  // Domain-based authentication: nothing to leak, because nothing is sent.
+  expect(credentialParamsIn(parseable), "no credential in the shipped URL").toEqual([]);
+
+  // The zoom ceiling is the style's documented one, not the old fallback's 17.
+  expect(config!.maxZoom, "alidade_smooth is documented to zoom 20").toBe(20);
+
+  /*
+    The full credit chain, verbatim rather than paraphrased: these tiles are
+    Stadia's rendering of OpenMapTiles' schema over OpenStreetMap's data, and
+    all three are named in the licence requirement. The links are asserted too
+    — the requirement is to preserve them, and an attribution reduced to plain
+    text is a slow way to breach it.
+  */
+  for (const party of ["Stadia Maps", "OpenMapTiles", "OpenStreetMap"]) {
+    expect(config!.attribution, `${party} must be credited`).toContain(party);
+  }
+  for (const href of [
+    'href="https://stadiamaps.com/"',
+    'href="https://openmaptiles.org/"',
+    'href="https://www.openstreetmap.org/copyright"',
+  ]) {
+    expect(config!.attribution, `${href} must be preserved`).toContain(href);
+  }
+});
+
+test("the configured basemap carries no credential, and needs no client-side auth", () => {
+  /*
+    This is the assertion that guards the domain-authentication decision.
+
+    Authenticating by registered domain instead of a browser token is only worth
+    anything if no token quietly reappears later "just to get staging working".
+    Three places would have to be true for that to happen, so all three are
+    pinned: the configured URL, the config module, and the component.
+  */
+  expect(MAP_TILES, "this build has a usable basemap").not.toBeNull();
+
+  // Placeholders are not valid URL syntax; neutralise them before parsing.
+  const parseable = MAP_TILES!.url.replace(/\{[^}]+\}/g, "0");
+  expect(credentialParamsIn(parseable), "the configured tile URL").toEqual([]);
+
+  // No authentication code anywhere in the map path — that is what domain
+  // authentication buys, and the absence is the whole feature.
+  for (const file of ["src/lib/map-tiles.ts", "src/components/visit/VisitMap.tsx"]) {
+    const source = readFileSync(file, "utf8").toLowerCase();
+    for (const banned of ["api_key", "apikey", "access_token", "authorization", "bearer"]) {
+      expect(source, `${banned} must not appear in ${file}`).not.toContain(banned);
+    }
+  }
 });
 
 test("the rendered basemap and its attribution both come from the configuration", async ({
@@ -667,6 +798,17 @@ test("the map talks to the configured tile host and nothing else", async ({ page
       external.filter((url) => url.toLowerCase().includes(banned)),
       `${banned} requests must not exist`,
     ).toEqual([]);
+  }
+
+  /*
+    And no credential in any of them. The provider is authenticated by its
+    registered domain, so a key appearing in a live request would mean the
+    integration had quietly changed shape — checked on parsed parameter names,
+    not on the URL text, so a style slug containing "key" cannot trip it.
+  */
+  expect(external.length, "the map made requests to check").toBeGreaterThan(0);
+  for (const url of external) {
+    expect(credentialParamsIn(url), `credential parameter in ${new URL(url).pathname}`).toEqual([]);
   }
 });
 

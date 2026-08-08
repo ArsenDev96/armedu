@@ -6930,3 +6930,270 @@ detection. No map-specific structured data. No new route. The Visit page was not
 client component and did not lose static prerendering.
 
 No deployment was performed.
+
+## 46. Stadia Maps — the basemap decision §45 deliberately left open (August 2026)
+
+§45 made the tile provider replaceable and refused to pick one, on the grounds that the choice
+depends on terms and coverage that belong in a decision, not a source file. This is that decision.
+
+**Provider selected after external pricing/terms review on 2026-08-08.**
+
+No code changed. That is the result worth recording: `resolveMapTileConfig`, `MapTileConfig`,
+`MAP_TILES` and `VisitMap.tsx` are byte-identical to §45, and the entire provider switch is three
+environment variables. The abstraction was built one section ago to make exactly this cheap, and it
+was.
+
+### Why Stadia
+
+Ordered by weight, with price last on purpose:
+
+1. **Standard raster tiles.** Leaflet 1.9.4 renders raster XYZ tiles and nothing else. Every vector-
+   first provider would have forced a renderer change, and §44 chose Leaflet specifically because its
+   markers are real DOM elements with real accessible names. Trading that for a prettier basemap
+   would have been trading an accessibility guarantee for decoration.
+2. **Domain-based authentication.** Stadia validates the `Origin` and `Referer` headers browsers
+   already send, so a public static site needs **no API key in the browser**. This is the decisive
+   operational property: every keyed provider would have put a credential in a `NEXT_PUBLIC_`
+   variable, which is a credential printed in every visitor's network log.
+3. **Drop-in with the existing configuration.** Their documented Leaflet template is an XYZ URL the
+   §45 resolver accepted unmodified, verified before anything was written.
+4. **Replaceable.** Choosing Stadia costs nothing structurally — it is named in `.env.example` and in
+   this document, and nowhere in the code.
+
+Price was reviewed and is deliberately **not recorded here**: pricing changes, a number in a
+repository ages badly, and none of the four reasons above depend on it.
+
+### The style: `alidade_smooth`
+
+Stadia positions this style for "maps that use a lot of markers or overlays", with a muted palette
+and fewer points of interest. That is precisely this map's problem: seven burgundy pins must be the
+most important thing on screen, and a basemap that competes with them is a worse basemap however
+handsome it is.
+
+Rejected, with reasons: `osm_bright` is light but deliberately colourful and POI-dense, and would
+compete with the markers; `stamen_toner_lite` is restrained but stark monochrome, a design statement
+the archive's paper-and-ink palette does not want; `outdoors` and `stamen_terrain` are terrain
+styles; `alidade_satellite` is imagery; `alidade_smooth_dark` and the toner dark variants are dark
+themes. Every one of those was excluded by the brief before taste entered.
+
+### The configuration
+
+```
+NEXT_PUBLIC_MAP_TILE_URL=https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png
+NEXT_PUBLIC_MAP_TILE_ATTRIBUTION='&copy; <a href="https://stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>'
+NEXT_PUBLIC_MAP_TILE_MAX_ZOOM=20
+```
+
+`{r}` is Leaflet's retina placeholder — `@2x` on HiDPI screens, empty elsewhere. It is substituted
+unconditionally by `TileLayer.getTileUrl` in Leaflet 1.9.4 (verified in the installed source, not
+assumed), so it needs no `detectRetina` option. Both forms were probed live and both returned
+`200 image/png`. Note this placeholder is Leaflet-specific: a future renderer change means hardcoding
+`@2x` or dropping it.
+
+**`maxZoom` is 20, not the 17 inherited from the OSM fallback.** Stadia documents zoom 20 for this
+style, and §45 made this value configurable precisely because it is a property of the provider. It is
+also what stops the UI zooming into tiles that do not exist: Leaflet derives the map's maximum zoom
+from its layers, so the layer's ceiling is the map's ceiling.
+
+The attribution is copied **verbatim** from Stadia's attribution page rather than paraphrased. These
+tiles are Stadia's rendering of OpenMapTiles' schema over OpenStreetMap's data and all three parties
+are named in the requirement; the links are preserved because preserving them is part of it.
+
+One documentation inconsistency, resolved deliberately: Stadia's Leaflet tutorial prints a comma
+after the Stadia Maps link, their attribution page does not. The **attribution page** is the one that
+states the requirement, so its form is the one shipped.
+
+### Authentication: nothing in the browser
+
+Production authenticates by **registered domain**. There is no API key in source, in `.env*`, in a
+`NEXT_PUBLIC_` variable, in a query string, in JavaScript, or in this repository's documentation, and
+no authentication code was added to `VisitMap.tsx` — none is possible, since the mechanism is headers
+the browser sends by itself.
+
+Authorizing the domain is an **account-side operation outside this repository**, and nothing here
+attempts to perform it programmatically. See the checklist below.
+
+Local development needs no account: Stadia serves `localhost` and `127.0.0.1` without a key, under
+documented strict rate limits. So `npm run dev` and the Playwright suite use the **same tile URL as
+production** — which is why the network assertions in this section are measured against Stadia rather
+than quietly against the old fallback. Sustained local HTTP 429s are the signal to obtain an account
+key for server-side use, never to paste one into a public variable.
+
+### The OpenStreetMap fallback is build-time only
+
+Unchanged from §45 and now load-bearing in a second way. `resolveMapTileConfig` returns the OSM
+endpoint **only when no provider is configured at all** — a fresh checkout with no environment. It is
+not a runtime safety net.
+
+**Failed Stadia tiles do not fall back to OpenStreetMap.** This is deliberate and the tests pin it: a
+silent runtime provider switch would hide a production configuration failure behind a map that looks
+fine, and would send readers to a third party nobody chose that day. When tiles fail the map says so
+and stops, and the server-rendered list of seven places — which never depended on tiles — carries the
+page.
+
+`.env.local` is git-ignored, so **the production build must set these three variables in its own
+environment**. A deployment that does not will build against the OSM fallback and look like it works.
+
+### Privacy and network behaviour
+
+Stated as what the implementation proves, and no further.
+
+A visitor **who scrolls to the map** makes tile requests to Stadia Maps. A visitor who does not,
+makes none: Leaflet is `import()`ed inside an `IntersectionObserver`, and a test asserts zero requests
+to the tile host before the section is reached.
+
+Those requests necessarily disclose the reader's IP address, User-Agent, the tile coordinates —
+roughly *which part of Armenia is on screen* — and, because domain authentication works by reading
+them, the `Origin` and `Referer` headers, which identify the page the map is embedded in. That is
+inherent to the chosen authentication method, not incidental to it.
+
+What the implementation itself establishes:
+
+- **no Armat user identifier is sent intentionally** — none is added to any tile request;
+- **no email, account or newsletter data reaches the tile provider**;
+- **no geolocation is requested**, asserted by instrumenting `navigator.geolocation` and checking the
+  call count is zero;
+- **no marker analytics, telemetry or event beacons** were added;
+- **only basemap tile requests** are required, and a test enumerates every third-party request and
+  fails on any host that is not the configured one.
+
+Deliberately **not** claimed: that Stadia receives no IP address, stores nothing, that the integration
+is anonymous, or that any regulatory posture means no data is processed. None of that is Armat's to
+assert, and §44 and §45 both declined to assert the equivalent about the previous provider.
+
+No user-facing privacy notice was added in this step. The site's existing privacy architecture did not
+require one for this change; whether the privacy page should name the basemap provider is a content
+decision, and it is recorded below as open rather than answered here.
+
+### Tests
+
+`visit-map.spec.ts` **24 → 26**; suite **242 → 244**.
+
+- **The committed production basemap** — reads `.env.example`, resolves it, and asserts it is not the
+  fallback, is `tiles.stadiamaps.com` over TLS, is a valid XYZ template, carries no credential
+  parameter, has `maxZoom` 20, and credits all three parties with their links intact. This is the one
+  test that names the provider **on purpose**: it pins a *decision*, and it reads the committed file
+  so a developer's `.env.local` cannot make it pass.
+- **Credential-leak guard** — inspects *parsed query-parameter names* (`api_key`, `apikey`,
+  `access_token`, `token`, `key`, `auth`, `signature`) on the configured URL and on every live map
+  request, and asserts no authentication code exists in `map-tiles.ts` or `VisitMap.tsx`. Names, not
+  substrings: a style slug or path containing "key" must not trip it, because a test that fails on
+  `monkey` is a test someone deletes rather than fixes.
+- **Extended source purity** — `VisitMap.tsx` is checked for `stadia` and `openmaptiles` by name as
+  well as `openstreetmap`. The generic "no absolute URL" rule is easy to satisfy by accident; the real
+  names are their own assertion.
+
+Everything else was already provider-neutral by construction and needed no edit — including the host
+enumeration, which derives the single legal host from `MAP_TILES`. **No allow-list containing both
+`openstreetmap.org` and `stadiamaps.com` was created**, which is the shape that would have quietly
+permitted the old provider forever.
+
+### Commands and results
+
+| # | Command | Result |
+| --- | --- | --- |
+| 1 | port 3002 | clear |
+| 2 | remove `.next` | removed |
+| 3 | `npm run typecheck` | **PASS** |
+| 4 | `npm run validate:content` | **PASS** — 120 entries across 3 locales |
+| 5 | `visit-map.spec.ts` | **PASS** — 26 |
+| 6 | `visit.spec.ts` | **PASS** — 23 |
+| 7 | `places.spec.ts` | **PASS** — 47 |
+| 8 | `npx playwright test` | **PASS** — 244 passed, 5 skipped |
+| 9 | `npm run build` | **PASS** — 129 routes |
+
+**Zero deterministic failures.** Every step passed first time. Playwright and the build were not run
+concurrently. No rate limiting was observed against Stadia's localhost allowance during a full suite
+run; the assertion that no basemap-unavailable notice appears passed, which is the check that would
+have caught a 429.
+
+### Build and bundle
+
+129 prerendered routes, unchanged. `/[locale]/visit` remains statically prerendered. The Leaflet chunk
+is **145.0 KB raw / 41.7 KB gzipped** and its CSS **10.3 KB / 2.6 KB** — identical to §44 and §45,
+because a provider change is a string change. The `VisitMap` client chunk grew **13.9 KB → 14.1 KB**:
+the Stadia URL and the longer attribution, inlined at build time. **No dependency was added** —
+`package.json` is untouched, and Leaflet 1.9.4 remains the only renderer.
+
+The OSM fallback literal still ships inside that chunk (~120 bytes) because the resolver references
+it. Harmless, and the honest description: the fallback is compiled in, merely unreachable when the
+three variables are set.
+
+### Existing map behaviour — unchanged
+
+Seven mapped Places; `getVisitMapPoints`; `PLACE_COORDINATES`; marker-derived bounds; marker glyphs;
+type filters; marker selection; the selected-place panel; article images; the accessible Place list;
+responsive layout; the Visit curation; Explore-by-type links; Lake Sevan's `area` precision. None
+touched. This was a provider-configuration step and the diff shows it: no `.tsx` and no `.ts` under
+`src/` changed at all.
+
+Files changed: `.env.example`, `README.md`, `tests/e2e/visit-map.spec.ts`, and this document.
+`.env.local` was updated locally with the same three public values so development and the test suite
+run against the production basemap; it is git-ignored and contains no map secret. `.claude/settings.json`
+was modified by the permission layer and reverted, as in §42 and §45.
+
+### Production account checklist — NOT performed
+
+None of the following was carried out during this task. All of it is operational, requires dashboard
+access, and must happen before production traffic:
+
+1. Create or configure the Stadia Maps account and property.
+2. Confirm the selected plan permits Armat's intended usage.
+3. Add `armat.site` to domain authentication.
+4. Add any **actually used** canonical production hostname — `www.armat.site` only if it genuinely
+   serves the site. No other domain was invented here.
+5. Set the three public map environment variables in the production build environment (`.env.local`
+   is git-ignored and will not be present).
+6. Open `/en/visit` in production.
+7. Scroll to the map.
+8. Confirm tiles return successfully.
+9. Confirm the attribution is visible.
+10. Confirm browser tile URLs contain no API key.
+11. Confirm the accessible Place list still works.
+
+Until step 3 is done, production tile requests will fail domain authentication — and by design the map
+will say so rather than silently serving OpenStreetMap.
+
+### Still open
+
+Carried forward unchanged; nothing on this list was fixed here.
+
+- **Raster label language, new.** Raster tiles have their labels baked in. Stadia's documented rule
+  renders non-Latin place names bilingually — a romanized or English name plus the local name — and
+  their label-language tutorial applies to **vector** styles only. So an Armenian-language archive
+  cannot force Armenian-only or English-only labels without changing renderer, which §44 and this
+  section both declined to do. Worth a visual check against Armenia at the zooms readers actually use,
+  and worth revisiting if it reads badly in the `hy` and `hyw` editions.
+- **Whether the privacy page should name the basemap provider** — a content decision, unanswered.
+- **The self-hosting question** is no longer urgent but is not closed: Stadia removes the OSM usage-
+  policy problem, not the general dependency on a third party for tiles.
+- **The Matenadaran façade colour**, unchanged since §36.
+- **The Garni stone warmth**, unchanged since §40.
+- **The Garni 4:3 artwork dimensions.**
+- **The Geghard photographic register**, recorded in §42.
+- **A dedicated Khor Virap image** — still the only PNG, still 1.4 MB, still byte-identical to
+  `hero-ararat.png`.
+- **Erebuni and Matenadaran artwork weight** — 742 KB and 701 KB.
+- **Global media optimisation.**
+- **The Cuisine hydration flake** — `cuisine.spec.ts:355`. Did not reproduce here.
+- **One-directional `relatedSlugs`.**
+- **Western Armenian native review** — eight terminology items, unchanged from §45.
+- **The Bresson and Fagan Garni attribution.**
+- **Wilkinson's Garni source not read directly.**
+- **The Hovannisian ISBN.**
+- **`scratchpad/check.ts` living outside `scripts/`.**
+- **The weak homepage hero-path assertion.**
+- **`settlement`** — declared in the `precision` union and used by no entry.
+- **No central environment module**, recorded in §45.
+
+### Deliberately not built
+
+No new map features, no new Places, no change to map data or UX. No Stadia SDK, MapLibre, React
+Leaflet or map-provider helper package — `package.json` gained nothing. No geocoding, routing,
+directions, search, geolocation or analytics. No API key anywhere. No automatic runtime fallback from
+Stadia to OpenStreetMap. No provider-specific types, classes or adapters: there is no
+`StadiaTileConfig`, no `StadiaProvider`, no `StadiaAdapter`, and `MapTileConfig` /
+`resolveMapTileConfig` / `MAP_TILES` keep their provider-neutral names. No pricing in source,
+`.env.example`, tests or README. No user-facing privacy notice. No domain registered programmatically.
+
+No deployment was performed.
