@@ -4928,3 +4928,901 @@ Nothing outside the registry, the pending list and the places test file was touc
 - **The remaining place type.** `settlement` still waits for its first article.
 
 No deployment was performed.
+
+---
+
+## 41. Places — Geghard Monastery, the seventh place and the third monastery (August 2026)
+
+Geghard is the **seventh Places article** and the third under the `monastery` filter, which is the
+first time that pill has held more than two. It is also the first place in the section whose
+`relatedSlugs` points at **another place**.
+
+It shipped **ahead of its artwork**. `PENDING_ARTWORK` filled for the sixth time (§31, §33, §35,
+§37, §39, §41) one step after §40 emptied it for the fifth, which is the whole argument for the
+`ILLUSTRATED`/`PLACES` split in `places.spec.ts` surviving the two lists briefly coinciding.
+
+The English article, the sources, the chronology, the coordinate, the taxonomy plumbing, the
+artwork decision and the heraldry research landed in the previous step. **This step wrote the two
+Armenian editions**, audited all three for superseded research, checked structural and numerical
+parity, verified the bibliography's identifiers against the live registries, extended the test file
+and ran the suite.
+
+### Files changed
+
+Four, plus this document.
+
+| File | Change |
+|---|---|
+| `src/data/locales/hy/articles/places.ts` | +245 — the Eastern Armenian edition |
+| `src/data/locales/hyw/articles/places.ts` | +245 — the Western Armenian edition |
+| `tests/e2e/places.spec.ts` | +82 — one new test (see below) |
+| `scratchpad/check.ts` | new — the per-slug parity harness, restored |
+
+**Not touched:** `src/data/locales/en/articles/places.ts`, `src/data/geo.ts`, `src/data/sources.ts`,
+`src/lib/media.ts`, `scripts/validate-content.ts`, anything under `public/`, and
+`.claude/settings.json`. The last of those is worth a sentence: the permission layer appended six
+allowlist entries to it during this session as a side effect of running `curl` and `node -e`, and
+the file was restored with `git checkout` before anything else. Its diff is empty.
+
+### Final filter counts
+
+Seven places over five pills. The vocabulary is unchanged — no place type was invented for a
+rock-cut monastery — and the only movement is `monastery` going from two to three.
+
+| Pill | Count | Articles |
+|---|---|---|
+| All | 7 | — |
+| `monastery` | **3** | Khor Virap, Etchmiadzin Cathedral, **Geghard** |
+| `historical` | 2 | Erebuni Fortress, Garni Temple |
+| `museum` | 1 | Matenadaran |
+| `nature` | 1 | Lake Sevan |
+
+### Final article structure — identical in `hy`, `hyw` and `en`
+
+Ten sections, paragraphs **3, 3, 4, 4, 4, 5, 4, 4, 4, 3** — **38** in all. Six `keyFacts`, thirteen
+`importantDates`, five `interestingFacts`, two `significance` paragraphs, two `relatedFigures`,
+three `relatedSlugs`, three `SectionLink`s.
+
+| Section | Covers |
+|---|---|
+| `where-it-is` | The side gorge above the Azat, Goght, the approach, and the Garni pairing |
+| `the-cliffs` | The volcanic rock, the spring, and why "cave monastery" gets the history backwards |
+| `ayrivank` | The earlier name, the Gregory tradition, Draskhanakerttsi c. 923, the six-hundred-year gap |
+| `tradition-and-evidence` | The chapel outside the walls; where the dated record actually begins |
+| `the-katoghike-and-gavit` | The 1215 masonry church, the Zakarid patrons, the gavit as a building type |
+| `cut-from-the-rock` | What rock-cut means precisely; Galdzak; the stalactite vault; the acoustics |
+| `the-proshyans` | The Khaghbakian house, the acquisition, the 1283/1288 works, and the carving |
+| `khachkars-and-books` | Inscriptions, khachkars, Mkhitar, the colophons, and two corrections |
+| `the-spear-and-the-name` | The name change, the relic tradition, its documented career as an object |
+| `before-you-see-it` | UNESCO criterion (ii), the three things to carry through the gate, and the fourth |
+
+The three `SectionLink`s: `where-it-is` to `garni-temple`, `ayrivank` to
+`adoption-of-christianity`, `the-spear-and-the-name` to `etchmiadzin-cathedral`.
+
+### Early tradition versus the surviving medieval complex
+
+This is the distinction the article is built around, and it is roughly a thousand years wide.
+
+Under its earlier name **Ayrivank**, the monastery of the cave, tradition takes the foundation back
+to Gregory the Illuminator in the generation of the kingdom's conversion. The article reports that
+as a tradition and says why: no inscription, no excavated fourth-century layer, no contemporary
+text placing Gregory here. What the tradition does carry — a cave, a spring, a hermitage — is a
+plausible shape for an early Armenian monastic site and an entirely different claim from the
+survival of fourth-century architecture.
+
+The first firm documentary footing is Yovhannes Draskhanakerttsi taking refuge at Ayrivank during
+the Arab raids of about 923. Between Gregory and that notice lies six hundred years with nothing in
+it that can be pointed at. Everything a visitor can actually see was built three hundred years
+after Draskhanakerttsi.
+
+### Chronology
+
+Unusually well dated, because the dates are cut into the buildings themselves. Thirteen entries:
+about 923 (Draskhanakerttsi); 1164 (the cross-stone outside the walls, the oldest dated object on
+the site); 1177 and 1181 (the chapel's wall inscriptions, the second recording the Catholicos of
+the Aghvans donating relics); 1200 (the water-supply inscription naming Zakare and Ivane, and
+sometimes wrongly attributed to the Proshyans, who were not yet there); 1215 (the Katoghike, by its
+south-portal inscription); 1225 (the chapels on the gavit's north-east corner); before 1250 (the
+first rock-cut church, with Galdzak named as architect); 1283 and 1288 (the Proshyan church and the
+upper carved chamber); 1291 (Mkhitar's inscription); 1655 (Tavernier sees the relic); 2000 (World
+Heritage).
+
+Two cautions are in the article because a reader will meet them: UNESCO's two documents place the
+oldest chapel on opposite sides of the complex, and the later of the two gives its earliest
+inscriptions as 1177/1181 where the survey it rests on records the older 1164 cross-stone.
+
+### Rock-cut architecture
+
+`rock-cut` is treated as a precise description rather than a loose one. The chambers were excavated
+inward and downward from the cliff face, worked from the top, so what remains is not a lined cave
+but a room whose walls, columns, vaults and dome are one continuous piece of the mountain — no
+joints, because no blocks. The article then refuses the binary: parts of Geghard are built (the
+Katoghike, the gavit, the wall, the ruined seventeenth-century ranges), parts are carved outright,
+and parts are both (the chapel with a masonry front and a hollowed back; cells that are recesses
+closed with a built wall). The masonry church came **first**; the great carved halls were added to
+it.
+
+The technical argument is overhead: domes on squinches and, in one case, a stalactite vault, which
+in masonry is a problem solved with cut blocks and here had to be arrived at by removal from a
+single mass with no way to correct a mistake. The famous acoustics are stated as a **consequence,
+not a design** — no medieval source describes the rooms as built for sound.
+
+### Proshyan patronage, the corrected floruit, and the acquisition
+
+The carved rooms belong to a change of ownership: the Khaghbakian house, renamed Proshyan after
+Prosh son of Vasak, a vassal of the Zakarids under Mongol overlordship and by mid-century the
+effective lord of the district.
+
+**Prosh's dates are a floruit, not a lifespan.** `relatedFigures.lifespan` reads `active 1223–1284`
+/ `գործուն 1223–1284` / `գործօն 1223–1284`, and each edition explains why: 1223 is an attestation
+and cannot be a birth year, because his father was already commanding in 1216; the death date
+circulates as 1283, 1284 or 1285 with nothing to settle it; and the article therefore declines to
+invent a biological lifespan. He is a **sub-vassal and lord of Vayots Dzor**, explicitly **not**
+commander of the Zakarid army — the supreme office was the amirspasalar and no Khaghbakian held it.
+
+**The acquisition** is dated conservatively and identically in all three editions: *in the decade
+before Avag's death in 1250* — `1250 թվականից առաջ ընկած տասնամյակում` (`hy`), `1250 թուականէն
+առաջ ինկած տասնամեակին` (`hyw`). A purchase is reported as what is *usually said* and then
+unpicked: one survey reads it out of a later inscription, the ICOMOS evaluation does not mention a
+purchase at all, and no text documenting a sale has been published in a form a reader can check.
+The competing year 1215 is named as a conflation with the church's own dated inscription, traced to
+the impossible c. 1214 entry in the 1973 survey that the same volume contradicts on its own pages —
+an error reprinted as recently as 2023.
+
+### Donabédian, and why the carving is not called a coat of arms
+
+No edition labels the relief unqualifiedly. Each carries, in this order: the description (an
+animal's head holding a ring, two facing lions attached to it, an eagle with a smaller animal
+below); the attribution of the heraldic reading to Garegin Hovsepian, and the fact that specialists
+have passed it on with *probably* attached every time; that published descriptions disagree about
+which animal is uppermost and even which chamber the relief is in; **Donabédian's objection** —
+that motifs of this type recur on monuments built for unrelated families, which he argues excludes
+reading them as dynastic emblems at all, that a lion and an ox appear on the Zakarid church in this
+very courtyard, and that he prefers an **apotropaic** reading; that medieval Greater Armenia left
+neither seals nor coins, so the regulated armorial system that did exist in Cilicia cannot simply
+be assumed here; that no study devoted to this relief has ever been published; and that the motto
+often quoted alongside it has no medieval source of any kind.
+
+Donabédian is presented as a **scholarly interpretation supported by his argument** — "has
+objected", "which he argues", "he prefers" — and not as a settled verdict. The heraldic reading is
+not deleted; it is attributed and qualified.
+
+### The Holy Lance
+
+Treated as institutional history, not as an artefact claim. The name Geghard is short for
+Geghardavank, the monastery of the spear, and displaced Ayrivank at some point in the thirteenth
+century; the often-repeated "first recorded in a document of 1250" is unpicked, because no source
+identifies the document and the survey the claim traces to says only that the change probably
+happened around then.
+
+The tradition that the monastery held the spear of the Crucifixion, brought by the Apostle
+Thaddeus, is attested from the twelfth century — a hymn of 1159 is the earliest reference — and is
+therefore a tradition of that date, not a record of the first century. The scholar who compiled the
+standard survey of the monastery's own documents wrote flatly that Thaddeus never reached Armenia,
+and noted two rival spearheads circulating in the medieval Middle East.
+
+What **is** documented is the object's later career: Prosh commissioned a reliquary in 1268; the
+surviving case is a 1687 replacement copying his inscription; Tavernier saw and drew the relic here
+in 1655; it is now at Etchmiadzin, though the Armenian Church's own institutions give different
+centuries for the move and the online date of 1766 traces to nothing. No scientific examination has
+ever been published, and the claim that foreign specialists confirmed its authenticity corresponds
+to no study in any database.
+
+### Manuscripts and the cultural-centre claim
+
+Deliberately understated, because the usual account overstates it. The firm evidence is Mkhitar of
+Ayrivank, placed at this monastery by the standard bibliography of Armenian literature and recorded
+here by an inscription of 1291; a visitor in 1387 found his writings still there; and colophons put
+copying at Ayrivank in 1444 and repeatedly down to 1476, with one scribe named across a dozen of
+those years.
+
+Two corrections are carried in every edition. The claim that Geghard held a **library** rests on no
+cited source, and the monastery has no known curriculum, faculty or named graduates — it is not in
+the class of Gladzor or Tatev and is not described as though it were. And **Simeon of Ayrivank**,
+routinely named alongside Mkhitar as a thirteenth-century historian, was not: the surviving notices
+put him around the turn of the fifteenth century and describe him as a teacher and a pupil of
+Grigor Tatevatsi. That error is UNESCO's own and has been copied outward from there.
+
+### UNESCO status
+
+Geghard and the upper Azat valley were inscribed in 2000 as property no. 960 under **criterion (ii)
+alone**. Armenia proposed criteria (i), (ii) and (vi); the two concerning unique artistic
+achievement and religious significance were **not adopted**, so they are rejected nominations
+rather than UNESCO findings. The inscription is about architecture, and the article says so.
+**Garni is not part of the property** — the commonest thing people get wrong about the two sites at
+once, and the reason `where-it-is` draws the distinction explicitly.
+
+### Parity
+
+`scratchpad/check.ts` was **restored**. §37 recorded it as the harness that prints section shape and
+the per-group numeral multiset for one slug across the three editions; it was among the scratchpad
+files deleted in §38, so it did not exist in the tree. It was rewritten against the current
+`validateCrossLocaleNumbers` — the same `/\d{2,}/g` rule and the same nine field groups — and made
+tolerant of a missing edition, which is the state it is most useful in. It was run after `en` alone,
+after `hy`, and after `hyw`.
+
+Structural parity, all sixteen fields it compares, agree exactly across `hy`, `hyw` and `en`: slug,
+category, `placeTypeId`, `featured`, section ids, section order, paragraphs per section, total
+paragraphs, `keyFacts`, `importantDates`, `interestingFacts`, `significance`, `relatedFigures`,
+`relatedSlugs`, `SectionLink` count and `SectionLink` targets.
+
+The structure recorded in the brief for this step — 10 sections, 3/3/4/4/4/5/4/4/4/3, 38 paragraphs,
+6/13/5/2/3 — was **derived from the final English source rather than assumed**, and it still held,
+so it was adopted rather than overridden.
+
+### The numeral inventory, per validator field group
+
+Held to exactly, in all three editions:
+
+| Group | Numerals |
+|---|---|
+| `intro` | 1164 |
+| `summary` | 1215, 1283, 2000 |
+| `seoTitle` | none |
+| `metaDescription` | none |
+| `keyFacts` | 960, 1215, 1283, 2000 |
+| `importantDates` | 923, 1164, 1177, 1181, 1200, 1215, 1225, 1250, 1283, 1288, 1291, 1655, 2000 |
+| `sections` | 923, 1159, 1164, 1177, 1181, 1200, 1210, 1212, 1215 x2, 1225, 1250 x3, 1268, 1283, 1288, 1291, 1387, 1444, 1476, 1655, 1687, 1766, 2000 |
+| `interestingFacts` | 1164 |
+| `relatedFigures` | 1223, 1284 |
+
+Four disciplines made that reachable and are worth keeping.
+
+**No `1240s`.** The brief warned that the phrase would inject a stray `1240` into whichever group it
+landed in. It is used in no edition; the acquisition is phrased against Avag's death, which puts
+1250 in the groups that already hold it. The string `1240` occurs nowhere in any edition.
+
+**Centuries are words, not digits, in every edition.** English writes "the twelfth century";
+Armenian writes `տասներկուերորդ դար` / `տասներկուերորդ դարու`, not the Roman `XII դար` that the `hy`
+house style uses for centuries elsewhere. That is a deliberate local departure — Roman numerals are
+letters and would have been numeral-safe too, but the English spells them out and matching it kept
+the three editions reading the same way. Recorded so it is not "corrected" later without checking
+what it protects. Likewise spelled out: forty years, six hundred years, three hundred years, a
+thousand years, half, and the ordinals in `before-you-see-it`.
+
+**No thousands separators anywhere**, and no year written with punctuation inside it. `960` is
+written bare after `թիվ` / `թիւ`, so it extracts as one group in all three.
+
+**`301` was deliberately not added.** `ayrivank` places the Gregory tradition "in the generation of
+the kingdom's adoption of Christianity" without a year, and the Armenian editions say the same. A
+year there would have been correct history and a numeral the English group does not have.
+
+`relatedFigures.description` is **not** in any checked group — only `lifespan` is — but the seven
+numerals in Prosh's description and the three in Mkhitar's were matched across the editions anyway,
+because the alternative is three descriptions that quietly say different things about the same
+disputed dates.
+
+### Western Armenian review pass
+
+The mechanical scan over the `hyw` block found **zero** occurrences of `և`, **zero** of `ություն`,
+zero Eastern `-ված` participles, zero untranslated English (the only Latin in the block is the
+`Armat` byline, the `Geghard Monastery` keyword — romanised on purpose, per the keywords rule — and
+the `(ii)` criterion), and zero Eastern syntax copied from `hy`: no `նրա`/`նրան`/`նրանք`, no Eastern
+locative `-ում`, no `որը`, no ` մեջ`. Every apparent hit was a substring of a correct Western word
+(`ընդհանրապէս`, `նոյնացում`, `բոլորը`, `ձորը`).
+
+The mechanical pass is not what caught the real problems. **Two terminology errors were found by
+reading the sensitive-term census and were corrected**, and both would have passed every automated
+check in the repository:
+
+1. **`կաթողիկէ` used for "dome".** Nine occurrences across four sections, `significance` and
+   `interestingFacts`. `Կաթողիկէ` is the *proper name of the main church at Geghard*; the Western
+   Armenian for a dome is `գմբէթ`, which is what the rest of the `hyw` edition already uses. Every
+   sentence about the domes, the domes on squinches and the seamless vault was naming the church
+   instead. Corrected to `գմբէթ` / `գմբէթաւոր` / `գմբէթներով`; the four surviving `Կաթողիկէն` are
+   the church and are correct.
+2. **`մատենադարան` used for "library".** Two occurrences. Defensible as Western vocabulary in the
+   abstract, but the `hyw` edition already uses `գրադարան` throughout `places.ts`, and
+   `Մատենադարան` is the title of another article in this very section. Corrected to `գրադարան`,
+   which also makes the two Armenian editions agree.
+
+The sensitive terminology was then counted term by term against `hy`. The two editions carry the
+same inventory at the same frequencies, differing only in orthography:
+
+| Term | `hy` | `hyw` |
+|---|---|---|
+| Geghard / Geghardavank | Գեղարդ (39), Գեղարդավանք (2) | same counts |
+| Ayrivank | Այրիվանք (10) | Այրիվանք (10) |
+| Gregory the Illuminator | Գրիգոր Լուսավորչի / -ին | Գրիգոր Լուսաւորիչի (3) |
+| Prosh / Proshyan | Պռոշ (19), Պռոշյան (9) | Պռոշ (19), Պռոշեան (9) |
+| Zakarid | Զաքարյան (6), Զաքարե (5) | Զաքարեան (6), Զաքարէ (5) |
+| gavit | գավիթ (6) | գաւիթ (6) |
+| rock-cut | ժայռափոր (10) | ժայռափոր (10) |
+| tomb chamber | դամբարան (2) | դամբարան (2) |
+| khachkar | խաչքար (6) | խաչքար (6) |
+| inscription | արձանագրություն (22) | արձանագրութիւն (19) |
+| relic / spear | գեղարդ (10), մասունք (7) | գեղարդ (10), մասունք (7) |
+| dome | գմբեթ (8) | գմբէթ (8) |
+| Katoghike | Կաթողիկե (4) | Կաթողիկէ (4) |
+| apotropaic | չարխափան՝ չարիք վանող (1) | չարխափան՝ չարիք վանող (1) |
+| heraldry | զինանշան (3) | զինանշան (3) |
+
+`վիմափոր` is used **nowhere**: `ժայռափոր` is the term in both editions, consistently, and mixing
+the two synonyms inside one article would read as a distinction that is not being drawn.
+
+**The whole Western Armenian article remains flagged for native review**, mechanical validation
+notwithstanding. The specific items are listed below.
+
+### Sources
+
+The bibliography was registered in the previous step and **was not touched here**. It is twelve
+entries, all of which the article rests on, and no claim in any edition reaches outside them. What
+this step did was verify that every identifier resolves and identifies the intended work.
+
+| Identifier | Resolves | Identifies |
+|---|---|---|
+| `archive.org/details/daa-06-geghard-1973` | 200 | *Documents of Armenian Architecture* 6, Geghard, 1973 |
+| `whc.unesco.org/en/list/960/` | 200 | World Heritage list entry 960 |
+| `whc.unesco.org/archive/advisory_body_evaluation/960.pdf` | 200 | ICOMOS advisory evaluation, no. 960 |
+| doi `10.1093/gao/9781884446054.article.t031172` | 302 to OUP auth | "Geghard Monastery", **Patrick Donabédian**, Oxford Art Online, 2003 |
+| doi `10.30687/978-88-6969-469-1/005` | 200 | "Armenia – Georgia – Islam…", **Patrick Donabédian**, *Eurasiatica*, Ca' Foscari, 2020 |
+| doi `10.4159/harvard.9780674432635` | 202 | *Colophons of Armenian Manuscripts, 1301–1480*, Harvard UP, 1969 |
+| doi `10.1017/S001781600001748X` | 200 | Michael E. Stone, *Harvard Theological Review*, 1976, 289–300 |
+| isbn `9782700400274` | OpenLibrary | Der Nersessian, *L'art arménien*, Arts et métiers graphiques, 1977 |
+| isbn `9782916716572` | OpenLibrary | *Horomos Monastery: Art and History*, ed. Vardanyan, 2015 |
+| isbn `9781403966360` | OpenLibrary | Hovannisian, *The Armenian People…* — **see below** |
+| `operaipogea.it/…CARPICECI…Hypo2023…pdf` | 200 | Carpiceci et al., Hypogea 2023, 251–260 |
+
+Each DOI was resolved through **Crossref content negotiation** rather than by following the link,
+so the title, author, publisher and year in the registry were compared against the registrar's own
+metadata. All four match exactly, including both Donabédian entries. The UNESCO list page returns
+403 to a bare `curl` and 200 to a browser user-agent; that is a bot block, not a dead link, and the
+sibling PDF on the same host returns 200 either way.
+
+**The late Donabédian source is present and correct.** `10.30687/978-88-6969-469-1/005` is open
+access, resolves to the intended chapter, and its note in `sources.ts` states exactly what the
+article uses it for: the objection to the dynastic-emblem reading, the apotropaic preference
+following Eastmond and Blessing, and the identification of Matevosyan (2002) as the standard modern
+statement of the heraldic view.
+
+**One finding, reported rather than changed.** ISBN `9781403966360` is catalogued by OpenLibrary as
+the **two-volume set** ("Armenian People From Ancient to Modern Times, 2 Volume Set", 896 pp.,
+Palgrave Macmillan, 2004), where the registry titles it *Volume I: The Dynastic Periods*. The work
+is right and the chapter cited — Bedrosian, on the Seljuk and Mongol periods — is in volume I, so
+nothing in any article is wrong; the identifier is simply the set's rather than the volume's. It is
+**not** newly added for Geghard: three other articles have used it since before this step, so
+changing it means editing four bibliography entries in a step scoped to two article files. Recorded
+as open below.
+
+**No page numbers were invented.** The two entries that name page ranges — Stone 289–300, Carpiceci
+251–260 — both had them confirmed by the registrar or by the PDF itself. Hovsepian's 1928
+*Khaghbakeank' kam Prosheank'* remains **deliberately unregistered**: no digitised copy could be
+consulted, and a page reference for it would have been fiction. It is named inside the Der
+Nersessian note as the origin of the heraldic identification instead.
+
+The notes distinguish the four categories the archive requires: **directly read** (the 1973 survey,
+both UNESCO documents, the 2020 Donabédian, the 2023 congress paper); **print-only, not read
+directly** (Der Nersessian 1977, Thomson 1995, Sanjian 1969, Vardanyan 2015, Hovannisian 2004, each
+cited for a specific attested claim); **institutional** (the two UNESCO documents, cited for the
+designation and explicitly *not* as authorities on chronology or scholarship); and
+**paywalled/secondary** (the Grove Art entry, whose note says outright "Paywalled and not read
+directly").
+
+### Coordinate
+
+Unchanged, and **not** touched for stylistic consistency. `geghard-monastery` has exactly one entry
+in `PLACE_COORDINATES`:
+
+```ts
+"geghard-monastery": { lat: 40.1404, lon: 44.8184, precision: "site" },
+```
+
+It is the centroid of OSM way 405284197 (`Գեղարդի վանք`, `ref:whc=960`, `wikidata=Q499285`) — the
+walled enclosure itself, the courtyard, with the gavit some ten metres off and the Katoghike
+twenty. Six independent candidate points span twenty-one metres and all six fall inside the
+enclosure polygon, as does the rounded value stored here. It is **not** the car park (80 m, outside
+the wall), **not** the souvenir stalls (50 m, also outside), **not** Goght (2.8 km), **not** Geghard
+village (2.4 km), **not** Garni (8.1 km down the valley) and **not** the upper Azat valley taken as
+an area. The likeliest wrong answer is a gazetteer record rather than a landmark: Wikidata
+Q17155656 carries the property's official name *and* its World Heritage id, and points at Geghard
+village. `places.spec.ts` pins the value, the `site` precision, the four-decimal rounding, and a
+minimum distance from Garni.
+
+### Related content
+
+`relatedSlugs` is `["garni-temple", "adoption-of-christianity", "etchmiadzin-cathedral"]`, in that
+order, in all three editions — the taxonomy check compares it as a joined string, so the order is
+part of the contract.
+
+- **`garni-temple`** is the first place-to-place relationship in the section. It is earned rather
+  than itinerary-driven: `where-it-is` discusses the shared Azat valley explicitly, links to Garni
+  in prose from that section, and draws the distinction the two sites are most often confused on —
+  the World Heritage property is named for Geghard and the upper valley, and Garni is not in it.
+- **`adoption-of-christianity`** was checked rather than assumed. `ayrivank` carries the Gregory
+  tradition, links to it from the phrase about the generation of the kingdom's conversion, and then
+  spends three paragraphs on why the tradition is not evidence. It genuinely supports the link.
+- **`etchmiadzin-cathedral`** is where the spear relic is now, and is linked from
+  `the-spear-and-the-name`.
+
+**Garni was not modified to point back**, and the absence is pinned in a test so it stays a recorded
+decision rather than something a later reader repairs by reflex. The one-directional architecture in
+`getRelatedArticles` is unchanged.
+
+### Artwork — pending, and honestly so
+
+`PENDING_ARTWORK` is `["geghard-monastery"]`. Nothing under `public/` changed and `src/lib/media.ts`
+was not touched.
+
+All thirty-six files under `public/` were opened in the previous step rather than read off their
+filenames, and none shows chambers hollowed out of a cliff. There is no near miss to record — what
+there is instead is a list of substitutions that were *available and refused*, each of which would
+have looked like a considered decision rather than a mistake:
+
+- `garni-temple.webp` — eight kilometres down the same valley, linked from this article's own prose,
+  and a pre-Christian classical peristyle roughly twelve centuries older than the monastery;
+- `khor-virap.png` and `etchmiadzin-cathedral.webp` — the other two entries under the `monastery`
+  pill, which is precisely what disqualifies them;
+- `history/adoption-of-christianity.webp` — a free-standing domed church in a valley, the
+  generic-monastery trap;
+- `history/bagratid-armenia.webp` — a river gorge, which is the Lake Sevan mood substitution in
+  another landscape.
+
+All five are named in a `places.spec.ts` test. The article renders the generated placeholder and is
+captioned as one in all three editions; `Article.image` is **absent** rather than nominating the
+site card; `og:image` and `twitter:image` fall back to `/og-default.png`, which is honest for a
+link-preview card and is not the same claim; and Geghard's three sitemap `<url>` blocks carry no
+`image:loc` at all while still being present.
+
+### Tests
+
+`places.spec.ts` went from **46 to 47** desktop tests. The file had already been extended for
+Geghard in the previous step; the fourteen checks required of this one were audited against it and
+thirteen were already covered. The fourteenth was not, and is the new test.
+
+**`the six places that existed before Geghard are untouched by it`.** Everything else in the file is
+about Geghard or about the section as a whole — the filter counts moved, `PENDING_ARTWORK` filled,
+the artwork assertions inverted — and none of it would notice a *sibling* losing a `relatedSlug`,
+changing its `placeTypeId`, gaining a section or picking up `featured` in the same edit. Appending
+an article to the end of three files is exactly the change where a stray keystroke lands in the
+entry above it. The test pins, for each of the six and in all three editions: `category`, `href`,
+`placeTypeId`, `featured`, the exact `relatedSlugs` array, and the absence of a reciprocal Geghard
+link. Section shape — ids, paragraphs per section, and the four counted blocks — is pinned as
+**cross-edition agreement** rather than as literal numbers, so a future revision of one of these six
+does not require retyping a constant in a test, but revising one edition and forgetting the others
+still fails.
+
+Already covered, and re-verified: all three Geghard routes load with an H1 from `title` and no
+`noindex`; `monastery` returns exactly Khor Virap, Etchmiadzin and Geghard; `historical` exactly
+Erebuni and Garni; `museum` exactly the Matenadaran; `nature` exactly Lake Sevan; Khor Virap is the
+only `featured` place; `seoTitle`/`metaDescription` drive the head while `title` drives the H1;
+canonical, three `hreflang` alternates and `x-default` pointing at `/hy/…`; a search for "Geghard"
+returns a card linking to the Places route under the Places group heading; the sitemap carries all
+three locale routes; the coordinate registry holds one checked point per place; Geghard's
+`relatedSlugs` resolve in every edition; and the full set of placeholder, `Article.image`,
+OG/Twitter and sitemap-image assertions for a slug with no artwork.
+
+### Verification
+
+Run in the prescribed order. Playwright and the production build were **not** run concurrently.
+
+| Step | Command | Result |
+|---|---|---|
+| 1 | port 3002 | clear (no listener) |
+| 2 | remove `.next` | removed — 567 MB, §40 ended with a build |
+| 3 | `npx tsx scratchpad/check.ts geghard-monastery` | **PASS** — 0 differing rows across 3 editions |
+| 4 | `npm run typecheck` | **PASS** — 0 errors |
+| 5 | `npm run validate:content` | **PASS** — **120 entries** across 3 locales, with the expected pending-artwork note naming `geghard-monastery` |
+| 6 | `npx playwright test --project=desktop places.spec.ts` | **PASS** — 47 passed |
+| 7 | `npx playwright test` | **PASS** — 195 passed, 5 skipped |
+| 8 | `npm run build` | **PASS** — **126** prerendered routes, compiled in 3.2 s |
+
+**Every failure encountered, reported.** There was one, and it was mine and deterministic.
+`places.spec.ts` failed on the new test's first execution — 1 failed, 46 passed — because the
+expected `relatedSlugs` for `erebuni-fortress` and `matenadaran` had been written from memory rather
+than read from the bundle. Both were wrong in the same direction: extra plausible targets that do
+not exist. Corrected against the actual `hy` data; the re-run was 47 passed. Everything else — the
+harness, `typecheck`, `validate:content`, the full suite and the build — passed on first execution.
+
+**The Cuisine hydration flake did not appear.** §40 recorded
+`cuisine.spec.ts:351 › the cuisine dropdown only offers pages inside this edition` failing once on a
+cold server, because line 355 clicks the nav submenu button directly instead of routing through
+`openHeaderPanel`, and `.next` had been removed so routes were compiling on demand under parallel
+load. The same pre-hydration condition applied here — `.next` was removed at step 2 — and the full
+run passed first time. No Cuisine code was touched, and the latent flake is carried forward unfixed.
+
+All 21 place pages (7 places x 3 editions) prerendered, including all three Geghard routes.
+
+### Preserved
+
+- **The English article is byte-identical.** `git diff` shows no change to
+  `src/data/locales/en/articles/places.ts`.
+- **The six existing Places articles are unchanged** in all three editions — now asserted rather
+  than only claimed.
+- **`geo.ts`, `sources.ts`, `media.ts` and `scripts/validate-content.ts` were not touched.**
+- **Nothing under `public/` changed.**
+- **`.claude/settings.json` is unchanged** — the permission layer's automatic additions were
+  reverted.
+- No deployment was performed, and no deployment configuration was touched.
+
+### Western Armenian items requiring native review
+
+The whole `hyw` article is in the queue, as every `hyw` article has been since §16. These are the
+specific judgement calls made while writing it, so a reviewer can change any of them in one pass.
+None is a known error.
+
+1. **`Պատրիք Տօնապետեան`** for Patrick Donabédian. The Western reflex of the surname is
+   `Տօնապետեան`; `hy` uses `Դոնաբեդյան`. A diaspora editor may prefer a French-facing
+   transliteration for a scholar who publishes in French.
+2. **`Տաւերնիէ`** for Tavernier (`Տավերնիե` in `hy`). Western transliterations of French names vary.
+3. **`չարխափան՝ չարիք վանող`** for *apotropaic*. `չարխափան` is the established word; the gloss was
+   added because the term is rare in general prose. A reviewer may want it dropped, or `պահպանիչ`.
+4. **`զինանշան` / `զինանշանային համակարգ`** for *coat of arms* / *armorial system*. Correct, but the
+   article's whole argument is that the object may not be a coat of arms, and a reviewer should
+   check that the qualifying verbs carry that weight in Western Armenian.
+5. **`ժայռափոր`** throughout, never `վիմափոր`. Both are current; the choice is consistent.
+6. **`գաւիթ`** left untranslated and explained in the prose, as the English does.
+7. **`գեղարդ`** as a common noun in running prose, with the name reserved for the monastery.
+8. **`Իվանէ` / `Զաքարէ`** for the Zakarid brothers, and `Աւագ`, `Շահնշահ`, `Պապաք`, `Ռուզուքան`,
+   `Գալձակ` for the rest. None had a settled Western form in the repository before this article.
+9. **`Աղուանից կաթողիկոս`** for the Catholicos of the Aghvans.
+10. **`Յիշատակարան`** for a manuscript colophon, and **`գրադարան`** rather than `մատենադարան` for a
+    library — the second was changed during this pass, for the reason given above.
+11. **`ձայնականութիւն`** for acoustics, and **`խորիսխ`** for the honeycomb of a stalactite vault.
+12. **Centuries spelled out** (`տասներկուերորդ դար`) rather than Roman, against the `hy` house style
+    recorded in the glossary. Deliberate, for the numeral reason above.
+13. **`Գեղարդի վանք`** as the title in both Armenian editions rather than `Գեղարդավանք` — the
+    compound is used in the prose, where the article explains the name.
+
+### Still open
+
+Carried forward unchanged. Nothing in this list was fixed here.
+
+- **The Matenadaran façade colour — still open**, unchanged from §36, §38, §39 and §40. Pale grey
+  where the building and this archive's prose describe dark basalt.
+- **The Garni stone warmth — still open**, unchanged from §40. Ochre-warm where the basalt is
+  grey-blue.
+- **The Garni 4:3 image dimension — still open.** `garni-temple.webp` is 1448 x 1086 against the
+  1586 x 992 of the other WebPs, so the 16:9 crops trim 136 px from it against 50 px from the rest.
+- **A dedicated Khor Virap image — still open** since §32. The only PNG, 1355 x 793, 1.4 MB, and
+  still byte-identical to `hero-ararat.png`.
+- **Erebuni and Matenadaran image weight — still open.** 742 KB and 701 KB, both carrying ICC
+  profiles.
+- **Global media optimisation — still open**, and unaffected by a step that added no assets. With
+  Khor Virap this remains one pass rather than several separate problems.
+- **The Cuisine hydration flake — still open.** `cuisine.spec.ts:355` clicks the nav submenu button
+  directly instead of using `openHeaderPanel`. It did not reproduce here. The fix is one call
+  swapped for the helper, and it belongs to a step that owns that spec.
+- **One-directional related articles — still open.** `getRelatedArticles` links one way, and
+  Geghard's link to Garni is deliberately not reciprocated.
+- **Western Armenian native review — still open**, and now longer by one article and thirteen
+  terminology items. The queue runs from §16 through §28, §29, §31, §33, §35, §37, §39 and §41.
+- **The Bresson and Fagan Garni attribution — still open and unsettled.** Whether the Garni
+  inscription names Trdat I or Trdat the Great remains a live argument.
+- **Wilkinson's Garni source not read directly — still open.** No copy of REArm NS 16 is online; the
+  Garni article takes the argument from Russell's endorsement and from summaries, and says so.
+- **The Hovannisian ISBN — new, minor, and deliberately not fixed here.** `9781403966360` catalogues
+  the two-volume set where four bibliography entries title it *Volume I*. The work and the cited
+  chapter are right; the identifier is the set's. Fixing it edits four entries across four articles.
+- ~~**Geghard artwork — new, and open by design.** `PENDING_ARTWORK` is `["geghard-monastery"]` and
+  the article ships the honest placeholder until a dedicated image exists.~~ — **resolved in §42.**
+  `geghard-monastery.webp` landed and was registered; it was one line, and it did light up all six
+  surfaces. `PENDING_ARTWORK` is empty again.
+- **The remaining place type.** `settlement` still waits for its first article.
+
+No deployment was performed.
+
+---
+
+## 42. Geghard Monastery artwork — the pending entry, cleared (August 2026)
+
+`public/images/places/geghard-monastery.webp` arrived. It was opened, verified, inspected and
+registered in `IMAGES`, and the slug is out of `PENDING_ARTWORK`. Nothing else changed: no image was
+generated, edited, cropped, resized, recoloured, renamed, optimised or replaced, no article content
+moved, and no new loading path was introduced. Two source files changed — `src/lib/media.ts` and
+`tests/e2e/places.spec.ts` — plus the new asset and this document.
+
+This is the sixth time the section has cleared a pending entry (§32 Etchmiadzin, §34 Erebuni, §36
+Matenadaran, §38 Lake Sevan, §40 Garni, §42 Geghard) and the sixth time the whole change was a
+one-line registration reaching six surfaces at once. `PENDING_ARTWORK` is empty again, and with
+seven of seven places illustrated the placeholder branch has no subject in this section once more.
+
+`scripts/validate-content.ts` was **not** touched. The §36 wording — *"have no artwork and render
+the generated placeholder"* — is unchanged, and so is its logic. It prints nothing now because the
+set it counts is empty: every one of the 30 article slugs across the three editions has a registered
+file. No bug was found in it, so nothing in it was changed.
+
+### The asset, verified rather than assumed
+
+The container was parsed rather than trusted to its extension, and the file was opened rather than
+read off its filename.
+
+| Property | Value |
+|---|---|
+| Path | `public/images/places/geghard-monastery.webp` |
+| Exists | yes |
+| Format | WebP, lossy VP8 |
+| Container | `RIFF` / `WEBP` / a single `VP8 ` chunk of 277,266 bytes |
+| `VP8X` extended header | none |
+| ICC profile | none |
+| Alpha | none |
+| Animation | none |
+| Dimensions | **1586 x 992** (16:10, 1.599) |
+| File size | **277,286 bytes** (270.8 KiB) |
+| RIFF size field | 277,278 — consistent with the actual length minus 8 |
+| SHA-256 | `3264dd61243e9cc9a8c612a10d82a426ccc490950ee10437528e324ba1789821` |
+
+It returns to the shape of the four WebPs before Garni: 1586 x 992, so the "not 1586 x 992" note in
+`media.ts` is again about Khor Virap's PNG and Garni alone. Container-wise it matches Etchmiadzin,
+Lake Sevan and Garni — a plain single-chunk `RIFF/VP8`, so the ICC note stays about Erebuni and the
+Matenadaran. At 271 KB it sits mid-registry: heavier than Garni (120 KB) and Lake Sevan (176 KB),
+far lighter than Erebuni (742 KB) and the Matenadaran (701 KB). Registered exactly as delivered.
+
+### Visual inspection
+
+The image was opened and looked at, and every claim below is from the frame rather than from the
+filename.
+
+- **Geghard is unmistakably the subject.** An elevated view into the upper Azat gorge: the walled
+  complex on its terrace, the katoghike's conical umbrella dome over a drum, the gavit against it to
+  the west, secondary roofs, the perimeter wall and gate range, and the wooded gorge sides above.
+- **The monastery is visually integrated with the cliffs.** The complex is set directly against the
+  rock face rather than in front of it, and a large rock mass intrudes into the enclosure on the
+  right so that masonry and living rock abut with no gap. The built and the hollowed-out read as one
+  fabric, which is the article's subject.
+- **Rock-cut architecture is apparent.** Chambers open in the cliff face immediately behind and
+  above the courtyard — several dark mouths in the rock, plus a further opening in the intruding
+  outcrop on the right.
+- **Not a look-alike.** Not Khor Virap (no Ararat, no plain, no hill chapel); not Etchmiadzin (no
+  cathedral forecourt, no city); not Garni (no peristyle, no Ionic order, no podium, no gorge-rim
+  promontory); not Petra (grey basalt masonry and grey-brown andesite cliff, not a carved sandstone
+  façade); not Cappadocia (no tuff cones, no fairy chimneys); and not a generic cave monastery — the
+  umbrella dome, the gavit and the fortified enclosure are specifically Armenian and specifically
+  this complex.
+- **The main church and gavit remain recognisable** at every crop tested, below.
+- **Nothing dates the buildings.** The frame carries no inscription, no lettering, no plaque and no
+  narrative scene, so it makes no claim that the surviving fabric is fourth-century, and the
+  early-tradition versus thirteenth-century-complex distinction the prose draws is neither supported
+  nor contradicted by it.
+- **No prohibited content.** No giant spear, no relic, no heraldic shield, no supernatural event, no
+  invented inscription, and no unsupported religious claim.
+
+**One concern, reported and not corrected.** This file is *photographic* in register — a
+documentary-looking aerial view, with visitors visible in the courtyard — where every other file in
+the registry is a rendered illustration (`garni-temple.webp` was opened side by side to confirm the
+contrast is real). It inherits `ARTWORK_PROVENANCE` like the rest and is captioned *AI-generated
+illustration — an imagined scene*, which is the more cautious of the two possible claims and is
+therefore safe to ship. But it is the first entry where that caption is worth re-confirming against
+the source rather than assuming: if the file is in fact a photograph, the caption is wrong in the
+opposite direction from the failure §17 was written to prevent, and the image would need a credit
+rather than a provenance line. The file was **not** altered, renamed or replaced, and the note is
+recorded in `media.ts` beside the entry as well as here.
+
+### Crop suitability
+
+Every slot is a centre crop (`object-cover object-center`), so the crops were computed from the real
+class names and rendered from the actual file rather than reasoned about. A 1586 x 992 source loses
+very little in all of them.
+
+| Slot | Class | Trim | Result |
+|---|---|---|---|
+| Compact card | `aspect-[4/3]` | 132 px each side, full height | dome, gavit, cliff chambers and courtyard all held |
+| Listing card | `aspect-[16/9]` | 50 px top and bottom | dome finial cross clears the top edge comfortably |
+| Mobile hero | `aspect-[4/3]` | as compact card | same |
+| Tablet hero | `sm:aspect-[3/2]` | 49 px each side | between the two above; nothing lost |
+| Desktop hero | `lg:aspect-[16/9]` | 50 px top and bottom | as listing card |
+| Search thumbnail | `w-32` / `lg:w-40`, card-height column (~3:4) | 421 px each side | the tightest crop, and it still holds the dome, the gavit, the cave mouths and the courtyard |
+
+The 3:4 search thumbnail is the tightest and was checked explicitly, because it is the one crop
+where a subject placed off-centre would be lost. The complex sits centre-right in the frame and
+survives it. **No crop logic was added and none is needed.**
+
+### The registration
+
+One line, in the existing Places block of `IMAGES`:
+
+```ts
+"geghard-monastery": "/images/places/geghard-monastery.webp",
+```
+
+Nothing else. No Geghard-specific media logic, no custom crop logic, no new image fields, no new
+provenance infrastructure, and no component changes. Every consumer already asks `getImageSrc` or
+`getArticleImageSrc`, so the single entry reached the Places listing, the article hero, the global
+search result, the related-article cards, Open Graph, Twitter, the generic `Article.image` and the
+sitemap image entries at once — verified below rather than assumed.
+
+### Provenance
+
+Handled entirely by the existing Armat-generated editorial-artwork mechanism.
+
+`isGeneratedArtwork({ slug: "geghard-monastery", image: undefined })` now returns **`true`**: the
+article declares no `image`, and `getImageSrc` resolves, which is the whole of the condition. That
+flip is what swaps the caption branch in `ArticleLayout`, and the effect was verified on the
+rendered page in all three editions:
+
+- the normal AI-generated illustration disclosure appears (`imageAiIllustrationCaption` — the scene
+  wording, not the portrait wording, because a monastery is a scene and not a likeness);
+- the placeholder disclosure is gone (`imagePlaceholderCaption`, the "Replace with licensed imagery
+  before launch" string, is asserted absent);
+- the hero placeholder SVG is gone — `header figure svg[role='img']` is zero and `header figure img`
+  is one.
+
+`ARTWORK_PROVENANCE` is **unchanged** — not edited, not extended, not read from a new place. No
+per-image provenance system was introduced. No other article's provenance behaviour changed: the
+captions are driven by registry membership alone, and no other slug's membership moved.
+
+### Pending-artwork removal
+
+`geghard-monastery` was removed from `PENDING_ARTWORK` **after** the file had been opened, verified
+and registered, not before. `PENDING_ARTWORK` is now `[]`.
+
+The list itself stays, with its rejected-substitute reasoning intact. It has now filled six times
+and emptied six times, and §41 is the standing proof that emptying is not a signal it can be deleted
+— the sixth place had barely settled before the seventh refilled it. The five refused substitutions
+recorded for Geghard (`garni-temple.webp`, `khor-virap.png`, `etchmiadzin-cathedral.webp`,
+`history/adoption-of-christianity.webp`, `history/bagratid-armenia.webp`) are kept, and so are the
+tests naming them, because the failure they guard against — a cover repointed at a plausible
+neighbour later — outlives the file landing.
+
+`validate:content` no longer reports Geghard as lacking artwork. The note is conditional on a
+non-empty set and now prints nothing at all; the run is a clean **120 entries across 3 locales**.
+
+### Listing, article, search and metadata — verified
+
+| Surface | Verified |
+|---|---|
+| Places listing card | uses `/images/places/geghard-monastery.webp`; listing placeholder count is **0** |
+| Article hero | the WebP in `en`, `hy` and `hyw`; no placeholder SVG; AI-illustration caption present, placeholder caption absent |
+| Global search | the card whose link is `/en/places/geghard-monastery` carries the WebP, no `<svg>`, and none of Garni's, Khor Virap's or Etchmiadzin's files |
+| Related article cards | the shared `ArticleCard` renders the same registered file |
+| `og:image` | `https://armat.site/images/places/geghard-monastery.webp` — no longer `/og-default.png` |
+| `twitter:image` | the same absolute URL — no longer `/og-default.png` |
+| `Article.image` | `{ "@type": "ImageObject", url: "https://armat.site/images/places/geghard-monastery.webp" }` — the property is now present where §41 asserted its absence |
+| Sitemap | all three locale routes carry an `image:loc` for the WebP, checked block by block |
+
+**Structured data is otherwise untouched.** The only JSON-LD consequence is the existing generic
+`Article.image` now resolving. No `Place`, `TouristAttraction`, `Monastery`, `Church`,
+`LandmarksOrHistoricalBuildings` or `LocalBusiness` node was added, and the existing test asserting
+the graph carries `Article` and `BreadcrumbList` and no tourism types still passes for all seven
+places.
+
+**No leakage.** Geghard uses none of Khor Virap's, Etchmiadzin's, Garni's or
+`adoption-of-christianity`'s artwork, and no generic fallback, in its head, its structured data, its
+hero, its search card or its sitemap blocks.
+
+### Editorial work preserved
+
+This was an artwork-registration step only. Nothing in the English, Eastern Armenian or Western
+Armenian prose was touched; `git diff` shows no change to any `articles/places.ts` from this step.
+The early-tradition versus medieval-complex distinction, the Proshyan acquisition wording, the Prosh
+floruit, the Donabédian heraldry discussion, the Holy Lance treatment, the manuscript and school
+claims, the UNESCO wording, the sources, the coordinate, `relatedSlugs`, the SectionLinks, the SEO
+fields, `placeTypeId` and the filter counts are all unchanged — and `placeTypeId`, `featured` and
+`relatedSlugs` are now *pinned as literals in a test* for Geghard as well as for the other six, so
+an artwork step that edited them would fail rather than pass quietly.
+
+### Tests
+
+`places.spec.ts` stays at **47** desktop tests. §42 added no test and removed none; it inverted the
+three Geghard-specific ones and widened the shared datasets, which is the same shape §32, §34, §36,
+§38 and §40 took.
+
+**The datasets.** `GEGHARD` moved into `ILLUSTRATED`, which is now all seven, and gained its entry
+in `ARTWORK`. `PLACES` and `ILLUSTRATED` are **kept as separate concepts** even though they contain
+the same slugs again — the sixth time they have coincided, and the last five times the next place
+split them within one step. The comment arguing against collapsing them is kept and updated.
+
+**Inverted, each in all three editions.** `Geghard renders its own file and is captioned as an
+illustration` (was: renders the generated placeholder) now asserts one `<img>` with the right file,
+zero `<svg>`, the AI-illustration caption present and the placeholder caption absent.
+`Geghard's search card carries its own thumbnail and no placeholder` (was: renders the placeholder)
+now asserts the thumbnail is the WebP and adds a borrowed-file check, scoped to the one result card
+whose link is `/en/places/geghard-monastery`. `Geghard borrows no other article's artwork, and
+declares the one it has` (was: *claims no image it does not have*) keeps its five-file borrowed
+guard verbatim and inverts the tail: `og:image` and `twitter:image` are the Geghard WebP and must
+not contain `og-default`, and `Article.image` is present and equal to it.
+
+**Widened.** The listing placeholder count went `1` to `0` — an assertion that has now inverted six
+times, which is the argument for pinning the number rather than asserting "none by inspection". The
+search-thumbnail loop gained `[GEGHARD, "Geghard"]`. The sitemap per-block loop gained `GEGHARD`,
+and Geghard's own block assertion flipped from *must emit no `image:loc`* to *must emit one, and
+must not name a neighbour's file*. `PENDING_ARTWORK` is asserted `toEqual([])` — the whole array, so
+a stale entry left behind fails as loudly as a slug quietly added. The registry test pins
+`registry[GEGHARD]` by name alongside the other six, and the homepage test gained `geghard` to its
+list of fragments that must not appear on `/hy`. The registry/pending mutual-exclusion test needed
+no change and still passes in both directions.
+
+**Retained unchanged, and still passing:** Khor Virap keeps its PNG; Etchmiadzin, Erebuni, the
+Matenadaran, Lake Sevan and Garni keep their WebPs; the homepage stays on `/hero-ararat.png`; and
+the History, Writers, Works and Cuisine paths are pinned as one literal object that a stray
+keystroke in the flat registry would break.
+
+One test was renamed. `the six places that existed before Geghard are untouched by it` became
+`every place's editorial fields are pinned, and Geghard's are unchanged by its artwork`, because its
+loop runs over `ILLUSTRATED` and now covers seven. The title had become false; the assertions are a
+superset of what it did before.
+
+### Verification
+
+Run in the prescribed order. Playwright and the production build were **not** run concurrently.
+
+| Step | Command | Result |
+|---|---|---|
+| 1 | port 3002 | clear (no listener) |
+| 2 | remove `.next` | removed — §41 ended with a build |
+| 3 | `npm run typecheck` | **PASS** — 0 errors |
+| 4 | `npm run validate:content` | **PASS** — **120 entries** across 3 locales, and **no pending-artwork note**, the set it counts now being empty |
+| 5 | `npx playwright test --project=desktop places.spec.ts` | **PASS** — 47 passed |
+| 6 | `npx playwright test` | **FAIL on first execution — 2 failed, 193 passed, 5 skipped.** Fixed and re-run: **195 passed, 5 skipped** |
+| 7 | `npm run build` | **PASS** — **126** prerendered routes, all three Geghard routes among them |
+
+**Every failure encountered, reported.** There was one, it was mine, and it was deterministic rather
+than a flake.
+
+`npx playwright test` failed with two `page.goto: Test timeout of 30000ms exceeded` errors. The two
+tests were identified rather than guessed — `places.spec.ts each article hero renders its own
+registered artwork and names the AI provenance` and `places.spec.ts no illustrated place renders the
+artwork placeholder`. They are the only two that loop `LOCALES x ILLUSTRATED`, so moving Geghard
+into `ILLUSTRATED` took each from eighteen navigations to twenty-one, against a dev server compiling
+routes on demand with the rest of the suite competing for it. Both had passed at 24.6 s in the
+places-only run at step 5 and passed again at 9.6 s when re-run alone, which is what identifies the
+cause as the global 30 s timeout rather than a broken assertion.
+
+**It was not retried away.** `retries` is `0` in `playwright.config.ts` and was left at `0`; the
+config's global timeout was not raised for everyone. The fix is `test.slow()` on those two tests,
+with a comment recording why — the honest statement that a twenty-one-navigation test is slow,
+rather than shrinking its coverage or re-running until it passed. The full suite then passed first
+time.
+
+**The Cuisine hydration flake did not appear.** The pre-hydration condition documented in §40 and
+§41 applied here too — `.next` was removed at step 2, so routes compiled on demand under parallel
+load — and `cuisine.spec.ts` passed in both full runs, including the one where the two places tests
+timed out. No Cuisine code was touched, and the latent flake is carried forward unfixed.
+
+### Scratchpad
+
+`scratchpad/check.ts` is untracked in the working tree, restored in §41 as a reusable cross-locale
+parity harness. It was **not deleted, moved or modified** here — this was an artwork-only step and
+the file is not part of it. It is recorded below as technical debt: if it is genuinely reusable it
+belongs in `scripts/` with the other tooling, and that migration is a step that owns the scripts
+directory, not this one.
+
+`.claude/settings.json` is **unchanged** — the permission layer added two entries automatically
+during this session and they were reverted, as in §41.
+
+### Preserved
+
+- **No existing artwork changed.** Nothing under `public/` was generated, edited, cropped, resized,
+  recoloured, renamed, optimised or replaced. The only change to the directory is the new file, and
+  its bytes are as delivered — the SHA-256 above was taken from the file as registered.
+- **All three locale editions of the Geghard article are byte-identical** to what §41 left.
+- **`geo.ts`, `sources.ts`, `ui.ts`, `seo.ts`, `sitemap.ts`, every component and
+  `scripts/validate-content.ts` were not touched.**
+- **No deployment was performed**, and no deployment configuration was touched.
+
+### Still open
+
+Carried forward unchanged. Nothing in this list was fixed here.
+
+- **The Matenadaran façade colour — still open**, unchanged from §36 and every step since. Pale grey
+  where the building and this archive's prose describe dark basalt.
+- **The Garni stone warmth — still open**, unchanged from §40. Ochre-warm where the basalt is
+  grey-blue.
+- **The Garni 4:3 image dimension — still open.** `garni-temple.webp` is 1448 x 1086 against the
+  1586 x 992 of the other WebPs, `geghard-monastery.webp` now included.
+- **A dedicated Khor Virap image — still open** since §32. The only PNG, 1355 x 793, 1.4 MB, and
+  still byte-identical to `hero-ararat.png`.
+- **Erebuni and Matenadaran image weight — still open.** 742 KB and 701 KB, both carrying ICC
+  profiles. The new file carries none and does not add to this.
+- **Global media optimisation — still open.** Unaffected by a step that added one 271 KB file.
+- **The Cuisine hydration flake — still open.** `cuisine.spec.ts:355` clicks the nav submenu button
+  directly instead of using `openHeaderPanel`. It did not reproduce here. The fix belongs to a step
+  that owns that spec.
+- **One-directional related articles — still open.** `getRelatedArticles` links one way, and
+  Geghard's link to Garni is deliberately not reciprocated.
+- **Western Armenian native review — still open**, and unchanged by this step, which added no prose.
+  The queue runs from §16 through §28, §29, §31, §33, §35, §37, §39 and §41.
+- **The Bresson and Fagan Garni attribution — still open and unsettled.**
+- **Wilkinson's Garni source not read directly — still open.** No copy of REArm NS 16 is online.
+- **The Hovannisian ISBN — still open.** `9781403966360` catalogues the two-volume set where four
+  bibliography entries title it *Volume I*.
+- **`scratchpad/check.ts` location — carried forward, and deliberately not fixed here.** A reusable
+  harness living in an untracked scratchpad directory. It should migrate to `scripts/` if it is to
+  be kept, and be deleted if it is not; either way that decision belongs to a step that owns the
+  tooling.
+- **The photographic register of `geghard-monastery.webp` — new.** Recorded above and in `media.ts`:
+  the file looks documentary where the rest of the registry looks drawn, and the blanket
+  AI-generated caption is worth re-confirming against the source. Reported, not corrected, and the
+  file was not altered.
+- **The remaining place type.** `settlement` still waits for its first article.
+
+No deployment was performed.

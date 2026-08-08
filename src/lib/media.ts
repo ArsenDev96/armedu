@@ -148,8 +148,39 @@ const IMAGES: Record<string, string> = {
    * §38, §40). The list emptying is the normal end state, not a signal that it can
    * go — and §41 is the proof: Geghard was written as the seventh place with no
    * artwork of any kind in the repository, so the list filled again the moment the
-   * sixth entry above had settled. Six places are registered here; the seventh is
-   * in the pending list below and renders the generated placeholder.
+   * sixth entry above had settled.
+   *
+   * `geghard-monastery.webp` is the seventh place and §42, and it takes the list
+   * back to empty for the sixth time. It returns to the shape the four WebPs before
+   * Garni had: 1586×992, so the "not 1586×992" note above is again about Khor
+   * Virap's PNG and Garni alone. Container-wise it is a plain `RIFF/VP8` — one
+   * chunk, no `VP8X`, no ICC profile, no alpha — like Etchmiadzin, Lake Sevan and
+   * Garni. At 271 KB (277,286 bytes) it sits mid-registry, well under Erebuni and
+   * the Matenadaran and well over Garni. Registered exactly as delivered, unaltered,
+   * unoptimised and unrenamed, like every entry since §30.
+   *
+   * What was checked before registering, because at Geghard the plausible picture is
+   * a *different building* rather than a mood: the frame is the upper Azat gorge
+   * with the complex set directly against the cliff, the katoghike's umbrella dome
+   * and its gavit both legible, rock-cut chambers open in the cliff face immediately
+   * behind the courtyard, and a rock mass intruding into the enclosure so that the
+   * built and the hollowed-out read as one fabric — which is the article's subject
+   * and the thing no other file under `public/` showed. It is not Garni (no
+   * peristyle, no podium), not Khor Virap or Etchmiadzin (no plain, no cathedral
+   * forecourt), not Petra or Cappadocia (basalt-grey masonry and a wooded gorge, no
+   * sandstone façade and no tuff cones). Nothing in the frame dates the buildings,
+   * so the fourth-century foundation tradition is not asserted over the thirteenth-
+   * century complex the prose distinguishes it from; and there is no spear, no
+   * relic, no shield, no inscription, no lettering and no depicted event.
+   *
+   * One thing to know rather than rediscover, recorded here and in §42 of
+   * PROJECT_STATE.md rather than corrected: this file is photographic in register —
+   * a documentary-looking aerial view, tourists visible in the courtyard — where
+   * every other file in this map is a rendered illustration. It inherits
+   * `ARTWORK_PROVENANCE` like the rest and is captioned AI-generated, which is the
+   * more cautious of the two claims, but it is the first entry where that caption is
+   * worth re-confirming against the source rather than assuming. The file was not
+   * altered.
    */
   "khor-virap": "/images/places/khor-virap.png",
   "etchmiadzin-cathedral": "/images/places/etchmiadzin-cathedral.webp",
@@ -157,6 +188,7 @@ const IMAGES: Record<string, string> = {
   matenadaran: "/images/places/matenadaran.webp",
   "lake-sevan": "/images/places/lake-sevan.webp",
   "garni-temple": "/images/places/garni-temple.webp",
+  "geghard-monastery": "/images/places/geghard-monastery.webp",
 };
 
 /**
@@ -176,9 +208,13 @@ const IMAGES: Record<string, string> = {
  */
 export const PENDING_ARTWORK: readonly string[] = [
   /*
-   * Emptied after each of the five times it filled before this one: §31→§32
-   * (Etchmiadzin), §33→§34 (Erebuni), §35→§36 (Matenadaran), §37→§38 (Lake Sevan),
-   * §39→§40 (Garni).
+   * Empty, for the sixth time. Emptied after each of the six times it has filled:
+   * §31→§32 (Etchmiadzin), §33→§34 (Erebuni), §35→§36 (Matenadaran), §37→§38 (Lake
+   * Sevan), §39→§40 (Garni), §41→§42 (Geghard).
+   *
+   * The list staying here while empty is the point, not an oversight — it has now
+   * refilled six times, once per place written ahead of its picture, and the
+   * rejected-substitute reasoning below is what each of those steps was for.
    *
    * Three are worth recording as they leave, because the shortcut rejected in each
    * is the kind that gets taken twice.
@@ -240,9 +276,10 @@ export const PENDING_ARTWORK: readonly string[] = [
    * mood substitution in another landscape: a gorge is not Geghard.
    *
    * All five are named in a `places.spec.ts` test, on the same principle as the
-   * Lake Sevan three and the Garni three.
+   * Lake Sevan three and the Garni three — and those tests are kept across the
+   * registration in §42, because the failure they guard against (the cover being
+   * repointed at a plausible neighbour later) outlives the file landing.
    */
-  "geghard-monastery",
 ];
 
 /**
