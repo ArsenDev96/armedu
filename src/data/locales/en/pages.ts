@@ -141,5 +141,14 @@ export const pages: StaticPagesContent = {
     learnDescription:
       "Four articles that explain what the places above are evidence of. Each is already linked from the sites it belongs with.",
     learnCta: "Learn about Armenia",
+    mapEyebrow: "On the map",
+    mapTitle: "Explore Armenia on the map",
+    mapDescription:
+      "See where Armat's featured places are located across Armenia. Select a marker to read what a site is before you go and see it.",
+    mapRegionLabel: "Map of places written about on Armat",
+    mapListTitle: "Mapped places",
+    mapSelectPrompt: "Select a place on the map to see what it is.",
+    mapCta: "Learn about this place",
+    mapFilterLabel: "Show places by type",
   },
 };

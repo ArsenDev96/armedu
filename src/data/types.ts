@@ -490,6 +490,25 @@ export interface StaticPagesContent {
     learnTitle: string;
     learnDescription: string;
     learnCta: string;
+    /*
+     * The map section. Copy only — no place names, no type labels and no
+     * coordinates: those come from the articles, from `placeTypes` and from
+     * `PLACE_COORDINATES` respectively, and duplicating any of them here would
+     * give the map a second source of truth to drift from.
+     */
+    mapEyebrow: string;
+    mapTitle: string;
+    mapDescription: string;
+    /** Accessible name for the map region itself. */
+    mapRegionLabel: string;
+    /** Heading over the non-map list of the same places. */
+    mapListTitle: string;
+    /** Detail panel, before anything is selected. */
+    mapSelectPrompt: string;
+    /** Detail panel link to the article. */
+    mapCta: string;
+    /** Group label for the map's type filter. */
+    mapFilterLabel: string;
   };
 }
 

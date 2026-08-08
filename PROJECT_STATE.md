@@ -6217,3 +6217,387 @@ opening hours, affiliate links or packages; no new article; no new design system
 carousel; and no Visit-specific artwork.
 
 No deployment was performed.
+
+---
+
+## 44. The first interactive map — Visit Armenia (August 2026)
+
+`/[locale]/visit` now carries a geographic index of the seven Places. It answers one question —
+*where are the places I can already read about on Armat?* — and deliberately answers no others.
+No article was added, no route was added, nothing was deployed.
+
+`src/data/geo.ts` has said *"Nothing renders these yet"* since §28. It renders them now, and the
+registry needed no change to make that true.
+
+### Library — Leaflet 1.9.4
+
+No map library existed. The choice was between MapLibre GL JS and Leaflet, and it was not close for
+these requirements.
+
+**Leaflet, for one decisive reason and three supporting ones.** The decisive one is accessibility:
+Leaflet draws markers as **real DOM elements**, so a marker can be a `<div role="button">` with an
+accessible name, reachable by Tab, activated by Enter, and assertable in Playwright. MapLibre renders
+into a WebGL canvas, where a marker is pixels unless you opt into DOM markers anyway — and §12 of
+the brief says outright not to rely on canvas marker interaction. Choosing Leaflet meant the
+accessible path and the tested path are the *same* path, rather than a fallback bolted beside one.
+
+Supporting: it is **41.7 KB gzipped** against MapLibre's ~200 KB+, and the brief asked for the
+lighter option; raster tiles need no vector style document to host; and there is no API key, no
+proprietary service and no paid tier anywhere in the setup.
+
+**`react-leaflet` was deliberately not added.** It is a second dependency, coupled to React's
+release cycle, and it would have bought nothing here: the component needs custom accessible markers
+and imperative control of selection, which is exactly the layer react-leaflet abstracts away.
+Leaflet is driven directly from one `useEffect`.
+
+| | |
+|---|---|
+| Package | `leaflet` |
+| Version installed | **1.9.4** (`^1.9.4`) |
+| Types | `@types/leaflet` **1.9.22**, devDependency |
+| CSS import required | **Yes** — `leaflet/dist/leaflet.css`, imported by the component |
+| Client bundle | **145.0 KB raw / 41.7 KB gzipped**, in its own chunk |
+| CSS | 10.3 KB raw / 2.6 KB gzipped |
+| External requests | **Yes** — map tiles only (see below) |
+| API key | **No** |
+
+The Tailwind v4 Preflight hazard was checked rather than assumed: Preflight's `img { max-width: 100% }`
+breaks tile rendering, and `leaflet.css` ships `max-width: none !important` for the tile, marker and
+shadow panes (lines 46–57), so the library wins regardless of import order. No override was needed.
+
+### Tile source, and what it does and does not promise
+
+Tiles come from **`https://tile.openstreetmap.org/{z}/{x}/{y}.png`** — the standard raster tile
+service operated by the **OpenStreetMap Foundation**. Attribution is rendered in the map corner, as
+the licence requires.
+
+Stated plainly, because the brief asked for honesty rather than reassurance:
+
+- **A tile request is a third-party request.** It necessarily discloses the reader's IP address and
+  User-Agent to the OSMF's servers, together with the tile coordinates — which is approximately
+  *which part of Armenia the reader is looking at*.
+- **This document does not claim the OSMF collects nothing.** What they log and retain is governed by
+  their own privacy policy and was **not verified here**. No claim either way is being made on their
+  behalf.
+- **There is no unlimited-free guarantee, and none is implied.** The OSM Tile Usage Policy is aimed
+  at modest use, requires attribution and a valid identifying User-Agent, and explicitly reserves the
+  right to throttle or block. It is not a production CDN and must not be treated as one. Self-hosting
+  or a paid provider is the correct answer before meaningful traffic, and is recorded as open below.
+
+**What was done to keep it conservative:**
+
+- **The map is not loaded on page load.** Leaflet is `import()`ed from inside an
+  `IntersectionObserver`, so both the library chunk and the first tile request happen only when a
+  reader actually scrolls to the section. A reader who never reaches it makes **no** third-party
+  request at all. This is a privacy decision first and a performance one second.
+- `maxZoom: 17`, so no request goes deeper than the article content justifies.
+- **No analytics on marker clicks**, none added anywhere in this step.
+- **No geolocation**, ever — see below.
+- Nothing about the reader, the article, or the site's own data is sent anywhere. The only outbound
+  values are tile coordinates.
+- A test enumerates **every** third-party host the page contacts and fails on anything that is not
+  `openstreetmap.org`, so a second external dependency cannot arrive unnoticed.
+
+There is no CSP in this repository to amend, and no middleware — both were checked.
+
+### Data derivation
+
+New module `src/lib/visit-map.ts`, exporting `VisitMapPoint` and `getVisitMapPoints(locale)`.
+
+| Field | Derived from |
+|---|---|
+| `slug` | the article |
+| `lat`, `lon`, `precision` | `PLACE_COORDINATES` via the previously-unused `getPlacePoint` |
+| `placeTypeId` | the article |
+| `title`, `summary` | the **localized** article (`title`, `excerpt`) |
+| `href` | `localePath(locale, article.href)` |
+| `imageSrc` | `getArticleImageSrc` — the media registry |
+
+**Nothing is authored.** No title, summary, coordinate, image path or type label is written in the
+map component or in any map config. `Article` was not modified, and no map-specific content database
+exists. A test walks every field of every point back to the registry it came from, in all three
+editions, which is what makes that claim checkable rather than aspirational.
+
+The **inclusion rule is a derivation, not an allow-list**: `places articles ∩ PLACE_COORDINATES`.
+There is deliberately no second seven-slug array — it would be a third place to remember when the
+eighth place ships, and the two would disagree in silence.
+
+A Place with no coordinate is **excluded by an explicit documented rule**, not rendered at `0,0` and
+not thrown on. The reasoning is written into the module: `validate:content` already fails on any
+Places article missing from the registry and rejects `0, 0` by name as the placeholder pair, and a
+test asserts the map returns one point per Places article — so a silently shortened map fails, while
+a render-time throw would merely move a data failure into an unrelated production build.
+
+### The seven places, and `area` vs `site`
+
+All seven: khor-virap, etchmiadzin-cathedral, erebuni-fortress, matenadaran, lake-sevan,
+garni-temple, geghard-monastery.
+
+Worth noting: the map shows **all seven**, while the curated row above it shows six. That divergence
+is the intent, not a bug — the row is an editorial pick, the map is coverage, and Etchmiadzin being
+on the map while not being in the row is exactly the difference between the two questions they
+answer. (This forced a genuine correction to a §43 test; see below.)
+
+`precision` travels with every point rather than being discarded at the boundary. Lake Sevan is the
+one `area` entry — a centroid of an L-shaped lake, not a place anyone stands — and it appears as one
+marker for the lake article, as specified. **No polygons were added.** The distinction is asserted
+per slug, so a future `area` place cannot quietly inherit `site` semantics.
+
+### Markers
+
+One shared pin for all seven, differentiated by a small glyph drawn inside it, keyed on the existing
+`placeTypeId`: a dome for `monastery`, a column for `historical`, an open book for `museum`, two
+waves for `nature`. Inline SVG paths — **no emoji**, no seven bespoke icons, and no second taxonomy.
+
+**Colour is never the only channel.** Every marker's accessible name is `"{title} — {type label}"`,
+and the list below the map repeats the type as text beside every place. A type with no glyph falls
+back to the bare pin rather than to a wrong one, which is what should happen the day a sixth type
+arrives. There are no permanent text labels on the map.
+
+### Selection
+
+Clicking or pressing Enter on a marker selects that place. The panel shows the registered image, the
+localized title, the article excerpt, the place-type label from `placeTypes`, and a link reading
+*"Learn about this place"* pointing at the canonical, locale-correct route.
+
+It shows **no** opening hours, prices, distance, travel time, directions, reviews, ratings or live
+conditions — pinned as absent by test.
+
+Selection is **ephemeral UI state**. There is no `?place=` parameter and no router involvement:
+§21 asked for none, and adding one would have meant history entries for hovering over a map.
+
+### Desktop and mobile
+
+Desktop is **map plus a side panel** in a `lg:grid-cols-[minmax(0,1fr)_21rem]` grid — the panel sits
+beside the map rather than over it, so nothing is obscured and there is no split-pane application.
+Below `lg` the same grid stacks: map first, selected-place panel directly beneath it. No bottom
+sheet, since the project has no such pattern.
+
+Verified at **360, 390, 768 and 1440px in all three editions**, with the map actually mounted before
+measuring — an unmounted container is an empty div and would have proved nothing. No horizontal
+overflow at any width. Filter chips are ≥32px tall and the map is ≥200px tall on a 360px phone,
+both asserted.
+
+`scrollWheelZoom` is **off**. A map that swallows the wheel in the middle of a long editorial page is
+the single most complained-about map behaviour; the zoom buttons and pinch-zoom remain.
+
+### Accessibility and progressive enhancement
+
+The map is an **enhancement**, and the page is complete without it.
+
+`VisitMap` is a client component, so React still server-renders it: the section heading, the
+explanatory copy, the accessible list of all seven places, their type labels and their article links
+are all in the prerendered HTML **before Leaflet exists**. This is tested the only way that means
+anything — with `javaScriptEnabled: false`, asserting no `.leaflet-container` and all seven article
+links present.
+
+The list is links, not buttons, for exactly that reason: buttons would have needed JavaScript to do
+anything. A keyboard or screen-reader reader can discover every mapped place, read its type, and
+reach its canonical URL **without touching the map at all**.
+
+The map itself is `role="region"` with an accessible name rather than `role="application"`, so
+Leaflet's own keyboard handling stays available without the map ever having to be the only way in.
+It is not a keyboard trap. Markers are focusable (`tabindex="0"`, from Leaflet), carry
+`role="button"`, a name including the place type, and `aria-pressed` for the selected state. The
+detail panel is a **single** `aria-live="polite"` region — enough that a selection is noticed, not so
+much that panning narrates itself.
+
+### Localization
+
+Eight new copy fields in `pages.visit`, complete in `hy`, `hyw` and `en`: eyebrow, title,
+description, map region label, list heading, empty-state prompt, CTA and filter group label.
+
+**No place-type translation was duplicated.** The map's filter and its labels read
+`getPlaceTypes(locale)` — the listing's own `placeTypes`, `all` included — so "Monasteries and
+churches" exists once. `validateStaticPages` already loops every field of the `visit` block, so the
+new fields inherited non-empty validation without the validator changing shape.
+
+Western Armenian uses classical orthography throughout (`եւ`, `-ութիւն`, `կը`/`կ՚`, `-ներու`,
+imperatives in `-էք`). **All of it is newly authored and flagged for native review**, listed below.
+
+### Map and type-filter integration
+
+The map has a lightweight local filter over the same four types plus All, reusing `placeTypes` ids
+and labels. Selecting a type hides non-matching markers **and** the corresponding list entries, so
+the map and its accessible equivalent always agree. A selection hidden by a filter is cleared rather
+than left as a stale card.
+
+**The existing "Explore by type" links are untouched** — still four real links to
+`/places?type=<id>`, asserted by test. The map filter is an addition to this page, never a
+replacement for the route into the listing, and there are no "map types".
+
+### SEO and structured data — unchanged
+
+No new route. No `/visit/map`, no per-place map route; three paths asserted 404. The canonical URL
+is still `/[locale]/visit` and the sitemap is unchanged.
+
+**Structured data is byte-for-byte the same shape as §43**: Organization + WebSite + WebPage +
+BreadcrumbList, one script, asserted as an exact set. **No `GeoCoordinates`, `Place`,
+`TouristAttraction`, `Map` or `TouristDestination` was added.** The map has seven coordinates and
+that is precisely not a reason to publish them as schema — the page describes articles, not
+destinations. Article JSON-LD was not touched.
+
+### Tests
+
+New file `tests/e2e/visit-map.spec.ts` — **18 desktop tests**, covering all twenty-eight required
+checks. The suite went from 218 to **236**.
+
+Split deliberately in two. The **derived data** is asserted directly against `getVisitMapPoints` in
+all three editions, because that is where a wrong map actually comes from — a coordinate from the
+wrong registry, a hardcoded title, a slug that is not a Place. Those run in milliseconds and do not
+depend on tiles loading. The **rendered map** is asserted through the DOM, which Leaflet makes
+possible: no pixel geometry is tested anywhere, and no accessibility assertion was weakened because
+the library made it inconvenient.
+
+Three worth naming beyond the required list:
+
+- **`the accessible list is server-rendered…`** runs with JavaScript disabled. It is the only test
+  that can actually prove the progressive-enhancement claim.
+- **`the map asks for no location, plots no route and sells nothing`** instruments
+  `navigator.geolocation` in an init script and asserts the call count is zero. A control can be
+  renamed; a call cannot be disguised.
+- **`the map talks to the tile host and nothing else`** enumerates every third-party hostname the
+  page contacts and fails on anything but `openstreetmap.org`.
+
+**One §43 test was superseded rather than deleted.** `no map library or map surface is introduced`
+became `exactly one map library is present, and nothing beyond it`: Leaflet is now expected, and
+Mapbox, MapLibre, OpenLayers, Google Maps, geocoders, routers and Turf are still pinned as absent.
+Deleting it would have been the easy move and would have removed the only thing standing between one
+deliberate dependency and four accidental ones.
+
+### Verification
+
+Run in the prescribed order. Playwright and the production build were **not** run concurrently.
+
+| Step | Command | Result |
+|---|---|---|
+| 1 | port 3002 | clear |
+| 2 | remove `.next` | removed — §43 ended with a build |
+| 3 | `npm run typecheck` | **PASS** — 0 errors |
+| 4 | `npm run validate:content` | **PASS** — 120 entries across 3 locales |
+| 5 | `playwright --project=desktop visit-map.spec.ts` | **FAILED twice before passing** — see below. Final: **18 passed** |
+| 6 | `playwright --project=desktop places.spec.ts` | **PASS** — 47 passed |
+| 7 | `playwright --project=desktop visit.spec.ts` | **FAILED once before passing** — see below. Final: **23 passed** |
+| 8 | `playwright --project=desktop cuisine.spec.ts` | **PASS** — 33 passed |
+| 9 | `npx playwright test` | **PASS** — **236 passed, 5 skipped** |
+| 10 | `npm run build` | **PASS** — **129** prerendered routes, compiled in 4.3s |
+
+**Every deterministic failure, and its fix.** There were three rounds, all mine.
+
+1. **Five map tests failed: markers never appeared.** The tests called `page.goto` and clicked
+   markers without scrolling, and the map is mounted by an `IntersectionObserver`. The lazy mount is
+   a deliberate feature, so the tests were wrong, not the component: an `openMap()` helper now
+   scrolls to the section and waits for `.leaflet-container` — exercising the real reader path
+   rather than working around it. Also applied to the responsive test, which had been measuring
+   overflow against an *unmounted* container and therefore proving nothing.
+
+2. **Six map tests still failed: `[data-slug]` was absent — and this one was a real product bug, not
+   a test bug.** Diagnosed rather than guessed: a throwaway spec dumped the map's DOM and reported
+   `container: true, markerPane: 7, tiles: 12, dataSlug: 0`. Seven pins were on the map and none of
+   them carried a single accessible attribute.
+
+   The cause is an ordering trap in Leaflet's API. `Map.addLayer` defers `onAdd` through `whenReady`
+   until the map has a centre and a zoom. The map was created with no view and `fitBounds` was called
+   *after* the marker loop, so at `addTo()` time every marker's `_icon` was still `null`,
+   `getElement()` returned `null`, and the `if (element)` guard skipped `role`, `aria-label`,
+   `data-slug` and `data-place-type` **silently**. The visible result was a map that looked perfect
+   and was unusable with a keyboard or a screen reader.
+
+   Fixed twice over: `fitBounds` now runs *before* markers are added, and the attributes are applied
+   from a `marker.on("add")` handler as well as inline — because filtering removes and re-adds
+   markers, and `_initIcon` builds a **fresh element** each time, so attributes set once would have
+   survived until the first filter click and then vanished. That second failure had not been reached
+   by any test yet; it was found by reading the fix rather than by waiting for it. The same review
+   added `filter` to the selection effect's dependencies, so a selected pin does not lose its active
+   styling when a reader narrows and widens the map.
+
+3. **Two `visit.spec.ts` tests failed.** `the chosen library renders` did not scroll, same lazy-mount
+   reason. `Etchmiadzin stays behind the all-places link` asserted that Etchmiadzin appears nowhere
+   in `main` — which was correct in §43 and is wrong now, because the map lists every place with a
+   coordinate and that is its job. Re-scoped to the curated **cards**, which is the narrower thing
+   the test was always about; the §43 image-count assertion was likewise scoped from `main img` to
+   `main article img`, since Leaflet's tiles are `<img>` elements and an unscoped count now measures
+   the tile grid.
+
+**No failure was retried away, and no assertion was loosened to accommodate the library.**
+
+**The Cuisine hydration flake did not appear.** `cuisine.spec.ts` passed standalone (33) and in the
+full run.
+
+### Bundle and build
+
+129 prerendered routes — **unchanged from §43**, because the map added no route. `/visit` and every
+other page remain statically generated; nothing was converted to a client component beyond the map
+itself, and no `dynamic`/`revalidate` export was introduced.
+
+Leaflet occupies **its own chunk**: 145.0 KB raw / **41.7 KB gzipped**, plus 10.3 KB / 2.6 KB of CSS.
+Because it is reached through `import()` inside the observer, that chunk is **not** part of `/visit`'s
+initial payload and is fetched only when a reader scrolls to the map.
+
+### Existing content — regression check
+
+- **No Places article, coordinate, source, media path, artwork, `placeTypeId` or curated slug array
+  was modified.** `src/data/geo.ts` is unchanged — the map consumes it and nothing more.
+- `places.spec.ts` passes all 47, including the coordinate-registry test that pins every point and
+  the Garni/Geghard separation.
+- Cuisine content untouched; `cuisine.spec.ts` passes all 33.
+- Article structured-data builders untouched; `/visit`'s graph is unchanged.
+- `.claude/settings.json` unchanged.
+
+Files changed: `src/lib/visit-map.ts` (new), `src/components/visit/VisitMap.tsx` (new),
+`tests/e2e/visit-map.spec.ts` (new), `src/app/[locale]/visit/page.tsx`, `src/data/types.ts`,
+`src/data/locales/{en,hy,hyw}/pages.ts`, `tests/e2e/visit.spec.ts`, `package.json`,
+`package-lock.json`, and this document.
+
+### Western Armenian items requiring native review
+
+All map copy is newly authored and unreviewed by a native editor:
+
+1. **«Քարտէս»** for *map*, and **«քարտէսին վրայ»** for "on the map".
+2. **«Դիտել Հայաստանը քարտէսին վրայ»** for "Explore Armenia on the map" — `Դիտել` (view) rather than
+   `Ուսումնասիրել` (study), which felt too heavy for a map heading.
+3. **«նշան»** for *marker*. `նշիչ` was used in the Eastern copy; a reviewer may prefer one in both.
+4. **«Ընտրեցէ՛ք … տեսնելու համար»** as the empty-state instruction.
+5. **«Ծանօթանալ այս վայրին»** for "Learn about this place", matching the `learnCta` register set in §43.
+6. **«Ցուցադրել վայրերը ըստ տեսակի»** for the filter group label.
+7. **«Armat-ի ներկայացուցած վայրերուն քարտէսը»** as the map's accessible name — a genitive plural
+   construction a reviewer should check reads naturally when announced aloud.
+
+### Still open
+
+Carried forward unchanged. Nothing in this list was fixed here.
+
+- **The tile provider — new, and the most important item on this list.** `tile.openstreetmap.org` is
+  governed by a usage policy written for modest traffic and carries no availability guarantee. Before
+  this site has real traffic the base layer should move to a self-hosted or paid provider. The
+  privacy consequence above travels with that decision.
+- **The Matenadaran façade colour**, unchanged since §36.
+- **The Garni stone warmth**, unchanged since §40.
+- **The Garni 4:3 artwork dimensions** — now visible in the map's detail panel as well.
+- **The Geghard photographic register**, recorded in §42.
+- **A dedicated Khor Virap image** — still the only PNG, still 1.4 MB, still byte-identical to
+  `hero-ararat.png`, and now reachable from a third surface.
+- **Erebuni and Matenadaran artwork weight** — 742 KB and 701 KB.
+- **Global media optimisation.**
+- **The Cuisine hydration flake** — `cuisine.spec.ts:355`. Did not reproduce here.
+- **One-directional `relatedSlugs`.**
+- **Western Armenian native review** — longer by the map copy and seven terminology items.
+- **The Bresson and Fagan Garni attribution.**
+- **Wilkinson's Garni source not read directly.**
+- **The Hovannisian ISBN.**
+- **`scratchpad/check.ts` living outside `scripts/`.**
+- **The weak homepage hero-path assertion** — still a substring match.
+- **`settlement`** — declared in the `precision` union and used by no entry; still waits for its
+  first article.
+
+### Deliberately not built
+
+No geolocation of any kind — no "use my location", "near me", distance-from-me, current position or
+permission prompt; asserted by instrumenting the API. No routes, directions, itineraries, travel
+times or lines drawn between places, not even between Garni and Geghard, which are eight kilometres
+apart and editorially linked. No food markers — a dish is not a point on the ground, and no food
+coordinate was invented. No History, Writers or Works markers — only Places qualify. No polygons for
+Lake Sevan. No `?place=` URL state. No second map library, geocoder or routing library. No new
+route, and no map-specific structured data.
+
+No deployment was performed.

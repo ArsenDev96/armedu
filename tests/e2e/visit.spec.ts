@@ -246,9 +246,18 @@ test("every featured place card links to its canonical route and shows its own a
     }
   }
 
-  // Six, not seven: the row is a curation, not a copy of the listing.
+  /*
+    Six, not seven: the row is a curation, not a copy of the listing.
+
+    Scoped to cards rather than to the whole of `main`, which is what §43 could
+    assert and §44 cannot. The map added in §44 lists *every* place with a
+    coordinate — that is its job, it answers "where can I already read about
+    something?" — so Etchmiadzin now legitimately appears further down the page.
+    What must stay true is the narrower thing this test was always about: it has
+    no card in the curated row.
+  */
   await expect(
-    page.locator(`main a[href="/en/places/${NOT_FEATURED}"]`),
+    cards(page).filter({ has: page.locator(`a[href="/en/places/${NOT_FEATURED}"]`) }),
     "Etchmiadzin stays behind the all-places link",
   ).toHaveCount(0);
 });
@@ -364,7 +373,17 @@ test("no artwork placeholder appears anywhere on the visit hub", async ({ page }
     ).toBeVisible();
 
     await expect(page.locator("main svg[role='img']"), locale).toHaveCount(0);
-    await expect(page.locator("main img"), locale).toHaveCount(
+    /*
+      Scoped to the cards, not to `main`.
+
+      §44 put a map on this page and its tiles are `<img>` elements, so an
+      unscoped count now measures the tile grid — a number that depends on
+      viewport size and network timing. `ArticleCard` renders `<Card
+      as="article">`, so `article img` is exactly the curated cards and nothing
+      else; the assertion still says "one image per curated card and not one
+      more", which is what it was always for.
+    */
+    await expect(page.locator("main article img"), locale).toHaveCount(
       FEATURED_PLACES.length + FEATURED_DISHES.length + LEARN_ARTICLES.length,
     );
   }
@@ -582,45 +601,43 @@ test("the journey mints no duplicate routes under /visit", async ({ page }) => {
   }
 });
 
-test("no map library or map surface is introduced", async ({ page }) => {
+test("exactly one map library is present, and nothing beyond it", async ({ page }) => {
   /*
-    Map work is a later step, and the failure mode is a dependency landing
-    "just to try it" and never leaving. Checked in both directions: nothing map
-    shaped in the rendered page, and nothing map shaped in the manifest.
+    §43 pinned this page as map-free — no library, no container, no coordinate in
+    the markup — because map work was a later step and the failure mode was a
+    dependency landing "just to try it" and never leaving.
+
+    §44 is that later step, so the pin is *superseded rather than deleted*, and
+    what it protects is narrowed rather than dropped. One map library is now
+    expected; the rest of the list still is not, and neither is a second one.
+    Deleting this test would have been the easy move and would have removed the
+    only thing standing between one deliberate dependency and four accidental
+    ones.
   */
   await page.goto("/en/visit");
 
-  for (const selector of [
-    ".leaflet-container",
-    ".mapboxgl-map",
-    ".maplibregl-map",
-    ".ol-viewport",
-    ".gm-style",
-    "canvas",
-    "[data-map]",
-  ]) {
+  // The map mounts on scroll, not on load — Leaflet and its tile requests are
+  // deferred until a reader reaches the section. See `VisitMap`.
+  await page.locator("[data-visit-map]").scrollIntoViewIfNeeded();
+  await expect(page.locator(".leaflet-container"), "the chosen library renders").toHaveCount(1);
+
+  for (const selector of [".mapboxgl-map", ".maplibregl-map", ".ol-viewport", ".gm-style"]) {
     await expect(page.locator(selector), `${selector} must not render`).toHaveCount(0);
   }
 
-  const manifest = readFileSync("package.json", "utf8");
+  const manifest = readFileSync("package.json", "utf8").toLowerCase();
+  expect(manifest, "leaflet is the one map dependency").toContain("leaflet");
   for (const dependency of [
-    "leaflet",
     "mapbox",
     "maplibre",
     "openlayers",
-    "ol-",
     "google-map",
     "geojson",
+    "geocod",
+    "routing",
+    "turf",
   ]) {
-    expect(manifest.toLowerCase(), `${dependency} must not be a dependency`).not.toContain(
-      dependency,
-    );
-  }
-
-  // And no coordinate leaked into the markup: `geo.ts` is not read by this page.
-  const html = await page.content();
-  for (const fragment of ["44.7", "40.1", "lat", "lon"]) {
-    expect(html.includes(`"${fragment}`), `${fragment} suggests coordinates rendered`).toBe(false);
+    expect(manifest, `${dependency} must not be a dependency`).not.toContain(dependency);
   }
 });
 

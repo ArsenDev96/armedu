@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/article/Breadcrumbs";
 import { ArticleCard } from "@/components/cards/ArticleCard";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { VisitMap } from "@/components/visit/VisitMap";
 import { ArrowLink, ButtonLink, Section, SectionHeading } from "@/components/ui/primitives";
 import { ALL_FILTER_ID, type CategoryId } from "@/data/types";
 import { getArticlesByCategory, getPlaceTypes, toArticleSummary } from "@/lib/content";
 import { getPages, getStaticAlternates, getUi, localePath, resolveLocale } from "@/lib/i18n";
 import { pageLd, socialImage } from "@/lib/seo";
+import { getVisitMapPoints } from "@/lib/visit-map";
 
 /**
  * The Visit journey — the archive's second entry point.
@@ -150,6 +152,18 @@ export default async function VisitPage({ params }: Params) {
    */
   const types = getPlaceTypes(locale).filter((type) => type.id !== ALL_FILTER_ID);
 
+  /*
+    The map's points, derived from `places articles ∩ PLACE_COORDINATES` — not
+    from the curated six above. The map answers "where can I already read about
+    something?", so it shows every place the archive has, Etchmiadzin included.
+    The two lists differing is the intent, not a bug: one is an editorial pick,
+    the other is coverage.
+
+    Resolved on the server, so the list of places, their names, their types and
+    their article links are all in the prerendered HTML before Leaflet exists.
+  */
+  const mapPoints = getVisitMapPoints(locale);
+
   const crumbs = [
     { label: ui.nav.home, href: localePath(locale, "/") },
     { label: visit.heading },
@@ -188,6 +202,35 @@ export default async function VisitPage({ params }: Params) {
             <ArticleCard key={article.slug} article={article} ui={ui} />
           ))}
         </div>
+      </Section>
+
+      {/*
+        The geographic index, between the curated row and the type controls: it
+        answers "where are these?" about the section just above, and hands the
+        reader into the listing controls just below.
+
+        The heading and copy live here, on the server, rather than inside the
+        client component — so the section has a title and an explanation even if
+        Leaflet never loads. `VisitMap` renders its own accessible list of the
+        same places for the same reason.
+      */}
+      <Section tone="surface">
+        <SectionHeading
+          eyebrow={visit.mapEyebrow}
+          title={visit.mapTitle}
+          description={visit.mapDescription}
+        />
+        <VisitMap
+          points={mapPoints}
+          types={getPlaceTypes(locale)}
+          copy={{
+            regionLabel: visit.mapRegionLabel,
+            listTitle: visit.mapListTitle,
+            selectPrompt: visit.mapSelectPrompt,
+            cta: visit.mapCta,
+            filterLabel: visit.mapFilterLabel,
+          }}
+        />
       </Section>
 
       {/*

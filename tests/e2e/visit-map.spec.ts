@@ -1,0 +1,522 @@
+import { readFileSync } from "node:fs";
+import { expect, test } from "@playwright/test";
+import { getPlaceCoordinateRegistry } from "@/data/geo";
+import { getImageSrc } from "@/lib/media";
+import { getVisitMapPoints } from "@/lib/visit-map";
+import { LOCALES, bundle } from "./helpers";
+
+/**
+ * The Visit hub's map — §44.
+ *
+ * Two kinds of assertion, deliberately separated.
+ *
+ * The **derived data** is tested directly against `getVisitMapPoints`, because
+ * that is where a wrong map actually comes from: a coordinate read from the
+ * wrong registry, a title hardcoded instead of localized, a slug that is not a
+ * Place. Those are exact, fast and independent of whether tiles ever load.
+ *
+ * The **rendered map** is tested through the DOM. Leaflet was chosen partly so
+ * this is possible: its markers are real elements with real accessible names,
+ * not pixels in a WebGL canvas, so marker selection can be asserted rather than
+ * approximated. Nothing here tests pixel geometry, and nothing here weakens an
+ * accessibility assertion because the library made it inconvenient.
+ *
+ * The negative half matters as much as the positive one. A map is where
+ * geolocation, routing, distances and restaurant pins arrive one reasonable-
+ * looking commit at a time, so each is pinned as absent.
+ */
+
+const PLACES = [
+  "khor-virap",
+  "etchmiadzin-cathedral",
+  "erebuni-fortress",
+  "matenadaran",
+  "lake-sevan",
+  "garni-temple",
+  "geghard-monastery",
+] as const;
+
+/** Lake Sevan is the only `area` point — a centroid, not a place anyone stands. */
+const AREA_PLACE = "lake-sevan";
+
+const NOT_MAPPED = {
+  cuisine: ["lavash", "dolma", "khorovats", "gata", "harissa", "ghapama"],
+  history: ["tigran-the-great", "mesrop-mashtots-armenian-alphabet", "adoption-of-christianity"],
+  writers: ["hovhannes-tumanyan", "yeghishe-charents"],
+  works: ["anush", "david-of-sassoun"],
+} as const;
+
+const mapSection = (page: import("@playwright/test").Page) => page.locator("[data-visit-map]");
+
+/**
+ * Scroll to the map and wait for it to exist.
+ *
+ * The map is not mounted on load. Leaflet is `import()`ed from inside an
+ * `IntersectionObserver`, so both the library chunk and the third-party tile
+ * requests only happen once a reader actually reaches the section — which is the
+ * behaviour being tested here as much as it is a precondition for testing it.
+ *
+ * Waiting on `.leaflet-container` rather than on a timeout: the map is ready
+ * when Leaflet says it is, and the markers are attached in the same tick.
+ */
+async function openMap(page: import("@playwright/test").Page) {
+  await mapSection(page).scrollIntoViewIfNeeded();
+  await expect(page.locator(".leaflet-container")).toHaveCount(1);
+  await expect(page.locator("[data-slug]").first()).toBeVisible();
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Derived data                                                              */
+/* -------------------------------------------------------------------------- */
+
+test("the map model is derived from the article and coordinate registries", () => {
+  const registry = getPlaceCoordinateRegistry();
+
+  for (const locale of LOCALES) {
+    const points = getVisitMapPoints(locale);
+
+    // Exactly the Places articles — derived, not a second allow-list. This is
+    // also the check that makes the "exclude a place with no coordinate" rule
+    // non-silent: a dropped place shortens this and fails here.
+    expect(points.map((point) => point.slug).sort(), locale).toEqual([...PLACES].sort());
+
+    const articles = bundle(locale).articles;
+
+    for (const point of points) {
+      const article = articles.find((entry) => entry.slug === point.slug);
+      expect(article, `${locale} ${point.slug}`).toBeDefined();
+
+      // Every field traced back to the thing it was derived from.
+      expect(point.title, `${locale} ${point.slug} title`).toBe(article!.title);
+      expect(point.summary, `${locale} ${point.slug} summary`).toBe(article!.excerpt);
+      expect(point.placeTypeId, `${locale} ${point.slug} type`).toBe(article!.placeTypeId);
+      expect(point.href, `${locale} ${point.slug} href`).toBe(`/${locale}${article!.href}`);
+      expect(point.imageSrc, `${locale} ${point.slug} image`).toBe(getImageSrc(point.slug));
+
+      const coordinate = registry[point.slug];
+      expect(coordinate, `${locale} ${point.slug} coordinate`).toBeDefined();
+      expect(point.lat, `${locale} ${point.slug} lat`).toBe(coordinate.lat);
+      expect(point.lon, `${locale} ${point.slug} lon`).toBe(coordinate.lon);
+      expect(point.precision, `${locale} ${point.slug} precision`).toBe(coordinate.precision);
+
+      // Null Island — the placeholder pair, rejected here as well as in
+      // `validate:content`, because this is the value a broken derivation
+      // produces and a map would plot it in the Gulf of Guinea without complaint.
+      expect(point.lat === 0 && point.lon === 0, `${locale} ${point.slug} is 0,0`).toBe(false);
+    }
+  }
+});
+
+test("precision travels with the point, and Lake Sevan stays an area", () => {
+  const points = getVisitMapPoints("en");
+
+  for (const point of points) {
+    expect(point.precision, point.slug).toBe(point.slug === AREA_PLACE ? "area" : "site");
+  }
+});
+
+test("the map titles are localized, not the default edition's", () => {
+  /*
+    The failure this catches is a map that reads its labels from one bundle and
+    is rendered in another — which looks entirely correct in `en` and shows
+    English names on the Armenian page.
+  */
+  const en = getVisitMapPoints("en");
+  const hy = getVisitMapPoints("hy");
+  const hyw = getVisitMapPoints("hyw");
+
+  for (const point of en) {
+    const armenian = hy.find((entry) => entry.slug === point.slug)!;
+    const western = hyw.find((entry) => entry.slug === point.slug)!;
+    expect(armenian.title, `${point.slug} hy`).not.toBe(point.title);
+    expect(western.title, `${point.slug} hyw`).not.toBe(point.title);
+    // Coordinates are locale-invariant by construction and must not differ.
+    expect(armenian.lat).toBe(point.lat);
+    expect(western.lon).toBe(point.lon);
+  }
+});
+
+test("only Places are mapped — no dish, person, work or event becomes a marker", () => {
+  const slugs = new Set(getVisitMapPoints("en").map((point) => point.slug));
+
+  for (const [category, entries] of Object.entries(NOT_MAPPED)) {
+    for (const slug of entries) {
+      expect(slugs.has(slug), `${slug} (${category}) must not be a marker`).toBe(false);
+    }
+  }
+
+  // And every mapped slug really is a Places article in the bundle.
+  for (const slug of slugs) {
+    const article = bundle("en").articles.find((entry) => entry.slug === slug);
+    expect(article?.category, slug).toBe("places");
+  }
+});
+
+/* -------------------------------------------------------------------------- */
+/*  Rendering, in every edition                                               */
+/* -------------------------------------------------------------------------- */
+
+for (const locale of LOCALES) {
+  test(`[${locale}] the visit hub renders the map section and its seven places`, async ({
+    page,
+  }) => {
+    const copy = bundle(locale).pages.visit;
+    await page.goto(`/${locale}/visit`);
+
+    await expect(page.getByRole("heading", { name: copy.mapTitle, level: 2 })).toBeVisible();
+    await expect(mapSection(page)).toHaveCount(1);
+
+    // The non-map list carries all seven, with a locale-correct link each.
+    const list = mapSection(page).locator("[data-map-list] li");
+    await expect(list).toHaveCount(PLACES.length);
+
+    for (const slug of PLACES) {
+      const link = mapSection(page).locator(`[data-map-list-item="${slug}"]`);
+      await expect(link, `${locale} ${slug}`).toHaveCount(1);
+      await expect(link, `${locale} ${slug}`).toHaveAttribute("href", `/${locale}/places/${slug}`);
+    }
+  });
+}
+
+test("the accessible list is server-rendered, so the places survive without JavaScript", async ({
+  browser,
+}) => {
+  /*
+    The progressive-enhancement guarantee, tested the only way that means
+    anything: with JavaScript switched off. Leaflet cannot run, so there is no
+    map — and all seven places, their names, their types and their article links
+    must still be on the page.
+  */
+  const context = await browser.newContext({ javaScriptEnabled: false });
+  const page = await context.newPage();
+
+  await page.goto("/en/visit");
+
+  await expect(page.locator(".leaflet-container"), "no map without JS").toHaveCount(0);
+
+  for (const slug of PLACES) {
+    const link = page.locator(`[data-map-list-item="${slug}"]`);
+    await expect(link, slug).toHaveCount(1);
+    await expect(link, slug).toHaveAttribute("href", `/en/places/${slug}`);
+  }
+
+  // The heading and the explanation are server copy too, not something the map
+  // draws once it loads.
+  const copy = bundle("en").pages.visit;
+  await expect(page.getByRole("heading", { name: copy.mapTitle, level: 2 })).toBeVisible();
+  await expect(page.getByText(copy.mapDescription)).toBeVisible();
+
+  await context.close();
+});
+
+test("every marker is a real, named control carrying its own type", async ({ page }) => {
+  await page.goto("/en/visit");
+  await openMap(page);
+
+  const types = bundle("en").placeTypes;
+  const markers = page.locator("[data-slug]");
+  await expect(markers).toHaveCount(PLACES.length);
+
+  for (const slug of PLACES) {
+    const marker = page.locator(`[data-slug="${slug}"]`);
+    await expect(marker, slug).toHaveCount(1);
+    await expect(marker, slug).toHaveAttribute("role", "button");
+
+    // The type is in the accessible name, so shape and colour are never the
+    // only carrier of what kind of place this is.
+    const article = bundle("en").articles.find((entry) => entry.slug === slug)!;
+    const label = types.find((type) => type.id === article.placeTypeId)!.label;
+    await expect(marker, slug).toHaveAttribute("aria-label", `${article.title} — ${label}`);
+
+    // Focusable without a mouse: Leaflet's own keyboard support, kept on.
+    await expect(marker, slug).toHaveAttribute("tabindex", "0");
+  }
+});
+
+/* -------------------------------------------------------------------------- */
+/*  Selection                                                                 */
+/* -------------------------------------------------------------------------- */
+
+test("selecting a marker reveals that place, and never a neighbour's", async ({ page }) => {
+  const copy = bundle("en").pages.visit;
+  await page.goto("/en/visit");
+  await openMap(page);
+
+  const panel = mapSection(page).locator("[aria-live='polite']");
+  await expect(panel).toContainText(copy.mapSelectPrompt);
+
+  /*
+    Garni and Geghard, in both directions.
+
+    They are eight kilometres apart in the same valley, they link to each other,
+    and they sit next to each other in the registry — so a selection handler off
+    by one index, or a marker bound to the wrong slug, produces a card that looks
+    entirely plausible. This is the pair that catches it.
+  */
+  for (const [chosen, mustNotShow] of [
+    ["garni-temple", "geghard-monastery"],
+    ["geghard-monastery", "garni-temple"],
+  ] as const) {
+    const article = bundle("en").articles.find((entry) => entry.slug === chosen)!;
+    const other = bundle("en").articles.find((entry) => entry.slug === mustNotShow)!;
+
+    await page.locator(`[data-slug="${chosen}"]`).click();
+
+    await expect(panel, chosen).toContainText(article.title);
+    await expect(panel, `${chosen} must not show ${mustNotShow}`).not.toContainText(other.title);
+
+    // The card links to the chosen place's own canonical route, locale intact.
+    const cta = panel.getByRole("link", { name: copy.mapCta, exact: true });
+    await expect(cta, chosen).toHaveAttribute("href", `/en/places/${chosen}`);
+
+    // And shows its own registered artwork, not the neighbour's.
+    const own = getImageSrc(chosen)!.split("/").pop()!;
+    const neighbour = getImageSrc(mustNotShow)!.split("/").pop()!;
+    await expect(panel.locator("img"), chosen).toHaveAttribute(
+      "src",
+      new RegExp(own.replace(".", "\\.")),
+    );
+    await expect(
+      panel.locator(`img[src*="${neighbour}"]`),
+      `${chosen} must not borrow ${mustNotShow}`,
+    ).toHaveCount(0);
+  }
+});
+
+test("every place can be selected and shows its own image", async ({ page }) => {
+  test.slow();
+  await page.goto("/en/visit");
+  await openMap(page);
+
+  const panel = mapSection(page).locator("[aria-live='polite']");
+
+  for (const slug of PLACES) {
+    await page.locator(`[data-slug="${slug}"]`).click();
+
+    const article = bundle("en").articles.find((entry) => entry.slug === slug)!;
+    await expect(panel, slug).toContainText(article.title);
+
+    const own = getImageSrc(slug)!.split("/").pop()!;
+    await expect(panel.locator("img"), `${slug} artwork`).toHaveAttribute(
+      "src",
+      new RegExp(own.replace(".", "\\.")),
+    );
+
+    // No other place's file in the panel at the same time.
+    for (const other of PLACES) {
+      if (other === slug) continue;
+      const borrowed = getImageSrc(other)!.split("/").pop()!;
+      await expect(
+        panel.locator(`img[src*="${borrowed}"]`),
+        `${slug} must not show ${other}`,
+      ).toHaveCount(0);
+    }
+  }
+});
+
+/* -------------------------------------------------------------------------- */
+/*  Type filter                                                               */
+/* -------------------------------------------------------------------------- */
+
+test("the map filter reuses the listing taxonomy and leaves the /places links alone", async ({
+  page,
+}) => {
+  await page.goto("/en/visit");
+  await openMap(page);
+
+  const types = bundle("en").placeTypes;
+
+  // Same ids and same labels as the listing — a view control, not a taxonomy.
+  for (const type of types) {
+    const button = mapSection(page).locator(`[data-map-filter="${type.id}"]`);
+    await expect(button, type.id).toHaveCount(1);
+    await expect(button, type.id).toHaveText(type.label);
+  }
+
+  // Narrowing to monasteries leaves the three monasteries on the map and in the
+  // list, and removes the rest from both — the two must agree.
+  await mapSection(page).locator('[data-map-filter="monastery"]').click();
+
+  const monasteries = bundle("en")
+    .articles.filter((entry) => entry.category === "places" && entry.placeTypeId === "monastery")
+    .map((entry) => entry.slug);
+  expect(monasteries.length, "the fixture should have more than one monastery").toBeGreaterThan(1);
+
+  await expect(mapSection(page).locator("[data-map-list] li")).toHaveCount(monasteries.length);
+  await expect(mapSection(page).locator('[data-slug][data-place-type="nature"]')).toHaveCount(0);
+  for (const slug of monasteries) {
+    await expect(mapSection(page).locator(`[data-map-list-item="${slug}"]`), slug).toHaveCount(1);
+  }
+
+  // Back to all.
+  await mapSection(page).locator('[data-map-filter="all"]').click();
+  await expect(mapSection(page).locator("[data-map-list] li")).toHaveCount(PLACES.length);
+
+  /*
+    And the existing "Explore by type" section is untouched: still four links to
+    `/places?type=`, not replaced by map-only controls. The map filter is an
+    addition to this page, not a substitute for the route into the listing.
+  */
+  for (const id of ["monastery", "historical", "museum", "nature"]) {
+    await expect(
+      page.locator(`main a[href="/en/places?type=${id}"]`),
+      `${id} listing link`,
+    ).toHaveCount(1);
+  }
+});
+
+/* -------------------------------------------------------------------------- */
+/*  What must not exist                                                       */
+/* -------------------------------------------------------------------------- */
+
+test("the map asks for no location, plots no route and sells nothing", async ({ page }) => {
+  /*
+    Geolocation is pinned by instrumenting the API rather than by looking for a
+    button: a control could be renamed, but a call to `navigator.geolocation`
+    cannot be disguised. The counter is installed before any script runs.
+  */
+  await page.addInitScript(() => {
+    const w = window as unknown as { __geo: number };
+    w.__geo = 0;
+    const bump = () => {
+      w.__geo += 1;
+    };
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition = bump as never;
+      navigator.geolocation.watchPosition = (() => {
+        bump();
+        return 0;
+      }) as never;
+    }
+  });
+
+  await page.goto("/en/visit");
+  await openMap(page);
+  await page.locator('[data-slug="garni-temple"]').click();
+
+  expect(
+    await page.evaluate(() => (window as unknown as { __geo: number }).__geo),
+    "geolocation must never be called",
+  ).toBe(0);
+
+  // No locate control, no routing surface, no drawn line between places.
+  for (const selector of [
+    ".leaflet-control-locate",
+    ".leaflet-routing-container",
+    "[data-locate]",
+    "[data-route]",
+    ".leaflet-overlay-pane path",
+    ".leaflet-overlay-pane polyline",
+  ]) {
+    await expect(page.locator(selector), `${selector} must not exist`).toHaveCount(0);
+  }
+
+  const text = ((await page.locator("main").textContent()) ?? "").toLowerCase();
+  for (const banned of [
+    "my location",
+    "near me",
+    "directions",
+    "travel time",
+    "distance",
+    "km away",
+    "opening hours",
+    "book now",
+  ]) {
+    expect(text, `"${banned}" does not belong on this map`).not.toContain(banned);
+  }
+});
+
+test("the map talks to the tile host and nothing else", async ({ page }) => {
+  /*
+    Every third-party request the page makes, enumerated rather than assumed.
+    The tile host is expected and documented in §44; anything else appearing
+    here would be a network call nobody decided to make.
+  */
+  const external: string[] = [];
+  page.on("request", (request) => {
+    const url = new URL(request.url());
+    if (url.hostname !== "localhost" && url.hostname !== "127.0.0.1") external.push(url.hostname);
+  });
+
+  await page.goto("/en/visit");
+  await openMap(page);
+  await page.locator('[data-slug="lake-sevan"]').click();
+  await page.waitForTimeout(1_500);
+
+  const hosts = [...new Set(external)];
+  for (const host of hosts) {
+    expect(host, `unexpected third-party host: ${hosts.join(", ")}`).toMatch(
+      /(^|\.)openstreetmap\.org$/,
+    );
+  }
+});
+
+test("the map adds no route to the site", async ({ page }) => {
+  for (const path of ["/en/visit/map", "/en/map", "/en/visit/places/garni-temple"]) {
+    const response = await page.goto(path);
+    expect(response?.status(), `${path} must not exist`).toBe(404);
+  }
+});
+
+/* -------------------------------------------------------------------------- */
+/*  Responsive                                                                */
+/* -------------------------------------------------------------------------- */
+
+test("the map section fits every width, in every edition", async ({ page }) => {
+  test.slow();
+
+  for (const width of [360, 390, 768, 1440]) {
+    await page.setViewportSize({ width, height: 900 });
+
+    for (const locale of LOCALES) {
+      await page.goto(`/${locale}/visit`);
+      // Measure with the map actually mounted — an unmounted container is an
+      // empty div and would prove nothing about the widest thing on the page.
+      await openMap(page);
+
+      const overflow = await page.evaluate(
+        () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
+      );
+      expect(overflow, `${locale} at ${width}px overflows horizontally`).toBeLessThanOrEqual(0);
+    }
+  }
+});
+
+test("the map container is a reasonable size on a phone and the filters are tappable", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 360, height: 780 });
+  await page.goto("/en/visit");
+  await openMap(page);
+
+  const container = mapSection(page).locator("[role='region']");
+  const box = await container.boundingBox();
+  expect(box, "the map has a box").not.toBeNull();
+  expect(box!.width, "fits the viewport").toBeLessThanOrEqual(360);
+  expect(box!.height, "tall enough to read").toBeGreaterThan(200);
+
+  // Touch targets: the filter chips are the smallest controls in this section.
+  const chip = mapSection(page).locator('[data-map-filter="monastery"]');
+  const chipBox = await chip.boundingBox();
+  expect(chipBox!.height, "filter chip height").toBeGreaterThanOrEqual(32);
+});
+
+/* -------------------------------------------------------------------------- */
+/*  Dependency                                                                */
+/* -------------------------------------------------------------------------- */
+
+test("one map dependency, pinned by name", () => {
+  const manifest = JSON.parse(readFileSync("package.json", "utf8")) as {
+    dependencies: Record<string, string>;
+    devDependencies: Record<string, string>;
+  };
+
+  expect(Object.keys(manifest.dependencies)).toContain("leaflet");
+  expect(Object.keys(manifest.devDependencies)).toContain("@types/leaflet");
+
+  // No second map, no geocoder, no router — the three things that arrive next.
+  const all = Object.keys({ ...manifest.dependencies, ...manifest.devDependencies }).join(" ");
+  for (const forbidden of ["maplibre", "mapbox", "openlayers", "geocod", "routing", "turf"]) {
+    expect(all, `${forbidden} must not be installed`).not.toContain(forbidden);
+  }
+});
