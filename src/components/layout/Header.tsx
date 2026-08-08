@@ -187,7 +187,14 @@ export function Header({ locale, nav, ui }: HeaderProps) {
   };
 
   const current = LOCALES.find((entry) => entry.code === locale) ?? LOCALES[0];
-  const barNav = nav.filter((item) => !item.drawerOnly);
+  /*
+    The bar stays at six items. A journey is not a seventh section — see
+    `NavItem.journey` and the width note below — so it is filtered out here and
+    rendered as an action beside the search and edition controls instead. The
+    drawer maps the whole `nav` array and picks it up without special-casing.
+  */
+  const barNav = nav.filter((item) => !item.drawerOnly && !item.journey);
+  const journey = nav.find((item) => item.journey);
 
   return (
     <header
@@ -305,6 +312,26 @@ export function Header({ locale, nav, ui }: HeaderProps) {
           </nav>
 
           <div className="flex items-center gap-1.5 sm:gap-2">
+            {/*
+              The Visit journey, rendered as an action rather than a nav item.
+
+              It is a filled pill next to the icon buttons, so it reads as
+              something to do rather than as a seventh place to browse — the
+              distinction the whole two-journey split exists to make. It appears
+              at `lg` alongside the horizontal nav and is absent below it, where
+              the drawer already carries it as its second entry; adding a fourth
+              control to a 360px bar would have cost more than it gave.
+            */}
+            {journey ? (
+              <Link
+                href={journey.href}
+                aria-current={isActive(journey.href) ? "page" : undefined}
+                className="hidden rounded-full bg-burgundy px-3.5 py-1.5 text-sm font-semibold whitespace-nowrap text-white shadow-[0_10px_24px_-14px_rgba(123,44,55,0.9)] transition hover:bg-burgundy-dark lg:inline-flex xl:px-4 xl:py-2"
+              >
+                {journey.shortLabel ?? journey.label}
+              </Link>
+            ) : null}
+
             <button
               ref={searchButtonRef}
               type="button"

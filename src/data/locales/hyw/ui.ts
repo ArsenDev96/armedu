@@ -34,6 +34,8 @@ export const ui: UiDictionary = {
     worksShort: "Գրական երկեր",
     cuisineShort: "Խոհանոց",
     places: "Վայրեր",
+    visit: "Այցելել Հայաստան",
+    visitShort: "Այցելել",
     contact: "Կապ",
     privacy: "Գաղտնիութեան քաղաքականութիւն",
     search: "Փնտռում",

@@ -1036,7 +1036,7 @@ function validateFilterCoverage(
 }
 
 function validateStaticPages(locale: Locale, content: LocaleContent, report: Report): void {
-  const { about, contact, privacy } = content.pages;
+  const { about, contact, privacy, visit } = content.pages;
   const check = (ok: boolean, id: string, message: string, field?: string) =>
     report.check(ok, locale, "page", id, message, field);
 
@@ -1062,6 +1062,29 @@ function validateStaticPages(locale: Locale, content: LocaleContent, report: Rep
       `section "${section.heading}" is missing a heading or body.`,
       "sections",
     );
+  }
+
+  check(
+    filled(visit.title) && filled(visit.metaDescription),
+    "visit",
+    "missing title or metaDescription.",
+  );
+  // The Visit page is the one static page whose H1 is not its `title`: the title
+  // is written for a results page and the heading has to stay short. Authoring
+  // them the same way is the mistake this catches, and it is invisible on the
+  // rendered page — a heading reading "Visit Armenia: Places, Nature & Food"
+  // looks like a decision rather than a copy-paste.
+  check(
+    filled(visit.heading) && visit.heading !== visit.title,
+    "visit",
+    "heading must be present and must differ from the SEO title.",
+    "heading",
+  );
+  check(filled(visit.lead), "visit", "has no lead paragraph.", "lead");
+  // Every remaining field is a heading or a call to action, and an empty one
+  // renders as a section with no name or a link with no label.
+  for (const [field, value] of Object.entries(visit)) {
+    check(filled(value), "visit", `field "${field}" is empty.`, field);
   }
 }
 

@@ -116,4 +116,30 @@ export const pages: StaticPagesContent = {
       },
     ],
   },
+  visit: {
+    title: "Visit Armenia: Places, Nature & Food",
+    metaDescription:
+      "Discover places to visit in Armenia, from historic monasteries and ancient sites to Lake Sevan, museums and traditional Armenian food.",
+    heading: "Visit Armenia",
+    lead: "Discover Armenia through historic places, landscapes, monasteries, museums and food. Everything here links into the archive, so you can read about a site before you stand in front of it.",
+    placesEyebrow: "Where to begin",
+    placesTitle: "Places to discover",
+    placesDescription:
+      "Six sites that between them cover most of what the country is known for: a classical temple, two monasteries, a fortress, a manuscript collection and a mountain lake.",
+    placesCta: "Explore all places",
+    typesEyebrow: "By kind of site",
+    typesTitle: "Explore by type",
+    typesDescription:
+      "The same four groups the places listing filters by. Each one opens the full listing with that filter applied.",
+    foodEyebrow: "At the table",
+    foodTitle: "Armenian food to try",
+    foodDescription:
+      "Four dishes of four different kinds — a bread, a main dish, food from the grill and a sweet — each explained as cooking rather than as a menu.",
+    foodCta: "Explore Armenian cuisine",
+    learnEyebrow: "Context",
+    learnTitle: "Learn before you visit",
+    learnDescription:
+      "Four articles that explain what the places above are evidence of. Each is already linked from the sites it belongs with.",
+    learnCta: "Learn about Armenia",
+  },
 };

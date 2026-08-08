@@ -34,6 +34,8 @@ export const ui: UiDictionary = {
     worksShort: "Literary Works",
     cuisineShort: "Cuisine",
     places: "Places",
+    visit: "Visit Armenia",
+    visitShort: "Visit",
     contact: "Contact",
     privacy: "Privacy Policy",
     search: "Search",

@@ -1024,6 +1024,35 @@ test("the listing renders each registered place's own artwork, and no placeholde
     sources,
     "one image per illustrated place, plus the featured block's repeat",
   ).toHaveLength(ILLUSTRATED.length + 1);
+
+  /*
+    And each card carries its *own* file, checked card by card rather than only
+    across the page.
+
+    Everything above is a set assertion: the right files are all present, nothing
+    else leaked in, the count is exact, no placeholder remains. All four still hold
+    if two cards *swap* covers — Geghard showing Garni's picture while Garni shows
+    Geghard's — and that is precisely the borrowed-neighbour failure this section
+    guards hardest, because the two sit eight kilometres apart in the same valley
+    and are linked from Geghard's own prose. Nothing on the rendered page would
+    reveal it; a listing where every card has a plausible picture looks finished.
+  */
+  for (const slug of ILLUSTRATED) {
+    /*
+      `cards()` is the `article` role, which is what `ArticleCard` renders — not
+      `listitem`, which is the search page's shape. Khor Virap is the featured
+      place and so appears twice on this page, but `FeaturedItem` is not a card,
+      which is why the count below is one rather than two and why the whole-page
+      `sources` length above is `ILLUSTRATED.length + 1`.
+    */
+    const card = cards(page).filter({ has: page.locator(`a[href="/en/places/${slug}"]`) });
+
+    await expect(card, slug).toHaveCount(1);
+    await expect(card.locator("img"), `${slug} card artwork`).toHaveAttribute(
+      "src",
+      fileIn(ARTWORK[slug]),
+    );
+  }
 });
 
 test("a place's search thumbnail renders the artwork", async ({ page }) => {
@@ -1527,6 +1556,15 @@ test("the homepage still renders its own hero, untouched by the places registry"
 /* -------------------------------------------------------------------------- */
 
 test("the place article uses its own SEO fields and advertises every edition", async ({ page }) => {
+  /*
+    The third `LOCALES × PLACES` test to be declared slow, after the two in §42.
+    Twenty-one navigations against a dev server that compiles routes on demand,
+    and §43 added a whole new spec file competing for it — enough to push this
+    one past the 30s global timeout in the full run while it still finishes in
+    six seconds alone. The loop's size is the cost; saying so is the fix.
+  */
+  test.slow();
+
   for (const locale of LOCALES) {
     for (const slug of PLACES) {
       const article = bundle(locale).articles.find((entry) => entry.slug === slug);

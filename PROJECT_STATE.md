@@ -5768,13 +5768,50 @@ time.
 load — and `cuisine.spec.ts` passed in both full runs, including the one where the two places tests
 timed out. No Cuisine code was touched, and the latent flake is carried forward unfixed.
 
+### A second pass over the same step, and the hole it found
+
+The work above was committed as `7302b1d` ("step19") and the whole chain was then re-run against the
+committed tree. Everything held — the asset hashes to the same SHA-256, the registry entry and the
+empty `PENDING_ARTWORK` are as recorded, and steps 3, 4, 6 and 7 passed unchanged.
+
+Re-auditing the twenty-one required assertions one at a time did find a real hole, in the one place
+the first pass had been satisfied with an indirect proof. *"The Geghard listing card uses its own
+WebP"* was covered only at page level: the file appears among the listing's `img` sources, no
+unexpected file appears, the source count is exact, and no placeholder remains. All four of those
+still hold **if two cards swap covers** — Geghard's card showing Garni's picture while Garni's shows
+Geghard's — which is precisely the borrowed-neighbour failure this section guards hardest, the two
+sitting eight kilometres apart in the same valley and linked from Geghard's own prose. A listing
+where every card carries a plausible picture looks finished.
+
+So the listing test gained a per-card loop that pins each place's card to its own file by the card's
+own href. The file's test count is unchanged at 47; one existing test got stricter.
+
+**That addition failed on its first execution, deterministically, and the failure was mine.**
+`1 failed, 46 passed` — `expect(locator).toHaveCount(1)` received `0`, for `khor-virap` and so for
+every slug after it. The locator had been written as `getByRole("listitem")`, copied from the search
+assertions, but `ArticleCard` renders `<Card as="article">`: on a listing the cards are the `article`
+role, and `listitem` is the *search page's* shape. The repository already has the right helper —
+`cards()` in `tests/e2e/helpers.ts`, documented as *"Cards are the only `article` role inside a
+results grid"* — so the fix was to use it rather than to invent a selector. Re-run: **47 passed.**
+
+Worth keeping rather than rediscovering: Khor Virap appears twice on that page, as the featured
+place and as a card, but `FeaturedItem` is not a card. That is why the per-card count is one and not
+two, while the whole-page source count above it is `ILLUSTRATED.length + 1`.
+
+The production build was also re-read rather than trusted: `.next/server/app/sitemap.xml.body`
+contains exactly **three** `geghard-monastery.webp` occurrences, one per locale route, which
+confirms requirement 9 against the built artefact and not only against the dev server.
+
 ### Scratchpad
 
-`scratchpad/check.ts` is untracked in the working tree, restored in §41 as a reusable cross-locale
-parity harness. It was **not deleted, moved or modified** here — this was an artwork-only step and
-the file is not part of it. It is recorded below as technical debt: if it is genuinely reusable it
-belongs in `scripts/` with the other tooling, and that migration is a step that owns the scripts
-directory, not this one.
+`scratchpad/check.ts` was restored in §41 as a reusable cross-locale parity harness. It was **not
+deleted, moved or modified** here — this was an artwork-only step and the file is not part of it.
+
+One correction to the record: it was untracked when this section was first written, and commit
+`7302b1d` has since taken it into version control. The debt is therefore no longer "an untracked
+harness" but "a tracked harness in the wrong directory" — a slightly stronger reason to move it,
+since it now ships with the repository. If it is genuinely reusable it belongs in `scripts/` with
+the other tooling; that migration is a step that owns the scripts directory, not this one.
 
 `.claude/settings.json` is **unchanged** — the permission layer added two entries automatically
 during this session and they were reverted, as in §41.
@@ -5815,7 +5852,8 @@ Carried forward unchanged. Nothing in this list was fixed here.
 - **Wilkinson's Garni source not read directly — still open.** No copy of REArm NS 16 is online.
 - **The Hovannisian ISBN — still open.** `9781403966360` catalogues the two-volume set where four
   bibliography entries title it *Volume I*.
-- **`scratchpad/check.ts` location — carried forward, and deliberately not fixed here.** A reusable
+- **`scratchpad/check.ts` location — carried forward, and deliberately not fixed here.** Now tracked
+  as of `7302b1d`, which strengthens rather than settles the case for moving it. A reusable
   harness living in an untracked scratchpad directory. It should migrate to `scripts/` if it is to
   be kept, and be deleted if it is not; either way that decision belongs to a step that owns the
   tooling.
@@ -5824,5 +5862,358 @@ Carried forward unchanged. Nothing in this list was fixed here.
   AI-generated caption is worth re-confirming against the source. Reported, not corrected, and the
   file was not altered.
 - **The remaining place type.** `settlement` still waits for its first article.
+
+No deployment was performed.
+
+---
+
+## 43. Visit Armenia — the second journey (August 2026)
+
+The archive now has two entry points. `/history`, `/places`, `/writers`, `/works` and `/cuisine`
+answer *what is this?*; `/[locale]/visit` answers *what would I go and see?* and then hands the
+reader straight back to those listings.
+
+It is a **curation layer, not a section**. It owns no article, no image, no coordinate and no prose
+about any subject. Every card on it is resolved from the article registry at render time, which is
+why the page's own configuration is three arrays of slugs and nothing else. No article was added, no
+map was added, and nothing was deployed.
+
+### Route
+
+`/[locale]/visit` → `/hy/visit`, `/hyw/visit`, `/en/visit`. One new page file,
+`src/app/[locale]/visit/page.tsx`.
+
+Nothing was created under it. `/visit/places`, `/visit/food`, `/visit/map` and `/visit/guides` do
+**not** exist, and `dynamicParams = false` on the locale layout makes that a 404 rather than merely
+an unlinked path — asserted for seven such paths. The canonical routes are unchanged: a place still
+has exactly one URL, under `/places`.
+
+Prerendered routes went from **126 to 129** — three, which is the whole of the change.
+
+### Navigation — the decision, and why
+
+The header was inspected before anything was added, and it could **not** simply take a seventh bar
+item. Two facts decided it:
+
+- `Header.tsx` documents a measured width budget: six items in Armenian run 520px of the row at
+  1024px, with roughly 175px spare. That is why `Home` was removed from the bar and why four
+  sections use short labels.
+- `header.spec.ts` pins `toBe(6)` on the bar at four widths, and asserts no label wraps and no
+  horizontal overflow in all three editions at 1024px.
+
+So Visit is **not** a seventh nav item. `NavItem` gained a `journey?: boolean` flag; the header
+filters it out of `barNav` and renders it separately as a **filled pill in the right-hand action
+cluster**, beside search and the edition switch. That is the smallest change that satisfies the
+brief: existing category access is untouched, the journey is visually distinct as an *action* rather
+than another thing to browse, there is no header redesign and no mega-menu.
+
+Below `lg` the pill is absent and the **drawer** carries the journey as its second entry, directly
+after Home — the two journeys at the top, then the six sections. The drawer maps the whole `nav`
+array, so it picked the item up without special-casing. The **footer** lists it once, in Explore,
+under the existing "every href appears exactly once" rule.
+
+**A regression was introduced here and caught by the existing tests.** The first implementation put
+the full label «Այցելել Հայաստան» in the pill and pushed the 1024px Armenian header **49px past the
+viewport** — precisely the budget `Header.tsx` warns about. The fix is the mechanism the repository
+already had for this: `ui.nav.visitShort` («Այցելել» / "Visit"), fed through `NavItem.shortLabel`,
+plus slightly tighter pill padding below `xl`. The drawer and footer still show the full name, where
+there is room and no logo beside them to supply the country.
+
+### Page structure
+
+Hero (compact: breadcrumb, one H1, one paragraph, **no image**) → Places to discover → Explore by
+type → Armenian food to try → Learn before you visit.
+
+The sections are deliberately not interchangeable: `paper` / `tinted` / `paper` / `surface` tones,
+three-up default cards for places against four-up compact cards for dishes and context, link chips
+rather than cards for the type controls, and `ArrowLink` CTAs on the first two sections against a
+`ButtonLink` on the last — the one action that leads out of the journey and back into the archive.
+
+No hero image. The homepage hero is the homepage's, and `/hero-ararat.png` is not a generic tourism
+asset; the page takes its visual weight from the cards.
+
+### Curated slugs
+
+```ts
+VISIT_FEATURED_PLACES = garni-temple, geghard-monastery, lake-sevan,
+                        khor-virap, matenadaran, erebuni-fortress
+VISIT_FEATURED_DISHES = lavash, dolma, khorovats, gata
+VISIT_LEARN_ARTICLES  = adoption-of-christianity, kingdom-of-urartu,
+                        mesrop-mashtots-armenian-alphabet, tigran-the-great
+```
+
+**Places — six of seven.** Chosen for spread rather than rank: all four place types are represented,
+and the two types with a second article contribute one each. **Etchmiadzin is the deliberate
+omission** — it is the third `monastery` and would have made half the row one type. It stays one
+click away behind the all-places link, which is the difference between a curated row and a copy of
+the listing. A test asserts its absence, so the omission is a decision rather than a slip.
+
+**Dishes — four kinds, not the first four.** `bread`, `main`, `meat`, `dessert` — four distinct
+`dishTypeId` values, asserted as a set so the row cannot silently become `slice(0, 4)`. Taking the
+array's own order would have given lavash, dolma, khorovats and harissa: the same spread minus the
+sweet, with `ceremonial` doubled once ghapama is counted. `ceremonial` is the one kind not shown,
+and it is the kind with two articles — both reachable through the cuisine CTA.
+
+**Context — four, each already earned.** The rule applied, and now enforced by a test: a learn slug
+must appear in the `relatedSlugs` of at least one featured place. All four do —
+`adoption-of-christianity` (Khor Virap, Geghard, Garni), `kingdom-of-urartu` (Erebuni, Lake Sevan),
+`mesrop-mashtots-armenian-alphabet` (the Matenadaran) and `tigran-the-great` (Khor Virap, Garni).
+Nothing was added to reach four. `bagratid-armenia` (Lake Sevan) is the only other slug that would
+qualify today.
+
+### Data architecture
+
+No parallel Visit database. The page reads `getArticlesByCategory`, `toArticleSummary`,
+`getPlaceTypes`, `getUi`, `getPages`, `localePath` and `getStaticAlternates` — all existing helpers.
+The only Visit-specific data is the three slug arrays above.
+
+Page copy went into `StaticPagesContent.visit`, beside `about`/`contact`/`privacy`, because it is
+page copy rather than interface chrome and because `pageLd` reads `{ title, metaDescription }` off
+that shape directly. It holds headings, a lead and four CTA labels — **no titles, excerpts, images
+or routes**, so nothing on this page can contradict the article it points at. The nav labels
+(`nav.visit`, `nav.visitShort`) went into `UiDictionary`, exactly as `nav.about` does.
+
+`scripts/validate-content.ts` gained a `visit` branch in `validateStaticPages`, in the existing
+idiom: title and metaDescription present, lead present, every field non-empty, and — the one check
+specific to this page — **the heading must differ from the SEO title**. `/visit` is the only static
+page whose H1 is deliberately not its `title`, and authoring them the same way is invisible on the
+rendered page.
+
+### Media
+
+No new artwork, no Visit-specific image, no hardcoded path. Every card resolves through
+`getArticleImageSrc` / `getImageSrc`, so the fourteen images on the page are the same files
+`/places`, `/cuisine` and `/history` serve. `PENDING_ARTWORK` is empty and asserted empty from this
+page's own spec, because curating a pending slug would render a perfectly finished-looking
+placeholder card. No placeholder `<svg>` appears in any edition.
+
+### Explore by type — the decision
+
+The place-type filter **does** have a URL representation: `useListingParams` writes `?type=<id>` with
+`history.pushState` and adopts it from `window.location.search` on mount. It deliberately avoids
+`useSearchParams`/`router.replace`, which would have bailed the page out to client rendering.
+
+So the four controls are **real links** to `/[locale]/places?type=<id>` — semantic, keyboard- and
+middle-click-usable, and honest about what they do. The caveat, recorded rather than papered over:
+the filter is adopted **after hydration**, so the server-rendered HTML at that URL is the unfiltered
+grid. These are therefore not crawlable filtered pages, and **`/places/monasteries` and
+`/places/museums` were not created** — that is a routing change this step was told not to invent.
+
+The labels come from `getPlaceTypes(locale)`, the same list the listing filters by, with `all`
+dropped. **No second taxonomy and no new place type**; a test pins the four ids against the bundle
+so a renamed pill cannot drift.
+
+### Localization
+
+Complete in `hy`, `hyw` and `en`. Taxonomy labels are reused rather than re-translated — the type
+chips read `placeTypes`, so "Monasteries and churches" / «Վանքեր և եկեղեցիներ» / «Վանքեր եւ
+եկեղեցիներ» are the listing's own strings.
+
+Western Armenian uses classical orthography throughout: `եւ` not `և`, `-ութիւն` not `-ություն`,
+`կը`/`կ՚` verb forms, `մը`, `-ներու` genitives, `հոն`, `ուրկէ`. The `hyw` half of
+`validateDictionaries` enforces the first two on UI keys; the page copy in `pages.ts` is outside that
+check, so it was written to the same rule by hand.
+
+**All newly authored Western Armenian Visit copy is flagged for native review** — see the list below.
+No existing article translation was touched.
+
+### SEO
+
+| | |
+|---|---|
+| Title (en) | `Visit Armenia: Places, Nature & Food` |
+| Description (en) | `Discover places to visit in Armenia, from historic monasteries and ancient sites to Lake Sevan, museums and traditional Armenian food.` |
+| H1 | `Visit Armenia` — the short heading, never the SEO title |
+| Canonical | `https://armat.site/{locale}/visit` |
+| hreflang | `hy`, `hyw`, `en`, each pointing at its own `/visit` |
+| x-default | `/hy/visit`, per the existing `withXDefault` convention |
+| Sitemap | `"/visit"` added to `STATIC_PATHS`; three URLs, verified in the built `sitemap.xml.body` |
+
+No `keywords` array. The search-intent guidance shaped the title and description wording; a keywords
+override would also have sat outside `validateKeywordList`, which only loops `CATEGORY_IDS`.
+
+### Structured data
+
+`pageLd` — the primitive about/contact/privacy already use. The page emits exactly one JSON-LD
+script containing **Organization + WebSite + WebPage + BreadcrumbList**, and nothing else.
+
+- **Organization** and **WebSite** because every non-home graph in this repository re-declares them;
+  the layout emits no global graph.
+- **BreadcrumbList** from the same crumb array the visible `<Breadcrumbs>` renders, so the two cannot
+  drift. It ends on the current page with no `item`, as Schema.org expects.
+
+**No `TouristDestination`, `Trip`, `TouristTrip`, `TouristAttraction`, `ItemList`, `Place` or
+`LocalBusiness`.** A discovery page is exactly where those look plausible, and none of them describes
+what a reader can see here: this is an index of articles, not a description of a destination. The
+test collects every `@type` in the graph structurally and asserts the exact set. Article JSON-LD is
+untouched.
+
+### Accessibility and responsive
+
+One H1 per page, asserted. Heading levels never skip — checked by reading every `h1/h2/h3` in `main`
+and asserting no jump greater than one. Card links carry the article title as their accessible name;
+alt text comes from the article data through `ContentPhoto`. The type controls are `<a>` elements in
+a `<ul>`, not click-handling `<div>`s. The header pill is a `Link` with `aria-current="page"` on
+`/visit`, and a test asserts it is the *only* current item in the header — `isActive` is a prefix
+match, so a route sharing a prefix with a category would light the wrong item silently.
+
+Verified at **360, 768 and 1440px in all three editions**, asserting `scrollWidth <= clientWidth`.
+
+**One real overflow was found and fixed at source.** At 360px the `hy` learn CTA rendered a 350px
+button — `ButtonLink` is `whitespace-nowrap`, and the label «Ուսումնասիրել Հայաստանի պատմությունը»
+was a sentence rather than a button label. It had also drifted from the requested "Learn about
+Armenia". Both Armenian labels were shortened to «Ուսումնասիրել Հայաստանը» and «Ծանօթանալ
+Հայաստանին»; the shared primitive was **not** modified and no per-locale width was introduced.
+(`cn()` is a plain join, not `tailwind-merge`, so a className override would not reliably have won —
+worth knowing before anyone tries that route.)
+
+### Tests
+
+New file `tests/e2e/visit.spec.ts` — **23 desktop tests**, covering all twenty-eight required
+checks. The suite went from 195 to **218** passing.
+
+The three curated slug arrays are **copied into the spec rather than imported from the page**.
+Importing them would make the test agree with whatever the page currently says; writing them out is
+what makes a change to the curation a decision someone has to take twice.
+
+Beyond the required list, three tests are worth naming:
+
+- **`every learn card links to a history article that genuinely relates to a featured place`** — the
+  editorial guard. Every learn slug must appear in some featured place's `relatedSlugs`, which is
+  what stops a fourth card being added because a row of three looked thin.
+- **`the visit hub sells nothing`** — the line this page must not cross, pinned as text rather than
+  as intent: no "book", "hotel", "tour package", "price", "opening hours", "restaurant", "where to
+  eat". An educational hub becomes a travel portal one well-meaning section at a time.
+- **`no map library or map surface is introduced`** — checked in both directions: nothing map-shaped
+  in the rendered page (`.leaflet-container`, `.mapboxgl-map`, `.maplibregl-map`, `.ol-viewport`,
+  `.gm-style`, `canvas`, `[data-map]`), and nothing map-shaped in `package.json`.
+
+### Verification
+
+Run in the prescribed order. Playwright and the production build were **not** run concurrently.
+
+| Step | Command | Result |
+|---|---|---|
+| 1 | port 3002 | clear |
+| 2 | remove `.next` | removed — §42 ended with a build |
+| 3 | `npm run typecheck` | **PASS** — 0 errors |
+| 4 | `npm run validate:content` | **PASS** — 120 entries across 3 locales |
+| 5 | `npx playwright test --project=desktop visit.spec.ts` | **FAILED twice before passing** — see below. Final: **23 passed** |
+| 6 | `npx playwright test --project=desktop places.spec.ts` | **PASS** — 47 passed |
+| 7 | `npx playwright test --project=desktop cuisine.spec.ts` | **PASS** — 33 passed |
+| 8 | `npx playwright test` | **FAILED twice before passing** — see below. Final: **218 passed, 5 skipped** |
+| 9 | `npm run build` | **PASS** — **129** prerendered routes, compiled in 4.0s |
+
+**Every deterministic failure, and its fix.** There were four, all mine.
+
+1. **`hy` overflowed 360px by 10px** (step 5). Diagnosed rather than guessed: a throwaway spec
+   measured every element's bounding box against `clientWidth` and named the offender — the learn
+   CTA at 350px wide. Fixed by shortening the two Armenian CTA labels, as described above. The
+   diagnostic spec was deleted afterwards.
+2. **The structured-data test failed on its own naive check** (step 5). It searched the serialized
+   JSON for the substring `"Place"`, which matches this page's own SEO title, *Visit Armenia:
+   Places, Nature & Food*. The graph was correct the whole time. Rewritten to collect every `@type`
+   structurally — including nested `ImageObject` and `ListItem` — and assert the exact set. A test
+   that fails on correct output is a bug in the test, and this one would have been "fixed" next time
+   by weakening the assertion.
+3. **The header overflowed 1024px by 49px in Armenian** (step 8), failing
+   `header.spec.ts:49` and `:81`. A genuine regression from the journey pill, caught by tests that
+   already existed. Fixed with `ui.nav.visitShort` through `NavItem.shortLabel` — the mechanism the
+   repository already had — not by relaxing the assertion. Two Visit tests were then re-scoped to
+   the header's short label, since both had silently been resolving to the footer link.
+4. **`places.spec.ts` "the place article uses its own SEO fields…" timed out** at 30s (step 8),
+   passing in 6.1s alone. It is the third `LOCALES × PLACES` test — twenty-one navigations — and §43
+   added a whole new spec file competing for the same dev server. Declared `test.slow()`, matching
+   the two §42 marked for the identical reason. `retries` stays `0` and the global timeout was not
+   raised.
+
+**One non-deterministic failure, investigated rather than dismissed.** The first execution of
+`visit.spec.ts` after `.next` was removed failed `no artwork placeholder appears anywhere on the
+visit hub`, alongside a dev-server `SyntaxError: Unexpected end of JSON input`. It did not reproduce
+in five targeted repeats, a fresh cold run with `.next` deleted, or any subsequent full run — the
+same cold-compile signature as the documented Cuisine flake. It was **not** retried away: the exact
+image count is still asserted, and the test now waits for the last curated card before counting, so
+the count describes a finished page rather than a mid-compile one. A genuinely missing image still
+fails.
+
+**The Cuisine hydration flake did not appear.** `cuisine.spec.ts` passed standalone (33) and in every
+full run, including the two that failed for other reasons. No Cuisine code was touched.
+
+### Existing content — regression check
+
+- **No article changed, in any edition.** `git diff` shows no change under
+  `src/data/locales/*/articles/`.
+- **No Place was touched**: content, coordinates, source lists, SEO fields and artwork are all
+  unchanged for khor-virap, etchmiadzin-cathedral, erebuni-fortress, matenadaran, lake-sevan,
+  garni-temple and geghard-monastery. `places.spec.ts` still passes all 47.
+- **`ARTWORK_PROVENANCE`, the media registry, article JSON-LD, the Places taxonomy, the coordinate
+  registry and the source registry are unchanged.** `geo.ts` is not imported by the Visit page.
+- Listing counts hold: places 7, cuisine 6, history 7 — asserted from the new spec as well as the old.
+- The homepage still renders `/hero-ararat.png` and picks up no Visit artwork.
+
+Files changed: `src/app/[locale]/visit/page.tsx` (new), `tests/e2e/visit.spec.ts` (new),
+`src/data/types.ts`, `src/data/ui.ts`, `src/data/locales/{en,hy,hyw}/pages.ts`,
+`src/data/locales/{en,hy,hyw}/ui.ts`, `src/lib/navigation.ts`,
+`src/components/layout/Header.tsx`, `src/app/sitemap.ts`, `scripts/validate-content.ts`,
+`tests/e2e/places.spec.ts` (one `test.slow()`), and this document.
+
+`.claude/settings.json` is **unchanged**.
+
+### Western Armenian items requiring native review
+
+All Visit-page `hyw` copy is newly authored and none of it has been read by a native editor. The
+specific judgement calls:
+
+1. **«Այցելել Հայաստան»** as the journey name, and **«Այցելել»** alone in the header. A reviewer may
+   prefer «Այցելութիւն Հայաստան» for the full form.
+2. **«Ծանօթանալ Հայաստանին»** for "Learn about Armenia" — chosen partly for length, since the button
+   must fit 360px. «Ուսումնասիրել» was the first choice and was too long.
+3. **«Ծանօթացէ՛ք»** as the imperative opening both the lead and the meta description.
+4. **«Խորապատկեր»** for the "Context" eyebrow. «Ենթահող» and «Նախապատմութիւն» were considered.
+5. **«Վայրեր՝ ծանօթանալու համար»** for "Places to discover", against the Eastern
+   «Վայրեր՝ բացահայտելու համար».
+6. **«կերակուր»** throughout rather than Eastern «ուտեստ», matching the existing `hyw` `cuisineTypes`.
+7. **«ձեռագիրներու հաւաքածոյ»** for "a manuscript collection".
+8. **«կիրարկուած»** for "applied" (of a filter), and **«զտիչ»** kept from the existing listing copy.
+9. **«ամէնէն ճանչցուած»** for "best known".
+10. **«Սեղանին շուրջ»** for the food eyebrow, "At the table".
+
+### Still open
+
+Carried forward unchanged. Nothing in this list was fixed here.
+
+- **The Matenadaran façade colour**, unchanged since §36.
+- **The Garni stone warmth**, unchanged since §40.
+- **The Garni 4:3 artwork dimensions** — 1448 × 1086 against 1586 × 992 elsewhere. Now visible in one
+  more place: Garni is the first card on the Visit hub.
+- **The Geghard photographic register** — documentary-looking where the rest of the registry is
+  drawn, still captioned AI-generated. Recorded in §42.
+- **A dedicated Khor Virap image** — still the only PNG, still 1.4 MB, still byte-identical to
+  `hero-ararat.png`. The Visit hub now serves it too, which adds weight to a second page.
+- **Erebuni and Matenadaran artwork weight** — 742 KB and 701 KB, both on the Visit hub as well.
+- **Global media optimisation** — unaffected by a step that added no assets, and marginally more
+  worth doing now that fourteen registry images appear on one page.
+- **The Cuisine hydration flake** — `cuisine.spec.ts:355` clicks the nav submenu button directly
+  instead of using `openHeaderPanel`. It did not reproduce here.
+- **One-directional `relatedSlugs`** — `getRelatedArticles` links one way. The Visit hub reads
+  `relatedSlugs` in a test to prove the learn cards are earned, which makes the one-directionality
+  slightly more load-bearing than before, but does not change it.
+- **Western Armenian native review** — now longer by the Visit page and ten terminology items.
+- **The Bresson and Fagan Garni attribution**, unsettled.
+- **Wilkinson's Garni source not read directly.**
+- **The Hovannisian ISBN** — set-level identifier on four volume-level entries.
+- **`scratchpad/check.ts` living outside `scripts/`** — tracked as of `7302b1d`, still in the wrong
+  directory.
+- **The weak homepage hero-path test** — `img[src*="hero-ararat"]` matches a substring, so a switch
+  to `hero-ararat.webp` would still pass. Unresolved, and deliberately not touched here.
+- **The remaining place type** — `settlement` still waits for its first article.
+
+### Deliberately not built
+
+Recorded so the next step does not have to rediscover the boundary: no map of any kind and no map
+dependency; no `/visit/places`, `/visit/food`, `/visit/map` or `/visit/guides`; no
+`/places/monasteries`-style filtered routes; no hotels, bookings, tours, restaurants, prices,
+opening hours, affiliate links or packages; no new article; no new design system, mega-menu or
+carousel; and no Visit-specific artwork.
 
 No deployment was performed.

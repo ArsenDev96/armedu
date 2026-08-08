@@ -55,6 +55,25 @@ export interface UiDictionary {
      * the header falls back to this one.
      */
     places: string;
+    /**
+     * The Visit journey, and the only nav label that is not a content category.
+     *
+     * It names a route rather than a section of the archive: `/visit` curates
+     * places, dishes and background reading that already exist elsewhere. The
+     * header renders it apart from the six category items for that reason — see
+     * the note above the nav in `Header.tsx` — so this label is read by the
+     * journey link and the drawer, never by `shortLabel`.
+     */
+    visit: string;
+    /**
+     * What the header action shows instead of `visit`.
+     *
+     * Same trade as `historyShort` and its siblings, and for the same measured
+     * reason: at 1024px the full Armenian label «Այցելել Հայաստան» pushed the
+     * bar 49px past the viewport. The drawer and the footer show the full label,
+     * where there is room and no logo beside it to supply the country.
+     */
+    visitShort: string;
     contact: string;
     privacy: string;
     search: string;

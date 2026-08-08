@@ -17,7 +17,7 @@ import { getArticleImageSrc } from "@/lib/media";
  * `/` is excluded on purpose: it is a redirect to the default locale, not a
  * content edition of its own.
  */
-const STATIC_PATHS = ["/", "/about", "/contact", "/privacy"];
+const STATIC_PATHS = ["/", "/about", "/contact", "/privacy", "/visit"];
 
 function absolute(path: string): string {
   return `${site.url}${path}`;

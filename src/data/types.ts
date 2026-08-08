@@ -457,6 +457,40 @@ export interface StaticPagesContent {
     lead: string;
     sections: { heading: string; body: string }[];
   };
+  /**
+   * The Visit journey page.
+   *
+   * It sits beside `about`/`contact`/`privacy` rather than in `UiDictionary`
+   * because it is page copy, not interface chrome — the same reason those three
+   * live here — and because `pageLd` reads `{ title, metaDescription }` off this
+   * shape directly.
+   *
+   * Every field is a heading, a lead or a call to action. There is deliberately
+   * no `places`, `dishes` or `articles` array: the page curates by slug in
+   * `visit/page.tsx` and resolves every title, excerpt and image from the
+   * article registry, so nothing here can drift from the articles it points at.
+   */
+  visit: {
+    title: string;
+    metaDescription: string;
+    heading: string;
+    lead: string;
+    placesEyebrow: string;
+    placesTitle: string;
+    placesDescription: string;
+    placesCta: string;
+    typesEyebrow: string;
+    typesTitle: string;
+    typesDescription: string;
+    foodEyebrow: string;
+    foodTitle: string;
+    foodDescription: string;
+    foodCta: string;
+    learnEyebrow: string;
+    learnTitle: string;
+    learnDescription: string;
+    learnCta: string;
+  };
 }
 
 export interface LocaleContent {
