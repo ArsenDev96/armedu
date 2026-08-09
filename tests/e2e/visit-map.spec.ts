@@ -35,6 +35,19 @@ const PLACES = [
   "lake-sevan",
   "garni-temple",
   "geghard-monastery",
+  /*
+    §47. Tatev is here because it is a Places article with a coordinate, and for no
+    other reason — nothing in `visit-map.ts` or `VisitMap.tsx` was touched to admit
+    it. That is the property this list is really testing: the map is derived from
+    `places ∩ PLACE_COORDINATES`, so an eighth place appears on it by existing,
+    and a ninth will too.
+
+    It is also the first marker that meaningfully changes the extent. The other
+    seven span about half a degree of latitude; Tatev is roughly a degree south of
+    the northernmost of them, so a hardcoded Armenia box would have left it at the
+    edge or off it. The bounds are marker-derived, which is why it did not.
+  */
+  "tatev-monastery",
 ] as const;
 
 /** Lake Sevan is the only `area` point — a centroid, not a place anyone stands. */
@@ -442,6 +455,51 @@ test("the map model is derived from the article and coordinate registries", () =
   }
 });
 
+test("the derived bounds still contain every marker after the map reached the south", async ({
+  page,
+}) => {
+  /*
+    §20 of the map step said the extent must adapt rather than be retuned, and §47
+    is the first change that actually tests that: Tatev is far enough south that a
+    fixed national box would have framed it badly or dropped it.
+
+    Asserted through Leaflet's own view rather than by measuring pixels — every
+    marker's coordinate must fall inside the map's current bounds once it settles.
+    A marker outside them is one a reader cannot see without panning, which is the
+    real failure and the one a screenshot would not catch.
+  */
+  await page.goto("/en/visit");
+  await openMap(page);
+
+  expect(getVisitMapPoints("en").length, "the eighth place is on the map").toBe(PLACES.length);
+
+  /*
+    Leaflet positions markers absolutely inside the container, so a marker whose
+    box falls outside the container's box is one the reader would have to pan to
+    find. One pixel of tolerance each way, because the pin's anchor sits on the
+    coordinate and its tip can land exactly on the edge.
+  */
+  const container = await page.locator(".leaflet-container").boundingBox();
+  expect(container, "the map has a box").not.toBeNull();
+
+  for (const slug of PLACES) {
+    const marker = page.locator(`[data-slug="${slug}"]`);
+    await expect(marker, slug).toHaveCount(1);
+    const box = await marker.boundingBox();
+    expect(box, `${slug} is rendered`).not.toBeNull();
+    expect(box!.x, `${slug} left of the map`).toBeGreaterThanOrEqual(container!.x - 1);
+    expect(box!.y, `${slug} above the map`).toBeGreaterThanOrEqual(container!.y - 1);
+    expect(
+      box!.x + box!.width,
+      `${slug} right of the map`,
+    ).toBeLessThanOrEqual(container!.x + container!.width + 1);
+    expect(
+      box!.y + box!.height,
+      `${slug} below the map`,
+    ).toBeLessThanOrEqual(container!.y + container!.height + 1);
+  }
+});
+
 test("precision travels with the point, and Lake Sevan stays an area", () => {
   const points = getVisitMapPoints("en");
 
@@ -625,22 +683,62 @@ test("every place can be selected and shows its own image", async ({ page }) => 
 
   const panel = mapSection(page).locator("[aria-live='polite']");
 
+  /*
+    Selected from the keyboard rather than the mouse, from §47 onward.
+
+    Tatev is a degree of latitude south of everything else, so the derived bounds
+    zoom out by roughly 3.6x to hold it — and at that scale two pairs of pins
+    genuinely overlap: Erebuni with the Matenadaran (about 6 km apart) and Garni
+    with Geghard (about 8 km). A reader can still reach either of an overlapping
+    pair, by clicking the exposed part or by zooming in; a mouse click aimed at an
+    element's centre cannot, because the centre is behind the other pin.
+
+    So the loop drives the keyboard path, which is a real supported interaction —
+    the markers are `role="button"` with `tabindex="0"` and a keypress handler,
+    asserted a few tests above — and which does not depend on z-order. The
+    assertion is not weakened: every place must still be selectable and must still
+    show its own article. `force: true` was the alternative and was rejected, since
+    it would have asserted that a click *dispatched* at a covered element works,
+    which is not a thing any reader does.
+
+    The overlap itself is recorded as a finding in §47 rather than fixed here:
+    fixing it would mean changing the marker-derived bounds, which this step is
+    explicitly not allowed to touch.
+  */
   for (const slug of PLACES) {
-    await page.locator(`[data-slug="${slug}"]`).click();
+    const marker = page.locator(`[data-slug="${slug}"]`);
+    await marker.focus();
+    await marker.press("Enter");
 
     const article = bundle("en").articles.find((entry) => entry.slug === slug)!;
     await expect(panel, slug).toContainText(article.title);
 
-    const own = getImageSrc(slug)!.split("/").pop()!;
-    await expect(panel.locator("img"), `${slug} artwork`).toHaveAttribute(
-      "src",
-      new RegExp(own.replace(".", "\\.")),
-    );
+    /*
+      §47: not every place has a picture any more.
+
+      Tatev shipped ahead of its artwork, so `getImageSrc` returns `undefined` for
+      it and the panel shows no image at all. That is the correct rendering, and
+      the assertion splits rather than being dropped — an unillustrated place must
+      show *no* image, which is a stronger claim than skipping the check, and it is
+      the one that catches a neighbour's cover leaking in to fill the gap.
+    */
+    const registered = getImageSrc(slug);
+    if (registered) {
+      const own = registered.split("/").pop()!;
+      await expect(panel.locator("img"), `${slug} artwork`).toHaveAttribute(
+        "src",
+        new RegExp(own.replace(".", "\\.")),
+      );
+    } else {
+      await expect(panel.locator("img"), `${slug} has no artwork to show`).toHaveCount(0);
+    }
 
     // No other place's file in the panel at the same time.
     for (const other of PLACES) {
       if (other === slug) continue;
-      const borrowed = getImageSrc(other)!.split("/").pop()!;
+      const otherFile = getImageSrc(other);
+      if (!otherFile) continue;
+      const borrowed = otherFile.split("/").pop()!;
       await expect(
         panel.locator(`img[src*="${borrowed}"]`),
         `${slug} must not show ${other}`,

@@ -162,6 +162,30 @@ export const PLACE_COORDINATES: Record<string, PlacePoint> = {
   // property's official name returns — and its point, 40.15889, 44.79667, is
   // Geghard *village*, 2.8 km from the monastery. The monument item is Q499285.
   "geghard-monastery": { lat: 40.1404, lon: 44.8184, precision: "site" },
+  // The monastic complex on its basalt shelf above the Vorotan gorge, by the village
+  // of Tatev, Syunik Province — the first point in this registry south of Lake Sevan,
+  // and by some distance the southernmost.
+  //
+  // OpenStreetMap node 505725848 (`Տաթևի վանք`, tourism=attraction, addressed to
+  // Tatev, Tatev Municipality, Syunik) is at 39.3794315, 46.2501314, rounded to four
+  // places here. Wikidata Q554947 (P625) independently gives 39.379366, 46.250031.
+  // The two agree to about nine metres, which is inside the four-decimal rounding
+  // this file stores and well inside the enclosure, so no adjudication was needed.
+  //
+  // Deliberately not any of these, and the first two are the traps:
+  // the Wings of Tatev aerial tramway — OSM way 109650729 resolves to 39.3989804,
+  // 46.2735973, which is at Shinuhayr some 3 km north-east, and it is what a search
+  // for the site's best-known modern feature returns; Halidzor, the tramway's lower
+  // station across the gorge; Tatev village centre, a settlement point rather than a
+  // site one; the gorge itself, which is an `area` feature and not what this records;
+  // Tatevi Anapat, the seventeenth-century hermitage lower in the same valley, which
+  // shares the Tentative List entry with the monastery and is a genuinely different
+  // monument; the road approach and its parking.
+  //
+  // `site` rather than `area` despite the dramatic setting: the gorge is the context,
+  // the enclosure is the subject, and a reader following this point arrives at the
+  // buildings rather than at the middle of a landscape.
+  "tatev-monastery": { lat: 39.3794, lon: 46.2501, precision: "site" },
 };
 
 /** The recorded position for a place slug, or `undefined` when none is held. */

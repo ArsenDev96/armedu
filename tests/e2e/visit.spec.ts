@@ -354,7 +354,23 @@ test("no artwork placeholder appears anywhere on the visit hub", async ({ page }
     fail differently, and a page that curated a pending slug would render a
     perfectly finished-looking placeholder card.
   */
-  expect(PENDING_ARTWORK, "nothing may be curated while its artwork is pending").toEqual([]);
+  /*
+    §47 narrowed this from "nothing is pending anywhere" to "nothing *curated* is
+    pending", which is what the assertion was always about.
+
+    `PENDING_ARTWORK` was empty when this was written, so the global form was free
+    and read as equivalent. It is not equivalent: Tatev is an eighth place with no
+    picture, and it is deliberately *not* in the curated row — §26 keeps the row at
+    six and the map comprehensive. The global assertion would now fail on a state
+    this page is entirely correct about, which would have made it a test that
+    punishes the archive for growing.
+
+    What must never happen is a curated card rendering a placeholder, because that
+    card looks perfectly finished. That is exactly what this now checks.
+  */
+  for (const slug of [...FEATURED_PLACES, ...FEATURED_DISHES, ...LEARN_ARTICLES]) {
+    expect(PENDING_ARTWORK, `${slug} is curated and must not be pending`).not.toContain(slug);
+  }
 
   for (const locale of LOCALES) {
     await page.goto(`/${locale}/visit`);
@@ -710,9 +726,16 @@ test("every canonical route the journey links into still works", async ({ page }
     expect(response?.status(), `/en/history/${slug}`).toBe(200);
   }
 
-  // The listings themselves, and their counts, which a curation must not touch.
+  /*
+    The listings themselves, and their counts, which a curation must not touch.
+
+    Places moves 7 → 8 in §47. The number is edited rather than derived on purpose:
+    the point of this assertion is that adding a *curated row* to `/visit` does not
+    change what the section listings contain, so it has to be a figure someone
+    updates deliberately when the section genuinely grows.
+  */
   for (const [path, count] of [
-    ["/en/places", 7],
+    ["/en/places", 8],
     ["/en/cuisine", 6],
     ["/en/history", 7],
   ] as const) {

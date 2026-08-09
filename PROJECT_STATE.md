@@ -7197,3 +7197,770 @@ Stadia to OpenStreetMap. No provider-specific types, classes or adapters: there 
 `.env.example`, tests or README. No user-facing privacy notice. No domain registered programmatically.
 
 No deployment was performed.
+
+## 47. Tatev — the eighth place, and the archive reaches the south (August 2026)
+
+Seven places, and all of them within about half a degree of latitude: Etchmiadzin, Erebuni, the
+Matenadaran and Khor Virap around Yerevan and the Ararat plain, Garni and Geghard in one valley east
+of it, Lake Sevan to the north-east. The map §44 built was an accurate picture of the archive and a
+misleading picture of Armenia.
+
+Tatev is the correction. It sits in Syunik, in the far south, on a basalt shelf above the Vorotan
+gorge — and it earns the place on its own merits rather than as geography: it was the episcopal seat
+of its province, the home of the best-known school in medieval Armenia, and it has something almost
+no other Armenian monument has, which is a founder who wrote the start date on the wall in the first
+person.
+
+### Taxonomy
+
+| Filter | Before | After |
+| --- | --- | --- |
+| All | 7 | **8** |
+| Monastery | 3 | **4** |
+| Historical | 2 | 2 |
+| Museum | 1 | 1 |
+| Nature | 1 | 1 |
+
+`placeTypeId: "monastery"`, `featured: false`. **Khor Virap remains the only featured place**, which a
+test asserts by reading the flag rather than the slug. No new place type: a fourth monastery is a
+fourth monastery, and inventing `medieval-school` or `cliff-monastery` to make Tatev feel distinct
+would have been the listing telling a story the taxonomy does not support.
+
+### Structure
+
+Ten sections, `3/3/4/4/4/5/4/4/4/3` paragraphs, 38 in total — the same cadence as Geghard, with
+`keyFacts 6 · importantDates 13 · interestingFacts 5 · significance 2 · relatedFigures 2 ·
+relatedSlugs 3 · section links 3`. The sections are: where it is; the gorge; what stood here before;
+building Saints Paul and Peter; the rest of the complex; the Gavazan; the school called a university;
+Vorotnetsi and Tatevatsi; damage, loss and rebuilding; what to understand before seeing it.
+
+The twelve suggested topics collapsed to ten because two pairs genuinely belong together: the site's
+early religious history is inseparable from the question of what is documented about it, and
+manuscript culture is inseparable from the two men who ran the school.
+
+### The evidence model
+
+The article distinguishes four things throughout, and the distinction is the article:
+
+- **Tradition.** A church of Sts Nerses and Sahak on the rock before the surviving one, and the name
+  derived from the apostle Eustathius — the latter attested by Vardan Arewelts'i in the thirteenth
+  century, so a *medieval* belief rather than a modern invention, which is worth saying precisely
+  because it is still not evidence.
+- **Documentation.** The 839 land deed under Bishop Dawit'; the 895 foundation inscription; the 848
+  church of St Gregory; the 1043 gavit inscription; the 1286 tomb.
+- **Eyewitness.** Tovma Metsopetsi's colophon of 29 November 1406, written at Tatev, describing the
+  earthquake shaking the church, the bell tower and the Gavazan.
+- **Surviving fabric.** Which is mostly not medieval, and the article says so plainly.
+
+Orbelian is the spine of all of it, and the single most useful thing he does is disclaim his own
+evidence: he could not discover who the first bishop was, and writes that of the oldest of them he
+knows nothing, since there are no memorials. **The primary source for Tatev's early history states
+that its early history is undocumented.** That sentence is the article's starting point, and it is
+stronger than any confident date could have been.
+
+### 895 and 906, resolved
+
+The brief asked what those years actually refer to, and they refer to two different kinds of thing.
+
+**895 is documentary.** Orbelian transcribes the inscription: *in the year 344 of the Armenian Era, at
+Easter, which fell on the fourth of Navasard, I, Lord Yovhannes, who succeeded Lord Saghomon as
+bishop of Syunik, began the construction of this church.* Brosset computes the day as 20 April 895.
+
+**906 is arithmetic.** Orbelian says the work was finished in eleven years; Brosset added them in a
+footnote reading *En 906*. There is no inscription bearing 906, and **Orbelian gives the consecration
+no year at all** — he describes the eight-day ceremony and its guests without dating it. Sources that
+call 906 the consecration year have inferred it.
+
+So the article gives 895 as a foundation date and 906 as an approximate completion, marks the second
+as computed in both the timeline and the interesting-facts list, and never turns the span into a
+single event. The two translations also diverge on the clause — Bedrosian reads "after eleven years",
+Brosset "in 11 years" — and the note in `sources.ts` records that, because it is the difference
+between eleven years of building and eleven years of waiting.
+
+### The Gavazan
+
+This was the section most at risk of repeating something confident and wrong, and it is written as
+four graded claims.
+
+**Attested, and not in doubt:** the column moves. A traveller's account of 1858 names it *Gavazan* and
+says it shakes when touched; Brosset in 1864 confirms it still moved when leant on. It responded to
+the 1406 earthquake, by an eyewitness in the building, and to the 1931 one.
+
+**Recorded by the primary source:** Bishop Yovhannes erected it in the name of the Holy Trinity, south
+of the church, of small and large stones, to thirty cubits. That is all Orbelian says. He does not
+mention it moving, and he does not mention it measuring anything. The article notes that thirty
+cubits is considerably more than the eight metres measured today and that nobody has explained the
+gap.
+
+**Modern interpretation, presented as such:** the column rocks on a hinged joint at its base like a
+pendulum, per a 2004 seismological paper, which also says it *could serve* to record seismic
+oscillations and credits that idea to an architectural historian writing in 1962. The article states
+this as a twentieth-century reading of an observed property, offered tentatively — **not** as the
+column's documented purpose.
+
+**Excluded:** the earthquake-detector and medieval-seismograph framings as established fact; the
+warning-of-approaching-cavalry story; and the astronomical-alignment material, which is fringe.
+
+One detail carries more weight than its length. Brosset records that **Hermann Abich — the founding
+geologist of the Caucasus, and a writer on Caucasus earthquakes — examined the column and could not
+explain the mechanism.** A nineteenth-century earthquake geologist stood in front of it and offered no
+seismological interpretation at all. That is the quiet fact that decides how confidently the
+seismograph claim can be stated, and it is in the article.
+
+### The University of Tatev
+
+The label is universal and the specialists avoid it. La Porta titles his study *l'École monastique de
+Tat'ev*; Gornandt writes of a *monastic school*. The article uses the familiar name, explains why
+scholars prefer the other, and describes what actually existed: no charter, no faculties, no degree —
+but the **vardapet system**, fourteen ranks conferred after specialised study, examination before a
+panel and a thesis, which **Grigor Tatevatsi codified himself and the Armenian Church still uses**.
+That is a licence to teach, belonging to a church rather than a university.
+
+**The student numbers are the correction most worth making.** Tatev is routinely said to have had five
+hundred or a thousand students. Both figures are Orbelian's, and neither describes the school: five
+hundred is his count of the **clergy about 906**, and the thousand his description of the **eleventh-
+century community** — roughly three centuries before the school arrived. No invented curriculum,
+department list or enrolment appears in the article.
+
+### The two figures
+
+**Hovhan Vorotnetsi** (about 1315 – 1386 or 1388) and **Grigor Tatevatsi** (about 1346 – 1409) are the
+two `relatedFigures`. The teaching line — Esayi Nchetsi at Gladzor, then Vorotnetsi, then Tatevatsi
+for twenty-eight years — is well attested and is stated.
+
+**Vorotnetsi is not called the founder of the University of Tatev**, and the reason is chronology
+rather than pedantry: he died in 1386 or 1388, the school settled at Tatev about 1390, and his own
+teaching was done at Gladzor, Vorotnavank and Aprakunis. He was dead before it arrived. The article
+says he led and reorganised the higher monastic school of Syunik in the generation after Gladzor, and
+that it moved to Tatev under his successor — and the `relatedFigures` entry states the common claim
+and why the dates do not support it.
+
+Neither man has an article of his own, and **none was created to satisfy a relationship**.
+`relatedFigures` is free text by design, so both are recorded there.
+
+Two claims about Tatevatsi were deliberately left out. His birth and death years vary across four
+printed variants, so the lifespan is given as approximate rather than falsely precise. And the widely
+repeated line that he was the last saint canonised before 2015 is **contradicted by the Armenian
+Church's own spokesman**, who names an eighteenth-century figure; the article says he is venerated as
+a saint with a feast in Lent and stops there.
+
+### Sources
+
+Ten entries, at the section's house standard. Orbelian in Bedrosian's English and Brosset's French as
+the primary spine; Karakhanian and Abgaryan 2004 as the load-bearing modern source for the Gavazan
+and the 1931 damage; Ambraseys 2004 for the 1139 date; La Porta 2007 for the terminological point;
+Gornandt 2023 and Krikorian 1984 for Tatevatsi; Melkonyan and colleagues 2017 for the excavations;
+UNESCO's Tentative List entry; and Guinness for the one cable-car fact.
+
+**Three identifier problems were caught before shipping, and two of them were mine.**
+
+1. I wrote a DOI for the Ambraseys paper from memory. It resolved — to *Raised marine terraces in the
+   Northern Calabrian Arc*, an unrelated paper on Italian geology. Verified through Crossref and
+   replaced with `10.4401/ag-3303`. **A DOI resolving is not evidence it is the right DOI**, and this
+   is the second time in this project that checking metadata rather than status codes has caught
+   something.
+2. I supplied an ISBN for the *Divan hay vimagrutyan* epigraphic corpus that I could not verify. The
+   source was **removed** rather than shipped with an invented identifier. It remains the authority a
+   reader should go to next for any inscription-derived date, and the article reaches those
+   inscriptions at one remove through Orbelian and Brosset, which the notes say.
+3. UNESCO refuses automated requests, so the Tentative List entry's **reference number could not be
+   confirmed a second time**. Its title, submission date and tentative status were corroborated
+   independently; the reference number was read once, so the claim was **removed from all three
+   editions** rather than asserted. It survives only inside the citation URL, where a reader can see
+   it fail if it is wrong.
+
+The remaining DOIs were checked by resolving them and reading back the title and authors.
+
+### UNESCO status
+
+**Tatev is not a World Heritage Site.** It has been on Armenia's Tentative List since 25 August 1995,
+together with the hermitage of Tatevi Anapat and the adjacent Vorotan valley, and Armenia announced a
+nomination in 2025 — which the article states as a different thing from inscription. Armenia's three
+inscribed properties are Haghpat and Sanahin, Echmiatsin and Zvartnots, and Geghard with the Upper
+Azat Valley; the last of those is named in the article's closing section precisely so the contrast is
+explicit.
+
+### Damage and restoration
+
+The article distinguishes documented destruction, attributed damage, restoration and modern
+reconstruction, and corrects three things that circulate widely.
+
+- **The 1138/1139 dome collapse is primary-attested** — Orbelian reports it and names the Ganja
+  earthquake as the cause. Ambraseys dates that event to 30 September 1139. The article notes that
+  Ganja is about 145 km away, which is far enough that the report is worth flagging rather than
+  repeating flat.
+- **The "ten thousand manuscripts burned by the Seljuks at Tatev" is a triple distortion.** Orbelian
+  describes more than ten thousand **items** — vessels and relics as well as books — at **Baghaberd**,
+  not Tatev, **scattered** rather than burned. His own date converts to 1160 where 1170 is usually
+  printed. All four corrections are in the article.
+- **The dome was rebuilt in the Soviet campaign, not by the modern Tatev Revival** — designed 1981,
+  completed 1988, against a programme that began in 2008.
+
+And the closing section states the thing a visitor most needs: **every dome and every roof on the site
+is a twentieth- or twenty-first-century reconstruction**, the belfry is an unfinished stump, and the
+medieval fabric survives largely at wall level. The Gavazan is the one substantially un-rebuilt
+monument, which is part of why it attracts the legends it does.
+
+### Wings of Tatev
+
+Three sentences inside the gorge section, and nothing more: it opened in 2010, it crosses from
+Halidzor, and at 5,752 metres it holds the record for the longest non-stop double-track aerial
+tramway. Stated explicitly as modern access infrastructure that is not part of the monastery. **No
+fares, no hours, no booking, no superlatives.**
+
+### The coordinate
+
+```ts
+"tatev-monastery": { lat: 39.3794, lon: 46.2501, precision: "site" },
+```
+
+| Source | Entity | Raw |
+| --- | --- | --- |
+| OpenStreetMap | node 505725848, `Տաթևի վանք`, in Tatev, Syunik | 39.3794315, 46.2501314 |
+| Wikidata | Q554947 (P625) | 39.379366, 46.250031 |
+
+The two agree to **about nine metres**, inside the four-decimal rounding this file stores, so no
+adjudication was needed. The point is the monastic complex.
+
+Deliberately not the Wings of Tatev tramway — OSM way 109650729 resolves to 39.3989804, 46.2735973 at
+Shinuhayr, **about 3 km north-east**, and it is what a search for the site's best-known modern feature
+returns. Nor Halidzor, nor Tatev village centre, nor the gorge, nor Tatevi Anapat, which shares the
+Tentative List entry and is a genuinely different monument. `site` rather than `area` despite the
+setting: the gorge is context, the enclosure is the subject.
+
+**No existing coordinate was modified.**
+
+### The map integrated itself
+
+`src/lib/visit-map.ts` was **not touched**, and neither was `VisitMap.tsx`, `map-tiles.ts`, the Stadia
+configuration or the Visit page. The map derives from `places ∩ PLACE_COORDINATES`, so writing the
+article and recording the coordinate was the entire integration: **7 → 8 markers, no map-specific
+slug added anywhere.** That is the property §44 was built for and this is the first time it has been
+exercised.
+
+### The bounds adapted — and two pairs of pins now overlap
+
+The derived bounds hold all eight markers, which a new test asserts by checking every marker's box
+lies inside the map container's box rather than by eyeballing a screenshot.
+
+But adapting has a visible cost, and it is recorded rather than hidden. Tatev is about a degree of
+latitude south of everything else, so `fitBounds` zooms out by roughly **3.6x** — and at that scale
+two pairs of markers overlap at the initial view:
+
+```
+erebuni-fortress / matenadaran     25 x 26 px
+garni-temple / geghard-monastery   12 x 31 px
+```
+
+Both pairs are 6–8 km apart on the ground, and both were comfortably separated before the eighth
+point existed. This was **measured, not assumed** — the pin positions were read out of the rendered
+DOM.
+
+It is not fixed here, deliberately: fixing it means changing the marker-derived bounds, which this
+step is explicitly forbidden to touch, and the accessible list below the map already carries all eight
+places as text regardless of what the pins do. A reader can also still reach either pin by clicking
+its exposed part or zooming in. **It is carried forward as open debt**, and the honest options when it
+is addressed are marker clustering, a small collision offset, or a higher `maxZoom` on the initial
+fit — all of them map-architecture changes.
+
+The one thing it did change is a test. `every place can be selected and shows its own image` now
+drives the **keyboard** path — focus, Enter — because a mouse click aimed at an element's centre
+cannot reach a pin whose centre is behind another. That is a real supported interaction, already
+asserted elsewhere in the file, and it is not a weakening: `force: true` was the alternative and was
+rejected, since it would have asserted that a click dispatched at a covered element works, which is
+not something any reader does.
+
+### Related content
+
+`["geghard-monastery", "matenadaran", "bagratid-armenia"]`, identical and in the same order in all
+three editions.
+
+Geghard because the connection was asserted by this archive **before this article existed** — the
+Geghard article says its own school "is not in the class of Gladzor or Tatev", which is the sentence
+the eighth place was always pointing at. The Matenadaran because the article genuinely discusses
+manuscript production and Tatevatsi's own illumination, not because both involve books. And
+`bagratid-armenia` because King Smbat attended the consecration and the section links to it on that
+phrase.
+
+**No geographically-near tourist places** were added, and there is no itinerary relationship of any
+kind.
+
+### Artwork
+
+**Pending.** `public/images/places/` holds seven files and none is Tatev, so the article ships with the
+generated placeholder, no `image` block, and no `image:loc` in the sitemap. `PENDING_ARTWORK` names
+it for the seventh time, with the rejected substitutes recorded: Geghard and Etchmiadzin, because
+neither picture has a gorge, a plateau or a fortified enclosure and telling a reader Tatev looks like
+a cave monastery is the most misleading thing this article could do; Khor Virap, whose Ararat plain is
+the visual opposite; and `bagratid-armenia`, which offers a gorge with no monastery in it.
+
+The note also records the part of a future commission most likely to go wrong: **the Gavazan is a
+slender free-standing octagonal column with a khachkar on top, south of the church — not a khachkar on
+a plinth, and not attached to a wall.**
+
+### Localization and parity
+
+All three editions were written in one change, English first, then Eastern Armenian, then Western
+Armenian, with `scratchpad/check.ts` run after each. The final run reports **0 differing rows across 3
+editions** — identical section ids, identical paragraph counts, identical `relatedSlugs` order, and
+identical numeral multisets in every one of the nine validator field groups.
+
+Established terminology was reused rather than reinvented, because the repo already had most of it:
+`Տաթև` / `Տաթեւ`, `Գրիգոր Տաթևացի` / `Գրիգոր Տաթեւացի`, `Սյունիք` / `Սիւնիք`, `Որոտան`, `գավիթ` /
+`գաւիթ`, `համալսարան`, `գրչատուն`. **Three terms had no precedent and are coined here**: Hovhan
+Vorotnetsi (`Հովհան Որոտնեցի` / `Յովհան Որոտնեցի`), the Gavazan (`Գավազան` / `Գաւազան`), and
+Poghos-Petros for the principal church.
+
+### Western Armenian items requiring native review
+
+The whole edition is flagged, and these eleven items in particular:
+
+1. **«Տաթեւ»** and its genitive **«Տաթեւի»** — inherited from the Geghard article, so consistent, but
+   never reviewed.
+2. **«Սիւնիք»** for Syunik, as used in the existing history articles.
+3. **«Գաւազան»** for the column, coined here.
+4. **«Յովհան Որոտնեցի»** — the initial `Յ-` follows Western practice; a reviewer should confirm.
+5. **«Պողոս-Պետրոս»** as the church's short name, and **«Սուրբ Առաքելոց»** as its medieval alternative.
+6. **«վարդապետական աստիճաններ»** for the fourteen vardapet ranks.
+7. **«սխոլաստիք»** for scholastic, against a possible «դպրութենական».
+8. **«ձիթհան»** for the oil press.
+9. **«ծխնիաւոր յօդ»** for the hinged joint at the column's base — a technical phrase with no
+   precedent in the repo.
+10. **«ԵՈՒՆԵՍՔՕ»**, following the Geghard article rather than the Eastern «ՅՈՒՆԵՍԿՕ».
+11. **«Պրոսսէ»** for Brosset and **«Ապիխ»** for Abich — transliterations of two European surnames.
+
+### Commands and results
+
+| # | Command | Result |
+| --- | --- | --- |
+| 1 | port 3002 | clear |
+| 2 | remove `.next` | removed |
+| 3 | `npx tsx scratchpad/check.ts tatev-monastery` | **PASS** — 0 differing rows across 3 editions |
+| 4 | `npm run typecheck` | **PASS** |
+| 5 | `npm run validate:content` | **PASS** — 123 entries across 3 locales |
+| 6 | `places.spec.ts` | failed 5, fixed, then **49 passed** |
+| 7 | `visit-map.spec.ts` + `visit.spec.ts` | failed 6, then 2, then **50 passed** |
+| 8 | `npx playwright test` | **PASS** — 247 passed |
+| 9 | `npm run build` | **PASS** — **132 routes** |
+
+Playwright and the build were not run concurrently.
+
+**Every failure, and what it was:**
+
+*Content validation, one round.* The Eastern Armenian `metaDescription` came out at 167 characters
+against the 165 ceiling. Trimmed one word.
+
+*`places.spec.ts`, five failures, all genuine consequences of an eighth place and all fixed rather
+than suppressed:*
+
+1. The monastery filter asserted three cards; it is four.
+2. The pinned `byType` map asserted `monastery: 3`.
+3. The listing asserted zero placeholders; there is now exactly one. **Rewritten as
+   `PLACES.length - ILLUSTRATED.length`** so the next place to ship ahead of its picture does not need
+   a literal edited by hand.
+4. `PENDING_ARTWORK` was asserted equal to `[]`. Rewritten to derive the expected contents from the
+   same two lists, for the same reason.
+5. `must not link to Geghard` — Tatev does, deliberately. **Narrowed rather than deleted**: every
+   other place must still not link to Geghard, so the one-directional architecture is still pinned,
+   and the exception is documented at the assertion.
+
+The `EXPECTED` map in the same file was also re-keyed from `ILLUSTRATED` to `PLACES`. The two lists
+were identical when it was written so either compiled; they are not identical now, and type, featured
+flag and related slugs have nothing to do with whether a picture exists. Keying on the artwork list
+would have silently exempted the newest article from the strictest test in the file.
+
+*`visit.spec.ts` and `visit-map.spec.ts`, six failures, then two:*
+
+6. A `TypeError` — `getImageSrc(...)!.split(...)` on a place with no image. Split into two branches:
+   an illustrated place must show its own file, an unillustrated one must show **none**, which is a
+   stronger claim than skipping the check.
+7. `nothing may be curated while its artwork is pending` asserted `PENDING_ARTWORK` was globally
+   empty. That was free when it was written and is wrong now: Tatev is pending and deliberately **not**
+   curated. Narrowed to the curated slugs, which is what the assertion was always about.
+8. Four further failures in that run — a scroll timeout, `/hy/history`, an edition-switch heading and
+   `/en/places/garni-temple` — did **not** recur once the two above were fixed. They were downstream
+   of the same timed-out run rather than independent, and nothing was changed to make them pass.
+9. `/en/places` card count, 7 → 8. Edited as a literal on purpose: this assertion exists to prove a
+   curated row does not change what the listings contain, so it should need a deliberate update when
+   the section genuinely grows.
+10. The marker-click timeout, which turned out to be the pin overlap described above.
+
+### Existing content — regression check
+
+- **No existing article, coordinate, source, media path, artwork, `placeTypeId` or curated slug array
+  was modified.** The Visit hub's six-place row is unchanged, per §26: the curated row is selective
+  and the map is comprehensive, and Tatev landing on one but not the other is the distinction working.
+- `src/lib/visit-map.ts`, `src/components/visit/VisitMap.tsx`, `src/lib/map-tiles.ts`, `.env.example`
+  and the Visit page are all byte-identical. The eighth marker required **zero provider changes** and
+  zero map-architecture changes.
+- Structured data is unchanged: Tatev emits the generic Article schema like every other place, and no
+  tourism type was added.
+- The full suite is green at 247, including the Stadia configuration, credential-leak and lazy-loading
+  tests from §45 and §46.
+- `.claude/settings.json` was modified by the permission layer and reverted.
+
+Files changed: `src/data/locales/{en,hy,hyw}/articles/places.ts`, `src/data/geo.ts`,
+`src/data/sources.ts`, `src/lib/media.ts`, `tests/e2e/places.spec.ts`, `tests/e2e/visit-map.spec.ts`,
+`tests/e2e/visit.spec.ts`, and this document.
+
+### Still open
+
+Carried forward. Nothing on this list was fixed here.
+
+- **Marker overlap at the initial map extent — new.** Erebuni/Matenadaran and Garni/Geghard overlap by
+  25 and 12 pixels now that the bounds stretch to Syunik. Fixing it means clustering, a collision
+  offset, or a higher `maxZoom` on the initial fit; all three are map-architecture changes this step
+  could not make.
+- ~~**Tatev artwork** — pending, with the rejected substitutes and the Gavazan's shape recorded above.~~ — **resolved in §48.**
+- **The production tile provider** — Stadia is configured; the domain authorisation remains an
+  operational step outside this repository.
+- **The Matenadaran façade colour**, unchanged since §36.
+- **The Garni stone warmth**, unchanged since §40.
+- **The Garni 4:3 artwork dimensions.**
+- **The Geghard photographic register**, recorded in §42.
+- **A dedicated Khor Virap image** — still the only PNG, still 1.4 MB, still byte-identical to
+  `hero-ararat.png`.
+- **Erebuni and Matenadaran artwork weight** — 742 KB and 701 KB.
+- **Global media optimisation.**
+- **The Cuisine hydration flake** — `cuisine.spec.ts:355`. Did not reproduce here.
+- **One-directional `relatedSlugs`** — now with one documented exception, Tatev to Geghard.
+- **Western Armenian native review** — nineteen terminology items across the archive, eleven of them
+  added here.
+- **The Bresson and Fagan Garni attribution.**
+- **Wilkinson's Garni source not read directly.**
+- **The Hovannisian ISBN.**
+- **`scratchpad/check.ts` living outside `scripts/`** — used three times in this step and more useful
+  than ever, which strengthens rather than weakens the case for moving it.
+- **The weak homepage hero-path assertion.**
+- **`settlement`** — declared in the `precision` union and still used by no entry. Tatev village would
+  have been the first, and it is not what this coordinate records.
+- **No central environment module**, recorded in §45.
+- **Khalpakhchian 1962 not read directly** — new. The article's Gavazan section attributes the
+  seismic-recording interpretation to it at one remove, through Karakhanian and Abgaryan 2004. Anyone
+  strengthening that section should read the original article.
+
+### Deliberately not built
+
+No new place type. No new articles for Vorotnetsi or Tatevatsi to satisfy a relationship. No changes
+to map architecture, data derivation, markers, bounds, filters, selection, the accessible list, the
+provider configuration or the Visit curation. No routes, directions, geolocation, restaurants, hotels,
+tours or live travel information. No cable-car fares, hours or booking. No invented student counts,
+departments, degree structures or curricula. No UNESCO inscription claimed. No fabricated identifier
+or page number — and two that had crept in were caught and removed.
+
+No deployment was performed.
+
+## 48. Tatev artwork — the pending entry, cleared for the seventh time (August 2026)
+
+§47 shipped the eighth place with no picture and wrote down exactly what a picture would have to
+show: a walled complex on a plateau above a gorge, with none of the substitutes on hand carrying all
+three. `tatev-monastery.webp` carries all three in one frame. This registers it.
+
+Nothing about the article changed. The prose, the 895/906 distinction, the Gavazan section, the
+University wording, the two figures, the sources, the coordinate, the related slugs, the section
+links, the SEO fields, the taxonomy and the Western Armenian edition are all byte-identical — verified
+rather than asserted, since the three `articles/places.ts` files contain no `image:` field at all and
+the artwork reaches the page entirely through `getArticleImageSrc`.
+
+### The asset
+
+| | |
+| --- | --- |
+| Path | `public/images/places/tatev-monastery.webp` |
+| Dimensions | **1586 x 992** (aspect 1.5988, about 16:10) |
+| Size | **271,306 bytes** — 264.9 KB |
+| SHA-256 | `d2db046faf7aa3beb01a6f27ea3d2bae1ba1c06a6772e174e6c5fdee184bf673` |
+| Container | `RIFF` / `WEBP`, size field 271,298 = file length minus 8, consistent |
+| Chunks | a single `VP8 ` chunk of 271,286 bytes |
+| Encoding | simple lossy, keyframe, version 0 |
+| Colour | sRGB, 3 channels |
+| Alpha / ICC / EXIF / XMP / animation | **none** — there is no `VP8X` chunk, so no extended header exists to carry them |
+
+Read out of the container by hand and confirmed independently through `sharp`, which agrees on every
+field. The extension was not trusted: the RIFF magic, the `WEBP` fourcc, the internal size field and
+the chunk walk were all checked.
+
+**1586 x 992 is the house dimension**, matching Etchmiadzin, Erebuni, the Matenadaran, Lake Sevan and
+Geghard exactly. Garni remains the odd one at 1448 x 1086 and Khor Virap the only PNG. At 265 KB it
+sits in the middle of the range — comfortably under Erebuni's 742 KB and the Matenadaran's 701 KB, and
+close to Geghard's 271 KB.
+
+That closeness to Geghard prompted a check worth recording: **all eight files were hashed and are
+byte-distinct.** Two monastery covers of near-identical weight is exactly the coincidence that would
+hide a duplicated file, and it is not one.
+
+### Visual inspection
+
+The image was opened and looked at, not inferred from its filename.
+
+An elevated three-quarter view of a walled monastery standing on a rock shelf at a cliff edge, with a
+deep gorge falling away to the right and a river visible far below. Every required element is present:
+
+- **Principal church recognisable** — the dominant building, centre-right, with a cross on its finial.
+- **Armenian conical dome and drum plausible** — a polygonal umbrella roof on a tall drum pierced with
+  narrow windows. The correct type, not a Byzantine hemisphere or a Georgian cone.
+- **Enclosure visible** — a continuous curtain wall wraps the whole plateau and runs along the
+  precipice, which is the fortified-monastery reading the article's prose depends on.
+- **Dense and accumulated** — a second smaller domed church and a tower behind, a porch with an arched
+  portal in front, ancillary ranges either side, courtyard structures. Not one isolated church.
+- **Plateau and gorge relationship obvious** — the wall sits directly on the cliff, and the drop is the
+  right-hand third of the frame.
+- **Plausibly Syunik** — steep scrub-and-rock mountainsides, basalt outcrops, a river gorge.
+
+And every excluded treatment is genuinely absent: **no Geghard-style rock-cut or cave architecture**
+(all masonry, nothing cut into a cliff), **no Khor Virap / Ararat plain composition** (no flat plain,
+no snow cone), **no Garni Ionic temple** (no colonnade), **no Etchmiadzin urban cathedral** (no city,
+no formal precinct).
+
+On unsupported claims, which was the sharper risk given this article's subject matter: **no Gavazan
+seismograph imagery, no motion or vibration graphics, no instrument iconography; no cable car; no
+UNESCO mark; no classroom scene; no miraculous event; no invented inscription or date; no tourism
+infrastructure.** A few small monastic figures walk in the courtyard and that is the extent of the
+human presence.
+
+One detail is worth naming because §47 predicted it would be the hard part. A slender free-standing
+pillar with a carved top stands in the courtyard south-east of the church, which is where the Gavazan
+belongs and what it looks like — a column, not a khachkar on a plinth and not attached to a wall. It
+is depicted as an ordinary stone monument with no suggestion of movement or measurement, which is
+precisely the restraint the article's most evidence-sensitive section required.
+
+**One concern, reported and not acted on: the photographic register.** This reads as a drone
+photograph rather than an illustration — the same concern recorded for Geghard in §42 and still open
+there. The provenance mechanism is unchanged and still declares the file AI-generated, which is
+accurate; the concern is that a reader may not perceive it as such. `ARTWORK_PROVENANCE` was not
+touched, no per-image metadata was introduced, and this stays on the debt list rather than being
+solved by a change nobody asked for.
+
+### Crops
+
+Evaluated against the ratios the code actually uses, read out of the components rather than assumed —
+`ArticleLayout` is `4:3 / sm:3:2 / lg:16:9`, `ArticleCard` is `4:3` compact and `16:9` default, and
+the map's detail panel is `16:9`. The search thumbnail has no declared ratio at all: it is a
+fixed-width column, `w-32` rising to `lg:w-40`, with `h-full`. **It was measured live** at
+**160 x 223, ratio 0.719**, with shorter cards giving 160 x 200 and 0.801.
+
+| Surface | Ratio | Result | Trim |
+| --- | --- | --- | --- |
+| Compact card | 4:3 | good | 263 px of width, 16.6% |
+| Mobile hero | 4:3 | good | as above |
+| Tablet hero | 3:2 | good | 98 px of width, 6.2% |
+| Listing card | 16:9 | **best** | 100 px of height, 10.1% |
+| Desktop hero | 16:9 | **best** | as above |
+| Search thumbnail | 0.719 | good | **873 px of width, 55.0%** |
+
+Real crops were generated with `sharp` at each ratio and looked at, not reasoned about.
+
+**16:9 is the strongest**: the 50 px trimmed from top and bottom is sky and foreground rock, and the
+dome, its cross, the full enclosure, the cliff face and the gorge with its river all survive intact.
+
+**4:3 loses 16.6% of the width** and still keeps the gorge on the right — the element most at risk from
+a horizontal trim, and the one whose loss would have made the image indistinguishable from any other
+hilltop monastery.
+
+**The search thumbnail is the surprise.** Cropping a 1.6 landscape to 0.72 portrait discards 55% of the
+width, and the result is *better* for identification than the full frame: the dome fills the centre,
+the second church and tower sit to its left, the enclosure runs across the bottom and the cliff face
+below it is unmistakable. The gorge's far wall survives at the top right; only the river is lost. A
+reader scanning search results still sees Tatev.
+
+**No `object-position` rule was added, and none is needed.** The default centre crop works at all six
+ratios, so no Tatev-specific crop logic, no new component and no custom routing entered the codebase.
+
+### Registration
+
+One line in the Places block of `IMAGES`:
+
+```ts
+"tatev-monastery": "/images/places/tatev-monastery.webp",
+```
+
+Verified through the existing pipeline and nothing else:
+
+- `getImageSrc("tatev-monastery")` -> `/images/places/tatev-monastery.webp`
+- `isGeneratedArtwork({ slug: "tatev-monastery" })` -> **`true`**
+- registered Places covers: **8**
+- `ARTWORK_PROVENANCE` -> `{ source: "ai-generated", documentary: false }`, **unmodified**
+- `IMAGES` and `PENDING_ARTWORK` are **mutually exclusive** — no slug in both
+
+No Tatev-specific image logic, no new image field, no per-image provenance, no new component, no
+custom routing. The article files still carry no `image` block, which is the point: the registry is
+the single place a cover is declared.
+
+### Pending artwork
+
+`PENDING_ARTWORK` is **empty**, for the seventh time — after §32 (Etchmiadzin), §34 (Erebuni), §36
+(Matenadaran), §38 (Lake Sevan), §40 (Garni), §42 (Geghard) and now §48 (Tatev).
+
+The list stays in place while empty, as it has each previous time, and §47's rejection notes were kept
+rather than deleted: the four substitutes refused there were refused because none carried the plateau,
+the enclosure and the gorge together, and recording that the delivered file does carry all three is
+what makes the refusal legible later. `validate:content` no longer prints its placeholder note, and
+the count of entries it validates is unchanged at 123 — this step added no content.
+
+### Verification on the rendered pages
+
+- **Article hero**, all three editions: Tatev's own WebP renders, the generated `<svg role="img">` is
+  gone, the caption is the **AI-illustration** wording and explicitly **not** the placeholder wording.
+  The two strings differ by a single dictionary key and both look plausible, which is why both
+  directions are asserted.
+- **Places listing**: zero placeholders. The assertion is `PLACES.length - ILLUSTRATED.length`, written
+  as a derivation in §47, so it moved from 1 to 0 without being edited.
+- **Per-card ownership**: the stricter Geghard-era assertion still runs card by card over all eight
+  places, matching each card's own `href` to its own file. A count alone would pass if two neighbours
+  swapped covers; this would not.
+- **Open Graph, Twitter and `Article.image`**: all three now carry Tatev's WebP, through the existing
+  `ILLUSTRATED` loop that covers every registered place.
+- **Sitemap**: `image:loc` entries for all three locale routes, each naming `tatev-monastery.webp`.
+  §47 asserted the opposite — that an unillustrated place advertises no image — and that assertion is
+  inverted here rather than deleted.
+- **Global search**: Tatev's result card renders its own file, scoped by Tatev's canonical href rather
+  than by result position.
+- **Borrowing**: Geghard, Etchmiadzin, Khor Virap and Garni are each named and asserted absent from
+  Tatev's head metadata and hero. Kept across the registration, because the failure it guards against —
+  a cover repointed at a plausible neighbour later — outlives the file landing.
+
+### Map
+
+`src/lib/visit-map.ts`, `src/components/visit/VisitMap.tsx` and `src/lib/map-tiles.ts` are **unchanged**,
+as is the Visit page.
+
+The map still holds exactly **8** places, derived from `places ∩ PLACE_COORDINATES` with no allow-list
+anywhere. Tatev's marker still resolves Tatev's article, every other marker keeps its own image, and
+the bounds are unchanged — registration touched an image path, not a coordinate.
+
+The selected-panel assertion inverted **by itself**, which is the part worth recording. §47 wrote it as
+a branch on the registry — a registered place must show its own file, an unregistered one must show
+none — rather than as a hardcoded list. Registering the file moved Tatev from the second branch to the
+first with no test edit, and the branch is still there for the ninth place.
+
+**Marker overlap is unchanged and remains open.** Erebuni/Matenadaran and Garni/Geghard still overlap
+by 25 and 12 pixels at the initial extent; this step deliberately did not address it, and the
+keyboard-driven selection loop §47 introduced for that reason is still how the exhaustive test
+selects markers.
+
+### Visit curation
+
+**Unchanged.** The curated row is still the same six places, and Tatev is still not among them.
+Registering artwork does not make a place curated — the row is an editorial selection and the map is
+coverage, which is the distinction §43 established and §26 of the previous step preserved.
+
+The one assertion that had to be scoped in §47 — curated slugs must not be pending — still passes, and
+now passes trivially, since nothing is pending at all.
+
+### Structured data
+
+Unchanged in shape. Tatev emits the same generic Article schema every other place does, and the only
+consequence of registration is that the existing `Article.image` field now has a value. **No `Place`,
+`Monastery`, `TouristAttraction`, `GeoCoordinates` or `LandmarksOrHistoricalBuildings` type was
+added**, and the graph is otherwise identical.
+
+### Tests
+
+`ILLUSTRATED` gains Tatev and becomes eight; `ARTWORK` gains
+`"tatev-monastery": "/images/places/tatev-monastery.webp"`.
+
+**`PLACES` and `ILLUSTRATED` are kept as separate constants** even though they now hold the same eight
+slugs. They have coincided six times before and split again every single time, and each of those
+splits was one slug moving between two lines. Collapsing them while they happen to match would mean
+rebuilding the distinction under pressure the next time a place ships ahead of its picture — which the
+file's own history says will happen.
+
+Two Tatev-specific tests were **inverted rather than deleted**: the placeholder test became a
+registered-artwork test, and the sitemap half of the borrowing test flipped from asserting no
+`image:loc` to asserting one per locale naming Tatev's own file. Both directions have been true at
+different times, and the inversion is the record of which one is true now.
+
+Several §47 assertions needed **no edit at all**, because they were written as derivations rather than
+literals: the placeholder count, the `PENDING_ARTWORK` contents, the listing image count
+(`ILLUSTRATED.length + 1`) and the map's selected-panel branch. That was the intent when they were
+written and it paid off one step later.
+
+### Commands and results
+
+| # | Command | Result |
+| --- | --- | --- |
+| 1 | port 3002 | clear (after the incident below) |
+| 2 | remove `.next` | removed |
+| 3 | `npm run typecheck` | **PASS** |
+| 4 | `npm run validate:content` | **PASS** — 123 entries, placeholder note gone |
+| 5 | `places.spec.ts` (desktop) | **PASS** — 49 |
+| 6 | `visit-map.spec.ts` (desktop) | **PASS** — 27 |
+| 7 | `visit.spec.ts` (desktop) | **PASS** — 23 |
+| 8 | `npx playwright test` | **PASS** — 247 passed, 5 skipped |
+| 9 | `npm run build` | **PASS** — 132 routes |
+
+**Zero product failures.** Every test passed on its first run against the registered artwork; nothing
+was retried away and no assertion was loosened.
+
+**Two process failures, both mine, both worth recording:**
+
+1. **I deleted `.next` while a dev server was running on it.** Turbopack's cache went with it, the
+   server stayed listening on 3002 while returning 500, and Playwright then reported
+   `Process from config.webServer was not able to start`. The fix was to kill the stale process and let
+   Playwright start a clean one. The verification order says to remove `.next` — it does not say to do
+   it underneath a live server, and that is the step I got wrong.
+2. **Two full-suite runs overlapped** and interleaved their output into one log, producing a nonsense
+   summary of "26 passed". No test result was trusted from that run; the suite was re-run cleanly once,
+   which is the 247/5 recorded above.
+
+Playwright and the production build were not run concurrently.
+
+### Existing artwork — regression check
+
+- **No existing image file was modified, renamed, moved, re-encoded or re-registered.** All seven prior
+  covers keep their exact paths, and the per-card ownership test proves each still belongs to its own
+  article.
+- No article content changed anywhere in the archive: the three `articles/places.ts` files, `geo.ts`
+  and `sources.ts` carry only their §47 edits, which are still uncommitted from the previous step and
+  untouched by this one.
+- `ARTWORK_PROVENANCE`, `IMAGE_SIZES` and `PORTRAIT_FOCUS` unchanged; `getImageSrc`,
+  `getArticleImageSrc` and `isGeneratedArtwork` unchanged.
+- Leaflet, the Stadia configuration, the tile environment variables, attribution, the network and
+  privacy tests, lazy loading, marker glyphs, map-local filters, marker selection and the accessible
+  fallback are all untouched. No geolocation, routing, geocoding or API addition.
+- `.claude/settings.json` unchanged.
+
+Files changed: `src/lib/media.ts`, `tests/e2e/places.spec.ts`, and this document. Added:
+`public/images/places/tatev-monastery.webp`.
+
+### Still open
+
+Carried forward unchanged. Nothing on this list was fixed here.
+
+- **Map marker overlap** — Erebuni/Matenadaran at 25 px and Garni/Geghard at 12 px, at the initial
+  extent. Explicitly out of scope for an artwork step, and still the reason the exhaustive marker test
+  drives the keyboard.
+- **Khalpakhchian 1962 not read directly** — the load-bearing citation for the entire Gavazan
+  seismograph tradition, still cited at one remove through Karakhanian and Abgaryan 2004.
+- **The photographic register** — now recorded for Tatev as well as Geghard. Two of the eight Places
+  covers read as photographs rather than illustrations.
+- **The Matenadaran facade colour**, unchanged since §36.
+- **The Garni stone warmth**, unchanged since §40.
+- **The Garni 4:3 artwork dimensions** — still the only WebP that is not 1586 x 992.
+- **A dedicated Khor Virap image** — still the only PNG, still 1.4 MB, still byte-identical to
+  `hero-ararat.png`.
+- **Erebuni and Matenadaran artwork weight** — 742 KB and 701 KB. Tatev at 265 KB does not move this.
+- **Global media optimisation.**
+- **The Cuisine hydration flake** — `cuisine.spec.ts`. Did not reproduce here.
+- **One-directional `relatedSlugs`**, with the documented Tatev-to-Geghard exception.
+- **Western Armenian native review** — nineteen terminology items.
+- **The Bresson and Fagan Garni attribution.**
+- **Wilkinson's Garni source not read directly.**
+- **The Hovannisian ISBN.**
+- **`scratchpad/check.ts` living outside `scripts/`.**
+- **The weak homepage hero-path assertion.**
+- **`settlement`** — declared in the `precision` union and used by no entry.
+- **No central environment module.**
+- **Production Stadia dashboard and domain authorisation** — operational, outside this repository.
+- **Raster label-language limitation** — Stadia raster tiles bake in bilingual labels.
+- **Privacy-page provider disclosure** — undecided.
+
+### Deliberately not built
+
+The image was not generated, edited, cropped, resized, recoloured, renamed, optimised or replaced. No
+`object-position` rule, no Tatev-specific image logic, no new image field, no per-image provenance, no
+new component, no custom routing. No article content, coordinate, source or translation touched. No
+map architecture, provider configuration or curation change. No new structured-data type. The marker
+overlap was left alone.
+
+No deployment was performed.
