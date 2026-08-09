@@ -1127,6 +1127,95 @@ const SOURCES: Record<string, Source[]> = {
       note: "Cited for the building type rather than for the site: what a gavit or zhamatun was for, and where it comes from - the earliest is at Horomos and is already called zamatun in an inscription of 1038. This is what lets the article explain Geghard's halls as an Armenian type with no close western parallel rather than as a local invention.",
     },
   ],
+
+  "tatev-monastery": [
+    {
+      author: "Step'annos Orbelean",
+      title: "History of the State of Sisakan",
+      publisher: "trans. Robert Bedrosian, Sources of the Armenian Tradition, Long Branch, N.J.",
+      year: "2012",
+      identifier: { kind: "archive", value: "HistoryOfTheStateOfSisakan" },
+      note: "The primary source for almost everything in this article, and the reason Tatev can be dated at all. Orbelean was metropolitan of Syunik in the thirteenth century and transcribed inscriptions he could still read. Supports: the foundation inscription of 895 in the bishop's own first person (ch. 41); the eleven years of construction; the erection of the Gavazan in the name of the Holy Trinity at thirty cubits, with no mention of it moving; the church of St Gregory in 848; the pre-existing church of Sts Nerses and Sahak together with Orbelean's explicit statement that he could find no record of the early bishops (ch. 39); the 500 clergy about 906 and the thousand-strong community in the eleventh century (chs 41, 58); the dome collapse attributed to the Ganja earthquake (ch. 63); and the fall of Baghaberd with more than 10,000 items scattered (ch. 61).",
+    },
+    {
+      author: "Marie-Felicite Brosset",
+      title: "Histoire de la Siounie par Stephannos Orbelian",
+      publisher: "Academie Imperiale des Sciences, St Petersburg",
+      year: "1864",
+      identifier: { kind: "archive", value: "HistoireDeLaSiounieParStephannosOrbelian" },
+      note: "The French translation, cited where it differs from the English and where its notes carry evidence the text does not. Supports: the computation of 4 Navasard 344 of the Armenian Era as 20 April 895; the reading that the work was finished 'en 11 ans', footnoted 'En 906' - which is the whole basis of the commonly printed 895-906 span, and the reason this article calls 906 arithmetic rather than a documented date; the 1043 inscription on the gavit pillar; Sargis Jalaliants' 1858 report that the column shakes when touched; and Brosset's own note that Hermann Abich examined it and could not explain the mechanism.",
+    },
+    {
+      author: "Arkady Karakhanian and Yelena Abgaryan",
+      title:
+        "Evidence of historical seismicity and volcanism in the Armenian Highland (from Armenian and other sources)",
+      publisher: "Annals of Geophysics 47, no. 2/3, 793-810",
+      year: "2004",
+      identifier: { kind: "doi", value: "10.4401/ag-3335" },
+      note: "The load-bearing modern source for the Gavazan section, and the reason this article does not call the column a seismograph. Supports: the description of the column as rocking on a hinged connection with its stylobate and returning upright; the attribution of the seismic-recording interpretation to Khalpakhchian rather than to any medieval source, and its modal phrasing that the obelisk 'could serve' that purpose; Tovma Metsopetsi's colophon of 29 November 1406 naming the monastery, the bell tower and the Gavazan; and intensity 9 on the MSK-64 scale at Tatev in 1931 with the destruction of its churches. The same paper deletes the supposed 1658 Halidzor earthquake from the catalogues as a landslide.",
+    },
+    {
+      author: "N. N. Ambraseys",
+      title: "The 12th century seismic paroxysm in the Middle East: a historical perspective",
+      publisher: "Annals of Geophysics 47, no. 2/3, 733-758",
+      year: "2004",
+      identifier: { kind: "doi", value: "10.4401/ag-3303" },
+      note: "Cited only for the date of the earthquake Orbelean blames for the dome collapse: 30 September 1139, with an explicit warning that later writers conflate it with events of 1137 and 1138. This is why the article's timeline gives 1139 where Orbelean's Armenian year converts to 1138.",
+    },
+    {
+      author: "Sergio La Porta",
+      title: "Grigor Tat'evats'i et l'Ecole monastique de Tat'ev",
+      publisher:
+        "in Valentina Calzolari (ed.), Illuminations d'Armenie, Fondation Martin Bodmer, Cologny-Geneve, 210-214",
+      year: "2007",
+      identifier: { kind: "isbn", value: "9789994142705" },
+      note: "The source for the terminological point the article turns on: a specialist writing in an academic context calls the institution a monastic school, not a university. Cited for that designation rather than for any date.",
+    },
+    {
+      author: "Ruth M. Gornandt",
+      title:
+        "On Knowing and Unknowing God: Reason and Mysticism in the Armenian Theologian Gregory of Tatev",
+      publisher: "Journal of Theological Studies 74, no. 1, 306-339",
+      year: "2023",
+      identifier: { kind: "doi", value: "10.1093/jts/flac133" },
+      note: "Supports Tatevatsi's cautious dates, the completion of the Book of Questions in 1397, and the description of the school as one that eventually settled at Tatev - the phrasing that keeps the institution peripatetic rather than founded in one act. Gornandt also reports the frequent comparison of Tatevatsi to Aquinas and sets out its limits, which is why the article states the comparison and its qualification together.",
+    },
+    {
+      author: "Mesrob K. Krikorian",
+      title: "Grigor Tat'evac'i: A Great Scholastic Theologian and Nominalist Philosopher",
+      publisher:
+        "in T. J. Samuelian and M. E. Stone (eds), Medieval Armenian Culture, University of Pennsylvania Armenian Texts and Studies 6, Scholars Press",
+      year: "1984",
+      identifier: { kind: "isbn", value: "9780891306429" },
+      note: "Cited for Tatevatsi's standing as a scholastic theologian and philosopher. No page range is given here because none was verified.",
+    },
+    {
+      author: "H. Melkonyan, A. Harutyunyan and D. Davtyan",
+      title: "Excavations at Tatev monastery in 2014-2015",
+      publisher: "ARAMAZD: Armenian Journal of Near Eastern Studies 11, no. 1-2, 305-321",
+      year: "2017",
+      identifier: { kind: "doi", value: "10.32028/ajnes.v11i1-2.887" },
+      note: "The archaeological work behind the recent restoration campaigns, and an independent report of Orbelean's account of the earlier church dedicated to Sts Nerses and Sahak.",
+    },
+    {
+      title:
+        "The monasteries of Tatev and Tatevi Anapat and the adjacent areas of the Vorotan Valley",
+      publisher: "UNESCO World Heritage Centre, Tentative Lists, Armenia",
+      year: "submitted 1995",
+      identifier: { kind: "url", value: "https://whc.unesco.org/en/tentativelists/14/" },
+      note: "The source for the status statement, and for the gorge depth of 850 metres given as Armenia's own figure. Cited precisely because the distinction matters: this is a Tentative List entry submitted on 25 August 1995, not an inscription. Tatev is not a World Heritage Site, and Armenia's three inscribed properties are Haghpat and Sanahin, Echmiatsin and Zvartnots, and Geghard with the Upper Azat Valley. The entry's title, its submission date and its tentative status were confirmed against independent reporting; the site itself refuses automated requests, so the reference number that forms part of this URL was read once and is not repeated as a claim in the article.",
+    },
+    {
+      title: "Longest non-stop double track cable car",
+      publisher: "Guinness World Records",
+      year: "2010",
+      identifier: {
+        kind: "url",
+        value: "https://www.guinnessworldrecords.com/world-records/longest-non-stop-double-track-cable-car",
+      },
+      note: "The single citation for the cable car, kept to the one fact the article states: 5,752 metres between Halidzor and the monastery, achieved 16 October 2010. No fares, hours or booking information are recorded here or in the article.",
+    },
+  ],
 };
 
 /** The bibliography for one article. Empty only if the slug is unknown. */

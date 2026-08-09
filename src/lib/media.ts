@@ -189,6 +189,7 @@ const IMAGES: Record<string, string> = {
   "lake-sevan": "/images/places/lake-sevan.webp",
   "garni-temple": "/images/places/garni-temple.webp",
   "geghard-monastery": "/images/places/geghard-monastery.webp",
+  "tatev-monastery": "/images/places/tatev-monastery.webp",
 };
 
 /**
@@ -279,6 +280,26 @@ export const PENDING_ARTWORK: readonly string[] = [
    * Lake Sevan three and the Garni three — and those tests are kept across the
    * registration in §42, because the failure they guard against (the cover being
    * repointed at a plausible neighbour later) outlives the file landing.
+   */
+
+  /*
+   * §47→§48 (Tatev). Emptied for the seventh time.
+   *
+   * The rejection notes §47 wrote are worth keeping now that the file has landed,
+   * because the commission was answered on every point they raised. The four
+   * substitutes refused there — Geghard and Etchmiadzin as the other monasteries,
+   * Khor Virap for its Ararat plain, `history/bagratid-armenia.webp` for its
+   * gorge-without-a-monastery — were refused because none of them carried the
+   * plateau, the enclosure and the gorge together. `tatev-monastery.webp` carries
+   * all three in one frame, which is why it is registered and none of them ever
+   * was.
+   *
+   * §47 also flagged the part most likely to be got wrong: the Gavazan is a
+   * slender free-standing column with a khachkar on top, south of the church, not
+   * a khachkar on a plinth and not attached to a wall. The delivered image places
+   * a small free-standing pillar in the courtyard south-east of the church, which
+   * reads correctly and carries no motion, instrument or seismograph imagery of
+   * any kind — the failure that section of the article exists to avoid.
    */
 ];
 
