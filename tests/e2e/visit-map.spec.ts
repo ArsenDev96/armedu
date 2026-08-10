@@ -826,13 +826,15 @@ test("every place can be selected and shows its own image", async ({ page }) => 
     await expect(panel, slug).toContainText(article.title);
 
     /*
-      §47: not every place has a picture any more.
+      §50: every place has a picture again, Dilijan included, so the first branch
+      is the one that runs for all nine.
 
-      Tatev shipped ahead of its artwork, so `getImageSrc` returns `undefined` for
-      it and the panel shows no image at all. That is the correct rendering, and
-      the assertion splits rather than being dropped — an unillustrated place must
-      show *no* image, which is a stronger claim than skipping the check, and it is
-      the one that catches a neighbour's cover leaking in to fill the gap.
+      The split is kept rather than collapsed into the `registered` branch. It has
+      been needed twice — §47 for Tatev and §49 for Dilijan, each of which shipped
+      ahead of its artwork and correctly showed no image in this panel — and the
+      `else` is the stronger of the two claims: an unillustrated place must show
+      *no* image, which is what catches a neighbour's cover leaking in to fill the
+      gap. Deleting it would have to be undone by the tenth place.
     */
     const registered = getImageSrc(slug);
     if (registered) {

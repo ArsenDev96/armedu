@@ -181,6 +181,43 @@ const IMAGES: Record<string, string> = {
    * more cautious of the two claims, but it is the first entry where that caption is
    * worth re-confirming against the source rather than assuming. The file was not
    * altered.
+   *
+   * `dilijan-national-park.webp` is the ninth place and §50, and it takes the list
+   * back to empty for the eighth time. It is 1586×992 again, so the "not 1586×992"
+   * note above still refers to Khor Virap's PNG and Garni alone. Container-wise it
+   * is the plainest file in this map: a single `RIFF/VP8` chunk and nothing else —
+   * no `VP8X`, and therefore no ICC profile, no alpha, no EXIF and no XMP — like
+   * Etchmiadzin, Lake Sevan, Garni, Geghard and Tatev. sRGB, three channels, eight
+   * bits. At 249 KB (255,030 bytes) it is the fourth lightest of the nine, between
+   * Etchmiadzin and Tatev. SHA-256
+   * 9dc7a49c1855e5a97e67e4414a63c340331640ef1620851fd2a1d156704d3120. Registered
+   * exactly as delivered, unaltered, unoptimised and unrenamed, like every entry
+   * since §30.
+   *
+   * What was checked before registering, because at Dilijan the plausible picture is
+   * the *wrong forest* rather than a wrong building: the frame is a broadleaf valley
+   * seen from a rocky overlook, both walls closed canopy to the ridgeline, a stream
+   * on the valley floor, limestone outcrops breaking through the trees on the right
+   * bank, and forested ridges receding into humid haze under overcast sky. The
+   * foreground branch is unmistakably broadleaf — lobed and serrated leaves, no
+   * needles anywhere in the frame — which is the one thing this file had to get
+   * right, since the article's own distinguishing fact is that barely one per cent
+   * of the park's forest is coniferous. There is no building of any kind, no lake as
+   * a subject, no snow peak, no people, no wildlife, no logging and no vehicle; the
+   * subject is the forest itself. It is not Lake Sevan (no open water, no treeless
+   * ridges), not Tatev or Khor Virap (no plateau, no plain, no monument) and not
+   * alpine (rounded mid-mountain relief, no bare rock summits, no conifer belt).
+   *
+   * Two things to know rather than rediscover, recorded here and in §50 of
+   * PROJECT_STATE.md rather than corrected. Like Geghard and Tatev this file is
+   * photographic in register where most of this map is rendered illustration; it
+   * inherits `ARTWORK_PROVENANCE` and is captioned AI-generated, which remains the
+   * more cautious of the two claims. And nothing in the frame identifies Armenia
+   * specifically — there is no landmark, and there cannot be one, because the
+   * article's subject is a forest rather than a monument. That is a limit of the
+   * genre and not a fault in the file: the caption and the article carry the
+   * geography, and the alternative would have been putting a building in the frame
+   * of an article about there not being one.
    */
   "khor-virap": "/images/places/khor-virap.png",
   "etchmiadzin-cathedral": "/images/places/etchmiadzin-cathedral.webp",
@@ -190,6 +227,7 @@ const IMAGES: Record<string, string> = {
   "garni-temple": "/images/places/garni-temple.webp",
   "geghard-monastery": "/images/places/geghard-monastery.webp",
   "tatev-monastery": "/images/places/tatev-monastery.webp",
+  "dilijan-national-park": "/images/places/dilijan-national-park.webp",
 };
 
 /**
@@ -303,11 +341,13 @@ export const PENDING_ARTWORK: readonly string[] = [
    */
 
   /*
-   * §49. Dilijan National Park is the ninth Place and the eighth time this list
-   * has filled. It is also the first entry where the search came up not merely
-   * short but empty of near misses in the usual direction, and the reason is the
-   * article's own subject: nothing under `public/` shows closed broadleaf
-   * mountain forest, because nothing else in this archive is set in it.
+   * §49→§50 (Dilijan National Park). Emptied for the eighth time.
+   *
+   * Dilijan is the ninth Place and the eighth time this list has filled. It was
+   * also the first entry where the search came up not merely short but empty of
+   * near misses in the usual direction, and the reason is the article's own
+   * subject: nothing under `public/` showed closed broadleaf mountain forest,
+   * because nothing else in this archive is set in it.
    *
    * All thirty-six files were opened rather than read off their filenames. The
    * landscape they share is the one this article exists to contrast with — dry
@@ -342,15 +382,23 @@ export const PENDING_ARTWORK: readonly string[] = [
    * All four are named in a `places.spec.ts` test, on the same principle as the
    * Lake Sevan three, the Garni three and the Geghard five.
    *
-   * What a commission would need to carry, recorded now so it is not
+   * What a commission would need to carry, recorded then so it would not be
    * reconstructed later: closed broadleaf forest — beech, hornbeam and oak, not
    * conifers — running up both sides of a valley to a ridge, in leaf, with no
    * monastery, no lake as the subject, no snow peak on the horizon and no
    * classical or medieval building anywhere in the frame. The park's own
    * distinguishing fact is that almost none of its forest is coniferous, so a
-   * pine-and-fir picture would state the opposite of the article beneath it.
+   * pine-and-fir picture would have stated the opposite of the article beneath it.
+   *
+   * §50. The delivered file answers that commission on every point, which is why it
+   * is registered and none of the four substitutes ever was: broadleaf canopy on
+   * both valley walls with no needle-leaf tree anywhere in the frame, a valley and
+   * ridgeline that stay legible at every crop, and not one building in it. The four
+   * refusals above are kept rather than deleted, on the same principle as the Lake
+   * Sevan three, the Garni three and the Geghard five: the failure they guard
+   * against is the cover being repointed at a plausible neighbour later, and that
+   * outlives the file landing.
    */
-  "dilijan-national-park",
 ];
 
 /**

@@ -7964,3 +7964,852 @@ map architecture, provider configuration or curation change. No new structured-d
 overlap was left alone.
 
 No deployment was performed.
+
+## 49. Dilijan National Park — the ninth place, and the archive reaches the north (August 2026)
+
+§47 took the map south to Syunik. This one takes it north, and it does something the previous eight
+did not: it adds a place that is not a building. Every Place in this archive so far has been a
+structure or a lake — something with an address. Dilijan National Park is a legal designation over
+33,765 hectares of forested mountain, and almost every difficulty in writing it came from that one
+fact.
+
+It also corrects a picture the archive was quietly painting. Khor Virap, Garni, Etchmiadzin, Erebuni,
+the Matenadaran, Sevan, Tatev — dry ground, bare ridges, a mountain on the horizon. That is the
+Armenia of the photographs and it is most of the country, but it is not all of it, and an archive
+that only ever showed it would be making a claim about the Armenian Highland that is false. The
+north-east faces the moist air off the Caucasus and grows closed broadleaf forest. The last section
+of the article is about exactly that, and it is why the article exists rather than being a park
+description.
+
+### Taxonomy
+
+| Filter | Before | After |
+| --- | --- | --- |
+| All | 8 | **9** |
+| Monastery | 4 | 4 |
+| Historical | 2 | 2 |
+| Museum | 1 | 1 |
+| Nature | 1 | **2** |
+
+`placeTypeId: "nature"`, `featured: false`. **Khor Virap remains the only featured place.** No new
+place type was invented: `national-park`, `protected-area` and `forest` were all available and all
+rejected, because `nature` already means "the place is a landscape rather than a building" and a
+taxonomy with one member per article is not a taxonomy. This is the first time a `places` filter has
+gone from one member to two, which matters more than it sounds — a single-member filter cannot fail
+in the ways a multi-member one can, and the listing tests had to stop treating `nature` as the
+special case it had been since §37.
+
+### Structure
+
+Eleven sections, `3/3/4/3/4/3/4/3/4/4/3` paragraphs, **38 in total** — the same paragraph count as
+Tatev in one more section, with `keyFacts 6 · importantDates 8 · interestingFacts 5 · significance 2
+· relatedFigures 0 · relatedSlugs 1 · section links 1`. The sections are: where the park is; the
+ridges, the valleys and the height of it; from reserve to national park; how large it is and what the
+figure measures; the forest; the plants and what the counts are evidence of; the animals; rivers,
+lakes and springs; the monastic landscape; what the forest has been through; why Dilijan does not
+look like the rest of Armenia.
+
+**`relatedFigures` is empty, for the first time in a Places article.** That is a finding, not an
+omission. Tatev has Orbelian, Vorotnetsi and Tatevatsi; Garni has Tiridates; the Matenadaran has
+Mashtots. A forest has no biography attached to it, and inventing one — Soviet-era resort composers,
+the monasteries' founders — would have been the article borrowing significance from people who
+belong in other articles. The field is empty because the honest answer is empty.
+
+### The chronology, which is where the published numbers go wrong
+
+The single most important thing the article establishes is that **1958 and 2002 are two different
+legal acts, not one event described twice.**
+
+- **1958** — the Dilijan **state reserve**, established by **decree P-341 of the Council of Ministers
+  of the Armenian SSR**, on ground that had until then been worked as the Dilijan and Kuybishev
+  forest enterprises. It is one of Armenia's first three specially protected areas, alongside Khosrov
+  Forest and Shikahogh, and all three were created for forest.
+- **21 February 2002** — **Dilijan National Park**, established by **decree 165 of the Government of
+  the Republic of Armenia**, as a state non-commercial organisation on the basis of that reserve.
+
+A Soviet *zapovednik* is a stricter designation than a national park: it exists to be kept intact and
+studied, not visited. Forty-four years separate the two acts. A source that dates "the park" to 1958
+is describing the reserve; a source that dates it to 2002 is describing the park; and a figure
+quoted from one period does not describe the other. Almost every confused number published about
+Dilijan comes from collapsing the two, which is why the article spends a whole section on it before
+it gets anywhere near the area.
+
+**The Akhnabad yew grove is a third thing and is kept out of both.** Twenty-five hectares of relict
+*Taxus baccata* on the Tsaghkot spur of the Miapor range near Aghavnavank, at 1,400 to 1,700 metres,
+protected in its own right on 13 September 1958 — a **sanctuary**, administered by the Dilijan park
+organisation but never part of the park's own area. The same administration also manages a juniper
+sparse-forest sanctuary of 1,807 hectares over in Gegharkunik. **Managed by is not inside**, and the
+article says so twice because the yew is in nearly every description of this forest and is the
+easiest 25 hectares in Armenia to add to the wrong total.
+
+### The area, and what the figure measures
+
+| Figure | Source | What it says it measures |
+| --- | --- | --- |
+| **33,765 ha** + **8,167 ha** buffer | the park administration, via NABU | the land held by the national park as an organisation, buffer stated separately |
+| 240 km² | Wikipedia, Wikidata (Q1984244) | **unstated** — no boundary, no date |
+
+The article uses the administration's figure, and the reason given is not that it is larger but that
+**it is the only one that says what it counts.** The 240 km² figure is about two thirds of it, is
+close to the order usually quoted for the Soviet-era reserve, and carries neither a boundary nor a
+date on either surface that publishes it. The article's verdict is deliberately unexciting: it is a
+different measurement of something, unattributed.
+
+There is independent corroboration from an unexpected direction. Computing the area of the OSM
+outline during the coordinate work (below) put it at **about 352 km²** — the order of the
+administration's 337.65 km², not of the 240. That is recorded in `geo.ts` because it is the reason a
+mapped boundary was preferred to a gazetteer point in the first place.
+
+The rule the section states is the transferable part: *the park is not the reserve, not the buffer
+zone, not the forest enterprise it was made from, not the municipality, and not the tourist region
+that shares its name.* Any of those could be measured; each gives a different answer; a figure with
+no boundary attached is not a fact about the place.
+
+### The forest
+
+Roughly half the park is under trees and the trees are **98.85 per cent broadleaved against 1.15 per
+cent coniferous** — a 2019 satellite classification from Morin et al., not an impression. That single
+number does most of the section's work: describing Dilijan as oak, beech and hornbeam is not
+shorthand, it is very nearly the complete account.
+
+The three dominants are *Fagus orientalis* on the moist shaded slopes, *Carpinus betulus* and
+*Carpinus orientalis* through the middle ground and dry edges, and oak on the hard positions —
+*Quercus macranthera* high and cold, plus the eastern Caucasian oak that older Armenian literature
+calls *Quercus iberica* and recent treatments fold into *Quercus petraea* as a subspecies. **That
+disagreement is flagged as a taxonomic revision, not a dispute about which tree grows there**, which
+is the kind of distinction that otherwise reads as two sources contradicting each other.
+
+The conifers are handled as the exception the park was partly created to keep, and the yew is
+explicitly a relict of an older, wetter climate rather than a feature of the current forest — which
+is also why the artwork brief below forbids a pine-and-fir picture. A coniferous cover image would
+state the opposite of the article beneath it.
+
+### Biodiversity — the counts, and what they are evidence of
+
+The park's flora is quoted everywhere as **902 vascular plant species**, 881 of them flowering, with
+about 40 rare, 29 in Armenia's Red Book and **four in the Red Data Book of the USSR**.
+
+That last clause is the section's whole point, and it is usually reprinted without anyone noticing
+what it says. **A count whose rarity criteria include a Soviet red list is a count assembled before
+1991.** The number may still be broadly right — a flora does not turn over in a generation — but it
+is a survey result from a particular period restated ever since as a standing fact, and the article
+refuses to treat it as evidence about the park's plants today. The dating comes from the figure's own
+wording rather than from any external claim about it, which is what makes it usable.
+
+The vertebrate figures get the same treatment for the same reason. **~150 birds and 40+ mammals**
+appear in almost every description, always without a date, a surveyor or a method. The article calls
+them plausible **orders of magnitude for a forested protected area of this size in the Caucasus** and
+says they are worth exactly that much. No species total is presented as a measurement anywhere in the
+article.
+
+Two things are stated with confidence because they have documentation behind them:
+
+- **The Caucasian red deer**, *Cervus elaphus maral* — widespread in the nineteenth century, locally
+  extinct in the 1950s, critically endangered in Armenia's Red Book. Reintroduction begun 2013 by the
+  environment ministry with WWF Armenia; a fenced enclosure of about 10 hectares of forest near Parz
+  Lake; founder animals from Iran in 2018 and the first calf born that year; later releases into the
+  park itself stated **without a headcount, because the published numbers differ between accounts.**
+- **A caddisfly new to science**, *Wormaldia dilijanica*, described in 2026 from one tributary of the
+  Aghstev, from specimens taken during a short survey in May 2025. This is cited for one purpose: a
+  protected area where a brief visit to a single stream yields an undescribed species is not a place
+  whose species lists should be read as complete. It is the evidential basis for the caution applied
+  to every count above.
+
+### The cultural landscape, and the enclave pattern
+
+| Monument | Relative to the mapped boundary |
+| --- | --- |
+| Haghartsin | inside, well within the forest in a northern side valley |
+| Jukhtak Vank | inside, on the slopes above Dilijan town |
+| Matosavank | inside, likewise |
+| Aghavnavank | inside, in the east near the village and the yew grove |
+| **Goshavank** | **~280 m outside**, in the Gosh village enclave, park forest on every side |
+
+The boundary is drawn **around** the inhabited ground rather than over it. The town of Dilijan sits
+inside the outline and outside the protected land; so does the village of Gosh. That is why a visitor
+can stand in the town centre and be outside the park, and it is why Goshavank — which the park
+administration's own descriptions list among its monuments — falls just beyond the line as OSM maps
+it.
+
+**The article states the geography instead of choosing a side.** Both claims are defensible and they
+answer different questions: the administration is describing what it presents and interprets, the
+outline is describing where the protection legally sits. The ~280 m is a measurement taken against
+the OSM outline during the coordinate work; the article prose says only "a few hundred metres", which
+is the right precision for a community-maintained boundary.
+
+The enclave pattern is then used to explain three other things at once: why the area figure excludes
+the town, why grazing and building pressure arrive from *inside* the outline rather than from beyond
+it, and why a monastery can be in the middle of the park and outside it simultaneously.
+
+**What the section deliberately does not do is tell these monasteries' histories.** Haghartsin and
+Goshavank are major medieval foundations with their own chronologies, inscriptions and disputes, and
+each deserves its own article rather than a paragraph borrowed from a park's. They appear here as
+buildings in a forest. Neither is in `relatedSlugs`, because neither has an article and
+`validate:content` fails the build on a slug that does not resolve — which is the mechanism that
+stops a plausible-looking future slug from shipping as a dead recommendation.
+
+### Conservation — the best-documented thing about the place
+
+The strongest source in the bibliography is **Morin et al. 2021** (*Remote Sensing* 13(15), 2942,
+doi:10.3390/rs13152942), produced for UNDP Armenia — **the first remote-sensing assessment of any
+specially protected area in Armenia**, mapping forest density and land cover at eight dates from 1991
+to 2019 from Landsat and Sentinel-2, calibrated against high-resolution photography.
+
+| Period | Forest lost | Degraded |
+| --- | --- | --- |
+| 1991–1995 | 253 ha | 384 ha |
+| 1995–2000 | — | 363 ha |
+| **2002–2005** | **none measured** | **22 ha** |
+| 2015–2019 | 45 ha (against **104 ha regenerating**) | — |
+
+The curve breaks immediately after the national park was declared, and the authors attribute that
+directly to the protective measures the new status brought. This is the rarest thing in the article:
+a legal act and a measured curve that turn at the same date. It is also why the significance block
+argues the park's value in terms of *evidence about what protection does* rather than in terms of
+scenery.
+
+**The authors' own caveat is repeated rather than buried.** They attributed every degraded patch to
+human causes unless they could prove otherwise, had no field data on storms or disease, and state
+plainly that their anthropogenic figure is therefore **very likely an overestimate**. The article
+carries that sentence because a source that limits its own findings is more useful quoted with the
+limit than without it.
+
+Visitor pressure is handled by a second, narrower study: **Arzumanyan et al.**, *Journal of
+Ecotourism* 22(4) (doi:10.1080/14724049.2022.2100894), which used **terrestrial molluscs** — land
+snails, sedentary and quick to respond to trampling — as bioindicators, comparing heavily visited
+plots against controls inside this park. Significantly lower diversity, richness and abundance where
+visitor intensity was high; the gap widest in autumn; **all five rare species among the thirty-one
+detected occurred only in the low-traffic plots.** It is cited for exactly what it measured and
+explicitly not as a general warning about tourism — a narrow, dated finding about one animal group in
+one park is worth more than a generalisation, and is presented as such.
+
+### Sources
+
+**Nine**, under `dilijan-national-park`, and the shape of the bibliography is itself an argument: two
+peer-reviewed papers with DOIs carrying the load, an administration source for the chronology and
+area, a ministry register for the sanctuary distinction, a mapped outline for the geography, a funder
+page for the deer programme, and the two general-reference surfaces cited **as carriers of the
+figures the article examines, not as authorities for them.**
+
+1. NABU Armenia — `Dilijan National Park — "Dilijan" National Park SNCO`. The administration's own
+   description, republished by the conservation organisation that works with it, cited that way
+   because the ministry's own national-parks page has moved and no longer resolves.
+2. Ministry of Environment — *State sanctuaries of the Republic of Armenia*. The Akhnabad and juniper
+   sanctuary facts.
+3. Morin et al. 2021, *Remote Sensing* — doi:10.3390/rs13152942.
+4. Arzumanyan et al., *Journal of Ecotourism* — doi:10.1080/14724049.2022.2100894.
+5. Ibrahimi et al. 2026, *Ecologica Montenegrina* — doi:10.37828/em.2026.94.2. The caddisfly.
+6. Caucasus Nature Fund — the red deer reintroduction.
+7. OpenStreetMap relation 7594000 — cited as a community-maintained representation and **explicitly
+   not as the legal boundary.**
+8. Wikipedia — *Dilijan National Park*.
+9. Wikidata — Q1984244.
+
+**A source title had to be disambiguated, and the reason turned out to be mechanical as well as
+editorial.** The NABU entry and the Wikipedia entry were both plainly titled "Dilijan National Park".
+`ArticleLayout` keys the rendered bibliography by `source.title`, so the two collided as React keys
+the first time this article rendered. The NABU entry was retitled to name the SNCO — which is how the
+Lake Sevan bibliography already disambiguates its administrator, so it is a precedent rather than an
+invention. Two identically titled citations one above the other are worth avoiding on their own
+account; the duplicate key is the second reason. **The key's fragility is recorded as debt below
+rather than fixed in a content step**, and a new test now fails on any article whose bibliography
+lists two sources under one title, so the next collision is caught before it renders.
+
+### The coordinate
+
+`{ lat: 40.7417, lon: 44.9312, precision: "area" }` — the second `area` entry after Lake Sevan, and
+**the first point in the registry that had to be computed rather than looked up.** No gazetteer holds
+a point for this park that is both defensible and near the middle of it.
+
+The method, recorded in `geo.ts` at length: OSM relation 7594000 (`Դիլիջան ազգային պարկ`,
+`boundary=protected_area`, `protect_class=2`, `wikidata=Q1984244`), four outer rings stitched, the
+**area-weighted polygon centroid** computed on an equirectangular projection about the polygon's own
+mean latitude, giving 40.741695, 44.931181. The rounded value was then **ray-cast back against the
+polygon and falls inside it** — checked rather than assumed, as it was for Garni and Geghard.
+
+Two independent cross-checks, both consistent: the outline's bounding-box centre (40.73670, 44.94545)
+is 1.3 km away and also inside; Wikidata's P625 (40.65639, 45.02139) is inside too but about 12 km
+south-east, out in the Getik ground. The Wikidata point corroborates the region and is a fair
+illustration of why this entry is `area` and why the gazetteer point was not adopted.
+
+**One coincidence is written down before anyone can mistake it for a copy.** OSM's own label point for
+the *town* of Dilijan is 40.7417126, 44.8722210 — which rounds to **the same latitude 40.7417** as the
+computed centroid. The longitudes differ by 0.059°, about **5.0 km**, and the town is **outside** the
+park polygon. Anyone auditing `geo.ts` will notice the matching latitude before anything else, so the
+comment states plainly that the two points were derived independently and are five kilometres apart.
+Also named as deliberately rejected: the administration's office in the town, Haghartsin (7.5 km
+north-west), Goshavank (5.7 km south-east and outside the boundary), Parz Lake (2.6 km north-east),
+the Akhnabad grove, and any trailhead, hotel or road junction on the approach.
+
+### The map integrated itself
+
+**Nothing in `visit-map.ts` or `VisitMap.tsx` was touched.** The map is derived from
+`places ∩ PLACE_COORDINATES`, so the ninth place appeared on it by existing — which is the property
+§47 predicted in a comment ("a ninth will too") and this step confirms. Marker count 8 → 9, the
+`nature` filter pill now yields two markers instead of one, and Dilijan is now the archive's
+**northernmost** point as Tatev is its southernmost.
+
+### Bounds and overlap — measured, and unchanged
+
+The bounds test was widened to loop **360 / 390 / 768 / 1440** rather than assert at one width, and a
+new test measures **every one of the 36 marker pairs** and asserts the overlapping set is a subset of
+the two known pairs. It is a subset assertion rather than a pixel threshold on purpose: whether the
+known pairs still overlap and by how much is a measurement to report, not a number to pin, since a
+font or icon change would break a threshold while meaning nothing.
+
+Measured at 1440 × 900, `/en/visit`:
+
+```
+erebuni-fortress / matenadaran     25 x 26 px
+garni-temple / geghard-monastery   12 x 31 px
+```
+
+**Identical to §47, to the pixel.** Neither pair got better and neither got worse, and **no third
+pair overlaps** — extending the extent north introduced no new collision. §47 recorded the same
+`25 x 26` and `12 x 31`, so the horizontal figures quoted in that section's debt list (25 px and
+12 px) are unchanged.
+
+That the numbers did not move at all means the fit did not zoom out when the northern edge rose: at
+1440 the extent is evidently constrained by the east–west span (Etchmiadzin to Tatev, about 1.96° of
+longitude) rather than by latitude, so Dilijan's 0.35° of new northern reach fitted inside the
+vertical room already there. **That explanation is an inference from the identical measurements, not
+something this step instrumented** — the measurement is the finding; the cause is offered as the
+likely reading and was not verified, because doing so would mean touching map internals this step is
+forbidden to touch.
+
+**The overlap was not fixed.** It remains open debt, out of scope for a content step for the same
+reason as in §47, and the exhaustive marker-selection test still drives the keyboard rather than the
+mouse.
+
+### Artwork — pending, for the eighth time
+
+`PENDING_ARTWORK` filled again with `"dilijan-national-park"`, the eighth time the list has filled and
+the second time a place has been written ahead of its picture without any near-miss candidate at all.
+No image file was added; none exists in `public/` for this slug; the generated placeholder renders,
+and `validate:content` names the slug in its note.
+
+All thirty-six existing files were **opened rather than read off their filenames**. Nothing in the
+repository shows closed broadleaf mountain forest, because nothing else in the archive is set in it.
+Four substitutions were available and each is recorded as refused, because each would have been easy
+to justify:
+
+- **`places/lake-sevan.webp`** — the other `nature` article, same filter pill. It is open water under
+  treeless highland ridges, which is the exact landscape this article spends a section distinguishing
+  itself from. Lending it would illustrate the contrast with a picture of the wrong side of it. This
+  is the §37 Lake Sevan *mood* substitution running in reverse, and it is the sharpest refusal here.
+- **`places/geghard-monastery.webp`** — the only file in the registry with real trees in frame, which
+  is what makes it dangerous. Scrub and scattered stands on a Kotayk gorge wall, not closed forest,
+  and the subject is a rock-cut monastery in another province. A wooded slope is not a forest.
+- **`places/tatev-monastery.webp`** — a plateau above a Syunik gorge.
+- **`khor-virap.png`** — still byte-identical to `hero-ararat.png`; a mountain over an irrigated
+  plain. Both are the Armenia of the photographs, which is the thing this article is about not being.
+
+All four are named in a `places.spec.ts` test, on the same principle as the Lake Sevan three, the
+Garni three and the Geghard five. **The commission brief is recorded now so it is not reconstructed
+later:** closed broadleaf forest — beech, hornbeam and oak, *not* conifers — running up both sides of
+a valley to a ridge, in leaf, with no monastery, no lake as the subject, no snow peak on the horizon
+and no classical or medieval building in frame.
+
+### Localization and parity
+
+All three editions written: `en`, `hy`, `hyw`. The parity harness
+(`npx tsx scratchpad/check.ts dilijan-national-park`) reports **0 differing rows across 3 editions**
+— field counts, section ids, paragraph counts, link targets, `relatedSlugs`, and the numeral multiset
+per validator field group all identical. The numerals check is the load-bearing one for an article
+this dense in figures: 1958, 2002, 33 765, 8 167, 902, 240, 253, 384, 363, 22, 104, 45, P-341, 165 and
+the rest appear in the same multiset in all three.
+
+**Western Armenian is flagged for native review**, as every `hyw` article since §16 has been. The
+terminology this one adds to that queue is the protected-area and forestry vocabulary — reserve
+versus national park versus sanctuary, and the tree names — which has no precedent in the archive
+because no previous article needed it.
+
+### Tests changed
+
+`tests/e2e/places.spec.ts` (+470 lines), `tests/e2e/visit-map.spec.ts` (+186),
+`tests/e2e/visit.spec.ts` (+51).
+
+- `PLACES` 8 → 9 with a `DILIJAN` const; every count assertion 8 → 9; `byType` `nature` 1 → 2.
+- **`nature` moved out of the single-article loop** into its own Lake Sevan + Dilijan pair test — the
+  filter is no longer a special case and can no longer pass by accident.
+- English-title fallback list gained Tatev and Dilijan.
+- New search test, English and both Armenian editions by «Դիլիջան».
+- New Dilijan placeholder-artwork test, and a **borrows-nothing** test asserting the four refused
+  substitutes appear in no meta tag, JSON-LD block, hero or sitemap image for this slug.
+- Coordinate assertions: the park centroid against the town, Parz Lake, Haghartsin, Goshavank and the
+  Wikidata point; plus a northernmost/southernmost check (Dilijan north, Tatev south).
+- **New: "no place is recorded as a settlement"** — the `settlement` precision value is declared in
+  the union and used by nothing, and this pins that.
+- **New: "no article's bibliography lists two sources under one title"** — imports `getSourceRegistry`
+  from `@/data/sources` and runs over the whole registry, not just this article. This is the guard
+  against the React key collision described above.
+- Pending-artwork test renamed to "exactly one place is waiting for artwork".
+- `visit-map.spec.ts`: `PLACES` gains the slug; **`AREA_PLACE` became `AREA_PLACES`** (Sevan +
+  Dilijan) with a set assertion; the bounds test loops four widths; the new all-pairs overlap test.
+- `visit.spec.ts`: `NOT_CURATED` (etchmiadzin, tatev, dilijan) asserted absent from the curated row;
+  the curated row pinned at 6; `/en/places` count 8 → 9. **Visit curation was not touched** — the
+  ninth place does not appear in the curated row, and the test now proves that rather than assuming
+  it.
+
+### Commands run, and results
+
+| # | Command | Result |
+| --- | --- | --- |
+| 1 | `npm run typecheck` | **PASS** — no `tsc` output |
+| 2 | `npm run validate:content` | **PASS** — 126 entries, placeholder note names `dilijan-national-park` |
+| 3 | `npx tsx scratchpad/check.ts dilijan-national-park` | **PASS** — 0 differing rows across hy, hyw, en |
+| 4 | port 3002 / dev server | clear — no listener on 3000–3010, checked **before** `.next` was removed |
+| 5 | remove `.next` | removed |
+| 6 | `visit-map.spec.ts` (desktop) | **PASS** — 28 |
+| 7 | `visit.spec.ts` (desktop) | **PASS** — 23 |
+| 8 | `places.spec.ts` (desktop) | **PASS** — 55 |
+| 9 | `npx playwright test` | **PASS** — 254 passed, 5 skipped |
+| 10 | `npm run build` | **PASS** — 135 routes, no warnings |
+
+**Zero failures.** Nothing was retried, and no assertion was loosened to make anything pass.
+
+Four notes on the output, none of them faults:
+
+1. **The 5 skips are pre-existing and expected** — the untranslated-article tests in `locale.spec.ts`,
+   `seo.spec.ts` and `mobile.spec.ts`. Every article exists in all three editions, so there is no
+   untranslated page for them to exercise. Unchanged from previous steps.
+2. **The build emitted no React duplicate-key warning**, which is the confirmation that the source
+   retitling actually fixed the collision rather than merely moving it.
+3. **All three Dilijan routes prerendered** — `/en/`, `/hy/` and `/hyw/places/dilijan-national-park`
+   are in `prerender-manifest.json`. Checked there rather than in the build's route list, which
+   truncates with `[+N more paths]`.
+4. **The `[newsletter] insert failed` console noise in the suite log is a passing test**, not an
+   error: it comes from "missing Supabase configuration is reported, not faked", which asserts exactly
+   that failure is surfaced rather than faked.
+
+**Playwright and the production build were never run concurrently**, and no two full-suite runs
+overlapped — the §48 process failure did not recur. `.next` was removed only after the port was
+confirmed clear, which is the other §48 failure and it did not recur either.
+
+### Existing Visit and map behaviour — regression check
+
+- **No map architecture change.** Leaflet, the Stadia configuration, tile environment variables,
+  attribution, the network and privacy tests, lazy loading, marker glyphs, map-local filters, marker
+  selection and the accessible fallback are all untouched. `visit-map.ts` and `VisitMap.tsx` were not
+  edited — the ninth marker is derived, and the diffstat proves it.
+- **No routing, geolocation, geocoding or API addition.**
+- **Visit curation unchanged** — the curated places row is still the same 6, still pinned by a test,
+  and the ninth place is asserted absent from it.
+- **No existing artwork file was modified, renamed, moved, re-encoded or re-registered.** All eight
+  prior covers keep their paths; `ARTWORK_PROVENANCE`, `IMAGE_SIZES` and `PORTRAIT_FOCUS` are
+  unchanged, as are `getImageSrc`, `getArticleImageSrc` and `isGeneratedArtwork`.
+- **No existing article's content changed.** The only edit outside the appended Dilijan blocks is the
+  NABU source title, which is a new entry, and the `getSourceRegistry` export, which is additive.
+- **No new structured-data type**; the place emits the same generic `Article` schema and no tourism
+  types, still asserted.
+- `.claude/settings.json` unchanged.
+
+Files changed: `src/data/locales/{en,hy,hyw}/articles/places.ts`, `src/data/sources.ts`,
+`src/data/geo.ts`, `src/lib/media.ts`, `tests/e2e/places.spec.ts`, `tests/e2e/visit-map.spec.ts`,
+`tests/e2e/visit.spec.ts`, `scratchpad/dilcheck.ts`, and this document. No image file added.
+
+### Still open
+
+Carried forward, plus one new entry. Nothing on this list was fixed here.
+
+- **NEW — `ArticleLayout` keys the bibliography by `source.title`.** Two same-titled works cited by
+  one article collide as React keys. **Worked around in content, not fixed**: the NABU source was
+  retitled to disambiguate, and a new test now fails on any article whose bibliography lists two
+  sources under one title. The rendering code is unchanged and the next article to cite two works of
+  the same name will hit the same wall — the proper fix is keying by index or by identifier, which is
+  a component change and not a content step's business.
+- **Map marker overlap** — Erebuni/Matenadaran at 25 x 26 px and Garni/Geghard at 12 x 31 px at the
+  initial extent, **re-measured this step and unchanged**. Still the reason the exhaustive marker test
+  drives the keyboard.
+- **Khalpakhchian 1962 not read directly** — still cited at one remove through Karakhanian and
+  Abgaryan 2004.
+- **The photographic register** — two of the eight existing Places covers read as photographs rather
+  than illustrations.
+- **The Matenadaran facade colour**, unchanged since §36.
+- **The Garni stone warmth**, unchanged since §40.
+- **The Garni 4:3 artwork dimensions** — still the only WebP that is not 1586 x 992.
+- **A dedicated Khor Virap image** — still the only PNG, still 1.4 MB, still byte-identical to
+  `hero-ararat.png`.
+- **Erebuni and Matenadaran artwork weight** — 742 KB and 701 KB.
+- **Global media optimisation.**
+- **The Cuisine hydration flake** — `cuisine.spec.ts`. Did not reproduce here.
+- **One-directional `relatedSlugs`** — Dilijan points at Lake Sevan and Lake Sevan does not point
+  back, with the documented Tatev-to-Geghard exception still the only one.
+- **Western Armenian native review** — nineteen terminology items, plus this article's protected-area
+  and forestry vocabulary.
+- **The Bresson and Fagan Garni attribution.**
+- **Wilkinson's Garni source not read directly.**
+- **The Hovannisian ISBN.**
+- **`scratchpad/check.ts` living outside `scripts/`** — and now `scratchpad/dilcheck.ts` beside it.
+- **The weak homepage hero-path assertion.**
+- **`settlement`** — declared in the `precision` union and used by no entry. Now pinned by a test that
+  asserts no place uses it, which documents the gap rather than closing it.
+- **No central environment module.**
+- **Production Stadia dashboard and domain authorisation** — operational, outside this repository.
+- **Raster label-language limitation** — Stadia raster tiles bake in bilingual labels.
+- **Privacy-page provider disclosure** — undecided.
+
+### Deliberately not built
+
+No image was generated, sourced, edited or substituted. No new place type, no new filter, no new
+content field, no new component, no custom routing, no new structured-data type. No map architecture,
+provider configuration, tile change, geolocation, routing or curation change. Haghartsin and Goshavank
+were not given articles and were not added to `relatedSlugs` as future slugs. The marker overlap was
+left alone. The `ArticleLayout` bibliography key was left alone.
+
+No deployment was performed.
+
+## 50. Dilijan artwork — the pending entry, cleared for the eighth time (August 2026)
+
+`public/images/places/dilijan-national-park.webp` landed. One line entered `IMAGES`, one line left
+`PENDING_ARTWORK`, and the list is empty for the eighth time. Every consumer already asks
+`getImageSrc`, so that pair of lines lit up the hero in three editions, the listing card, the featured
+surfaces, the search thumbnail, the Open Graph and Twitter tags, the JSON-LD `Article.image` and three
+sitemap `image:loc` entries at once. No component changed.
+
+### The file, opened rather than assumed
+
+| Property | Value |
+| --- | --- |
+| Path | `public/images/places/dilijan-national-park.webp` |
+| Dimensions | **1586 × 992** (16:10) |
+| Bytes | **255,030** (249 KB) |
+| SHA-256 | `9dc7a49c1855e5a97e67e4414a63c340331640ef1620851fd2a1d156704d3120` |
+| MD5 | `df3b1f49e4d616a6be96facbb2f6d672` |
+| Container | `RIFF`/`WEBP`, **one `VP8 ` chunk** at offset 12, size 255,010 |
+| Keyframe sync | `9D 01 2A` — a valid lossy VP8 keyframe |
+| RIFF size field | 255,022 = file length − 8, consistent |
+| Colour | sRGB, 3 channels, 8-bit |
+| Alpha / ICC / EXIF / XMP / IPTC | **none of them** — there is no `VP8X`, so none can be present |
+| Orientation | none |
+
+**Format was determined from the bytes, not the extension.** The RIFF chunk table was walked by hand
+and then checked a second time against `sharp`'s metadata; the two agree on every field. The parser
+was also run over the five existing WebPs as a control, and it correctly reported Garni's 1448×1086
+and Erebuni's `VP8X`+`ICCP` chunks — which is how the "no ICC here" claim above is known to be a
+finding rather than a parser that cannot see ICC profiles.
+
+This is the **plainest container in the registry**: a bare `RIFF/VP8` with no extension chunk at all,
+like Etchmiadzin, Lake Sevan, Garni, Geghard and Tatev. At 249 KB it is the fourth lightest of the
+nine, between Etchmiadzin (242 KB) and Tatev (265 KB). It is 1586×992 again, so the "not 1586×992"
+note in `media.ts` still refers to Khor Virap's PNG and Garni alone. **The file was registered exactly
+as delivered — not generated, edited, cropped, resized, recoloured, renamed, optimised or replaced**,
+which has been the rule since §30.
+
+### What is actually in the frame
+
+A broadleaf valley seen from a rocky overlook. Both walls are closed canopy to the ridgeline, a stream
+runs the valley floor, limestone outcrops break through the trees on the right bank, and forested
+ridges recede into humid haze under overcast sky.
+
+Checked against the §49 commission point by point:
+
+- **Broadleaf dominates.** The foreground branch is unmistakably broadleaf — lobed and serrated leaves
+  — and the canopy across both slopes is rounded and closed. This was the one thing the file had to get
+  right, because the article's own distinguishing fact is that barely one per cent of the park's forest
+  is coniferous.
+- **No conifer anywhere.** No spruce, fir or pine silhouette in the frame. A pine-and-fir picture would
+  have stated the opposite of the article beneath it.
+- **Beech/oak/hornbeam is visually plausible** — mixed mesophilous broadleaf canopy of exactly the kind
+  the forest section describes, with no species contradicted by the frame.
+- **Forest rises over slopes and ridges**, and the **mountain-valley structure is legible**: two walls,
+  a floor, a watercourse, and receding ridges giving real depth.
+- **Greener and more humid than central or southern Armenia.** Overcast, hazy, saturated — which is the
+  whole argument of the article's last section.
+- **Forest is the focal subject.** There is no building of any kind in the frame.
+
+And the things it must *not* read as, each checked rather than assumed: **not Lake Sevan** (no open
+water, no treeless ridges); **not Dilijan town** (no settlement, no roofs, no road); **not alpine**
+(rounded mid-mountain relief, no bare rock summits, no conifer belt, no snow); **not Scandinavian
+conifer forest** (no needle-leaf at all); **not Tatev or Syunik** (no plateau, no basalt shelf, no
+gorge rim); **not Geghard, Khor Virap or any monastery cover** (no monument, no cliff-cut chamber, no
+mountain-over-plain). No unsupported scene dominates either: no wildlife, no red deer, no logging, no
+protest, no Parz Lake recreation, no hotel or resort, no zipline, no hiking group, no monastery.
+
+**Two concerns are reported rather than corrected**, and neither changed the file:
+
+1. **It is photographic in register**, like Geghard (§42) and Tatev (§48), where most of this map is
+   rendered illustration. It inherits `ARTWORK_PROVENANCE` and is captioned AI-generated, which is the
+   more cautious of the two claims. This is the third entry for which that caption is worth
+   re-confirming against the source rather than assuming, and it joins the existing debt item.
+2. **Nothing in the frame identifies Armenia specifically.** There is no landmark — and there cannot
+   be one, because the subject is a forest rather than a monument. The same frame could be the
+   Carpathians or the Balkans. This is a limit of the genre, not a fault in the file: the caption and
+   the article carry the geography, and the alternative would have been putting a building in the
+   frame of an article about there not being one. Recorded so it is not rediscovered as a surprise.
+
+### Crops — the real ones, measured
+
+Geometry computed for `object-cover` with the default `object-center`, against the actual project
+slots, and each crop rendered and looked at rather than reasoned about:
+
+| Slot | Ratio | Result | Trim |
+| --- | --- | --- | --- |
+| Compact card, mobile hero | 4:3 | 1323 × 992 | 263 px left/right (132 each, 16.6%) |
+| Tablet hero (`sm:`) | 3:2 | 1488 × 992 | 98 px left/right (49 each, 6.2%) |
+| Listing card, desktop hero, map card | 16:9 | 1586 × 892 | 100 px top/bottom (50 each, 10.1%) |
+| Category / featured | 16:10 | 1586 × 991 | 1 px — effectively the whole image |
+| Search thumbnail (square bound) | 1:1 | 992 × 992 | 594 px left/right (297 each, 37.5%) |
+
+**Every crop holds.** Broadleaf canopy still dominates in all of them; the valley and ridges stay
+legible in all of them; and none turns the image into generic trees without geographic depth. The
+16:10 source ratio is why: it is close enough to 16:9 that the widest slot trims only sky and
+foreground, and tall enough that the 4:3 slot keeps the full vertical composition and loses only side
+margin. The 16:9 crop is arguably the best of the set, tightening onto the valley.
+
+The **search thumbnail is the tightest crop in the project** — a fixed 128 px column (160 px at `lg:`)
+running the full height of the result card, so it takes a near-square slice from the centre of a 16:10
+landscape. That is the one that had to be checked rather than assumed, and it survives: at 1:1 the
+frame still carries the foreground branch, both forested walls, the stream and the receding ridges. It
+reads as forested mountain landscape at thumbnail size.
+
+**No custom `object-position` was added and none is needed.** The default centre crop is correct for
+this file, which is the outcome to prefer — a Dilijan-specific crop rule would have been the kind of
+special case §30 onward has avoided. `PORTRAIT_FOCUS` stays what it is: the writers' rule, untouched.
+
+### Registration and provenance
+
+One line in `IMAGES`, one line out of `PENDING_ARTWORK`. **The only two non-comment changes in
+`media.ts`** — verified against the diff rather than asserted:
+
+```
++  "dilijan-national-park": "/images/places/dilijan-national-park.webp",
+-  "dilijan-national-park",
+```
+
+Everything else in that file's diff is prose. `ARTWORK_PROVENANCE`, `IMAGE_SIZES`, `PORTRAIT_FOCUS`,
+`getImageSrc`, `getArticleImageSrc` and `isGeneratedArtwork` are **unchanged**. No Dilijan-specific
+image logic, no new image field, no new provenance infrastructure, no special card component, no
+custom image routing.
+
+Probed directly rather than inferred from the rendered page:
+
+```
+getImageSrc("dilijan-national-park")     -> /images/places/dilijan-national-park.webp
+getArticleImageSrc(article)              -> /images/places/dilijan-national-park.webp
+isGeneratedArtwork(article)              -> true
+PENDING_ARTWORK                          -> []
+ARTWORK_PROVENANCE                       -> { source: "ai-generated", documentary: false }
+registry total 32, places 9, registered-and-pending: none
+isGeneratedArtwork(with credited image)  -> false
+```
+
+That last line matters: a real credited photograph would still override both the registry file and the
+AI caption. Registration did not close that door.
+
+The disclosure was verified in **all three editions** on the rendered page: the AI-generated
+illustration caption appears, the placeholder caption is gone, the inline placeholder `<svg>` is gone,
+and the registered file renders.
+
+### Pending-artwork state
+
+`PENDING_ARTWORK` is **empty**, for the eighth time — emptied after each of the eight times it has
+filled: §31→§32, §33→§34, §35→§36, §37→§38, §39→§40, §41→§42, §47→§48, §49→§50.
+
+`validate:content` **no longer prints the Dilijan missing-artwork note**, and still reports 126
+entries. The Places listing renders **zero** placeholders. Dilijan borrows nothing: not Lake Sevan,
+not Geghard, not Tatev, not Khor Virap.
+
+**The §49 rejected-substitute reasoning was kept, not deleted.** All four refusals stay in `media.ts`
+as history, on the same principle as the Lake Sevan three, the Garni three and the Geghard five: the
+failure they guard against is the cover being repointed at a plausible neighbour later, and that
+outlives the file landing. Lake Sevan is a *likelier* accident now than it was while this slug had no
+file at all.
+
+### Tests
+
+`ILLUSTRATED` gained the slug and `ARTWORK` gained the path. **`PLACES`, `ILLUSTRATED` and `ARTWORK`
+remain three separate declarations** even though `PLACES` and `ILLUSTRATED` now both hold all nine.
+That is deliberate and §49 is the proof rather than the argument: §48 recorded the case for keeping
+them apart while they matched, and the very next place split them again one step later. Every previous
+coincidence (§32, §34, §36, §38, §40, §42, §48) was ended by the place after it. They also answer
+different questions — `PLACES` decides what must exist, `ILLUSTRATED` decides what may render an
+`<svg>` — and the `satisfies Record<(typeof ILLUSTRATED)[number], string>` clause on `ARTWORK` is what
+makes a mismatch between the two a **compile** error rather than a runtime one.
+
+Inverted, not deleted:
+
+- `Dilijan renders the generated placeholder and says so` → **`Dilijan renders its own file and is
+  captioned as an illustration`**, all three editions: own `<img>`, no `<svg>`, AI caption present,
+  placeholder caption absent, `getImageSrc` resolves, slug not pending.
+- `Dilijan borrows no other article's artwork, and advertises none of its own` → **`…and advertises
+  its own`**. The borrowing refusals are kept in full; the metadata half inverts — `Article.image` now
+  names Dilijan's file, `og:image` and `twitter:image` stop falling back to `og-default`, and the
+  three sitemap blocks carry `image:loc` instead of none.
+- `exactly one place is waiting for artwork` → **`no place is waiting for artwork, and every one
+  resolves to its own file`**. It needed no new literal: the expected array is derived from
+  `PLACES` minus `ILLUSTRATED`, so it emptied on its own.
+- The listing placeholder count is derived the same way and fell to zero without an edit. That
+  assertion has now inverted ten times (§37 one, §38 zero, §39 one, §40 zero, §41 one, §42 zero, §47
+  one, §48 zero, §49 one, §50 zero), which is the whole argument for pinning an exact count.
+
+Added: **`Dilijan's search card carries its own thumbnail and no placeholder`** — scoped by the
+canonical `/en/places/dilijan-national-park` href rather than by result position, because "Dilijan" has
+rivals in this archive (the park article names the town throughout, and Lake Sevan's article names the
+ridge between them). It also asserts the four refused files are absent from that card. Tatev and
+Dilijan were added to the per-place search-thumbnail loop, which had stopped at Geghard.
+
+**Per-card image ownership is preserved for all nine**, unchanged in form: the listing test still
+matches each place's own href to its own exact file, one card at a time. It was not replaced by an
+image-count assertion — **two swapped covers must still fail**, which a count would not catch.
+
+`visit-map.spec.ts` changed by one comment. The selected-card assertion is derived from `getImageSrc`
+and needed no edit: it now takes the `registered` branch for all nine and asserts Dilijan's own file.
+The `else` branch — an unillustrated place must show *no* image — was **kept**, because it has been
+needed twice already (§47, §49) and deleting it would only have to be undone by the tenth place.
+
+### Commands run, and results
+
+| # | Command | Result |
+| --- | --- | --- |
+| 1 | port 3002 / dev server | clear — no listener on 3000–3010, checked **before** `.next` was removed |
+| 2 | remove `.next` | removed |
+| 3 | `npm run typecheck` | **PASS** |
+| 4 | `npm run validate:content` | **PASS** — 126 entries, **placeholder note gone** |
+| 5 | `places.spec.ts` (desktop) | **PASS** — 56 |
+| 6 | `visit-map.spec.ts` (desktop) | **PASS** — 28 |
+| 7 | `visit.spec.ts` (desktop) | **PASS** — 23 |
+| 8 | `npx playwright test` (run 1) | **1 FAILED** — 254 passed, 1 failed, 5 skipped |
+| 9 | `listing.spec.ts` (desktop, isolated) | **PASS** — 17 |
+| 10 | `npx playwright test` (run 2) | **1 FAILED** — 254 passed, 1 failed, 5 skipped |
+| 11 | `brand.spec.ts` (desktop, isolated) | **PASS** — 8 |
+| 12 | `npm run build` | **PASS** — 135 routes, no warnings |
+| 13 | `npx playwright test` (run 3, fresh server) | **PASS** — 255 passed, 5 skipped |
+
+**Two full-suite runs failed, and both failures are recorded here rather than smoothed over.**
+
+1. **Run 1** — `listing.spec.ts › the writers listing filters within its own edition`. Expected 6
+   writer cards, received 0. The saved page snapshot shows the **Next.js dev overlay**, not the
+   listing: `Runtime SyntaxError: Unexpected end of JSON input` at `JSON.parse`, 15 frames of which 14
+   are ignore-listed framework frames.
+2. **Run 2** — `brand.spec.ts › [hy] no page … still shows the former brand`. `/hy/about` returned
+   **500** where 200 was expected.
+
+Neither is in Places, artwork, media or the map. Both were re-run in isolation and **both passed**
+(17/17 and 8/8). Run 3, against a freshly started dev server, passed the **entire suite**.
+
+The reading, stated as a diagnosis rather than a dismissal: these are **dev-server transients** —
+`playwright.config.ts` runs `npm run dev` (Turbopack) with `fullyParallel: true`, eleven workers and
+`retries: 0`, and both failures landed on cold routes immediately after `.next` had been deleted or
+overwritten by a production build. A truncated `JSON.parse` inside Next's own runtime and a 500 on an
+unrelated static route are the shape of a compile race, not of a registry change. The production build
+compiles and prerenders all 135 routes cleanly, and every spec passes alone.
+
+**Honest caveat.** This step added one test and three page loads to each of two `LOCALES × ILLUSTRATED`
+loops (24 → 27 navigations), so it did put marginally more load on that dev server. That could make an
+existing race fire more often. It is not a product defect and nothing in the shipped application
+changed to cause it, but the timing is worth writing down rather than leaving for someone else to
+notice. It joins the existing flake debt.
+
+Playwright and the production build were never run concurrently, and no two full-suite runs overlapped.
+`.next` was removed only after port 3002 was confirmed clear — the §48 failure mode did not recur.
+
+### Map integration — verified, not modified
+
+`src/lib/visit-map.ts`, `src/components/visit/VisitMap.tsx` and `src/lib/map-tiles.ts` are
+**unchanged**, confirmed against the diff.
+
+- The map still carries **exactly 9 Places**, derived from `places ∩ PLACE_COORDINATES`.
+- **No map-specific slug list exists** — nothing was added to admit or illustrate the ninth marker.
+- The selected Dilijan card now shows `/images/places/dilijan-national-park.webp` and links to the
+  localized article.
+- Lake Sevan keeps its own image; all other eight markers keep theirs; no panel shows a neighbour's.
+- Dilijan is still `precision: "area"`, and the two area centroids are still asserted as a pair.
+- Bounds behaviour unchanged at all four widths.
+
+**Marker overlap re-measured only because the existing §49 test already measures it**, and not fixed:
+
+```
+erebuni-fortress / matenadaran     25 x 26 px
+garni-temple / geghard-monastery   12 x 31 px
+```
+
+Identical to §47 and §49, to the pixel. No third pair overlaps. Registering artwork does not move
+markers, and this confirms it rather than assuming it.
+
+### Visit curation — unchanged
+
+**Dilijan was not added to the six curated Visit cards**, and having artwork is not a reason to add it.
+The curated row is still the same 6, still pinned by a test, with Etchmiadzin, Tatev and Dilijan
+asserted absent from it. `curated Visit row ≠ complete map coverage` is preserved deliberately:
+Dilijan is on the map and in `/places`, and curation stays an editorial choice rather than a
+consequence of a file landing.
+
+### Metadata transition
+
+| Surface | Before (§49) | After (§50) |
+| --- | --- | --- |
+| Hero | placeholder `<svg>` | Dilijan WebP |
+| `Article.image` | absent | Dilijan WebP |
+| `og:image` | `og-default` fallback | Dilijan WebP |
+| `twitter:image` | `og-default` fallback | Dilijan WebP |
+| Sitemap `image:loc` | none on all three routes | Dilijan WebP on all three |
+
+**The JSON-LD graph shape did not change.** Still the generic `Article` node; registration added an
+`image` property to it and nothing else. A test now asserts that no `Place`, `TouristAttraction`,
+`NationalPark` or `GeoCoordinates` node appeared — a park is the most tempting article in this archive
+to over-describe with tourism types, so the absence is pinned rather than trusted.
+
+### Article content — untouched
+
+No Dilijan content was modified. The three `articles/places.ts` files, `sources.ts` and `geo.ts` are
+**unchanged**, confirmed against the diff: the protected-area chronology, the 1958/2002 distinction,
+the area discussion, the Akhnabad sanctuary distinction, forest composition, the biodiversity caution,
+the red deer, *Wormaldia dilijanica*, the cultural-landscape wording, the Goshavank boundary nuance,
+the conservation studies, the sources, the coordinate, `relatedSlugs`, the SectionLink, the SEO fields,
+the taxonomy, the translations and the numerical parity all stand exactly as §49 left them.
+
+Files changed: `src/lib/media.ts`, `tests/e2e/places.spec.ts`, `tests/e2e/visit-map.spec.ts`, and this
+document. Added: `public/images/places/dilijan-national-park.webp`.
+
+### Still open
+
+Carried forward unchanged. Nothing on this list was fixed here.
+
+- **`ArticleLayout` keys the bibliography by `source.title`** — unchanged from §49. Two same-titled
+  works cited by one article collide as React keys; worked around in content, guarded by a test, not
+  fixed in the component.
+- **Map marker overlap** — Erebuni/Matenadaran at 25 x 26 px and Garni/Geghard at 12 x 31 px,
+  re-measured this step and unchanged. Still the reason the exhaustive marker test drives the keyboard.
+- **The photographic register** — now three of the nine Places covers (Geghard, Tatev, Dilijan) read
+  as photographs rather than illustrations, all captioned AI-generated.
+- **Dilijan carries no Armenian landmark — new, and inherent.** The frame could be any temperate
+  broadleaf mountain forest. Reported in §50, not corrected; the caption and article carry the
+  geography.
+- **Dev-server suite flakiness — new.** Two unrelated specs failed once each across three full runs on
+  a cold Turbopack dev server under eleven parallel workers, and both passed in isolation. Joins the
+  Cuisine hydration flake as harness debt rather than product debt.
+- **Khalpakhchian 1962 not read directly.**
+- **The Matenadaran facade colour**, unchanged since §36.
+- **The Garni stone warmth**, unchanged since §40.
+- **The Garni 4:3 artwork dimensions** — still the only WebP that is not 1586 x 992.
+- **A dedicated Khor Virap image** — still the only PNG, still 1.4 MB, still byte-identical to
+  `hero-ararat.png`.
+- **Erebuni and Matenadaran artwork weight** — 742 KB and 701 KB. Dilijan at 249 KB does not move this.
+- **Global media optimisation.**
+- **The Cuisine hydration flake** — `cuisine.spec.ts`. Did not reproduce here.
+- **One-directional `relatedSlugs`**, with the documented Tatev-to-Geghard exception.
+- **Western Armenian native review** — nineteen terminology items, plus §49's protected-area and
+  forestry vocabulary.
+- **The Bresson and Fagan Garni attribution.**
+- **Wilkinson's Garni source not read directly.**
+- **The Hovannisian ISBN.**
+- **`scratchpad/check.ts` and `scratchpad/dilcheck.ts` living outside `scripts/`.**
+- **The weak homepage hero-path assertion.**
+- **`settlement`** — declared in the `precision` union and used by no entry.
+- **No central environment module.**
+- **Production Stadia dashboard and domain authorisation** — operational, outside this repository.
+- **Raster label-language limitation** — Stadia raster tiles bake in bilingual labels.
+- **Privacy-page provider disclosure** — undecided.
+
+### Deliberately not built
+
+The image was not generated, edited, cropped, resized, recoloured, renamed, optimised or replaced. No
+`object-position` rule, no Dilijan-specific image logic, no new image field, no per-image provenance,
+no new component, no custom routing. No article content, coordinate, source or translation touched. No
+map architecture, provider configuration or curation change. No new structured-data type. The marker
+overlap was left alone, and so were the bibliography React key, `scratchpad/check.ts`,
+`scratchpad/dilcheck.ts`, media optimisation, the provider infrastructure, the Stadia settings,
+Leaflet, the map labels and the privacy-page wording. `.claude/settings.json` was not modified.
+
+No deployment was performed.
