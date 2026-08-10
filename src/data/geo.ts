@@ -186,6 +186,52 @@ export const PLACE_COORDINATES: Record<string, PlacePoint> = {
   // the enclosure is the subject, and a reader following this point arrives at the
   // buildings rather than at the middle of a landscape.
   "tatev-monastery": { lat: 39.3794, lon: 46.2501, precision: "site" },
+
+  // The second `area` entry, and the first point in this registry that had to be
+  // *computed* rather than looked up. Dilijan National Park is a protected
+  // landscape of some 33,765 hectares in Tavush, and no gazetteer holds a point
+  // that is both defensible and near the middle of it.
+  //
+  // OpenStreetMap relation 7594000 (`Դիլիջան ազգային պարկ`, name:en=Dilijan
+  // National Park, boundary=protected_area, protect_class=2, leisure=nature_reserve,
+  // wikidata=Q1984244) is the outline used. Its four outer rings were stitched and
+  // the area-weighted polygon centroid computed on an equirectangular projection
+  // about the polygon's own mean latitude: 40.741695, 44.931181, rounded to four
+  // places here. The rounded value was then tested back against the polygon by
+  // ray casting and falls *inside* it — checked rather than assumed, as it was for
+  // Garni and Geghard.
+  //
+  // Two independent cross-checks, both consistent:
+  //   - the bounding-box centre of the same outline is 40.73670, 44.94545, about
+  //     1.3 km away and also inside the park;
+  //   - Wikidata Q1984244 (P625) gives 40.65639, 45.02139, which is inside the park
+  //     too but about 12 km south-east of the centroid, in the Getik ground rather
+  //     than near the middle. It corroborates the region and is a fair illustration
+  //     of why this entry is `area` and why the gazetteer point was not adopted.
+  //
+  // The same computation puts the outline at about 352 km², which is the order of
+  // the administration's 33,765 ha and not of the 240 km² that reference works and
+  // Wikidata still carry. That disagreement is discussed in the article; it is
+  // recorded here because it is the reason a mapped boundary was preferred to a
+  // gazetteer point in the first place.
+  //
+  // **The latitude coincidence is not a copy.** OSM's own label point for the town
+  // of Dilijan is 40.7417126, 44.8722210, which rounds to the same 40.7417 as the
+  // centroid stored here. The longitudes differ by 0.059°, about 5.0 km, and the
+  // town is *outside* the park polygon — the boundary is drawn around the inhabited
+  // ground rather than over it. Anyone auditing this file will notice the matching
+  // latitude before anything else, so it is written down: the two points were
+  // derived independently and are five kilometres apart.
+  //
+  // Deliberately not any of these, and the first is the one every search returns:
+  // Dilijan town centre, above; the park administration's office in the town;
+  // Haghartsin, 7.5 km north-west of this point; Goshavank, 5.7 km south-east and
+  // in fact just outside the mapped boundary at the village of Gosh; Parz Lake,
+  // 2.6 km north-east, which is the park's most photographed feature and sits in
+  // the same forest as the red deer enclosure; the Akhnabad yew grove, which is a
+  // separate 25 ha sanctuary and not part of the park at all; any trailhead, hotel
+  // or road junction on the Dilijan approach.
+  "dilijan-national-park": { lat: 40.7417, lon: 44.9312, precision: "area" },
 };
 
 /** The recorded position for a place slug, or `undefined` when none is held. */

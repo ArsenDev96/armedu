@@ -1,5 +1,6 @@
 import { expect, test } from "@playwright/test";
 import { getPlaceCoordinateRegistry } from "@/data/geo";
+import { getSourceRegistry } from "@/data/sources";
 import { PENDING_ARTWORK, getImageRegistry, getImageSrc } from "@/lib/media";
 import { LOCALES, articleTitle, bundle, cards, ui } from "./helpers";
 
@@ -107,11 +108,42 @@ const GEGHARD = "geghard-monastery";
  */
 const TATEV = "tatev-monastery";
 
-/** All eight places, for the assertions that must hold of every article in the section. */
-const PLACES = [SLUG, ETCHMIADZIN, EREBUNI, MATENADARAN, SEVAN, GARNI, GEGHARD, TATEV] as const;
+/**
+ * The ninth place, the second under the `nature` filter, and the northernmost
+ * article anywhere in this archive — §49.
+ *
+ * It does to `nature` what Garni did to `historical` in §39: the pill stops being
+ * a one-article filter, which changes the shape of the assertions below rather
+ * than only their counts. `nature` leaves the single-article loop and is pinned as
+ * a pair whose order must not matter.
+ *
+ * It splits `PLACES` from `ILLUSTRATED` for the eighth time. Like Etchmiadzin
+ * (§31), Erebuni (§33), the Matenadaran (§35), Lake Sevan (§37), Garni (§39),
+ * Geghard (§41) and Tatev (§47) before it, it ships ahead of its artwork and
+ * renders the generated placeholder.
+ *
+ * It is also the other end of the stretch Tatev began. Tatev pulled the map most
+ * of a degree south of everything else; Dilijan is a third of a degree north of
+ * Etchmiadzin, which was the northernmost marker for eight steps. Nothing was
+ * retuned for either, which is the thing worth asserting.
+ */
+const DILIJAN = "dilijan-national-park";
+
+/** All nine places, for the assertions that must hold of every article in the section. */
+const PLACES = [
+  SLUG,
+  ETCHMIADZIN,
+  EREBUNI,
+  MATENADARAN,
+  SEVAN,
+  GARNI,
+  GEGHARD,
+  TATEV,
+  DILIJAN,
+] as const;
 
 /**
- * The places whose artwork has actually landed — all seven, as of §42.
+ * The places whose artwork has actually landed — eight of nine, as of §49.
  *
  * Kept as its own list rather than folded into `PLACES` because the section has
  * been in the split state six times now (§31, §33, §35, §37, §39, §41) and left it
@@ -121,12 +153,11 @@ const PLACES = [SLUG, ETCHMIADZIN, EREBUNI, MATENADARAN, SEVAN, GARNI, GEGHARD, 
  * fiction, and the place written ahead of its picture needs this list to already
  * exist rather than to be reconstructed under pressure.
  *
- * The two lists coincide again. That is not a reason to collapse them — the last
- * five times they coincided (§32, §34, §36, §38, §40) the next place split them
- * again within one step, and §41 was the most recent proof: the placeholder
- * assertions below read this list to decide what may render an `<svg>`, and that
- * distinction would have had to be rebuilt from scratch had the list been deleted
- * while it looked redundant.
+ * The two lists are split again in §49, for the eighth time, and the argument
+ * PROJECT_STATE made in §48 for keeping them separate while they matched is now
+ * demonstrated rather than argued: they coincided after Tatev's registration and
+ * were split again by the very next place. The placeholder assertions below read
+ * this list to decide what may render an `<svg>`.
  */
 const ILLUSTRATED = [
   SLUG,
@@ -197,9 +228,9 @@ for (const locale of LOCALES) {
     await expect(
       page.getByRole("heading", { name: dict.listing.places.title, level: 1 }),
     ).toBeVisible();
-    await expect(cards(page)).toHaveCount(8);
+    await expect(cards(page)).toHaveCount(9);
 
-    // All seven places open in this edition, under their own titles. The loop is
+    // All nine places open in this edition, under their own titles. The loop is
     // what catches an article authored in `hy` and forgotten in the other two —
     // the listing would still render, with one card short and no error anywhere.
     for (const slug of PLACES) {
@@ -228,6 +259,8 @@ test("the Armenian editions never fall back to the English place title", async (
     "Lake Sevan",
     "Garni Temple",
     "Geghard Monastery",
+    "Tatev Monastery",
+    "Dilijan National Park",
   ]) {
     await expect(page.getByText(english, { exact: true })).toHaveCount(0);
   }
@@ -238,12 +271,12 @@ test("the Armenian editions never fall back to the English place title", async (
 
 test("the places listing filters by kind of site, and keeps it in the URL", async ({ page }) => {
   await page.goto("/en/places");
-  await expect(cards(page)).toHaveCount(8);
+  await expect(cards(page)).toHaveCount(9);
 
   await page.getByRole("button", { name: placeTypeLabel("en", "monastery") }).click();
 
-  // Four of the eight places are monasteries and churches, so the filter genuinely
-  // narrows. With eight articles and five pills, a filter that quietly matched
+  // Four of the nine places are monasteries and churches, so the filter genuinely
+  // narrows. With nine articles and five pills, a filter that quietly matched
   // everything would no longer look like a plausible count. The count held at two
   // across §39, because Garni is `historical` and a temple is not a monastery; §41
   // moved it to three with Geghard, and §47 moves it to four with Tatev.
@@ -279,10 +312,15 @@ test("each single-article filter returns exactly its own article", async ({ page
     `historical` left this loop in §39. It was a one-article pill from §33 to §38;
     Garni is the second article under it, and it is asserted as a pair in the test
     below rather than being quietly dropped from coverage.
+
+    `nature` left it in §49 on the same terms, and for the same reason: Dilijan is
+    the second article under that pill. `museum` is now the only one-article filter
+    left, so the loop runs once — kept as a loop rather than inlined because the
+    section has added a second article to a pill three times now (§39, §47's
+    `monastery`, §49) and the next new type will arrive alone.
   */
   for (const [type, slug] of [
     ["museum", MATENADARAN],
-    ["nature", SEVAN],
   ] as const) {
     await page.goto("/en/places");
     await page.getByRole("button", { name: placeTypeLabel("en", type) }).click();
@@ -300,9 +338,9 @@ test("each single-article filter returns exactly its own article", async ({ page
     }
     await expect(page).toHaveURL(new RegExp(`[?&]type=${type}`));
 
-    // Clearing returns all seven, so the pill filters rather than replaces the set.
+    // Clearing returns all nine, so the pill filters rather than replaces the set.
     await page.getByRole("button", { name: placeTypeLabel("en", "all") }).click();
-    await expect(cards(page), type).toHaveCount(8);
+    await expect(cards(page), type).toHaveCount(9);
   }
 });
 
@@ -337,7 +375,44 @@ test("the historical filter returns exactly Erebuni and Garni", async ({ page })
   await expect(page).toHaveURL(/[?&]type=historical/);
 
   await page.getByRole("button", { name: placeTypeLabel("en", "all") }).click();
-  await expect(cards(page)).toHaveCount(8);
+  await expect(cards(page)).toHaveCount(9);
+});
+
+test("the nature filter returns exactly Lake Sevan and Dilijan National Park", async ({ page }) => {
+  /*
+    The §49 counterpart to the `historical` pair above, and it earns its own test
+    for a reason the count alone does not show: these two articles are not the same
+    kind of subject at all. Lake Sevan is a body of water at 1900 metres with a
+    treeless shore; Dilijan is closed broadleaf forest in the north-east, and its
+    own prose spends a section arguing that the two landscapes have almost nothing
+    in common. `nature` is the pill that has to hold both, which is exactly the
+    breadth §37 chose that id for over `landscape`.
+
+    A filter that silently matched everything, one that dropped Sevan when Dilijan
+    arrived, and one that returned only the newest would all render a plausible
+    two-or-more listing. Pinning the pair, the exact count, and the absence of the
+    other seven separates those cases.
+  */
+  await page.goto("/en/places");
+  await page.getByRole("button", { name: placeTypeLabel("en", "nature") }).click();
+
+  await expect(cards(page)).toHaveCount(2);
+  for (const slug of [SEVAN, DILIJAN]) {
+    await expect(
+      page.getByRole("link", { name: articleTitle("en", slug) }).first(),
+      slug,
+    ).toBeVisible();
+  }
+  for (const other of PLACES.filter((entry) => entry !== SEVAN && entry !== DILIJAN)) {
+    await expect(
+      page.getByRole("link", { name: articleTitle("en", other) }),
+      `nature must not show ${other}`,
+    ).toHaveCount(0);
+  }
+  await expect(page).toHaveURL(/[?&]type=nature/);
+
+  await page.getByRole("button", { name: placeTypeLabel("en", "all") }).click();
+  await expect(cards(page)).toHaveCount(9);
 });
 
 test("the filter vocabulary is exactly the five ids, in every edition", () => {
@@ -358,11 +433,30 @@ test("the filter vocabulary is exactly the five ids, in every edition", () => {
     }
   }
 
+  /*
+    And no place type was invented for a national park, which is the §49 version of
+    the temptation this assertion has resisted since §41.
+
+    `forest`, `national-park` and `protected-area` are all reasonable words for
+    what Dilijan is, and all three would have been a new pill for one article. They
+    are named here rather than merely excluded by the array above, because a
+    negative assertion that names the specific wrong answer is the one that survives
+    someone editing the list of ids. `settlement` is named for the same reason and a
+    different one: it is a plausible filing for an article that mentions the town of
+    Dilijan throughout, and the article is emphatically not about the town.
+  */
+  for (const locale of LOCALES) {
+    const ids = bundle(locale).placeTypes.map((filter) => filter.id);
+    for (const invented of ["forest", "national-park", "protected-area", "settlement"]) {
+      expect(ids, `${locale} must not gain a "${invented}" pill`).not.toContain(invented);
+    }
+  }
+
   // Each type matches exactly the articles that earned it. The vocabulary is
-  // unchanged in §41 — five ids, exactly as before — and the only movement is that
-  // `monastery` now holds three slugs instead of two. Asserting the whole sorted
-  // array rather than membership is what makes a seventh place filed under the wrong
-  // pill fail here rather than merely look odd on the listing.
+  // unchanged in §49 — five ids, exactly as before — and the only movement is that
+  // `nature` now holds two slugs instead of one. Asserting the whole sorted array
+  // rather than membership is what makes a ninth place filed under the wrong pill
+  // fail here rather than merely look odd on the listing.
   const under = (type: string) =>
     bundle("hy")
       .articles.filter((entry) => entry.category === "places" && entry.placeTypeId === type)
@@ -371,12 +465,11 @@ test("the filter vocabulary is exactly the five ids, in every edition", () => {
 
   expect(under("historical")).toEqual([EREBUNI, GARNI].sort());
   expect(under("museum")).toEqual([MATENADARAN]);
-  expect(under("nature")).toEqual([SEVAN]);
+  expect(under("nature")).toEqual([SEVAN, DILIJAN].sort());
   expect(under("monastery")).toEqual([ETCHMIADZIN, GEGHARD, SLUG, TATEV].sort());
 
-  // And no new place type was invented for a rock-cut monastery. The count of ids
-  // is pinned above; this pins the shape of the section against it — seven places
-  // over five pills, with one pill holding three and one holding two.
+  // The whole distribution, pinned against the id count above — nine places over
+  // five pills, with one holding four, two holding two and one holding one.
   const byType = new Map<string, number>();
   for (const entry of bundle("hy").articles.filter((a) => a.category === "places")) {
     byType.set(entry.placeTypeId!, (byType.get(entry.placeTypeId!) ?? 0) + 1);
@@ -385,8 +478,12 @@ test("the filter vocabulary is exactly the five ids, in every edition", () => {
     historical: 2,
     monastery: 4,
     museum: 1,
-    nature: 1,
+    nature: 2,
   });
+  expect(
+    [...byType.values()].reduce((a, b) => a + b, 0),
+    "every place carries a type, so the parts sum to the whole",
+  ).toBe(PLACES.length);
 
   // `nature` rather than `landscape`, and the id travels untranslated. The label
   // is the only part that differs per edition, so a locale that localised the id
@@ -578,6 +675,46 @@ test("the seventh place is findable under the places group too", async ({ page }
   await expect(main.locator(`a[href="/en/places/${GEGHARD}"]`).first()).toBeVisible();
 });
 
+test("the ninth place is findable under the places group too", async ({ page }) => {
+  /*
+    Scoped by href like the six above, and this query has a rival of a kind none of
+    them had: "Dilijan" matches the *town* as well as the park, and the town appears
+    by name throughout this article's own prose and in its `keywords`. There is no
+    settlement article yet, so nothing else can currently rank for it — which is
+    precisely why the assertion is written to survive one being added.
+
+    So the claim is the narrow one: a card linking to this article's own Places
+    route appears, and the Places group heading is on the page. That is what
+    `category: "places"` guarantees and what would silently not happen if a park
+    article were filed anywhere else.
+  */
+  const dict = ui("en");
+  await page.goto("/en/search?q=Dilijan");
+
+  const main = page.getByRole("main");
+  await expect(main.getByRole("heading", { name: dict.search.groupPlaces, level: 2 })).toBeVisible();
+  await expect(main.locator(`a[href="/en/places/${DILIJAN}"]`).first()).toBeVisible();
+
+  /*
+    And the Armenian editions find it under their own group heading too, by the
+    Armenian name. The search haystack is built per edition, and a `keywords` list
+    that carried only Latin forms would leave the article findable in English and
+    invisible to a reader typing «Դիլիջան».
+  */
+  for (const locale of ["hy", "hyw"] as const) {
+    await page.goto(`/${locale}/search?q=${encodeURIComponent("Դիլիջան")}`);
+    const localized = page.getByRole("main");
+    await expect(
+      localized.getByRole("heading", { name: ui(locale).search.groupPlaces, level: 2 }),
+      locale,
+    ).toBeVisible();
+    await expect(
+      localized.locator(`a[href="/${locale}/places/${DILIJAN}"]`).first(),
+      locale,
+    ).toBeVisible();
+  }
+});
+
 test("the empty search page offers places as a place to start", async ({ page }) => {
   await page.goto("/en/search");
   await expect(
@@ -691,6 +828,134 @@ test("no illustrated place renders the artwork placeholder", async ({ page }) =>
         dict.article.imagePlaceholderCaption.replace("{title}", articleTitle(locale, slug)),
       );
     }
+  }
+});
+
+test("Dilijan renders the generated placeholder and says so", async ({ page }) => {
+  /*
+    The §49 state, and the mirror image of the Tatev test below: this article ships
+    ahead of its picture, so the hero must be the inline generated `<svg>`, there
+    must be no raster file at all, and the caption must be the placeholder wording
+    rather than the AI-illustration wording.
+
+    All four are asserted together because they fail in different directions and
+    only one of them is visible. A page that rendered a neighbour's file would look
+    finished; a page that rendered the placeholder under the illustration caption
+    would claim provenance for artwork that was never made. `isGeneratedArtwork`
+    flips on registry membership alone, which is what makes the caption the half
+    that actually goes wrong.
+
+    Every edition, because the caption is read from each locale's own dictionary —
+    the failure §34 caught the first time was exactly one edition being out of step.
+  */
+  for (const locale of LOCALES) {
+    const dict = ui(locale);
+    await page.goto(`/${locale}/places/${DILIJAN}`);
+
+    const figure = page.locator("header figure");
+    await expect(figure.locator("svg[role='img']"), `${locale} ${DILIJAN}`).toHaveCount(1);
+    await expect(figure.locator("img"), `${locale} ${DILIJAN}`).toHaveCount(0);
+
+    await expect(figure.locator("figcaption"), `${locale} ${DILIJAN}`).toHaveText(
+      dict.article.imagePlaceholderCaption.replace("{title}", articleTitle(locale, DILIJAN)),
+    );
+    await expect(figure.locator("figcaption"), `${locale} ${DILIJAN}`).not.toHaveText(
+      dict.article.imageAiIllustrationCaption.replace("{title}", articleTitle(locale, DILIJAN)),
+    );
+  }
+
+  expect(getImageSrc(DILIJAN), "Dilijan must have no registered file yet").toBeUndefined();
+  expect(PENDING_ARTWORK, "and must say so rather than be silently absent").toContain(DILIJAN);
+});
+
+test("Dilijan borrows no other article's artwork, and advertises none of its own", async ({
+  page,
+}) => {
+  /*
+    The four substitutions §49 refused, asserted absent from the surfaces that speak
+    for this article — the head, the structured data and the hero.
+
+    `lake-sevan` is the dangerous one, and it is dangerous because the relationship
+    is real: it is the other `nature` article, it sits under the same filter pill,
+    and it is this article's only `relatedSlugs` entry. It is also open water under
+    treeless ridges, which is the landscape a whole section of this article
+    distinguishes itself from — so borrowing it would illustrate the contrast with a
+    picture of the wrong side of it.
+
+    `geghard-monastery` is the only file in the registry with real trees in frame,
+    which makes it the plausible near miss; `tatev-monastery` and `hero-ararat` are
+    the Armenia of the photographs, which is the thing this article is about not
+    being. `bagratid-armenia` is named too, as the gorge-without-a-forest trap that
+    §37 and §41 both had to refuse.
+
+    Scoped to the head and the hero rather than the whole document, on the same
+    principle as the Lake Sevan, Garni and Geghard versions: Lake Sevan's cover
+    legitimately appears further down the page on the related-articles card.
+  */
+  await page.goto(`/en/places/${DILIJAN}`);
+
+  const metaValues = await page.locator("head meta[content]").evaluateAll((nodes) =>
+    nodes.map((node) => node.getAttribute("content") ?? ""),
+  );
+  const ld = (await page.locator('script[type="application/ld+json"]').first().textContent()) ?? "";
+  const hero = await page.locator("header figure").innerHTML();
+
+  for (const borrowed of [
+    "lake-sevan",
+    "geghard-monastery",
+    "tatev-monastery",
+    "bagratid-armenia",
+    "hero-ararat",
+    "khor-virap",
+  ]) {
+    for (const [surface, haystack] of [
+      ["meta", metaValues.join(" ")],
+      ["structured data", ld],
+      ["hero", hero],
+    ] as const) {
+      expect(
+        haystack.includes(borrowed),
+        `${borrowed} must not appear in ${DILIJAN}'s ${surface}`,
+      ).toBe(false);
+    }
+  }
+
+  /*
+    `Article.image` is a claim that a picture depicts this article, so while no
+    such picture exists the property must be *absent* rather than filled with the
+    generic site card. `og:image` is a different claim — a link-preview card, where
+    a branded default is better than a bare link — so that one does fall back, and
+    the two are asserted separately for exactly that reason.
+  */
+  const graph = (JSON.parse(ld) as { "@graph": Record<string, unknown>[] })["@graph"];
+  const article = graph.find((entry) => entry["@type"] === "Article");
+  expect(article, "the Article node itself must still be emitted").toBeDefined();
+  expect(article?.image, "no picture depicts this article yet").toBeUndefined();
+
+  for (const meta of ['meta[property="og:image"]', 'meta[name="twitter:image"]']) {
+    await expect(page.locator(meta), `${DILIJAN} ${meta}`).toHaveAttribute(
+      "content",
+      /og-default/,
+    );
+  }
+
+  /*
+    And the sitemap advertises no image for this slug in any locale route. An
+    `image:loc` naming a file that does not exist is worse than none at all, and a
+    borrowed one would index a neighbour's picture under Dilijan's URL — which
+    nothing on the rendered page would reveal. This assertion inverts when the
+    artwork lands, exactly as Tatev's did between §47 and §48.
+  */
+  const sitemap = await page.goto("/sitemap.xml");
+  const xml = (await sitemap!.text()).replace(/\s+/g, " ");
+
+  for (const locale of LOCALES) {
+    const block = xml.match(
+      new RegExp(`<url>(?:(?!</url>).)*/${locale}/places/${DILIJAN}(?:(?!</url>).)*</url>`),
+    );
+    expect(block, `${locale} Dilijan sitemap entry`).not.toBeNull();
+    expect(block![0], `${locale} must advertise no image`).not.toContain("image:loc");
+    expect(block![0], `${locale} must not borrow Lake Sevan's file`).not.toContain("lake-sevan");
   }
 });
 
@@ -1514,9 +1779,9 @@ test("the sitemap carries every place's illustration for image search", async ({
   nothing saying whether that was a decision. Both are silent failures, and the
   section currently contains neither.
 */
-test("no place is waiting for artwork, and every one resolves to its own file", () => {
+test("exactly one place is waiting for artwork, and every other resolves to its own file", () => {
   /*
-    Exactly Tatev — the state §47 created for the seventh time.
+    Exactly Dilijan — the state §49 created for the eighth time.
 
     Asserting the whole array rather than `not.toContain(GEGHARD)` is deliberate: it
     fails on a stale entry left behind after a file lands, which is the half of the
@@ -1666,6 +1931,8 @@ test("the homepage still renders its own hero, untouched by the places registry"
     "lake-sevan",
     "garni",
     "geghard",
+    "tatev",
+    "dilijan",
   ]) {
     await expect(page.locator(`img[src*="${fragment}"]`), fragment).toHaveCount(0);
   }
@@ -1837,8 +2104,14 @@ test("the coordinate registry holds one checked point per place", () => {
       a body of water that size is arbitrary, and declaring one at `site`
       precision would claim an accuracy the coordinate does not have. The
       distinction is asserted per slug rather than relaxed for all of them.
+
+      §49 makes it two: a protected landscape of 33,765 hectares has no more of a
+      single point than a lake does. The test is deliberately written as a set
+      membership rather than as `slug === SEVAN || slug === DILIJAN`, so a third
+      `area` place has to be added to a named list rather than to a boolean.
     */
-    expect(point.precision, slug).toBe(slug === SEVAN ? "area" : "site");
+    const AREA = [SEVAN, DILIJAN] as readonly string[];
+    expect(point.precision, slug).toBe(AREA.includes(slug) ? "area" : "site");
     // Rounded on the way in, so no entry may carry a fifth decimal place.
     for (const value of [point.lat, point.lon]) {
       expect(Math.round(value * 10_000) / 10_000, `${slug} ${value} is not 4dp`).toBe(value);
@@ -1968,13 +2241,133 @@ test("the coordinate registry holds one checked point per place", () => {
     Math.abs(temple.lon - 44.7401),
     "the point should be the temple, not the basalt columns in the gorge",
   ).toBeGreaterThan(0.005);
+
+  /*
+    The park centroid, computed from the mapped protected-area outline rather than
+    looked up — see `geo.ts` for the derivation and the cross-checks.
+
+    Dilijan's wrong answers are unusually numerous and unusually findable, because
+    almost everything named "Dilijan" is the town rather than the park. Each is
+    excluded by distance below, and the thresholds are metres expressed in degrees:
+    a degree of latitude here is about 111 km, and a degree of longitude about 84.
+  */
+  const park = registry[DILIJAN];
+  expect(park.lat).toBeCloseTo(40.7417, 4);
+  expect(park.lon).toBeCloseTo(44.9312, 4);
+
+  /*
+    Not Dilijan town centre, and this is the assertion the whole entry exists for.
+
+    OSM's label point for the town is 40.7417126, 44.8722210, which rounds to the
+    *same latitude* as the centroid — so a reader auditing the registry sees
+    40.7417 twice and reasonably suspects a copy. The longitudes differ by 0.059°,
+    about 5 km, and the town sits outside the park polygon entirely. Asserted on
+    the full distance rather than on latitude alone precisely because latitude
+    alone would pass a coordinate that really had been copied.
+  */
+  expect(
+    Math.hypot(park.lat - 40.7417126, park.lon - 44.8722210),
+    "the point should be the park centroid, not Dilijan town centre",
+  ).toBeGreaterThan(0.03);
+
+  // Not Parz Lake (about 40.7512, 44.9597), which is the park's most photographed
+  // feature and only 2.6 km away — by far the closest of the wrong answers.
+  expect(
+    Math.hypot(park.lat - 40.7512, park.lon - 44.9597),
+    "the point should be the park, not Parz Lake",
+  ).toBeGreaterThan(0.02);
+
+  // Not Haghartsin (about 40.8019, 44.8907) and not Goshavank (about 40.7298,
+  // 44.9974) — the two monasteries a search for this park returns ahead of it, and
+  // the two `geo.ts` names as excluded.
+  expect(
+    Math.hypot(park.lat - 40.8019, park.lon - 44.8907),
+    "the point should be the park, not Haghartsin",
+  ).toBeGreaterThan(0.05);
+  expect(
+    Math.hypot(park.lat - 40.7298, park.lon - 44.9974),
+    "the point should be the park, not Goshavank",
+  ).toBeGreaterThan(0.05);
+
+  // And not the Wikidata point (40.65639, 45.02139), which is inside the park but
+  // some twelve kilometres from its centre. It is the value a gazetteer lookup
+  // returns, so adopting it would have looked like diligence.
+  expect(
+    Math.hypot(park.lat - 40.65639, park.lon - 45.02139),
+    "the point should be the computed centroid, not the Wikidata gazetteer point",
+  ).toBeGreaterThan(0.08);
+
+  /*
+    Dilijan is the northernmost point in the registry and Tatev the southernmost,
+    which is the pair that stretches the map. Asserted here rather than only in the
+    map spec because it is a property of the coordinates, not of Leaflet — and it
+    is the reason the bounds tests over four viewport widths exist at all.
+  */
+  const lats = PLACES.map((slug) => registry[slug].lat);
+  expect(Math.max(...lats), "Dilijan is the northernmost place").toBe(park.lat);
+  expect(Math.min(...lats), "Tatev is still the southernmost place").toBe(registry[TATEV].lat);
+});
+
+test("no article's bibliography lists two sources under one title", () => {
+  /*
+    A regression found by rendering rather than by reading, and worth pinning
+    across the whole archive rather than only for this section.
+
+    `ArticleLayout` renders the bibliography with `key={source.title}`, so two
+    citations sharing a title collide as React keys — which is how §49 discovered
+    that its own NABU page and its own Wikipedia entry were both plainly titled
+    "Dilijan National Park". React logs a console warning and may drop or duplicate
+    a list item; nothing about the rendered page announces which. Two identically
+    titled citations one above the other are a reader-facing problem in their own
+    right, and the fix was to disambiguate the title rather than to change the key,
+    because a content step does not touch the component.
+
+    Scoped per article, not globally: the same work legitimately appears in several
+    bibliographies — Hewsen is cited five times over — and only a collision *within
+    one rendered list* is a fault.
+  */
+  const registry = getSourceRegistry();
+
+  for (const [slug, sources] of Object.entries(registry)) {
+    const titles = sources.map((source) => source.title);
+    expect(
+      new Set(titles).size,
+      `${slug} lists ${titles.length} sources under ${new Set(titles).size} distinct titles`,
+    ).toBe(titles.length);
+  }
+});
+
+test("no place is recorded as a settlement", () => {
+  /*
+    §49 in one assertion, and it guards two different mistakes at once.
+
+    `settlement` is a legal value in the `precision` union and is used by no entry —
+    a documented piece of technical debt carried since §30. Dilijan is the first
+    article where filing one would have been *tempting*: the town runs through the
+    prose, the boundary is drawn around it, and a coordinate labelled `settlement`
+    would have compiled, validated and rendered a plausible pin on the town.
+
+    So the union member staying unused is asserted rather than assumed, and the
+    matching taxonomy claim is asserted beside it: no Places article is filed under
+    a `settlement` type either, because none exists.
+  */
+  const registry = getPlaceCoordinateRegistry();
+  for (const [slug, point] of Object.entries(registry)) {
+    expect(point.precision, `${slug} must not be recorded as a settlement`).not.toBe("settlement");
+  }
+
+  for (const locale of LOCALES) {
+    for (const article of bundle(locale).articles.filter((a) => a.category === "places")) {
+      expect(article.placeTypeId, `${locale} ${article.slug}`).not.toBe("settlement");
+    }
+  }
 });
 
 /* -------------------------------------------------------------------------- */
 /*  Existing categories are unaffected                                         */
 /* -------------------------------------------------------------------------- */
 
-test("every place's editorial fields are pinned, and Geghard's are unchanged by its artwork", () => {
+test("every place's editorial fields are pinned, including the ninth", () => {
   /*
     The seventh article was a pure addition, and registering its picture in §42 was
     a pure registry change. This is the assertion that says both.
@@ -2028,6 +2421,21 @@ test("every place's editorial fields are pinned, and Geghard's are unchanged by 
       featured: false,
       related: ["geghard-monastery", "matenadaran", "bagratid-armenia"],
     },
+    /*
+      §49. One related slug, and it is the only relationship the prose earns.
+
+      Dilijan's `ridges-and-rivers` section links to Lake Sevan because the Areguni
+      range is the watershed between the two — the article's own argument is that
+      the two protected landscapes are neighbours across a ridge and ecologically
+      opposite. Nothing else in the archive is about Tavush, forests or the
+      north-east, so nothing else was added.
+
+      Deliberately *not* here: Haghartsin and Goshavank. Both are named in the
+      article's prose and neither has an article, and `validate:content` would fail
+      the build on a slug that does not resolve — which is the mechanism that keeps
+      a plausible-looking future slug from shipping as a dead recommendation.
+    */
+    [DILIJAN]: { type: "nature", featured: false, related: ["lake-sevan"] },
     /*
       Keyed on `PLACES` rather than `ILLUSTRATED` from §47 onward.
 

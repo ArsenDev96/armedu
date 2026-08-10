@@ -301,6 +301,56 @@ export const PENDING_ARTWORK: readonly string[] = [
    * reads correctly and carries no motion, instrument or seismograph imagery of
    * any kind — the failure that section of the article exists to avoid.
    */
+
+  /*
+   * §49. Dilijan National Park is the ninth Place and the eighth time this list
+   * has filled. It is also the first entry where the search came up not merely
+   * short but empty of near misses in the usual direction, and the reason is the
+   * article's own subject: nothing under `public/` shows closed broadleaf
+   * mountain forest, because nothing else in this archive is set in it.
+   *
+   * All thirty-six files were opened rather than read off their filenames. The
+   * landscape they share is the one this article exists to contrast with — dry
+   * ground, bare ridges, open sky. `works/anush.webp` is a treeless ochre
+   * hillside above a village, which is very nearly the photographic negative of
+   * Dilijan; `history/bagratid-armenia.webp` is Ani on a steppe plateau above a
+   * bare gorge; `writers/hovhannes-tumanyan.webp` is a portrait with a dry plain
+   * behind it, and its subject being a Lori man is not evidence about a picture.
+   *
+   * Four substitutions were available and are recorded as refused, because each
+   * would have been easy to justify.
+   *
+   * `places/lake-sevan.webp` is the other `nature` article and would sit under
+   * the same filter pill. It is open water under treeless highland ridges — the
+   * exact landscape the Dilijan article spends a whole section distinguishing
+   * itself from — and lending it here would illustrate the contrast with a
+   * picture of the wrong side of it. This is the Lake Sevan *mood* substitution
+   * from §37 running in reverse, and it is the sharpest one on the list.
+   *
+   * `places/geghard-monastery.webp` is the only file in the registry with real
+   * trees in the frame, which is precisely what makes it dangerous. They are
+   * scrub and scattered stands on a Kotayk gorge wall, not closed forest, and the
+   * subject of the frame is a rock-cut monastery in a different province. A
+   * wooded slope is not a forest, and a monastery on a wooded slope is not a
+   * national park.
+   *
+   * `places/tatev-monastery.webp` offers a plateau above a gorge in Syunik, and
+   * `khor-virap.png` — still byte-identical to `hero-ararat.png` — offers a
+   * mountain over an irrigated plain. Both are the Armenia of the photographs,
+   * which is the thing this article is about *not* being.
+   *
+   * All four are named in a `places.spec.ts` test, on the same principle as the
+   * Lake Sevan three, the Garni three and the Geghard five.
+   *
+   * What a commission would need to carry, recorded now so it is not
+   * reconstructed later: closed broadleaf forest — beech, hornbeam and oak, not
+   * conifers — running up both sides of a valley to a ridge, in leaf, with no
+   * monastery, no lake as the subject, no snow peak on the horizon and no
+   * classical or medieval building anywhere in the frame. The park's own
+   * distinguishing fact is that almost none of its forest is coniferous, so a
+   * pine-and-fir picture would state the opposite of the article beneath it.
+   */
+  "dilijan-national-park",
 ];
 
 /**

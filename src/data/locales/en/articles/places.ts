@@ -1686,4 +1686,222 @@ export const placeArticles: Article[] = [
     ],
     relatedSlugs: ["geghard-monastery", "matenadaran", "bagratid-armenia"],
   },
+  {
+    slug: "dilijan-national-park",
+    href: "/places/dilijan-national-park",
+    category: "places",
+    categoryLabel: "Places",
+    title: "Dilijan National Park",
+    seoTitle: "Dilijan National Park: Armenia's Forested North",
+    placeTypeId: "nature",
+    featured: false,
+    imageSeed: "dilijan-national-park",
+    keywords: [
+      "Dilijan National Park",
+      "Դիլիջան ազգային պարկ",
+      "Dilijan",
+      "Tavush",
+      "Aghstev",
+      "Dilijan forests",
+      "Armenian national parks",
+    ],
+    excerpt:
+      "The forested protected area of north-eastern Armenia — oak, beech and hornbeam on the ridges above the Aghstev, a national park since 2002 built on a reserve of 1958, and the part of the country that looks least like the Armenia in the photographs.",
+    metaDescription:
+      "Dilijan National Park in Tavush: the oak, beech and hornbeam forests of north-eastern Armenia, the 1958 reserve behind the park, and what its area figures measure.",
+    summary:
+      "Dilijan National Park covers the forested mountains of Tavush province in north-eastern Armenia, in the basins of the Aghstev and Getik rivers. The protected area began in 1958 as the Dilijan state reserve, one of the first three specially protected areas in Soviet Armenia; the national park itself was created only in 2002, by government decree, on that reserve's ground. Its administration gives the park 33 765 hectares with a further 8 167 hectares of buffer zone. Roughly half the territory is forest, and almost all of that forest is broadleaved — oak, oriental beech and hornbeam, with conifers and a relict yew grove as small exceptions. The town of Dilijan and several villages lie inside the outline but outside the protected land.",
+    intro:
+      "Most photographs of Armenia show bare rock, dry grassland and a mountain on the horizon, and most of the country earns that picture. Dilijan does not. The national park in the north-east of Tavush province is closed broadleaf forest for kilometre after kilometre — oak, beech and hornbeam running up the slopes on both sides of the Aghstev river until the trees give out on the ridges — and it is the clearest place in the republic to see that the Armenian Highland is not one landscape but several. The park is also younger than it looks in the guidebooks: the ground has been protected since 1958, but it was a strict reserve for forty-four years and has been a national park only since 2002. Those are two different legal things on much the same map, and almost every confusing number published about Dilijan comes from treating them as one.",
+    author: "Armat Editorial Team",
+    updated: "2026-08-10",
+    keyFacts: [
+      { label: "Kind of place", value: "Mountain forest national park, and a working forest administration" },
+      {
+        label: "Where",
+        value: "Tavush province, north-eastern Armenia, with small parts in Lori and Gegharkunik",
+      },
+      {
+        label: "Protected since",
+        value: "1958 as a state reserve; a national park only from 2002",
+      },
+      {
+        label: "Area",
+        value: "33 765 hectares on the administration's own figure, with a further 8 167 hectares of buffer zone",
+      },
+      {
+        label: "Height",
+        value: "From about 1070 metres in the valleys upwards; published upper figures run from 2300 to 2900 metres",
+      },
+      {
+        label: "The forest",
+        value: "Oak, oriental beech and hornbeam; conifers are a small fraction, and the yew is a relict",
+      },
+    ],
+    sections: [
+      {
+        id: "where-it-is",
+        heading: "Where the park is",
+        paragraphs: [
+          "Dilijan National Park lies in the north-east of Armenia, in the province of Tavush, with small parts of its territory reaching into Lori to the west and Gegharkunik to the south. It occupies the mountain country drained by the Aghstev and the Getik, two rivers that run north-east out of the highland towards the Kura, and its administration describes it as lying on the slopes of the Pambak, Areguni, Miapor, Ijevan and Halab ranges. Everything about the place follows from that position: it is on the wet side of the mountains, facing the Caucasus rather than the Ararat plain.",
+          "The town of Dilijan sits in the middle of it, in the Aghstev valley, and the relationship between the two needs stating plainly because they are constantly confused. The town is not the park and the park is not the town. Dilijan is a settlement with its own history as a spa and, in the Soviet period, as a resort and a place where composers and writers were sent to work; the national park is the forested land around it, and the boundary is drawn around the inhabited ground rather than over it.",
+          "That distinction is not a technicality. It is the reason a visitor can stand on a street in Dilijan and be outside the protected area, and the reason lists of what the park contains do not always agree with maps of where it ends. A study of the park's forests published in 2021 worked from the cadastral maps of seven communities inside it, which is the scale of the human presence involved: this is a protected area with towns and villages in it, not a wilderness with a fence around it.",
+        ],
+      },
+      {
+        id: "ridges-and-rivers",
+        heading: "The ridges, the valleys and the height of it",
+        paragraphs: [
+          "The park is not a plateau but a set of valleys with high ground between them. The floor of the Aghstev valley is around 1070 metres above sea level, which is low by Armenian standards — Lake Sevan's surface, an hour away over the mountains, is some eight hundred metres higher — and the ground climbs from there onto ridges where the forest thins into meadow. The height range is the one basic figure about Dilijan that published sources do not agree on: the park administration gives 1070 to 2900 metres, while general reference works give 1070 to 2300, the difference being how much of the open high ground above the treeline is counted as part of the park.",
+          "Both ends of that range matter for what grows. The lower slopes carry the tallest and densest broadleaf stands; the upper ones carry the oak that tolerates altitude, then subalpine meadow. A single hillside in this park runs through more vegetation belts in a few hours' walk than most of southern Armenia does in a day, which is a consequence of relief rather than of latitude.",
+          "The southern edge of the park runs along the Areguni range, whose southern side falls towards Lake Sevan. That ridge is the divide between two of Armenia's best-known protected landscapes and between two entirely different ones: north of it the water drains to the Kura and the slopes are wooded, south of it the water collects in a closed high basin and the shores are treeless. The two national parks are neighbours across a watershed and have almost nothing in common ecologically.",
+        ],
+        links: [{ phrase: "the Areguni range, whose southern side falls towards Lake Sevan", slug: "lake-sevan" }],
+      },
+      {
+        id: "from-reserve-to-park",
+        heading: "From reserve to national park",
+        paragraphs: [
+          "Armenia's system of specially protected areas begins in 1958, and Dilijan is one of the three places it begins with: the Dilijan, Khosrov Forest and Shikahogh reserves were all established that year, and all three were created to protect forest. The Dilijan state reserve was set up by decree P-341 of the Council of Ministers of the Armenian SSR, on ground that had until then been worked as the Dilijan and Kuybishev forest enterprises. What changed in 1958 was the legal purpose of the land, not its ownership: timber ground became protected ground.",
+          "A state reserve in the Soviet system is a stricter thing than a national park. It exists to keep an ecosystem intact and to be studied, not to be visited, and the difference is why the second date in this article's chronology exists at all. The national park was created on 21 February 2002, by decree 165 of the Government of the Republic of Armenia, as a state non-commercial organisation established on the basis of the reserve. Forty-four years separate the two, and they are not the same designation.",
+          "The distinction is worth holding onto because almost everything written about Dilijan collapses it. A sentence that dates the park to 1958 is describing the reserve; a sentence that dates it to 2002 is describing the park. Both dates are real, they are dates of different legal acts, and a figure quoted from one period does not describe the other. The area figures in the next section are the clearest casualty of the confusion.",
+          "One further protected area is easy to fold into this story and should not be. The yew grove of Akhnabad — 25 hectares of relict Taxus baccata on a spur of the Miapor range near the village of Aghavnavank, at between 1400 and 1700 metres — was protected in its own right in 1958, and it is a sanctuary rather than part of the national park. The park's administration manages it, along with a juniper sparse-forest sanctuary of 1807 hectares over in Gegharkunik. Managed by is not the same as inside, and neither sanctuary's area belongs in the park's.",
+        ],
+      },
+      {
+        id: "what-the-area-measures",
+        heading: "How large it is, and what the figure measures",
+        paragraphs: [
+          "The park's own administration gives its territory as 33 765 hectares, with a separate buffer zone of 8 167 hectares around it. That figure is the one used here, and the reason is not that it is the largest but that it says what it measures: the land held by the national park as an organisation, in Tavush with small parts in Lori and Gegharkunik, with the buffer stated separately rather than folded in.",
+          "A second figure circulates far more widely. General reference works, and the structured database most of them draw on, give the park 240 square kilometres, which is about two thirds of the administration's number. Neither the encyclopaedia entries nor the database record says which boundary that measures or what date it was true on, which is precisely the problem with it. It is close to the order of magnitude usually quoted for the Soviet-era reserve, and the safest thing to say about it is that it is a different measurement of something, unattributed.",
+          "The rule this article applies is the one the discrepancy demands: name what the number counts. The park is not the reserve, the park is not the buffer zone, the park is not the forest enterprise it was made from, the park is not the Dilijan municipality, and the park is not the tourist region that shares its name. Any of those could be measured, each would give a different answer, and a figure with no boundary attached to it is not a fact about the place.",
+        ],
+      },
+      {
+        id: "the-forest",
+        heading: "The forest",
+        paragraphs: [
+          "Roughly half of the park is under trees, and the trees are overwhelmingly broadleaved. A satellite classification of the park for 2019 put the broadleaf share of the forested area at almost ninety-nine per cent, with conifers at little more than one — which means that describing Dilijan as a forest of oak, beech and hornbeam is not shorthand but very nearly a complete account of it.",
+          "The dominant species are three, and they are the standard mesophilous forest of the Caucasus rather than anything peculiar to Armenia. Oriental beech, Fagus orientalis, holds the moist and shaded slopes and makes the tall closed stands that give the park its reputation. Common hornbeam and oriental hornbeam, Carpinus betulus and Carpinus orientalis, fill the middle ground and the drier edges. Oak takes the harder positions: Quercus macranthera, the Caucasian oak, on the higher and colder ground, alongside a second oak of the eastern Caucasus that different sources name differently — Quercus iberica in the older Armenian literature, and the same tree as a subspecies of Quercus petraea in more recent treatments. That disagreement is a taxonomic revision rather than a dispute about which tree grows there.",
+          "The three form pure stands and every mixture of themselves, which is what a walk through the park actually looks like: beech in the hollow, hornbeam on the shoulder, oak on the ridge, and long stretches where all three stand together. Lime, ash and elm occur through the mixture. None of this is unusual for the southern Caucasus; what is unusual is finding it in Armenia, where forest of any kind covers a small fraction of the country.",
+          "The conifers are the exception that the park was partly created to keep. Pine and juniper occur in small quantity, and the yew — Taxus baccata, a relict of an older and wetter climate — survives in the grove at Akhnabad, protected separately since 1958 and, at a few centuries old, the reason the tree appears in almost every description of this forest despite occupying a tiny fraction of it.",
+        ],
+      },
+      {
+        id: "the-plants",
+        heading: "The plants, and what the counts are evidence of",
+        paragraphs: [
+          "The figure quoted everywhere for the park's flora is 902 species of vascular plants, of which 881 are flowering plants and the rest are ferns, gymnosperms, a horsetail and a clubmoss. About 40 of the 902 are described as rare, 29 are listed in the Red Book of the Republic of Armenia, and four are listed in the Red Data Book of the USSR.",
+          "That last clause is the useful part, and it is usually reprinted without anybody noticing what it says. A count whose rarity criteria include a Soviet red list is a count assembled before 1991. The number may still be broadly right — a flora does not turn over in a generation — but it is a survey result from a particular period, restated ever since as though it were a standing fact, and it is not evidence about the park's plants today. Nothing in this article treats it as one.",
+          "The same caution applies to the vertebrate figures that travel with it. Around 150 bird species and more than 40 mammal species are given in almost every description of Dilijan, always without a date, a surveyor or a method. Those are plausible orders of magnitude for a forested protected area of this size in the Caucasus, and they are worth exactly that much: an order of magnitude, not a measurement.",
+        ],
+      },
+      {
+        id: "the-animals",
+        heading: "The animals",
+        paragraphs: [
+          "The mammals recorded in the park are the forest fauna of the southern Caucasus: brown bear, lynx, wolf, wild boar, roe deer, wildcat, badger, fox and squirrel. Recorded presence is a statement about what lives in the territory, and it is a weaker claim than it is usually made to carry. A large carnivore in a forest is not a thing a visitor is likely to see; the animals are there because the habitat is continuous, which is the point of protecting it, and not because the park is a place to look at them.",
+          "The one species with a documented story rather than a list entry is the Caucasian red deer, Cervus elaphus maral. It was widespread in the forests of Armenia in the nineteenth century, became locally extinct in the 1950s, and is listed as critically endangered in the country's Red Book. A programme to return it was begun in 2013 by the environment ministry and WWF Armenia, with a fenced breeding enclosure of about 10 hectares of forest near Parz Lake inside the park; the first founder animals arrived from Iran in 2018, deer were born there in the same year, and animals bred in the enclosure have since been released into the park itself.",
+          "Among birds, the species named in the park's own descriptions are the ones a forested highland would be expected to hold — black grouse on the upper edges, raptors over the ridges — and the same caution applies to them as to the counts above. What can be said without reservation is that the park is continuous woodland habitat on a scale Armenia has very little of, which is a statement about the forest rather than about any bird in it.",
+          "The invertebrates are the part of this fauna still being written. A caddisfly new to science, Wormaldia dilijanica, was described in 2026 from specimens taken in a tributary of the Aghstev inside the park during a short survey in May 2025 — the authors noting that Armenia's caddisfly fauna is poorly known and that the country has been largely absent from recent work in the Caucasus. A protected area where a short visit to one stream yields an undescribed species is not a place whose species lists should be read as complete.",
+        ],
+      },
+      {
+        id: "water",
+        heading: "Rivers, lakes and springs",
+        paragraphs: [
+          "The park is defined by its rivers more than by its lakes. The Aghstev is the main one, rising in the highland and running north-east through Dilijan town and on out of the country's mountains; the Getik drains the southern part of the territory and joins it beyond the park. Between them they collect a set of short forest tributaries — the Haghartsin, the Bldan, the Hovajur and the Shtoghanajur among them — and it is those small streams, rather than any body of standing water, that carry most of the park's freshwater life.",
+          "The lakes are small and few. Parz Lake, in the forest north-east of Dilijan town, is the best known; Gosh Lake lies further east, and there are one or two smaller waters besides. They are landscape features and habitat, and they are worth naming for what they are — a handful of small lakes in a mountain forest — rather than for the recreation that has grown up around the largest of them. Parz Lake also matters to this article for an unrelated reason: the red deer enclosure stands in the forest beside it.",
+          "Mineral springs are the third kind of water here and the oldest reason outsiders came. The mineral waters of the Dilijan area gave the town its nineteenth- and twentieth-century character as a spa, and the springs themselves are a product of the same geology that shapes the valleys. They belong to the region's history more than to the park's ecology, and this article mentions them for completeness rather than as a feature of the protected area.",
+        ],
+      },
+      {
+        id: "the-monasteries",
+        heading: "The monastic landscape",
+        paragraphs: [
+          "This forest is not empty of building, and the monuments in it are among the best known in Armenia. Haghartsin stands in a side valley in the north of the park, well inside the forest and several kilometres from the nearest road out of the mountains. Jukhtak Vank and Matosavank stand on the slopes immediately above Dilijan town, in woodland and within the protected land. Aghavnavank lies in the east, near the village of the same name and the yew grove. All of these are inside the boundary as it is drawn.",
+          "Goshavank is the one that needs care, and it is the one most often listed as the park's own. It stands at the village of Gosh, on the south-eastern side of the territory, and the village is one of the inhabited enclaves the boundary is drawn around rather than over. On the protected area's mapped outline the monastery sits a few hundred metres outside the line, in the village, with park forest on every side of it. The park administration's own descriptions list Goshavank among the monuments of the park; the boundary as mapped puts it just beyond one. Both statements are defensible and they are answering different questions, which is why this article states the geography instead of choosing a side.",
+          "That pattern — protected forest wrapped around unprotected settlements — is the single most useful thing to understand about the human geography here, and it explains a good deal else. It is why the park's area figure does not include the town, why grazing and building pressure arrive from inside the outline rather than from beyond it, and why a monastery can be simultaneously in the middle of the park and outside it.",
+          "What this article deliberately does not do is tell these monasteries' histories. Haghartsin and Goshavank are major medieval foundations with chronologies, inscriptions and disputes of their own, and each deserves its own article rather than a paragraph borrowed from a park's. They appear here as what they are in this context: buildings in a forest, and evidence that the forest has been inhabited and worked for as long as anything else in Armenia.",
+        ],
+      },
+      {
+        id: "conservation",
+        heading: "What the forest has been through",
+        paragraphs: [
+          "The most precisely documented thing about this park is the damage done to it in the nineteen-nineties, and the documentation is unusually good because someone went back and measured it from orbit. A study published in 2021 mapped forest density and land cover across the park at eight dates between 1991 and 2019, using Landsat and Sentinel imagery calibrated against high-resolution photography, and it is the first remote-sensing assessment of any Armenian protected area.",
+          "What it found matches the political history. Illegal and unregulated logging began across Armenia's forests in 1992, when the transport and energy blockade left a country with no fuel and a great deal of standing timber. In the park, the period from 1991 to 1995 lost 253 hectares of forest outright and degraded a further 384; the following five years degraded 363 more. Then the curve breaks. Between 2002 and 2005 — the years immediately after the national park was created — the study recorded 22 hectares of degradation and no measured forest loss at all, which the authors attribute directly to the protective measures that came with the new status.",
+          "The story since is neither a recovery nor a collapse. Losses resumed at a lower level in the two periods after 2005, and by the last epoch, 2015 to 2019, the park was regenerating 104 hectares against 45 lost, with pressure coming from settlements, agriculture and tourism rather than from industrial logging. The authors are careful about their own numbers in a way worth repeating: they attributed every degraded patch to human causes unless they could prove otherwise, had no field data on storms or disease, and say plainly that their anthropogenic figure is therefore very likely an overestimate.",
+          "Visitor pressure has been measured too, and by an unusual method. A study published in the Journal of Ecotourism used terrestrial molluscs — land snails, which do not move far and respond quickly to trampling and disturbance — as indicators of tourism impact inside the park, comparing heavily visited plots against control plots. It found significantly lower species richness and abundance where visitor numbers were high, with the gap widest in autumn, and all five of the rare species it detected occurring only in the low-traffic plots. That is a narrow finding about one group of animals in one park, and it is the kind of specific, dated evidence that generalised warnings about tourism are not.",
+        ],
+      },
+      {
+        id: "not-the-armenia-in-the-photographs",
+        heading: "Why Dilijan does not look like the rest of Armenia",
+        paragraphs: [
+          "Armenia is a dry country. The Ararat plain is irrigated semi-desert, the Gegham and Vardenis uplands are treeless volcanic pasture, the Vorotan and Azat gorges cut through bare rock, and the shores of Lake Sevan carry grass rather than woodland. Against all of that, the north-east is an anomaly: it faces the moist air coming off the Caucasus, it catches the rainfall that the interior does not, and it grows the closed broadleaf forest that the rest of the country cannot support.",
+          "The scale of that anomaly is easy to understate. Forest covers a small share of Armenia's territory, most of what there is lies in the north-east and the far south, and a single protected area of this size therefore holds a meaningful fraction of the country's continuous woodland. Dilijan is not one scenic valley among many. It is a large part of a scarce habitat type, in a country where the scarcity is the whole point.",
+          "That is the honest reason to read about this park rather than only to walk in it. A visitor who sees Khor Virap, Garni and Sevan has seen the Armenia of the photographs and has seen one climate. A visitor who then stands under beech in the Aghstev valley has seen the other, and has learned something about the Armenian Highland that no amount of time on the plain would have taught: that it is a set of very different countries stacked against each other along a few hundred kilometres of mountain.",
+        ],
+      },
+    ],
+    importantDates: [
+      {
+        year: "1958",
+        event:
+          "Armenia's first specially protected areas are created — the Dilijan, Khosrov Forest and Shikahogh reserves, all of them for forest. The Dilijan state reserve is established by decree P-341 of the Council of Ministers of the Armenian SSR, on ground previously worked as the Dilijan and Kuybishev forest enterprises.",
+      },
+      {
+        year: "1958",
+        event:
+          "The yew grove of Akhnabad, 25 hectares of relict Taxus baccata on the Miapor range at between 1400 and 1700 metres, is protected as a sanctuary in its own right. It is administered by the Dilijan park organisation today and has never been part of the park's own area.",
+      },
+      {
+        year: "1992",
+        event:
+          "Illegal and unregulated logging begins across Armenia's forests with the transport and energy blockade of the country. The years that follow remove more forest from Dilijan than any period since.",
+      },
+      {
+        year: "2002",
+        event:
+          "Dilijan National Park is established on 21 February by decree 165 of the Government of the Republic of Armenia, as a state non-commercial organisation on the basis of the 1958 reserve.",
+      },
+      {
+        year: "2013",
+        event:
+          "The environment ministry and WWF Armenia begin a programme to return the Caucasian red deer, locally extinct since the 1950s, to Armenia — with Dilijan as the site.",
+      },
+      {
+        year: "2018",
+        event:
+          "The first founder red deer arrive from Iran into a fenced enclosure of about 10 hectares of forest near Parz Lake, and the first calf is born there in the same year.",
+      },
+      {
+        year: "2021",
+        event:
+          "A satellite study of the park's forest and land cover from 1991 to 2019 is published — the first remote-sensing assessment of any specially protected area in Armenia.",
+      },
+      {
+        year: "2026",
+        event:
+          "A caddisfly new to science, Wormaldia dilijanica, is described from a tributary of the Aghstev inside the park, from specimens collected during a short survey in May 2025.",
+      },
+    ],
+    significance: {
+      heading: "Why Dilijan National Park matters",
+      paragraphs: [
+        "Dilijan protects a habitat Armenia has very little of. Closed broadleaf mountain forest is the normal vegetation of the wetter southern Caucasus and the exception in this republic, so a single protected area of this size in the north-east holds a substantial share of the country's continuous woodland. What is being conserved here is not scenery but the last large piece of a forest type that the rest of the national territory is too dry to grow.",
+        "It is also the clearest worked example in Armenia of what protection actually does, because for once the before and the after were both measured. The forest was cut hard through the nineteen-nineties, the national park was declared in 2002, and satellite imagery shows clearance stopping almost immediately afterwards and regeneration outrunning loss by the end of the record. Very few protected areas anywhere can point to a legal act and a curve that turns at the same date; this one can, and that is worth more to a reader than any description of the view.",
+      ],
+    },
+    interestingFacts: [
+      "The town of Dilijan is not in the national park. The boundary is drawn around the inhabited ground, so a visitor standing in the town centre is outside the protected area with park forest on every side.",
+      "Almost all of Dilijan's forest is broadleaved: a satellite classification for 2019 put conifers at little more than one per cent of the forested area, in a park often described for its yews.",
+      "The much-quoted flora of 902 vascular plant species includes four listed in the Red Data Book of the USSR — a clause that dates the survey to before 1991, however often the figure is reprinted as current.",
+      "The yew grove of Akhnabad is 25 hectares and is not part of the national park. It is a separate sanctuary, protected in the same year as the reserve and managed by the park organisation ever since.",
+      "The park's invertebrates are still being described: a caddisfly unknown to science, Wormaldia dilijanica, was named in 2026 from a single stream inside the boundary.",
+    ],
+    relatedFigures: [],
+    relatedSlugs: ["lake-sevan"],
+  },
 ];

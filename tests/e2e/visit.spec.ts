@@ -44,6 +44,22 @@ const PLACE_TYPES = ["monastery", "historical", "museum", "nature"] as const;
 /** Etchmiadzin is the deliberate omission — reachable only through the CTA. */
 const NOT_FEATURED = "etchmiadzin-cathedral";
 
+/**
+ * The places that exist, are on the map, and are deliberately *not* in the row.
+ *
+ * Etchmiadzin above was the first, and it stood alone while the row held six of
+ * seven. It no longer does: Tatev (§47) and Dilijan (§49) both shipped straight
+ * into the map without being curated, so the gap between "on the map" and "in
+ * the row" is now three articles wide rather than one.
+ *
+ * That gap is the invariant, not an oversight to be closed. The map answers
+ * *where can I already read about something* and grows with the section; the row
+ * is an editorial selection and grows when someone decides it should. Naming the
+ * excluded slugs explicitly is what keeps a later step from quietly appending the
+ * newest place to the row because the number looked untidy.
+ */
+const NOT_CURATED = [NOT_FEATURED, "tatev-monastery", "dilijan-national-park"] as const;
+
 const ORIGIN = "https://armat.site";
 
 /**
@@ -260,6 +276,31 @@ test("every featured place card links to its canonical route and shows its own a
     cards(page).filter({ has: page.locator(`a[href="/en/places/${NOT_FEATURED}"]`) }),
     "Etchmiadzin stays behind the all-places link",
   ).toHaveCount(0);
+
+  /*
+    And the same for every other uncurated place, which is the assertion §49
+    actually needs.
+
+    The row held six of seven when this test was written, so "Etchmiadzin is
+    absent" and "the row is a curation" were nearly the same statement. With nine
+    places and six cards they are not: the failure worth catching now is a newly
+    written place being appended to the row on the way past, and only Etchmiadzin
+    was ever named. Dilijan is the ninth place, it is on the map, and it must not
+    be here.
+  */
+  for (const slug of NOT_CURATED) {
+    await expect(
+      cards(page).filter({ has: page.locator(`a[href="/en/places/${slug}"]`) }),
+      `${slug} is on the map but not in the curated row`,
+    ).toHaveCount(0);
+  }
+
+  // The row itself is still exactly six cards, which is the other half of the
+  // same statement: nothing was added and nothing was quietly dropped.
+  await expect(
+    cards(page).filter({ has: page.locator('a[href^="/en/places/"]') }),
+    "the curated places row stays at six",
+  ).toHaveCount(FEATURED_PLACES.length);
 });
 
 test("every dish card links to its canonical route and shows its own artwork", async ({ page }) => {
@@ -729,13 +770,13 @@ test("every canonical route the journey links into still works", async ({ page }
   /*
     The listings themselves, and their counts, which a curation must not touch.
 
-    Places moves 7 → 8 in §47. The number is edited rather than derived on purpose:
-    the point of this assertion is that adding a *curated row* to `/visit` does not
-    change what the section listings contain, so it has to be a figure someone
-    updates deliberately when the section genuinely grows.
+    Places moves 7 → 8 in §47 and 8 → 9 in §49. The number is edited rather than
+    derived on purpose: the point of this assertion is that adding a *curated row*
+    to `/visit` does not change what the section listings contain, so it has to be
+    a figure someone updates deliberately when the section genuinely grows.
   */
   for (const [path, count] of [
-    ["/en/places", 8],
+    ["/en/places", 9],
     ["/en/cuisine", 6],
     ["/en/history", 7],
   ] as const) {

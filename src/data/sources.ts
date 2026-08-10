@@ -1216,6 +1216,107 @@ const SOURCES: Record<string, Source[]> = {
       note: "The single citation for the cable car, kept to the one fact the article states: 5,752 metres between Halidzor and the monastery, achieved 16 October 2010. No fares, hours or booking information are recorded here or in the article.",
     },
   ],
+
+  /*
+   * Dilijan is the first Place whose bibliography has to do two jobs at once,
+   * and the split is deliberate.
+   *
+   * The first five entries carry claims. The last three carry the *circulating*
+   * figures the article examines — 240 square kilometres, 902 vascular plants,
+   * about 150 birds, more than 40 mammals — and are cited as the thing being
+   * described rather than as authorities for it. A reader who follows them
+   * should find exactly the unsourced numbers the article says are there.
+   * Removing them because they are not scholarly would leave three paragraphs
+   * arguing against sources that had been tidied out of the footnotes.
+   *
+   * Deliberately not used: the travel and resort pages that dominate a search
+   * for this subject. Every one of them reprints the 240 km² figure beside the
+   * 1958 date, which is the exact conflation of reserve and park that §10 of
+   * this article's brief exists to prevent, and several add a species count with
+   * no date attached to it at all.
+   */
+  "dilijan-national-park": [
+    {
+      /*
+       * Disambiguated in the same way the Lake Sevan entry names the SNCO that
+       * administers it, and for a reason that turned out to be mechanical as well
+       * as editorial: `ArticleLayout` keys the rendered bibliography by
+       * `source.title`, so this entry and the Wikipedia one below — both plainly
+       * titled "Dilijan National Park" — collided as React keys the first time
+       * this article rendered. Two identically titled citations one above the other
+       * are worth avoiding on their own account; the duplicate key is the second
+       * reason. The fragility of that key is recorded as debt rather than fixed in
+       * a content step.
+       */
+      title: "Dilijan National Park — \"Dilijan\" National Park SNCO",
+      publisher: "NABU Armenia (Naturschutzbund Deutschland), Yerevan",
+      identifier: {
+        kind: "url",
+        value: "https://nabu.am/en/eco-education/protected-areas/national-parks/dilijan-national-park",
+      },
+      note: "The park administration's own description of itself, republished by the conservation organisation that works with it — which is what it is cited as, since the ministry's own page for the national parks has moved and no longer resolves. It carries the whole of this article's chronology and its area: the reserve of 1958 established by decree P-341 of the Council of Ministers of the Armenian SSR on the ground of the former Dilijan and Kuybishev forest enterprises; the national park established on 21 February 2002 by decree 165 of the Government of the Republic of Armenia; 33,765 hectares with a separate buffer zone of 8,167; the provinces; the Pambak, Areguni, Miapor, Ijevan and Halab ranges; the Aghstev and Getik basins; the elevation range of 1,070 to 2,900 metres; and beech, yew and oak as the protected objects. It is the only source found that states what its area figure measures, which is why the article uses that figure and not the commoner one.",
+    },
+    {
+      title: "State sanctuaries of the Republic of Armenia",
+      publisher: "Ministry of Environment of the Republic of Armenia, Yerevan",
+      identifier: { kind: "url", value: "https://environment.gov.am/en/sanctuaries" },
+      note: "The official register of Armenia's sanctuaries, and the source for the distinction the article draws twice. The Akhnabad yew grove is 25 hectares, was protected on 13 September 1958, lies on the Tsaghkot spur of the Miapor range near Aghavnavank at 1,400 to 1,700 metres, and protects relict European yew — as a sanctuary in its own right, administered by the Dilijan national park organisation rather than included in the park. The same page lists a juniper sparse-forest sanctuary of 1,807 hectares in Gegharkunik under the same administration. Neither area belongs in the park's own.",
+    },
+    {
+      author:
+        "Nathalie Morin, Antoine Masse, Christophe Sannier, Martin Siklar, Norman Kiesslich, Hovik Sayadyan, Loic Faucqueur and Michaela Seewald",
+      title:
+        "Development and Application of Earth Observation Based Machine Learning Methods for Characterizing Forest and Land Cover Change in Dilijan National Park of Armenia between 1991 and 2019",
+      publisher: "Remote Sensing 13(15), 2942, MDPI",
+      year: "2021",
+      identifier: { kind: "doi", value: "10.3390/rs13152942" },
+      note: "The strongest source in this bibliography and the whole basis of the conservation section: the first remote-sensing assessment of any specially protected area in Armenia, produced for UNDP Armenia from Landsat and Sentinel-2 series at eight dates. Supports the forest composition (98.85 per cent broadleaved against 1.15 per cent coniferous in 2019), the land-cover breakdown (natural vegetation about 93.7 per cent of the area with more than half of that forest, agriculture 4.62, settlements and primary roads 1.19), the perturbation table quoted in the article (253 hectares of forest lost and 384 degraded in 1991-1995, 363 degraded in 1995-2000, 22 degraded and none lost in 2002-2005, 104 hectares regenerating against 45 lost in 2015-2019), the 1958 reserve as one of Armenia's first three, the start of illegal logging in 1992 with the blockade, the seven communities whose cadastral maps the study used, and the continuing pressure from settlements, agriculture and tourism. Cited also for the authors' own caveat, which the article repeats: degradation was attributed to human causes unless proven natural, and they say plainly that their anthropogenic figure is therefore very likely an overestimate.",
+    },
+    {
+      author: "M. Arzumanyan, A. Ghrmajyan, V. Muradyan, T. Tammaru and M. Arakelyan",
+      title: "Molluscs as bioindicators of tourism pressure on ecosystems of Dilijan National Park, Armenia",
+      publisher: "Journal of Ecotourism 22(4), 566-577, Taylor and Francis",
+      year: "2023",
+      identifier: { kind: "doi", value: "10.1080/14724049.2022.2100894" },
+      note: "The only measured evidence found for recreation pressure inside this park, and cited for exactly what it measured rather than as a general warning about tourism: terrestrial molluscs on visited plots against control plots, with significantly lower diversity, species richness and abundance where visitor intensity was high, the gap widest in autumn, and all five rare species among the thirty-one detected occurring only in the low-traffic plots. Published online in 2022 and issued in the 2023 volume.",
+    },
+    {
+      author: "Halil Ibrahimi, Astrit Bilalli, Milaim Musliu, Vardan Asatryan and Marine Dallakyan",
+      title:
+        "Wormaldia dilijanica sp. nov., a new caddisfly species (Trichoptera, Philopotamidae) from the Dilijan National Park in Armenia",
+      publisher: "Ecologica Montenegrina 94, 76-83, Institute for Biodiversity and Ecology",
+      year: "2026",
+      identifier: { kind: "doi", value: "10.37828/em.2026.94.2" },
+      note: "Cited for one point, which is the point: a short field survey of a single tributary of the Aghstev inside the park in May 2025 produced a species new to science, and the authors state that Armenia's caddisfly fauna is poorly known and that the country has been largely absent from recent Caucasus work. This is the evidence for the article's refusal to treat the park's circulating species counts as complete.",
+    },
+    {
+      title: "Reintroduction of the Caucasian Red Deer to Armenia",
+      publisher: "Caucasus Nature Fund, Tbilisi",
+      identifier: {
+        kind: "url",
+        value: "https://www.caucasus-naturefund.org/reintroduction-of-the-caucasian-red-deer-to-armenia/",
+      },
+      note: "A project page from one of the programme's funders, cited only for the programme's own facts and not for anything about the park's wider fauna: the red deer locally extinct in Armenia in the 1950s and listed as critically endangered nationally, the reintroduction begun in 2013 by the environment ministry with WWF Armenia, the breeding enclosure of ten hectares of forest near Parz Lake inside the park, three founder animals brought from Iran in April 2018, and the first calf born in June of that year. Later releases into the park itself are reported by the same programme's partners; the article states that they happened without giving a headcount, because the published numbers differ between accounts.",
+    },
+    {
+      title: "Dilijan National Park (relation 7594000)",
+      publisher: "OpenStreetMap",
+      identifier: { kind: "url", value: "https://www.openstreetmap.org/relation/7594000" },
+      note: "The protected-area outline as mapped, tagged boundary=protected_area with protect_class 2 and linked to the same Wikidata item as the encyclopaedia entries below. Cited as a community-maintained representation and explicitly not as the legal boundary — which is the distinction the article makes rather than hides. It is the source for the enclave pattern (the town of Dilijan and the village of Gosh lying inside the outline but outside the protected land, Goshavank a few hundred metres beyond the line while Haghartsin, Jukhtak Vank, Matosavank and Aghavnavank are well within it) and for the point recorded in geo.ts, whose provenance is set out there in full.",
+    },
+    {
+      title: "Dilijan National Park",
+      publisher: "Wikipedia, Wikimedia Foundation",
+      identifier: { kind: "url", value: "https://en.wikipedia.org/wiki/Dilijan_National_Park" },
+      note: "Cited as the widest carrier of the figures this article examines, not as an authority for them. It is where the 240 square kilometres, the 902 vascular plants with 29 in Armenia's Red Book, the roughly 150 bird species, the more than 40 mammal species and the 1,070 to 2,300 metre elevation range reach most readers, and none of them is attributed there to a dated survey. The article's point about the flora count is drawn from the figure's own wording, which includes four species listed in the Red Data Book of the USSR and therefore cannot postdate 1991.",
+    },
+    {
+      title: "Dilijan National Park (Q1984244)",
+      publisher: "Wikidata, Wikimedia Foundation",
+      identifier: { kind: "url", value: "https://www.wikidata.org/wiki/Q1984244" },
+      note: "The structured record behind most general reference surfaces, cited on the same terms as the entry above. It states the area as 240 square kilometres and the elevation as 1,070 to 2,300 metres with neither a boundary nor a date attached, and carries a coordinate at 40.65639, 45.02139 which does fall inside the park but lies some twelve kilometres from its centroid — which is why geo.ts records a computed centroid rather than adopting this point.",
+    },
+  ],
 };
 
 /** The bibliography for one article. Empty only if the slug is unknown. */

@@ -48,10 +48,29 @@ const PLACES = [
     edge or off it. The bounds are marker-derived, which is why it did not.
   */
   "tatev-monastery",
+  /*
+    §49. Dilijan is here on exactly the same terms as Tatev: it is a Places
+    article with a coordinate, and nothing in `visit-map.ts`, `VisitMap.tsx` or
+    `map-tiles.ts` was touched to admit it. The map went 8 → 9 by an article and a
+    registry entry existing, which is the property this list tests.
+
+    Where Tatev stretched the extent south, Dilijan stretches it north — it is the
+    northernmost marker on the map by about a third of a degree. The two together
+    are the case for marker-derived bounds: a hardcoded Armenia box tuned before
+    §47 would now be wrong at both ends.
+  */
+  "dilijan-national-park",
 ] as const;
 
-/** Lake Sevan is the only `area` point — a centroid, not a place anyone stands. */
-const AREA_PLACE = "lake-sevan";
+/**
+ * The `area` points — centroids of large features, not places anyone stands.
+ *
+ * A single slug until §49, when Dilijan National Park became the second. The
+ * distinction is per slug rather than per map because it is a property of the
+ * coordinate: a monastery enclosure has a point and a protected landscape of
+ * 33,765 hectares does not.
+ */
+const AREA_PLACES = ["lake-sevan", "dilijan-national-park"] as const;
 
 const NOT_MAPPED = {
   cuisine: ["lavash", "dolma", "khorovats", "gata", "harissa", "ghapama"],
@@ -455,57 +474,150 @@ test("the map model is derived from the article and coordinate registries", () =
   }
 });
 
-test("the derived bounds still contain every marker after the map reached the south", async ({
-  page,
-}) => {
+test("the derived bounds contain every marker, at every width", async ({ page }) => {
   /*
     §20 of the map step said the extent must adapt rather than be retuned, and §47
-    is the first change that actually tests that: Tatev is far enough south that a
-    fixed national box would have framed it badly or dropped it.
+    was the first change that actually tested it: Tatev is far enough south that a
+    fixed national box would have framed it badly or dropped it. §49 tests the
+    other end of the same claim — Dilijan is the northernmost marker on the map,
+    about a third of a degree above Etchmiadzin, so the nine markers now span
+    roughly 1.4 degrees of latitude against the half-degree the first seven did.
 
-    Asserted through Leaflet's own view rather than by measuring pixels — every
-    marker's coordinate must fall inside the map's current bounds once it settles.
-    A marker outside them is one a reader cannot see without panning, which is the
-    real failure and the one a screenshot would not catch.
+    Widened to the four viewport widths the responsive suite already uses, because
+    the failure this guards against is width-dependent in a way §47's single
+    measurement could not see: Leaflet fits bounds to the container, and a marker
+    that clears the box at 1440 px can fall outside it at 360 px, where the map is
+    a quarter as wide and the pins are the same size in pixels.
+
+    Asserted through the rendered positions rather than by re-deriving the bounds
+    in JavaScript. A marker outside the container is one a reader cannot see
+    without panning, which is the real failure and the one a screenshot would not
+    catch.
   */
-  await page.goto("/en/visit");
-  await openMap(page);
+  test.slow();
 
-  expect(getVisitMapPoints("en").length, "the eighth place is on the map").toBe(PLACES.length);
+  expect(getVisitMapPoints("en").length, "the ninth place is on the map").toBe(PLACES.length);
 
-  /*
-    Leaflet positions markers absolutely inside the container, so a marker whose
-    box falls outside the container's box is one the reader would have to pan to
-    find. One pixel of tolerance each way, because the pin's anchor sits on the
-    coordinate and its tip can land exactly on the edge.
-  */
-  const container = await page.locator(".leaflet-container").boundingBox();
-  expect(container, "the map has a box").not.toBeNull();
+  for (const width of [360, 390, 768, 1440]) {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto("/en/visit");
+    await openMap(page);
 
-  for (const slug of PLACES) {
-    const marker = page.locator(`[data-slug="${slug}"]`);
-    await expect(marker, slug).toHaveCount(1);
-    const box = await marker.boundingBox();
-    expect(box, `${slug} is rendered`).not.toBeNull();
-    expect(box!.x, `${slug} left of the map`).toBeGreaterThanOrEqual(container!.x - 1);
-    expect(box!.y, `${slug} above the map`).toBeGreaterThanOrEqual(container!.y - 1);
-    expect(
-      box!.x + box!.width,
-      `${slug} right of the map`,
-    ).toBeLessThanOrEqual(container!.x + container!.width + 1);
-    expect(
-      box!.y + box!.height,
-      `${slug} below the map`,
-    ).toBeLessThanOrEqual(container!.y + container!.height + 1);
+    /*
+      Leaflet positions markers absolutely inside the container, so a marker whose
+      box falls outside the container's box is one the reader would have to pan to
+      find. One pixel of tolerance each way, because the pin's anchor sits on the
+      coordinate and its tip can land exactly on the edge.
+    */
+    const container = await page.locator(".leaflet-container").boundingBox();
+    expect(container, `the map has a box at ${width}px`).not.toBeNull();
+
+    for (const slug of PLACES) {
+      const marker = page.locator(`[data-slug="${slug}"]`);
+      await expect(marker, `${slug} at ${width}px`).toHaveCount(1);
+      const box = await marker.boundingBox();
+      expect(box, `${slug} is rendered at ${width}px`).not.toBeNull();
+      expect(box!.x, `${slug} left of the map at ${width}px`).toBeGreaterThanOrEqual(
+        container!.x - 1,
+      );
+      expect(box!.y, `${slug} above the map at ${width}px`).toBeGreaterThanOrEqual(
+        container!.y - 1,
+      );
+      expect(box!.x + box!.width, `${slug} right of the map at ${width}px`).toBeLessThanOrEqual(
+        container!.x + container!.width + 1,
+      );
+      expect(box!.y + box!.height, `${slug} below the map at ${width}px`).toBeLessThanOrEqual(
+        container!.y + container!.height + 1,
+      );
+    }
   }
 });
 
-test("precision travels with the point, and Lake Sevan stays an area", () => {
+/**
+ * The two marker pairs known to overlap at the initial extent.
+ *
+ * Recorded, not fixed. §47 found them when Tatev zoomed the map out to hold a
+ * marker a degree further south, and both were left alone because changing the
+ * marker-derived bounds was out of scope for a content step — which it still is
+ * in §49. They are the reason the exhaustive selection test below drives the
+ * keyboard rather than the mouse.
+ *
+ * Sorted pairs, so the assertion below does not depend on marker order.
+ */
+const KNOWN_OVERLAPS = [
+  ["erebuni-fortress", "matenadaran"],
+  ["garni-temple", "geghard-monastery"],
+].map((pair) => pair.slice().sort().join(" / "));
+
+test("extending the map north introduces no new marker overlap", async ({ page }) => {
+  /*
+    §49 stretches the extent again, so every pair has to be re-measured rather
+    than assumed: pushing the northern edge up makes Leaflet fit a taller box, and
+    at a fixed container height that pulls every marker closer to its neighbours.
+
+    The assertion is a *subset* one, not an exact count. Whether the two known
+    pairs still overlap, and by how much, is a measurement to be reported rather
+    than pinned — a pixel count would fail on a font or icon change that means
+    nothing. What must not happen is a third pair silently becoming unreachable by
+    mouse, because that is the failure a reader meets and no other test would see.
+  */
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/en/visit");
+  await openMap(page);
+
+  const boxes = new Map<string, { x: number; y: number; width: number; height: number }>();
+  for (const slug of PLACES) {
+    const box = await page.locator(`[data-slug="${slug}"]`).boundingBox();
+    expect(box, `${slug} is rendered`).not.toBeNull();
+    boxes.set(slug, box!);
+  }
+
+  const overlaps: string[] = [];
+  for (let i = 0; i < PLACES.length; i += 1) {
+    for (let j = i + 1; j < PLACES.length; j += 1) {
+      const a = boxes.get(PLACES[i])!;
+      const b = boxes.get(PLACES[j])!;
+      const dx = Math.min(a.x + a.width, b.x + b.width) - Math.max(a.x, b.x);
+      const dy = Math.min(a.y + a.height, b.y + b.height) - Math.max(a.y, b.y);
+      if (dx > 0 && dy > 0) {
+        const pair = [PLACES[i], PLACES[j]].slice().sort().join(" / ");
+        overlaps.push(pair);
+        // Reported rather than asserted: the measurement is the point, and a
+        // pixel threshold here would be a test that fails on an icon change.
+        console.log(`  marker overlap: ${pair} — ${Math.round(dx)} x ${Math.round(dy)} px`);
+      }
+    }
+  }
+
+  for (const pair of overlaps) {
+    expect(
+      KNOWN_OVERLAPS,
+      `${pair} is a new overlap; §47 recorded only ${KNOWN_OVERLAPS.join(" and ")}`,
+    ).toContain(pair);
+  }
+});
+
+test("precision travels with the point, and the two area centroids stay areas", () => {
   const points = getVisitMapPoints("en");
 
   for (const point of points) {
-    expect(point.precision, point.slug).toBe(point.slug === AREA_PLACE ? "area" : "site");
+    const expected = (AREA_PLACES as readonly string[]).includes(point.slug) ? "area" : "site";
+    expect(point.precision, point.slug).toBe(expected);
   }
+
+  /*
+    Asserted as a set as well as per point, which is not redundant.
+
+    The loop above passes if a `site` place were quietly promoted to `area` *and*
+    added to `AREA_PLACES` in the same edit — the two would agree with each other
+    and disagree with the registry's meaning. Pinning the membership separately is
+    what makes widening this list a decision rather than a way to make a test go
+    green.
+  */
+  expect(
+    points.filter((point) => point.precision === "area").map((point) => point.slug).sort(),
+    "exactly two places are centroids of large features",
+  ).toEqual([...AREA_PLACES].sort());
 });
 
 test("the map titles are localized, not the default edition's", () => {
@@ -550,7 +662,7 @@ test("only Places are mapped — no dish, person, work or event becomes a marker
 /* -------------------------------------------------------------------------- */
 
 for (const locale of LOCALES) {
-  test(`[${locale}] the visit hub renders the map section and its seven places`, async ({
+  test(`[${locale}] the visit hub renders the map section and every mapped place`, async ({
     page,
   }) => {
     const copy = bundle(locale).pages.visit;
@@ -559,7 +671,7 @@ for (const locale of LOCALES) {
     await expect(page.getByRole("heading", { name: copy.mapTitle, level: 2 })).toBeVisible();
     await expect(mapSection(page)).toHaveCount(1);
 
-    // The non-map list carries all seven, with a locale-correct link each.
+    // The non-map list carries every mapped place, with a locale-correct link each.
     const list = mapSection(page).locator("[data-map-list] li");
     await expect(list).toHaveCount(PLACES.length);
 
