@@ -457,6 +457,68 @@ export interface StaticPagesContent {
     lead: string;
     sections: { heading: string; body: string }[];
   };
+  /**
+   * The Visit journey page.
+   *
+   * It sits beside `about`/`contact`/`privacy` rather than in `UiDictionary`
+   * because it is page copy, not interface chrome — the same reason those three
+   * live here — and because `pageLd` reads `{ title, metaDescription }` off this
+   * shape directly.
+   *
+   * Every field is a heading, a lead or a call to action. There is deliberately
+   * no `places`, `dishes` or `articles` array: the page curates by slug in
+   * `visit/page.tsx` and resolves every title, excerpt and image from the
+   * article registry, so nothing here can drift from the articles it points at.
+   */
+  visit: {
+    title: string;
+    metaDescription: string;
+    heading: string;
+    lead: string;
+    placesEyebrow: string;
+    placesTitle: string;
+    placesDescription: string;
+    placesCta: string;
+    typesEyebrow: string;
+    typesTitle: string;
+    typesDescription: string;
+    foodEyebrow: string;
+    foodTitle: string;
+    foodDescription: string;
+    foodCta: string;
+    learnEyebrow: string;
+    learnTitle: string;
+    learnDescription: string;
+    learnCta: string;
+    /*
+     * The map section. Copy only — no place names, no type labels and no
+     * coordinates: those come from the articles, from `placeTypes` and from
+     * `PLACE_COORDINATES` respectively, and duplicating any of them here would
+     * give the map a second source of truth to drift from.
+     */
+    mapEyebrow: string;
+    mapTitle: string;
+    mapDescription: string;
+    /** Accessible name for the map region itself. */
+    mapRegionLabel: string;
+    /** Heading over the non-map list of the same places. */
+    mapListTitle: string;
+    /** Detail panel, before anything is selected. */
+    mapSelectPrompt: string;
+    /** Detail panel link to the article. */
+    mapCta: string;
+    /** Group label for the map's type filter. */
+    mapFilterLabel: string;
+    /**
+     * Shown when the basemap is not configured or its tiles do not arrive.
+     *
+     * Says only what is known — the map did not load — and points at the list
+     * of places, which is server-rendered and therefore always there. It must
+     * not diagnose the reader's connection: a failed tile request is not
+     * evidence that anyone is offline.
+     */
+    mapUnavailable: string;
+  };
 }
 
 export interface LocaleContent {

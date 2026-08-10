@@ -107,11 +107,30 @@ export function Header({ locale, nav, ui }: HeaderProps) {
     if (!menuOpen) return;
 
     const { body, documentElement } = document;
-    const scrollbar = window.innerWidth - documentElement.clientWidth;
     const previous = { overflow: body.style.overflow, paddingRight: body.style.paddingRight };
 
+    /*
+      `innerWidth - clientWidth` is the usual way to measure the scrollbar the
+      lock is about to remove, and it is only *usually* right: it measures the
+      gap between the window and the layout viewport, which is the scrollbar
+      right up until something else takes width out of the window.
+
+      Docked DevTools is exactly that something. With the panel on the right the
+      two numbers differ by the whole panel — observed at 1410px — and the
+      compensation became a 1410px padding that crushed the page into a column
+      the width of the remaining strip. The menu looked empty; it was rendering
+      the whole time, squeezed off to the side.
+
+      So the reading is only trusted when it is the size a scrollbar can
+      actually be. Anything larger is not a scrollbar and is ignored: a few
+      pixels of layout shift is a much smaller bug than an unusable page, and
+      the alternative measurements all have their own version of this problem.
+    */
+    const MAX_SCROLLBAR = 40;
+    const scrollbar = window.innerWidth - documentElement.clientWidth;
+
     body.style.overflow = "hidden";
-    if (scrollbar > 0) body.style.paddingRight = `${scrollbar}px`;
+    if (scrollbar > 0 && scrollbar <= MAX_SCROLLBAR) body.style.paddingRight = `${scrollbar}px`;
 
     return () => {
       body.style.overflow = previous.overflow;
@@ -187,7 +206,14 @@ export function Header({ locale, nav, ui }: HeaderProps) {
   };
 
   const current = LOCALES.find((entry) => entry.code === locale) ?? LOCALES[0];
-  const barNav = nav.filter((item) => !item.drawerOnly);
+  /*
+    The bar stays at six items. A journey is not a seventh section — see
+    `NavItem.journey` and the width note below — so it is filtered out here and
+    rendered as an action beside the search and edition controls instead. The
+    drawer maps the whole `nav` array and picks it up without special-casing.
+  */
+  const barNav = nav.filter((item) => !item.drawerOnly && !item.journey);
+  const journey = nav.find((item) => item.journey);
 
   return (
     <header
@@ -305,6 +331,26 @@ export function Header({ locale, nav, ui }: HeaderProps) {
           </nav>
 
           <div className="flex items-center gap-1.5 sm:gap-2">
+            {/*
+              The Visit journey, rendered as an action rather than a nav item.
+
+              It is a filled pill next to the icon buttons, so it reads as
+              something to do rather than as a seventh place to browse — the
+              distinction the whole two-journey split exists to make. It appears
+              at `lg` alongside the horizontal nav and is absent below it, where
+              the drawer already carries it as its second entry; adding a fourth
+              control to a 360px bar would have cost more than it gave.
+            */}
+            {journey ? (
+              <Link
+                href={journey.href}
+                aria-current={isActive(journey.href) ? "page" : undefined}
+                className="hidden rounded-full bg-burgundy px-3.5 py-1.5 text-sm font-semibold whitespace-nowrap text-white shadow-[0_10px_24px_-14px_rgba(123,44,55,0.9)] transition hover:bg-burgundy-dark lg:inline-flex xl:px-4 xl:py-2"
+              >
+                {journey.shortLabel ?? journey.label}
+              </Link>
+            ) : null}
+
             <button
               ref={searchButtonRef}
               type="button"
@@ -430,11 +476,25 @@ export function Header({ locale, nav, ui }: HeaderProps) {
                       which buried the six destinations most readers wanted.
                     */}
                     <div className="flex items-center justify-between gap-2">
+                      {/*
+                        `-ml-3` cancels the `px-3` for alignment without losing
+                        it for the tap target.
+
+                        The row needs horizontal padding so the pressed state is
+                        a comfortable slab rather than a rectangle clamped to the
+                        glyphs. But padding on top of the list's own
+                        `container-page` inset put every label 12px right of the
+                        wordmark directly above it — the menu read as indented
+                        from the brand for no reason. The negative margin lets
+                        the background keep its breathing room while the text
+                        starts on the same 20px line as the logo, the page
+                        content and the divider below.
+                      */}
                       <Link
                         href={item.href}
                         aria-current={isActive(item.href) ? "page" : undefined}
                         className={cn(
-                          "flex-1 rounded-xl px-3 py-3 text-base font-medium transition",
+                          "-ml-3 flex-1 rounded-xl px-3 py-3 text-base font-medium transition",
                           isActive(item.href) ? "text-burgundy" : "text-ink-2 hover:bg-paper-2",
                         )}
                       >
@@ -460,8 +520,13 @@ export function Header({ locale, nav, ui }: HeaderProps) {
                       ) : null}
                     </div>
 
+                    {/*
+                      The rule sits on the same 20px line the parent label starts
+                      on, so it reads as a bracket under that label rather than as
+                      a second, unexplained indent.
+                    */}
                     {item.children && expanded ? (
-                      <ul id={sectionId} className="mb-1 ml-3 border-l border-line pl-3">
+                      <ul id={sectionId} className="mb-1 border-l border-line pl-4">
                         {item.children.map((child) => (
                           <li key={child.href + child.label}>
                             <Link
@@ -478,7 +543,13 @@ export function Header({ locale, nav, ui }: HeaderProps) {
                 );
               })}
 
-              <li className="mt-2 border-t border-line px-3 py-3">
+              {/*
+                No `px-3` here: the divider is drawn on this element's own box,
+                so padding would have set the heading and the pills 12px inside a
+                rule that still ran the full width — a line visibly wider than
+                everything it separates.
+              */}
+              <li className="mt-2 border-t border-line py-3">
                 <h2 className="text-[0.6875rem] font-semibold tracking-[0.16em] text-ink-3 uppercase">
                   {ui.header.languageHeading}
                 </h2>

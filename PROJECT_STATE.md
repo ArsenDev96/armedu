@@ -4928,3 +4928,3039 @@ Nothing outside the registry, the pending list and the places test file was touc
 - **The remaining place type.** `settlement` still waits for its first article.
 
 No deployment was performed.
+
+---
+
+## 41. Places — Geghard Monastery, the seventh place and the third monastery (August 2026)
+
+Geghard is the **seventh Places article** and the third under the `monastery` filter, which is the
+first time that pill has held more than two. It is also the first place in the section whose
+`relatedSlugs` points at **another place**.
+
+It shipped **ahead of its artwork**. `PENDING_ARTWORK` filled for the sixth time (§31, §33, §35,
+§37, §39, §41) one step after §40 emptied it for the fifth, which is the whole argument for the
+`ILLUSTRATED`/`PLACES` split in `places.spec.ts` surviving the two lists briefly coinciding.
+
+The English article, the sources, the chronology, the coordinate, the taxonomy plumbing, the
+artwork decision and the heraldry research landed in the previous step. **This step wrote the two
+Armenian editions**, audited all three for superseded research, checked structural and numerical
+parity, verified the bibliography's identifiers against the live registries, extended the test file
+and ran the suite.
+
+### Files changed
+
+Four, plus this document.
+
+| File | Change |
+|---|---|
+| `src/data/locales/hy/articles/places.ts` | +245 — the Eastern Armenian edition |
+| `src/data/locales/hyw/articles/places.ts` | +245 — the Western Armenian edition |
+| `tests/e2e/places.spec.ts` | +82 — one new test (see below) |
+| `scratchpad/check.ts` | new — the per-slug parity harness, restored |
+
+**Not touched:** `src/data/locales/en/articles/places.ts`, `src/data/geo.ts`, `src/data/sources.ts`,
+`src/lib/media.ts`, `scripts/validate-content.ts`, anything under `public/`, and
+`.claude/settings.json`. The last of those is worth a sentence: the permission layer appended six
+allowlist entries to it during this session as a side effect of running `curl` and `node -e`, and
+the file was restored with `git checkout` before anything else. Its diff is empty.
+
+### Final filter counts
+
+Seven places over five pills. The vocabulary is unchanged — no place type was invented for a
+rock-cut monastery — and the only movement is `monastery` going from two to three.
+
+| Pill | Count | Articles |
+|---|---|---|
+| All | 7 | — |
+| `monastery` | **3** | Khor Virap, Etchmiadzin Cathedral, **Geghard** |
+| `historical` | 2 | Erebuni Fortress, Garni Temple |
+| `museum` | 1 | Matenadaran |
+| `nature` | 1 | Lake Sevan |
+
+### Final article structure — identical in `hy`, `hyw` and `en`
+
+Ten sections, paragraphs **3, 3, 4, 4, 4, 5, 4, 4, 4, 3** — **38** in all. Six `keyFacts`, thirteen
+`importantDates`, five `interestingFacts`, two `significance` paragraphs, two `relatedFigures`,
+three `relatedSlugs`, three `SectionLink`s.
+
+| Section | Covers |
+|---|---|
+| `where-it-is` | The side gorge above the Azat, Goght, the approach, and the Garni pairing |
+| `the-cliffs` | The volcanic rock, the spring, and why "cave monastery" gets the history backwards |
+| `ayrivank` | The earlier name, the Gregory tradition, Draskhanakerttsi c. 923, the six-hundred-year gap |
+| `tradition-and-evidence` | The chapel outside the walls; where the dated record actually begins |
+| `the-katoghike-and-gavit` | The 1215 masonry church, the Zakarid patrons, the gavit as a building type |
+| `cut-from-the-rock` | What rock-cut means precisely; Galdzak; the stalactite vault; the acoustics |
+| `the-proshyans` | The Khaghbakian house, the acquisition, the 1283/1288 works, and the carving |
+| `khachkars-and-books` | Inscriptions, khachkars, Mkhitar, the colophons, and two corrections |
+| `the-spear-and-the-name` | The name change, the relic tradition, its documented career as an object |
+| `before-you-see-it` | UNESCO criterion (ii), the three things to carry through the gate, and the fourth |
+
+The three `SectionLink`s: `where-it-is` to `garni-temple`, `ayrivank` to
+`adoption-of-christianity`, `the-spear-and-the-name` to `etchmiadzin-cathedral`.
+
+### Early tradition versus the surviving medieval complex
+
+This is the distinction the article is built around, and it is roughly a thousand years wide.
+
+Under its earlier name **Ayrivank**, the monastery of the cave, tradition takes the foundation back
+to Gregory the Illuminator in the generation of the kingdom's conversion. The article reports that
+as a tradition and says why: no inscription, no excavated fourth-century layer, no contemporary
+text placing Gregory here. What the tradition does carry — a cave, a spring, a hermitage — is a
+plausible shape for an early Armenian monastic site and an entirely different claim from the
+survival of fourth-century architecture.
+
+The first firm documentary footing is Yovhannes Draskhanakerttsi taking refuge at Ayrivank during
+the Arab raids of about 923. Between Gregory and that notice lies six hundred years with nothing in
+it that can be pointed at. Everything a visitor can actually see was built three hundred years
+after Draskhanakerttsi.
+
+### Chronology
+
+Unusually well dated, because the dates are cut into the buildings themselves. Thirteen entries:
+about 923 (Draskhanakerttsi); 1164 (the cross-stone outside the walls, the oldest dated object on
+the site); 1177 and 1181 (the chapel's wall inscriptions, the second recording the Catholicos of
+the Aghvans donating relics); 1200 (the water-supply inscription naming Zakare and Ivane, and
+sometimes wrongly attributed to the Proshyans, who were not yet there); 1215 (the Katoghike, by its
+south-portal inscription); 1225 (the chapels on the gavit's north-east corner); before 1250 (the
+first rock-cut church, with Galdzak named as architect); 1283 and 1288 (the Proshyan church and the
+upper carved chamber); 1291 (Mkhitar's inscription); 1655 (Tavernier sees the relic); 2000 (World
+Heritage).
+
+Two cautions are in the article because a reader will meet them: UNESCO's two documents place the
+oldest chapel on opposite sides of the complex, and the later of the two gives its earliest
+inscriptions as 1177/1181 where the survey it rests on records the older 1164 cross-stone.
+
+### Rock-cut architecture
+
+`rock-cut` is treated as a precise description rather than a loose one. The chambers were excavated
+inward and downward from the cliff face, worked from the top, so what remains is not a lined cave
+but a room whose walls, columns, vaults and dome are one continuous piece of the mountain — no
+joints, because no blocks. The article then refuses the binary: parts of Geghard are built (the
+Katoghike, the gavit, the wall, the ruined seventeenth-century ranges), parts are carved outright,
+and parts are both (the chapel with a masonry front and a hollowed back; cells that are recesses
+closed with a built wall). The masonry church came **first**; the great carved halls were added to
+it.
+
+The technical argument is overhead: domes on squinches and, in one case, a stalactite vault, which
+in masonry is a problem solved with cut blocks and here had to be arrived at by removal from a
+single mass with no way to correct a mistake. The famous acoustics are stated as a **consequence,
+not a design** — no medieval source describes the rooms as built for sound.
+
+### Proshyan patronage, the corrected floruit, and the acquisition
+
+The carved rooms belong to a change of ownership: the Khaghbakian house, renamed Proshyan after
+Prosh son of Vasak, a vassal of the Zakarids under Mongol overlordship and by mid-century the
+effective lord of the district.
+
+**Prosh's dates are a floruit, not a lifespan.** `relatedFigures.lifespan` reads `active 1223–1284`
+/ `գործուն 1223–1284` / `գործօն 1223–1284`, and each edition explains why: 1223 is an attestation
+and cannot be a birth year, because his father was already commanding in 1216; the death date
+circulates as 1283, 1284 or 1285 with nothing to settle it; and the article therefore declines to
+invent a biological lifespan. He is a **sub-vassal and lord of Vayots Dzor**, explicitly **not**
+commander of the Zakarid army — the supreme office was the amirspasalar and no Khaghbakian held it.
+
+**The acquisition** is dated conservatively and identically in all three editions: *in the decade
+before Avag's death in 1250* — `1250 թվականից առաջ ընկած տասնամյակում` (`hy`), `1250 թուականէն
+առաջ ինկած տասնամեակին` (`hyw`). A purchase is reported as what is *usually said* and then
+unpicked: one survey reads it out of a later inscription, the ICOMOS evaluation does not mention a
+purchase at all, and no text documenting a sale has been published in a form a reader can check.
+The competing year 1215 is named as a conflation with the church's own dated inscription, traced to
+the impossible c. 1214 entry in the 1973 survey that the same volume contradicts on its own pages —
+an error reprinted as recently as 2023.
+
+### Donabédian, and why the carving is not called a coat of arms
+
+No edition labels the relief unqualifiedly. Each carries, in this order: the description (an
+animal's head holding a ring, two facing lions attached to it, an eagle with a smaller animal
+below); the attribution of the heraldic reading to Garegin Hovsepian, and the fact that specialists
+have passed it on with *probably* attached every time; that published descriptions disagree about
+which animal is uppermost and even which chamber the relief is in; **Donabédian's objection** —
+that motifs of this type recur on monuments built for unrelated families, which he argues excludes
+reading them as dynastic emblems at all, that a lion and an ox appear on the Zakarid church in this
+very courtyard, and that he prefers an **apotropaic** reading; that medieval Greater Armenia left
+neither seals nor coins, so the regulated armorial system that did exist in Cilicia cannot simply
+be assumed here; that no study devoted to this relief has ever been published; and that the motto
+often quoted alongside it has no medieval source of any kind.
+
+Donabédian is presented as a **scholarly interpretation supported by his argument** — "has
+objected", "which he argues", "he prefers" — and not as a settled verdict. The heraldic reading is
+not deleted; it is attributed and qualified.
+
+### The Holy Lance
+
+Treated as institutional history, not as an artefact claim. The name Geghard is short for
+Geghardavank, the monastery of the spear, and displaced Ayrivank at some point in the thirteenth
+century; the often-repeated "first recorded in a document of 1250" is unpicked, because no source
+identifies the document and the survey the claim traces to says only that the change probably
+happened around then.
+
+The tradition that the monastery held the spear of the Crucifixion, brought by the Apostle
+Thaddeus, is attested from the twelfth century — a hymn of 1159 is the earliest reference — and is
+therefore a tradition of that date, not a record of the first century. The scholar who compiled the
+standard survey of the monastery's own documents wrote flatly that Thaddeus never reached Armenia,
+and noted two rival spearheads circulating in the medieval Middle East.
+
+What **is** documented is the object's later career: Prosh commissioned a reliquary in 1268; the
+surviving case is a 1687 replacement copying his inscription; Tavernier saw and drew the relic here
+in 1655; it is now at Etchmiadzin, though the Armenian Church's own institutions give different
+centuries for the move and the online date of 1766 traces to nothing. No scientific examination has
+ever been published, and the claim that foreign specialists confirmed its authenticity corresponds
+to no study in any database.
+
+### Manuscripts and the cultural-centre claim
+
+Deliberately understated, because the usual account overstates it. The firm evidence is Mkhitar of
+Ayrivank, placed at this monastery by the standard bibliography of Armenian literature and recorded
+here by an inscription of 1291; a visitor in 1387 found his writings still there; and colophons put
+copying at Ayrivank in 1444 and repeatedly down to 1476, with one scribe named across a dozen of
+those years.
+
+Two corrections are carried in every edition. The claim that Geghard held a **library** rests on no
+cited source, and the monastery has no known curriculum, faculty or named graduates — it is not in
+the class of Gladzor or Tatev and is not described as though it were. And **Simeon of Ayrivank**,
+routinely named alongside Mkhitar as a thirteenth-century historian, was not: the surviving notices
+put him around the turn of the fifteenth century and describe him as a teacher and a pupil of
+Grigor Tatevatsi. That error is UNESCO's own and has been copied outward from there.
+
+### UNESCO status
+
+Geghard and the upper Azat valley were inscribed in 2000 as property no. 960 under **criterion (ii)
+alone**. Armenia proposed criteria (i), (ii) and (vi); the two concerning unique artistic
+achievement and religious significance were **not adopted**, so they are rejected nominations
+rather than UNESCO findings. The inscription is about architecture, and the article says so.
+**Garni is not part of the property** — the commonest thing people get wrong about the two sites at
+once, and the reason `where-it-is` draws the distinction explicitly.
+
+### Parity
+
+`scratchpad/check.ts` was **restored**. §37 recorded it as the harness that prints section shape and
+the per-group numeral multiset for one slug across the three editions; it was among the scratchpad
+files deleted in §38, so it did not exist in the tree. It was rewritten against the current
+`validateCrossLocaleNumbers` — the same `/\d{2,}/g` rule and the same nine field groups — and made
+tolerant of a missing edition, which is the state it is most useful in. It was run after `en` alone,
+after `hy`, and after `hyw`.
+
+Structural parity, all sixteen fields it compares, agree exactly across `hy`, `hyw` and `en`: slug,
+category, `placeTypeId`, `featured`, section ids, section order, paragraphs per section, total
+paragraphs, `keyFacts`, `importantDates`, `interestingFacts`, `significance`, `relatedFigures`,
+`relatedSlugs`, `SectionLink` count and `SectionLink` targets.
+
+The structure recorded in the brief for this step — 10 sections, 3/3/4/4/4/5/4/4/4/3, 38 paragraphs,
+6/13/5/2/3 — was **derived from the final English source rather than assumed**, and it still held,
+so it was adopted rather than overridden.
+
+### The numeral inventory, per validator field group
+
+Held to exactly, in all three editions:
+
+| Group | Numerals |
+|---|---|
+| `intro` | 1164 |
+| `summary` | 1215, 1283, 2000 |
+| `seoTitle` | none |
+| `metaDescription` | none |
+| `keyFacts` | 960, 1215, 1283, 2000 |
+| `importantDates` | 923, 1164, 1177, 1181, 1200, 1215, 1225, 1250, 1283, 1288, 1291, 1655, 2000 |
+| `sections` | 923, 1159, 1164, 1177, 1181, 1200, 1210, 1212, 1215 x2, 1225, 1250 x3, 1268, 1283, 1288, 1291, 1387, 1444, 1476, 1655, 1687, 1766, 2000 |
+| `interestingFacts` | 1164 |
+| `relatedFigures` | 1223, 1284 |
+
+Four disciplines made that reachable and are worth keeping.
+
+**No `1240s`.** The brief warned that the phrase would inject a stray `1240` into whichever group it
+landed in. It is used in no edition; the acquisition is phrased against Avag's death, which puts
+1250 in the groups that already hold it. The string `1240` occurs nowhere in any edition.
+
+**Centuries are words, not digits, in every edition.** English writes "the twelfth century";
+Armenian writes `տասներկուերորդ դար` / `տասներկուերորդ դարու`, not the Roman `XII դար` that the `hy`
+house style uses for centuries elsewhere. That is a deliberate local departure — Roman numerals are
+letters and would have been numeral-safe too, but the English spells them out and matching it kept
+the three editions reading the same way. Recorded so it is not "corrected" later without checking
+what it protects. Likewise spelled out: forty years, six hundred years, three hundred years, a
+thousand years, half, and the ordinals in `before-you-see-it`.
+
+**No thousands separators anywhere**, and no year written with punctuation inside it. `960` is
+written bare after `թիվ` / `թիւ`, so it extracts as one group in all three.
+
+**`301` was deliberately not added.** `ayrivank` places the Gregory tradition "in the generation of
+the kingdom's adoption of Christianity" without a year, and the Armenian editions say the same. A
+year there would have been correct history and a numeral the English group does not have.
+
+`relatedFigures.description` is **not** in any checked group — only `lifespan` is — but the seven
+numerals in Prosh's description and the three in Mkhitar's were matched across the editions anyway,
+because the alternative is three descriptions that quietly say different things about the same
+disputed dates.
+
+### Western Armenian review pass
+
+The mechanical scan over the `hyw` block found **zero** occurrences of `և`, **zero** of `ություն`,
+zero Eastern `-ված` participles, zero untranslated English (the only Latin in the block is the
+`Armat` byline, the `Geghard Monastery` keyword — romanised on purpose, per the keywords rule — and
+the `(ii)` criterion), and zero Eastern syntax copied from `hy`: no `նրա`/`նրան`/`նրանք`, no Eastern
+locative `-ում`, no `որը`, no ` մեջ`. Every apparent hit was a substring of a correct Western word
+(`ընդհանրապէս`, `նոյնացում`, `բոլորը`, `ձորը`).
+
+The mechanical pass is not what caught the real problems. **Two terminology errors were found by
+reading the sensitive-term census and were corrected**, and both would have passed every automated
+check in the repository:
+
+1. **`կաթողիկէ` used for "dome".** Nine occurrences across four sections, `significance` and
+   `interestingFacts`. `Կաթողիկէ` is the *proper name of the main church at Geghard*; the Western
+   Armenian for a dome is `գմբէթ`, which is what the rest of the `hyw` edition already uses. Every
+   sentence about the domes, the domes on squinches and the seamless vault was naming the church
+   instead. Corrected to `գմբէթ` / `գմբէթաւոր` / `գմբէթներով`; the four surviving `Կաթողիկէն` are
+   the church and are correct.
+2. **`մատենադարան` used for "library".** Two occurrences. Defensible as Western vocabulary in the
+   abstract, but the `hyw` edition already uses `գրադարան` throughout `places.ts`, and
+   `Մատենադարան` is the title of another article in this very section. Corrected to `գրադարան`,
+   which also makes the two Armenian editions agree.
+
+The sensitive terminology was then counted term by term against `hy`. The two editions carry the
+same inventory at the same frequencies, differing only in orthography:
+
+| Term | `hy` | `hyw` |
+|---|---|---|
+| Geghard / Geghardavank | Գեղարդ (39), Գեղարդավանք (2) | same counts |
+| Ayrivank | Այրիվանք (10) | Այրիվանք (10) |
+| Gregory the Illuminator | Գրիգոր Լուսավորչի / -ին | Գրիգոր Լուսաւորիչի (3) |
+| Prosh / Proshyan | Պռոշ (19), Պռոշյան (9) | Պռոշ (19), Պռոշեան (9) |
+| Zakarid | Զաքարյան (6), Զաքարե (5) | Զաքարեան (6), Զաքարէ (5) |
+| gavit | գավիթ (6) | գաւիթ (6) |
+| rock-cut | ժայռափոր (10) | ժայռափոր (10) |
+| tomb chamber | դամբարան (2) | դամբարան (2) |
+| khachkar | խաչքար (6) | խաչքար (6) |
+| inscription | արձանագրություն (22) | արձանագրութիւն (19) |
+| relic / spear | գեղարդ (10), մասունք (7) | գեղարդ (10), մասունք (7) |
+| dome | գմբեթ (8) | գմբէթ (8) |
+| Katoghike | Կաթողիկե (4) | Կաթողիկէ (4) |
+| apotropaic | չարխափան՝ չարիք վանող (1) | չարխափան՝ չարիք վանող (1) |
+| heraldry | զինանշան (3) | զինանշան (3) |
+
+`վիմափոր` is used **nowhere**: `ժայռափոր` is the term in both editions, consistently, and mixing
+the two synonyms inside one article would read as a distinction that is not being drawn.
+
+**The whole Western Armenian article remains flagged for native review**, mechanical validation
+notwithstanding. The specific items are listed below.
+
+### Sources
+
+The bibliography was registered in the previous step and **was not touched here**. It is twelve
+entries, all of which the article rests on, and no claim in any edition reaches outside them. What
+this step did was verify that every identifier resolves and identifies the intended work.
+
+| Identifier | Resolves | Identifies |
+|---|---|---|
+| `archive.org/details/daa-06-geghard-1973` | 200 | *Documents of Armenian Architecture* 6, Geghard, 1973 |
+| `whc.unesco.org/en/list/960/` | 200 | World Heritage list entry 960 |
+| `whc.unesco.org/archive/advisory_body_evaluation/960.pdf` | 200 | ICOMOS advisory evaluation, no. 960 |
+| doi `10.1093/gao/9781884446054.article.t031172` | 302 to OUP auth | "Geghard Monastery", **Patrick Donabédian**, Oxford Art Online, 2003 |
+| doi `10.30687/978-88-6969-469-1/005` | 200 | "Armenia – Georgia – Islam…", **Patrick Donabédian**, *Eurasiatica*, Ca' Foscari, 2020 |
+| doi `10.4159/harvard.9780674432635` | 202 | *Colophons of Armenian Manuscripts, 1301–1480*, Harvard UP, 1969 |
+| doi `10.1017/S001781600001748X` | 200 | Michael E. Stone, *Harvard Theological Review*, 1976, 289–300 |
+| isbn `9782700400274` | OpenLibrary | Der Nersessian, *L'art arménien*, Arts et métiers graphiques, 1977 |
+| isbn `9782916716572` | OpenLibrary | *Horomos Monastery: Art and History*, ed. Vardanyan, 2015 |
+| isbn `9781403966360` | OpenLibrary | Hovannisian, *The Armenian People…* — **see below** |
+| `operaipogea.it/…CARPICECI…Hypo2023…pdf` | 200 | Carpiceci et al., Hypogea 2023, 251–260 |
+
+Each DOI was resolved through **Crossref content negotiation** rather than by following the link,
+so the title, author, publisher and year in the registry were compared against the registrar's own
+metadata. All four match exactly, including both Donabédian entries. The UNESCO list page returns
+403 to a bare `curl` and 200 to a browser user-agent; that is a bot block, not a dead link, and the
+sibling PDF on the same host returns 200 either way.
+
+**The late Donabédian source is present and correct.** `10.30687/978-88-6969-469-1/005` is open
+access, resolves to the intended chapter, and its note in `sources.ts` states exactly what the
+article uses it for: the objection to the dynastic-emblem reading, the apotropaic preference
+following Eastmond and Blessing, and the identification of Matevosyan (2002) as the standard modern
+statement of the heraldic view.
+
+**One finding, reported rather than changed.** ISBN `9781403966360` is catalogued by OpenLibrary as
+the **two-volume set** ("Armenian People From Ancient to Modern Times, 2 Volume Set", 896 pp.,
+Palgrave Macmillan, 2004), where the registry titles it *Volume I: The Dynastic Periods*. The work
+is right and the chapter cited — Bedrosian, on the Seljuk and Mongol periods — is in volume I, so
+nothing in any article is wrong; the identifier is simply the set's rather than the volume's. It is
+**not** newly added for Geghard: three other articles have used it since before this step, so
+changing it means editing four bibliography entries in a step scoped to two article files. Recorded
+as open below.
+
+**No page numbers were invented.** The two entries that name page ranges — Stone 289–300, Carpiceci
+251–260 — both had them confirmed by the registrar or by the PDF itself. Hovsepian's 1928
+*Khaghbakeank' kam Prosheank'* remains **deliberately unregistered**: no digitised copy could be
+consulted, and a page reference for it would have been fiction. It is named inside the Der
+Nersessian note as the origin of the heraldic identification instead.
+
+The notes distinguish the four categories the archive requires: **directly read** (the 1973 survey,
+both UNESCO documents, the 2020 Donabédian, the 2023 congress paper); **print-only, not read
+directly** (Der Nersessian 1977, Thomson 1995, Sanjian 1969, Vardanyan 2015, Hovannisian 2004, each
+cited for a specific attested claim); **institutional** (the two UNESCO documents, cited for the
+designation and explicitly *not* as authorities on chronology or scholarship); and
+**paywalled/secondary** (the Grove Art entry, whose note says outright "Paywalled and not read
+directly").
+
+### Coordinate
+
+Unchanged, and **not** touched for stylistic consistency. `geghard-monastery` has exactly one entry
+in `PLACE_COORDINATES`:
+
+```ts
+"geghard-monastery": { lat: 40.1404, lon: 44.8184, precision: "site" },
+```
+
+It is the centroid of OSM way 405284197 (`Գեղարդի վանք`, `ref:whc=960`, `wikidata=Q499285`) — the
+walled enclosure itself, the courtyard, with the gavit some ten metres off and the Katoghike
+twenty. Six independent candidate points span twenty-one metres and all six fall inside the
+enclosure polygon, as does the rounded value stored here. It is **not** the car park (80 m, outside
+the wall), **not** the souvenir stalls (50 m, also outside), **not** Goght (2.8 km), **not** Geghard
+village (2.4 km), **not** Garni (8.1 km down the valley) and **not** the upper Azat valley taken as
+an area. The likeliest wrong answer is a gazetteer record rather than a landmark: Wikidata
+Q17155656 carries the property's official name *and* its World Heritage id, and points at Geghard
+village. `places.spec.ts` pins the value, the `site` precision, the four-decimal rounding, and a
+minimum distance from Garni.
+
+### Related content
+
+`relatedSlugs` is `["garni-temple", "adoption-of-christianity", "etchmiadzin-cathedral"]`, in that
+order, in all three editions — the taxonomy check compares it as a joined string, so the order is
+part of the contract.
+
+- **`garni-temple`** is the first place-to-place relationship in the section. It is earned rather
+  than itinerary-driven: `where-it-is` discusses the shared Azat valley explicitly, links to Garni
+  in prose from that section, and draws the distinction the two sites are most often confused on —
+  the World Heritage property is named for Geghard and the upper valley, and Garni is not in it.
+- **`adoption-of-christianity`** was checked rather than assumed. `ayrivank` carries the Gregory
+  tradition, links to it from the phrase about the generation of the kingdom's conversion, and then
+  spends three paragraphs on why the tradition is not evidence. It genuinely supports the link.
+- **`etchmiadzin-cathedral`** is where the spear relic is now, and is linked from
+  `the-spear-and-the-name`.
+
+**Garni was not modified to point back**, and the absence is pinned in a test so it stays a recorded
+decision rather than something a later reader repairs by reflex. The one-directional architecture in
+`getRelatedArticles` is unchanged.
+
+### Artwork — pending, and honestly so
+
+`PENDING_ARTWORK` is `["geghard-monastery"]`. Nothing under `public/` changed and `src/lib/media.ts`
+was not touched.
+
+All thirty-six files under `public/` were opened in the previous step rather than read off their
+filenames, and none shows chambers hollowed out of a cliff. There is no near miss to record — what
+there is instead is a list of substitutions that were *available and refused*, each of which would
+have looked like a considered decision rather than a mistake:
+
+- `garni-temple.webp` — eight kilometres down the same valley, linked from this article's own prose,
+  and a pre-Christian classical peristyle roughly twelve centuries older than the monastery;
+- `khor-virap.png` and `etchmiadzin-cathedral.webp` — the other two entries under the `monastery`
+  pill, which is precisely what disqualifies them;
+- `history/adoption-of-christianity.webp` — a free-standing domed church in a valley, the
+  generic-monastery trap;
+- `history/bagratid-armenia.webp` — a river gorge, which is the Lake Sevan mood substitution in
+  another landscape.
+
+All five are named in a `places.spec.ts` test. The article renders the generated placeholder and is
+captioned as one in all three editions; `Article.image` is **absent** rather than nominating the
+site card; `og:image` and `twitter:image` fall back to `/og-default.png`, which is honest for a
+link-preview card and is not the same claim; and Geghard's three sitemap `<url>` blocks carry no
+`image:loc` at all while still being present.
+
+### Tests
+
+`places.spec.ts` went from **46 to 47** desktop tests. The file had already been extended for
+Geghard in the previous step; the fourteen checks required of this one were audited against it and
+thirteen were already covered. The fourteenth was not, and is the new test.
+
+**`the six places that existed before Geghard are untouched by it`.** Everything else in the file is
+about Geghard or about the section as a whole — the filter counts moved, `PENDING_ARTWORK` filled,
+the artwork assertions inverted — and none of it would notice a *sibling* losing a `relatedSlug`,
+changing its `placeTypeId`, gaining a section or picking up `featured` in the same edit. Appending
+an article to the end of three files is exactly the change where a stray keystroke lands in the
+entry above it. The test pins, for each of the six and in all three editions: `category`, `href`,
+`placeTypeId`, `featured`, the exact `relatedSlugs` array, and the absence of a reciprocal Geghard
+link. Section shape — ids, paragraphs per section, and the four counted blocks — is pinned as
+**cross-edition agreement** rather than as literal numbers, so a future revision of one of these six
+does not require retyping a constant in a test, but revising one edition and forgetting the others
+still fails.
+
+Already covered, and re-verified: all three Geghard routes load with an H1 from `title` and no
+`noindex`; `monastery` returns exactly Khor Virap, Etchmiadzin and Geghard; `historical` exactly
+Erebuni and Garni; `museum` exactly the Matenadaran; `nature` exactly Lake Sevan; Khor Virap is the
+only `featured` place; `seoTitle`/`metaDescription` drive the head while `title` drives the H1;
+canonical, three `hreflang` alternates and `x-default` pointing at `/hy/…`; a search for "Geghard"
+returns a card linking to the Places route under the Places group heading; the sitemap carries all
+three locale routes; the coordinate registry holds one checked point per place; Geghard's
+`relatedSlugs` resolve in every edition; and the full set of placeholder, `Article.image`,
+OG/Twitter and sitemap-image assertions for a slug with no artwork.
+
+### Verification
+
+Run in the prescribed order. Playwright and the production build were **not** run concurrently.
+
+| Step | Command | Result |
+|---|---|---|
+| 1 | port 3002 | clear (no listener) |
+| 2 | remove `.next` | removed — 567 MB, §40 ended with a build |
+| 3 | `npx tsx scratchpad/check.ts geghard-monastery` | **PASS** — 0 differing rows across 3 editions |
+| 4 | `npm run typecheck` | **PASS** — 0 errors |
+| 5 | `npm run validate:content` | **PASS** — **120 entries** across 3 locales, with the expected pending-artwork note naming `geghard-monastery` |
+| 6 | `npx playwright test --project=desktop places.spec.ts` | **PASS** — 47 passed |
+| 7 | `npx playwright test` | **PASS** — 195 passed, 5 skipped |
+| 8 | `npm run build` | **PASS** — **126** prerendered routes, compiled in 3.2 s |
+
+**Every failure encountered, reported.** There was one, and it was mine and deterministic.
+`places.spec.ts` failed on the new test's first execution — 1 failed, 46 passed — because the
+expected `relatedSlugs` for `erebuni-fortress` and `matenadaran` had been written from memory rather
+than read from the bundle. Both were wrong in the same direction: extra plausible targets that do
+not exist. Corrected against the actual `hy` data; the re-run was 47 passed. Everything else — the
+harness, `typecheck`, `validate:content`, the full suite and the build — passed on first execution.
+
+**The Cuisine hydration flake did not appear.** §40 recorded
+`cuisine.spec.ts:351 › the cuisine dropdown only offers pages inside this edition` failing once on a
+cold server, because line 355 clicks the nav submenu button directly instead of routing through
+`openHeaderPanel`, and `.next` had been removed so routes were compiling on demand under parallel
+load. The same pre-hydration condition applied here — `.next` was removed at step 2 — and the full
+run passed first time. No Cuisine code was touched, and the latent flake is carried forward unfixed.
+
+All 21 place pages (7 places x 3 editions) prerendered, including all three Geghard routes.
+
+### Preserved
+
+- **The English article is byte-identical.** `git diff` shows no change to
+  `src/data/locales/en/articles/places.ts`.
+- **The six existing Places articles are unchanged** in all three editions — now asserted rather
+  than only claimed.
+- **`geo.ts`, `sources.ts`, `media.ts` and `scripts/validate-content.ts` were not touched.**
+- **Nothing under `public/` changed.**
+- **`.claude/settings.json` is unchanged** — the permission layer's automatic additions were
+  reverted.
+- No deployment was performed, and no deployment configuration was touched.
+
+### Western Armenian items requiring native review
+
+The whole `hyw` article is in the queue, as every `hyw` article has been since §16. These are the
+specific judgement calls made while writing it, so a reviewer can change any of them in one pass.
+None is a known error.
+
+1. **`Պատրիք Տօնապետեան`** for Patrick Donabédian. The Western reflex of the surname is
+   `Տօնապետեան`; `hy` uses `Դոնաբեդյան`. A diaspora editor may prefer a French-facing
+   transliteration for a scholar who publishes in French.
+2. **`Տաւերնիէ`** for Tavernier (`Տավերնիե` in `hy`). Western transliterations of French names vary.
+3. **`չարխափան՝ չարիք վանող`** for *apotropaic*. `չարխափան` is the established word; the gloss was
+   added because the term is rare in general prose. A reviewer may want it dropped, or `պահպանիչ`.
+4. **`զինանշան` / `զինանշանային համակարգ`** for *coat of arms* / *armorial system*. Correct, but the
+   article's whole argument is that the object may not be a coat of arms, and a reviewer should
+   check that the qualifying verbs carry that weight in Western Armenian.
+5. **`ժայռափոր`** throughout, never `վիմափոր`. Both are current; the choice is consistent.
+6. **`գաւիթ`** left untranslated and explained in the prose, as the English does.
+7. **`գեղարդ`** as a common noun in running prose, with the name reserved for the monastery.
+8. **`Իվանէ` / `Զաքարէ`** for the Zakarid brothers, and `Աւագ`, `Շահնշահ`, `Պապաք`, `Ռուզուքան`,
+   `Գալձակ` for the rest. None had a settled Western form in the repository before this article.
+9. **`Աղուանից կաթողիկոս`** for the Catholicos of the Aghvans.
+10. **`Յիշատակարան`** for a manuscript colophon, and **`գրադարան`** rather than `մատենադարան` for a
+    library — the second was changed during this pass, for the reason given above.
+11. **`ձայնականութիւն`** for acoustics, and **`խորիսխ`** for the honeycomb of a stalactite vault.
+12. **Centuries spelled out** (`տասներկուերորդ դար`) rather than Roman, against the `hy` house style
+    recorded in the glossary. Deliberate, for the numeral reason above.
+13. **`Գեղարդի վանք`** as the title in both Armenian editions rather than `Գեղարդավանք` — the
+    compound is used in the prose, where the article explains the name.
+
+### Still open
+
+Carried forward unchanged. Nothing in this list was fixed here.
+
+- **The Matenadaran façade colour — still open**, unchanged from §36, §38, §39 and §40. Pale grey
+  where the building and this archive's prose describe dark basalt.
+- **The Garni stone warmth — still open**, unchanged from §40. Ochre-warm where the basalt is
+  grey-blue.
+- **The Garni 4:3 image dimension — still open.** `garni-temple.webp` is 1448 x 1086 against the
+  1586 x 992 of the other WebPs, so the 16:9 crops trim 136 px from it against 50 px from the rest.
+- **A dedicated Khor Virap image — still open** since §32. The only PNG, 1355 x 793, 1.4 MB, and
+  still byte-identical to `hero-ararat.png`.
+- **Erebuni and Matenadaran image weight — still open.** 742 KB and 701 KB, both carrying ICC
+  profiles.
+- **Global media optimisation — still open**, and unaffected by a step that added no assets. With
+  Khor Virap this remains one pass rather than several separate problems.
+- **The Cuisine hydration flake — still open.** `cuisine.spec.ts:355` clicks the nav submenu button
+  directly instead of using `openHeaderPanel`. It did not reproduce here. The fix is one call
+  swapped for the helper, and it belongs to a step that owns that spec.
+- **One-directional related articles — still open.** `getRelatedArticles` links one way, and
+  Geghard's link to Garni is deliberately not reciprocated.
+- **Western Armenian native review — still open**, and now longer by one article and thirteen
+  terminology items. The queue runs from §16 through §28, §29, §31, §33, §35, §37, §39 and §41.
+- **The Bresson and Fagan Garni attribution — still open and unsettled.** Whether the Garni
+  inscription names Trdat I or Trdat the Great remains a live argument.
+- **Wilkinson's Garni source not read directly — still open.** No copy of REArm NS 16 is online; the
+  Garni article takes the argument from Russell's endorsement and from summaries, and says so.
+- **The Hovannisian ISBN — new, minor, and deliberately not fixed here.** `9781403966360` catalogues
+  the two-volume set where four bibliography entries title it *Volume I*. The work and the cited
+  chapter are right; the identifier is the set's. Fixing it edits four entries across four articles.
+- ~~**Geghard artwork — new, and open by design.** `PENDING_ARTWORK` is `["geghard-monastery"]` and
+  the article ships the honest placeholder until a dedicated image exists.~~ — **resolved in §42.**
+  `geghard-monastery.webp` landed and was registered; it was one line, and it did light up all six
+  surfaces. `PENDING_ARTWORK` is empty again.
+- **The remaining place type.** `settlement` still waits for its first article.
+
+No deployment was performed.
+
+---
+
+## 42. Geghard Monastery artwork — the pending entry, cleared (August 2026)
+
+`public/images/places/geghard-monastery.webp` arrived. It was opened, verified, inspected and
+registered in `IMAGES`, and the slug is out of `PENDING_ARTWORK`. Nothing else changed: no image was
+generated, edited, cropped, resized, recoloured, renamed, optimised or replaced, no article content
+moved, and no new loading path was introduced. Two source files changed — `src/lib/media.ts` and
+`tests/e2e/places.spec.ts` — plus the new asset and this document.
+
+This is the sixth time the section has cleared a pending entry (§32 Etchmiadzin, §34 Erebuni, §36
+Matenadaran, §38 Lake Sevan, §40 Garni, §42 Geghard) and the sixth time the whole change was a
+one-line registration reaching six surfaces at once. `PENDING_ARTWORK` is empty again, and with
+seven of seven places illustrated the placeholder branch has no subject in this section once more.
+
+`scripts/validate-content.ts` was **not** touched. The §36 wording — *"have no artwork and render
+the generated placeholder"* — is unchanged, and so is its logic. It prints nothing now because the
+set it counts is empty: every one of the 30 article slugs across the three editions has a registered
+file. No bug was found in it, so nothing in it was changed.
+
+### The asset, verified rather than assumed
+
+The container was parsed rather than trusted to its extension, and the file was opened rather than
+read off its filename.
+
+| Property | Value |
+|---|---|
+| Path | `public/images/places/geghard-monastery.webp` |
+| Exists | yes |
+| Format | WebP, lossy VP8 |
+| Container | `RIFF` / `WEBP` / a single `VP8 ` chunk of 277,266 bytes |
+| `VP8X` extended header | none |
+| ICC profile | none |
+| Alpha | none |
+| Animation | none |
+| Dimensions | **1586 x 992** (16:10, 1.599) |
+| File size | **277,286 bytes** (270.8 KiB) |
+| RIFF size field | 277,278 — consistent with the actual length minus 8 |
+| SHA-256 | `3264dd61243e9cc9a8c612a10d82a426ccc490950ee10437528e324ba1789821` |
+
+It returns to the shape of the four WebPs before Garni: 1586 x 992, so the "not 1586 x 992" note in
+`media.ts` is again about Khor Virap's PNG and Garni alone. Container-wise it matches Etchmiadzin,
+Lake Sevan and Garni — a plain single-chunk `RIFF/VP8`, so the ICC note stays about Erebuni and the
+Matenadaran. At 271 KB it sits mid-registry: heavier than Garni (120 KB) and Lake Sevan (176 KB),
+far lighter than Erebuni (742 KB) and the Matenadaran (701 KB). Registered exactly as delivered.
+
+### Visual inspection
+
+The image was opened and looked at, and every claim below is from the frame rather than from the
+filename.
+
+- **Geghard is unmistakably the subject.** An elevated view into the upper Azat gorge: the walled
+  complex on its terrace, the katoghike's conical umbrella dome over a drum, the gavit against it to
+  the west, secondary roofs, the perimeter wall and gate range, and the wooded gorge sides above.
+- **The monastery is visually integrated with the cliffs.** The complex is set directly against the
+  rock face rather than in front of it, and a large rock mass intrudes into the enclosure on the
+  right so that masonry and living rock abut with no gap. The built and the hollowed-out read as one
+  fabric, which is the article's subject.
+- **Rock-cut architecture is apparent.** Chambers open in the cliff face immediately behind and
+  above the courtyard — several dark mouths in the rock, plus a further opening in the intruding
+  outcrop on the right.
+- **Not a look-alike.** Not Khor Virap (no Ararat, no plain, no hill chapel); not Etchmiadzin (no
+  cathedral forecourt, no city); not Garni (no peristyle, no Ionic order, no podium, no gorge-rim
+  promontory); not Petra (grey basalt masonry and grey-brown andesite cliff, not a carved sandstone
+  façade); not Cappadocia (no tuff cones, no fairy chimneys); and not a generic cave monastery — the
+  umbrella dome, the gavit and the fortified enclosure are specifically Armenian and specifically
+  this complex.
+- **The main church and gavit remain recognisable** at every crop tested, below.
+- **Nothing dates the buildings.** The frame carries no inscription, no lettering, no plaque and no
+  narrative scene, so it makes no claim that the surviving fabric is fourth-century, and the
+  early-tradition versus thirteenth-century-complex distinction the prose draws is neither supported
+  nor contradicted by it.
+- **No prohibited content.** No giant spear, no relic, no heraldic shield, no supernatural event, no
+  invented inscription, and no unsupported religious claim.
+
+**One concern, reported and not corrected.** This file is *photographic* in register — a
+documentary-looking aerial view, with visitors visible in the courtyard — where every other file in
+the registry is a rendered illustration (`garni-temple.webp` was opened side by side to confirm the
+contrast is real). It inherits `ARTWORK_PROVENANCE` like the rest and is captioned *AI-generated
+illustration — an imagined scene*, which is the more cautious of the two possible claims and is
+therefore safe to ship. But it is the first entry where that caption is worth re-confirming against
+the source rather than assuming: if the file is in fact a photograph, the caption is wrong in the
+opposite direction from the failure §17 was written to prevent, and the image would need a credit
+rather than a provenance line. The file was **not** altered, renamed or replaced, and the note is
+recorded in `media.ts` beside the entry as well as here.
+
+### Crop suitability
+
+Every slot is a centre crop (`object-cover object-center`), so the crops were computed from the real
+class names and rendered from the actual file rather than reasoned about. A 1586 x 992 source loses
+very little in all of them.
+
+| Slot | Class | Trim | Result |
+|---|---|---|---|
+| Compact card | `aspect-[4/3]` | 132 px each side, full height | dome, gavit, cliff chambers and courtyard all held |
+| Listing card | `aspect-[16/9]` | 50 px top and bottom | dome finial cross clears the top edge comfortably |
+| Mobile hero | `aspect-[4/3]` | as compact card | same |
+| Tablet hero | `sm:aspect-[3/2]` | 49 px each side | between the two above; nothing lost |
+| Desktop hero | `lg:aspect-[16/9]` | 50 px top and bottom | as listing card |
+| Search thumbnail | `w-32` / `lg:w-40`, card-height column (~3:4) | 421 px each side | the tightest crop, and it still holds the dome, the gavit, the cave mouths and the courtyard |
+
+The 3:4 search thumbnail is the tightest and was checked explicitly, because it is the one crop
+where a subject placed off-centre would be lost. The complex sits centre-right in the frame and
+survives it. **No crop logic was added and none is needed.**
+
+### The registration
+
+One line, in the existing Places block of `IMAGES`:
+
+```ts
+"geghard-monastery": "/images/places/geghard-monastery.webp",
+```
+
+Nothing else. No Geghard-specific media logic, no custom crop logic, no new image fields, no new
+provenance infrastructure, and no component changes. Every consumer already asks `getImageSrc` or
+`getArticleImageSrc`, so the single entry reached the Places listing, the article hero, the global
+search result, the related-article cards, Open Graph, Twitter, the generic `Article.image` and the
+sitemap image entries at once — verified below rather than assumed.
+
+### Provenance
+
+Handled entirely by the existing Armat-generated editorial-artwork mechanism.
+
+`isGeneratedArtwork({ slug: "geghard-monastery", image: undefined })` now returns **`true`**: the
+article declares no `image`, and `getImageSrc` resolves, which is the whole of the condition. That
+flip is what swaps the caption branch in `ArticleLayout`, and the effect was verified on the
+rendered page in all three editions:
+
+- the normal AI-generated illustration disclosure appears (`imageAiIllustrationCaption` — the scene
+  wording, not the portrait wording, because a monastery is a scene and not a likeness);
+- the placeholder disclosure is gone (`imagePlaceholderCaption`, the "Replace with licensed imagery
+  before launch" string, is asserted absent);
+- the hero placeholder SVG is gone — `header figure svg[role='img']` is zero and `header figure img`
+  is one.
+
+`ARTWORK_PROVENANCE` is **unchanged** — not edited, not extended, not read from a new place. No
+per-image provenance system was introduced. No other article's provenance behaviour changed: the
+captions are driven by registry membership alone, and no other slug's membership moved.
+
+### Pending-artwork removal
+
+`geghard-monastery` was removed from `PENDING_ARTWORK` **after** the file had been opened, verified
+and registered, not before. `PENDING_ARTWORK` is now `[]`.
+
+The list itself stays, with its rejected-substitute reasoning intact. It has now filled six times
+and emptied six times, and §41 is the standing proof that emptying is not a signal it can be deleted
+— the sixth place had barely settled before the seventh refilled it. The five refused substitutions
+recorded for Geghard (`garni-temple.webp`, `khor-virap.png`, `etchmiadzin-cathedral.webp`,
+`history/adoption-of-christianity.webp`, `history/bagratid-armenia.webp`) are kept, and so are the
+tests naming them, because the failure they guard against — a cover repointed at a plausible
+neighbour later — outlives the file landing.
+
+`validate:content` no longer reports Geghard as lacking artwork. The note is conditional on a
+non-empty set and now prints nothing at all; the run is a clean **120 entries across 3 locales**.
+
+### Listing, article, search and metadata — verified
+
+| Surface | Verified |
+|---|---|
+| Places listing card | uses `/images/places/geghard-monastery.webp`; listing placeholder count is **0** |
+| Article hero | the WebP in `en`, `hy` and `hyw`; no placeholder SVG; AI-illustration caption present, placeholder caption absent |
+| Global search | the card whose link is `/en/places/geghard-monastery` carries the WebP, no `<svg>`, and none of Garni's, Khor Virap's or Etchmiadzin's files |
+| Related article cards | the shared `ArticleCard` renders the same registered file |
+| `og:image` | `https://armat.site/images/places/geghard-monastery.webp` — no longer `/og-default.png` |
+| `twitter:image` | the same absolute URL — no longer `/og-default.png` |
+| `Article.image` | `{ "@type": "ImageObject", url: "https://armat.site/images/places/geghard-monastery.webp" }` — the property is now present where §41 asserted its absence |
+| Sitemap | all three locale routes carry an `image:loc` for the WebP, checked block by block |
+
+**Structured data is otherwise untouched.** The only JSON-LD consequence is the existing generic
+`Article.image` now resolving. No `Place`, `TouristAttraction`, `Monastery`, `Church`,
+`LandmarksOrHistoricalBuildings` or `LocalBusiness` node was added, and the existing test asserting
+the graph carries `Article` and `BreadcrumbList` and no tourism types still passes for all seven
+places.
+
+**No leakage.** Geghard uses none of Khor Virap's, Etchmiadzin's, Garni's or
+`adoption-of-christianity`'s artwork, and no generic fallback, in its head, its structured data, its
+hero, its search card or its sitemap blocks.
+
+### Editorial work preserved
+
+This was an artwork-registration step only. Nothing in the English, Eastern Armenian or Western
+Armenian prose was touched; `git diff` shows no change to any `articles/places.ts` from this step.
+The early-tradition versus medieval-complex distinction, the Proshyan acquisition wording, the Prosh
+floruit, the Donabédian heraldry discussion, the Holy Lance treatment, the manuscript and school
+claims, the UNESCO wording, the sources, the coordinate, `relatedSlugs`, the SectionLinks, the SEO
+fields, `placeTypeId` and the filter counts are all unchanged — and `placeTypeId`, `featured` and
+`relatedSlugs` are now *pinned as literals in a test* for Geghard as well as for the other six, so
+an artwork step that edited them would fail rather than pass quietly.
+
+### Tests
+
+`places.spec.ts` stays at **47** desktop tests. §42 added no test and removed none; it inverted the
+three Geghard-specific ones and widened the shared datasets, which is the same shape §32, §34, §36,
+§38 and §40 took.
+
+**The datasets.** `GEGHARD` moved into `ILLUSTRATED`, which is now all seven, and gained its entry
+in `ARTWORK`. `PLACES` and `ILLUSTRATED` are **kept as separate concepts** even though they contain
+the same slugs again — the sixth time they have coincided, and the last five times the next place
+split them within one step. The comment arguing against collapsing them is kept and updated.
+
+**Inverted, each in all three editions.** `Geghard renders its own file and is captioned as an
+illustration` (was: renders the generated placeholder) now asserts one `<img>` with the right file,
+zero `<svg>`, the AI-illustration caption present and the placeholder caption absent.
+`Geghard's search card carries its own thumbnail and no placeholder` (was: renders the placeholder)
+now asserts the thumbnail is the WebP and adds a borrowed-file check, scoped to the one result card
+whose link is `/en/places/geghard-monastery`. `Geghard borrows no other article's artwork, and
+declares the one it has` (was: *claims no image it does not have*) keeps its five-file borrowed
+guard verbatim and inverts the tail: `og:image` and `twitter:image` are the Geghard WebP and must
+not contain `og-default`, and `Article.image` is present and equal to it.
+
+**Widened.** The listing placeholder count went `1` to `0` — an assertion that has now inverted six
+times, which is the argument for pinning the number rather than asserting "none by inspection". The
+search-thumbnail loop gained `[GEGHARD, "Geghard"]`. The sitemap per-block loop gained `GEGHARD`,
+and Geghard's own block assertion flipped from *must emit no `image:loc`* to *must emit one, and
+must not name a neighbour's file*. `PENDING_ARTWORK` is asserted `toEqual([])` — the whole array, so
+a stale entry left behind fails as loudly as a slug quietly added. The registry test pins
+`registry[GEGHARD]` by name alongside the other six, and the homepage test gained `geghard` to its
+list of fragments that must not appear on `/hy`. The registry/pending mutual-exclusion test needed
+no change and still passes in both directions.
+
+**Retained unchanged, and still passing:** Khor Virap keeps its PNG; Etchmiadzin, Erebuni, the
+Matenadaran, Lake Sevan and Garni keep their WebPs; the homepage stays on `/hero-ararat.png`; and
+the History, Writers, Works and Cuisine paths are pinned as one literal object that a stray
+keystroke in the flat registry would break.
+
+One test was renamed. `the six places that existed before Geghard are untouched by it` became
+`every place's editorial fields are pinned, and Geghard's are unchanged by its artwork`, because its
+loop runs over `ILLUSTRATED` and now covers seven. The title had become false; the assertions are a
+superset of what it did before.
+
+### Verification
+
+Run in the prescribed order. Playwright and the production build were **not** run concurrently.
+
+| Step | Command | Result |
+|---|---|---|
+| 1 | port 3002 | clear (no listener) |
+| 2 | remove `.next` | removed — §41 ended with a build |
+| 3 | `npm run typecheck` | **PASS** — 0 errors |
+| 4 | `npm run validate:content` | **PASS** — **120 entries** across 3 locales, and **no pending-artwork note**, the set it counts now being empty |
+| 5 | `npx playwright test --project=desktop places.spec.ts` | **PASS** — 47 passed |
+| 6 | `npx playwright test` | **FAIL on first execution — 2 failed, 193 passed, 5 skipped.** Fixed and re-run: **195 passed, 5 skipped** |
+| 7 | `npm run build` | **PASS** — **126** prerendered routes, all three Geghard routes among them |
+
+**Every failure encountered, reported.** There was one, it was mine, and it was deterministic rather
+than a flake.
+
+`npx playwright test` failed with two `page.goto: Test timeout of 30000ms exceeded` errors. The two
+tests were identified rather than guessed — `places.spec.ts each article hero renders its own
+registered artwork and names the AI provenance` and `places.spec.ts no illustrated place renders the
+artwork placeholder`. They are the only two that loop `LOCALES x ILLUSTRATED`, so moving Geghard
+into `ILLUSTRATED` took each from eighteen navigations to twenty-one, against a dev server compiling
+routes on demand with the rest of the suite competing for it. Both had passed at 24.6 s in the
+places-only run at step 5 and passed again at 9.6 s when re-run alone, which is what identifies the
+cause as the global 30 s timeout rather than a broken assertion.
+
+**It was not retried away.** `retries` is `0` in `playwright.config.ts` and was left at `0`; the
+config's global timeout was not raised for everyone. The fix is `test.slow()` on those two tests,
+with a comment recording why — the honest statement that a twenty-one-navigation test is slow,
+rather than shrinking its coverage or re-running until it passed. The full suite then passed first
+time.
+
+**The Cuisine hydration flake did not appear.** The pre-hydration condition documented in §40 and
+§41 applied here too — `.next` was removed at step 2, so routes compiled on demand under parallel
+load — and `cuisine.spec.ts` passed in both full runs, including the one where the two places tests
+timed out. No Cuisine code was touched, and the latent flake is carried forward unfixed.
+
+### A second pass over the same step, and the hole it found
+
+The work above was committed as `7302b1d` ("step19") and the whole chain was then re-run against the
+committed tree. Everything held — the asset hashes to the same SHA-256, the registry entry and the
+empty `PENDING_ARTWORK` are as recorded, and steps 3, 4, 6 and 7 passed unchanged.
+
+Re-auditing the twenty-one required assertions one at a time did find a real hole, in the one place
+the first pass had been satisfied with an indirect proof. *"The Geghard listing card uses its own
+WebP"* was covered only at page level: the file appears among the listing's `img` sources, no
+unexpected file appears, the source count is exact, and no placeholder remains. All four of those
+still hold **if two cards swap covers** — Geghard's card showing Garni's picture while Garni's shows
+Geghard's — which is precisely the borrowed-neighbour failure this section guards hardest, the two
+sitting eight kilometres apart in the same valley and linked from Geghard's own prose. A listing
+where every card carries a plausible picture looks finished.
+
+So the listing test gained a per-card loop that pins each place's card to its own file by the card's
+own href. The file's test count is unchanged at 47; one existing test got stricter.
+
+**That addition failed on its first execution, deterministically, and the failure was mine.**
+`1 failed, 46 passed` — `expect(locator).toHaveCount(1)` received `0`, for `khor-virap` and so for
+every slug after it. The locator had been written as `getByRole("listitem")`, copied from the search
+assertions, but `ArticleCard` renders `<Card as="article">`: on a listing the cards are the `article`
+role, and `listitem` is the *search page's* shape. The repository already has the right helper —
+`cards()` in `tests/e2e/helpers.ts`, documented as *"Cards are the only `article` role inside a
+results grid"* — so the fix was to use it rather than to invent a selector. Re-run: **47 passed.**
+
+Worth keeping rather than rediscovering: Khor Virap appears twice on that page, as the featured
+place and as a card, but `FeaturedItem` is not a card. That is why the per-card count is one and not
+two, while the whole-page source count above it is `ILLUSTRATED.length + 1`.
+
+The production build was also re-read rather than trusted: `.next/server/app/sitemap.xml.body`
+contains exactly **three** `geghard-monastery.webp` occurrences, one per locale route, which
+confirms requirement 9 against the built artefact and not only against the dev server.
+
+### Scratchpad
+
+`scratchpad/check.ts` was restored in §41 as a reusable cross-locale parity harness. It was **not
+deleted, moved or modified** here — this was an artwork-only step and the file is not part of it.
+
+One correction to the record: it was untracked when this section was first written, and commit
+`7302b1d` has since taken it into version control. The debt is therefore no longer "an untracked
+harness" but "a tracked harness in the wrong directory" — a slightly stronger reason to move it,
+since it now ships with the repository. If it is genuinely reusable it belongs in `scripts/` with
+the other tooling; that migration is a step that owns the scripts directory, not this one.
+
+`.claude/settings.json` is **unchanged** — the permission layer added two entries automatically
+during this session and they were reverted, as in §41.
+
+### Preserved
+
+- **No existing artwork changed.** Nothing under `public/` was generated, edited, cropped, resized,
+  recoloured, renamed, optimised or replaced. The only change to the directory is the new file, and
+  its bytes are as delivered — the SHA-256 above was taken from the file as registered.
+- **All three locale editions of the Geghard article are byte-identical** to what §41 left.
+- **`geo.ts`, `sources.ts`, `ui.ts`, `seo.ts`, `sitemap.ts`, every component and
+  `scripts/validate-content.ts` were not touched.**
+- **No deployment was performed**, and no deployment configuration was touched.
+
+### Still open
+
+Carried forward unchanged. Nothing in this list was fixed here.
+
+- **The Matenadaran façade colour — still open**, unchanged from §36 and every step since. Pale grey
+  where the building and this archive's prose describe dark basalt.
+- **The Garni stone warmth — still open**, unchanged from §40. Ochre-warm where the basalt is
+  grey-blue.
+- **The Garni 4:3 image dimension — still open.** `garni-temple.webp` is 1448 x 1086 against the
+  1586 x 992 of the other WebPs, `geghard-monastery.webp` now included.
+- **A dedicated Khor Virap image — still open** since §32. The only PNG, 1355 x 793, 1.4 MB, and
+  still byte-identical to `hero-ararat.png`.
+- **Erebuni and Matenadaran image weight — still open.** 742 KB and 701 KB, both carrying ICC
+  profiles. The new file carries none and does not add to this.
+- **Global media optimisation — still open.** Unaffected by a step that added one 271 KB file.
+- **The Cuisine hydration flake — still open.** `cuisine.spec.ts:355` clicks the nav submenu button
+  directly instead of using `openHeaderPanel`. It did not reproduce here. The fix belongs to a step
+  that owns that spec.
+- **One-directional related articles — still open.** `getRelatedArticles` links one way, and
+  Geghard's link to Garni is deliberately not reciprocated.
+- **Western Armenian native review — still open**, and unchanged by this step, which added no prose.
+  The queue runs from §16 through §28, §29, §31, §33, §35, §37, §39 and §41.
+- **The Bresson and Fagan Garni attribution — still open and unsettled.**
+- **Wilkinson's Garni source not read directly — still open.** No copy of REArm NS 16 is online.
+- **The Hovannisian ISBN — still open.** `9781403966360` catalogues the two-volume set where four
+  bibliography entries title it *Volume I*.
+- **`scratchpad/check.ts` location — carried forward, and deliberately not fixed here.** Now tracked
+  as of `7302b1d`, which strengthens rather than settles the case for moving it. A reusable
+  harness living in an untracked scratchpad directory. It should migrate to `scripts/` if it is to
+  be kept, and be deleted if it is not; either way that decision belongs to a step that owns the
+  tooling.
+- **The photographic register of `geghard-monastery.webp` — new.** Recorded above and in `media.ts`:
+  the file looks documentary where the rest of the registry looks drawn, and the blanket
+  AI-generated caption is worth re-confirming against the source. Reported, not corrected, and the
+  file was not altered.
+- **The remaining place type.** `settlement` still waits for its first article.
+
+No deployment was performed.
+
+---
+
+## 43. Visit Armenia — the second journey (August 2026)
+
+The archive now has two entry points. `/history`, `/places`, `/writers`, `/works` and `/cuisine`
+answer *what is this?*; `/[locale]/visit` answers *what would I go and see?* and then hands the
+reader straight back to those listings.
+
+It is a **curation layer, not a section**. It owns no article, no image, no coordinate and no prose
+about any subject. Every card on it is resolved from the article registry at render time, which is
+why the page's own configuration is three arrays of slugs and nothing else. No article was added, no
+map was added, and nothing was deployed.
+
+### Route
+
+`/[locale]/visit` → `/hy/visit`, `/hyw/visit`, `/en/visit`. One new page file,
+`src/app/[locale]/visit/page.tsx`.
+
+Nothing was created under it. `/visit/places`, `/visit/food`, `/visit/map` and `/visit/guides` do
+**not** exist, and `dynamicParams = false` on the locale layout makes that a 404 rather than merely
+an unlinked path — asserted for seven such paths. The canonical routes are unchanged: a place still
+has exactly one URL, under `/places`.
+
+Prerendered routes went from **126 to 129** — three, which is the whole of the change.
+
+### Navigation — the decision, and why
+
+The header was inspected before anything was added, and it could **not** simply take a seventh bar
+item. Two facts decided it:
+
+- `Header.tsx` documents a measured width budget: six items in Armenian run 520px of the row at
+  1024px, with roughly 175px spare. That is why `Home` was removed from the bar and why four
+  sections use short labels.
+- `header.spec.ts` pins `toBe(6)` on the bar at four widths, and asserts no label wraps and no
+  horizontal overflow in all three editions at 1024px.
+
+So Visit is **not** a seventh nav item. `NavItem` gained a `journey?: boolean` flag; the header
+filters it out of `barNav` and renders it separately as a **filled pill in the right-hand action
+cluster**, beside search and the edition switch. That is the smallest change that satisfies the
+brief: existing category access is untouched, the journey is visually distinct as an *action* rather
+than another thing to browse, there is no header redesign and no mega-menu.
+
+Below `lg` the pill is absent and the **drawer** carries the journey as its second entry, directly
+after Home — the two journeys at the top, then the six sections. The drawer maps the whole `nav`
+array, so it picked the item up without special-casing. The **footer** lists it once, in Explore,
+under the existing "every href appears exactly once" rule.
+
+**A regression was introduced here and caught by the existing tests.** The first implementation put
+the full label «Այցելել Հայաստան» in the pill and pushed the 1024px Armenian header **49px past the
+viewport** — precisely the budget `Header.tsx` warns about. The fix is the mechanism the repository
+already had for this: `ui.nav.visitShort` («Այցելել» / "Visit"), fed through `NavItem.shortLabel`,
+plus slightly tighter pill padding below `xl`. The drawer and footer still show the full name, where
+there is room and no logo beside them to supply the country.
+
+### Page structure
+
+Hero (compact: breadcrumb, one H1, one paragraph, **no image**) → Places to discover → Explore by
+type → Armenian food to try → Learn before you visit.
+
+The sections are deliberately not interchangeable: `paper` / `tinted` / `paper` / `surface` tones,
+three-up default cards for places against four-up compact cards for dishes and context, link chips
+rather than cards for the type controls, and `ArrowLink` CTAs on the first two sections against a
+`ButtonLink` on the last — the one action that leads out of the journey and back into the archive.
+
+No hero image. The homepage hero is the homepage's, and `/hero-ararat.png` is not a generic tourism
+asset; the page takes its visual weight from the cards.
+
+### Curated slugs
+
+```ts
+VISIT_FEATURED_PLACES = garni-temple, geghard-monastery, lake-sevan,
+                        khor-virap, matenadaran, erebuni-fortress
+VISIT_FEATURED_DISHES = lavash, dolma, khorovats, gata
+VISIT_LEARN_ARTICLES  = adoption-of-christianity, kingdom-of-urartu,
+                        mesrop-mashtots-armenian-alphabet, tigran-the-great
+```
+
+**Places — six of seven.** Chosen for spread rather than rank: all four place types are represented,
+and the two types with a second article contribute one each. **Etchmiadzin is the deliberate
+omission** — it is the third `monastery` and would have made half the row one type. It stays one
+click away behind the all-places link, which is the difference between a curated row and a copy of
+the listing. A test asserts its absence, so the omission is a decision rather than a slip.
+
+**Dishes — four kinds, not the first four.** `bread`, `main`, `meat`, `dessert` — four distinct
+`dishTypeId` values, asserted as a set so the row cannot silently become `slice(0, 4)`. Taking the
+array's own order would have given lavash, dolma, khorovats and harissa: the same spread minus the
+sweet, with `ceremonial` doubled once ghapama is counted. `ceremonial` is the one kind not shown,
+and it is the kind with two articles — both reachable through the cuisine CTA.
+
+**Context — four, each already earned.** The rule applied, and now enforced by a test: a learn slug
+must appear in the `relatedSlugs` of at least one featured place. All four do —
+`adoption-of-christianity` (Khor Virap, Geghard, Garni), `kingdom-of-urartu` (Erebuni, Lake Sevan),
+`mesrop-mashtots-armenian-alphabet` (the Matenadaran) and `tigran-the-great` (Khor Virap, Garni).
+Nothing was added to reach four. `bagratid-armenia` (Lake Sevan) is the only other slug that would
+qualify today.
+
+### Data architecture
+
+No parallel Visit database. The page reads `getArticlesByCategory`, `toArticleSummary`,
+`getPlaceTypes`, `getUi`, `getPages`, `localePath` and `getStaticAlternates` — all existing helpers.
+The only Visit-specific data is the three slug arrays above.
+
+Page copy went into `StaticPagesContent.visit`, beside `about`/`contact`/`privacy`, because it is
+page copy rather than interface chrome and because `pageLd` reads `{ title, metaDescription }` off
+that shape directly. It holds headings, a lead and four CTA labels — **no titles, excerpts, images
+or routes**, so nothing on this page can contradict the article it points at. The nav labels
+(`nav.visit`, `nav.visitShort`) went into `UiDictionary`, exactly as `nav.about` does.
+
+`scripts/validate-content.ts` gained a `visit` branch in `validateStaticPages`, in the existing
+idiom: title and metaDescription present, lead present, every field non-empty, and — the one check
+specific to this page — **the heading must differ from the SEO title**. `/visit` is the only static
+page whose H1 is deliberately not its `title`, and authoring them the same way is invisible on the
+rendered page.
+
+### Media
+
+No new artwork, no Visit-specific image, no hardcoded path. Every card resolves through
+`getArticleImageSrc` / `getImageSrc`, so the fourteen images on the page are the same files
+`/places`, `/cuisine` and `/history` serve. `PENDING_ARTWORK` is empty and asserted empty from this
+page's own spec, because curating a pending slug would render a perfectly finished-looking
+placeholder card. No placeholder `<svg>` appears in any edition.
+
+### Explore by type — the decision
+
+The place-type filter **does** have a URL representation: `useListingParams` writes `?type=<id>` with
+`history.pushState` and adopts it from `window.location.search` on mount. It deliberately avoids
+`useSearchParams`/`router.replace`, which would have bailed the page out to client rendering.
+
+So the four controls are **real links** to `/[locale]/places?type=<id>` — semantic, keyboard- and
+middle-click-usable, and honest about what they do. The caveat, recorded rather than papered over:
+the filter is adopted **after hydration**, so the server-rendered HTML at that URL is the unfiltered
+grid. These are therefore not crawlable filtered pages, and **`/places/monasteries` and
+`/places/museums` were not created** — that is a routing change this step was told not to invent.
+
+The labels come from `getPlaceTypes(locale)`, the same list the listing filters by, with `all`
+dropped. **No second taxonomy and no new place type**; a test pins the four ids against the bundle
+so a renamed pill cannot drift.
+
+### Localization
+
+Complete in `hy`, `hyw` and `en`. Taxonomy labels are reused rather than re-translated — the type
+chips read `placeTypes`, so "Monasteries and churches" / «Վանքեր և եկեղեցիներ» / «Վանքեր եւ
+եկեղեցիներ» are the listing's own strings.
+
+Western Armenian uses classical orthography throughout: `եւ` not `և`, `-ութիւն` not `-ություն`,
+`կը`/`կ՚` verb forms, `մը`, `-ներու` genitives, `հոն`, `ուրկէ`. The `hyw` half of
+`validateDictionaries` enforces the first two on UI keys; the page copy in `pages.ts` is outside that
+check, so it was written to the same rule by hand.
+
+**All newly authored Western Armenian Visit copy is flagged for native review** — see the list below.
+No existing article translation was touched.
+
+### SEO
+
+| | |
+|---|---|
+| Title (en) | `Visit Armenia: Places, Nature & Food` |
+| Description (en) | `Discover places to visit in Armenia, from historic monasteries and ancient sites to Lake Sevan, museums and traditional Armenian food.` |
+| H1 | `Visit Armenia` — the short heading, never the SEO title |
+| Canonical | `https://armat.site/{locale}/visit` |
+| hreflang | `hy`, `hyw`, `en`, each pointing at its own `/visit` |
+| x-default | `/hy/visit`, per the existing `withXDefault` convention |
+| Sitemap | `"/visit"` added to `STATIC_PATHS`; three URLs, verified in the built `sitemap.xml.body` |
+
+No `keywords` array. The search-intent guidance shaped the title and description wording; a keywords
+override would also have sat outside `validateKeywordList`, which only loops `CATEGORY_IDS`.
+
+### Structured data
+
+`pageLd` — the primitive about/contact/privacy already use. The page emits exactly one JSON-LD
+script containing **Organization + WebSite + WebPage + BreadcrumbList**, and nothing else.
+
+- **Organization** and **WebSite** because every non-home graph in this repository re-declares them;
+  the layout emits no global graph.
+- **BreadcrumbList** from the same crumb array the visible `<Breadcrumbs>` renders, so the two cannot
+  drift. It ends on the current page with no `item`, as Schema.org expects.
+
+**No `TouristDestination`, `Trip`, `TouristTrip`, `TouristAttraction`, `ItemList`, `Place` or
+`LocalBusiness`.** A discovery page is exactly where those look plausible, and none of them describes
+what a reader can see here: this is an index of articles, not a description of a destination. The
+test collects every `@type` in the graph structurally and asserts the exact set. Article JSON-LD is
+untouched.
+
+### Accessibility and responsive
+
+One H1 per page, asserted. Heading levels never skip — checked by reading every `h1/h2/h3` in `main`
+and asserting no jump greater than one. Card links carry the article title as their accessible name;
+alt text comes from the article data through `ContentPhoto`. The type controls are `<a>` elements in
+a `<ul>`, not click-handling `<div>`s. The header pill is a `Link` with `aria-current="page"` on
+`/visit`, and a test asserts it is the *only* current item in the header — `isActive` is a prefix
+match, so a route sharing a prefix with a category would light the wrong item silently.
+
+Verified at **360, 768 and 1440px in all three editions**, asserting `scrollWidth <= clientWidth`.
+
+**One real overflow was found and fixed at source.** At 360px the `hy` learn CTA rendered a 350px
+button — `ButtonLink` is `whitespace-nowrap`, and the label «Ուսումնասիրել Հայաստանի պատմությունը»
+was a sentence rather than a button label. It had also drifted from the requested "Learn about
+Armenia". Both Armenian labels were shortened to «Ուսումնասիրել Հայաստանը» and «Ծանօթանալ
+Հայաստանին»; the shared primitive was **not** modified and no per-locale width was introduced.
+(`cn()` is a plain join, not `tailwind-merge`, so a className override would not reliably have won —
+worth knowing before anyone tries that route.)
+
+### Tests
+
+New file `tests/e2e/visit.spec.ts` — **23 desktop tests**, covering all twenty-eight required
+checks. The suite went from 195 to **218** passing.
+
+The three curated slug arrays are **copied into the spec rather than imported from the page**.
+Importing them would make the test agree with whatever the page currently says; writing them out is
+what makes a change to the curation a decision someone has to take twice.
+
+Beyond the required list, three tests are worth naming:
+
+- **`every learn card links to a history article that genuinely relates to a featured place`** — the
+  editorial guard. Every learn slug must appear in some featured place's `relatedSlugs`, which is
+  what stops a fourth card being added because a row of three looked thin.
+- **`the visit hub sells nothing`** — the line this page must not cross, pinned as text rather than
+  as intent: no "book", "hotel", "tour package", "price", "opening hours", "restaurant", "where to
+  eat". An educational hub becomes a travel portal one well-meaning section at a time.
+- **`no map library or map surface is introduced`** — checked in both directions: nothing map-shaped
+  in the rendered page (`.leaflet-container`, `.mapboxgl-map`, `.maplibregl-map`, `.ol-viewport`,
+  `.gm-style`, `canvas`, `[data-map]`), and nothing map-shaped in `package.json`.
+
+### Verification
+
+Run in the prescribed order. Playwright and the production build were **not** run concurrently.
+
+| Step | Command | Result |
+|---|---|---|
+| 1 | port 3002 | clear |
+| 2 | remove `.next` | removed — §42 ended with a build |
+| 3 | `npm run typecheck` | **PASS** — 0 errors |
+| 4 | `npm run validate:content` | **PASS** — 120 entries across 3 locales |
+| 5 | `npx playwright test --project=desktop visit.spec.ts` | **FAILED twice before passing** — see below. Final: **23 passed** |
+| 6 | `npx playwright test --project=desktop places.spec.ts` | **PASS** — 47 passed |
+| 7 | `npx playwright test --project=desktop cuisine.spec.ts` | **PASS** — 33 passed |
+| 8 | `npx playwright test` | **FAILED twice before passing** — see below. Final: **218 passed, 5 skipped** |
+| 9 | `npm run build` | **PASS** — **129** prerendered routes, compiled in 4.0s |
+
+**Every deterministic failure, and its fix.** There were four, all mine.
+
+1. **`hy` overflowed 360px by 10px** (step 5). Diagnosed rather than guessed: a throwaway spec
+   measured every element's bounding box against `clientWidth` and named the offender — the learn
+   CTA at 350px wide. Fixed by shortening the two Armenian CTA labels, as described above. The
+   diagnostic spec was deleted afterwards.
+2. **The structured-data test failed on its own naive check** (step 5). It searched the serialized
+   JSON for the substring `"Place"`, which matches this page's own SEO title, *Visit Armenia:
+   Places, Nature & Food*. The graph was correct the whole time. Rewritten to collect every `@type`
+   structurally — including nested `ImageObject` and `ListItem` — and assert the exact set. A test
+   that fails on correct output is a bug in the test, and this one would have been "fixed" next time
+   by weakening the assertion.
+3. **The header overflowed 1024px by 49px in Armenian** (step 8), failing
+   `header.spec.ts:49` and `:81`. A genuine regression from the journey pill, caught by tests that
+   already existed. Fixed with `ui.nav.visitShort` through `NavItem.shortLabel` — the mechanism the
+   repository already had — not by relaxing the assertion. Two Visit tests were then re-scoped to
+   the header's short label, since both had silently been resolving to the footer link.
+4. **`places.spec.ts` "the place article uses its own SEO fields…" timed out** at 30s (step 8),
+   passing in 6.1s alone. It is the third `LOCALES × PLACES` test — twenty-one navigations — and §43
+   added a whole new spec file competing for the same dev server. Declared `test.slow()`, matching
+   the two §42 marked for the identical reason. `retries` stays `0` and the global timeout was not
+   raised.
+
+**One non-deterministic failure, investigated rather than dismissed.** The first execution of
+`visit.spec.ts` after `.next` was removed failed `no artwork placeholder appears anywhere on the
+visit hub`, alongside a dev-server `SyntaxError: Unexpected end of JSON input`. It did not reproduce
+in five targeted repeats, a fresh cold run with `.next` deleted, or any subsequent full run — the
+same cold-compile signature as the documented Cuisine flake. It was **not** retried away: the exact
+image count is still asserted, and the test now waits for the last curated card before counting, so
+the count describes a finished page rather than a mid-compile one. A genuinely missing image still
+fails.
+
+**The Cuisine hydration flake did not appear.** `cuisine.spec.ts` passed standalone (33) and in every
+full run, including the two that failed for other reasons. No Cuisine code was touched.
+
+### Existing content — regression check
+
+- **No article changed, in any edition.** `git diff` shows no change under
+  `src/data/locales/*/articles/`.
+- **No Place was touched**: content, coordinates, source lists, SEO fields and artwork are all
+  unchanged for khor-virap, etchmiadzin-cathedral, erebuni-fortress, matenadaran, lake-sevan,
+  garni-temple and geghard-monastery. `places.spec.ts` still passes all 47.
+- **`ARTWORK_PROVENANCE`, the media registry, article JSON-LD, the Places taxonomy, the coordinate
+  registry and the source registry are unchanged.** `geo.ts` is not imported by the Visit page.
+- Listing counts hold: places 7, cuisine 6, history 7 — asserted from the new spec as well as the old.
+- The homepage still renders `/hero-ararat.png` and picks up no Visit artwork.
+
+Files changed: `src/app/[locale]/visit/page.tsx` (new), `tests/e2e/visit.spec.ts` (new),
+`src/data/types.ts`, `src/data/ui.ts`, `src/data/locales/{en,hy,hyw}/pages.ts`,
+`src/data/locales/{en,hy,hyw}/ui.ts`, `src/lib/navigation.ts`,
+`src/components/layout/Header.tsx`, `src/app/sitemap.ts`, `scripts/validate-content.ts`,
+`tests/e2e/places.spec.ts` (one `test.slow()`), and this document.
+
+`.claude/settings.json` is **unchanged**.
+
+### Western Armenian items requiring native review
+
+All Visit-page `hyw` copy is newly authored and none of it has been read by a native editor. The
+specific judgement calls:
+
+1. **«Այցելել Հայաստան»** as the journey name, and **«Այցելել»** alone in the header. A reviewer may
+   prefer «Այցելութիւն Հայաստան» for the full form.
+2. **«Ծանօթանալ Հայաստանին»** for "Learn about Armenia" — chosen partly for length, since the button
+   must fit 360px. «Ուսումնասիրել» was the first choice and was too long.
+3. **«Ծանօթացէ՛ք»** as the imperative opening both the lead and the meta description.
+4. **«Խորապատկեր»** for the "Context" eyebrow. «Ենթահող» and «Նախապատմութիւն» were considered.
+5. **«Վայրեր՝ ծանօթանալու համար»** for "Places to discover", against the Eastern
+   «Վայրեր՝ բացահայտելու համար».
+6. **«կերակուր»** throughout rather than Eastern «ուտեստ», matching the existing `hyw` `cuisineTypes`.
+7. **«ձեռագիրներու հաւաքածոյ»** for "a manuscript collection".
+8. **«կիրարկուած»** for "applied" (of a filter), and **«զտիչ»** kept from the existing listing copy.
+9. **«ամէնէն ճանչցուած»** for "best known".
+10. **«Սեղանին շուրջ»** for the food eyebrow, "At the table".
+
+### Still open
+
+Carried forward unchanged. Nothing in this list was fixed here.
+
+- **The Matenadaran façade colour**, unchanged since §36.
+- **The Garni stone warmth**, unchanged since §40.
+- **The Garni 4:3 artwork dimensions** — 1448 × 1086 against 1586 × 992 elsewhere. Now visible in one
+  more place: Garni is the first card on the Visit hub.
+- **The Geghard photographic register** — documentary-looking where the rest of the registry is
+  drawn, still captioned AI-generated. Recorded in §42.
+- **A dedicated Khor Virap image** — still the only PNG, still 1.4 MB, still byte-identical to
+  `hero-ararat.png`. The Visit hub now serves it too, which adds weight to a second page.
+- **Erebuni and Matenadaran artwork weight** — 742 KB and 701 KB, both on the Visit hub as well.
+- **Global media optimisation** — unaffected by a step that added no assets, and marginally more
+  worth doing now that fourteen registry images appear on one page.
+- **The Cuisine hydration flake** — `cuisine.spec.ts:355` clicks the nav submenu button directly
+  instead of using `openHeaderPanel`. It did not reproduce here.
+- **One-directional `relatedSlugs`** — `getRelatedArticles` links one way. The Visit hub reads
+  `relatedSlugs` in a test to prove the learn cards are earned, which makes the one-directionality
+  slightly more load-bearing than before, but does not change it.
+- **Western Armenian native review** — now longer by the Visit page and ten terminology items.
+- **The Bresson and Fagan Garni attribution**, unsettled.
+- **Wilkinson's Garni source not read directly.**
+- **The Hovannisian ISBN** — set-level identifier on four volume-level entries.
+- **`scratchpad/check.ts` living outside `scripts/`** — tracked as of `7302b1d`, still in the wrong
+  directory.
+- **The weak homepage hero-path test** — `img[src*="hero-ararat"]` matches a substring, so a switch
+  to `hero-ararat.webp` would still pass. Unresolved, and deliberately not touched here.
+- **The remaining place type** — `settlement` still waits for its first article.
+
+### Deliberately not built
+
+Recorded so the next step does not have to rediscover the boundary: no map of any kind and no map
+dependency; no `/visit/places`, `/visit/food`, `/visit/map` or `/visit/guides`; no
+`/places/monasteries`-style filtered routes; no hotels, bookings, tours, restaurants, prices,
+opening hours, affiliate links or packages; no new article; no new design system, mega-menu or
+carousel; and no Visit-specific artwork.
+
+No deployment was performed.
+
+---
+
+## 44. The first interactive map — Visit Armenia (August 2026)
+
+`/[locale]/visit` now carries a geographic index of the seven Places. It answers one question —
+*where are the places I can already read about on Armat?* — and deliberately answers no others.
+No article was added, no route was added, nothing was deployed.
+
+`src/data/geo.ts` has said *"Nothing renders these yet"* since §28. It renders them now, and the
+registry needed no change to make that true.
+
+### Library — Leaflet 1.9.4
+
+No map library existed. The choice was between MapLibre GL JS and Leaflet, and it was not close for
+these requirements.
+
+**Leaflet, for one decisive reason and three supporting ones.** The decisive one is accessibility:
+Leaflet draws markers as **real DOM elements**, so a marker can be a `<div role="button">` with an
+accessible name, reachable by Tab, activated by Enter, and assertable in Playwright. MapLibre renders
+into a WebGL canvas, where a marker is pixels unless you opt into DOM markers anyway — and §12 of
+the brief says outright not to rely on canvas marker interaction. Choosing Leaflet meant the
+accessible path and the tested path are the *same* path, rather than a fallback bolted beside one.
+
+Supporting: it is **41.7 KB gzipped** against MapLibre's ~200 KB+, and the brief asked for the
+lighter option; raster tiles need no vector style document to host; and there is no API key, no
+proprietary service and no paid tier anywhere in the setup.
+
+**`react-leaflet` was deliberately not added.** It is a second dependency, coupled to React's
+release cycle, and it would have bought nothing here: the component needs custom accessible markers
+and imperative control of selection, which is exactly the layer react-leaflet abstracts away.
+Leaflet is driven directly from one `useEffect`.
+
+| | |
+|---|---|
+| Package | `leaflet` |
+| Version installed | **1.9.4** (`^1.9.4`) |
+| Types | `@types/leaflet` **1.9.22**, devDependency |
+| CSS import required | **Yes** — `leaflet/dist/leaflet.css`, imported by the component |
+| Client bundle | **145.0 KB raw / 41.7 KB gzipped**, in its own chunk |
+| CSS | 10.3 KB raw / 2.6 KB gzipped |
+| External requests | **Yes** — map tiles only (see below) |
+| API key | **No** |
+
+The Tailwind v4 Preflight hazard was checked rather than assumed: Preflight's `img { max-width: 100% }`
+breaks tile rendering, and `leaflet.css` ships `max-width: none !important` for the tile, marker and
+shadow panes (lines 46–57), so the library wins regardless of import order. No override was needed.
+
+### Tile source, and what it does and does not promise
+
+Tiles come from **`https://tile.openstreetmap.org/{z}/{x}/{y}.png`** — the standard raster tile
+service operated by the **OpenStreetMap Foundation**. Attribution is rendered in the map corner, as
+the licence requires.
+
+Stated plainly, because the brief asked for honesty rather than reassurance:
+
+- **A tile request is a third-party request.** It necessarily discloses the reader's IP address and
+  User-Agent to the OSMF's servers, together with the tile coordinates — which is approximately
+  *which part of Armenia the reader is looking at*.
+- **This document does not claim the OSMF collects nothing.** What they log and retain is governed by
+  their own privacy policy and was **not verified here**. No claim either way is being made on their
+  behalf.
+- **There is no unlimited-free guarantee, and none is implied.** The OSM Tile Usage Policy is aimed
+  at modest use, requires attribution and a valid identifying User-Agent, and explicitly reserves the
+  right to throttle or block. It is not a production CDN and must not be treated as one. Self-hosting
+  or a paid provider is the correct answer before meaningful traffic, and is recorded as open below.
+
+**What was done to keep it conservative:**
+
+- **The map is not loaded on page load.** Leaflet is `import()`ed from inside an
+  `IntersectionObserver`, so both the library chunk and the first tile request happen only when a
+  reader actually scrolls to the section. A reader who never reaches it makes **no** third-party
+  request at all. This is a privacy decision first and a performance one second.
+- `maxZoom: 17`, so no request goes deeper than the article content justifies.
+- **No analytics on marker clicks**, none added anywhere in this step.
+- **No geolocation**, ever — see below.
+- Nothing about the reader, the article, or the site's own data is sent anywhere. The only outbound
+  values are tile coordinates.
+- A test enumerates **every** third-party host the page contacts and fails on anything that is not
+  `openstreetmap.org`, so a second external dependency cannot arrive unnoticed.
+
+There is no CSP in this repository to amend, and no middleware — both were checked.
+
+### Data derivation
+
+New module `src/lib/visit-map.ts`, exporting `VisitMapPoint` and `getVisitMapPoints(locale)`.
+
+| Field | Derived from |
+|---|---|
+| `slug` | the article |
+| `lat`, `lon`, `precision` | `PLACE_COORDINATES` via the previously-unused `getPlacePoint` |
+| `placeTypeId` | the article |
+| `title`, `summary` | the **localized** article (`title`, `excerpt`) |
+| `href` | `localePath(locale, article.href)` |
+| `imageSrc` | `getArticleImageSrc` — the media registry |
+
+**Nothing is authored.** No title, summary, coordinate, image path or type label is written in the
+map component or in any map config. `Article` was not modified, and no map-specific content database
+exists. A test walks every field of every point back to the registry it came from, in all three
+editions, which is what makes that claim checkable rather than aspirational.
+
+The **inclusion rule is a derivation, not an allow-list**: `places articles ∩ PLACE_COORDINATES`.
+There is deliberately no second seven-slug array — it would be a third place to remember when the
+eighth place ships, and the two would disagree in silence.
+
+A Place with no coordinate is **excluded by an explicit documented rule**, not rendered at `0,0` and
+not thrown on. The reasoning is written into the module: `validate:content` already fails on any
+Places article missing from the registry and rejects `0, 0` by name as the placeholder pair, and a
+test asserts the map returns one point per Places article — so a silently shortened map fails, while
+a render-time throw would merely move a data failure into an unrelated production build.
+
+### The seven places, and `area` vs `site`
+
+All seven: khor-virap, etchmiadzin-cathedral, erebuni-fortress, matenadaran, lake-sevan,
+garni-temple, geghard-monastery.
+
+Worth noting: the map shows **all seven**, while the curated row above it shows six. That divergence
+is the intent, not a bug — the row is an editorial pick, the map is coverage, and Etchmiadzin being
+on the map while not being in the row is exactly the difference between the two questions they
+answer. (This forced a genuine correction to a §43 test; see below.)
+
+`precision` travels with every point rather than being discarded at the boundary. Lake Sevan is the
+one `area` entry — a centroid of an L-shaped lake, not a place anyone stands — and it appears as one
+marker for the lake article, as specified. **No polygons were added.** The distinction is asserted
+per slug, so a future `area` place cannot quietly inherit `site` semantics.
+
+### Markers
+
+One shared pin for all seven, differentiated by a small glyph drawn inside it, keyed on the existing
+`placeTypeId`: a dome for `monastery`, a column for `historical`, an open book for `museum`, two
+waves for `nature`. Inline SVG paths — **no emoji**, no seven bespoke icons, and no second taxonomy.
+
+**Colour is never the only channel.** Every marker's accessible name is `"{title} — {type label}"`,
+and the list below the map repeats the type as text beside every place. A type with no glyph falls
+back to the bare pin rather than to a wrong one, which is what should happen the day a sixth type
+arrives. There are no permanent text labels on the map.
+
+### Selection
+
+Clicking or pressing Enter on a marker selects that place. The panel shows the registered image, the
+localized title, the article excerpt, the place-type label from `placeTypes`, and a link reading
+*"Learn about this place"* pointing at the canonical, locale-correct route.
+
+It shows **no** opening hours, prices, distance, travel time, directions, reviews, ratings or live
+conditions — pinned as absent by test.
+
+Selection is **ephemeral UI state**. There is no `?place=` parameter and no router involvement:
+§21 asked for none, and adding one would have meant history entries for hovering over a map.
+
+### Desktop and mobile
+
+Desktop is **map plus a side panel** in a `lg:grid-cols-[minmax(0,1fr)_21rem]` grid — the panel sits
+beside the map rather than over it, so nothing is obscured and there is no split-pane application.
+Below `lg` the same grid stacks: map first, selected-place panel directly beneath it. No bottom
+sheet, since the project has no such pattern.
+
+Verified at **360, 390, 768 and 1440px in all three editions**, with the map actually mounted before
+measuring — an unmounted container is an empty div and would have proved nothing. No horizontal
+overflow at any width. Filter chips are ≥32px tall and the map is ≥200px tall on a 360px phone,
+both asserted.
+
+`scrollWheelZoom` is **off**. A map that swallows the wheel in the middle of a long editorial page is
+the single most complained-about map behaviour; the zoom buttons and pinch-zoom remain.
+
+### Accessibility and progressive enhancement
+
+The map is an **enhancement**, and the page is complete without it.
+
+`VisitMap` is a client component, so React still server-renders it: the section heading, the
+explanatory copy, the accessible list of all seven places, their type labels and their article links
+are all in the prerendered HTML **before Leaflet exists**. This is tested the only way that means
+anything — with `javaScriptEnabled: false`, asserting no `.leaflet-container` and all seven article
+links present.
+
+The list is links, not buttons, for exactly that reason: buttons would have needed JavaScript to do
+anything. A keyboard or screen-reader reader can discover every mapped place, read its type, and
+reach its canonical URL **without touching the map at all**.
+
+The map itself is `role="region"` with an accessible name rather than `role="application"`, so
+Leaflet's own keyboard handling stays available without the map ever having to be the only way in.
+It is not a keyboard trap. Markers are focusable (`tabindex="0"`, from Leaflet), carry
+`role="button"`, a name including the place type, and `aria-pressed` for the selected state. The
+detail panel is a **single** `aria-live="polite"` region — enough that a selection is noticed, not so
+much that panning narrates itself.
+
+### Localization
+
+Eight new copy fields in `pages.visit`, complete in `hy`, `hyw` and `en`: eyebrow, title,
+description, map region label, list heading, empty-state prompt, CTA and filter group label.
+
+**No place-type translation was duplicated.** The map's filter and its labels read
+`getPlaceTypes(locale)` — the listing's own `placeTypes`, `all` included — so "Monasteries and
+churches" exists once. `validateStaticPages` already loops every field of the `visit` block, so the
+new fields inherited non-empty validation without the validator changing shape.
+
+Western Armenian uses classical orthography throughout (`եւ`, `-ութիւն`, `կը`/`կ՚`, `-ներու`,
+imperatives in `-էք`). **All of it is newly authored and flagged for native review**, listed below.
+
+### Map and type-filter integration
+
+The map has a lightweight local filter over the same four types plus All, reusing `placeTypes` ids
+and labels. Selecting a type hides non-matching markers **and** the corresponding list entries, so
+the map and its accessible equivalent always agree. A selection hidden by a filter is cleared rather
+than left as a stale card.
+
+**The existing "Explore by type" links are untouched** — still four real links to
+`/places?type=<id>`, asserted by test. The map filter is an addition to this page, never a
+replacement for the route into the listing, and there are no "map types".
+
+### SEO and structured data — unchanged
+
+No new route. No `/visit/map`, no per-place map route; three paths asserted 404. The canonical URL
+is still `/[locale]/visit` and the sitemap is unchanged.
+
+**Structured data is byte-for-byte the same shape as §43**: Organization + WebSite + WebPage +
+BreadcrumbList, one script, asserted as an exact set. **No `GeoCoordinates`, `Place`,
+`TouristAttraction`, `Map` or `TouristDestination` was added.** The map has seven coordinates and
+that is precisely not a reason to publish them as schema — the page describes articles, not
+destinations. Article JSON-LD was not touched.
+
+### Tests
+
+New file `tests/e2e/visit-map.spec.ts` — **18 desktop tests**, covering all twenty-eight required
+checks. The suite went from 218 to **236**.
+
+Split deliberately in two. The **derived data** is asserted directly against `getVisitMapPoints` in
+all three editions, because that is where a wrong map actually comes from — a coordinate from the
+wrong registry, a hardcoded title, a slug that is not a Place. Those run in milliseconds and do not
+depend on tiles loading. The **rendered map** is asserted through the DOM, which Leaflet makes
+possible: no pixel geometry is tested anywhere, and no accessibility assertion was weakened because
+the library made it inconvenient.
+
+Three worth naming beyond the required list:
+
+- **`the accessible list is server-rendered…`** runs with JavaScript disabled. It is the only test
+  that can actually prove the progressive-enhancement claim.
+- **`the map asks for no location, plots no route and sells nothing`** instruments
+  `navigator.geolocation` in an init script and asserts the call count is zero. A control can be
+  renamed; a call cannot be disguised.
+- **`the map talks to the tile host and nothing else`** enumerates every third-party hostname the
+  page contacts and fails on anything but `openstreetmap.org`.
+
+**One §43 test was superseded rather than deleted.** `no map library or map surface is introduced`
+became `exactly one map library is present, and nothing beyond it`: Leaflet is now expected, and
+Mapbox, MapLibre, OpenLayers, Google Maps, geocoders, routers and Turf are still pinned as absent.
+Deleting it would have been the easy move and would have removed the only thing standing between one
+deliberate dependency and four accidental ones.
+
+### Verification
+
+Run in the prescribed order. Playwright and the production build were **not** run concurrently.
+
+| Step | Command | Result |
+|---|---|---|
+| 1 | port 3002 | clear |
+| 2 | remove `.next` | removed — §43 ended with a build |
+| 3 | `npm run typecheck` | **PASS** — 0 errors |
+| 4 | `npm run validate:content` | **PASS** — 120 entries across 3 locales |
+| 5 | `playwright --project=desktop visit-map.spec.ts` | **FAILED twice before passing** — see below. Final: **18 passed** |
+| 6 | `playwright --project=desktop places.spec.ts` | **PASS** — 47 passed |
+| 7 | `playwright --project=desktop visit.spec.ts` | **FAILED once before passing** — see below. Final: **23 passed** |
+| 8 | `playwright --project=desktop cuisine.spec.ts` | **PASS** — 33 passed |
+| 9 | `npx playwright test` | **PASS** — **236 passed, 5 skipped** |
+| 10 | `npm run build` | **PASS** — **129** prerendered routes, compiled in 4.3s |
+
+**Every deterministic failure, and its fix.** There were three rounds, all mine.
+
+1. **Five map tests failed: markers never appeared.** The tests called `page.goto` and clicked
+   markers without scrolling, and the map is mounted by an `IntersectionObserver`. The lazy mount is
+   a deliberate feature, so the tests were wrong, not the component: an `openMap()` helper now
+   scrolls to the section and waits for `.leaflet-container` — exercising the real reader path
+   rather than working around it. Also applied to the responsive test, which had been measuring
+   overflow against an *unmounted* container and therefore proving nothing.
+
+2. **Six map tests still failed: `[data-slug]` was absent — and this one was a real product bug, not
+   a test bug.** Diagnosed rather than guessed: a throwaway spec dumped the map's DOM and reported
+   `container: true, markerPane: 7, tiles: 12, dataSlug: 0`. Seven pins were on the map and none of
+   them carried a single accessible attribute.
+
+   The cause is an ordering trap in Leaflet's API. `Map.addLayer` defers `onAdd` through `whenReady`
+   until the map has a centre and a zoom. The map was created with no view and `fitBounds` was called
+   *after* the marker loop, so at `addTo()` time every marker's `_icon` was still `null`,
+   `getElement()` returned `null`, and the `if (element)` guard skipped `role`, `aria-label`,
+   `data-slug` and `data-place-type` **silently**. The visible result was a map that looked perfect
+   and was unusable with a keyboard or a screen reader.
+
+   Fixed twice over: `fitBounds` now runs *before* markers are added, and the attributes are applied
+   from a `marker.on("add")` handler as well as inline — because filtering removes and re-adds
+   markers, and `_initIcon` builds a **fresh element** each time, so attributes set once would have
+   survived until the first filter click and then vanished. That second failure had not been reached
+   by any test yet; it was found by reading the fix rather than by waiting for it. The same review
+   added `filter` to the selection effect's dependencies, so a selected pin does not lose its active
+   styling when a reader narrows and widens the map.
+
+3. **Two `visit.spec.ts` tests failed.** `the chosen library renders` did not scroll, same lazy-mount
+   reason. `Etchmiadzin stays behind the all-places link` asserted that Etchmiadzin appears nowhere
+   in `main` — which was correct in §43 and is wrong now, because the map lists every place with a
+   coordinate and that is its job. Re-scoped to the curated **cards**, which is the narrower thing
+   the test was always about; the §43 image-count assertion was likewise scoped from `main img` to
+   `main article img`, since Leaflet's tiles are `<img>` elements and an unscoped count now measures
+   the tile grid.
+
+**No failure was retried away, and no assertion was loosened to accommodate the library.**
+
+**The Cuisine hydration flake did not appear.** `cuisine.spec.ts` passed standalone (33) and in the
+full run.
+
+### Bundle and build
+
+129 prerendered routes — **unchanged from §43**, because the map added no route. `/visit` and every
+other page remain statically generated; nothing was converted to a client component beyond the map
+itself, and no `dynamic`/`revalidate` export was introduced.
+
+Leaflet occupies **its own chunk**: 145.0 KB raw / **41.7 KB gzipped**, plus 10.3 KB / 2.6 KB of CSS.
+Because it is reached through `import()` inside the observer, that chunk is **not** part of `/visit`'s
+initial payload and is fetched only when a reader scrolls to the map.
+
+### Existing content — regression check
+
+- **No Places article, coordinate, source, media path, artwork, `placeTypeId` or curated slug array
+  was modified.** `src/data/geo.ts` is unchanged — the map consumes it and nothing more.
+- `places.spec.ts` passes all 47, including the coordinate-registry test that pins every point and
+  the Garni/Geghard separation.
+- Cuisine content untouched; `cuisine.spec.ts` passes all 33.
+- Article structured-data builders untouched; `/visit`'s graph is unchanged.
+- `.claude/settings.json` unchanged.
+
+Files changed: `src/lib/visit-map.ts` (new), `src/components/visit/VisitMap.tsx` (new),
+`tests/e2e/visit-map.spec.ts` (new), `src/app/[locale]/visit/page.tsx`, `src/data/types.ts`,
+`src/data/locales/{en,hy,hyw}/pages.ts`, `tests/e2e/visit.spec.ts`, `package.json`,
+`package-lock.json`, and this document.
+
+### Western Armenian items requiring native review
+
+All map copy is newly authored and unreviewed by a native editor:
+
+1. **«Քարտէս»** for *map*, and **«քարտէսին վրայ»** for "on the map".
+2. **«Դիտել Հայաստանը քարտէսին վրայ»** for "Explore Armenia on the map" — `Դիտել` (view) rather than
+   `Ուսումնասիրել` (study), which felt too heavy for a map heading.
+3. **«նշան»** for *marker*. `նշիչ` was used in the Eastern copy; a reviewer may prefer one in both.
+4. **«Ընտրեցէ՛ք … տեսնելու համար»** as the empty-state instruction.
+5. **«Ծանօթանալ այս վայրին»** for "Learn about this place", matching the `learnCta` register set in §43.
+6. **«Ցուցադրել վայրերը ըստ տեսակի»** for the filter group label.
+7. **«Armat-ի ներկայացուցած վայրերուն քարտէսը»** as the map's accessible name — a genitive plural
+   construction a reviewer should check reads naturally when announced aloud.
+
+### Still open
+
+Carried forward unchanged. Nothing in this list was fixed here.
+
+- **The tile provider — new, and the most important item on this list.** `tile.openstreetmap.org` is
+  governed by a usage policy written for modest traffic and carries no availability guarantee. Before
+  this site has real traffic the base layer should move to a self-hosted or paid provider. The
+  privacy consequence above travels with that decision.
+- **The Matenadaran façade colour**, unchanged since §36.
+- **The Garni stone warmth**, unchanged since §40.
+- **The Garni 4:3 artwork dimensions** — now visible in the map's detail panel as well.
+- **The Geghard photographic register**, recorded in §42.
+- **A dedicated Khor Virap image** — still the only PNG, still 1.4 MB, still byte-identical to
+  `hero-ararat.png`, and now reachable from a third surface.
+- **Erebuni and Matenadaran artwork weight** — 742 KB and 701 KB.
+- **Global media optimisation.**
+- **The Cuisine hydration flake** — `cuisine.spec.ts:355`. Did not reproduce here.
+- **One-directional `relatedSlugs`.**
+- **Western Armenian native review** — longer by the map copy and seven terminology items.
+- **The Bresson and Fagan Garni attribution.**
+- **Wilkinson's Garni source not read directly.**
+- **The Hovannisian ISBN.**
+- **`scratchpad/check.ts` living outside `scripts/`.**
+- **The weak homepage hero-path assertion** — still a substring match.
+- **`settlement`** — declared in the `precision` union and used by no entry; still waits for its
+  first article.
+
+### Deliberately not built
+
+No geolocation of any kind — no "use my location", "near me", distance-from-me, current position or
+permission prompt; asserted by instrumenting the API. No routes, directions, itineraries, travel
+times or lines drawn between places, not even between Garni and Geghard, which are eight kilometres
+apart and editorially linked. No food markers — a dish is not a point on the ground, and no food
+coordinate was invented. No History, Writers or Works markers — only Places qualify. No polygons for
+Lake Sevan. No `?place=` URL state. No second map library, geocoder or routing library. No new
+route, and no map-specific structured data.
+
+No deployment was performed.
+
+## 45. Hardening the basemap — one configuration, no vendor (August 2026)
+
+§44 shipped the map with its tile provider written into the component:
+
+```ts
+L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  maxZoom: 17,
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+}).addTo(map);
+```
+
+Two string literals, seven lines into a `useEffect`. That is fine for development and for the low
+volume this site has today, and it is the wrong shape to keep: it makes the choice of basemap a
+property of Leaflet setup code rather than a property of the deployment, and the §44 debt list
+already said the provider must change before real traffic.
+
+This step changes nothing a reader can see. It moves one decision out of a component.
+
+### What was actually wrong with two string literals
+
+Not "hardcoding is bad". The specific failure they set up:
+
+The URL and the attribution have to change **together**. A tile licence is a licence to serve those
+tiles *with that credit line*, and the credit line is the only thing on the map that says whose
+pictures these are. Two literals seven lines apart, in a file that also contains marker glyphs,
+`IntersectionObserver` wiring and three effects, is an arrangement in which someone swaps the URL
+and does not swap the line beneath it. The result is one provider's tiles under another provider's
+copyright — which is the one failure in this area that has a counterparty who cares.
+
+The second problem is smaller and more ordinary: with the provider named in the component, "we are
+moving off the public OSM endpoint" is a code change, a review, and a rebuild reasoned about by
+whoever is comfortable editing Leaflet initialisation. It should be an environment variable.
+
+### `src/lib/map-tiles.ts`
+
+One shape, one resolver, one exported value.
+
+```ts
+export type MapTileConfig = {
+  url: string;          // Leaflet template; must contain {z}, {x}, {y}
+  attribution: string;  // rendered by Leaflet's attribution control
+  maxZoom?: number;
+};
+```
+
+Deliberately **not** a provider framework. There are no adapters, no registry, no plugin interface
+and no `TileProvider` base class, because there is exactly one basemap and abstractions sized for a
+set of one are architecture for its own sake. The bar this file has to clear is narrow and it clears
+it: changing provider is a change to configuration, not to code.
+
+`VisitMap` now reads `MAP_TILES` and renders whatever it is handed:
+
+```ts
+const tiles = L.tileLayer(config.url, {
+  maxZoom: config.maxZoom,
+  attribution: config.attribution,
+});
+```
+
+A test reads the component's source and asserts it contains no URL template, no absolute URL of any
+kind, no `&copy;`, and not the word *openstreetmap* in any case. That is the guarantee in one
+assertion: **no provider is named in the map component**, so a swap cannot leave half of one behind.
+
+### Environment variables
+
+Three, all optional, following the convention `.env.example` already documents:
+
+| Variable | Meaning |
+| --- | --- |
+| `NEXT_PUBLIC_MAP_TILE_URL` | Leaflet URL template; must contain `{z}`, `{x}`, `{y}` |
+| `NEXT_PUBLIC_MAP_TILE_ATTRIBUTION` | Credit line rendered on the map; HTML allowed |
+| `NEXT_PUBLIC_MAP_TILE_MAX_ZOOM` | Highest zoom the provider serves; defaults to `17` |
+
+`maxZoom` is configurable rather than fixed because it is a **property of the provider**, not a
+design choice. A provider serving to z14 with `maxZoom: 17` compiled in produces a screen of missing
+tiles at the two zoom levels a reader is most likely to use — which is precisely the "malformed tile
+requests after a provider swap" failure this step exists to prevent.
+
+All three carry `NEXT_PUBLIC_` and all three are meant to be public. A tile URL appears in every
+request the browser makes and the attribution is printed on the map by design; neither is a secret
+and neither can be made one. **If a provider ever requires a browser token it goes in the URL and is
+public in exactly the same way** — a browser-visible tile token is not a credential, it is a rate-
+limiting handle. That distinction is stated in `.env.example` next to the existing warning that the
+`SMTP_*` block must never take the prefix, because the two rules are the same rule read in opposite
+directions. **No provider token is configured today.**
+
+### Missing configuration fails; it does not improvise
+
+`resolveMapTileConfig` returns `MapTileConfig | null`. The rules:
+
+- **Nothing configured** → the documented development fallback. A fresh checkout has a working map
+  with no account and no setup, which is how it worked before and should keep working.
+- **URL without attribution, or attribution without URL** → `null`.
+- **A template missing `{z}`, `{x}` or `{y}`** → `null`.
+- **`maxZoom` not an integer in 1–22** → `null`.
+
+`null` is the *predictable failure* the step asked for, and the two obvious alternatives are both
+worse than no map:
+
+- falling back to the OSM endpoint when a production URL is malformed would serve one provider's
+  tiles while the operator believes their own are live, and would surface as a block or a bill weeks
+  later rather than as a broken map now;
+- retaining the previous attribution when the URL changes is the licence violation described above,
+  wearing the costume of resilience.
+
+Refusing is safe here in a way it would not be elsewhere on the site, because the thing a reader
+came for — seven places, their types, their article links — is server-rendered markup that does not
+depend on the basemap at all.
+
+`resolveMapTileConfig` is exported separately from `MAP_TILES` so all of this is tested directly,
+without `process.env` and without a browser.
+
+### The development fallback, described accurately
+
+`tile.openstreetmap.org` remains the default and is documented in three places — the module, the
+`.env.example` block and the README — as *an external community service run by the OpenStreetMap
+Foundation, not infrastructure this project operates or has an agreement with*, to be replaced before
+meaningful production traffic.
+
+What none of those three say: unlimited, guaranteed, free forever, SLA, or Armat's production tile
+provider. No claim is made about what the Foundation logs, what it permits, or how much of it is
+available, because none of that is this repository's to assert and §44 already refused to assert it.
+
+### Attribution
+
+Now provider-driven and structurally unable to go missing:
+
+- it comes from the same object as the URL, so the two cannot be changed independently;
+- `resolveMapTileConfig` refuses a configuration with an empty attribution, so a tile layer can never
+  be constructed without one;
+- `attributionControl: true` stays on and Leaflet's control is untouched;
+- a test asserts the control exists, is visible, and contains the configured text with markup
+  stripped — derived from `MAP_TILES`, so it keeps holding after a provider change.
+
+### Tile failure
+
+The Visit page has to survive a basemap that does not arrive, and it does — but the mechanism is
+worth stating precisely, because "handle offline" is where honest UI usually goes wrong.
+
+Two distinct cases, one message:
+
+1. **`MAP_TILES === null`** — a refused configuration, known before mount. Leaflet is never imported,
+   no tile is requested, and the map surface is not rendered at all. An empty bordered box announcing
+   itself as a map is worse than a sentence saying there isn't one.
+2. **`tilesFailed`** — the runtime case. The map is mounted and the markers are on it and selectable;
+   only the pictures underneath them failed. The surface stays.
+
+Detection is `tileload` / `tileerror` on the layer, and the condition is *errors have occurred and
+nothing has loaded*. That is a direct observation of this layer, not an inference about the reader's
+connection: a `tileload` clears the flag, so a transient error that resolves does not leave a false
+notice behind. There is no retry system, no `navigator.onLine`, and no diagnosis of why. The copy
+says the map could not be loaded and points at the list — the two things that are actually known.
+
+`mapUnavailable` was added to `StaticPagesContent.visit` and written in all three editions, so it
+inherits the non-empty check `validateStaticPages` already runs over every field of that block.
+
+A test blocks the configured tile host at the network layer and asserts: the notice appears with the
+edition's own wording, all seven article links still resolve, marker selection still works, and the
+rest of `/visit` still renders. **The accessible list is the fallback**; the notice only explains it.
+
+### Lazy loading — unchanged, and now pinned by its consequence
+
+The `IntersectionObserver` and the `await import("leaflet")` are exactly as §44 left them. Leaflet is
+still its own chunk — **145.0 KB raw / 41.7 KB gzipped, byte-for-byte what §44 measured** — and is
+still absent from `/visit`'s initial payload.
+
+The new test does not look for chunk filenames, which are a build detail that changes with the
+bundler. It asserts the thing worth guaranteeing: load `/visit`, wait for the network to settle, and
+**no request has been made to the tile host at all**, while `[data-visit-map]` is present and
+`.leaflet-container` is not. Then scroll, and tiles arrive. A refactor to a plain top-level import
+would keep every other map test green and fail this one.
+
+A second, cheaper test reads the component source for a static `import … from "leaflet"` and checks
+that neither the Visit page nor the locale layout mentions the library at all.
+
+### Network and privacy
+
+The §44 host-enumeration test named `openstreetmap.org` as the only legal host. That was correct
+while the URL was a literal and wrong the moment the basemap became configuration — so it was
+**generalized rather than deleted or loosened**. The expectation is now computed from `MAP_TILES`:
+
+```ts
+const tileHost = MAP_TILES.url.replace(/^https?:\/\//, "").split("/")[0].replace(/^\{[^}]+\}\./, "");
+```
+
+Any third-party request to anything other than the configured provider still fails the test. Nothing
+was widened to a wildcard, and no external domain was allow-listed. The test also scans the permitted
+host's own request paths for `nominatim`, `geocod`, `/search`, `/route`, `/direction` and
+`/autocomplete` — geocoding, place search and routing are all things a tile vendor will happily also
+sell, and all things this map has decided not to have.
+
+Unchanged and re-asserted: no geolocation, no analytics on marker interaction, no telemetry, no live
+data, and nothing about the reader or the archive sent to the provider.
+
+### `@next/env`, and why it is now declared
+
+The tests compare what the browser rendered against the configuration resolved from `process.env` —
+but `next dev` reads `.env.local` and the Playwright runner does not. Configure a provider locally
+and the two halves disagree, producing a confusing false failure. `playwright.config.ts` now calls
+`loadEnvConfig(process.cwd())`, Next's own helper, so both processes read the same files.
+
+An audit of environment conventions caught that `@next/env` resolved **only as a transitive
+dependency of `next`** — working today, breaking under a stricter installer or a `next` major bump.
+It is now a `devDependency` pinned to the exact `next` version (`16.2.10`) rather than a caret range,
+because the two must move together.
+
+The same audit found `README.md` still claiming *"Only the newsletter form needs configuration"* —
+already untrue when the SMTP block landed, and more untrue now. Corrected to name all three optional
+configurations.
+
+### Tests
+
+`visit-map.spec.ts` **18 → 24**; suite **236 → 242**. Six added, one rewritten:
+
+1. `resolveMapTileConfig` in isolation — fallback, half-configured, malformed template, out-of-range
+   zoom, and the whitespace-only shape a freshly copied `.env.example` produces.
+2. No provider named anywhere in `VisitMap.tsx` — no template, no absolute URL, no `&copy;`, no
+   *openstreetmap*, and `MAP_TILES` present.
+3. The rendered tile URLs match the configured template with `{z}/{x}/{y}` filled, and the
+   attribution control carries the configured text.
+4. No tile requested before the map is scrolled to; tiles once it is.
+5. Leaflet imported dynamically in the component and nowhere upstream.
+6. The tile host blocked at the network layer — notice, seven links, marker selection, rest of page.
+7. **Rewritten:** the host-enumeration test, generalized as described above.
+
+What was deliberately *not* tested: chunk filenames, the number of tile requests, tile image bytes,
+and the internal shape of Leaflet's attribution DOM. Pinning those would make a provider change
+expensive to carry out, which is the opposite of this step's purpose.
+
+### Commands and results
+
+| # | Command | Result |
+| --- | --- | --- |
+| 1 | port 3002 | clear |
+| 2 | remove `.next` | removed (§44 ended on a build) |
+| 3 | `npm run typecheck` | **PASS** |
+| 4 | `npm run validate:content` | **PASS** — 120 entries across 3 locales |
+| 5 | `visit-map.spec.ts` | **PASS** — 24 |
+| 6 | `visit.spec.ts` | **PASS** — 23 |
+| 7 | `places.spec.ts` | **PASS** — 47 |
+| 8 | `npx playwright test` | **PASS** — 242 passed, 5 skipped |
+| 9 | `npm run build` | **PASS** — 129 routes |
+
+**Zero deterministic failures.** Every step passed on its first run; nothing was retried and no
+assertion was adjusted after the fact. Playwright and the build were not run concurrently.
+
+The dev server printed `SyntaxError: Unexpected end of JSON input` for `/hyw/visit` once during the
+`visit.spec.ts` run — the §43 development-server noise, which failed nothing then and failed nothing
+here.
+
+### Bundle and build
+
+129 prerendered routes, **unchanged**. `/[locale]/visit` is still `●` — statically prerendered —
+because `NEXT_PUBLIC_*` variables are substituted textually at build time and no environment-
+dependent logic entered the page. Nothing became a client component that was not one already.
+
+The Leaflet chunk is **145.0 KB raw / 41.7 KB gzipped** and its CSS **10.3 KB / 2.6 KB**, identical
+to §44. The resolved tile URL is inlined into the existing 13.9 KB `VisitMap` client chunk; the
+configuration module adds no chunk of its own and no measurable weight.
+
+### Map UX and data — unchanged
+
+Nothing a reader can see changed except a notice that only appears when the basemap does not.
+
+Unchanged: the seven mapped places; `getVisitMapPoints` and every field it derives; `src/data/geo.ts`
+and every coordinate in it; Lake Sevan's `area` precision; the marker pin and its four type glyphs;
+marker selection and the detail panel; the map-local type filter; the accessible list; the
+"Explore by type" links into `/places`; marker-derived bounds; the responsive layout; and all article
+links. `src/lib/visit-map.ts` was not touched.
+
+Files changed: `src/lib/map-tiles.ts` (new), `src/components/visit/VisitMap.tsx`,
+`src/app/[locale]/visit/page.tsx`, `src/data/types.ts`, `src/data/locales/{en,hy,hyw}/pages.ts`,
+`tests/e2e/visit-map.spec.ts`, `playwright.config.ts`, `.env.example`, `README.md`, `package.json`,
+`package-lock.json`, and this document. `.claude/settings.json` was modified by the permission layer
+and reverted, as in §42.
+
+### Western Armenian items requiring native review
+
+The seven items from §44 stand, plus one:
+
+8. **«Քարտէսը չկրցաւ բեռնուիլ։ Անոր բոլոր վայրերը թուարկուած են վարը։»** for the basemap-unavailable
+   notice — the passive `չկրցաւ բեռնուիլ` and `վարը` for "below" both want a reviewer's eye.
+
+### Still open
+
+Carried forward. Nothing else on this list was fixed here.
+
+- **The production tile provider — still open, and deliberately so.** This step made the provider
+  replaceable; it did not choose one. Mapbox, MapTiler, Stadia, Thunderforest, Jawg, Google and
+  self-hosting were all left uninstalled and unnamed in code, because the choice depends on current
+  terms, pricing, Armenia coverage, attribution obligations and expected traffic — a comparison to
+  make against the market on the day it is made, not against a source file. Until then the public OSM
+  endpoint is the documented development default and the privacy consequences recorded in §44 stand.
+- **No self-hosted tile infrastructure**, and none started: no OSM import pipeline, PostGIS,
+  TileServer GL, Martin, Tegola, PMTiles, planet extract or Armenia `.pbf` processing.
+- **The Matenadaran façade colour**, unchanged since §36.
+- **The Garni stone warmth**, unchanged since §40.
+- **The Garni 4:3 artwork dimensions.**
+- **The Geghard photographic register**, recorded in §42.
+- **A dedicated Khor Virap image** — still the only PNG, still 1.4 MB, still byte-identical to
+  `hero-ararat.png`.
+- **Erebuni and Matenadaran artwork weight** — 742 KB and 701 KB.
+- **Global media optimisation.**
+- **The Cuisine hydration flake** — `cuisine.spec.ts:355`. Did not reproduce here.
+- **One-directional `relatedSlugs`.**
+- **Western Armenian native review** — now eight terminology items.
+- **The Bresson and Fagan Garni attribution.**
+- **Wilkinson's Garni source not read directly.**
+- **The Hovannisian ISBN.**
+- **`scratchpad/check.ts` living outside `scripts/`.**
+- **The weak homepage hero-path assertion** — still a substring match.
+- **`settlement`** — declared in the `precision` union and used by no entry.
+- **No central environment module** — surfaced by the audit, not introduced here. `SMTP_*` is read
+  independently in `lib/contact.ts` and `api/contact/route.ts`, and the Supabase pair in
+  `lib/supabase/client.ts` and the same route. `map-tiles.ts` is currently the only one that
+  separates parsing from reading. Not worth a refactor on its own; worth doing when the next
+  configuration arrives.
+
+### Deliberately not built
+
+No new map features. No new Places. No second map library, geocoder, router or map SDK — Leaflet
+remains the renderer and the only one. No commercial provider signed up for, hardcoded or
+credentialed. No tile server, no tile pipeline. No routes, directions, geolocation, restaurants,
+hotels, tours or live data. No analytics on tile or marker activity. No retry, backoff or offline
+detection. No map-specific structured data. No new route. The Visit page was not converted to a
+client component and did not lose static prerendering.
+
+No deployment was performed.
+
+## 46. Stadia Maps — the basemap decision §45 deliberately left open (August 2026)
+
+§45 made the tile provider replaceable and refused to pick one, on the grounds that the choice
+depends on terms and coverage that belong in a decision, not a source file. This is that decision.
+
+**Provider selected after external pricing/terms review on 2026-08-08.**
+
+No code changed. That is the result worth recording: `resolveMapTileConfig`, `MapTileConfig`,
+`MAP_TILES` and `VisitMap.tsx` are byte-identical to §45, and the entire provider switch is three
+environment variables. The abstraction was built one section ago to make exactly this cheap, and it
+was.
+
+### Why Stadia
+
+Ordered by weight, with price last on purpose:
+
+1. **Standard raster tiles.** Leaflet 1.9.4 renders raster XYZ tiles and nothing else. Every vector-
+   first provider would have forced a renderer change, and §44 chose Leaflet specifically because its
+   markers are real DOM elements with real accessible names. Trading that for a prettier basemap
+   would have been trading an accessibility guarantee for decoration.
+2. **Domain-based authentication.** Stadia validates the `Origin` and `Referer` headers browsers
+   already send, so a public static site needs **no API key in the browser**. This is the decisive
+   operational property: every keyed provider would have put a credential in a `NEXT_PUBLIC_`
+   variable, which is a credential printed in every visitor's network log.
+3. **Drop-in with the existing configuration.** Their documented Leaflet template is an XYZ URL the
+   §45 resolver accepted unmodified, verified before anything was written.
+4. **Replaceable.** Choosing Stadia costs nothing structurally — it is named in `.env.example` and in
+   this document, and nowhere in the code.
+
+Price was reviewed and is deliberately **not recorded here**: pricing changes, a number in a
+repository ages badly, and none of the four reasons above depend on it.
+
+### The style: `alidade_smooth`
+
+Stadia positions this style for "maps that use a lot of markers or overlays", with a muted palette
+and fewer points of interest. That is precisely this map's problem: seven burgundy pins must be the
+most important thing on screen, and a basemap that competes with them is a worse basemap however
+handsome it is.
+
+Rejected, with reasons: `osm_bright` is light but deliberately colourful and POI-dense, and would
+compete with the markers; `stamen_toner_lite` is restrained but stark monochrome, a design statement
+the archive's paper-and-ink palette does not want; `outdoors` and `stamen_terrain` are terrain
+styles; `alidade_satellite` is imagery; `alidade_smooth_dark` and the toner dark variants are dark
+themes. Every one of those was excluded by the brief before taste entered.
+
+### The configuration
+
+```
+NEXT_PUBLIC_MAP_TILE_URL=https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png
+NEXT_PUBLIC_MAP_TILE_ATTRIBUTION='&copy; <a href="https://stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>'
+NEXT_PUBLIC_MAP_TILE_MAX_ZOOM=20
+```
+
+`{r}` is Leaflet's retina placeholder — `@2x` on HiDPI screens, empty elsewhere. It is substituted
+unconditionally by `TileLayer.getTileUrl` in Leaflet 1.9.4 (verified in the installed source, not
+assumed), so it needs no `detectRetina` option. Both forms were probed live and both returned
+`200 image/png`. Note this placeholder is Leaflet-specific: a future renderer change means hardcoding
+`@2x` or dropping it.
+
+**`maxZoom` is 20, not the 17 inherited from the OSM fallback.** Stadia documents zoom 20 for this
+style, and §45 made this value configurable precisely because it is a property of the provider. It is
+also what stops the UI zooming into tiles that do not exist: Leaflet derives the map's maximum zoom
+from its layers, so the layer's ceiling is the map's ceiling.
+
+The attribution is copied **verbatim** from Stadia's attribution page rather than paraphrased. These
+tiles are Stadia's rendering of OpenMapTiles' schema over OpenStreetMap's data and all three parties
+are named in the requirement; the links are preserved because preserving them is part of it.
+
+One documentation inconsistency, resolved deliberately: Stadia's Leaflet tutorial prints a comma
+after the Stadia Maps link, their attribution page does not. The **attribution page** is the one that
+states the requirement, so its form is the one shipped.
+
+### Authentication: nothing in the browser
+
+Production authenticates by **registered domain**. There is no API key in source, in `.env*`, in a
+`NEXT_PUBLIC_` variable, in a query string, in JavaScript, or in this repository's documentation, and
+no authentication code was added to `VisitMap.tsx` — none is possible, since the mechanism is headers
+the browser sends by itself.
+
+Authorizing the domain is an **account-side operation outside this repository**, and nothing here
+attempts to perform it programmatically. See the checklist below.
+
+Local development needs no account: Stadia serves `localhost` and `127.0.0.1` without a key, under
+documented strict rate limits. So `npm run dev` and the Playwright suite use the **same tile URL as
+production** — which is why the network assertions in this section are measured against Stadia rather
+than quietly against the old fallback. Sustained local HTTP 429s are the signal to obtain an account
+key for server-side use, never to paste one into a public variable.
+
+### The OpenStreetMap fallback is build-time only
+
+Unchanged from §45 and now load-bearing in a second way. `resolveMapTileConfig` returns the OSM
+endpoint **only when no provider is configured at all** — a fresh checkout with no environment. It is
+not a runtime safety net.
+
+**Failed Stadia tiles do not fall back to OpenStreetMap.** This is deliberate and the tests pin it: a
+silent runtime provider switch would hide a production configuration failure behind a map that looks
+fine, and would send readers to a third party nobody chose that day. When tiles fail the map says so
+and stops, and the server-rendered list of seven places — which never depended on tiles — carries the
+page.
+
+`.env.local` is git-ignored, so **the production build must set these three variables in its own
+environment**. A deployment that does not will build against the OSM fallback and look like it works.
+
+### Privacy and network behaviour
+
+Stated as what the implementation proves, and no further.
+
+A visitor **who scrolls to the map** makes tile requests to Stadia Maps. A visitor who does not,
+makes none: Leaflet is `import()`ed inside an `IntersectionObserver`, and a test asserts zero requests
+to the tile host before the section is reached.
+
+Those requests necessarily disclose the reader's IP address, User-Agent, the tile coordinates —
+roughly *which part of Armenia is on screen* — and, because domain authentication works by reading
+them, the `Origin` and `Referer` headers, which identify the page the map is embedded in. That is
+inherent to the chosen authentication method, not incidental to it.
+
+What the implementation itself establishes:
+
+- **no Armat user identifier is sent intentionally** — none is added to any tile request;
+- **no email, account or newsletter data reaches the tile provider**;
+- **no geolocation is requested**, asserted by instrumenting `navigator.geolocation` and checking the
+  call count is zero;
+- **no marker analytics, telemetry or event beacons** were added;
+- **only basemap tile requests** are required, and a test enumerates every third-party request and
+  fails on any host that is not the configured one.
+
+Deliberately **not** claimed: that Stadia receives no IP address, stores nothing, that the integration
+is anonymous, or that any regulatory posture means no data is processed. None of that is Armat's to
+assert, and §44 and §45 both declined to assert the equivalent about the previous provider.
+
+No user-facing privacy notice was added in this step. The site's existing privacy architecture did not
+require one for this change; whether the privacy page should name the basemap provider is a content
+decision, and it is recorded below as open rather than answered here.
+
+### Tests
+
+`visit-map.spec.ts` **24 → 26**; suite **242 → 244**.
+
+- **The committed production basemap** — reads `.env.example`, resolves it, and asserts it is not the
+  fallback, is `tiles.stadiamaps.com` over TLS, is a valid XYZ template, carries no credential
+  parameter, has `maxZoom` 20, and credits all three parties with their links intact. This is the one
+  test that names the provider **on purpose**: it pins a *decision*, and it reads the committed file
+  so a developer's `.env.local` cannot make it pass.
+- **Credential-leak guard** — inspects *parsed query-parameter names* (`api_key`, `apikey`,
+  `access_token`, `token`, `key`, `auth`, `signature`) on the configured URL and on every live map
+  request, and asserts no authentication code exists in `map-tiles.ts` or `VisitMap.tsx`. Names, not
+  substrings: a style slug or path containing "key" must not trip it, because a test that fails on
+  `monkey` is a test someone deletes rather than fixes.
+- **Extended source purity** — `VisitMap.tsx` is checked for `stadia` and `openmaptiles` by name as
+  well as `openstreetmap`. The generic "no absolute URL" rule is easy to satisfy by accident; the real
+  names are their own assertion.
+
+Everything else was already provider-neutral by construction and needed no edit — including the host
+enumeration, which derives the single legal host from `MAP_TILES`. **No allow-list containing both
+`openstreetmap.org` and `stadiamaps.com` was created**, which is the shape that would have quietly
+permitted the old provider forever.
+
+### Commands and results
+
+| # | Command | Result |
+| --- | --- | --- |
+| 1 | port 3002 | clear |
+| 2 | remove `.next` | removed |
+| 3 | `npm run typecheck` | **PASS** |
+| 4 | `npm run validate:content` | **PASS** — 120 entries across 3 locales |
+| 5 | `visit-map.spec.ts` | **PASS** — 26 |
+| 6 | `visit.spec.ts` | **PASS** — 23 |
+| 7 | `places.spec.ts` | **PASS** — 47 |
+| 8 | `npx playwright test` | **PASS** — 244 passed, 5 skipped |
+| 9 | `npm run build` | **PASS** — 129 routes |
+
+**Zero deterministic failures.** Every step passed first time. Playwright and the build were not run
+concurrently. No rate limiting was observed against Stadia's localhost allowance during a full suite
+run; the assertion that no basemap-unavailable notice appears passed, which is the check that would
+have caught a 429.
+
+### Build and bundle
+
+129 prerendered routes, unchanged. `/[locale]/visit` remains statically prerendered. The Leaflet chunk
+is **145.0 KB raw / 41.7 KB gzipped** and its CSS **10.3 KB / 2.6 KB** — identical to §44 and §45,
+because a provider change is a string change. The `VisitMap` client chunk grew **13.9 KB → 14.1 KB**:
+the Stadia URL and the longer attribution, inlined at build time. **No dependency was added** —
+`package.json` is untouched, and Leaflet 1.9.4 remains the only renderer.
+
+The OSM fallback literal still ships inside that chunk (~120 bytes) because the resolver references
+it. Harmless, and the honest description: the fallback is compiled in, merely unreachable when the
+three variables are set.
+
+### Existing map behaviour — unchanged
+
+Seven mapped Places; `getVisitMapPoints`; `PLACE_COORDINATES`; marker-derived bounds; marker glyphs;
+type filters; marker selection; the selected-place panel; article images; the accessible Place list;
+responsive layout; the Visit curation; Explore-by-type links; Lake Sevan's `area` precision. None
+touched. This was a provider-configuration step and the diff shows it: no `.tsx` and no `.ts` under
+`src/` changed at all.
+
+Files changed: `.env.example`, `README.md`, `tests/e2e/visit-map.spec.ts`, and this document.
+`.env.local` was updated locally with the same three public values so development and the test suite
+run against the production basemap; it is git-ignored and contains no map secret. `.claude/settings.json`
+was modified by the permission layer and reverted, as in §42 and §45.
+
+### Production account checklist — NOT performed
+
+None of the following was carried out during this task. All of it is operational, requires dashboard
+access, and must happen before production traffic:
+
+1. Create or configure the Stadia Maps account and property.
+2. Confirm the selected plan permits Armat's intended usage.
+3. Add `armat.site` to domain authentication.
+4. Add any **actually used** canonical production hostname — `www.armat.site` only if it genuinely
+   serves the site. No other domain was invented here.
+5. Set the three public map environment variables in the production build environment (`.env.local`
+   is git-ignored and will not be present).
+6. Open `/en/visit` in production.
+7. Scroll to the map.
+8. Confirm tiles return successfully.
+9. Confirm the attribution is visible.
+10. Confirm browser tile URLs contain no API key.
+11. Confirm the accessible Place list still works.
+
+Until step 3 is done, production tile requests will fail domain authentication — and by design the map
+will say so rather than silently serving OpenStreetMap.
+
+### Still open
+
+Carried forward unchanged; nothing on this list was fixed here.
+
+- **Raster label language, new.** Raster tiles have their labels baked in. Stadia's documented rule
+  renders non-Latin place names bilingually — a romanized or English name plus the local name — and
+  their label-language tutorial applies to **vector** styles only. So an Armenian-language archive
+  cannot force Armenian-only or English-only labels without changing renderer, which §44 and this
+  section both declined to do. Worth a visual check against Armenia at the zooms readers actually use,
+  and worth revisiting if it reads badly in the `hy` and `hyw` editions.
+- **Whether the privacy page should name the basemap provider** — a content decision, unanswered.
+- **The self-hosting question** is no longer urgent but is not closed: Stadia removes the OSM usage-
+  policy problem, not the general dependency on a third party for tiles.
+- **The Matenadaran façade colour**, unchanged since §36.
+- **The Garni stone warmth**, unchanged since §40.
+- **The Garni 4:3 artwork dimensions.**
+- **The Geghard photographic register**, recorded in §42.
+- **A dedicated Khor Virap image** — still the only PNG, still 1.4 MB, still byte-identical to
+  `hero-ararat.png`.
+- **Erebuni and Matenadaran artwork weight** — 742 KB and 701 KB.
+- **Global media optimisation.**
+- **The Cuisine hydration flake** — `cuisine.spec.ts:355`. Did not reproduce here.
+- **One-directional `relatedSlugs`.**
+- **Western Armenian native review** — eight terminology items, unchanged from §45.
+- **The Bresson and Fagan Garni attribution.**
+- **Wilkinson's Garni source not read directly.**
+- **The Hovannisian ISBN.**
+- **`scratchpad/check.ts` living outside `scripts/`.**
+- **The weak homepage hero-path assertion.**
+- **`settlement`** — declared in the `precision` union and used by no entry.
+- **No central environment module**, recorded in §45.
+
+### Deliberately not built
+
+No new map features, no new Places, no change to map data or UX. No Stadia SDK, MapLibre, React
+Leaflet or map-provider helper package — `package.json` gained nothing. No geocoding, routing,
+directions, search, geolocation or analytics. No API key anywhere. No automatic runtime fallback from
+Stadia to OpenStreetMap. No provider-specific types, classes or adapters: there is no
+`StadiaTileConfig`, no `StadiaProvider`, no `StadiaAdapter`, and `MapTileConfig` /
+`resolveMapTileConfig` / `MAP_TILES` keep their provider-neutral names. No pricing in source,
+`.env.example`, tests or README. No user-facing privacy notice. No domain registered programmatically.
+
+No deployment was performed.
+
+## 47. Tatev — the eighth place, and the archive reaches the south (August 2026)
+
+Seven places, and all of them within about half a degree of latitude: Etchmiadzin, Erebuni, the
+Matenadaran and Khor Virap around Yerevan and the Ararat plain, Garni and Geghard in one valley east
+of it, Lake Sevan to the north-east. The map §44 built was an accurate picture of the archive and a
+misleading picture of Armenia.
+
+Tatev is the correction. It sits in Syunik, in the far south, on a basalt shelf above the Vorotan
+gorge — and it earns the place on its own merits rather than as geography: it was the episcopal seat
+of its province, the home of the best-known school in medieval Armenia, and it has something almost
+no other Armenian monument has, which is a founder who wrote the start date on the wall in the first
+person.
+
+### Taxonomy
+
+| Filter | Before | After |
+| --- | --- | --- |
+| All | 7 | **8** |
+| Monastery | 3 | **4** |
+| Historical | 2 | 2 |
+| Museum | 1 | 1 |
+| Nature | 1 | 1 |
+
+`placeTypeId: "monastery"`, `featured: false`. **Khor Virap remains the only featured place**, which a
+test asserts by reading the flag rather than the slug. No new place type: a fourth monastery is a
+fourth monastery, and inventing `medieval-school` or `cliff-monastery` to make Tatev feel distinct
+would have been the listing telling a story the taxonomy does not support.
+
+### Structure
+
+Ten sections, `3/3/4/4/4/5/4/4/4/3` paragraphs, 38 in total — the same cadence as Geghard, with
+`keyFacts 6 · importantDates 13 · interestingFacts 5 · significance 2 · relatedFigures 2 ·
+relatedSlugs 3 · section links 3`. The sections are: where it is; the gorge; what stood here before;
+building Saints Paul and Peter; the rest of the complex; the Gavazan; the school called a university;
+Vorotnetsi and Tatevatsi; damage, loss and rebuilding; what to understand before seeing it.
+
+The twelve suggested topics collapsed to ten because two pairs genuinely belong together: the site's
+early religious history is inseparable from the question of what is documented about it, and
+manuscript culture is inseparable from the two men who ran the school.
+
+### The evidence model
+
+The article distinguishes four things throughout, and the distinction is the article:
+
+- **Tradition.** A church of Sts Nerses and Sahak on the rock before the surviving one, and the name
+  derived from the apostle Eustathius — the latter attested by Vardan Arewelts'i in the thirteenth
+  century, so a *medieval* belief rather than a modern invention, which is worth saying precisely
+  because it is still not evidence.
+- **Documentation.** The 839 land deed under Bishop Dawit'; the 895 foundation inscription; the 848
+  church of St Gregory; the 1043 gavit inscription; the 1286 tomb.
+- **Eyewitness.** Tovma Metsopetsi's colophon of 29 November 1406, written at Tatev, describing the
+  earthquake shaking the church, the bell tower and the Gavazan.
+- **Surviving fabric.** Which is mostly not medieval, and the article says so plainly.
+
+Orbelian is the spine of all of it, and the single most useful thing he does is disclaim his own
+evidence: he could not discover who the first bishop was, and writes that of the oldest of them he
+knows nothing, since there are no memorials. **The primary source for Tatev's early history states
+that its early history is undocumented.** That sentence is the article's starting point, and it is
+stronger than any confident date could have been.
+
+### 895 and 906, resolved
+
+The brief asked what those years actually refer to, and they refer to two different kinds of thing.
+
+**895 is documentary.** Orbelian transcribes the inscription: *in the year 344 of the Armenian Era, at
+Easter, which fell on the fourth of Navasard, I, Lord Yovhannes, who succeeded Lord Saghomon as
+bishop of Syunik, began the construction of this church.* Brosset computes the day as 20 April 895.
+
+**906 is arithmetic.** Orbelian says the work was finished in eleven years; Brosset added them in a
+footnote reading *En 906*. There is no inscription bearing 906, and **Orbelian gives the consecration
+no year at all** — he describes the eight-day ceremony and its guests without dating it. Sources that
+call 906 the consecration year have inferred it.
+
+So the article gives 895 as a foundation date and 906 as an approximate completion, marks the second
+as computed in both the timeline and the interesting-facts list, and never turns the span into a
+single event. The two translations also diverge on the clause — Bedrosian reads "after eleven years",
+Brosset "in 11 years" — and the note in `sources.ts` records that, because it is the difference
+between eleven years of building and eleven years of waiting.
+
+### The Gavazan
+
+This was the section most at risk of repeating something confident and wrong, and it is written as
+four graded claims.
+
+**Attested, and not in doubt:** the column moves. A traveller's account of 1858 names it *Gavazan* and
+says it shakes when touched; Brosset in 1864 confirms it still moved when leant on. It responded to
+the 1406 earthquake, by an eyewitness in the building, and to the 1931 one.
+
+**Recorded by the primary source:** Bishop Yovhannes erected it in the name of the Holy Trinity, south
+of the church, of small and large stones, to thirty cubits. That is all Orbelian says. He does not
+mention it moving, and he does not mention it measuring anything. The article notes that thirty
+cubits is considerably more than the eight metres measured today and that nobody has explained the
+gap.
+
+**Modern interpretation, presented as such:** the column rocks on a hinged joint at its base like a
+pendulum, per a 2004 seismological paper, which also says it *could serve* to record seismic
+oscillations and credits that idea to an architectural historian writing in 1962. The article states
+this as a twentieth-century reading of an observed property, offered tentatively — **not** as the
+column's documented purpose.
+
+**Excluded:** the earthquake-detector and medieval-seismograph framings as established fact; the
+warning-of-approaching-cavalry story; and the astronomical-alignment material, which is fringe.
+
+One detail carries more weight than its length. Brosset records that **Hermann Abich — the founding
+geologist of the Caucasus, and a writer on Caucasus earthquakes — examined the column and could not
+explain the mechanism.** A nineteenth-century earthquake geologist stood in front of it and offered no
+seismological interpretation at all. That is the quiet fact that decides how confidently the
+seismograph claim can be stated, and it is in the article.
+
+### The University of Tatev
+
+The label is universal and the specialists avoid it. La Porta titles his study *l'École monastique de
+Tat'ev*; Gornandt writes of a *monastic school*. The article uses the familiar name, explains why
+scholars prefer the other, and describes what actually existed: no charter, no faculties, no degree —
+but the **vardapet system**, fourteen ranks conferred after specialised study, examination before a
+panel and a thesis, which **Grigor Tatevatsi codified himself and the Armenian Church still uses**.
+That is a licence to teach, belonging to a church rather than a university.
+
+**The student numbers are the correction most worth making.** Tatev is routinely said to have had five
+hundred or a thousand students. Both figures are Orbelian's, and neither describes the school: five
+hundred is his count of the **clergy about 906**, and the thousand his description of the **eleventh-
+century community** — roughly three centuries before the school arrived. No invented curriculum,
+department list or enrolment appears in the article.
+
+### The two figures
+
+**Hovhan Vorotnetsi** (about 1315 – 1386 or 1388) and **Grigor Tatevatsi** (about 1346 – 1409) are the
+two `relatedFigures`. The teaching line — Esayi Nchetsi at Gladzor, then Vorotnetsi, then Tatevatsi
+for twenty-eight years — is well attested and is stated.
+
+**Vorotnetsi is not called the founder of the University of Tatev**, and the reason is chronology
+rather than pedantry: he died in 1386 or 1388, the school settled at Tatev about 1390, and his own
+teaching was done at Gladzor, Vorotnavank and Aprakunis. He was dead before it arrived. The article
+says he led and reorganised the higher monastic school of Syunik in the generation after Gladzor, and
+that it moved to Tatev under his successor — and the `relatedFigures` entry states the common claim
+and why the dates do not support it.
+
+Neither man has an article of his own, and **none was created to satisfy a relationship**.
+`relatedFigures` is free text by design, so both are recorded there.
+
+Two claims about Tatevatsi were deliberately left out. His birth and death years vary across four
+printed variants, so the lifespan is given as approximate rather than falsely precise. And the widely
+repeated line that he was the last saint canonised before 2015 is **contradicted by the Armenian
+Church's own spokesman**, who names an eighteenth-century figure; the article says he is venerated as
+a saint with a feast in Lent and stops there.
+
+### Sources
+
+Ten entries, at the section's house standard. Orbelian in Bedrosian's English and Brosset's French as
+the primary spine; Karakhanian and Abgaryan 2004 as the load-bearing modern source for the Gavazan
+and the 1931 damage; Ambraseys 2004 for the 1139 date; La Porta 2007 for the terminological point;
+Gornandt 2023 and Krikorian 1984 for Tatevatsi; Melkonyan and colleagues 2017 for the excavations;
+UNESCO's Tentative List entry; and Guinness for the one cable-car fact.
+
+**Three identifier problems were caught before shipping, and two of them were mine.**
+
+1. I wrote a DOI for the Ambraseys paper from memory. It resolved — to *Raised marine terraces in the
+   Northern Calabrian Arc*, an unrelated paper on Italian geology. Verified through Crossref and
+   replaced with `10.4401/ag-3303`. **A DOI resolving is not evidence it is the right DOI**, and this
+   is the second time in this project that checking metadata rather than status codes has caught
+   something.
+2. I supplied an ISBN for the *Divan hay vimagrutyan* epigraphic corpus that I could not verify. The
+   source was **removed** rather than shipped with an invented identifier. It remains the authority a
+   reader should go to next for any inscription-derived date, and the article reaches those
+   inscriptions at one remove through Orbelian and Brosset, which the notes say.
+3. UNESCO refuses automated requests, so the Tentative List entry's **reference number could not be
+   confirmed a second time**. Its title, submission date and tentative status were corroborated
+   independently; the reference number was read once, so the claim was **removed from all three
+   editions** rather than asserted. It survives only inside the citation URL, where a reader can see
+   it fail if it is wrong.
+
+The remaining DOIs were checked by resolving them and reading back the title and authors.
+
+### UNESCO status
+
+**Tatev is not a World Heritage Site.** It has been on Armenia's Tentative List since 25 August 1995,
+together with the hermitage of Tatevi Anapat and the adjacent Vorotan valley, and Armenia announced a
+nomination in 2025 — which the article states as a different thing from inscription. Armenia's three
+inscribed properties are Haghpat and Sanahin, Echmiatsin and Zvartnots, and Geghard with the Upper
+Azat Valley; the last of those is named in the article's closing section precisely so the contrast is
+explicit.
+
+### Damage and restoration
+
+The article distinguishes documented destruction, attributed damage, restoration and modern
+reconstruction, and corrects three things that circulate widely.
+
+- **The 1138/1139 dome collapse is primary-attested** — Orbelian reports it and names the Ganja
+  earthquake as the cause. Ambraseys dates that event to 30 September 1139. The article notes that
+  Ganja is about 145 km away, which is far enough that the report is worth flagging rather than
+  repeating flat.
+- **The "ten thousand manuscripts burned by the Seljuks at Tatev" is a triple distortion.** Orbelian
+  describes more than ten thousand **items** — vessels and relics as well as books — at **Baghaberd**,
+  not Tatev, **scattered** rather than burned. His own date converts to 1160 where 1170 is usually
+  printed. All four corrections are in the article.
+- **The dome was rebuilt in the Soviet campaign, not by the modern Tatev Revival** — designed 1981,
+  completed 1988, against a programme that began in 2008.
+
+And the closing section states the thing a visitor most needs: **every dome and every roof on the site
+is a twentieth- or twenty-first-century reconstruction**, the belfry is an unfinished stump, and the
+medieval fabric survives largely at wall level. The Gavazan is the one substantially un-rebuilt
+monument, which is part of why it attracts the legends it does.
+
+### Wings of Tatev
+
+Three sentences inside the gorge section, and nothing more: it opened in 2010, it crosses from
+Halidzor, and at 5,752 metres it holds the record for the longest non-stop double-track aerial
+tramway. Stated explicitly as modern access infrastructure that is not part of the monastery. **No
+fares, no hours, no booking, no superlatives.**
+
+### The coordinate
+
+```ts
+"tatev-monastery": { lat: 39.3794, lon: 46.2501, precision: "site" },
+```
+
+| Source | Entity | Raw |
+| --- | --- | --- |
+| OpenStreetMap | node 505725848, `Տաթևի վանք`, in Tatev, Syunik | 39.3794315, 46.2501314 |
+| Wikidata | Q554947 (P625) | 39.379366, 46.250031 |
+
+The two agree to **about nine metres**, inside the four-decimal rounding this file stores, so no
+adjudication was needed. The point is the monastic complex.
+
+Deliberately not the Wings of Tatev tramway — OSM way 109650729 resolves to 39.3989804, 46.2735973 at
+Shinuhayr, **about 3 km north-east**, and it is what a search for the site's best-known modern feature
+returns. Nor Halidzor, nor Tatev village centre, nor the gorge, nor Tatevi Anapat, which shares the
+Tentative List entry and is a genuinely different monument. `site` rather than `area` despite the
+setting: the gorge is context, the enclosure is the subject.
+
+**No existing coordinate was modified.**
+
+### The map integrated itself
+
+`src/lib/visit-map.ts` was **not touched**, and neither was `VisitMap.tsx`, `map-tiles.ts`, the Stadia
+configuration or the Visit page. The map derives from `places ∩ PLACE_COORDINATES`, so writing the
+article and recording the coordinate was the entire integration: **7 → 8 markers, no map-specific
+slug added anywhere.** That is the property §44 was built for and this is the first time it has been
+exercised.
+
+### The bounds adapted — and two pairs of pins now overlap
+
+The derived bounds hold all eight markers, which a new test asserts by checking every marker's box
+lies inside the map container's box rather than by eyeballing a screenshot.
+
+But adapting has a visible cost, and it is recorded rather than hidden. Tatev is about a degree of
+latitude south of everything else, so `fitBounds` zooms out by roughly **3.6x** — and at that scale
+two pairs of markers overlap at the initial view:
+
+```
+erebuni-fortress / matenadaran     25 x 26 px
+garni-temple / geghard-monastery   12 x 31 px
+```
+
+Both pairs are 6–8 km apart on the ground, and both were comfortably separated before the eighth
+point existed. This was **measured, not assumed** — the pin positions were read out of the rendered
+DOM.
+
+It is not fixed here, deliberately: fixing it means changing the marker-derived bounds, which this
+step is explicitly forbidden to touch, and the accessible list below the map already carries all eight
+places as text regardless of what the pins do. A reader can also still reach either pin by clicking
+its exposed part or zooming in. **It is carried forward as open debt**, and the honest options when it
+is addressed are marker clustering, a small collision offset, or a higher `maxZoom` on the initial
+fit — all of them map-architecture changes.
+
+The one thing it did change is a test. `every place can be selected and shows its own image` now
+drives the **keyboard** path — focus, Enter — because a mouse click aimed at an element's centre
+cannot reach a pin whose centre is behind another. That is a real supported interaction, already
+asserted elsewhere in the file, and it is not a weakening: `force: true` was the alternative and was
+rejected, since it would have asserted that a click dispatched at a covered element works, which is
+not something any reader does.
+
+### Related content
+
+`["geghard-monastery", "matenadaran", "bagratid-armenia"]`, identical and in the same order in all
+three editions.
+
+Geghard because the connection was asserted by this archive **before this article existed** — the
+Geghard article says its own school "is not in the class of Gladzor or Tatev", which is the sentence
+the eighth place was always pointing at. The Matenadaran because the article genuinely discusses
+manuscript production and Tatevatsi's own illumination, not because both involve books. And
+`bagratid-armenia` because King Smbat attended the consecration and the section links to it on that
+phrase.
+
+**No geographically-near tourist places** were added, and there is no itinerary relationship of any
+kind.
+
+### Artwork
+
+**Pending.** `public/images/places/` holds seven files and none is Tatev, so the article ships with the
+generated placeholder, no `image` block, and no `image:loc` in the sitemap. `PENDING_ARTWORK` names
+it for the seventh time, with the rejected substitutes recorded: Geghard and Etchmiadzin, because
+neither picture has a gorge, a plateau or a fortified enclosure and telling a reader Tatev looks like
+a cave monastery is the most misleading thing this article could do; Khor Virap, whose Ararat plain is
+the visual opposite; and `bagratid-armenia`, which offers a gorge with no monastery in it.
+
+The note also records the part of a future commission most likely to go wrong: **the Gavazan is a
+slender free-standing octagonal column with a khachkar on top, south of the church — not a khachkar on
+a plinth, and not attached to a wall.**
+
+### Localization and parity
+
+All three editions were written in one change, English first, then Eastern Armenian, then Western
+Armenian, with `scratchpad/check.ts` run after each. The final run reports **0 differing rows across 3
+editions** — identical section ids, identical paragraph counts, identical `relatedSlugs` order, and
+identical numeral multisets in every one of the nine validator field groups.
+
+Established terminology was reused rather than reinvented, because the repo already had most of it:
+`Տաթև` / `Տաթեւ`, `Գրիգոր Տաթևացի` / `Գրիգոր Տաթեւացի`, `Սյունիք` / `Սիւնիք`, `Որոտան`, `գավիթ` /
+`գաւիթ`, `համալսարան`, `գրչատուն`. **Three terms had no precedent and are coined here**: Hovhan
+Vorotnetsi (`Հովհան Որոտնեցի` / `Յովհան Որոտնեցի`), the Gavazan (`Գավազան` / `Գաւազան`), and
+Poghos-Petros for the principal church.
+
+### Western Armenian items requiring native review
+
+The whole edition is flagged, and these eleven items in particular:
+
+1. **«Տաթեւ»** and its genitive **«Տաթեւի»** — inherited from the Geghard article, so consistent, but
+   never reviewed.
+2. **«Սիւնիք»** for Syunik, as used in the existing history articles.
+3. **«Գաւազան»** for the column, coined here.
+4. **«Յովհան Որոտնեցի»** — the initial `Յ-` follows Western practice; a reviewer should confirm.
+5. **«Պողոս-Պետրոս»** as the church's short name, and **«Սուրբ Առաքելոց»** as its medieval alternative.
+6. **«վարդապետական աստիճաններ»** for the fourteen vardapet ranks.
+7. **«սխոլաստիք»** for scholastic, against a possible «դպրութենական».
+8. **«ձիթհան»** for the oil press.
+9. **«ծխնիաւոր յօդ»** for the hinged joint at the column's base — a technical phrase with no
+   precedent in the repo.
+10. **«ԵՈՒՆԵՍՔՕ»**, following the Geghard article rather than the Eastern «ՅՈՒՆԵՍԿՕ».
+11. **«Պրոսսէ»** for Brosset and **«Ապիխ»** for Abich — transliterations of two European surnames.
+
+### Commands and results
+
+| # | Command | Result |
+| --- | --- | --- |
+| 1 | port 3002 | clear |
+| 2 | remove `.next` | removed |
+| 3 | `npx tsx scratchpad/check.ts tatev-monastery` | **PASS** — 0 differing rows across 3 editions |
+| 4 | `npm run typecheck` | **PASS** |
+| 5 | `npm run validate:content` | **PASS** — 123 entries across 3 locales |
+| 6 | `places.spec.ts` | failed 5, fixed, then **49 passed** |
+| 7 | `visit-map.spec.ts` + `visit.spec.ts` | failed 6, then 2, then **50 passed** |
+| 8 | `npx playwright test` | **PASS** — 247 passed |
+| 9 | `npm run build` | **PASS** — **132 routes** |
+
+Playwright and the build were not run concurrently.
+
+**Every failure, and what it was:**
+
+*Content validation, one round.* The Eastern Armenian `metaDescription` came out at 167 characters
+against the 165 ceiling. Trimmed one word.
+
+*`places.spec.ts`, five failures, all genuine consequences of an eighth place and all fixed rather
+than suppressed:*
+
+1. The monastery filter asserted three cards; it is four.
+2. The pinned `byType` map asserted `monastery: 3`.
+3. The listing asserted zero placeholders; there is now exactly one. **Rewritten as
+   `PLACES.length - ILLUSTRATED.length`** so the next place to ship ahead of its picture does not need
+   a literal edited by hand.
+4. `PENDING_ARTWORK` was asserted equal to `[]`. Rewritten to derive the expected contents from the
+   same two lists, for the same reason.
+5. `must not link to Geghard` — Tatev does, deliberately. **Narrowed rather than deleted**: every
+   other place must still not link to Geghard, so the one-directional architecture is still pinned,
+   and the exception is documented at the assertion.
+
+The `EXPECTED` map in the same file was also re-keyed from `ILLUSTRATED` to `PLACES`. The two lists
+were identical when it was written so either compiled; they are not identical now, and type, featured
+flag and related slugs have nothing to do with whether a picture exists. Keying on the artwork list
+would have silently exempted the newest article from the strictest test in the file.
+
+*`visit.spec.ts` and `visit-map.spec.ts`, six failures, then two:*
+
+6. A `TypeError` — `getImageSrc(...)!.split(...)` on a place with no image. Split into two branches:
+   an illustrated place must show its own file, an unillustrated one must show **none**, which is a
+   stronger claim than skipping the check.
+7. `nothing may be curated while its artwork is pending` asserted `PENDING_ARTWORK` was globally
+   empty. That was free when it was written and is wrong now: Tatev is pending and deliberately **not**
+   curated. Narrowed to the curated slugs, which is what the assertion was always about.
+8. Four further failures in that run — a scroll timeout, `/hy/history`, an edition-switch heading and
+   `/en/places/garni-temple` — did **not** recur once the two above were fixed. They were downstream
+   of the same timed-out run rather than independent, and nothing was changed to make them pass.
+9. `/en/places` card count, 7 → 8. Edited as a literal on purpose: this assertion exists to prove a
+   curated row does not change what the listings contain, so it should need a deliberate update when
+   the section genuinely grows.
+10. The marker-click timeout, which turned out to be the pin overlap described above.
+
+### Existing content — regression check
+
+- **No existing article, coordinate, source, media path, artwork, `placeTypeId` or curated slug array
+  was modified.** The Visit hub's six-place row is unchanged, per §26: the curated row is selective
+  and the map is comprehensive, and Tatev landing on one but not the other is the distinction working.
+- `src/lib/visit-map.ts`, `src/components/visit/VisitMap.tsx`, `src/lib/map-tiles.ts`, `.env.example`
+  and the Visit page are all byte-identical. The eighth marker required **zero provider changes** and
+  zero map-architecture changes.
+- Structured data is unchanged: Tatev emits the generic Article schema like every other place, and no
+  tourism type was added.
+- The full suite is green at 247, including the Stadia configuration, credential-leak and lazy-loading
+  tests from §45 and §46.
+- `.claude/settings.json` was modified by the permission layer and reverted.
+
+Files changed: `src/data/locales/{en,hy,hyw}/articles/places.ts`, `src/data/geo.ts`,
+`src/data/sources.ts`, `src/lib/media.ts`, `tests/e2e/places.spec.ts`, `tests/e2e/visit-map.spec.ts`,
+`tests/e2e/visit.spec.ts`, and this document.
+
+### Still open
+
+Carried forward. Nothing on this list was fixed here.
+
+- **Marker overlap at the initial map extent — new.** Erebuni/Matenadaran and Garni/Geghard overlap by
+  25 and 12 pixels now that the bounds stretch to Syunik. Fixing it means clustering, a collision
+  offset, or a higher `maxZoom` on the initial fit; all three are map-architecture changes this step
+  could not make.
+- ~~**Tatev artwork** — pending, with the rejected substitutes and the Gavazan's shape recorded above.~~ — **resolved in §48.**
+- **The production tile provider** — Stadia is configured; the domain authorisation remains an
+  operational step outside this repository.
+- **The Matenadaran façade colour**, unchanged since §36.
+- **The Garni stone warmth**, unchanged since §40.
+- **The Garni 4:3 artwork dimensions.**
+- **The Geghard photographic register**, recorded in §42.
+- **A dedicated Khor Virap image** — still the only PNG, still 1.4 MB, still byte-identical to
+  `hero-ararat.png`.
+- **Erebuni and Matenadaran artwork weight** — 742 KB and 701 KB.
+- **Global media optimisation.**
+- **The Cuisine hydration flake** — `cuisine.spec.ts:355`. Did not reproduce here.
+- **One-directional `relatedSlugs`** — now with one documented exception, Tatev to Geghard.
+- **Western Armenian native review** — nineteen terminology items across the archive, eleven of them
+  added here.
+- **The Bresson and Fagan Garni attribution.**
+- **Wilkinson's Garni source not read directly.**
+- **The Hovannisian ISBN.**
+- **`scratchpad/check.ts` living outside `scripts/`** — used three times in this step and more useful
+  than ever, which strengthens rather than weakens the case for moving it.
+- **The weak homepage hero-path assertion.**
+- **`settlement`** — declared in the `precision` union and still used by no entry. Tatev village would
+  have been the first, and it is not what this coordinate records.
+- **No central environment module**, recorded in §45.
+- **Khalpakhchian 1962 not read directly** — new. The article's Gavazan section attributes the
+  seismic-recording interpretation to it at one remove, through Karakhanian and Abgaryan 2004. Anyone
+  strengthening that section should read the original article.
+
+### Deliberately not built
+
+No new place type. No new articles for Vorotnetsi or Tatevatsi to satisfy a relationship. No changes
+to map architecture, data derivation, markers, bounds, filters, selection, the accessible list, the
+provider configuration or the Visit curation. No routes, directions, geolocation, restaurants, hotels,
+tours or live travel information. No cable-car fares, hours or booking. No invented student counts,
+departments, degree structures or curricula. No UNESCO inscription claimed. No fabricated identifier
+or page number — and two that had crept in were caught and removed.
+
+No deployment was performed.
+
+## 48. Tatev artwork — the pending entry, cleared for the seventh time (August 2026)
+
+§47 shipped the eighth place with no picture and wrote down exactly what a picture would have to
+show: a walled complex on a plateau above a gorge, with none of the substitutes on hand carrying all
+three. `tatev-monastery.webp` carries all three in one frame. This registers it.
+
+Nothing about the article changed. The prose, the 895/906 distinction, the Gavazan section, the
+University wording, the two figures, the sources, the coordinate, the related slugs, the section
+links, the SEO fields, the taxonomy and the Western Armenian edition are all byte-identical — verified
+rather than asserted, since the three `articles/places.ts` files contain no `image:` field at all and
+the artwork reaches the page entirely through `getArticleImageSrc`.
+
+### The asset
+
+| | |
+| --- | --- |
+| Path | `public/images/places/tatev-monastery.webp` |
+| Dimensions | **1586 x 992** (aspect 1.5988, about 16:10) |
+| Size | **271,306 bytes** — 264.9 KB |
+| SHA-256 | `d2db046faf7aa3beb01a6f27ea3d2bae1ba1c06a6772e174e6c5fdee184bf673` |
+| Container | `RIFF` / `WEBP`, size field 271,298 = file length minus 8, consistent |
+| Chunks | a single `VP8 ` chunk of 271,286 bytes |
+| Encoding | simple lossy, keyframe, version 0 |
+| Colour | sRGB, 3 channels |
+| Alpha / ICC / EXIF / XMP / animation | **none** — there is no `VP8X` chunk, so no extended header exists to carry them |
+
+Read out of the container by hand and confirmed independently through `sharp`, which agrees on every
+field. The extension was not trusted: the RIFF magic, the `WEBP` fourcc, the internal size field and
+the chunk walk were all checked.
+
+**1586 x 992 is the house dimension**, matching Etchmiadzin, Erebuni, the Matenadaran, Lake Sevan and
+Geghard exactly. Garni remains the odd one at 1448 x 1086 and Khor Virap the only PNG. At 265 KB it
+sits in the middle of the range — comfortably under Erebuni's 742 KB and the Matenadaran's 701 KB, and
+close to Geghard's 271 KB.
+
+That closeness to Geghard prompted a check worth recording: **all eight files were hashed and are
+byte-distinct.** Two monastery covers of near-identical weight is exactly the coincidence that would
+hide a duplicated file, and it is not one.
+
+### Visual inspection
+
+The image was opened and looked at, not inferred from its filename.
+
+An elevated three-quarter view of a walled monastery standing on a rock shelf at a cliff edge, with a
+deep gorge falling away to the right and a river visible far below. Every required element is present:
+
+- **Principal church recognisable** — the dominant building, centre-right, with a cross on its finial.
+- **Armenian conical dome and drum plausible** — a polygonal umbrella roof on a tall drum pierced with
+  narrow windows. The correct type, not a Byzantine hemisphere or a Georgian cone.
+- **Enclosure visible** — a continuous curtain wall wraps the whole plateau and runs along the
+  precipice, which is the fortified-monastery reading the article's prose depends on.
+- **Dense and accumulated** — a second smaller domed church and a tower behind, a porch with an arched
+  portal in front, ancillary ranges either side, courtyard structures. Not one isolated church.
+- **Plateau and gorge relationship obvious** — the wall sits directly on the cliff, and the drop is the
+  right-hand third of the frame.
+- **Plausibly Syunik** — steep scrub-and-rock mountainsides, basalt outcrops, a river gorge.
+
+And every excluded treatment is genuinely absent: **no Geghard-style rock-cut or cave architecture**
+(all masonry, nothing cut into a cliff), **no Khor Virap / Ararat plain composition** (no flat plain,
+no snow cone), **no Garni Ionic temple** (no colonnade), **no Etchmiadzin urban cathedral** (no city,
+no formal precinct).
+
+On unsupported claims, which was the sharper risk given this article's subject matter: **no Gavazan
+seismograph imagery, no motion or vibration graphics, no instrument iconography; no cable car; no
+UNESCO mark; no classroom scene; no miraculous event; no invented inscription or date; no tourism
+infrastructure.** A few small monastic figures walk in the courtyard and that is the extent of the
+human presence.
+
+One detail is worth naming because §47 predicted it would be the hard part. A slender free-standing
+pillar with a carved top stands in the courtyard south-east of the church, which is where the Gavazan
+belongs and what it looks like — a column, not a khachkar on a plinth and not attached to a wall. It
+is depicted as an ordinary stone monument with no suggestion of movement or measurement, which is
+precisely the restraint the article's most evidence-sensitive section required.
+
+**One concern, reported and not acted on: the photographic register.** This reads as a drone
+photograph rather than an illustration — the same concern recorded for Geghard in §42 and still open
+there. The provenance mechanism is unchanged and still declares the file AI-generated, which is
+accurate; the concern is that a reader may not perceive it as such. `ARTWORK_PROVENANCE` was not
+touched, no per-image metadata was introduced, and this stays on the debt list rather than being
+solved by a change nobody asked for.
+
+### Crops
+
+Evaluated against the ratios the code actually uses, read out of the components rather than assumed —
+`ArticleLayout` is `4:3 / sm:3:2 / lg:16:9`, `ArticleCard` is `4:3` compact and `16:9` default, and
+the map's detail panel is `16:9`. The search thumbnail has no declared ratio at all: it is a
+fixed-width column, `w-32` rising to `lg:w-40`, with `h-full`. **It was measured live** at
+**160 x 223, ratio 0.719**, with shorter cards giving 160 x 200 and 0.801.
+
+| Surface | Ratio | Result | Trim |
+| --- | --- | --- | --- |
+| Compact card | 4:3 | good | 263 px of width, 16.6% |
+| Mobile hero | 4:3 | good | as above |
+| Tablet hero | 3:2 | good | 98 px of width, 6.2% |
+| Listing card | 16:9 | **best** | 100 px of height, 10.1% |
+| Desktop hero | 16:9 | **best** | as above |
+| Search thumbnail | 0.719 | good | **873 px of width, 55.0%** |
+
+Real crops were generated with `sharp` at each ratio and looked at, not reasoned about.
+
+**16:9 is the strongest**: the 50 px trimmed from top and bottom is sky and foreground rock, and the
+dome, its cross, the full enclosure, the cliff face and the gorge with its river all survive intact.
+
+**4:3 loses 16.6% of the width** and still keeps the gorge on the right — the element most at risk from
+a horizontal trim, and the one whose loss would have made the image indistinguishable from any other
+hilltop monastery.
+
+**The search thumbnail is the surprise.** Cropping a 1.6 landscape to 0.72 portrait discards 55% of the
+width, and the result is *better* for identification than the full frame: the dome fills the centre,
+the second church and tower sit to its left, the enclosure runs across the bottom and the cliff face
+below it is unmistakable. The gorge's far wall survives at the top right; only the river is lost. A
+reader scanning search results still sees Tatev.
+
+**No `object-position` rule was added, and none is needed.** The default centre crop works at all six
+ratios, so no Tatev-specific crop logic, no new component and no custom routing entered the codebase.
+
+### Registration
+
+One line in the Places block of `IMAGES`:
+
+```ts
+"tatev-monastery": "/images/places/tatev-monastery.webp",
+```
+
+Verified through the existing pipeline and nothing else:
+
+- `getImageSrc("tatev-monastery")` -> `/images/places/tatev-monastery.webp`
+- `isGeneratedArtwork({ slug: "tatev-monastery" })` -> **`true`**
+- registered Places covers: **8**
+- `ARTWORK_PROVENANCE` -> `{ source: "ai-generated", documentary: false }`, **unmodified**
+- `IMAGES` and `PENDING_ARTWORK` are **mutually exclusive** — no slug in both
+
+No Tatev-specific image logic, no new image field, no per-image provenance, no new component, no
+custom routing. The article files still carry no `image` block, which is the point: the registry is
+the single place a cover is declared.
+
+### Pending artwork
+
+`PENDING_ARTWORK` is **empty**, for the seventh time — after §32 (Etchmiadzin), §34 (Erebuni), §36
+(Matenadaran), §38 (Lake Sevan), §40 (Garni), §42 (Geghard) and now §48 (Tatev).
+
+The list stays in place while empty, as it has each previous time, and §47's rejection notes were kept
+rather than deleted: the four substitutes refused there were refused because none carried the plateau,
+the enclosure and the gorge together, and recording that the delivered file does carry all three is
+what makes the refusal legible later. `validate:content` no longer prints its placeholder note, and
+the count of entries it validates is unchanged at 123 — this step added no content.
+
+### Verification on the rendered pages
+
+- **Article hero**, all three editions: Tatev's own WebP renders, the generated `<svg role="img">` is
+  gone, the caption is the **AI-illustration** wording and explicitly **not** the placeholder wording.
+  The two strings differ by a single dictionary key and both look plausible, which is why both
+  directions are asserted.
+- **Places listing**: zero placeholders. The assertion is `PLACES.length - ILLUSTRATED.length`, written
+  as a derivation in §47, so it moved from 1 to 0 without being edited.
+- **Per-card ownership**: the stricter Geghard-era assertion still runs card by card over all eight
+  places, matching each card's own `href` to its own file. A count alone would pass if two neighbours
+  swapped covers; this would not.
+- **Open Graph, Twitter and `Article.image`**: all three now carry Tatev's WebP, through the existing
+  `ILLUSTRATED` loop that covers every registered place.
+- **Sitemap**: `image:loc` entries for all three locale routes, each naming `tatev-monastery.webp`.
+  §47 asserted the opposite — that an unillustrated place advertises no image — and that assertion is
+  inverted here rather than deleted.
+- **Global search**: Tatev's result card renders its own file, scoped by Tatev's canonical href rather
+  than by result position.
+- **Borrowing**: Geghard, Etchmiadzin, Khor Virap and Garni are each named and asserted absent from
+  Tatev's head metadata and hero. Kept across the registration, because the failure it guards against —
+  a cover repointed at a plausible neighbour later — outlives the file landing.
+
+### Map
+
+`src/lib/visit-map.ts`, `src/components/visit/VisitMap.tsx` and `src/lib/map-tiles.ts` are **unchanged**,
+as is the Visit page.
+
+The map still holds exactly **8** places, derived from `places ∩ PLACE_COORDINATES` with no allow-list
+anywhere. Tatev's marker still resolves Tatev's article, every other marker keeps its own image, and
+the bounds are unchanged — registration touched an image path, not a coordinate.
+
+The selected-panel assertion inverted **by itself**, which is the part worth recording. §47 wrote it as
+a branch on the registry — a registered place must show its own file, an unregistered one must show
+none — rather than as a hardcoded list. Registering the file moved Tatev from the second branch to the
+first with no test edit, and the branch is still there for the ninth place.
+
+**Marker overlap is unchanged and remains open.** Erebuni/Matenadaran and Garni/Geghard still overlap
+by 25 and 12 pixels at the initial extent; this step deliberately did not address it, and the
+keyboard-driven selection loop §47 introduced for that reason is still how the exhaustive test
+selects markers.
+
+### Visit curation
+
+**Unchanged.** The curated row is still the same six places, and Tatev is still not among them.
+Registering artwork does not make a place curated — the row is an editorial selection and the map is
+coverage, which is the distinction §43 established and §26 of the previous step preserved.
+
+The one assertion that had to be scoped in §47 — curated slugs must not be pending — still passes, and
+now passes trivially, since nothing is pending at all.
+
+### Structured data
+
+Unchanged in shape. Tatev emits the same generic Article schema every other place does, and the only
+consequence of registration is that the existing `Article.image` field now has a value. **No `Place`,
+`Monastery`, `TouristAttraction`, `GeoCoordinates` or `LandmarksOrHistoricalBuildings` type was
+added**, and the graph is otherwise identical.
+
+### Tests
+
+`ILLUSTRATED` gains Tatev and becomes eight; `ARTWORK` gains
+`"tatev-monastery": "/images/places/tatev-monastery.webp"`.
+
+**`PLACES` and `ILLUSTRATED` are kept as separate constants** even though they now hold the same eight
+slugs. They have coincided six times before and split again every single time, and each of those
+splits was one slug moving between two lines. Collapsing them while they happen to match would mean
+rebuilding the distinction under pressure the next time a place ships ahead of its picture — which the
+file's own history says will happen.
+
+Two Tatev-specific tests were **inverted rather than deleted**: the placeholder test became a
+registered-artwork test, and the sitemap half of the borrowing test flipped from asserting no
+`image:loc` to asserting one per locale naming Tatev's own file. Both directions have been true at
+different times, and the inversion is the record of which one is true now.
+
+Several §47 assertions needed **no edit at all**, because they were written as derivations rather than
+literals: the placeholder count, the `PENDING_ARTWORK` contents, the listing image count
+(`ILLUSTRATED.length + 1`) and the map's selected-panel branch. That was the intent when they were
+written and it paid off one step later.
+
+### Commands and results
+
+| # | Command | Result |
+| --- | --- | --- |
+| 1 | port 3002 | clear (after the incident below) |
+| 2 | remove `.next` | removed |
+| 3 | `npm run typecheck` | **PASS** |
+| 4 | `npm run validate:content` | **PASS** — 123 entries, placeholder note gone |
+| 5 | `places.spec.ts` (desktop) | **PASS** — 49 |
+| 6 | `visit-map.spec.ts` (desktop) | **PASS** — 27 |
+| 7 | `visit.spec.ts` (desktop) | **PASS** — 23 |
+| 8 | `npx playwright test` | **PASS** — 247 passed, 5 skipped |
+| 9 | `npm run build` | **PASS** — 132 routes |
+
+**Zero product failures.** Every test passed on its first run against the registered artwork; nothing
+was retried away and no assertion was loosened.
+
+**Two process failures, both mine, both worth recording:**
+
+1. **I deleted `.next` while a dev server was running on it.** Turbopack's cache went with it, the
+   server stayed listening on 3002 while returning 500, and Playwright then reported
+   `Process from config.webServer was not able to start`. The fix was to kill the stale process and let
+   Playwright start a clean one. The verification order says to remove `.next` — it does not say to do
+   it underneath a live server, and that is the step I got wrong.
+2. **Two full-suite runs overlapped** and interleaved their output into one log, producing a nonsense
+   summary of "26 passed". No test result was trusted from that run; the suite was re-run cleanly once,
+   which is the 247/5 recorded above.
+
+Playwright and the production build were not run concurrently.
+
+### Existing artwork — regression check
+
+- **No existing image file was modified, renamed, moved, re-encoded or re-registered.** All seven prior
+  covers keep their exact paths, and the per-card ownership test proves each still belongs to its own
+  article.
+- No article content changed anywhere in the archive: the three `articles/places.ts` files, `geo.ts`
+  and `sources.ts` carry only their §47 edits, which are still uncommitted from the previous step and
+  untouched by this one.
+- `ARTWORK_PROVENANCE`, `IMAGE_SIZES` and `PORTRAIT_FOCUS` unchanged; `getImageSrc`,
+  `getArticleImageSrc` and `isGeneratedArtwork` unchanged.
+- Leaflet, the Stadia configuration, the tile environment variables, attribution, the network and
+  privacy tests, lazy loading, marker glyphs, map-local filters, marker selection and the accessible
+  fallback are all untouched. No geolocation, routing, geocoding or API addition.
+- `.claude/settings.json` unchanged.
+
+Files changed: `src/lib/media.ts`, `tests/e2e/places.spec.ts`, and this document. Added:
+`public/images/places/tatev-monastery.webp`.
+
+### Still open
+
+Carried forward unchanged. Nothing on this list was fixed here.
+
+- **Map marker overlap** — Erebuni/Matenadaran at 25 px and Garni/Geghard at 12 px, at the initial
+  extent. Explicitly out of scope for an artwork step, and still the reason the exhaustive marker test
+  drives the keyboard.
+- **Khalpakhchian 1962 not read directly** — the load-bearing citation for the entire Gavazan
+  seismograph tradition, still cited at one remove through Karakhanian and Abgaryan 2004.
+- **The photographic register** — now recorded for Tatev as well as Geghard. Two of the eight Places
+  covers read as photographs rather than illustrations.
+- **The Matenadaran facade colour**, unchanged since §36.
+- **The Garni stone warmth**, unchanged since §40.
+- **The Garni 4:3 artwork dimensions** — still the only WebP that is not 1586 x 992.
+- **A dedicated Khor Virap image** — still the only PNG, still 1.4 MB, still byte-identical to
+  `hero-ararat.png`.
+- **Erebuni and Matenadaran artwork weight** — 742 KB and 701 KB. Tatev at 265 KB does not move this.
+- **Global media optimisation.**
+- **The Cuisine hydration flake** — `cuisine.spec.ts`. Did not reproduce here.
+- **One-directional `relatedSlugs`**, with the documented Tatev-to-Geghard exception.
+- **Western Armenian native review** — nineteen terminology items.
+- **The Bresson and Fagan Garni attribution.**
+- **Wilkinson's Garni source not read directly.**
+- **The Hovannisian ISBN.**
+- **`scratchpad/check.ts` living outside `scripts/`.**
+- **The weak homepage hero-path assertion.**
+- **`settlement`** — declared in the `precision` union and used by no entry.
+- **No central environment module.**
+- **Production Stadia dashboard and domain authorisation** — operational, outside this repository.
+- **Raster label-language limitation** — Stadia raster tiles bake in bilingual labels.
+- **Privacy-page provider disclosure** — undecided.
+
+### Deliberately not built
+
+The image was not generated, edited, cropped, resized, recoloured, renamed, optimised or replaced. No
+`object-position` rule, no Tatev-specific image logic, no new image field, no per-image provenance, no
+new component, no custom routing. No article content, coordinate, source or translation touched. No
+map architecture, provider configuration or curation change. No new structured-data type. The marker
+overlap was left alone.
+
+No deployment was performed.
