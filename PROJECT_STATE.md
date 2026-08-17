@@ -76,10 +76,14 @@ completion and the SEO batch changed all three.
 ```
 npm install              → OK
 npm run typecheck        → PASS (0 errors)
-npm run validate:content → PASS (105 entries across 3 locales; no pending-artwork note)
-npm run build            → PASS (111 pages prerendered; `/api/contact` dynamic)
-npm run test:e2e         → PASS (173 passed, 5 skipped, no --workers flag; see §30)
+npm run validate:content → PASS (129 entries across 3 locales; no pending-artwork note)
+npm run build            → PASS (138 pages prerendered; `/api/contact` dynamic)
+npm run test:e2e         → PASS (262 passed, 5 skipped, no --workers flag; see §30)
 ```
+
+Re-run in full at §51 (Gyumri) and again at §52 (Gyumri artwork). The figures above had been left at
+their August values (105 entries, 111 pages, 173 tests) through the Visit journey, the map and four
+more Places. All ten Places are illustrated and `PENDING_ARTWORK` is empty.
 
 `validate:content` now also checks: every registered image exists on disk; every article
 has a bibliography entry; every citation carries a valid ISBN, DOI, URL or archival
@@ -8811,5 +8815,689 @@ map architecture, provider configuration or curation change. No new structured-d
 overlap was left alone, and so were the bibliography React key, `scratchpad/check.ts`,
 `scratchpad/dilcheck.ts`, media optimisation, the provider infrastructure, the Stadia settings,
 Leaflet, the map labels and the privacy-page wording. `.claude/settings.json` was not modified.
+
+No deployment was performed.
+
+---
+
+## 51. Gyumri — the tenth place, the first settlement, and a whole city (August 2026)
+
+Gyumri is Place #10 and the first article in this archive whose subject is an **inhabited city**
+rather than a building, an enclosure, a museum, an archaeological site, a lake or a protected
+landscape. It spends the `settlement` taxonomy, which had been declared twice over and used by
+nothing since §30.
+
+### Taxonomy
+
+| Pill | Before | After |
+| --- | --- | --- |
+| All places | 9 | **10** |
+| Monasteries and churches | 4 | 4 |
+| Historical sites | 2 | 2 |
+| Museums | 1 | 1 |
+| Nature | 2 | 2 |
+| **Settlement** | **absent** | **1 — Gyumri, and only Gyumri** |
+
+`placeTypeId: "settlement"`, `featured: false`, no `chronoOrder` (Places declares it on none). **Khor
+Virap remains the only featured Place**, now asserted in all three editions rather than only in `en`.
+No new place type was invented: `city`, `town`, `urban` and `cultural-city` are each named in
+`places.spec.ts` as pills that must not appear.
+
+### Files changed
+
+| File | Change |
+| --- | --- |
+| `src/data/locales/{en,hy,hyw}/articles/places.ts` | The article, three editions, 12 sections each |
+| `src/data/locales/{en,hy,hyw}/places.ts` | `settlement` filter pill + rewritten header comment |
+| `src/data/geo.ts` | One coordinate, `precision: "settlement"` |
+| `src/data/sources.ts` | Nine-source bibliography under `gyumri` |
+| `src/lib/media.ts` | `"gyumri"` into `PENDING_ARTWORK`, with the rejection record |
+| `src/components/visit/VisitMap.tsx` | One `TYPE_GLYPH` entry — the only component edit |
+| `tests/e2e/places.spec.ts` | Counts, filters, search, artwork, coordinate, settlement inversion |
+| `tests/e2e/visit-map.spec.ts` | Tenth marker, `settlement` precision, marker test |
+| `tests/e2e/visit.spec.ts` | Fifth type link, `NOT_CURATED`, listing count |
+
+### Article structure
+
+12 sections: `where-it-is`, `the-names`, `before-the-city`, `the-russian-century`, `the-stone`,
+`the-historic-core`, `blacksmithing`, `buildings`, `the-earthquake`, `reconstruction`, `counting`,
+`what-it-is-called`. 6 key facts, 13 dated entries, 6 interesting facts, 0 related figures, 3
+contextual prose links, 3 `relatedSlugs`.
+
+### Name chronology, as separate acts
+
+| Name | From | The act |
+| --- | --- | --- |
+| Kumayri | — | The old name; Gyumri is taken to be the same word worn down by use |
+| Alexandropol | **1837** | Renaming on Nicholas I's visit, after Empress Alexandra Feodorovna |
+| — | **1840** | **City status** and district centre — a *separate* act, three years later |
+| Leninakan | **1924** | Soviet renaming, the year Lenin died |
+| Kumayri | **1990** | The Soviet name dropped, before independence |
+| Gyumri | **1992** | The present name, after independence |
+
+The 1837/1840 merge is the commonest error in writing about this city and the article separates them
+explicitly. **Alexandropol** is the project's prose convention; `Alexandrapol` is carried in
+`keywords` only, and named in the article as a transliteration difference rather than another place.
+
+### Early-history evidence
+
+Four claims are kept apart rather than merged: archaeological occupation, a textual reference to a
+place of this name, continuous settlement, and the existence of a city. What the article states is
+that occupation reaches into prehistory (unremarkable for a watered highland plain), that **Kumayri is
+named in Armenian narrative sources from the early medieval period** in connection with the risings
+against Arab rule, and that the place was still village-scale in the early nineteenth century. It
+says explicitly that claims tying the name to an Urartian royal inscription are **inferences from
+campaign accounts naming other places in the district**, not the same kind of evidence. **No "Gyumri
+is X thousand years old" claim is made anywhere.**
+
+### Nineteenth-century urban transformation
+
+Four causes, each physical or social rather than celebratory or political: the migration from Kars and
+Erzurum after the war of **1828–1829**; the fortress ordered in **1834**; the surveyor's grid that is
+still the plan of the old town; and the railway — Tiflis to Alexandropol **1899**, on to Kars the same
+year, the Yerevan branch by **1902**. The garrison is treated as an economic fact (a permanent market
+for bread, leather, iron, cloth, cartage and building work) rather than as politics. Alexandropol as
+the largest city of Russian-ruled Eastern Armenia, larger than Yerevan, is stated as the outcome.
+
+### Architecture and material culture
+
+Tuff is explained as consolidated volcanic ash before "black tuff" is used, and the article states
+plainly that **not every historic building is black** — red and reddish tuff are in the local
+repertoire and the contrast is deliberate. The coherence is attributed to method rather than colour:
+load-bearing cut stone, one or two storeys, street-line frontage, interior courts, hand-cut surrounds
+and cornices, and forged iron as part of the architecture rather than applied to it. The phrase
+**"freedom within the grid"** comes from Ivanov's ISPRS study.
+
+### The historic core, and the monument counts
+
+The Kumayri reserve was declared in **1980** under the Armenian SSR to stop demolition of the low-rise
+old town, covers on the order of a **fifth of the city's area**, and was transferred to **municipal**
+ownership in **1998** — which is why it is administered by the community rather than by the national
+museum-reserve service, and why it is often missing from national heritage listings.
+
+Circulating counts run from about a thousand to eighteen hundred and are printed with no statement of
+what is counted, inside which boundary, on what date. The article refuses all of them and quotes
+instead the **State List of immovable historical and cultural monuments of Shirak Marz**, approved by
+Government Decision **N 1270-N of 9 September 2004**, whose Gyumri section runs to **roughly a
+thousand numbered entries** — the one figure with a boundary and a date attached.
+
+### Blacksmithing and UNESCO
+
+**Inscribed:** *Tradition of blacksmithing in Gyumri*, Representative List of the Intangible Cultural
+Heritage of Humanity, **2023**, element **01967**, on Armenia's nomination. The article states in as
+many words that **Gyumri is not a World Heritage Site and no part of it is a World Heritage
+property**, and a test asserts that no sentence in any edition pairs the city's name with World
+Heritage wording without a negation.
+
+Two further UNESCO checks were run rather than assumed: Gyumri **is** a member of the UNESCO Global
+Network of Learning Cities (joined **2016**) — a lifelong-learning municipal network, not a heritage
+designation — and Gyumri is **not** a UNESCO Creative City. No Armenian city is currently in the
+Creative Cities Network.
+
+### Earthquake and reconstruction
+
+**7 December 1988**, epicentre near Spitak, moment magnitude about **6.8**, surface break of the order
+of **13 km**. The city's name at the time was **Leninakan**, stated explicitly for readers who know
+the disaster under that name. The damage is explained through engineering rather than imagery:
+multi-storey precast-concrete blocks failing **at their connections**, and soft sediment under the
+city amplifying ground motion in the period range that mattered to buildings of that height — which is
+also why the low-rise stone core stood.
+
+**No graphic description of casualties or injuries, no disaster imagery, and no precise Gyumri death
+toll.** The article says regional figures are wide-range estimates, that figures attributed to the
+city are quoted without saying what they measure, and that this archive assigns none because it found
+no authoritative source defining one.
+
+Reconstruction is written honestly as unfinished: several thousand apartments before the USSR ceased
+to exist, the *domik* temporary shelters still inhabited decades later, phased clearance continuing
+into this century, and the Church of the Holy Saviour reconsecrated in **December 2024** after roughly
+thirty years of restoration — used as the marker for when the earthquake stopped being an active
+condition of the city. It stops short of contemporary policy criticism.
+
+### Population and current-data policy
+
+| Census | Count |
+| --- | --- |
+| 2001 | 150 917 |
+| 2011 | 121 976 |
+| **October 2022** | **112 301** |
+
+Written as **`112 301`, spaced rather than comma-grouped**, because a comma splits the numeral for the
+parity harness. A dedicated section explains that Armenia's census reports a **permanent (de jure)**
+and a **current (de facto)** population which differed nationally by about a quarter of a million in
+2022, and that the annual inter-census estimates are a different series again. A test asserts that
+every passage stating the figure states **2022** in the same passage.
+
+**Source date recorded here as required:** the population figures are from Armstat, *The Main Results
+of RA Census 2022*, enumerated **13–22 October 2022**.
+
+**Source caveat, recorded rather than hidden.** Armstat's settlement-level tables are distributed as
+PDF and 7z-compressed Excel and could not be opened directly in this environment. The publication
+itself was reached and confirmed at `armstat.am/en/?nid=82&id=2623`, and 112 301 is consistently
+reported from it. This joins the existing "source caveats" debt.
+
+### Coordinate provenance
+
+| Field | Value |
+| --- | --- |
+| Slug | `gyumri` |
+| Stored | **40.7852, 43.8416** |
+| Precision | **`settlement`** — the first use of that union member |
+| Source entity | OpenStreetMap **node 130037434** (`Գյումրի`, `place=city`, `capital=4`, `wikidata=Q199500`) |
+| Raw | 40.7852085, 43.8416095 |
+| Meaning | The city's conventional centre — not a building, not a natural centroid |
+
+**Cross-checks, both independent and both corroborating at city scale:** GeoNames **616635** at
+40.7930545, 43.8463497 (about 1.0 km NNE); Wikidata **Q199500** at 40°47′N 43°50′E = 40.78333,
+43.83333 (about 0.7 km WSW, and only to whole arc-minutes, which is coarser than this registry's
+rounding). Three points inside a kilometre of each other in a city roughly seven kilometres across.
+
+**Rejected, and each named in `geo.ts` and in a test:** the Black Fortress; Vartanants Square (the
+closest wrong answer at some hundreds of metres, and the one that would never have looked wrong); the
+railway station; Shirak airport; the municipality building; the cathedral of Yot Verk; any tourist
+information point; and the Kumayri reserve, which is a real legal boundary but is the historic core
+rather than the city. No existing coordinate was modified.
+
+### Map integration
+
+**9 → 10 automatically.** `getVisitMapPoints` is `places ∩ PLACE_COORDINATES`; `src/lib/visit-map.ts`
+and `src/lib/map-tiles.ts` were **not touched**, and there is no Gyumri allow-list anywhere. Gyumri is
+now the **northernmost and westernmost** marker — north of Dilijan and about 0.7° west of
+Etchmiadzin, which had been the western edge for ten steps — so the derived bounds now span a box that
+is wider as well as taller. Nothing was retuned.
+
+### Settlement marker
+
+The one component edit in this step. `TYPE_GLYPH` had no `settlement` entry, because the taxonomy had
+never had a rendered member, so the marker fell back to the bare pin. **One line was added**: two
+blocks on a ground line, in the same shared pin as every other type. No skyline, no coat of arms, no
+city-specific icon, no new map taxonomy, no colour channel. The accessible name already carried the
+localized type through `labelFor`, and a test now pins that for `settlement` in all three editions.
+
+### Bounds and overlap measurements
+
+All ten markers inside the container at **360, 390, 768 and 1440 px**. Overlaps re-measured at 1440 px
+with the wider extent:
+
+| Pair | §50 | §51 |
+| --- | --- | --- |
+| Erebuni Fortress / Matenadaran | 25 × 26 px | **25 × 26 px** |
+| Garni Temple / Geghard Monastery | 12 × 31 px | **12 × 31 px** |
+
+**No new overlapping pair.** The two known pairs are unchanged — the westward stretch widened the box
+without changing the fitted zoom enough to move them. Carried forward as debt, not fixed: the eventual
+answer is clustering, spiderfying or zoom-aware displacement, and none of that belongs in a content
+step. No pixel-distance rule was added.
+
+### Related content
+
+`["avetik-isahakyan", "anush", "first-republic-of-armenia"]` — each earned by a named passage, and
+each a relationship the corpus already asserted from the other side. Isahakyan's article says he was
+born in Alexandropol; the Anush article says the opera premiered there in 1912; the history article
+covers the capture of the city in 1920 and the treaty that carries its name. **Deliberately not
+added:** Dilijan (both northern), Lake Sevan (both destinations), any monastery (tours combine them).
+No non-existent slugs — Amenaprkich, Yot Verk, the Black Fortress and the Kumayri reserve are named in
+the prose and are not articles.
+
+### Artwork
+
+**`PENDING_ARTWORK` refills for the ninth time.** Every file under `public/` was opened rather than
+read off its filename; none shows a nineteenth-century tuff city on a grid. Five substitutions are
+recorded as refused in `media.ts` and named in a test — most sharply
+`history/bagratid-armenia.webp`, which *is* a stone city with domed churches and is Ani: a ruined
+medieval capital on a plateau above a gorge, in the country west of the present border. Also refused:
+`writers/avetik-isahakyan.webp` (a portrait, not a place), `khor-virap.png`, `tatev-monastery.webp`
+and `erebuni-fortress.webp`. Refused in advance: the Black Fortress alone, any earthquake imagery, and
+a generic Caucasian street. No artwork was generated in this step.
+
+### Localisation and parity
+
+Three genuine editions. House forms confirmed against the existing corpus rather than transliterated
+afresh: **Գյումրի** in `hy` and **Կիւմրի** in `hyw` (the form the writers and works articles have used
+since they were written, and the Western Armenian Wikipedia form), with Կումայրի, Ալեքսանդրապոլ,
+Լենինական and Շիրակ shared. `ՅՈՒՆԵՍԿՕ` and the Representative List wording follow the cuisine
+articles.
+
+**Numeral parity: identical multisets in all three editions across every validator field group**, on
+the first harness run. Verified with `scratchpad/dilcheck.ts gyumri`.
+
+**The whole `hyw` edition is flagged for native review**, joining the existing backlog. New
+terminology this step: դարբնութիւն, երկաթագործութիւն, հրաբխային տուֆ, արգելոց-թանգարան, երկրաշարժ,
+վերակառուցում, համքարութիւն, մարդահամար, բնակֆոնտ, տոմիկ.
+
+### Structured data
+
+Unchanged. The generic `Article` model only. **No** `City`, `Place`, `AdministrativeArea`,
+`TouristDestination`, `GeoCoordinates` or `LocalBusiness` JSON-LD was introduced — the settlement
+coordinate exists for Armat's map, not as an instruction to change schema.
+
+### Tests
+
+`places.spec.ts` — listing 9→10 in the locale loop and every filter reset; `settlement` added to the
+single-article filter loop beside `museum`; the vocabulary test moved to six ids with `city`, `town`,
+`urban` and `cultural-city` named as forbidden; `under("settlement")` pinned to Gyumri alone; the
+distribution table gained `settlement: 1`; a tenth-place search test covering *Gyumri*,
+*Alexandropol* and both Armenian names; three new artwork-absence tests (hero placeholder in three
+editions, no borrowed picture in the article's own surfaces or JSON-LD, no thumbnail in search); a
+sitemap assertion that Gyumri's three URL blocks carry **no** `image:loc`; `PENDING_ARTWORK` re-pinned
+as non-empty; the coordinate precision check made three-way; the extremes reworked for the new north
+and west; and a content test that the article does not read as a travel guide and dates its census
+figure.
+
+**`no place is recorded as a settlement` was inverted, not deleted.** It is now `exactly one place is
+a settlement, and it is Gyumri`, asserting one settlement coordinate, one settlement-typed article per
+edition, the stored coordinate, and the rejected monument alternatives.
+
+`visit-map.spec.ts` — tenth marker; `SETTLEMENT_PLACES`; three-way precision with both memberships
+pinned as sets; a new generic-marker test; the overlap test renamed for the westward stretch.
+`visit.spec.ts` — `settlement` in `PLACE_TYPES`, `gyumri` in `NOT_CURATED`, listing count 9→10.
+
+### Visit regression
+
+Curated row **unchanged at six**. Gyumri is on the map, in `/places`, and **not** curated — recorded
+as a deliberate exclusion in `NOT_CURATED` rather than an oversight, with the reasoning that a curated
+card is a picture card and this place has no picture yet. `/visit` route architecture untouched. A
+Visit-curation review is deferred to its own step, after the artwork lands.
+
+### Commands run, in order
+
+```
+netstat :3002            -> clear
+rm -rf .next             -> after confirming no dev server
+tsx scratchpad/dilcheck.ts gyumri  -> three editions, identical numeral multisets
+npm run typecheck        -> PASS (0 errors)
+npm run validate:content -> PASS (129 entries across 3 locales; 1 pending-artwork note: gyumri)
+npx playwright test tests/e2e/places.spec.ts        -> 1 failed, 63 passed  (see below)
+npx playwright test tests/e2e/visit-map.spec.ts     -> 29 passed
+npx playwright test places.spec.ts visit.spec.ts    -> 1 failed, 84 passed (see below)
+npx playwright test tests/e2e/visit.spec.ts         -> 23 passed
+npx playwright test                                 -> 262 passed, 5 skipped, 0 failed
+npm run build                                       -> PASS (138 pages prerendered)
+```
+
+### Every failure, recorded
+
+Two failures occurred and both were real test defects, fixed rather than worked around.
+
+1. **`the settlement article dates its population and keeps UNESCO wording exact`** — a first draft of
+   the UNESCO guard used a hardcoded phrase table and flagged the `hy` sentence
+   «քաղաքը Համաշխարհային ժառանգության օբյեկտ չէ» — *the city is **not** a World Heritage property* —
+   which is the article correctly making the distinction. The phrase-table version was removed and
+   replaced with a sentence-level check that requires a negation, so the article's own denial passes
+   and a bare claim fails. No product assertion was weakened.
+2. **`every canonical route the journey links into still works`** — `visit.spec.ts` pins the `/places`
+   listing count as a deliberately hand-edited literal. It was 9 and is now 10.
+
+The known Turbopack `Unexpected end of JSON input` / cold-route 500 signature **did not appear** in
+this step. The full suite produced one clean run with no retries and no flakes.
+
+### Technical debt
+
+Carried forward unchanged: bibliography React key by `source.title`; marker overlap (measured above);
+dev-server/Turbopack full-suite flake; the photographic register; media optimisation; the Khor Virap
+PNG; the Matenadaran facade colour and Garni stone warmth; Garni's 4:3 artwork; one-directional
+`relatedSlugs` with the Tatev-to-Geghard exception; the Western Armenian review backlog, now including
+this article; source caveats, now including the Armstat settlement table; `scratchpad/check.ts` and
+`scratchpad/dilcheck.ts` outside `scripts/`; the weak homepage hero-path assertion; no central
+environment module; the production Stadia dashboard and domain authorisation; the raster
+label-language limitation; the privacy-page tile-provider disclosure.
+
+**Removed:** ~~`settlement` — declared in the `precision` union and used by no entry.~~ Spent by this
+step, in both places it was declared.
+
+### Deliberately not built
+
+No new place type. No `City` or tourism JSON-LD. No Gyumri-specific map logic, allow-list, viewport or
+icon. No change to `visit-map.ts`, `map-tiles.ts`, Stadia, tile environment variables, Leaflet, lazy
+loading, attribution, network privacy, geolocation, routing or geocoding. No marker clustering or
+overlap fix. No Visit curation change. No artwork generated. No existing coordinate modified. No
+restaurant, hotel, tour, direction, booking or live-travel content of any kind.
+`.claude/settings.json` was not modified.
+
+No deployment was performed.
+
+---
+
+## 52. Gyumri artwork — the pending entry, cleared for the ninth time (August 2026)
+
+`public/images/places/gyumri.webp` landed. One line entered `IMAGES`, one line left
+`PENDING_ARTWORK`, and the list is empty for the ninth time. Every consumer already asks
+`getImageSrc`, so that pair of lines lit up the hero in three editions, the listing card, the search
+thumbnail, the map's selected card, the Open Graph and Twitter tags, the JSON-LD `Article.image` and
+three sitemap `image:loc` entries at once. **No component changed.**
+
+This is the **first urban street artwork in the registry** — every previous entry is a monument, a
+landscape or a building in isolation — so the verification below is different in kind from the eight
+before it, particularly the text audit and the narrow-crop check.
+
+### The file, opened rather than assumed
+
+| Property | Value |
+| --- | --- |
+| Path | `public/images/places/gyumri.webp` |
+| Dimensions | **1584 × 993** — a *third* distinct size in the registry |
+| Bytes | **542,872** (530 KB) |
+| SHA-256 | `11f593161584a5579094562f3b20faaa59f96bca333853ac7b18ee3bcdfdf72e` |
+| MD5 | `7c05da0747f6ccb20ceccf6f812ead4e` |
+| Container | `RIFF`/`WEBP` with **three chunks**: `VP8X` (10 B) + `ICCP` (456 B) + `VP8 ` (542,370 B) |
+| VP8X flag byte | `0x20` — ICC **set**; alpha, EXIF, XMP and animation all **clear** |
+| Encoding | **Lossy**, one VP8 keyframe, sync `9D 01 2A`, frame 1584 × 993 |
+| RIFF size field | 542,864 = file length − 8, consistent |
+| Colour | sRGB, 3 channels, 8-bit |
+| ICC | **present** — 456-byte `mntr`/`RGB `/`XYZ ` monitor profile |
+| Alpha / EXIF / XMP / IPTC | **none** — the VP8X flags forbid them |
+| Orientation | none |
+
+**Format was determined from the bytes, not the extension.** The RIFF chunk table was walked by hand
+and then checked against `sharp`; the two agree on every field. The parser was run over all nine
+existing Places assets as a control and correctly reported Erebuni's and the Matenadaran's ICC
+profiles and the six plain `RIFF/VP8` files with none — which is how "ICC is present here" is known
+to be a finding rather than a parser that always says yes.
+
+**Two structural firsts, both recorded rather than corrected.** The dimensions are **1584 × 993**,
+so the "not 1586 × 992" note in `media.ts` no longer refers to Khor Virap's PNG and Garni alone. The
+aspect is effectively unchanged (1.595 against 1.599), so no crop moves; the file is two pixels
+narrower and one taller than the house size. At **530 KB** it is the **third heaviest** file in the
+registry, behind Erebuni (742 KB) and the Matenadaran (701 KB) and well above the 122–277 KB of the
+six mid-weight WebPs — a consequence of a dense street scene with fine masonry detail rather than of
+the file being unoptimised. It does not change the standing media-optimisation debt.
+
+**The file was registered exactly as delivered — not generated, edited, cropped, resized,
+recoloured, renamed, optimised or replaced**, which has been the rule since §30.
+
+### What is actually in the frame
+
+A wet paved square with a street receding to a vanishing point. Down the left runs a long terrace of
+**two-storey Alexandropol-era façades**: dark grey-black tuff with **reddish-brown tuff** surrounds,
+pilasters, rustication and cornices; hand-carved window and door frames; wrought-iron balconies; all
+of it on the street line, exactly as the article describes. On the right stands a church in **black
+tuff with red-orange geometric inlay** — crosses, roundels and arcading on a faceted drum under a
+conical roof. Between them a white horse and a traditional phaeton with its driver, a row of street
+lamps, spruces, pedestrians in winter coats and a few parked cars in the middle distance, under flat
+overcast light.
+
+**It reads as a living city, not a monument portrait.** The left half is entirely secular urban
+fabric, multiple buildings establish a street rather than one isolated subject, and the perspective
+carries genuine urban depth to a vanishing point rather than flattening into a façade study. The
+palette is muted and cold — appropriate restrained Shirak atmosphere, with no tourism-poster
+saturation.
+
+**Confirmed it does not read primarily as** the Black Fortress, a monastery, a cathedral cover,
+Erebuni or Yerevan, a generic Russian imperial city, or a generic European old town. The black-and-red
+tuff, the carved surrounds and the low two-storey street line are Gyumri's own register and no other
+Armenian city's.
+
+**Confirmed absent:** no disaster scene, no ruined city, no rubble, no earthquake imagery, no Soviet
+propaganda, no flags, no invented historical event, no modern high-rise, and no traffic-dominated
+composition. Cars are present but parked, small and in the middle distance.
+
+### Two concerns, reported and not corrected
+
+**Photographic register — the strongest instance so far.** Like Geghard (§42), Tatev (§48) and
+Dilijan (§50), this file is photographic rather than illustrative, and it is **the most photographic
+entry in the registry**: it reads as a documentary street photograph, including a legible, detailed
+face on the carriage driver. It inherits `ARTWORK_PROVENANCE` and is captioned AI-generated, which
+remains the more cautious of the two claims — and matters more here than anywhere before it, because
+an undisclosed cover of this kind would read as a photograph of a real street and a real person.
+Joins the existing photographic-register debt.
+
+**The narrow search thumbnail.** Measured below; it survives but is weakened. Recorded, not fixed.
+
+### Text and signage audit
+
+Run in detail because this is the first artwork with a street in it. Every storefront, sign, plaque,
+banner, street sign, wall inscription, vehicle plate and poster was inspected at up to 12× on
+extracted crops.
+
+**No lettering anywhere.** The ground-floor openings along the left terrace are unsigned; there are no
+shopfront names, no banners, no street signs, no wall inscriptions and no posters. The church's
+red-tuff ornament is geometric — crosses, roundels, arcading — not epigraphic. The carriage carries no
+lettering. **No prominent gibberish pseudo-Armenian, Russian or English text exists in the frame.**
+
+Two tiny unreadable marks survive and are reported rather than edited away:
+
+| Mark | Size in source | At 8–12× |
+| --- | --- | --- |
+| White A-frame pavement notice by the left terrace | ~20 × 30 px | Colour smears with a red-brown band; **no letterforms** |
+| One car number plate, middle distance | ~20 × 8 px | A blue EU-style tab and a grey smear; **no legible characters** |
+
+The car's grille badge is a generic oval crest, not a legible marque. **The image was not retouched.**
+
+### Crop suitability against the live surfaces
+
+Source 1584 × 993 (1.595). Default `object-cover`, centred, no `object-position`.
+
+| Surface | Ratio | Crop | Trimmed | Verdict |
+| --- | --- | --- | --- | --- |
+| Listing card, desktop hero, map selected card | 16:9 | 1584 × 891 | 10.3 % vertical | **Best of the set.** Loses sky and foreground paving only; terrace, depth, church, carriage and square all intact |
+| Compact card, mobile hero | 4:3 | 1324 × 993 | 16.4 % horizontal | **Very good.** Loses the far-left façade edge and the right lamp cluster; street depth and tuff fully preserved |
+| Tablet hero | 3:2 | 1490 × 993 | 5.9 % horizontal | Effectively the full frame |
+| Search thumbnail (`w-32`/`lg:w-40`, card height) | ~128 × 170 portrait | 748 × 993 | **52.8 % horizontal** | **Weakened but usable** — see below |
+
+**The search thumbnail is the one finding.** It is the tightest live crop by a wide margin and keeps
+the centre band: the spruce, the horse and carriage, the wet square and part of the church, while
+losing almost all of the left terrace. It does **not** collapse into "one random doorway" — a
+horse-drawn carriage on a wet square below a black-and-red tuff church is recognisably Gyumri, and the
+carriages on Vartanants Square are a genuine fixture of the city. But at that ratio the picture reads
+as *carriage and church* rather than *historic street*, which is the article's actual subject. Two
+mitigations are worth recording: the thumbnail is `hidden … sm:block`, so it does not render on small
+screens at all, and it displays at 128–160 px where the loss of terrace detail matters less than the
+ratio suggests.
+
+**No major building becomes unintentionally dominant in any crop.** The church occupies the right
+third at 16:9 and 4:3 and never becomes the subject; only the portrait thumbnail brings it forward,
+and even there the carriage holds the foreground.
+
+**No `object-position` was introduced.** The default centre crop is degraded at one surface, not
+genuinely unusable, and this registry has no per-image focus mechanism for scenes — `PORTRAIT_FOCUS`
+exists for writer portraits and is deliberately not generalised.
+
+### Files changed
+
+| File | Change |
+| --- | --- |
+| `src/lib/media.ts` | `gyumri` into `IMAGES` with the verification record; `"gyumri"` out of `PENDING_ARTWORK`, refusals preserved |
+| `tests/e2e/places.spec.ts` | Gyumri into `ILLUSTRATED` and `ARTWORK`; three absence tests inverted to presence; sitemap block inverted; counts and comments |
+| `tests/e2e/visit-map.spec.ts` | Selected-card assertion for Gyumri's own file; `else`-branch comment |
+| `PROJECT_STATE.md` | This section |
+
+**No article content, coordinate, source, translation, taxonomy, map library, provider configuration
+or curation was touched.** `public/images/places/gyumri.webp` itself is unmodified.
+
+### Media-registry entry
+
+```ts
+gyumri: "/images/places/gyumri.webp",
+```
+
+One line, in the existing Places block of `IMAGES`. No settlement-specific media logic, no
+Gyumri-specific card logic, no new image field, no new provenance infrastructure, no special routing
+and no duplicate configuration.
+
+### Provenance behaviour
+
+`isGeneratedArtwork` was read rather than assumed. Its current signature is
+`(article: Pick<ArticleSummary, "slug" | "image">) => boolean`, and its body is
+`!article.image && getImageSrc(article.slug) !== undefined`. Tested directly against the Gyumri
+article in every edition:
+
+```
+PENDING_ARTWORK      : []
+getImageSrc(gyumri)  : /images/places/gyumri.webp
+en   | isGeneratedArtwork: true | getArticleImageSrc: /images/places/gyumri.webp | article.image: undefined
+hy   | isGeneratedArtwork: true | getArticleImageSrc: /images/places/gyumri.webp | article.image: undefined
+hyw  | isGeneratedArtwork: true | getArticleImageSrc: /images/places/gyumri.webp | article.image: undefined
+```
+
+On the rendered pages: the AI-generated illustration disclosure appears, the placeholder disclosure
+disappears, and the placeholder `<svg role="img">` disappears — asserted in all three editions.
+**`ARTWORK_PROVENANCE` is unchanged**, and provenance was not redesigned.
+
+### Pending-artwork removal
+
+`"gyumri"` removed from `PENDING_ARTWORK`, which is now empty. **The rejected-substitute notes from
+§51 are preserved in full** — `bagratid-armenia.webp` (Ani, the only other stone city in the
+repository), `avetik-isahakyan.webp` (a portrait, not a place), `khor-virap.png`,
+`tatev-monastery.webp`, `erebuni-fortress.webp`, plus the advance refusals of the Black Fortress
+alone, earthquake imagery and a generic Caucasian street — on the same principle as the Lake Sevan
+three, the Garni three, the Geghard five and the Dilijan four: the failure they guard against is the
+cover being repointed at a plausible neighbour later, and that outlives the file landing.
+
+`validate:content` no longer reports Gyumri as pending; the pending-artwork note has disappeared from
+its output entirely.
+
+### Listing, article and search verification
+
+* Gyumri's listing card renders `/images/places/gyumri.webp`.
+* `/en/places/gyumri`, `/hy/places/gyumri` and `/hyw/places/gyumri` heroes all render it.
+* Placeholder `<svg role="img">` absent in all three; placeholder disclosure absent in all three;
+  AI-generated illustration disclosure present in all three.
+* The global search card for Gyumri renders its own WebP, scoped by the canonical
+  `a[href="/en/places/gyumri"]` rather than by position — necessary because "Gyumri" legitimately
+  matches Isahakyan's and Anush's articles.
+* `IMAGES` and `PENDING_ARTWORK` are mutually exclusive in both directions, checked repository-wide.
+* The Places listing renders **zero** placeholder covers, and exactly `ILLUSTRATED.length + 1` images
+  — ten cards plus the featured block's repeat of Khor Virap.
+* Gyumri borrows nothing: none of the other nine Places files, and none of
+  `bagratid-armenia.webp`, `avetik-isahakyan.webp`, `anush.webp` or `first-republic-armenia.webp`
+  appears in its hero, meta tags or structured data.
+
+### Per-card artwork ownership
+
+The per-card ownership test loops `ILLUSTRATED`, which now holds all ten, and asserts **exact href →
+exact artwork** for every one: `khor-virap`, `etchmiadzin-cathedral`, `erebuni-fortress`,
+`matenadaran`, `lake-sevan`, `garni-temple`, `geghard-monastery`, `tatev-monastery`,
+`dilijan-national-park`, `gyumri`. It is not an image count — a swapped pair of covers fails it, which
+is the borrowed-neighbour failure the section guards hardest.
+
+### Social metadata, JSON-LD and sitemap
+
+| Surface | Before (§51) | After (§52) |
+| --- | --- | --- |
+| Hero | placeholder `<svg>` | `gyumri.webp` |
+| `og:image` | absent | `https://armat.site/images/places/gyumri.webp` |
+| `twitter:image` | absent | `https://armat.site/images/places/gyumri.webp` |
+| `Article.image` | absent | `{ "@type": "ImageObject", url: "https://armat.site/images/places/gyumri.webp" }` |
+| Sitemap `image:loc` | none in any of the three URL blocks | one in **each** of the three |
+
+The sitemap is checked **block by block per locale route**, not by a global count of three — three
+appearances anywhere would still pass if all three landed on one route. Each Gyumri block was also
+checked to contain none of `bagratid-armenia`, `avetik-isahakyan`, `erebuni-fortress` or `anush`.
+
+**The JSON-LD graph shape is unchanged.** The `@graph` still carries a generic `Article` node; the
+only structured-data change is that node gaining `image`. No `City`, `AdministrativeArea`,
+`TouristDestination`, `GeoCoordinates` or `LocalBusiness` type was introduced, and a test now asserts
+their absence on this article by name — the settlement coordinate exists for Armat's map, not as an
+instruction to change schema.
+
+### Map selected-card transition
+
+`src/lib/visit-map.ts`, `src/lib/map-tiles.ts` and `VisitMap.tsx` were **not modified**. The generic
+`settlement` glyph added in §51 is unchanged.
+
+Verified: the map still holds exactly **10** Places; Gyumri's marker still carries
+`data-place-type="settlement"`; its accessible name is still `title — localized settlement label` in
+all three editions; selecting it now shows **Gyumri's own WebP** where §51 asserted no image at all;
+the selected card links to `/en/places/gyumri`; the panel shows no placeholder and none of Ani,
+Erebuni or Dilijan; all nine other selected cards keep their existing images; no allow-list exists;
+the coordinate is unchanged at 40.7852, 43.8416; and the marker-derived bounds are unchanged. Marker
+overlap was not addressed in this step.
+
+### Settlement and taxonomy regression
+
+Unchanged and re-asserted: All 10 · Monastery 4 · Historical 2 · Museum 1 · Nature 2 ·
+**Settlement 1**, containing exactly Gyumri. `precision: "settlement"` is still held by exactly one
+coordinate. Khor Virap is still the only featured Place, in all three editions. No place type was
+added.
+
+### Visit-curation regression
+
+**Curated row unchanged at six.** Gyumri is on `/places`, on the map, and still absent from the
+curated row — it remains in `NOT_CURATED` alongside Etchmiadzin, Tatev and Dilijan. Now that it is
+illustrated, the reasoning recorded in §51 (a curated card is a picture card) no longer blocks
+curation, so the deferred **Visit-curation review is now unblocked** and belongs in its own step. It
+was deliberately not taken here.
+
+### Tests changed
+
+`places.spec.ts` — `GYUMRI` moved into `ILLUSTRATED` and added to `ARTWORK`; **`PLACES`,
+`ILLUSTRATED` and `ARTWORK` kept as three separate declarations** even though the first two now
+coincide again, for the eighth time and on the same reasoning §48 and §50 recorded and §51 vindicated
+one step later. The three §51 absence tests were **inverted, not deleted**: the placeholder test
+became `Gyumri renders its own file and is captioned as an illustration`, the borrowed-artwork test
+gained the positive `Article.image`, `og:image` and `twitter:image` assertions, and the search test
+became `Gyumri's search card carries its own thumbnail and no placeholder`. The sitemap block
+assertion flipped from "no `image:loc`" to "its own `image:loc`"; Gyumri joined the per-route sitemap
+loop and the per-query search-thumbnail loop; `PENDING_ARTWORK` is pinned empty again; the listing
+placeholder count is back to zero.
+
+`visit-map.spec.ts` — the settlement-marker test gained the selected-card assertions; the
+`else`-branch comment records that the unillustrated branch has now been needed three times and will
+be needed again.
+
+**The generic illustrated/unillustrated branching is intact everywhere** for Place #11.
+
+### Commands run, in order
+
+```
+inspect asset (hand-walked chunk table + sharp cross-check, 9-file control run)
+visual + text audit on extracted crops (no asset modified)
+crop measurement at 16:9, 4:3, 3:2 and the search-thumbnail ratio
+netstat :3002            -> clear
+rm -rf .next             -> after confirming no dev server
+npm run typecheck        -> PASS (0 errors)
+npm run validate:content -> PASS (129 entries across 3 locales; no pending-artwork note)
+npx playwright test tests/e2e/places.spec.ts    -> 1 failed, 61 passed (see below)
+npx playwright test tests/e2e/places.spec.ts    -> 62 passed (after fix)
+npx playwright test tests/e2e/visit-map.spec.ts -> 29 passed
+npx playwright test tests/e2e/visit.spec.ts     -> 23 passed
+npx playwright test                             -> 262 passed, 5 skipped, 0 failed
+npm run build                                   -> PASS (138 pages prerendered)
+```
+
+### Every failure, recorded
+
+One failure, and it was a test defect rather than a product one.
+
+**`Gyumri borrows no other article's artwork, and advertises its own`** — the new `Article.image`
+assertion was written against the wrong JSON-LD shape. It assumed a flat object with a top-level
+`image`; the page actually emits `{"@graph": [...]}` with an `Article` node whose `image` is
+`{"@type":"ImageObject","url":…}`, which is what the existing `the artwork reaches Open Graph,
+Twitter and the article's structured data` test already reads correctly. `String(image)` therefore
+compared against `"undefined"`. Fixed by reading the graph the same way the existing test does. **No
+product assertion was weakened**, and the failure was in the new test only — the pre-existing
+structured-data test passed throughout.
+
+The known Turbopack `Unexpected end of JSON input` / cold-route 500 signature **did not appear** in
+this step. The full suite produced one clean run with no retries and no flakes.
+
+### Technical debt
+
+Carried forward unchanged, and none opportunistically fixed: bibliography React key by
+`source.title`; marker overlap (Erebuni/Matenadaran 25 × 26 px, Garni/Geghard 12 × 31 px);
+Turbopack/cold-route full-suite flake; the Cuisine hydration flake; the photographic register, now
+with Gyumri as its strongest instance and its first legible face; the Matenadaran façade colour; the
+Garni stone warmth; the Garni 4:3 dimensions; the Khor Virap PNG at 1.4 MB; Erebuni and Matenadaran
+artwork weight, now joined by Gyumri at 530 KB as the third heaviest; global media optimisation;
+one-directional `relatedSlugs` with the Tatev-to-Geghard exception; the Western Armenian review
+backlog; the Bresson and Fagan Garni attribution; Wilkinson's Garni source not read directly; the
+Hovannisian ISBN; the Armstat Gyumri settlement-table caveat; `scratchpad/check.ts` and
+`scratchpad/dilcheck.ts` outside `scripts/`; the weak homepage hero-path assertion; no central
+environment module; the production Stadia dashboard and domain authorisation; the raster
+label-language limitation; the privacy-page tile-provider disclosure.
+
+**New this step, recorded not fixed:** the Gyumri narrow-thumbnail crop, and Gyumri's 1584 × 993
+dimensions as a third distinct size in the registry.
+
+### Deliberately not built
+
+The image was not generated, edited, cropped, resized, recoloured, renamed, optimised or replaced. No
+`object-position` rule, no Gyumri-specific image logic, no settlement-specific media logic, no new
+image field, no per-image provenance, no new component and no custom routing. No article content,
+coordinate, source, taxonomy or translation touched. No map architecture, marker glyph, provider
+configuration, tile URL, attribution, environment variable, lazy loading, geolocation, routing,
+geocoding, privacy behaviour or map filter taxonomy changed. No Visit curation change. No new
+structured-data type. Leaflet and Stadia untouched. The marker overlap was left alone.
+`.claude/settings.json` was not modified.
 
 No deployment was performed.

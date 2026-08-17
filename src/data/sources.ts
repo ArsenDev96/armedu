@@ -1317,6 +1317,103 @@ const SOURCES: Record<string, Source[]> = {
       note: "The structured record behind most general reference surfaces, cited on the same terms as the entry above. It states the area as 240 square kilometres and the elevation as 1,070 to 2,300 metres with neither a boundary nor a date attached, and carries a coordinate at 40.65639, 45.02139 which does fall inside the park but lies some twelve kilometres from its centroid — which is why geo.ts records a computed centroid rather than adopting this point.",
     },
   ],
+
+  /*
+   * Gyumri. A deliberately short bibliography for a long article, and the shape of
+   * it follows the shape of the evidence: an architectural study for the fabric, a
+   * legal instrument for what is protected, two peer-reviewed papers for the
+   * earthquake, the national statistical office for the population, UNESCO for the
+   * craft, and two standing reference works already registered elsewhere for the
+   * imperial and historical-geographical frame.
+   *
+   * What is deliberately absent is the whole tier of tourism and municipal
+   * promotional material this subject generates. It was read — it is where the
+   * research questions came from — and it carries no claim in the article. The
+   * monument counts of "1,600" and "1,800 monuments" that circulate everywhere are
+   * discussed in the prose precisely because they have no such source behind them.
+   */
+  gyumri: [
+    {
+      author: "A. Ivanov",
+      title: "Armenian City of Gyumri as a Phenomenon of Living Vernacular Urban Environment",
+      publisher:
+        "The International Archives of the Photogrammetry, Remote Sensing and Spatial Information Sciences, XLIV-M-1-2020, 167–174",
+      year: "2020",
+      identifier: { kind: "doi", value: "10.5194/isprs-archives-XLIV-M-1-2020-167-2020" },
+      note: "Open access, and the article's source for the architecture section: the regular imperial grid filled with one- and two-storey stone vernacular buildings, the black tuff worked by local masons, the characterisation of the result as freedom within the grid, the city as a living rather than a museum core, and the survival of the historic fabric through the earthquakes of 1926 and 1988. Cited for the urban fabric only, not for chronology or statistics.",
+    },
+    {
+      author: "Government of the Republic of Armenia",
+      title:
+        "Decision N 1270-N approving the State List of Immovable Monuments of History and Culture of Shirak Marz",
+      publisher: "Armenian Legal Information System (ARLIS), Yerevan",
+      year: "2004",
+      identifier: { kind: "url", value: "https://www.arlis.am/hy/acts/105447" },
+      note: "The legal instrument behind the article's treatment of monument counts, and the reason it quotes this one rather than the figures in circulation. The list is dated, its boundary is administrative, and the section covering the city of Gyumri runs to roughly a thousand numbered entries. In Armenian. Cited for what is protected and how many entries there are, not for the history of any individual building.",
+    },
+    {
+      author:
+        "A. Cisternas, H. Philip, J. C. Bousquet, M. Cara, A. Deschamps, L. Dorbath, C. Dorbath and others",
+      title:
+        "The Spitak (Armenia) earthquake of 7 December 1988: field observations, seismology and tectonics",
+      publisher: "Nature, volume 339, pages 675–679",
+      year: "1989",
+      identifier: { kind: "doi", value: "10.1038/339675a0" },
+      note: "The field and seismological account, published within months of the event by a joint French-Soviet expedition. Cited for the character of the earthquake itself — the reverse faulting, the surface break of the order of thirteen kilometres, the shallow aftershock volume — and not for anything about buildings or casualties.",
+    },
+    {
+      author: "M. K. Yegian, V. G. Ghahraman and G. Gazetas",
+      title: "1988 Armenia Earthquake. I: Seismological, Geotechnical, and Structural Overview",
+      publisher: "Journal of Geotechnical Engineering, volume 120, issue 1, pages 1–20",
+      year: "1994",
+      identifier: { kind: "doi", value: "10.1061/(ASCE)0733-9410(1994)120:1(1)" },
+      note: "The engineering source for the section on why the damage in the city then called Leninakan was what it was: the failure of multi-storey precast-concrete residential construction at its connections rather than in its members, and the amplification of ground motion by the soft sediment under the city in the period range that mattered to buildings of that height. This is the paper behind the article's contrast between the tall modern blocks and the low-rise stone core; it is not cited for any casualty figure.",
+    },
+    {
+      author: "UNESCO",
+      title: "Tradition of blacksmithing in Gyumri",
+      publisher:
+        "Representative List of the Intangible Cultural Heritage of Humanity, element 01967, inscribed 2023",
+      year: "2023",
+      identifier: {
+        kind: "url",
+        value: "https://ich.unesco.org/en/RL/tradition-of-blacksmithing-in-gyumri-01967",
+      },
+      note: "The primary record of the inscription, and the source for every UNESCO statement in the article: the exact element name, the list, the year, the file number, Armenia as the submitting state, and what was actually inscribed — the making and repair of grilles, gates, doors, candlesticks and chandeliers, transmitted in families and through the city's art academy and craft college. It is cited equally for what it is not: an intangible heritage element is not a World Heritage property, and this file is the evidence for keeping the two apart.",
+    },
+    {
+      author: "Statistical Committee of the Republic of Armenia",
+      title: "The Main Results of RA Census 2022",
+      publisher: "Armstat, Yerevan",
+      year: "2023",
+      identifier: { kind: "url", value: "https://www.armstat.am/en/?nid=82&id=2623" },
+      note: "The source of every population figure in the article, and of the distinction the article draws between them. The census was enumerated from 13 to 22 October 2022 and reports a permanent (de jure) and a current (de facto) population separately; nationally the two differ by around a quarter of a million. The 112 301 quoted here is the census count for the city, and the 2001 and 2011 figures are the two preceding censuses on the same basis. Armstat's annual inter-census estimates are a different series and give different numbers, which is why the article dates the figure it uses.",
+    },
+    {
+      author: "UNESCO Institute for Lifelong Learning",
+      title: "Gyumri — UNESCO Global Network of Learning Cities",
+      publisher: "UNESCO Institute for Lifelong Learning, Hamburg",
+      identifier: { kind: "url", value: "https://www.uil.unesco.org/en/learning-cities/gyumri" },
+      note: "Cited only to establish that this, and not any heritage designation, is the other UNESCO relationship the city has: Gyumri joined the Global Network of Learning Cities in 2016. Recorded because it is the check the article ran rather than assumed — no Armenian city is currently in the UNESCO Creative Cities Network, so the widely repeated framing of Gyumri as a UNESCO city of crafts has no such basis. The membership profile's own population figure is not used here; it agrees with no census.",
+    },
+    {
+      author: "Richard G. Hovannisian (ed.)",
+      title:
+        "The Armenian People from Ancient to Modern Times, Volume II: Foreign Dominion to Statehood, the Fifteenth Century to the Twentieth Century",
+      publisher: "Palgrave Macmillan",
+      year: "2004",
+      identifier: { kind: "isbn", value: "9781403964229" },
+      note: "Already registered for other articles. Cited here for the imperial and early twentieth-century frame the city sits in — the Russian annexation of Eastern Armenia, the migration from Ottoman territory after the war of 1828 to 1829, and the collapse of the first Republic in 1920 — and not for the local chronology of Alexandropol itself.",
+    },
+    {
+      author: "Robert H. Hewsen",
+      title: "Armenia: A Historical Atlas",
+      publisher: "University of Chicago Press",
+      year: "2001",
+      identifier: { kind: "isbn", value: "9780226332284" },
+      note: "Already registered for five other articles. Cited here for the historical geography of Shirak and the position of the city on the plain, which is the one thing in this article that predates every other source in this list.",
+    },
+  ],
 };
 
 /** The bibliography for one article. Empty only if the slug is unknown. */

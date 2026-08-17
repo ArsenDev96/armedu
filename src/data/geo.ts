@@ -232,6 +232,47 @@ export const PLACE_COORDINATES: Record<string, PlacePoint> = {
   // separate 25 ha sanctuary and not part of the park at all; any trailhead, hotel
   // or road junction on the Dilijan approach.
   "dilijan-national-park": { lat: 40.7417, lon: 44.9312, precision: "area" },
+
+  // The first `settlement` entry, and the reason that value has been in the union
+  // since the file was written. Gyumri is a living city of some hundred thousand
+  // people spread over tens of square kilometres, so this point is neither a
+  // building nor a centroid of a natural feature: it is the conventional position
+  // a gazetteer holds for the city, and a map that drops a pin on it is marking
+  // *the city*, not a place a visitor stands.
+  //
+  // OpenStreetMap node 130037434 (`Գյումրի`, place=city, capital=4,
+  // wikidata=Q199500) is at 40.7852085, 43.8416095; rounded to four places here.
+  // That node is OSM's settlement point for Gyumri — the label node the boundary
+  // relation is built around — rather than any structure inside it.
+  //
+  // Two independent geographic representations were checked and both corroborate
+  // at city scale, which is the only scale this point claims:
+  //   - GeoNames 616635 (`Gyumri`, feature class P, Shirak) gives 40.7930545,
+  //     43.8463497, about 1.0 km north-north-east and well inside the built-up
+  //     area;
+  //   - Wikidata Q199500 (P625) gives 40°47′N 43°50′E — 40.78333, 43.83333 — some
+  //     0.7 km west-south-west, and carried only to whole arc-minutes, which is
+  //     coarser than this registry's rounding and is why the OSM node was
+  //     preferred rather than adjudicated against.
+  // Three points inside a kilometre of each other, in a city roughly seven
+  // kilometres across, is agreement rather than a disagreement to resolve.
+  //
+  // Deliberately not any of these, and the first three are what a search for
+  // "Gyumri" tends to surface ahead of the settlement point itself: the Black
+  // Fortress on the high ground, which is a Russian imperial military work and not
+  // the city; Vartanants Square, which is visually central and is a square rather
+  // than a city; the railway station, and Shirak airport some 5 km south-east,
+  // both of which are transport infrastructure and would look entirely plausible
+  // on a map. Also excluded: the municipality building, the cathedral of Yot Verk,
+  // any tourist information point, and the Kumayri reserve — the last of which is
+  // a real legal boundary but is the *historic core*, roughly a fifth of the city,
+  // and pinning it would answer a different question from the one this registry
+  // asks.
+  //
+  // `settlement` rather than `site` or `area`, and the distinction is the whole
+  // reason the union has three members: a monastery enclosure has a point, a lake
+  // has only a centroid, and a city has a conventional centre that is neither.
+  gyumri: { lat: 40.7852, lon: 43.8416, precision: "settlement" },
 };
 
 /** The recorded position for a place slug, or `undefined` when none is held. */

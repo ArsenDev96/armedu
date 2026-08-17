@@ -1904,4 +1904,277 @@ export const placeArticles: Article[] = [
     relatedFigures: [],
     relatedSlugs: ["lake-sevan"],
   },
+  {
+    slug: "gyumri",
+    href: "/places/gyumri",
+    category: "places",
+    categoryLabel: "Places",
+    title: "Gyumri",
+    seoTitle: "Gyumri: How Armenia's Second City Was Made",
+    placeTypeId: "settlement",
+    featured: false,
+    imageSeed: "gyumri",
+    keywords: [
+      "Gyumri",
+      "Գյումրի",
+      "Alexandropol",
+      "Alexandrapol",
+      "Leninakan",
+      "Kumayri",
+      "Shirak",
+      "Gyumri history",
+      "Gyumri architecture",
+      "Gyumri blacksmithing",
+      "black tuff",
+    ],
+    excerpt:
+      "Armenia's second city, on the Shirak plain in the north-west: a settlement that became a Russian garrison town called Alexandropol, then Soviet Leninakan, and that still carries the largest surviving nineteenth-century urban fabric in the country.",
+    metaDescription:
+      "Gyumri in Shirak: how the city was made — Kumayri, Alexandropol, Leninakan — its tuff architecture, its blacksmiths, and the 1988 earthquake.",
+    summary:
+      "Gyumri is the second city of Armenia and the administrative centre of Shirak Province, on a high plain in the north-west of the country. The settlement is old, but the city is not: it grew after the Russian Empire annexed the region, took the name Alexandropol in 1837, was granted city status in 1840, and became the largest town of Russian-ruled Eastern Armenia. It was renamed Leninakan in 1924 and Gyumri in 1992. Its historic core, protected as the Kumayri reserve since 1980, is the country's largest surviving nineteenth-century urban fabric, built in local volcanic tuff by local masons. The earthquake of 1988 destroyed much of the modern city around that core, and the rebuilding of it took decades.",
+    intro:
+      "Gyumri is the one place in Armenia where the nineteenth century is still the ordinary building stock rather than a monument. Walk out of the centre in most directions and the streets are lined with one- and two-storey houses of dark volcanic stone, cut and carved by masons whose descendants are still working, laid out on a grid that a Russian imperial surveyor drew. That is unusual anywhere in the region, and it is the reason this article exists: Armat's other Places are single buildings, enclosures and landscapes, and this is a whole city, which has to be explained rather than listed. The city has also had four official names in under two centuries — Kumayri, Alexandropol, Leninakan, Gyumri — and each change was an act of a different state. Understanding how those names, that stone and the earthquake of 1988 fit together is most of what there is to understand about the place.",
+    author: "Armat Editorial Team",
+    updated: "2026-08-11",
+    keyFacts: [
+      {
+        label: "Kind of place",
+        value: "A city — the second of the Republic of Armenia, and the centre of Shirak Province",
+      },
+      {
+        label: "Where",
+        value: "The Shirak plain in the north-west, roughly 120 kilometres from Yerevan and close to the closed border with Turkey",
+      },
+      {
+        label: "Height",
+        value: "About 1500 metres above sea level; the figure usually printed is 1509 metres, and the city is large enough that a single number is an approximation",
+      },
+      {
+        label: "Names",
+        value: "Kumayri; Alexandropol from 1837; Leninakan from 1924; Kumayri again in 1990; Gyumri from 1992",
+      },
+      {
+        label: "Historic core",
+        value: "The Kumayri reserve, declared in 1980 and covering on the order of a fifth of the city's area",
+      },
+      {
+        label: "Population",
+        value: "112 301 recorded at the census of October 2022 — a dated count, not a standing fact",
+      },
+    ],
+    sections: [
+      {
+        id: "where-it-is",
+        heading: "Where Gyumri is, and which Gyumri is meant",
+        paragraphs: [
+          "Gyumri stands on the Shirak plain, in the north-west of the Republic of Armenia, about 120 kilometres from Yerevan by road and a short distance from the closed border with Turkey. The plain is high, open and treeless — the city sits at around 1500 metres, higher than most European capitals — and it is ringed at a distance by the Aragats massif to the south-east, the Shirak range to the north and the Akhuryan river valley to the west. The wind and the winters here are worse than in the Ararat plain, and both show in what the city is built of and how.",
+          "Four different things are called Gyumri or Shirak in the sources, and mixing them is the commonest way a statement about this city goes wrong. There is the city itself; there is the urban community, the municipal unit that administers it; there is Shirak Province, the marz of which the city is the centre and which reaches north to the border with Georgia; and there is the historic core, the old town inside the modern city, which has its own legal boundary and its own name. A population, an area or an elevation quoted for one of these is not a fact about the others, and this article names which one it means each time.",
+          "The province matters for locating the city and very little else here. Gyumri is the marz centre of Shirak, which is what makes it the seat of the regional administration and gives it the courts, hospitals and offices a provincial capital carries. Everything else in this article is about the city and its core.",
+        ],
+      },
+      {
+        id: "the-names",
+        heading: "Kumayri, Alexandropol, Leninakan, Gyumri",
+        paragraphs: [
+          "The name history is unusually well documented and unusually easy to get wrong, because the changes were made by four different authorities for four different reasons and are often strung into one tidy line as though they were the same kind of event.",
+          "The oldest of the names is Kumayri, and Gyumri is generally taken to be the same word worn down by use rather than a separate name. The settlement carried it into the nineteenth century, and it is the name under which the place enters the Russian Empire: the region was occupied by Russian forces in the war that began in 1804 and formally ceded by Persia in 1813.",
+          "Alexandropol is the first change made by a state. The Emperor Nicholas I visited in 1837, and the town was renamed after the Empress Alexandra Feodorovna; three years later, in 1840, it was granted the status of a city and made the centre of a district. Those are two separate acts and the article keeps them separate, because a great deal of writing about Gyumri treats 1837 as the year it became a city, which it is not. The spelling varies in English between Alexandropol and Alexandrapol; this archive uses Alexandropol throughout, and the other form is a transliteration difference rather than a different place.",
+          "Leninakan is the Soviet change. The city was renamed in 1924, the year Lenin died, and kept that name for most of the twentieth century — which means that when the earthquake struck in 1988 the city on every news bulletin in the world was called Leninakan, and readers who know the disaster by that name are looking at the same place.",
+          "The last two changes come with the end of the Soviet Union and belong to two different moments. The Soviet name was dropped in 1990 in favour of Kumayri, the older form, and the present name Gyumri was adopted in 1992, after independence. Four names, five changes of usage, and not one of them a matter of the inhabitants slowly deciding to call the place something else.",
+        ],
+      },
+      {
+        id: "before-the-city",
+        heading: "What stood here before the nineteenth century",
+        paragraphs: [
+          "Everything above concerns a city that is about two hundred years old. The ground under it is much older, and the honest account of that requires keeping four claims apart, because popular writing merges them constantly: archaeological occupation of the site, a textual reference to a place of this name, continuous settlement, and the existence of a city.",
+          "Archaeology on and around the site records occupation reaching back into prehistory, which is unremarkable for a well-watered plain in this highland — the same is true of most of Armenia. Kumayri is named in Armenian narrative sources from the early medieval period, in connection with the risings against Arab rule in the eighth century, which establishes a settlement of that name at that date and nothing more. Claims that tie the name to an Urartian royal inscription are inferences drawn from campaign accounts that name other places in this district, and they are not the same kind of evidence as a text that says Kumayri.",
+          "So the defensible statement is a modest one. There was a settlement here for a very long time; it was substantial enough to be named in medieval sources; and it was still a village-scale place in the early nineteenth century, when the events in the next section turned it into a city within two generations. What Gyumri is not is a continuously urban site of great antiquity, and the archive says so plainly rather than reaching for a round number of millennia.",
+        ],
+      },
+      {
+        id: "the-russian-century",
+        heading: "The Russian century, and how a village became a city",
+        paragraphs: [
+          "The transformation begins with a border. When the Russian Empire took this region from Persia, and then fought the Ottoman Empire immediately to the west, Kumayri stopped being an inland village and became a frontier town on the empire's edge — with a garrison, a customs position and a road to supply. Everything that follows is downstream of that.",
+          "The first change was demographic. The war of 1828 to 1829 ended with a large movement of Armenians from Ottoman territory into the Russian Caucasus, and Kumayri received a substantial share of it: families from Kars, Erzurum and the country around them settled in and beside the existing town. A place that had been counted in hundreds of households was suddenly counted in thousands, and it was those incomers, with the crafts and the trade connections they brought, who built most of what a visitor now sees.",
+          "The second was military. An imperial order of 1834 set in train the construction of a fortress above the town, finished over the following decade or so; the town was renamed Alexandropol in 1837 and given city status in 1840. Alexandropol was thereafter a garrison city, and the garrison is not incidental to its economy — an army in permanent residence is a market for bread, leather, iron, cloth, cartage and building work, and it is a large part of why the crafts described further down grew as they did.",
+          "The third was the street plan. A city laid out under Russian imperial administration in this period gets a surveyor's grid: straight streets crossing at right angles, rectangular blocks, and a central square. That grid is still the plan of the old town, and it is the frame everything else in the city hangs on — including, as the architecture section explains, a building tradition that filled it in a way no plan specified.",
+          "The fourth was the railway. The line from Tiflis reached Alexandropol in 1899, was continued west to Kars in the same year, and a branch ran south to Yerevan by 1902. That is what turned a garrison and market town into a junction: for the rest of the imperial period Alexandropol was the largest city of Russian-ruled Eastern Armenia, larger than Yerevan, and its workshops and warehouses served a region rather than a district.",
+          "The twentieth century arrived early and hard. Alexandropol was captured by Turkish nationalist forces in the autumn of 1920, and the treaty signed in the city as the first Republic of Armenia was collapsing carries its name; the state university, founded by decree in 1919, opened in Alexandropol at the beginning of 1920 before moving to Yerevan. The city that entered the Soviet period as Leninakan had already been the second city of Armenia for a lifetime, and it stayed one.",
+        ],
+        links: [
+          { phrase: "the first Republic of Armenia", slug: "first-republic-of-armenia" },
+        ],
+      },
+      {
+        id: "the-stone",
+        heading: "Black tuff, and what the city is actually built of",
+        paragraphs: [
+          "Gyumri is described everywhere as a city of black tuff, and the phrase is useful only if the geology behind it is stated. Tuff is a rock made of consolidated volcanic ash, and the Armenian highland is full of it because the highland is volcanic. It is light, workable with hand tools when freshly quarried, hardens on exposure, and comes in colours that depend on what was in the ash — so Armenian towns are built of pink tuff, orange tuff, grey tuff and, in the quarries of this district, a dark grey to black tuff. Gyumri looks the way it does because its masons had that stone at hand.",
+          "The generalisation should not be pushed further than it goes. Not every historic building in Gyumri is black: the local repertoire includes red and reddish tuff as well, sometimes in the same façade as the dark stone, and the deliberate contrast of the two is part of the local manner rather than an accident. A blanket description of the city as uniformly black is a photographer's impression rather than a description of the fabric.",
+          "What makes the old town coherent is not one colour but one method. The buildings are load-bearing cut stone, one or two storeys, set to the street line with a door and windows on the frontage and living space arranged around an interior court. The stone is dressed, and the doorways, window surrounds, cornices and balconies carry carved detail cut by hand — restrained on a modest house, elaborate on a merchant's. A study of the city's vernacular architecture describes the result as freedom within the grid: an imperial street layout filled in by local craftsmen working to their own repertoire, which is why the old town reads as one place rather than as a set of individual designs.",
+          "The last element is iron. The gates, the window grilles, the balcony railings, the door furniture and the brackets are forged, and they are the reason the blacksmiths' section below is about architecture as much as about a craft. Stone and iron were made by two trades in the same town for the same buildings, and the visual character of Gyumri is what the two produced together.",
+        ],
+      },
+      {
+        id: "the-historic-core",
+        heading: "The historic core, and what the monument counts actually count",
+        paragraphs: [
+          "The old town has a legal identity. In 1980, under the Armenian SSR, the historic core was declared a protected reserve under the older form of the city's name — the Kumayri historical and cultural museum-reserve — with the explicit purpose of stopping the demolition of low-rise historic streets for new construction. It covers on the order of a fifth of the city's area, which for a historic core is a very large share, and it was later transferred from the state to the city as municipal property, in 1998. So the body that administers it is the community, not the national museum-reserve service that runs Garni or Metsamor — a detail worth knowing because it explains why the reserve is often missing from national heritage listings.",
+          "Then there is the number of monuments, which is where care is needed. Published figures for the Kumayri reserve run from about a thousand to eighteen hundred, and they are printed without saying what is being counted, inside which boundary, or on what date. Those are three different questions and each of them changes the answer: a count of listed monuments is not a count of historic buildings, a count inside the reserve is not a count inside the city, and a count made in 1980 is not a count made now.",
+          "There is a defensible figure available, and it is a legal one rather than a promotional one. The Government of the Republic of Armenia approved the State List of immovable historical and cultural monuments of Shirak Province by a decision of 2004, and the section of that list covering the city of Gyumri runs to roughly a thousand numbered entries, some with sub-items. That is a real count with a real boundary and a real date attached — and it is the kind of figure this archive is willing to quote, precisely because the three questions above have answers.",
+          "The condition of the fabric is a separate matter from its legal status and is not uniformly good. The reserve survived the earthquake far better than the Soviet districts around it, for reasons the next sections give, but a protected historic quarter of low-rise stone houses in a city with a long housing shortage is under continuous pressure, and unregulated alteration of façades is a documented and continuing problem. Protection here is a live process rather than a completed act.",
+        ],
+      },
+      {
+        id: "blacksmithing",
+        heading: "Blacksmithing, and what UNESCO actually inscribed",
+        paragraphs: [
+          "Alexandropol was a city of trades. A frontier city with a garrison, a market and a railhead needed metal, stone, leather, wood and cloth worked locally, and it organised those trades into guilds; the wealth and the self-image of the nineteenth-century town came out of that craft economy rather than out of any single industry. Of all those trades, the one that survived into the present as a living urban practice is blacksmithing.",
+          "What the smiths of Gyumri make is architectural before it is anything else: window grilles, gates, railings, doors and door furniture, along with candlesticks and lamps. That is the direct link between this craft and the streets described above — the ironwork on a Gyumri house is not decoration applied to the architecture, it is part of it, and the two trades grew up serving the same buildings. Skills passed within families, and among today's practitioners are smiths who are the fifth or sixth generation of their own workshop; transmission now runs through the city's art academy and craft college as well as through households.",
+          "In 2023 UNESCO inscribed the tradition of blacksmithing in Gyumri on the Representative List of the Intangible Cultural Heritage of Humanity, on Armenia's nomination, as element number 01967. The precision of that sentence is the point of this paragraph. What was inscribed is a living practice — the knowledge, the skills and the transmission of them — and the list it went onto is the intangible heritage list, which is a different instrument from the World Heritage Convention with a different purpose and different legal effects.",
+          "So: Gyumri is not a World Heritage Site, and no part of it is inscribed as a World Heritage property. The city's blacksmithing tradition is an element on the Representative List of the Intangible Cultural Heritage of Humanity. Those two statements sound similar and mean entirely different things, and the conflation of them is common enough in material about the city that this article states the distinction rather than assuming a reader will make it.",
+          "One further UNESCO relationship exists and is worth naming for completeness, because it is real and is usually missed: Gyumri joined the UNESCO Global Network of Learning Cities in 2016. That is a municipal-cooperation network about lifelong learning, and it is neither a heritage designation nor a claim about the city's buildings. Gyumri is not a UNESCO Creative City; no city in Armenia is currently in that network.",
+        ],
+      },
+      {
+        id: "buildings",
+        heading: "Buildings that carry the story",
+        paragraphs: [
+          "Four buildings are worth naming, not as attractions but because each stands for one part of the account above. None of them gets its history told here; each has more of one than a paragraph can hold.",
+          "The Church of the Holy Saviour, Amenaprkich, is the nineteenth-century town's own monument. It was begun in 1858 and finished around 1872, consecrated in 1873, and it was built by the incoming population out of their own money in the boom years of Alexandropol — a large church raised by a town that had been a village within living memory. It was severely damaged in 1988 and its restoration ran for decades; it was reconsecrated in December 2024.",
+          "The Cathedral of the Holy Mother of God, known as Yot Verk, the Seven Wounds, is the other great church of the same period and the same milieu, and it stands on the central square. It was damaged in 1988 too, and repaired earlier; the two churches together are the reason that square looks the way it does.",
+          "The Black Fortress, Sev Berd, belongs to a different story and should be kept in it. It is a Russian imperial military work, ordered in 1834 and built over the following years, standing on high ground above the town — a fortification of the frontier, contemporary with the naming of Alexandropol and part of the same imperial moment. It is not a medieval Armenian castle, it is not the origin of the town, and this article makes no claim about what was fought over or from it, because the popular accounts of that are not supported by anything citable.",
+          "The last of the four is not a monument at all: the museum of urban life housed in a merchant family's town house of the 1870s. A city whose historic significance is domestic and commercial rather than monumental is properly represented by a house, and that is what it is there for.",
+        ],
+      },
+      {
+        id: "the-earthquake",
+        heading: "7 December 1988",
+        paragraphs: [
+          "On 7 December 1988 an earthquake struck northern Armenia, with its epicentre near the town of Spitak, some tens of kilometres east of the city then called Leninakan. The scientific literature places the main shock at a moment magnitude of about 6.8, on a reverse fault that broke the surface for something like 13 kilometres and generated an aftershock sequence confined to the upper crust. It is the defining event of the modern history of this city and of this province.",
+          "The damage in Leninakan was severe and was concentrated in a particular kind of building. Engineering studies published after the event found that the multi-storey precast-concrete residential blocks built in the Soviet period performed catastrophically, and that the failures were in the connections between prefabricated elements rather than in the elements themselves. A second finding is specific to this city: the ground under Leninakan is soft sediment, and the seismological work concluded that it amplified the shaking in the range of periods that matters most to buildings of that height. Two things therefore came together — a building type with no reserve of ductility, and a site that magnified exactly the motion it could not tolerate. That is why the same earthquake did far more damage here than in the other large city it struck.",
+          "The other half of that observation is the part this article draws attention to. The low-rise stone buildings of the historic core came through the earthquake very much better than the tall modern blocks around them, and the old town survives today largely because of it. That is a statement about construction — low, heavy, load-bearing masonry against tall precast frames on soft ground — rather than about the past being better built than the present, and it is the reason the Kumayri reserve exists as fabric and not only as a legal boundary.",
+          "The human scale of the event is stated here in one paragraph and no more. The earthquake killed tens of thousands of people across the affected region and left several hundred thousand without housing; the figures published for the region are estimates over a wide range, and figures attributed specifically to this city are frequently quoted without any statement of what they measure. This archive does not assign a precise death toll to Gyumri, because it has found no authoritative source that defines one, and because a number of that kind repeated without its basis is not evidence but a rhetorical device. What can be said, and matters for everything that follows, is that a city of well over two hundred thousand people lost a large part of its housing and a large part of its population in a single morning.",
+        ],
+      },
+      {
+        id: "reconstruction",
+        heading: "Reconstruction, and why it is written in the present tense",
+        paragraphs: [
+          "The Soviet authorities promised to rebuild the city within two years. In the three years that remained to the Soviet Union, several thousand apartments were completed, and then the state that had made the promise ceased to exist — into an independent Armenia in economic collapse, under blockade, with an energy crisis and a war. Reconstruction did not stop, but it changed from a centrally funded programme into a long sequence of state, diaspora and international projects.",
+          "The visible consequence was the domik: a temporary shelter, often a converted metal container, put up in the winter after the earthquake as accommodation for two or three years. Households were still living in them decades later, and the phased clearance of that temporary housing through state programmes and charitable construction continued well into the present century. The plain statement that Gyumri was rebuilt is true of the city as a whole and untrue of a great many individual households, and both halves belong in an honest account.",
+          "Heritage restoration ran on the same long clock. The Church of the Holy Saviour was under restoration for the better part of thirty years and was reconsecrated in December 2024 — a useful marker for a reader who wants to know when the earthquake stopped being an active condition of the city, because the answer is that in some respects it only recently did.",
+          "The population figures record the same story more coldly than any description. The census of 2001 counted 150 917 people in Gyumri, that of 2011 counted 121 976, and that of October 2022 counted 112 301 — against a pre-earthquake city of well over two hundred thousand. The city has not recovered its size, and the decline continued through the whole period of reconstruction.",
+        ],
+      },
+      {
+        id: "counting",
+        heading: "A note on counting a living city",
+        paragraphs: [
+          "The figure above needs its basis stated, because it is the kind of number that gets copied for a decade after it stops being true. Armenia's census reports two different populations: a permanent, or de jure, count of those who usually live in the country, and a current, or de facto, count of those actually present when the enumeration is made. Nationally the two differed by a quarter of a million people in 2022. A city figure quoted with neither its date nor its basis is therefore weaker evidence than it looks, and a reader who finds three different numbers for Gyumri in three sources is usually looking at three different measurements rather than at an error.",
+          "The same caution applies to the annual estimates published between censuses, which roll a previous census forward and are a different series from the census itself. This article gives census counts, with the census dates attached, and does not restate a population in its prose as though it were a permanent property of the place — because in a city whose defining modern experience is the loss of a third of its inhabitants, the trajectory is the fact and the single number is only a sample of it.",
+        ],
+      },
+      {
+        id: "what-it-is-called",
+        heading: "Cultural capital, city of crafts, city of humour",
+        paragraphs: [
+          "Three labels follow Gyumri everywhere and each is a different kind of claim, which is why they are treated here rather than repeated.",
+          "Cultural capital is the one with an official version and a popular version, and they are not the same. Gyumri holds no standing national designation as Armenia's cultural capital; it was named cultural capital of the Commonwealth of Independent States for the year 2013, which is a rotating annual honorific awarded to a different city each year and not a permanent status. The popular usage is much older than the award and rests on something real — a city with its own theatre, its own school of painters, a long musical life, and an unusually dense association with named writers and performers — but it is a reputation, and this archive describes it as one.",
+          "City of crafts is the most defensible of the three, because it is a description of an economy that can be documented: the guild trades of nineteenth-century Alexandropol, the surviving smiths, and the ironwork and stonework on the buildings themselves. It is a statement about the city's history rather than a slogan, and the two preceding sections are what it rests on.",
+          "City of humour is a genuine cultural convention and it is the one most easily mishandled. Gyumri has a long-standing reputation in Armenia for a particular kind of wit, carried by named local figures who are the subjects of a body of anecdotes, and that reputation is old, widely held and worth recording. What it is not is a description of the character of the people who live there. A reputation attaches to a place; personality traits do not attach to a population, and an article that presented them as though they did would be trading in stereotype rather than in cultural history.",
+          "Beneath the labels there is a plainer fact. This is the city where Avetik Isahakyan was born and raised, and where Armen Tigranian's opera Anush was first staged in 1912 — the first Armenian opera built on folk melody, premiered in a provincial city because that provincial city had the musicians and the audience for it. That is what a cultural capital looks like from the inside, and it needs no slogan.",
+        ],
+        links: [
+          { phrase: "Avetik Isahakyan", slug: "avetik-isahakyan" },
+          { phrase: "Armen Tigranian's opera Anush", slug: "anush" },
+        ],
+      },
+    ],
+    importantDates: [
+      {
+        year: "1804",
+        event:
+          "Russian forces occupy the Shirak district during the war with Persia; the region is formally ceded to the Russian Empire by the Treaty of Gulistan in 1813. Kumayri passes from one empire's frontier to another's.",
+      },
+      {
+        year: "1829",
+        event:
+          "In the settlement following the Russo-Turkish war, a large movement of Armenians from Ottoman territory — from Kars, Erzurum and the surrounding country — settles in and around Kumayri, multiplying the population of the town and bringing with it the crafts and trade connections that built the nineteenth-century city.",
+      },
+      {
+        year: "1834",
+        event:
+          "An imperial order sets in train the construction of a fortress on the high ground above the town, the work now known as the Black Fortress. It is a Russian frontier fortification, not a medieval Armenian one.",
+      },
+      {
+        year: "1837",
+        event:
+          "The Emperor Nicholas I visits, and the town is renamed Alexandropol after the Empress Alexandra Feodorovna. This is a renaming and nothing more; the grant of city status is a separate act three years later.",
+      },
+      {
+        year: "1840",
+        event: "Alexandropol is granted the status of a city and becomes the centre of a district.",
+      },
+      {
+        year: "1899",
+        event:
+          "The railway from Tiflis reaches Alexandropol and is continued west to Kars in the same year; a branch south to Yerevan follows by 1902. The city becomes a junction, and remains the largest in Russian-ruled Eastern Armenia.",
+      },
+      {
+        year: "1924",
+        event: "The city is renamed Leninakan, the name it will carry for most of the Soviet period.",
+      },
+      {
+        year: "1980",
+        event:
+          "The historic core is declared a protected reserve under the older name of the city — the Kumayri historical and cultural museum-reserve — to stop the demolition of the low-rise old town for new construction. It is transferred to municipal ownership in 1998.",
+      },
+      {
+        year: "1988",
+        event:
+          "The earthquake of 7 December, with its epicentre near Spitak and a moment magnitude of about 6.8, destroys much of the modern city. The multi-storey precast-concrete blocks fail; the low-rise stone fabric of the historic core largely stands.",
+      },
+      {
+        year: "1990",
+        event:
+          "The Soviet name is dropped in favour of Kumayri; the present name Gyumri is adopted in 1992, after independence.",
+      },
+      {
+        year: "2004",
+        event:
+          "The Government of the Republic of Armenia approves the State List of immovable historical and cultural monuments of Shirak Province, whose Gyumri section runs to roughly a thousand numbered entries — the one monument count for this city that comes with a boundary and a date.",
+      },
+      {
+        year: "2023",
+        event:
+          "UNESCO inscribes the tradition of blacksmithing in Gyumri on the Representative List of the Intangible Cultural Heritage of Humanity, element number 01967, on Armenia's nomination. A living practice is inscribed; the city is not a World Heritage property.",
+      },
+      {
+        year: "2024",
+        event:
+          "The Church of the Holy Saviour is reconsecrated in December, after a restoration that ran for the better part of thirty years — a marker for how long the recovery from 1988 actually took.",
+      },
+    ],
+    significance: {
+      heading: "Why Gyumri matters",
+      paragraphs: [
+        "Gyumri holds the largest surviving nineteenth-century urban fabric in Armenia, and it is the only place in the country where that fabric is the ordinary building stock of a working city rather than a preserved fragment. Everywhere else the Armenian past that survives above ground is ecclesiastical, military or archaeological: churches, monasteries, fortresses, mounds. Here it is houses, workshops and shopfronts on a grid — the domestic and commercial life of a nineteenth-century Armenian town, standing and inhabited. That is a category of heritage the rest of the country largely lost, and it is why a city belongs in a list of places otherwise made up of monuments.",
+        "It is also the clearest case in Armenia of how a city is made and unmade by decisions outside it. A frontier drawn by two empires brought the people, the garrison and the railway that built Alexandropol; a Soviet building programme raised the blocks that fell in 1988; the collapse of the state that promised to rebuild them left temporary shelters standing for a generation. The stone city underneath survived all of it and is still being worked in by masons and smiths whose trades are older than any of those decisions. Reading Gyumri as a single story of stone and iron misses that; reading it as a disaster misses the two centuries before it.",
+      ],
+    },
+    interestingFacts: [
+      "The city has had four official names in under two centuries — Kumayri, Alexandropol, Leninakan and Gyumri — and every change was the act of a state rather than a shift in local usage.",
+      "It became a city in 1840, three years after it was renamed Alexandropol. The two dates are constantly merged, and they are separate acts.",
+      "The historic core is protected under the city's older name: the reserve declared in 1980 is called Kumayri, not Gyumri.",
+      "What UNESCO inscribed in 2023 is the blacksmithing tradition, on the intangible heritage list. Gyumri itself is not a World Heritage property, and the distinction is the whole point of the wording.",
+      "The old low-rise stone quarter came through the earthquake of 1988 far better than the tall precast blocks built beside it, which is why there is a nineteenth-century city left to visit at all.",
+      "Published monument counts for the historic core range from about a thousand to eighteen hundred. The one figure with a boundary and a date attached is the State List approved by government decision in 2004.",
+    ],
+    relatedFigures: [],
+    relatedSlugs: ["avetik-isahakyan", "anush", "first-republic-of-armenia"],
+  },
 ];

@@ -60,6 +60,21 @@ const PLACES = [
     §47 would now be wrong at both ends.
   */
   "dilijan-national-park",
+  /*
+    §51. Gyumri is here on exactly the same terms as Tatev and Dilijan: it is a
+    Places article with a coordinate, and nothing in `visit-map.ts`,
+    `map-tiles.ts` or the map's data path was touched to admit it. The map went
+    9 → 10 by an article and a registry entry existing, which is the property this
+    list tests. The one component edit §51 made — a glyph for the `settlement`
+    type, which had never had a rendered member — changes what a marker looks like,
+    not which markers exist.
+
+    Where Tatev stretched the extent south and Dilijan north, Gyumri stretches it
+    *west*: it is north of Dilijan and most of a degree west of every other marker,
+    which is a direction this map had never covered. A box tuned before §47 would
+    now be wrong on three sides.
+  */
+  "gyumri",
 ] as const;
 
 /**
@@ -71,6 +86,16 @@ const PLACES = [
  * 33,765 hectares does not.
  */
 const AREA_PLACES = ["lake-sevan", "dilijan-national-park"] as const;
+
+/**
+ * The `settlement` points — a town's conventional centre, which is neither a
+ * built complex nor the middle of a natural feature.
+ *
+ * One slug as of §51, and the first time this member of the union has been used
+ * at all. Kept as a list for the same reason `AREA_PLACES` is: a second town has
+ * to be added to a named list rather than to a boolean.
+ */
+const SETTLEMENT_PLACES = ["gyumri"] as const;
 
 const NOT_MAPPED = {
   cuisine: ["lavash", "dolma", "khorovats", "gata", "harissa", "ghapama"],
@@ -478,10 +503,17 @@ test("the derived bounds contain every marker, at every width", async ({ page })
   /*
     §20 of the map step said the extent must adapt rather than be retuned, and §47
     was the first change that actually tested it: Tatev is far enough south that a
-    fixed national box would have framed it badly or dropped it. §49 tests the
-    other end of the same claim — Dilijan is the northernmost marker on the map,
-    about a third of a degree above Etchmiadzin, so the nine markers now span
-    roughly 1.4 degrees of latitude against the half-degree the first seven did.
+    fixed national box would have framed it badly or dropped it. §49 tested the
+    other end of the same claim — Dilijan was the northernmost marker on the map,
+    about a third of a degree above Etchmiadzin, so nine markers spanned roughly
+    1.4 degrees of latitude against the half-degree the first seven did.
+
+    §51 tests the third side. Gyumri is north of Dilijan *and* about 0.7 degrees
+    west of Etchmiadzin, which was the westernmost point for ten steps, so the ten
+    markers now span a box that is wider as well as taller. Leaflet fits bounds to
+    the container, so a wider box at a fixed aspect ratio zooms every marker closer
+    together — which is why the overlap measurement below had to be re-run and is
+    reported rather than assumed.
 
     Widened to the four viewport widths the responsive suite already uses, because
     the failure this guards against is width-dependent in a way §47's single
@@ -496,7 +528,7 @@ test("the derived bounds contain every marker, at every width", async ({ page })
   */
   test.slow();
 
-  expect(getVisitMapPoints("en").length, "the ninth place is on the map").toBe(PLACES.length);
+  expect(getVisitMapPoints("en").length, "the tenth place is on the map").toBe(PLACES.length);
 
   for (const width of [360, 390, 768, 1440]) {
     await page.setViewportSize({ width, height: 900 });
@@ -549,11 +581,12 @@ const KNOWN_OVERLAPS = [
   ["garni-temple", "geghard-monastery"],
 ].map((pair) => pair.slice().sort().join(" / "));
 
-test("extending the map north introduces no new marker overlap", async ({ page }) => {
+test("extending the map west introduces no new marker overlap", async ({ page }) => {
   /*
-    §49 stretches the extent again, so every pair has to be re-measured rather
-    than assumed: pushing the northern edge up makes Leaflet fit a taller box, and
-    at a fixed container height that pulls every marker closer to its neighbours.
+    §51 stretches the extent again and in a new direction, so every pair has to be
+    re-measured rather than assumed: pushing the western edge out makes Leaflet fit
+    a wider box, and at a fixed container width that pulls every marker closer to
+    its neighbours — the same effect §49's taller box had, on the other axis.
 
     The assertion is a *subset* one, not an exact count. Whether the two known
     pairs still overlap, and by how much, is a measurement to be reported rather
@@ -597,11 +630,15 @@ test("extending the map north introduces no new marker overlap", async ({ page }
   }
 });
 
-test("precision travels with the point, and the two area centroids stay areas", () => {
+test("precision travels with the point, and each kind stays its own kind", () => {
   const points = getVisitMapPoints("en");
 
   for (const point of points) {
-    const expected = (AREA_PLACES as readonly string[]).includes(point.slug) ? "area" : "site";
+    const expected = (AREA_PLACES as readonly string[]).includes(point.slug)
+      ? "area"
+      : (SETTLEMENT_PLACES as readonly string[]).includes(point.slug)
+        ? "settlement"
+        : "site";
     expect(point.precision, point.slug).toBe(expected);
   }
 
@@ -618,6 +655,70 @@ test("precision travels with the point, and the two area centroids stay areas", 
     points.filter((point) => point.precision === "area").map((point) => point.slug).sort(),
     "exactly two places are centroids of large features",
   ).toEqual([...AREA_PLACES].sort());
+  expect(
+    points.filter((point) => point.precision === "settlement").map((point) => point.slug).sort(),
+    "exactly one place is a town centre",
+  ).toEqual([...SETTLEMENT_PLACES].sort());
+});
+
+test("the settlement marker is generic, and its type reaches the accessible name", async ({
+  page,
+}) => {
+  /*
+    §51's only map-component change, pinned as narrowly as it was made.
+
+    `settlement` had no glyph because the taxonomy had never had a rendered member,
+    so the marker fell back to the bare pin. A glyph was added — two blocks on a
+    ground line — and that is the whole edit. What this test guards is that the
+    edit stayed generic: the same pin as every other type, one glyph path, and the
+    localized type still carried in words rather than only in the drawing.
+
+    There is no Gyumri-specific anything to assert, which is the point. The marker
+    is selected by `data-place-type`, not by slug.
+  */
+  await page.goto("/en/visit");
+  await openMap(page);
+
+  const marker = page.locator('[data-slug="gyumri"]');
+  await expect(marker).toHaveCount(1);
+  await expect(marker).toHaveAttribute("data-place-type", "settlement");
+
+  /*
+    §52. Selecting it now shows Gyumri's own file — the inversion of §51, where the
+    selected card correctly showed no image at all. Asserted here, beside the marker
+    identity, because the panel is the one surface where the settlement marker and
+    the settlement artwork meet, and because a selected card that silently borrowed
+    a neighbour's cover would look completely finished.
+  */
+  const panel = mapSection(page).locator("[aria-live='polite']");
+  await marker.focus();
+  await marker.press("Enter");
+  await expect(panel.locator("img")).toHaveAttribute("src", /gyumri\.webp/);
+  await expect(panel.locator("svg[role='img']"), "no placeholder in the panel").toHaveCount(0);
+  await expect(
+    panel.getByRole("link", { name: bundle("en").pages.visit.mapCta, exact: true }),
+  ).toHaveAttribute("href", "/en/places/gyumri");
+  for (const borrowed of ["bagratid-armenia", "erebuni-fortress", "dilijan-national-park"]) {
+    await expect(
+      panel.locator(`img[src*="${borrowed}"]`),
+      `${borrowed} must not illustrate the Gyumri panel`,
+    ).toHaveCount(0);
+  }
+
+  // The accessible name is the localized title and the localized type, in every
+  // edition — the guarantee that shape and colour are never the only channel.
+  for (const locale of ["en", "hy", "hyw"] as const) {
+    await page.goto(`/${locale}/visit`);
+    await openMap(page);
+
+    const point = getVisitMapPoints(locale).find((entry) => entry.slug === "gyumri")!;
+    const typeLabel = bundle(locale).placeTypes.find((filter) => filter.id === "settlement")!.label;
+
+    await expect(page.locator(`[data-slug="gyumri"]`), locale).toHaveAttribute(
+      "aria-label",
+      `${point.title} — ${typeLabel}`,
+    );
+  }
 });
 
 test("the map titles are localized, not the default edition's", () => {
@@ -826,15 +927,15 @@ test("every place can be selected and shows its own image", async ({ page }) => 
     await expect(panel, slug).toContainText(article.title);
 
     /*
-      §50: every place has a picture again, Dilijan included, so the first branch
-      is the one that runs for all nine.
+      §52: every place has a picture again, Gyumri included, so the first branch is
+      the one that runs for all ten.
 
-      The split is kept rather than collapsed into the `registered` branch. It has
-      been needed twice — §47 for Tatev and §49 for Dilijan, each of which shipped
-      ahead of its artwork and correctly showed no image in this panel — and the
-      `else` is the stronger of the two claims: an unillustrated place must show
-      *no* image, which is what catches a neighbour's cover leaking in to fill the
-      gap. Deleting it would have to be undone by the tenth place.
+      The split is kept rather than collapsed into the `registered` branch, and the
+      record now runs three for three: §47 needed the `else` for Tatev, §49 for
+      Dilijan, §51 for Gyumri, and each time the step before had it and was told it
+      could be deleted. The `else` is the stronger of the two claims — an
+      unillustrated place must show *no* image in this panel, which is what catches
+      a neighbour's cover leaking in to fill the gap — and Place #11 will need it.
     */
     const registered = getImageSrc(slug);
     if (registered) {

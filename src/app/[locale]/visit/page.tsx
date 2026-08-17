@@ -31,29 +31,91 @@ import { getVisitMapPoints } from "@/lib/visit-map";
  */
 
 /**
- * The six places the journey opens with.
+ * The six places the journey opens with — re-curated in §53, once the section
+ * reached ten.
  *
- * Chosen for spread rather than rank: a classical temple, a rock-cut monastery,
- * a lake, a monastery on the Ararat plain, a manuscript institute and an
- * Urartian fortress — which is every one of the four place types, with the two
- * that have a second article each contributing one.
+ * The row is not the six oldest articles and not a ranking. It is a compact
+ * answer to "what kind of country is this?", and the six cards are chosen so
+ * that a reader who looks at nothing else still learns that Armenia holds a
+ * living city, two landscapes that look nothing alike, a pre-Christian monument
+ * and monastic architecture in two completely different settings — in six
+ * different parts of the country.
  *
- * Etchmiadzin is the deliberate omission. It is the third `monastery` and would
- * have made half the row one type; it stays one click away behind the "all
- * places" link, which is the difference between a curated row and a copy of the
- * listing.
+ * ## What changed, and why it had to
+ *
+ * The previous six were Garni, Geghard, Lake Sevan, Khor Virap, the Matenadaran
+ * and Erebuni. That was a fair curation of a seven-article section and a poor
+ * one of a ten-article section: five of the six sat within about forty
+ * kilometres of Yerevan — two in the city, two in the same Kotayk valley eight
+ * kilometres apart, one on the Ararat plain — and the row said, without meaning
+ * to, that Armenia is the area around its capital.
+ *
+ * §47, §49 and §51 added the three articles that fix precisely that: Tatev in
+ * Syunik, Dilijan in Tavush, Gyumri in Shirak. All three now have artwork, which
+ * is what makes them curatable at all — a curated card is a picture card.
+ *
+ * ## The six, one line each
+ *
+ * - `khor-virap`   — the Ararat plain, and the single most recognisable view in
+ *                    the country. Kept despite being the most "expected" card
+ *                    here, because a first impression that omits it is a first
+ *                    impression that is trying to prove something.
+ * - `gyumri`       — the northwest, the only `settlement`, and the only card
+ *                    where the subject is somewhere people live rather than
+ *                    somewhere people visit.
+ * - `lake-sevan`   — the east, and the natural feature Armenia is defined by.
+ * - `garni-temple` — Kotayk, and the whole pre-Christian layer. Without it the
+ *                    row begins in the fourth century, which is false.
+ * - `dilijan-national-park` — the northeast, and the one landscape in the
+ *                    registry that is green and closed rather than open and dry.
+ * - `tatev-monastery` — the south, a monastery that looks nothing like the other
+ *                    monastery, and the row's second religious card.
+ *
+ * ## The three that came out, and what each cost
+ *
+ * - `geghard-monastery` — the cheapest removal and the first one made. It is a
+ *   World Heritage property and rock-cut, so it is a real loss, but it is eight
+ *   kilometres from Garni in the same valley and it would have been the row's
+ *   third monastery.
+ * - `erebuni-fortress` — the deep-antiquity card, and the more painful of the
+ *   two Yerevan removals. Garni carries "Armenia is older than its churches"
+ *   forward alone now, which it can: what is lost is Urartu specifically, and
+ *   the eighth century BC.
+ * - `matenadaran` — the removal this file is least comfortable with, and the
+ *   reason is written down rather than glossed. It is the only `museum` in the
+ *   section, the only card about written culture, and the only remaining card in
+ *   Yerevan, where nearly every reader of this page actually is. It came out
+ *   because §3's five buckets do not include "museum" and do include "historic
+ *   monuments", and between the Matenadaran and Garni only one of them answers
+ *   that. The row now has no museum and no card in the capital; both are one
+ *   click behind the CTA, and both are stated here so the next curator argues
+ *   with the decision rather than rediscovering it.
+ *
+ * Etchmiadzin remains uncurated, as it has since this row was written, and is
+ * now one of four places on the map that are not in it. That gap is the point:
+ * the map is coverage, this is a selection.
+ *
+ * ## Order
+ *
+ * Editorial, not alphabetical, and it survives the responsive grid. At three
+ * columns the rows read monastery / city / lake and temple / forest / monastery,
+ * so the two monasteries land in opposite corners and the two landscapes never
+ * touch; at two columns the pairs are city-beside-monastery, temple-beside-lake
+ * and monastery-beside-forest; in a single column no two adjacent cards are the
+ * same kind of picture. Six divides evenly into both grids, so there is no
+ * orphaned final row.
  *
  * Slugs missing from an edition are dropped rather than rendered as a dead
- * card, on the same rule as `FOOTER_HISTORY` in `navigation.ts`. Today all seven
+ * card, on the same rule as `FOOTER_HISTORY` in `navigation.ts`. Today all ten
  * places exist in all three editions, so nothing is dropped.
  */
 const VISIT_FEATURED_PLACES = [
-  "garni-temple",
-  "geghard-monastery",
-  "lake-sevan",
   "khor-virap",
-  "matenadaran",
-  "erebuni-fortress",
+  "gyumri",
+  "lake-sevan",
+  "garni-temple",
+  "dilijan-national-park",
+  "tatev-monastery",
 ] as const;
 
 /**
@@ -74,8 +136,8 @@ const VISIT_FEATURED_DISHES = ["lavash", "dolma", "khorovats", "gata"] as const;
  * The bridge back into the archive.
  *
  * Every one of these four is already declared in the `relatedSlugs` of at least
- * one place in `VISIT_FEATURED_PLACES`, which is the test of whether a
- * connection is real or invented for the sake of a fourth card:
+ * one *Places article*, which is the test of whether a connection is real or
+ * invented for the sake of a fourth card:
  *
  * - `adoption-of-christianity` — Khor Virap, Geghard and Garni all point at it;
  * - `kingdom-of-urartu` — Erebuni and Lake Sevan point at it;
@@ -83,9 +145,22 @@ const VISIT_FEATURED_DISHES = ["lavash", "dolma", "khorovats", "gata"] as const;
  * - `tigran-the-great` — Khor Virap and Garni point at it, and it is the
  *   pre-Christian context Garni is most often read against.
  *
+ * **The rule was "at least one *curated* place" until §53, and this row is
+ * unchanged by that step deliberately.** Three of the four still clear the
+ * stricter form through Khor Virap, Garni and Lake Sevan. The alphabet does not:
+ * its only carrier is the Matenadaran, which §53 removed from the row above
+ * while leaving it in the section, on the map and in the listing. The connection
+ * is therefore still declared in the content — which is what this rule was
+ * actually for — but it is no longer visible on this page, and a reader now
+ * meets the alphabet card without having just seen the building that holds the
+ * manuscripts. That is a real cost of the re-curation, recorded here rather than
+ * fixed by quietly dropping a Learn card or by re-curating a place to satisfy a
+ * comment. Changing this row is a separate editorial decision and belongs in its
+ * own step.
+ *
  * Nothing was added to reach four. If a fifth were wanted it would have to earn
- * the same way, and `bagratid-armenia` (Lake Sevan) is the only other candidate
- * that would.
+ * the same way, and `bagratid-armenia` (Lake Sevan and Tatev) is the only other
+ * candidate that would.
  */
 const VISIT_LEARN_ARTICLES = [
   "adoption-of-christianity",

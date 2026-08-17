@@ -218,6 +218,69 @@ const IMAGES: Record<string, string> = {
    * genre and not a fault in the file: the caption and the article carry the
    * geography, and the alternative would have been putting a building in the frame
    * of an article about there not being one.
+   *
+   * `gyumri.webp` is the tenth place and §52, and it is the **first urban street
+   * artwork in this registry** — every other entry is a monument, a landscape or a
+   * building in isolation. That makes its verification different in kind, and what
+   * was checked is recorded here rather than reconstructed later.
+   *
+   * **Container.** 1584×993 — a *third* distinct size, so the "not 1586×992" note
+   * above no longer refers to Khor Virap's PNG and Garni alone. The aspect is
+   * effectively unchanged (1.595 against 1.599), so nothing about the crops moves;
+   * the file is simply two pixels narrower and one taller than the house size.
+   * `RIFF/WEBP` with `VP8X` + `ICCP` + `VP8 ` — an extended container carrying a
+   * 456-byte sRGB monitor ICC profile, like Erebuni and the Matenadaran and unlike
+   * the six plain `RIFF/VP8` files. The `VP8X` flag byte is `0x20`: ICC set, and
+   * alpha, EXIF, XMP and animation all clear, so none of those can be present. One
+   * lossy VP8 keyframe, sync `9D 01 2A`, three channels, eight bits, sRGB, no
+   * orientation. At 530 KB (542,872 bytes) it is the **third heaviest** file here,
+   * behind Erebuni and the Matenadaran — a consequence of a dense street scene with
+   * fine masonry detail rather than of the file being unoptimised, and it does not
+   * change the standing media-optimisation debt. SHA-256
+   * 11f593161584a5579094562f3b20faaa59f96bca333853ac7b18ee3bcdfdf72e. Registered
+   * exactly as delivered, unaltered, unoptimised and unrenamed, like every entry
+   * since §30.
+   *
+   * **What is in the frame,** because for a city the plausible wrong picture is a
+   * *monument* rather than a place: a wet paved square and a street receding to a
+   * vanishing point, with a long terrace of two-storey Alexandropol-era façades on
+   * the left — dark grey-black tuff with reddish-brown tuff surrounds, pilasters and
+   * cornices, hand-carved window and door frames, wrought-iron balconies, all on the
+   * street line. On the right a church in black tuff with red-orange geometric
+   * inlay. Between them a horse and a traditional phaeton with its driver, street
+   * lamps, spruces, pedestrians in winter coats and a few parked cars in the middle
+   * distance, under overcast Shirak light. It reads as a **living city**, not a
+   * monument portrait: the left half is entirely secular urban fabric and the church
+   * is one element among several.
+   *
+   * It is specifically **not** the Black Fortress, a monastery, a cathedral cover,
+   * Erebuni or Yerevan, a generic Russian imperial city or a generic European old
+   * town — the black-and-red tuff, the carved surrounds and the low two-storey
+   * street line are Gyumri's own register. There is no ruin, no rubble, no
+   * earthquake scene, no flag, no Soviet iconography, no invented event, no
+   * high-rise and no traffic-dominated composition.
+   *
+   * **Text audit,** run because this is the first artwork with a street in it. No
+   * shopfront sign, banner, plaque, street sign, wall inscription or poster carries
+   * lettering, and the church's red-tuff ornament is geometric rather than
+   * epigraphic. Two tiny unreadable marks survive and are recorded rather than
+   * edited away: a small white pavement notice by the left terrace (~20×30 px in
+   * source, resolving at 8× to colour smears with no letterforms) and one car number
+   * plate (~20×8 px, a blue tab and a grey smear with no legible characters). The
+   * file was not retouched.
+   *
+   * Two things to know rather than rediscover, recorded here and in §52 of
+   * PROJECT_STATE.md rather than corrected. Like Geghard, Tatev and Dilijan this
+   * file is photographic in register, and it is **the most photographic entry in the
+   * registry** — a documentary street photograph in look, including a legible face
+   * on the carriage driver. It inherits `ARTWORK_PROVENANCE` and is captioned
+   * AI-generated, which remains the more cautious of the two claims and matters more
+   * here than anywhere before it. And the narrow search thumbnail, which is the
+   * tightest live crop, trims 52.8 per cent horizontally and keeps the carriage, the
+   * square and the church while losing most of the terrace — still recognisably
+   * Gyumri, but "carriage and church" rather than "historic street". No
+   * `object-position` was added, because the default centre crop is degraded rather
+   * than unusable and this registry has no per-image focus mechanism for scenes.
    */
   "khor-virap": "/images/places/khor-virap.png",
   "etchmiadzin-cathedral": "/images/places/etchmiadzin-cathedral.webp",
@@ -228,6 +291,7 @@ const IMAGES: Record<string, string> = {
   "geghard-monastery": "/images/places/geghard-monastery.webp",
   "tatev-monastery": "/images/places/tatev-monastery.webp",
   "dilijan-national-park": "/images/places/dilijan-national-park.webp",
+  gyumri: "/images/places/gyumri.webp",
 };
 
 /**
@@ -398,6 +462,72 @@ export const PENDING_ARTWORK: readonly string[] = [
    * Sevan three, the Garni three and the Geghard five: the failure they guard
    * against is the cover being repointed at a plausible neighbour later, and that
    * outlives the file landing.
+   */
+
+  /*
+   * §51. Gyumri — the tenth Place, the first `settlement`, and the ninth time this
+   * list has filled.
+   *
+   * Every file under `public/` was opened rather than read off its filename, and
+   * none of them shows what this article is about: a nineteenth-century city of
+   * dark tuff on a grid, one- and two-storey stone frontages on the street line,
+   * carved surrounds and forged iron. Armat has no urban imagery of any kind
+   * except the medieval one named below.
+   *
+   * Five substitutions were available and each is recorded as refused, because
+   * each could be argued for and three of them look right at a glance.
+   *
+   * `history/bagratid-armenia.webp` is the sharpest and the one a search would
+   * return first. It is a *city* — a dense stone townscape with domed churches
+   * seen from above — and it is Ani: a walled medieval capital on a steppe plateau
+   * above a gorge, abandoned since the eighteenth century, in the country west of
+   * the present border. Gyumri is an inhabited nineteenth-century imperial grid on
+   * an open plain. Using Ani here would illustrate "old Armenian stone city" and
+   * caption a ruin as a living one, which is the precise conflation this article's
+   * early-history section exists to prevent.
+   *
+   * `writers/avetik-isahakyan.webp` is the biographical trap. Isahakyan was born
+   * in Alexandropol, this article names him, and the file is in the repository —
+   * but it is an interior portrait of a man at a writing desk, with no city in it
+   * at all, and lending a writer's portrait to a settlement article would put a
+   * face where a place belongs.
+   *
+   * `places/khor-virap.png` (still byte-identical to `hero-ararat.png`) and
+   * `places/tatev-monastery.webp` are the Armenia of the photographs — a mountain
+   * over a plain, a monastery on a plateau — and they are what this article is
+   * least about. `places/erebuni-fortress.webp` is excluded on principle rather
+   * than resemblance: an excavated citadel is the archaeological register, and
+   * borrowing a site's cover for a city is the substitution this list exists to
+   * stop.
+   *
+   * Also refused in advance, and worth writing down because they are what a brief
+   * would drift towards: the Black Fortress alone, which is a Russian military
+   * work and not the city and which the article deliberately keeps in its own
+   * paragraph; anything showing the 1988 earthquake or its damage, which would
+   * make a disaster image the identity of a living place; and a generic Caucasian
+   * street, which would say nothing.
+   *
+   * What a commission would have to carry, recorded now so it is not reconstructed
+   * later: a street or small square in the historic core, one- and two-storey
+   * load-bearing stone frontages set to the street line, dark grey to black tuff
+   * with red tuff present rather than absent, carved window and door surrounds,
+   * forged iron grilles and balcony railings, an open high plain implied beyond
+   * the roofline, no snow peak, no dome as the subject, no ruin and no rubble.
+   *
+   * §51→§52. Emptied for the ninth time. The refusals above are kept rather than
+   * deleted, on the same principle as the Lake Sevan three, the Garni three, the
+   * Geghard five and the Dilijan four: the failure they guard against is the cover
+   * being repointed at a plausible neighbour later, and that outlives the file
+   * landing. `bagratid-armenia.webp` in particular is still the only other stone
+   * city in this repository and is still Ani.
+   *
+   * The delivered file answers the commission on every point, which is why it is
+   * registered and none of the five substitutes ever was: a street and a square
+   * rather than one building, two-storey load-bearing frontages on the street line,
+   * dark tuff with red tuff present rather than absent, carved surrounds and forged
+   * iron, no snow peak, no dome as the subject, no ruin and no rubble. The two
+   * findings it did raise — the photographic register and the narrow-thumbnail crop
+   * — are recorded against its `IMAGES` entry above, not fixed by editing the asset.
    */
 ];
 

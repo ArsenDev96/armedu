@@ -71,7 +71,10 @@ import type { VisitMapPoint } from "@/lib/visit-map";
  *
  * Keyed by the existing `placeTypeId`. A type with no glyph falls back to the
  * bare pin rather than to a wrong one, which is what should happen the day a
- * sixth type is added: a plain marker, not a museum book on a settlement.
+ * type ships without one: a plain marker, not a museum book on a settlement.
+ * That fallback held for `settlement` until the taxonomy gained its first
+ * member; `settlement` now has a glyph like every other type, and the fallback
+ * remains for whatever comes next.
  */
 const TYPE_GLYPH: Record<string, string> = {
   // A domed church: semicircle on a base.
@@ -82,6 +85,17 @@ const TYPE_GLYPH: Record<string, string> = {
   museum: "M8 5.5v6M8 5.5C7 4.6 5.8 4.6 4.5 5v6c1.3-.4 2.5-.4 3.5.5M8 5.5c1-.9 2.2-.9 3.5-.5v6c-1.3-.4-2.5-.4-3.5.5",
   // Water: two waves.
   nature: "M4.5 7.5c1.2-1 2.3-1 3.5 0s2.3 1 3.5 0M4.5 10c1.2-1 2.3-1 3.5 0s2.3 1 3.5 0",
+  /*
+    Two blocks on a ground line — the generic mark for a built-up place.
+
+    Deliberately the smallest thing that reads as a settlement rather than as any
+    particular one. It is not a skyline, not a coat of arms, not a tower, and not
+    a picture of Gyumri: the same rule that keeps `monastery` a domed shape rather
+    than Khor Virap applies here, and it has to hold before a second town ships.
+    Shape, not colour, and the accessible name still carries the localized type in
+    words — see `decorate` below.
+  */
+  settlement: "M4.5 11h7M5.5 11V7.5h3V11M8.5 11V6h2v5",
 };
 
 function pinSvg(placeTypeId: string, selected: boolean): string {
