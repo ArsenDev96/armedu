@@ -83,6 +83,17 @@ const NOT_CURATED = [
   "geghard-monastery",
   "erebuni-fortress",
   "matenadaran",
+  /*
+    §57. Amberd is the eleventh place and the first one written *after* §53 reviewed
+    this row, which makes it the first real test of whether the review holds.
+
+    It is on the map and in `/places` and it is deliberately not here. The row was
+    curated on editorial grounds a step ago and adding the newest article to it
+    every time one is written would make the curation a queue rather than a
+    judgement — which is exactly what the list this constant belongs to exists to
+    prevent. The row stays at six.
+  */
+  "amberd-fortress",
 ] as const;
 
 const ORIGIN = "https://armat.site";
@@ -385,15 +396,22 @@ test("the curated row has the editorial shape §53 chose, and the map still has 
 
   /*
     And the half that makes the curation safe: nothing was removed from the
-    archive. All ten places — the six curated and the four not — are on this
+    archive. All eleven places — the six curated and the five not — are on this
     page's own map list, which is server-rendered, so a card leaving the row
     cannot take an article off the map with it.
+
+    §57 is where the gap between the two numbers stops being incidental. The row is
+    six and the section is eleven, so nearly half the Places articles are reachable
+    from this page only through the map and the all-places link. That is the design:
+    the map answers *where can I already read about something* and grows with the
+    section, while the row is an editorial selection reviewed in §53 and left alone
+    here.
   */
   await page.goto("/en/visit");
-  await expect(page.locator("[data-map-list] li"), "the map still shows all ten").toHaveCount(
+  await expect(page.locator("[data-map-list] li"), "the map still shows all eleven").toHaveCount(
     places.length,
   );
-  expect(places.length, "ten places in the section").toBe(10);
+  expect(places.length, "eleven places in the section").toBe(11);
 
   for (const article of places) {
     const link = page.locator(`[data-map-list-item="${article.slug}"]`);
@@ -907,14 +925,14 @@ test("every canonical route the journey links into still works", async ({ page }
   /*
     The listings themselves, and their counts, which a curation must not touch.
 
-    Places moves 7 → 8 in §47, 8 → 9 in §49 and 9 → 10 in §51. The number is
-    edited rather than derived on purpose: the point of this assertion is that
-    adding a *curated row* to `/visit` does not change what the section listings
-    contain, so it has to be a figure someone updates deliberately when the section
-    genuinely grows.
+    Places moves 7 → 8 in §47, 8 → 9 in §49, 9 → 10 in §51 and 10 → 11 in §57. The
+    number is edited rather than derived on purpose: the point of this assertion is
+    that adding a *curated row* to `/visit` does not change what the section
+    listings contain, so it has to be a figure someone updates deliberately when the
+    section genuinely grows.
   */
   for (const [path, count] of [
-    ["/en/places", 10],
+    ["/en/places", 11],
     ["/en/cuisine", 6],
     ["/en/history", 7],
   ] as const) {

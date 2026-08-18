@@ -75,6 +75,24 @@ const PLACES = [
     now be wrong on three sides.
   */
   "gyumri",
+  /*
+    §57. Amberd is here on exactly the same terms as Tatev, Dilijan and Gyumri: it
+    is a Places article with a coordinate, and nothing in `visit-map.ts`,
+    `map-tiles.ts`, `VisitMap.tsx` or the map's data path was touched to admit it.
+    The map went 10 to 11 by an article and a registry entry existing, which is the
+    property this list tests. There is no allow-list to add it to and no new marker
+    type: it is `historical`, so it draws the glyph Erebuni and Garni have drawn
+    since §33.
+
+    It is also the first addition in four steps that stretches the extent in *no*
+    direction. Tatev pulled the box south, Dilijan north, Gyumri north-west; Amberd
+    sits well inside all three edges — north of Etchmiadzin, east of Gyumri, and
+    nowhere near a boundary. The bounds are marker-derived, so an eleventh marker
+    inside the existing box must leave the framing untouched, which is a different
+    claim from the three stretches before it and worth measuring rather than
+    assuming.
+  */
+  "amberd-fortress",
 ] as const;
 
 /**
@@ -508,12 +526,19 @@ test("the derived bounds contain every marker, at every width", async ({ page })
     about a third of a degree above Etchmiadzin, so nine markers spanned roughly
     1.4 degrees of latitude against the half-degree the first seven did.
 
-    §51 tests the third side. Gyumri is north of Dilijan *and* about 0.7 degrees
+    §51 tested the third side. Gyumri is north of Dilijan *and* about 0.7 degrees
     west of Etchmiadzin, which was the westernmost point for ten steps, so the ten
-    markers now span a box that is wider as well as taller. Leaflet fits bounds to
+    markers spanned a box that was wider as well as taller. Leaflet fits bounds to
     the container, so a wider box at a fixed aspect ratio zooms every marker closer
     together — which is why the overlap measurement below had to be re-run and is
     reported rather than assumed.
+
+    §57 tests the opposite case, and it is the one the previous three could not.
+    Amberd changes no extreme: it is inside the box Gyumri, Dilijan and Tatev
+    already defined, so the derived bounds are the same box with one more pin in it.
+    What must hold is that an eleventh marker inside the existing frame is still
+    *visible* at every width — a pin that clears the box at 1440 px can fall outside
+    it at 360 px — and that nothing was retuned to make room for it.
 
     Widened to the four viewport widths the responsive suite already uses, because
     the failure this guards against is width-dependent in a way §47's single
@@ -528,7 +553,7 @@ test("the derived bounds contain every marker, at every width", async ({ page })
   */
   test.slow();
 
-  expect(getVisitMapPoints("en").length, "the tenth place is on the map").toBe(PLACES.length);
+  expect(getVisitMapPoints("en").length, "the eleventh place is on the map").toBe(PLACES.length);
 
   for (const width of [360, 390, 768, 1440]) {
     await page.setViewportSize({ width, height: 900 });
@@ -581,12 +606,20 @@ const KNOWN_OVERLAPS = [
   ["garni-temple", "geghard-monastery"],
 ].map((pair) => pair.slice().sort().join(" / "));
 
-test("extending the map west introduces no new marker overlap", async ({ page }) => {
+test("adding a marker inside the existing box introduces no new overlap", async ({ page }) => {
   /*
-    §51 stretches the extent again and in a new direction, so every pair has to be
+    §51 stretched the extent again and in a new direction, so every pair had to be
     re-measured rather than assumed: pushing the western edge out makes Leaflet fit
     a wider box, and at a fixed container width that pulls every marker closer to
     its neighbours — the same effect §49's taller box had, on the other axis.
+
+    §57 does not move the box at all, which changes what this test is for rather
+    than making it redundant. Amberd sits inside the existing frame, so the scale is
+    unchanged and the two known pairs must measure as they did; what is new is an
+    eleventh pin dropped into ground that already had markers around it. Its nearest
+    neighbour is Etchmiadzin, about 26 km away — four times the Erebuni-Matenadaran
+    gap and three times the Garni-Geghard one — so a third overlapping pair is not
+    expected. Expected is not measured, which is why this runs.
 
     The assertion is a *subset* one, not an exact count. Whether the two known
     pairs still overlap, and by how much, is a measurement to be reported rather
@@ -715,6 +748,67 @@ test("the settlement marker is generic, and its type reaches the accessible name
     const typeLabel = bundle(locale).placeTypes.find((filter) => filter.id === "settlement")!.label;
 
     await expect(page.locator(`[data-slug="gyumri"]`), locale).toHaveAttribute(
+      "aria-label",
+      `${point.title} — ${typeLabel}`,
+    );
+  }
+});
+
+test("the historical marker took no new glyph, and its type is localized", async ({ page }) => {
+  /*
+    §57's counterpart to the §51 settlement-marker test, and deliberately the
+    *opposite* claim.
+
+    §51 added one `TYPE_GLYPH` entry because `settlement` had never had a rendered
+    member, and that test pins the edit as generic. §57 adds no component code at
+    all: `historical` has had a glyph since §33, Amberd is the third article under
+    it, and the marker must be indistinguishable from Erebuni's and Garni's except
+    in position and name. There is nothing Amberd-specific to assert, which is the
+    point — the marker is selected by `data-place-type`, not by slug.
+  */
+  await page.goto("/en/visit");
+  await openMap(page);
+
+  const marker = page.locator('[data-slug="amberd-fortress"]');
+  await expect(marker).toHaveCount(1);
+  await expect(marker).toHaveAttribute("data-place-type", "historical");
+
+  // All three `historical` markers exist and share the one type attribute.
+  await expect(page.locator('[data-slug][data-place-type="historical"]')).toHaveCount(3);
+
+  /*
+    Selecting it opens Amberd and shows *no* image — the branch §52 said Place #11
+    would need. A selected card that quietly borrowed a neighbour's cover to fill
+    the gap would look completely finished, which is why the two named below are
+    checked by name: Erebuni is the other archaeological `historical` place, and
+    Tatev is the walled-enclosure-above-a-gorge that `PENDING_ARTWORK` records as
+    the closest refused substitute.
+  */
+  const panel = mapSection(page).locator("[aria-live='polite']");
+  await marker.focus();
+  await marker.press("Enter");
+  await expect(panel).toContainText(bundle("en").articles.find((a) => a.slug === "amberd-fortress")!.title);
+  await expect(panel.locator("img"), "no artwork while pending").toHaveCount(0);
+  for (const borrowed of ["erebuni-fortress", "tatev-monastery", "garni-temple", "bagratid-armenia"]) {
+    await expect(
+      panel.locator(`img[src*="${borrowed}"]`),
+      `${borrowed} must not illustrate the Amberd panel`,
+    ).toHaveCount(0);
+  }
+  await expect(
+    panel.getByRole("link", { name: bundle("en").pages.visit.mapCta, exact: true }),
+  ).toHaveAttribute("href", "/en/places/amberd-fortress");
+
+  // And the accessible name is the localized title and the localized type, in every
+  // edition — shape and colour are never the only channel.
+  for (const locale of ["en", "hy", "hyw"] as const) {
+    await page.goto(`/${locale}/visit`);
+    await openMap(page);
+
+    const point = getVisitMapPoints(locale).find((entry) => entry.slug === "amberd-fortress")!;
+    const typeLabel = bundle(locale).placeTypes.find((filter) => filter.id === "historical")!.label;
+
+    await expect(page.locator('[data-slug="amberd-fortress"]'), locale).toHaveAttribute(
       "aria-label",
       `${point.title} — ${typeLabel}`,
     );

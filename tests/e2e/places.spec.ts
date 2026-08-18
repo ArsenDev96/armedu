@@ -158,7 +158,34 @@ const DILIJAN = "dilijan-national-park";
  */
 const GYUMRI = "gyumri";
 
-/** All ten places, for the assertions that must hold of every article in the section. */
+/**
+ * The eleventh place, the third under the `historical` filter, and the first
+ * article anywhere in this archive set in Aragatsotn — §57.
+ *
+ * It does to `historical` what §41 did to `monastery` and §49 to `nature`: the pill
+ * stops being a pair and becomes a trio, which changes the shape of the assertion
+ * below rather than only its count. Erebuni, Garni and Amberd have nothing in
+ * common except that none of them is a monastery, a museum, a landscape or a town
+ * — which is exactly the breadth §33 chose that id for, and the reason no
+ * `fortress`, `castle`, `military` or `archaeological` pill was invented for this
+ * article.
+ *
+ * It splits `PLACES` from `ILLUSTRATED` for the tenth time. Like Etchmiadzin (§31),
+ * Erebuni (§33), the Matenadaran (§35), Lake Sevan (§37), Garni (§39), Geghard
+ * (§41), Tatev (§47), Dilijan (§49) and Gyumri (§51) before it, it ships ahead of
+ * its artwork and renders the generated placeholder — so every placeholder
+ * assertion below names it, and every artwork assertion excludes it. §52 said in
+ * as many words that Place #11 would separate the two lists again; it does.
+ *
+ * It is the first marker in ten steps that stretches the map in *no* direction.
+ * Tatev pulled it south, Dilijan north, Gyumri north-west; Amberd sits inside the
+ * box all three already made — north of Etchmiadzin, east of Gyumri, and nowhere
+ * near an edge. That is worth asserting for the same reason the stretches were:
+ * marker-derived bounds must be unchanged by a point that changes no extreme.
+ */
+const AMBERD = "amberd-fortress";
+
+/** All eleven places, for the assertions that must hold of every article in the section. */
 const PLACES = [
   SLUG,
   ETCHMIADZIN,
@@ -170,10 +197,11 @@ const PLACES = [
   TATEV,
   DILIJAN,
   GYUMRI,
+  AMBERD,
 ] as const;
 
 /**
- * The places whose artwork has actually landed — all ten, as of §52.
+ * The places whose artwork has actually landed — ten of the eleven, as of §57.
  *
  * Kept as its own list rather than folded into `PLACES` because the section has
  * been in the split state nine times now (§31, §33, §35, §37, §39, §41, §47, §49,
@@ -184,14 +212,15 @@ const PLACES = [
  * picture needs this list to already exist rather than to be reconstructed under
  * pressure.
  *
- * **The two lists coincide again, for the eighth time, and that is still not a
- * reason to collapse them.** §48 recorded the case for keeping them separate while
- * they matched and the very next place split them one step later; §50 recorded it
- * again and §51 split them again one step later. Every single coincidence so far
- * (§32, §34, §36, §38, §40, §42, §48, §50) has been ended by the place after it.
+ * **The two lists are apart again, for the tenth time, and §52 called it.** That
+ * entry said in as many words that Place #11 would separate them; Amberd is Place
+ * #11 and it has. Every single coincidence so far (§32, §34, §36, §38, §40, §42,
+ * §48, §50, §52) has been ended by the place after it, which is nine for nine and
+ * the whole argument against collapsing the two declarations into one.
+ *
  * The placeholder assertions below read this list to decide what may render an
  * `<svg>`; `PLACES` decides what must exist at all. Those are different questions
- * even when the answers match, and Place #11 will separate them again.
+ * even when the answers match, and they do not match now.
  */
 const ILLUSTRATED = [
   SLUG,
@@ -271,9 +300,9 @@ for (const locale of LOCALES) {
     await expect(
       page.getByRole("heading", { name: dict.listing.places.title, level: 1 }),
     ).toBeVisible();
-    await expect(cards(page)).toHaveCount(10);
+    await expect(cards(page)).toHaveCount(11);
 
-    // All ten places open in this edition, under their own titles. The loop is
+    // All eleven places open in this edition, under their own titles. The loop is
     // what catches an article authored in `hy` and forgotten in the other two —
     // the listing would still render, with one card short and no error anywhere.
     for (const slug of PLACES) {
@@ -304,6 +333,7 @@ test("the Armenian editions never fall back to the English place title", async (
     "Geghard Monastery",
     "Tatev Monastery",
     "Dilijan National Park",
+    "Amberd Fortress",
   ]) {
     await expect(page.getByText(english, { exact: true })).toHaveCount(0);
   }
@@ -314,7 +344,7 @@ test("the Armenian editions never fall back to the English place title", async (
 
 test("the places listing filters by kind of site, and keeps it in the URL", async ({ page }) => {
   await page.goto("/en/places");
-  await expect(cards(page)).toHaveCount(10);
+  await expect(cards(page)).toHaveCount(11);
 
   await page.getByRole("button", { name: placeTypeLabel("en", "monastery") }).click();
 
@@ -324,14 +354,16 @@ test("the places listing filters by kind of site, and keeps it in the URL", asyn
   // across §39, because Garni is `historical` and a temple is not a monastery; §41
   // moved it to three with Geghard, and §47 moves it to four with Tatev. §51 adds a
   // place and leaves this count alone, which is the thing worth checking: a city is
-  // not a monastery however many churches the article names.
+  // not a monastery however many churches the article names. §57 is the same check
+  // again and a sharper one — Amberd's article names a church, describes it at
+  // length and calls it by its dedication, and Amberd is not a monastery either.
   await expect(cards(page)).toHaveCount(4);
   for (const slug of [SLUG, ETCHMIADZIN, GEGHARD, TATEV]) {
     await expect(
       page.getByRole("link", { name: articleTitle("en", slug) }).first(),
     ).toBeVisible();
   }
-  for (const slug of [EREBUNI, MATENADARAN, SEVAN, GARNI, GYUMRI]) {
+  for (const slug of [EREBUNI, MATENADARAN, SEVAN, GARNI, GYUMRI, AMBERD]) {
     await expect(page.getByRole("link", { name: articleTitle("en", slug) })).toHaveCount(0);
   }
   await expect(page).toHaveURL(/[?&]type=monastery/);
@@ -384,13 +416,13 @@ test("each single-article filter returns exactly its own article", async ({ page
     }
     await expect(page).toHaveURL(new RegExp(`[?&]type=${type}`));
 
-    // Clearing returns all ten, so the pill filters rather than replaces the set.
+    // Clearing returns all eleven, so the pill filters rather than replaces the set.
     await page.getByRole("button", { name: placeTypeLabel("en", "all") }).click();
-    await expect(cards(page), type).toHaveCount(10);
+    await expect(cards(page), type).toHaveCount(11);
   }
 });
 
-test("the historical filter returns exactly Erebuni and Garni", async ({ page }) => {
+test("the historical filter returns exactly Erebuni, Garni and Amberd", async ({ page }) => {
   /*
     The first place type to hold more than one article, and a genuinely different
     assertion from the loop above rather than a copy of it.
@@ -399,20 +431,30 @@ test("the historical filter returns exactly Erebuni and Garni", async ({ page })
     shows Erebuni" were the same statement. They are not any more: a filter that
     silently matched everything, one that dropped the older article when the newer
     one arrived, and one that returned only the newest would all still render a
-    plausible listing. Pinning the pair — both present, everything else absent, and
-    the count exactly two — separates those cases.
+    plausible listing. Pinning the set — all present, everything else absent, and the
+    count exact — separates those cases.
+
+    §57 makes it three, and the trio is the argument for the breadth of this pill
+    rather than a strain on it. An Urartian citadel at foundation level, a classical
+    peristyle on a gorge rim and a ruined medieval fortress on a mountain have
+    nothing in common except that none of them is a monastery, a museum, a landscape
+    or a town. A `fortress`, `castle`, `military` or `archaeological` pill would have
+    split them into ones and twos and made the taxonomy describe the archive's
+    writing order rather than the country.
   */
+  const HISTORICAL = [EREBUNI, GARNI, AMBERD] as readonly string[];
+
   await page.goto("/en/places");
   await page.getByRole("button", { name: placeTypeLabel("en", "historical") }).click();
 
-  await expect(cards(page)).toHaveCount(2);
-  for (const slug of [EREBUNI, GARNI]) {
+  await expect(cards(page)).toHaveCount(HISTORICAL.length);
+  for (const slug of HISTORICAL) {
     await expect(
       page.getByRole("link", { name: articleTitle("en", slug) }).first(),
       slug,
     ).toBeVisible();
   }
-  for (const other of PLACES.filter((entry) => entry !== EREBUNI && entry !== GARNI)) {
+  for (const other of PLACES.filter((entry) => !HISTORICAL.includes(entry))) {
     await expect(
       page.getByRole("link", { name: articleTitle("en", other) }),
       `historical must not show ${other}`,
@@ -421,7 +463,7 @@ test("the historical filter returns exactly Erebuni and Garni", async ({ page })
   await expect(page).toHaveURL(/[?&]type=historical/);
 
   await page.getByRole("button", { name: placeTypeLabel("en", "all") }).click();
-  await expect(cards(page)).toHaveCount(10);
+  await expect(cards(page)).toHaveCount(11);
 });
 
 test("the nature filter returns exactly Lake Sevan and Dilijan National Park", async ({ page }) => {
@@ -458,7 +500,7 @@ test("the nature filter returns exactly Lake Sevan and Dilijan National Park", a
   await expect(page).toHaveURL(/[?&]type=nature/);
 
   await page.getByRole("button", { name: placeTypeLabel("en", "all") }).click();
-  await expect(cards(page)).toHaveCount(10);
+  await expect(cards(page)).toHaveCount(11);
 });
 
 test("the filter vocabulary is exactly the six ids, in every edition", () => {
@@ -494,6 +536,14 @@ test("the filter vocabulary is exactly the six ids, in every edition", () => {
     principle. `settlement` has left this list — it is a real pill now, asserted in
     the array above and given its article below — and it is the one entry here that
     was ever meant to.
+
+    §57 adds four more, and they are the sharpest yet because Amberd is the first
+    place whose *own subject noun* is not in the vocabulary. `fortress`, `castle`,
+    `military` and `archaeological` are all reasonable words for what Amberd is, and
+    two of them are what the article itself calls it; every one would have been a new
+    pill splitting three articles that already share a working id. `historical` holds
+    Erebuni, Garni and Amberd, and the fact that it takes a citadel, a temple and a
+    fortress without strain is the evidence that it was the right breadth.
   */
   for (const locale of LOCALES) {
     const ids = bundle(locale).placeTypes.map((filter) => filter.id);
@@ -505,6 +555,10 @@ test("the filter vocabulary is exactly the six ids, in every edition", () => {
       "town",
       "urban",
       "cultural-city",
+      "fortress",
+      "castle",
+      "military",
+      "archaeological",
     ]) {
       expect(ids, `${locale} must not gain a "${invented}" pill`).not.toContain(invented);
     }
@@ -520,21 +574,22 @@ test("the filter vocabulary is exactly the six ids, in every edition", () => {
       .map((entry) => entry.slug)
       .sort();
 
-  expect(under("historical")).toEqual([EREBUNI, GARNI].sort());
+  expect(under("historical")).toEqual([EREBUNI, GARNI, AMBERD].sort());
   expect(under("museum")).toEqual([MATENADARAN]);
   expect(under("nature")).toEqual([SEVAN, DILIJAN].sort());
   expect(under("monastery")).toEqual([ETCHMIADZIN, GEGHARD, SLUG, TATEV].sort());
   // The whole point of §51: `settlement` holds exactly Gyumri and nothing else.
   expect(under("settlement")).toEqual([GYUMRI]);
 
-  // The whole distribution, pinned against the id count above — ten places over
-  // six pills, with one holding four, two holding two and two holding one.
+  // The whole distribution, pinned against the id count above — eleven places over
+  // six pills, with one holding four, one holding three, one holding two and two
+  // holding one. §57 moves exactly one number and introduces no id.
   const byType = new Map<string, number>();
   for (const entry of bundle("hy").articles.filter((a) => a.category === "places")) {
     byType.set(entry.placeTypeId!, (byType.get(entry.placeTypeId!) ?? 0) + 1);
   }
   expect(Object.fromEntries([...byType].sort())).toEqual({
-    historical: 2,
+    historical: 3,
     monastery: 4,
     museum: 1,
     nature: 2,
@@ -834,6 +889,55 @@ test("the tenth place is findable under the places group too", async ({ page }) 
     ).toBeVisible();
     await expect(
       localized.locator(`a[href="/${locale}/places/${GYUMRI}"]`).first(),
+      locale,
+    ).toBeVisible();
+  }
+});
+
+test("the eleventh place is findable under the places group too", async ({ page }) => {
+  /*
+    §57. The query here is uncrowded in one direction and dangerous in another:
+    "Amberd" appears nowhere else in this archive, so the Places card should be
+    unambiguous — but the word is also the name of a river, a village on the Ararat
+    plain and a summit on the same massif, all of which `geo.ts` names as excluded
+    coordinates. None of those is an article, so what this asserts is the narrow
+    claim the section has made since §41: a card linking to this article's own
+    Places route appears, and the Places group heading is on the page.
+  */
+  const dict = ui("en");
+  await page.goto("/en/search?q=Amberd");
+
+  const main = page.getByRole("main");
+  await expect(main.getByRole("heading", { name: dict.search.groupPlaces, level: 2 })).toBeVisible();
+  await expect(main.locator(`a[href="/en/places/${AMBERD}"]`).first()).toBeVisible();
+
+  /*
+    And under the church's name, which is the other thing a reader arrives by and
+    the reason `keywords` carries it in all three editions. Vahramashen has no
+    article of its own — it is a component of this one — so a reader typing it must
+    land here or nowhere.
+  */
+  await page.goto("/en/search?q=Vahramashen");
+  await expect(
+    page.getByRole("main").locator(`a[href="/en/places/${AMBERD}"]`).first(),
+  ).toBeVisible();
+
+  /*
+    And the Armenian editions find it under their own group heading by the Armenian
+    name, which is the same word in both editions — «Ամբերդ» carries no reformed
+    spelling to differ over. The Western edition's own `keywords` differ from the
+    Eastern in the church's name (Վահրամաշէն against Վահրամաշեն), which is why the
+    query used here is the one form both share.
+  */
+  for (const locale of ["hy", "hyw"] as const) {
+    await page.goto(`/${locale}/search?q=${encodeURIComponent("Ամբերդ")}`);
+    const localized = page.getByRole("main");
+    await expect(
+      localized.getByRole("heading", { name: ui(locale).search.groupPlaces, level: 2 }),
+      locale,
+    ).toBeVisible();
+    await expect(
+      localized.locator(`a[href="/${locale}/places/${AMBERD}"]`).first(),
       locale,
     ).toBeVisible();
   }
@@ -2075,8 +2179,140 @@ test("Gyumri's search card carries its own thumbnail and no placeholder", async 
   expect(insideAni, "Ani must not stand in for Gyumri in search").toBe(0);
 });
 
+test("Amberd renders the generated placeholder and says so, in every edition", async ({
+  page,
+}) => {
+  /*
+    §57, and the exact inversion of the four assertions §52 wrote for Gyumri.
+
+    The tenth time this section has been in the split state, and the failure is
+    always the same shape: a place written ahead of its picture must render the
+    inline generated `<svg>` **and** be captioned as a placeholder. A page that
+    rendered the placeholder while claiming AI-illustration provenance would be
+    asserting a picture that was never made; one that borrowed a neighbour's file
+    would look completely finished. Both are silent, and both are checked here.
+
+    Every edition, because `isGeneratedArtwork` flips on registry membership alone
+    while the caption is read from each locale's own dictionary — which is exactly
+    the divergence §34 caught the first time.
+  */
+  for (const locale of LOCALES) {
+    const dict = ui(locale);
+    await page.goto(`/${locale}/places/${AMBERD}`);
+
+    const figure = page.locator("header figure");
+    await expect(figure.locator("svg[role='img']"), `${locale} ${AMBERD}`).toHaveCount(1);
+    await expect(figure.locator("img"), `${locale} ${AMBERD}`).toHaveCount(0);
+
+    await expect(figure.locator("figcaption"), `${locale} ${AMBERD}`).toHaveText(
+      dict.article.imagePlaceholderCaption.replace("{title}", articleTitle(locale, AMBERD)),
+    );
+    await expect(figure.locator("figcaption"), `${locale} ${AMBERD}`).not.toHaveText(
+      dict.article.imageAiIllustrationCaption.replace("{title}", articleTitle(locale, AMBERD)),
+    );
+  }
+
+  expect(getImageSrc(AMBERD), "Amberd has no registered file").toBeUndefined();
+  expect(PENDING_ARTWORK, "and is declared pending rather than silently bare").toContain(AMBERD);
+});
+
+test("Amberd borrows no other article's artwork, on the page or in its metadata", async ({
+  page,
+}) => {
+  /*
+    The stronger half of §57, and the one the placeholder assertion above cannot
+    make: a placeholder is visible, a *borrowed* cover is not — it looks finished.
+
+    The four named below are the substitutions recorded as refused in
+    `PENDING_ARTWORK`, and the first two are the closest near misses this list has
+    ever had to turn down. `tatev-monastery.webp` is a walled enclosure on a
+    promontory above a gorge, seen from the air, which is a fair description of
+    Amberd's setting and of nothing else in the frame; `bagratid-armenia.webp` is
+    Ani, a walled medieval city above a river gorge, in the right kingdom and the
+    right century. Both would pass more than a glance under this headline.
+  */
+  await page.goto(`/en/places/${AMBERD}`);
+
+  /*
+    Scoped to the hero and the metadata rather than to every image on the page, and
+    the reason is a real piece of existing behaviour rather than a weakening.
+
+    `getRelatedArticles` fills a short related row from the article's own category:
+    Amberd authors one related slug — `bagratid-armenia`, the only relationship its
+    prose earns — so the row is completed with two Places cards, and each of those
+    legitimately carries its own cover under its own headline and its own link. That
+    is the filler doing its job, and it is the same behaviour Dilijan has had since
+    §49.
+
+    What must never happen is a neighbouring place's file appearing where *this*
+    article's own picture would go. That is the hero, the social tags, the
+    structured data and the sitemap — the four surfaces `getImageSrc` reaches — and
+    all four are checked here and below.
+  */
+  await expect(page.locator("header figure img"), "no hero raster").toHaveCount(0);
+  await expect(page.locator("header figure svg[role='img']"), "the placeholder").toHaveCount(1);
+
+  const heroSources = (
+    await page
+      .locator("header img")
+      .evaluateAll((nodes) => nodes.map((node) => node.getAttribute("src") ?? ""))
+  ).map(decodeURIComponent);
+
+  for (const borrowed of [...Object.values(ARTWORK), "/hero-ararat.png"]) {
+    expect(
+      heroSources.some((src) => src.includes(borrowed)),
+      `${borrowed} must not illustrate ${AMBERD}`,
+    ).toBe(false);
+  }
+
+  /*
+    And the structured data carries no `image` at all rather than a fallback one.
+    `articleLd` only emits the property when a file resolves, so an `image` here
+    would mean a registration had appeared without a file behind it.
+  */
+  const raw = await page.locator('script[type="application/ld+json"]').first().textContent();
+  expect(raw, "Amberd emits JSON-LD").toBeTruthy();
+  const graph = (JSON.parse(raw ?? "") as { "@graph": { "@type"?: string; image?: unknown }[] })[
+    "@graph"
+  ];
+  const article = graph.find((entry) => entry["@type"] === "Article");
+  expect(article, "an Article node").toBeDefined();
+  expect(article!.image, "no Article.image while the artwork is pending").toBeUndefined();
+
+  /*
+    The social tags fall back to the site default, which is the existing generic
+    behaviour and not something §57 added. Pinned because the alternative failure —
+    a place's Open Graph image quietly resolving to a neighbouring article's file —
+    is invisible everywhere except in a share preview.
+  */
+  for (const property of ['meta[property="og:image"]', 'meta[name="twitter:image"]']) {
+    const content = await page.locator(property).first().getAttribute("content");
+    expect(content, property).toContain("/og-default.png");
+  }
+});
+
 test("the sitemap carries every place's illustration for image search", async ({ request }) => {
   const xml = await (await request.get("/sitemap.xml")).text();
+
+  /*
+    §57. Amberd's three routes must be in the sitemap and must carry no `image:loc`
+    at all, which is the condition `sitemap.ts` actually implements — the key is
+    added only when `getArticleImageSrc` returns something. Asserted first, because
+    it is the half that proves the condition is real rather than incidental, and it
+    is the exact statement §49 made for Dilijan and §51 for Gyumri before their
+    files landed.
+
+    An image crawler handed another article's picture under Amberd's URL is the
+    failure this catches, and nothing on the rendered page would reveal it.
+  */
+  const amberdBlocks = xml.split("<url>").filter((block) => block.includes(`/places/${AMBERD}<`));
+  expect(amberdBlocks, `${AMBERD} url blocks`).toHaveLength(LOCALES.length);
+  for (const block of amberdBlocks) {
+    expect(block, `${AMBERD} must emit no image:loc while pending`).not.toContain("image:loc");
+    for (const registered of Object.values(ARTWORK)) {
+      expect(block, `${registered} must not be indexed under ${AMBERD}`).not.toContain(registered);
+    }
+  }
 
   for (const slug of ILLUSTRATED) {
     // One image entry per locale route, so three per place.
@@ -2160,22 +2396,23 @@ test("the sitemap carries every place's illustration for image search", async ({
   nothing saying whether that was a decision. Both are silent failures, and the
   section currently contains neither.
 */
-test("no place is waiting for artwork, and every one resolves to its own file", () => {
+test("exactly one place is waiting for artwork, and the other ten resolve", () => {
   /*
-    Empty — the state §52 restores for the ninth time, and the exact inversion of
-    what §51 asserted here when Gyumri was the one slug in the list.
+    One slug — the state §57 restores for the tenth time, and the exact inversion of
+    what §52 asserted here when the list was empty.
 
-    Asserting the whole array rather than `not.toContain(GYUMRI)` is deliberate: it
+    Asserting the whole array rather than `toContain(AMBERD)` is deliberate: it
     fails on a stale entry left behind after a file lands, which is the half of the
-    invariant no other test covers and the one §52 had to satisfy, and it equally
-    fails on a slug quietly added here to silence the placeholder assertions above.
+    invariant no other test covers, and it equally fails on a slug quietly added
+    here to silence the placeholder assertions above.
 
     `toEqual` on the array rather than a length check, so the failure message names
     whatever is actually in there. Derived from the two lists for the same reason
-    the placeholder count above is: the next place to ship ahead of its picture
-    should change one line of data, not a literal in a test. That derivation is why
-    this test needed no new literal in either direction — `PLACES` minus
-    `ILLUSTRATED` is the expected array on its own, empty or not.
+    the placeholder count above is: the place that ships ahead of its picture should
+    change one line of data, not a literal in a test. That derivation is why this
+    test needed no new literal in either direction — `PLACES` minus `ILLUSTRATED` is
+    the expected array on its own, empty or not, and §57 is the fifth time it has
+    been right without being edited.
   */
   expect([...PENDING_ARTWORK].sort()).toEqual(
     PLACES.filter((slug) => !ILLUSTRATED.includes(slug as never))
@@ -2183,7 +2420,8 @@ test("no place is waiting for artwork, and every one resolves to its own file", 
       .sort(),
   );
   expect(getImageSrc(DILIJAN), "Dilijan's artwork must still resolve").toBe(ARTWORK[DILIJAN]);
-  expect(getImageSrc(GYUMRI), "Gyumri's artwork must now resolve").toBe(ARTWORK[GYUMRI]);
+  expect(getImageSrc(GYUMRI), "Gyumri's artwork must still resolve").toBe(ARTWORK[GYUMRI]);
+  expect(getImageSrc(AMBERD), "Amberd has none to resolve").toBeUndefined();
 
   for (const slug of ILLUSTRATED) {
     expect(getImageSrc(slug), `${slug} should resolve through the registry`).toBe(ARTWORK[slug]);
@@ -2692,16 +2930,80 @@ test("the coordinate registry holds one checked point per place", () => {
   ).toBeGreaterThan(0.08);
 
   /*
+    The castle on its spur above the Amberd and Arkashen gorges, from OSM relation
+    15757106 — §57.
+
+    Amberd is the entry with the largest number of *real* wrong answers carrying the
+    same name, which is why each is excluded by distance rather than by inspection:
+    a river, a village on the plain, a summit on the same massif, and the church two
+    hundred metres away. A degree of latitude here is about 111 km and a degree of
+    longitude about 85, so the thresholds below are metres expressed in degrees.
+  */
+  const amberd = registry[AMBERD];
+  expect(amberd.lat).toBeCloseTo(40.3885, 4);
+  expect(amberd.lon).toBeCloseTo(44.2263, 4);
+
+  /*
+    Not Vahramashen church (about 40.3877, 44.2285), 205 m east-south-east. This is
+    the assertion the whole entry exists for: the church is the photographed
+    building, it is the one with a date on it, and the article spends a section
+    arguing that it is a component of the complex rather than the complex. A
+    coordinate that drifted onto it would put a pin on a real Amberd monument and
+    nothing else in this file would notice.
+  */
+  expect(
+    Math.hypot(amberd.lat - 40.3877490, amberd.lon - 44.2285125),
+    "the point should be the fortress, not Vahramashen church",
+  ).toBeGreaterThan(0.002);
+
+  /*
+    Not the Amberd *river* (OSM relation 16475076, label point about 40.3866,
+    44.2257), which is 0.2 km away and is what a gazetteer lookup for the bare word
+    returns. The closest wrong answer in the whole registry, and a watercourse
+    rather than a monument.
+  */
+  expect(
+    Math.hypot(amberd.lat - 40.386620, amberd.lon - 44.225738),
+    "the point should be the fortress, not the Amberd river",
+  ).toBeGreaterThan(0.0015);
+
+  // Not the peak named Amberd on the same massif (about 40.4512, 44.1754), 8 km
+  // north-west, and not Amberd village on the Ararat plain (about 40.2422,
+  // 44.2696), 17 km south-east in a different province.
+  expect(
+    Math.hypot(amberd.lat - 40.451179, amberd.lon - 44.175394),
+    "the point should be the fortress, not the summit of the same name",
+  ).toBeGreaterThan(0.05);
+  expect(
+    Math.hypot(amberd.lat - 40.242160, amberd.lon - 44.269644),
+    "the point should be the fortress, not Amberd village in Armavir",
+  ).toBeGreaterThan(0.1);
+
+  // And not Byurakan (about 40.3387, 44.2689), the village every description gives
+  // the fortress a bearing from.
+  expect(
+    Math.hypot(amberd.lat - 40.338713, amberd.lon - 44.268865),
+    "the point should be the fortress, not Byurakan",
+  ).toBeGreaterThan(0.05);
+
+  /*
     The extremes of the registry, which are what stretch the map. Asserted here
     rather than only in the map spec because they are properties of the
     coordinates, not of Leaflet — and they are the reason the bounds tests over
     four viewport widths exist at all.
 
-    §51 moves two of the three. Dilijan was the northernmost point for one step and
+    §51 moved two of the three. Dilijan was the northernmost point for one step and
     Gyumri is north of it; Gyumri is also most of a degree west of every other
-    marker, which is a genuinely new direction for this map — every previous place
-    sat between about 44.2° and 46.3° east. Tatev is still the southernmost, as it
-    has been since §47.
+    marker, which was a genuinely new direction for this map. Tatev is still the
+    southernmost, as it has been since §47.
+
+    §57 moves none of them, and that is the property worth asserting rather than
+    passing over. Amberd is the first place in four steps that does not stretch the
+    box: it sits north of Etchmiadzin, east of Gyumri and well inside every edge, so
+    the map's derived bounds must be identical before and after it. A test that only
+    said "Gyumri is northernmost" would pass on a coordinate typed one degree wrong
+    in the direction of an existing extreme; asserting that Amberd is at no extreme
+    is the half that catches it.
   */
   const lats = PLACES.map((slug) => registry[slug].lat);
   const lons = PLACES.map((slug) => registry[slug].lon);
@@ -2713,8 +3015,15 @@ test("the coordinate registry holds one checked point per place", () => {
   // that is not Gyumri — a check that the §49 point was not disturbed by §51.
   expect(
     Math.max(...PLACES.filter((slug) => slug !== GYUMRI).map((slug) => registry[slug].lat)),
-    "Dilijan is still the northernmost of the first nine",
+    "Dilijan is still the northernmost of the others",
   ).toBe(park.lat);
+
+  // §57: Amberd is at no extreme, in any direction, so the derived bounds are the
+  // same box before and after it.
+  expect(Math.max(...lats), "Amberd is not the northernmost place").not.toBe(amberd.lat);
+  expect(Math.min(...lats), "Amberd is not the southernmost place").not.toBe(amberd.lat);
+  expect(Math.min(...lons), "Amberd is not the westernmost place").not.toBe(amberd.lon);
+  expect(Math.max(...lons), "Amberd is not the easternmost place").not.toBe(amberd.lon);
 });
 
 test("no article's bibliography lists two sources under one title", () => {
@@ -2926,7 +3235,7 @@ test("no edition says the city itself is a World Heritage property", async ({ pa
 /*  Existing categories are unaffected                                         */
 /* -------------------------------------------------------------------------- */
 
-test("every place's editorial fields are pinned, including the tenth", () => {
+test("every place's editorial fields are pinned, including the eleventh", () => {
   /*
     The seventh article was a pure addition, and registering its picture in §42 was
     a pure registry change. This is the assertion that says both.
@@ -3026,6 +3335,31 @@ test("every place's editorial fields are pinned, including the tenth", () => {
       related: ["avetik-isahakyan", "anush", "first-republic-of-armenia"],
     },
     /*
+      §57. One related slug, and it is the only relationship this article's prose
+      earns.
+
+      `pahlavuni-amberd` links to `bagratid-armenia` because the Pahlavunis rose
+      with that kingdom, held the office of sparapet at its court, and the fortress
+      is a Bagratid-era stronghold; the article's military section then hangs on the
+      annexation of Ani in 1045 and the fall of the city in 1064, both of which that
+      article covers. The link is contextual and one-directional, like every other
+      in this section.
+
+      Deliberately *not* here, and each is the kind of link that would look
+      reasonable and mean nothing: Erebuni and Garni, on the grounds that all three
+      share the `historical` pill — the archive does not link articles because a
+      filter groups them; Gyumri, on the grounds that both are north-west of Yerevan
+      — proximity is not a relationship; Tatev or Geghard, on the grounds that a tour
+      would combine them.
+
+      Also deliberately absent: slugs for Vahramashen, Mount Aragats, Ani, Marmashen
+      and the Kamsarakans. All five are named in the article and none is an article,
+      and `validate:content` fails the build on a slug that does not resolve — which
+      is the mechanism that keeps a plausible-looking future slug from shipping as a
+      dead recommendation.
+    */
+    [AMBERD]: { type: "historical", featured: false, related: ["bagratid-armenia"] },
+    /*
       Keyed on `PLACES` rather than `ILLUSTRATED` from §47 onward.
 
       The two lists were identical when this map was written, so either would have
@@ -3091,6 +3425,83 @@ test("every place's editorial fields are pinned, including the tenth", () => {
     expect(new Set(shapes).size, `${slug} shape differs between editions: ${shapes.join(" /// ")}`).toBe(
       1,
     );
+  }
+});
+
+test("Amberd claims no international designation it does not have", async ({ page }) => {
+  /*
+    §57's heritage-precision guard, and the exact counterpart of the §51 test above
+    it for Gyumri — with one difference that makes it a stronger claim rather than a
+    copy.
+
+    Gyumri really does have a UNESCO relationship (an intangible-heritage element),
+    so that test polices a *distinction*. Amberd has none at all: it is not a World
+    Heritage property, it is not on Armenia's tentative list, and it was shortlisted
+    for Europa Nostra's 7 Most Endangered programme in 2024 and not selected. Every
+    one of those is a claim that circulates about the site in the opposite form, and
+    the last is the one a good deal of the press got wrong.
+
+    Checked on the rendered page, because that is where a reader meets it, and in
+    every edition because a qualifying clause is the first thing a translation drops.
+  */
+  const heritage: Record<string, string> = {
+    en: "World Heritage",
+    hy: "Համաշխարհային ժառանգության",
+    hyw: "Համաշխարհային ժառանգութեան",
+  };
+  const negation: Record<string, RegExp> = {
+    en: /\bnot\b|\bneither\b|\bnone\b|does not/,
+    hy: /չ|ոչ/,
+    hyw: /չ|ոչ/,
+  };
+
+  for (const locale of LOCALES) {
+    await page.goto(`/${locale}/places/${AMBERD}`);
+    const prose = (await page.getByRole("main").innerText()).replace(/\s+/g, " ");
+    const title = articleTitle(locale, AMBERD);
+
+    for (const sentence of prose.split(/(?<=[.。։])\s+/)) {
+      if (!sentence.includes(heritage[locale])) continue;
+      // A sentence may mention World Heritage — the article says plainly that
+      // Amberd is not one — but it must carry a negation alongside the name.
+      const asserts = sentence.includes(title) && !negation[locale].test(sentence);
+      expect(asserts, `${locale}: "${sentence}" reads as a World Heritage claim`).toBe(false);
+    }
+  }
+
+  /*
+    And the shortlist is never stated as a selection, in any editorial field of any
+    edition. This is a data assertion rather than a rendered one because the phrase
+    would be just as wrong in a meta description as in a paragraph, and the SEO
+    fields are where a summary gets compressed until the qualification falls out.
+  */
+  for (const locale of LOCALES) {
+    const article = bundle(locale).articles.find((entry) => entry.slug === AMBERD)!;
+    const fields = [
+      article.title,
+      article.seoTitle ?? "",
+      article.metaDescription ?? "",
+      article.excerpt,
+      article.summary ?? "",
+      article.intro,
+      ...article.keyFacts.map((fact) => fact.value),
+      ...article.sections.flatMap((section) => section.paragraphs),
+      ...article.importantDates.map((entry) => entry.event),
+      ...article.interestingFacts,
+      ...article.significance.paragraphs,
+    ];
+
+    // The site's own status is stated somewhere, and it is the national one.
+    const all = fields.join(" ");
+    expect(all, `${locale} names the shortlist`).toMatch(/2024/);
+    expect(all, `${locale} names the reserve`).toMatch(/45\.07/);
+
+    // And no field claims UNESCO for this site in any edition.
+    for (const field of fields) {
+      expect(field, `${locale}: UNESCO must not be claimed for Amberd`).not.toMatch(
+        /UNESCO|ՅՈՒՆԵՍԿՕ|ՅՈՒՆԵՍԿՈ|ԵՈՒՆԵՍՔՕ/,
+      );
+    }
   }
 });
 

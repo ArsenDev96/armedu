@@ -1414,7 +1414,128 @@ const SOURCES: Record<string, Source[]> = {
       note: "Already registered for five other articles. Cited here for the historical geography of Shirak and the position of the city on the plain, which is the one thing in this article that predates every other source in this list.",
     },
   ],
+  "amberd-fortress": [
+    {
+      author: "Nikolaj M. Tokarskij and Adriano Alpago-Novello",
+      title: "Amberd",
+      publisher:
+        "Documenti di architettura armena / Documents of Armenian Architecture 5, Edizioni Ares, Milan",
+      year: "1978",
+      identifier: { kind: "url", value: "https://ci.nii.ac.jp/ncid/BA57234763" },
+      note: "The site monograph: measured surveys, plans and photographs of the fortress and the church, published in the Italian documentation series on Armenian architecture. Second edition; first published 1972. The record linked here is the CiNii Books catalogue entry, which carries the authors, series, publisher, place, year, edition and extent — the identifier by which this volume can be found, since the series predates ISBNs on these titles. Registered here as the standard architectural documentation of Amberd and as the source behind the plan and fabric descriptions that later accounts, including the reserve's, repeat. It has not been read directly for this article; that is recorded rather than glossed, and no claim in the article rests on it alone.",
+    },
+    {
+      author:
+        "Service for the Protection of Historical Environment and Cultural Museum-Reservations, Ministry of Education, Science, Culture and Sport of the Republic of Armenia",
+      title: "Amberd Historical and Cultural Reserve",
+      publisher: "hushardzan.am, Yerevan",
+      identifier: {
+        kind: "url",
+        value: "https://hushardzan.am/en/preservations/amberd-historical-and-cultural-reserve",
+      },
+      note: "The administering institution's own record, and the source for most of the physical description in this article: the reserve's establishment by government decision N 541-N of 18 May 2017 and its area of 45.07 hectares; the position north-west of Byurakan on the southern slopes of Aragats at the confluence of the Arkashen and Amberd; the three-storey basalt castle with timber floors; wall heights of 15 to 16 metres and thicknesses of 2 to 3 metres; the bathhouse about 70 metres from the castle with its hypocaust heating; the chapel; the cross-domed church of 1026 with its twelve-faceted drum; the excavation seasons of 1936 to 1940 and 1963 to 1972 and the restoration campaigns of 1949 to 1972, 1970 to 1975 and 2005 to 2007. It is also the source of the two claims this article deliberately holds apart from the rest: that the complex is dated by excavation to the tenth to thirteenth centuries, and that construction began in the seventh century under the Kamsarakans — the first stated as a dating, the second as an attribution. Its excavation note naming Toros Toramanyan for 1936 to 1940 is the discrepancy discussed in the article.",
+    },
+    {
+      author: "Government of the Republic of Armenia",
+      title:
+        "Decision N 628 approving the State List of Immovable Monuments of History and Culture of Aragatsotn Marz",
+      publisher: "Armenian Legal Information System (ARLIS), Yerevan",
+      year: "2002",
+      identifier: { kind: "url", value: "https://www.arlis.am/hy/acts/36898" },
+      note: "The legal instrument behind this article's treatment of the site's dating and of what is protected. Approved 29 May 2002. The Amberd entry, filed under the village of Byurakan, dates the complex to the tenth to fourteenth centuries and enumerates its components: the fortress with two covered passages, the church of Surb Astvatsatsin of 1026, khachkars, a palace, a chapel, a bath, a cemetery, the water system and the walls. In Armenian. Cited for the official dating, the enumeration and the legal status, and not for the history of any individual building. It is also the source for treating the covered passages as documented rather than as folklore.",
+    },
+    {
+      author: "American University of Armenia",
+      title: "Amberd Fortress — Armenia Hidden Gems",
+      publisher: "AUA Acopian Center, with the Manoogian Simone Foundation, Yerevan",
+      identifier: { kind: "url", value: "https://armeniahiddengems.aua.am/monument/amberd-fortress/" },
+      note: "A university heritage inventory, cited for one thing only and named because of it: it gives the site's elevation as 2160 metres, against the roughly 2300 metres the reserve and most reference works give. Neither figure states what it measures, which is the point the article makes with the pair. Its own dating of the fortress to the tenth to fourteenth centuries agrees with the state list above.",
+    },
+    {
+      author: "Arpine Asryan",
+      title: "Amberd Fortress",
+      publisher:
+        "Crossing Frontiers: Christians and Muslims and their Art in Eastern Anatolia and the Caucasus, The Courtauld Institute of Art, London",
+      identifier: {
+        kind: "url",
+        value: "https://sites.courtauld.ac.uk/crossingfrontiers/crossing-frontiers/armenia/amberd-fortress/",
+      },
+      note: "An academic project entry, and the source for the article's phasing of the fortress: the castle built under the Bagratids of Ani in the tenth century on the ruins of a seventh-century castle, rather than surviving from the seventh century itself. Also cited for the irregular plan, the three semicircular towers with chambers inside them, the probable three storeys, and the sequence of Seljuk occupation in the 1070s, recovery in 1196, the Vachutians from 1215, the Mongol capture and the Timurid campaigns of the late fourteenth century. Cited for the built sequence and the political chronology, not for the elevation or the modern administration.",
+    },
+    {
+      author: "Arpine Asryan",
+      title: "Amberd Church",
+      publisher:
+        "Crossing Frontiers, The Courtauld Institute of Art, London — companion entry to the fortress",
+      identifier: {
+        kind: "url",
+        value: "https://sites.courtauld.ac.uk/crossingfrontiers/crossing-frontiers/armenia/amberd-church/",
+      },
+      note: "The source for everything this article says about the church: the date of 1026 from the inscription inside the tympanum of the north portal; the patron Vahram Pahlavuni, prince of princes and commander at the Bagratid court; the plan as a cross inscribed in a rectangle on a stepped platform with barrel-vaulted arms, a semicircular apse and two-storey corner chambers; the twelve-sided drum with paired engaged columns under an umbrella roof; local basalt and mortar as the material; the ceramic vessels set in the mortar under the roof; and the comparison with Marmashen that is the basis for the shared-architect suggestion. Registered as a separate entry from the fortress above because it is a separate page carrying separate claims, and its title differs accordingly.",
+    },
+    {
+      author: "Europa Nostra and the European Investment Bank Institute",
+      title: "Heritage sites in Europe shortlisted for the 7 Most Endangered Programme 2024",
+      publisher: "Europa Nostra, The Hague / Brussels",
+      year: "2024",
+      identifier: {
+        kind: "url",
+        value:
+          "https://www.europanostra.org/europa-nostra-and-eib-institute-announce-heritage-sites-in-europe-shortlisted-for-the-7-most-endangered-programme-2024/",
+      },
+      note: "Published 30 January 2024. The primary record of the shortlisting: eleven sites from nine countries, of which the Amberd Historical and Cultural Reserve is one, nominated by the Ministry of Education, Science, Culture and Sport of Armenia. It is also the source for the article's description of the site's condition — progressive deterioration of the castle, root damage from vegetation, and a heightened risk of structural collapse from seismic activity — and for the fact that the file itself describes Amberd as seventh-century, which the article notes rather than adopts.",
+    },
+    {
+      author: "Europa Nostra and the European Investment Bank Institute",
+      title: "Europe's 7 Most Endangered Heritage Sites 2024",
+      publisher: "Europa Nostra, The Hague / Brussels",
+      year: "2024",
+      identifier: {
+        kind: "url",
+        value:
+          "https://www.europanostra.org/europa-nostra-and-eib-institute-announce-europes-7-most-endangered-heritage-sites-2024/",
+      },
+      note: "Published 17 April 2024, and cited for an absence, which is why it is a separate entry from the shortlist above. The seven selected from the eleven shortlisted are in France, Greece, Italy (two), Serbia and Türkiye (two); Amberd is not among them. This is the evidence for the article's correction of the widely repeated claim that Amberd is one of Europe's seven most endangered monuments — it was shortlisted and not selected, and the two announcements are the record of both halves.",
+    },
+    {
+      title: "Toros Toramanian (1864-1934)",
+      publisher:
+        "Fundamental Armenology, All Armenian Foundation for Armenological Studies with the National Academy of Sciences of the Republic of Armenia, Yerevan (ISSN 1829-4618)",
+      identifier: {
+        kind: "url",
+        value: "https://fundamentalarmenology.am/Article/27/895/TOROS-TORAMANIAN-(1864-1934).html",
+      },
+      note: "Cited for one date and nothing else: Toramanian died in 1934, which is what makes the reserve's attribution of the 1936 to 1940 excavation seasons to him impossible as written. Entered in the journal's Classics of Armenology section, which publishes biographical notices of the founding figures of the field. No author is named on the notice, which is why the field is omitted here rather than guessed at.",
+    },
+    {
+      author: "Armen Kazaryan",
+      title:
+        "Architecture of Medieval Armenia as a Field of Research for Russian and Italian Scholars: Comparative Analyses of the Historiography",
+      publisher: "Arts, volume 12, issue 6, article 238",
+      year: "2023",
+      identifier: { kind: "doi", value: "10.3390/arts12060238" },
+      note: "Open access. Cited narrowly, for the historiographic frame the Amberd monograph belongs to: the Italian academic programmes of the universities of Rome and Venice and of Milan Polytechnic, running from 1966 into the 1980s, whose work on Armenian architecture was architectural and survey-based where the earlier Russian Ani expedition was archaeological. That is what produced the Documents of Armenian Architecture series and its Amberd volume. Not cited for anything about the site itself.",
+    },
+    {
+      author: "Richard G. Hovannisian (ed.)",
+      title:
+        "The Armenian People from Ancient to Modern Times, Volume I: The Dynastic Periods, from Antiquity to the Fourteenth Century",
+      publisher: "Palgrave Macmillan",
+      year: "2004",
+      identifier: { kind: "isbn", value: "9781403966360" },
+      note: "Already registered for other articles. Cited here for the political frame the fortress sits inside and for nothing local to it: the Bagratid kingdom and its noble houses, the Byzantine annexation of Ani in 1045, the Seljuk conquest and the fall of Ani in 1064, and the Zakarid recovery of northern Armenia at the turn of the thirteenth century under Georgian suzerainty. The chronology of Amberd itself is not drawn from it.",
+    },
+    {
+      author: "Robert H. Hewsen",
+      title: "Armenia: A Historical Atlas",
+      publisher: "University of Chicago Press",
+      year: "2001",
+      identifier: { kind: "isbn", value: "9780226332284" },
+      note: "Already registered for six other articles. Cited here for the historical geography behind the article's first two sections: the district of Aragatsotn and its relation to the Aragats massif, the position of the Ararat plain below it, and the holdings of the Kamsarakan house in Arsharunik and Shirak to the north and west — which is the tenure half of the seventh-century attribution the article declines to state as a fact.",
+    },
+  ],
 };
+
 
 /** The bibliography for one article. Empty only if the slug is unknown. */
 export function getSources(slug: string): Source[] {

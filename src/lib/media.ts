@@ -529,6 +529,71 @@ export const PENDING_ARTWORK: readonly string[] = [
    * findings it did raise — the photographic register and the narrow-thumbnail crop
    * — are recorded against its `IMAGES` entry above, not fixed by editing the asset.
    */
+
+  /*
+   * §57. Amberd Fortress — the eleventh Place, the third `historical` site, and the
+   * tenth time this list has filled.
+   *
+   * Every one of the forty files under `public/` was opened rather than read off its
+   * filename, and none of them shows what this article is about: a ruined stone
+   * castle on a rock spur with a gorge on either side, a broken wall circuit with the
+   * stumps of its towers, a bathhouse shell, and one small domed church standing
+   * whole beside all of it, high on the flank of a volcano.
+   *
+   * Five substitutions were available and each is recorded as refused, because two of
+   * them are the closest near misses this list has ever had to turn down.
+   *
+   * `places/tatev-monastery.webp` is the sharpest by a distance, and it would pass
+   * more than a glance. It is a walled enclosure on a promontory above a gorge, in
+   * grey stone, seen from the air — which is a fair description of Amberd's *setting*
+   * and of nothing else in the frame. What is inside those walls is a complete
+   * thirteenth-century monastery in Syunik with a conical-domed church at its centre
+   * and no ruin anywhere; Amberd is a secular fortress in Aragatsotn whose castle is
+   * a roofless shell. Using it here would illustrate "Armenian complex on a spur" and
+   * caption a living monastery as a ruined stronghold, which is the exact conflation
+   * this article's own significance section exists to prevent — that the Armenian
+   * Middle Ages survive above ground almost only as churches.
+   *
+   * `history/bagratid-armenia.webp` is the second, and it is the one a search for
+   * "Armenian fortress above a gorge" would return first. It is Ani: a walled
+   * medieval *city* on a steppe plateau above a river gorge, with domed churches
+   * inside the circuit and a gate tower in the foreground. It is the right kingdom
+   * and the right century — Amberd's Pahlavuni section is about the court at Ani —
+   * and it is a capital rather than a highland stronghold. It is also already the
+   * refused substitute of record for Gyumri (§51), which is the point: one picture
+   * cannot be the stand-in for a city, a settlement article and a fortress.
+   *
+   * `places/erebuni-fortress.webp` is excluded on principle rather than resemblance,
+   * on the rule this list has followed since §39: it is the other `historical` place,
+   * and lending one site's cover to another under the same filter pill is the
+   * substitution this list exists to stop. On resemblance it fails anyway — an
+   * excavated Urartian citadel at foundation level, beside a modern suburb on a dry
+   * plain, some eighteen centuries older than anything Amberd's article is about.
+   *
+   * `places/geghard-monastery.webp` offers a stone complex in a gorge and
+   * `places/garni-temple.webp` a monument on a promontory with mountains falling away
+   * behind it. Both are Kotayk, both are the wrong building type, and Garni is a
+   * classical peristyle roughly a millennium older than the castle here.
+   *
+   * Also refused in advance, because they are what a brief would drift towards: the
+   * Vahramashen church alone, which is the photogenic building and which this article
+   * spends a section arguing is a component and not the subject; a European castle
+   * with a keep, a moat or a gatehouse, which the prose explicitly says Amberd is not;
+   * a snow-covered summit of Aragats, which would make a mountain article of a
+   * fortress one; and anything showing visitors, signage or the car park, since the
+   * coordinate note in `geo.ts` spent a paragraph excluding exactly that ground.
+   *
+   * What a commission would have to carry, recorded now so it is not reconstructed
+   * later: a triangular rock spur with a gorge falling away on both sides and the two
+   * converging below the point; a roofless three-storey block of dark mortared basalt
+   * at the tip of it; broken wall stretches and the stumps of semicircular towers
+   * across the landward neck; a small twelve-sided drum with an umbrella roof on a
+   * complete church set apart from the castle, smaller in the frame than the castle
+   * is; treeless volcanic slopes rising behind, no forest and no snow peak as the
+   * subject; no roof on the castle, no reconstruction, no flags, no figures in
+   * period costume, no siege, and no lettering anywhere.
+   */
+  "amberd-fortress",
 ];
 
 /**

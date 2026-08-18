@@ -2177,4 +2177,274 @@ export const placeArticles: Article[] = [
     relatedFigures: [],
     relatedSlugs: ["avetik-isahakyan", "anush", "first-republic-of-armenia"],
   },
+  {
+    slug: "amberd-fortress",
+    href: "/places/amberd-fortress",
+    category: "places",
+    categoryLabel: "Places",
+    title: "Amberd Fortress",
+    seoTitle: "Amberd Fortress: Medieval Castle on Mount Aragats",
+    placeTypeId: "historical",
+    featured: false,
+    imageSeed: "amberd-fortress",
+    keywords: [
+      "Amberd Fortress",
+      "Amberd Castle",
+      "Ամբերդ",
+      "Amberd",
+      "Vahramashen Church",
+      "Vahram Pahlavuni",
+      "Mount Aragats",
+      "Aragatsotn",
+      "medieval fortress Armenia",
+    ],
+    excerpt:
+      "A ruined medieval stronghold high on the southern side of Mount Aragats, on a spur between two gorges: a stone castle, a wall circuit, a bathhouse, a piped water supply — and a church of 1026 that is the only securely dated building on the site.",
+    metaDescription:
+      "Amberd Fortress in Aragatsotn: the castle and walls on Mount Aragats, the Vahramashen church of 1026, and what its early chronology actually rests on.",
+    summary:
+      "Amberd is a ruined medieval fortress in Aragatsotn province, on a promontory on the southern slopes of Mount Aragats between the gorges of the Amberd and Arkashen rivers. The complex holds a three-storey stone castle, a circuit of walls and towers, a bathhouse heated from below, cisterns and a piped water supply, and the church usually called Vahramashen, built for the Bagratid commander Vahram Pahlavuni and dated 1026 by an inscription. That church is the only securely dated building on the site. The fortress itself is dated by excavation and by architecture to the tenth to thirteenth centuries, while the seventh-century foundation credited to the Kamsarakan house is an attribution rather than a documented event. Amberd has been a state historical and cultural reserve since 2017.",
+    intro:
+      "Amberd stands high on the southern side of Mount Aragats, on a triangular spur with a gorge falling away on either side of it, and almost everything about the place follows from that position. What survives is a ruin: the shell of a three-storey stone castle, stretches of wall and the stumps of towers, a bathhouse below the castle, cisterns and the line of a water conduit, and one church still standing whole. The church carries a date, 1026, and the fortress does not — which is the single most useful thing to know before reading anything else about Amberd. Almost every confident sentence written about this site's early history is an attribution; the one building that can be dated is the one that was added last.",
+    author: "Armat Editorial Team",
+    updated: "2026-08-18",
+    keyFacts: [
+      {
+        label: "Kind of place",
+        value:
+          "Ruined medieval fortress complex: castle, walls and towers, church, bathhouse and water system",
+      },
+      {
+        label: "Where",
+        value:
+          "Aragatsotn province, on the southern slopes of Mount Aragats, north-west of the village of Byurakan",
+      },
+      {
+        label: "Height",
+        value: "About 2300 metres above sea level on the reserve's own figure; 2160 metres is also published",
+      },
+      {
+        label: "Dated",
+        value:
+          "The reserve dates the complex to the tenth to thirteenth centuries; the state monument list gives tenth to fourteenth",
+      },
+      {
+        label: "The church",
+        value:
+          "Surb Astvatsatsin, called Vahramashen, dated 1026 by an inscription — the only firmly dated building here",
+      },
+      {
+        label: "Protection",
+        value:
+          "On the state list of monuments of Aragatsotn since 2002; a historical and cultural reserve of 45.07 hectares since 2017",
+      },
+    ],
+    sections: [
+      {
+        id: "where-it-stands",
+        heading: "Where Amberd stands",
+        paragraphs: [
+          "Amberd sits on the southern flank of Mount Aragats, in Aragatsotn province, some distance north-west of the village of Byurakan and a long way above it. The ground it occupies is a spur: a triangular promontory with the gorge of the Amberd river on one side, the gorge of the Arkashen on the other, and the two closing towards each other below the point. The fortress takes up the whole of the spur, and the only level approach is from behind, where the ground runs back towards the mountain.",
+          "That is the whole of the site's defensive logic, and it is worth stating in terrain rather than in adjectives. Two sides of the enclosure never needed to be strong, because they end in a drop; the wall and the towers are concentrated where the spur joins the slope behind it, which is the only line an attacker could form up on. A fortress here is not inaccessible — a road reaches it now and a track always did — it is simply expensive to attack from any direction but one.",
+          "The height is the thing most often quoted about the place, and the figure varies with the source. The reserve that administers Amberd, and most reference works after it, give about 2300 metres above sea level; the heritage inventory maintained by the American University of Armenia gives 2160. Neither says whether the number describes the castle, the church a couple of hundred metres downhill from it, the plateau behind them or the ridge above, and the site spans enough vertical distance for all four to be different answers.",
+        ],
+      },
+      {
+        id: "the-mountain-and-the-province",
+        heading: "The mountain and the province",
+        paragraphs: [
+          "Mount Aragats is a volcano and the highest ground in the Republic of Armenia — a broad massif with four summits round a central crater rather than a single peak — and the province of Aragatsotn takes its name from it. Amberd is on the mountain's lower southern skirt: high enough to be in cloud for part of the year, well below the summer pastures and the snow.",
+          "The mountain supplies the site with two things it could not have done without. The first is stone. Aragats is built of lava and ash, and the dark stone the castle and the church are made of is the local rock rather than anything hauled up from the plain; the sources that name the material name basalt. The second is water, which the fortress had to bring to itself and which has a section of its own below: the snow that falls on the massif is why streams run in both gorges through the summer, and why a stronghold at this height was practical at all.",
+          "The position also explains why anyone bothered with it. Aragats stands over the northern edge of the Ararat plain, and the routes running from the plain up into Shirak and on towards Ani pass around its flanks. A fortress at this height does not close a road; the reading the site invites is that it holds the high ground above one, and that it is a place a garrison and a household can sit out a season when the plain below is not safe. Amberd is a highland stronghold behind a frontier rather than a gate on a highway.",
+        ],
+      },
+      {
+        id: "dating-the-site",
+        heading: "How the site is dated, and by what",
+        paragraphs: [
+          "Four different kinds of claim are made about Amberd's age and they are not equally firm. There is an inscription. There is excavation. There is architectural comparison. And there is attribution — a family known to have held this district being credited with the earliest work on it. Only the first of the four produces a year.",
+          "The inscription is on the church, not on the fortress. It is cut inside the north portal, it gives 1026 as the date of the building, and it names the man who paid for it. Nothing comparable survives on the castle or on the walls, and no text contemporary with the earliest phases of the fortress names Amberd at all.",
+          "Excavation and architectural study give the fortress a range rather than a date. The reserve's own summary says the complex is dated to the tenth to thirteenth centuries. The state list of immovable monuments of Aragatsotn, approved by government decision in 2002, enters Amberd as tenth to fourteenth. Those two ranges differ at the late end, which is a disagreement about when the site stopped mattering rather than about when it began.",
+          "That leaves the seventh century, which is where most published accounts of Amberd begin and where this article does not. The claim that the castle and part of the walls were raised in the seventh century under the Kamsarakan house is an attribution built on architectural comparison and on who held this ground at the time. It is a serious proposal made by the archaeologists and architectural historians who worked here, and it is not the same kind of statement as a date cut in a portal. The next section is about the difference.",
+        ],
+      },
+      {
+        id: "the-kamsarakan-question",
+        heading: "The Kamsarakan question",
+        paragraphs: [
+          "The Kamsarakans were one of the great Armenian noble houses of the late antique and early medieval centuries, holding Arsharunik and Shirak to the north and west of here, and they are the family the earliest phase of Amberd is credited to. The credit is old, the reserve repeats it, and it is what puts the phrase seventh-century fortress into almost every description of the place, including the file that carried Amberd to a European heritage jury.",
+          "What is missing is the kind of evidence that would settle it. No inscription at Amberd names a Kamsarakan. No surviving text of the period names the fortress. And the fabric that would have to be dated — the lowest courses of the castle and of some stretches of wall — is precisely the part of the site that has been rebuilt, refaced and consolidated most often. The proposal rests on masonry and plan compared with securely dated work elsewhere, which is a real argument and a defeasible one.",
+          "There is also an older layer beneath all of it. Survey of the promontory has reported material far earlier than anything medieval, which is unsurprising for a defensible spur beside running water and says nothing whatever about a castle. It is worth naming only so that it is not quietly folded into the seventh-century claim: a spur used in prehistory and a fortress built in the seventh century are two separate assertions, and neither is evidence for the other.",
+        ],
+      },
+      {
+        id: "pahlavuni-amberd",
+        heading: "Pahlavuni Amberd",
+        paragraphs: [
+          "By the eleventh century Amberd belonged to the Pahlavunis, a house that had risen with the Bagratid kingdom and held the hereditary office of sparapet, commander in chief, at the court of Ani. How they came by the fortress is known at second hand: the acquisition is referred to the letters of Grigor Magistros Pahlavuni, written about the middle of the eleventh century, rather than to any charter or inscription at the site itself.",
+          "The Pahlavuni attached to Amberd by name is Vahram, who commanded the Bagratid army in the kingdom's last decades and is the patron named on the church. What is securely his is that church. Beyond it, the works usually credited to him — thickened walls, towers along the gorge edge, the bathhouse — are credited on the strength of the church's date and the family's tenure, not on separate evidence, and a reader should hold them a little more loosely than the building with the inscription on it.",
+          "The distinction matters because it is the commonest way a fortress gets misdescribed. Ownership, construction, reconstruction, patronage of a church and later addition are five different things, and one named prince tends to absorb all five. Vahram Pahlavuni certainly built at Amberd. Whether every standing wall on the spur is his is a separate question, and the answer is almost certainly no.",
+        ],
+        links: [{ phrase: "the Bagratid kingdom", slug: "bagratid-armenia" }],
+      },
+      {
+        id: "vahramashen-church",
+        heading: "The church of 1026",
+        paragraphs: [
+          "The church stands a couple of hundred metres from the castle, out towards the lip of the Arkashen gorge, and it is the only building at Amberd that is complete. It is dedicated to Surb Astvatsatsin, the Holy Mother of God, and is generally called Vahramashen — built by Vahram — after the man who paid for it. The inscription inside the north portal gives the year.",
+          "The plan is a cross inscribed in a rectangle, standing on a stepped platform, with barrel-vaulted arms, a semicircular apse and small two-storey chambers in each of the four corners. Over the crossing sits a drum that is round inside and twelve-sided outside, its faces divided by paired half-columns, carrying an umbrella-shaped conical roof — a form it shares with Marmashen, the Pahlavuni monastery away in Shirak, which is one reason the two are often given the same architect. Ceramic vessels set into the mortar under the roof are reported here, a device used elsewhere in Armenian building for lightness and for sound.",
+          "The church is part of the complex and not the subject of it. That is worth saying because the temptation runs the other way: it is the photogenic building, it is the one with a date, and an article that let it take over would end up describing a small monastery on a mountainside instead of a fortress with its lord's church inside the walls. The relationship here is the ordinary one for a noble stronghold, and the church's date is the church's rather than the fortress's.",
+        ],
+      },
+      {
+        id: "how-the-fortress-worked",
+        heading: "How the fortress worked",
+        paragraphs: [
+          "The dominant building is the castle, set at the point of the spur: a block of mortared basalt of three storeys, floored in timber, with service rooms below and living rooms above, and published descriptions give it about 1500 square metres. It is a lord's residence that is also the last defensible position on the site — an arrangement common enough in medieval Armenia, and the reason English writing about Amberd slides between calling the place a castle and calling it a fortress.",
+          "Round it runs a circuit of walls following the edge of the spur, with towers where the ground is weakest. The reserve's description gives the walls heights of 15 to 16 metres and thicknesses of 2 to 3 metres; the towers are semicircular, with small chambers inside them, and the walls carry openings to shoot from. The heaviest building is on the landward side, where the terrain does none of the defending.",
+          "Everything else is fitted into the ground between the castle and the wall: the bathhouse below the castle on the Arkashen side, a chapel beside it, cisterns, storage, and the foundations of houses and workshops that excavation uncovered. This is not a castle standing in an empty ward. It is a small fortified settlement with a lord's tower at one end of it, and the household that supported the tower lived inside the walls.",
+          "English has no comfortable vocabulary for exactly this. The words a reader brings to a medieval fortress — keep, bailey, moat, drawbridge — describe a different building tradition, and none of them fits: there is no motte, no ditch and no gatehouse of the European kind. Amberd is dressed basalt and mortared rubble on a rock spur, built by people who had been fortifying rock spurs for a very long time, and it is better described in its own terms than by analogy with somewhere else.",
+        ],
+      },
+      {
+        id: "water-and-the-bathhouse",
+        heading: "Water and the bathhouse",
+        paragraphs: [
+          "A fortress on a spur between two gorges has water a hundred metres below it and none on top, so how Amberd was supplied is a real question rather than a decorative one. The answer excavation supports is unglamorous: cisterns inside the walls, and a conduit of fired clay pipes bringing water down from springs higher on the mountain.",
+          "Published accounts give that conduit a length of several kilometres and describe reservoirs feeding it. The pipeline itself is well attested and is one of the things the site is known for; the figures attached to it circulate without a survey behind them. This article therefore treats a piped supply from the higher slopes as established and its exact length as approximate, which is the most the evidence will carry.",
+          "The covered passages are the part of Amberd most exposed to embroidery. Two are entered in the state monument list, and passages running down towards the water were found in excavation; that much is documented. What is not documented is a network of secret tunnels through the mountain, which is how they are usually described. A steep covered stair from inside the walls down to the stream in the gorge is a normal piece of siege engineering and needs no mystery attached to it.",
+          "The bathhouse stands about 70 metres from the castle, near the Arkashen gate, and is among the site's more remarkable survivals. It has the standard three-part arrangement of undressing room, bathing rooms and boiler, and it was heated from underneath, with hot air and smoke drawn beneath the floor and up through the walls. It is often labelled a Roman bath, which is the wrong claim in the right direction: the heating principle is the one Roman builders used, and the building is an eleventh-century Armenian bathhouse in a lord's fortress, not a Roman institution transplanted to Aragats.",
+        ],
+      },
+      {
+        id: "conflict-and-control",
+        heading: "Amberd in medieval conflict",
+        paragraphs: [
+          "Amberd's military history is written almost entirely from later chronicles and modern summaries rather than from anything at the site, and it should be read that way. The kingdom the fortress belonged to ended in 1045, when Byzantium annexed Ani; Vahram Pahlavuni, who had led the resistance to the annexation, died at about the same time. What happened here in the decades that followed is given in modern accounts as a Byzantine and then a Seljuk occupation, with the Seljuk seizure usually placed in the 1070s.",
+          "That decade is worth flagging rather than repeating flatly. It is the period in which Seljuk power did take the country — Ani itself fell in 1064 — so the general picture is not in doubt. But the specific year offered for Amberd differs between accounts, and no contemporary source naming this fortress is cited for any of them. A range is the honest form here, and a change of ruler is in any case not evidence that a fortress was destroyed.",
+          "The firmer part of the story is the turn of the thirteenth century. Amberd was recovered by the Zakarid brothers Zakare and Ivane in 1196, or 1197 in some accounts, during the campaigns that returned much of northern Armenia to Armenian and Georgian rule; from 1215 it was held by the Vachutians, who made it the seat of their principality and afterwards styled themselves from it. In 1236 the Mongols took the fortress and damaged it. It was repaired — the Vachutians were still here — but that is the point after which Amberd is a lesser place.",
+        ],
+      },
+      {
+        id: "decline-and-ruin",
+        heading: "Decline and ruin",
+        paragraphs: [
+          "How Amberd ended is less clear than how it was built, and the neat version — destroyed by Timur in the late fourteenth century and never rebuilt — is a summary rather than a finding. Timur's campaigns did pass through Armenia in the 1380s and 1390s, the fortress does not appear as a place of consequence afterwards, and the state monument list's late bound in the fourteenth century is consistent with that. It is a plausible end and a thinly documented one.",
+          "Occupation on the spur did not stop dead in any case. Later material has been reported here from the sixteenth and seventeenth centuries, which is what a fortress usually looks like once it has stopped being a fortress: people go on living in the shelter of the walls without maintaining them. The abandonment of a stronghold is a process spread over generations rather than an event with a year attached to it.",
+          "Earthquakes are the other explanation reached for, and they are worth keeping separate from war. Armenia is seismically active, the site's own conservation file names seismic risk as a present danger to the standing walls, and six centuries of shaking will have done a great deal to mortared rubble on a cliff edge. What is absent is documentation of a particular earthquake damaging this particular place. A ruin is not evidence for any of the causes proposed for it, which is exactly why a ruin attracts so many.",
+        ],
+      },
+      {
+        id: "excavation-and-restoration",
+        heading: "Excavation, restoration and what is medieval",
+        paragraphs: [
+          "Amberd has been dug at scale twice. The first campaign ran from 1936 to 1940 under Hovsep Orbeli, the orientalist who directed the Hermitage and became the first president of the Armenian Academy of Sciences; it cleared the bathhouse and the ground around it, the main stair, a cistern and the chapel. The second ran from 1963 to 1972, by the Institute of Archaeology and Ethnography under Nikolai Tokarski and S. Harutyunyan, and it uncovered the upper part of the fortress, the foundations of houses and workshops, and further stretches of wall.",
+          "The finds are the ordinary furniture of a medieval household of rank rather than treasure: metalwork and weapons, silver ornaments, pottery, glass, coins, candlesticks in bronze. They are what dates the site to the tenth to thirteenth centuries, and they are why that range is stated here with more confidence than the century above it.",
+          "One detail of the excavation history is worth recording because it is reprinted without a second look. The reserve's own account names Toros Toramanyan alongside Orbeli for the seasons of 1936 to 1940. Toramanyan, who founded the study of Armenian architectural history and whose measured surveys underlie a great deal of the field, died in 1934. His work at Armenian monuments is real and belongs to the generation before those campaigns; the digging was Orbeli's.",
+          "Restoration has been continuous enough that a visitor should be told plainly what is old. Measured drawings and a restoration project were prepared from 1949 by a group of architects including Karo Ghafadaryan, work was carried out on the complex through to 1972, and there were further campaigns in the 1970s and again from 2005 to 2007. The castle, the church and the bathhouse have all been consolidated and partly rebuilt. Most of what stands is genuinely medieval; the tidy wall tops and the reinstated courses are not, and the line between the two is not everywhere marked on the ground.",
+        ],
+      },
+      {
+        id: "what-survives",
+        heading: "What survives, and what protects it",
+        paragraphs: [
+          "What a visitor meets is a ruin with one whole building in it. The castle stands to a considerable height on the gorge side and is open to the sky; the wall circuit survives in stretches, with the stumps of its towers; the bathhouse is a low shell with its underfloor structure visible; the church is intact. The reserve around all of it covers 45.07 hectares and was created by government decision in 2017, and the complex has been on the state list of monuments of Aragatsotn since that list was approved in 2002.",
+          "The protection is national, and it is worth being exact about that, because Amberd is often written about as though it carried an international designation. It does not. Armenia has three World Heritage properties and a tentative list of several more, and Amberd is on neither. What it does have is a recent international nomination: in January 2024 the Amberd reserve was one of eleven sites shortlisted by Europa Nostra and the European Investment Bank Institute for their 7 Most Endangered programme, on a nomination from Armenia's own culture ministry.",
+          "It was not selected. The seven chosen in April 2024 were in France, Greece, Italy, Serbia and Türkiye, and Amberd was not among them — a distinction a good deal of the coverage collapsed into the claim that Amberd is one of Europe's seven most endangered monuments. The nomination file remains the clearest public statement of the site's condition: wind and weather eroding the tops of the walls, roots opening the masonry, structures out of true, and seismic risk to a ruin that people walk through.",
+        ],
+      },
+    ],
+    importantDates: [
+      {
+        year: "Seventh century",
+        event:
+          "The date at which the first castle and part of the walls are traditionally placed, under the Kamsarakan house. It is an attribution from architecture and tenure: no inscription at Amberd names a Kamsarakan, and no text of the period names the fortress.",
+      },
+      {
+        year: "1026",
+        event:
+          "The church of Surb Astvatsatsin, called Vahramashen, is completed for Vahram Pahlavuni. The date is cut inside the north portal, and it is the only firm date on any building at Amberd.",
+      },
+      {
+        year: "1045",
+        event:
+          "Byzantium annexes Ani and the Bagratid kingdom ends. Vahram Pahlavuni, who had led the resistance to the annexation, dies at about this time.",
+      },
+      {
+        year: "1070s",
+        event:
+          "Modern accounts place the Seljuk seizure of Amberd in this decade. Ani itself had fallen in 1064; no contemporary source naming this fortress is cited for a specific year, and the accounts do not agree on one.",
+      },
+      {
+        year: "1196",
+        event:
+          "Zakare and Ivane Zakarian recover Amberd during the campaigns that return much of northern Armenia to Armenian and Georgian rule. Some accounts give 1197.",
+      },
+      {
+        year: "1215",
+        event:
+          "Amberd passes to the Vachutian house and becomes the seat of their principality; the family afterwards took its style from the fortress.",
+      },
+      {
+        year: "1236",
+        event:
+          "The Mongols take the fortress and damage it. It was repaired under the Vachutians, but Amberd is a lesser place from this point on.",
+      },
+      {
+        year: "1936",
+        event:
+          "The first large excavation begins under Hovsep Orbeli and runs to 1940, clearing the bathhouse and its surroundings, the main stair, a cistern and the chapel.",
+      },
+      {
+        year: "1963",
+        event:
+          "The Institute of Archaeology and Ethnography begins a second campaign under Nikolai Tokarski and S. Harutyunyan. It runs to 1972 and uncovers the upper fortress, houses, workshops and further wall.",
+      },
+      {
+        year: "2002",
+        event:
+          "The State List of Immovable Monuments of History and Culture of Aragatsotn Marz is approved by government decision N 628 of 29 May. Its Amberd entry dates the complex to the tenth to fourteenth centuries and lists the castle, the church of 1026, a palace, a chapel, the bath, a cemetery, the water system, the walls and two covered passages.",
+      },
+      {
+        year: "2017",
+        event:
+          "Amberd becomes a state historical and cultural reserve of 45.07 hectares, by government decision N 541-N of 18 May, administered by the service that runs Armenia's museum-reserves.",
+      },
+      {
+        year: "2024",
+        event:
+          "The reserve is one of eleven sites shortlisted in January for the 7 Most Endangered programme of Europa Nostra and the European Investment Bank Institute. It was not among the seven announced in April.",
+      },
+    ],
+    significance: {
+      heading: "Why Amberd Fortress matters",
+      paragraphs: [
+        "Amberd is the clearest surviving example in Armenia of a building type the country has very little of above ground: the secular stronghold of a medieval noble house. Almost everything standing from the Armenian Middle Ages is a church or a monastery, and the impression that leaves — of a society that built only for God — is an accident of what survives rather than a fact about the age. Here the church is one element among a castle, a wall circuit, a bathhouse, cisterns and workshops, and it is the smallest claim the site makes rather than the largest. A reader who has seen only monasteries has seen half of medieval Armenia.",
+        "It is also an unusually clean lesson in how a site gets dated. Amberd carries one inscription and it is on the last major building put up here; everything else is dated by excavation, by masonry compared with masonry, and by knowing which family held the ground. Those methods are legitimate and they produce different degrees of confidence, and the difference is flattened every time the place is called a seventh-century fortress without qualification. Standing on the spur, the honest sentence is that a stronghold was here for a long time, that one man's church is dated 1026, and that most of the rest is argued.",
+      ],
+    },
+    interestingFacts: [
+      "The only firmly dated building at Amberd is the church, and it was added late in the site's life: 1026, cut inside its north portal. The fortress itself carries no date at all.",
+      "Published elevations differ. The reserve and most reference works give about 2300 metres; the heritage inventory of the American University of Armenia gives 2160. Neither says what is being measured.",
+      "The bathhouse, about 70 metres from the castle, was heated from underneath, with hot air and smoke drawn beneath the floor and up through the walls — the Roman principle in an eleventh-century Armenian building, which is not the same thing as a Roman bath.",
+      "The name is generally read as the Armenian words for cloud and fortress, which is where the fortress in the clouds comes from. That is a reading of the name rather than a record of how it was given.",
+      "Amberd was shortlisted for Europa Nostra's 7 Most Endangered programme in 2024 and was not among the seven selected. A great deal of the reporting says otherwise.",
+      "The reserve's own account of the excavation of 1936 to 1940 names Toros Toramanyan among those who ran it. Toramanyan died in 1934.",
+    ],
+    relatedFigures: [
+      {
+        name: "Vahram Pahlavuni",
+        lifespan: "about 965 – 1045",
+        description:
+          "Sparapet, or commander in chief, of the Bagratid kingdom, head of the Pahlavuni house, and the patron named in the inscription on the church at Amberd. He organised the defence of Ani against Byzantine pressure in the last years of the kingdom and died at about the time it fell; published dates for his birth and death vary by a year or two. Works at the fortress beyond the church are credited to him on the strength of the church's date and his family's tenure rather than on evidence of their own.",
+      },
+      {
+        name: "Vache Vachutian",
+        lifespan: "thirteenth century",
+        description:
+          "The prince who held Amberd from the early thirteenth century and made it the seat of the Vachutian house, which afterwards took its style from the fortress. He and his family repaired the site after the Mongol capture. Dates for individual Vachutians are a floruit rather than life dates, which is normal for Armenian noble families of the period and worth saying rather than smoothing over.",
+      },
+    ],
+    relatedSlugs: ["bagratid-armenia"],
+  },
 ];

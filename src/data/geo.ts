@@ -273,6 +273,51 @@ export const PLACE_COORDINATES: Record<string, PlacePoint> = {
   // reason the union has three members: a monastery enclosure has a point, a lake
   // has only a centroid, and a city has a conventional centre that is neither.
   gyumri: { lat: 40.7852, lon: 43.8416, precision: "settlement" },
+
+  // The castle at the point of the spur, on the southern slopes of Mount Aragats
+  // in Aragatsotn — the fortress itself, not the ensemble's outer edge and not
+  // the church two hundred metres away.
+  //
+  // OpenStreetMap relation 15757106 (`Ամբերդ (Amberd Fortress)`, name:en=Amberd
+  // Fortress, historic=castle, castle_type=fortress, building=castle, ruins=yes,
+  // wikidata=Q457057) is a multipolygon of the castle walls whose Nominatim label
+  // point is 40.3884555, 44.2262728; rounded to four places here. The rounded
+  // value was tested back against the relation's own outer ring by ray casting
+  // and falls *inside* it — checked rather than assumed, as it was for Garni,
+  // Geghard and Dilijan. The ring is about 62 by 52 metres, so four decimal
+  // places is comfortably inside the building.
+  //
+  // Cross-checked against Wikidata Q457057 (P625), which gives 40.3887278,
+  // 44.226526 — about 32 m from the value stored here and also on the castle.
+  // Two independent representations agreeing to a third of the building's width
+  // is corroboration rather than a disagreement to adjudicate, and the OSM
+  // element was preferred because it is a mapped footprint rather than a point.
+  //
+  // Deliberately not any of these, and the first two are the traps a gazetteer
+  // lookup for the bare word "Amberd" actually returns:
+  //   - the **Amberd river** (OSM relation 16475076), whose label point is 0.21 km
+  //     from the castle — close enough to look right on a map and a watercourse
+  //     rather than a monument;
+  //   - **Amberd village** in Vagharshapat community, Armavir (OSM way 894495861),
+  //     17 km south-east on the plain, which is a different settlement entirely;
+  //   - the **peak named Amberd** on the Aragats massif (OSM node 2479027163),
+  //     8.2 km north-west, which is a summit and not a monument;
+  //   - **Vahramashen church** (OSM way 498609239, wikidata=Q2507423) at
+  //     40.3877490, 44.2285125, 205 m east-south-east. It is the photographed
+  //     building, it is the one with a date on it, and it is a component of the
+  //     complex rather than the complex — the single likeliest wrong answer here;
+  //   - the visitor infrastructure clustered 110–140 m north-west of the castle:
+  //     the car park, the café, the toilets, the information boards and the
+  //     viewpoints. All are outside the walls where this point sits inside them;
+  //   - **Byurakan**, the village 6.6 km south-east that every description gives
+  //     the fortress a bearing from, and **Mount Aragats** itself, which is a
+  //     massif and would be an `area` point for a different subject.
+  //
+  // `site` rather than `area` despite the reserve around it covering 45.07
+  // hectares: the reserve is the protection, the fortress is the subject, and a
+  // reader following this point arrives at the castle rather than at the middle
+  // of a protected boundary.
+  "amberd-fortress": { lat: 40.3885, lon: 44.2263, precision: "site" },
 };
 
 /** The recorded position for a place slug, or `undefined` when none is held. */
