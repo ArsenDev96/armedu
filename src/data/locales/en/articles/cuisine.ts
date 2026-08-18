@@ -427,7 +427,7 @@ export const cuisineArticles: Article[] = [
     dishType: "Ceremonial dishes",
     dishTypeId: "ceremonial",
     imageSeed: "harissa",
-    keywords: ["harissa", "harisa", "Հարիսա", "korkot", "քորքոտ", "Musa Dagh", "Musaler", "Մուսա Լեռ"],
+    keywords: ["harissa", "harisa", "Հարիսա", "korkot", "կորկոտ", "Musa Dagh", "Musaler", "Մուսա Լեռ"],
     excerpt:
       "Wheat and meat stirred together for hours until they become one substance — a dish recorded in a tenth-century Baghdadi cookbook, and the food around which the Musa Dagh resistance is commemorated every September.",
     metaDescription:

@@ -78,12 +78,13 @@ npm install              → OK
 npm run typecheck        → PASS (0 errors)
 npm run validate:content → PASS (129 entries across 3 locales; no pending-artwork note)
 npm run build            → PASS (138 pages prerendered; `/api/contact` dynamic)
-npm run test:e2e         → PASS (262 passed, 5 skipped, no --workers flag; see §30)
+npm run test:e2e         → PASS (263 passed, 5 skipped, no --workers flag; see §30)
 ```
 
-Re-run in full at §51 (Gyumri) and again at §52 (Gyumri artwork). The figures above had been left at
-their August values (105 entries, 111 pages, 173 tests) through the Visit journey, the map and four
-more Places. All ten Places are illustrated and `PENDING_ARTWORK` is empty.
+Re-run in full at §51 (Gyumri), §52 (Gyumri artwork) and §53 (Visit curation). The figures above had
+been left at their August values (105 entries, 111 pages, 173 tests) through the Visit journey, the
+map and four more Places. All ten Places are illustrated and `PENDING_ARTWORK` is empty. §53 added
+one test and moved no content, so only the test count changed.
 
 `validate:content` now also checks: every registered image exists on disk; every article
 has a bibliography entry; every citation carries a valid ISBN, DOI, URL or archival
@@ -9501,3 +9502,421 @@ structured-data type. Leaflet and Stadia untouched. The marker overlap was left 
 `.claude/settings.json` was not modified.
 
 No deployment was performed.
+
+## 53. Visit curation — the row re-cut once the section reached ten (August 2026)
+
+The first step in nine that changed **no article, no coordinate, no source, no artwork and no
+component**. It edits one six-element array of slugs, the comment that justifies it, and the tests
+that pin it. Everything a reader sees change on `/visit` is resolved from data that was already
+there.
+
+§52 ended by noting that the reasoning which had kept Gyumri out of the curated row — a curated card
+is a picture card — no longer applied. This is the step that acts on it, and the review it triggered
+turned out to be about far more than Gyumri.
+
+### The row before this step
+
+Read from `src/app/[locale]/visit/page.tsx` rather than from this file, because a curation is exactly
+the kind of thing PROJECT_STATE can describe correctly and still be out of date about:
+
+```
+garni-temple  geghard-monastery  lake-sevan  khor-virap  matenadaran  erebuni-fortress
+```
+
+Six of a seven-article section when it was written, and the seventh — Etchmiadzin — was excluded on
+a stated rule: it would have been the row's third monastery.
+
+### What the audit found
+
+The row was a fair curation of the section it was written for and a poor one of the section that now
+exists.
+
+| Card | Type | Where | Distance from Yerevan |
+|---|---|---|---|
+| erebuni-fortress | historical | Yerevan | in the city |
+| matenadaran | museum | Yerevan | in the city |
+| garni-temple | historical | Kotayk | ~28 km |
+| geghard-monastery | monastery | Kotayk | ~36 km |
+| khor-virap | monastery | Ararat plain | ~30 km |
+| lake-sevan | nature | Gegharkunik | ~60 km |
+
+**Five of six inside about forty kilometres of the capital**, and two pairs that nearly duplicate each
+other: Erebuni and the Matenadaran are both in Yerevan, and Garni and Geghard are eight kilometres
+apart in the same valley — the two articles that link to each other more than to anything else.
+
+Type spread was monastery 2, historical 2, museum 1, nature 1, settlement 0.
+
+Syunik, Tavush and Shirak — the three provinces the section spent §47, §49 and §51 acquiring — had no
+card at all. The row was, without intending to be, a picture of the area around Yerevan.
+
+### The row after this step
+
+```
+khor-virap  gyumri  lake-sevan  garni-temple  dilijan-national-park  tatev-monastery
+```
+
+**In:** `gyumri`, `dilijan-national-park`, `tatev-monastery`.
+**Out:** `geghard-monastery`, `erebuni-fortress`, `matenadaran`.
+
+A three-card turnover, which is half the row, and it is the corpus that changed rather than the
+taste: the three articles added since the row was last cut are the three that fill the gaps the audit
+found.
+
+| Card | Type | Where | Picture |
+|---|---|---|---|
+| khor-virap | monastery | Ararat plain | warm monastery under Ararat |
+| gyumri | settlement | Shirak (NW) | grey winter street, carriage |
+| lake-sevan | nature | Gegharkunik (E) | open blue water |
+| garni-temple | historical | Kotayk (C) | classical colonnade |
+| dilijan-national-park | nature | Tavush (NE) | dense green forest |
+| tatev-monastery | monastery | Syunik (S) | grey complex on a cliff |
+
+Six provinces, no two cards in the same one. Type spread is monastery 2, nature 2, settlement 1,
+historical 1, museum 0.
+
+### Why each place is in
+
+- **khor-virap** — kept despite being the most predictable card here. It is the most recognisable view
+  in the country and the origin of the Christian story the section keeps returning to. A first
+  impression that omits it is one trying to prove a point.
+- **gyumri** — the whole argument for re-cutting. The only `settlement`, the only card whose subject
+  is somewhere people *live* rather than somewhere people visit, and the northwest. A row of
+  monuments with no inhabited place in it describes a country that does not exist.
+- **lake-sevan** — the natural feature Armenia is defined by, and the only large water in the archive.
+- **garni-temple** — the entire pre-Christian layer, carried alone now. Without it the row starts in
+  the fourth century, which is false, and Erebuni's removal is what made this card load-bearing.
+- **dilijan-national-park** — the northeast, and the only landscape in the registry that is green and
+  closed rather than open and dry. It is the card that looks least like the Armenia of the
+  photographs, which is exactly its editorial value.
+- **tatev-monastery** — the south, and a monastery that resembles the other monastery in category
+  only. Syunik had no card at all before this step.
+
+### Why each removal, and what it cost
+
+Written as costs rather than as justifications, because all three are real.
+
+- **geghard-monastery** — the cheapest removal and the first one made. Armat loses a World Heritage
+  property and the only rock-cut architecture in the section. It went because it is eight kilometres
+  from Garni in the same valley and would have been the row's third monastery, which is the rule that
+  kept Etchmiadzin out in the first place and it applies unchanged.
+- **erebuni-fortress** — the deep-antiquity card. Armat loses Urartu, the eighth century BC and the
+  founding of Yerevan from the row. Garni now carries "Armenia is older than its churches" alone,
+  which it can do, but it does it from the first century rather than the eighth BC.
+- **matenadaran** — **the removal this step is least comfortable with.** Armat loses the only `museum`
+  in the section, the only card about written culture, and the only remaining card in the capital,
+  where nearly every reader of this page actually is. It went because §3's five buckets name
+  "historic monuments" and do not name "museum", and between the Matenadaran and Garni only one of
+  them answers that. The row now has no museum and no card in Yerevan. Both are one click behind the
+  all-places CTA; both are recorded here and in the page comment so the next curator argues with the
+  decision rather than rediscovering it.
+
+Etchmiadzin remains uncurated on its original reasoning, and is now one of four places on the map
+that are not in the row.
+
+### The Learn row, and the invariant this step broke
+
+The strongest argument *against* this curation, recorded because it is a genuine cost and not an
+oversight.
+
+"Learn before you visit" offers four history articles, and `visit/page.tsx` carried a rule: every one
+of them is declared in the `relatedSlugs` of at least one **curated** place. That is what stops a
+fourth card being added because a row of three looked thin.
+
+Three of the four still clear it — `adoption-of-christianity` and `tigran-the-great` through Khor
+Virap and Garni, `kingdom-of-urartu` through Lake Sevan. **`mesrop-mashtots-armenian-alphabet` does
+not.** Its only carrier anywhere in the section is the Matenadaran, which this step removed from the
+row while leaving it in the section, on the map, in search and in the listing.
+
+Three ways out were available and two were refused:
+
+- re-curate the Matenadaran to satisfy the rule — letting a comment about a different section pick
+  the Places row;
+- drop the alphabet card — changing "Learn before you visit", which this step was told not to touch
+  and had no editorial reason to;
+- record it.
+
+So: the Learn array is **unchanged**, the rule is restated as "declared by at least one Places
+article" — which is still true, and still rejects a history article with no place connection at all —
+and the test now asserts the exception explicitly rather than widening until it stops noticing. The
+real cost stands: a reader now meets the alphabet card without having just seen the building that
+holds the manuscripts.
+
+### Visual rhythm, and why the order is what it is
+
+The order is editorial and survives every grid the page uses. Measured at 360, 390, 768 and 1440 in
+all three editions — twelve renders, six cards each, zero horizontal overflow everywhere:
+
+| Width | Grid | Row shape |
+|---|---|---|
+| 360 | 1 column | 1,1,1,1,1,1 |
+| 390 | 1 column | 1,1,1,1,1,1 |
+| 768 | 2 columns | 2,2,2 |
+| 1440 | 3 columns | 3,3 |
+
+Six divides evenly into one, two and three, so there is no orphaned final row at any width. Card
+images are 16:9 at every width (320×179, 340×190, 389×218) — which is Gyumri's best crop and the
+reason the §52 narrow-thumbnail concern does not reach this page.
+
+At three columns the rows read monastery / city / lake and temple / forest / monastery: the two
+monasteries land in opposite corners, the two landscapes never touch, and no column pairs two cards
+of the same kind. At two columns the pairs are city-beside-monastery, temple-beside-lake and
+monastery-beside-forest. In a single column no two adjacent cards are the same kind of picture.
+
+**One visual observation, reported not fixed.** Khor Virap and Garni are both warm golden-hour
+images, and at three columns they sit one above the other in the left column. They are different
+subjects — a domed monastery on a plain against a colonnade on a promontory — and the sequence has no
+better position for either without breaking the monastery separation that matters more. Recorded as
+an observation rather than a defect.
+
+Card-height variance within a single column reaches 68 px in `hy` at 360 and 23 px elsewhere, which
+is excerpt length and not a layout fault; rows stretch to equal height at every multi-column width.
+
+### Tests
+
+`tests/e2e/visit.spec.ts` only. `places.spec.ts` and `visit-map.spec.ts` have no curation coupling,
+which was checked rather than assumed.
+
+- `FEATURED_PLACES` rewritten to the new six **in order** — still copied from the page rather than
+  imported, so the decision has to be made twice.
+- `NOT_CURATED` now names Geghard, Erebuni and the Matenadaran beside Etchmiadzin, and does a job it
+  was not doing before: three of its four entries are *removals*, so the failure it catches is one of
+  them drifting back in and taking the row to seven. The comment names the Matenadaran as the one to
+  watch.
+- The Learn guard **split into two assertions** rather than loosened — three slugs must be declared by
+  a curated place, and the alphabet must be declared by an *uncurated* one that is specifically the
+  Matenadaran. It fails in both directions.
+- One new test, `the curated row has the editorial shape §53 chose, and the map still has everything`:
+  no duplicate slug; every curated slug is a real Places article; the settlement is curated and it is
+  Gyumri; at least one nature; at most two monasteries; all ten places still on the page's own
+  server-rendered map list with correct hrefs; and the three removals checked *as removals* — off the
+  row, still pinned, still routed.
+
+Deliberately not written: latitude thresholds, region quotas, or any test that re-derives the
+selection. The six-slug array is the strongest statement of the decision; a test that recomputed it
+would be re-running the judgement instead of protecting it.
+
+### Verification
+
+In the mandated order, on a cleared port and a removed `.next`:
+
+- `npm run typecheck` → PASS, 0 errors.
+- `npm run validate:content` → PASS, 129 entries across 3 locales. Unchanged, as it must be: no
+  content moved.
+- `npx playwright test tests/e2e/visit.spec.ts` → 23 passed, 1 failed. The failure was
+  `each section CTA resolves, in every edition`, a 90 s timeout navigating to `/en/cuisine` with a
+  Turbopack `ChunkLoadError` in the log. Re-run alone: **passed in 23.1 s**. Known flake, untouched
+  route.
+- `npx playwright test tests/e2e/places.spec.ts` → 60 passed, 2 failed: the `hy` and `hyw`
+  `places listing and the article both load` tests, timing out at 30 s on cold Armenian article
+  routes. Re-run alone: **both passed, 24.7 s each** — warm, just inside a budget they exceed cold.
+  Known flake.
+- `npx playwright test tests/e2e/visit-map.spec.ts` → **29 passed**, no failures.
+- `npx playwright test` → **262 passed, 5 skipped, 1 failed** of 268. The failure was
+  `the current language is marked in the mobile selector`, preceded by a Turbopack
+  `Uncaught SyntaxError: Unexpected token '.'` chunk corruption in the dev server. Re-run alone:
+  **passed in 3.3 s**. Known flake, and mobile header nav is untouched by this step.
+- `npm run build` → PASS, **138 pages** prerendered — identical to §52, which is the check that no
+  route was added or removed.
+
+**Two environment failures worth recording separately,** because they are not test flakes. The first
+`places.spec.ts` run died with a V8 `FATAL ERROR: Committing semi space failed` at a 69 MB heap, and
+a second attempt reproduced it; `powershell` then failed to start the CLR with HRESULT 80004005. The
+machine had 2.2 GB of 16 GB free. No orphaned `node` processes were found — the crashed runs had
+cleaned up — and both suites ran normally once memory recovered to 3.7 GB. This is host memory
+pressure, not a regression, and it is the reason two `places.spec.ts` attempts appear in this record.
+
+### Confirmations
+
+- **Map remains ten.** `getVisitMapPoints` is still `places articles ∩ PLACE_COORDINATES` and was not
+  touched. All ten appear in the server-rendered `[data-map-list]`, now asserted on `/visit` itself.
+- **`/places` remains ten.** The hand-edited listing count in `visit.spec.ts` is unchanged at 10.
+- **Nothing left the archive.** The three removals keep their articles, coordinates, artwork,
+  map pins, search entries, sitemap URLs and canonical routes. A card leaving the row cannot take an
+  article with it, and that is now a test.
+- **No article content changed.** No coordinate, `relatedSlugs`, `placeTypeId`, `featured`, SEO field,
+  artwork file, media-registry entry or source list. Khor Virap is still the only `featured: true`
+  place, and `featured` remains a different system from this row.
+- **No Western Armenian copy written.** No Visit UI label changed, so `hyw` needed no edit and got
+  none.
+
+### Technical debt
+
+All carried forward unfixed: the bibliography React-key issue; the Erebuni/Matenadaran 25 × 26 px and
+Garni/Geghard 12 × 31 px marker overlaps; the Turbopack suite flake, which produced three separate
+failures in this step and was re-confirmed as a flake three times; the photographic-register concern
+across Geghard, Tatev, Dilijan and Gyumri; the image-size and weight inconsistencies including
+Gyumri's 1584 × 993 third size; media optimisation; the Cuisine hydration issue; one-directional
+relationships; the pending Western Armenian native review; the source caveats including the Armstat
+Gyumri settlement tables; `scratchpad/check.ts` and `scratchpad/dilcheck.ts` outside `scripts/`; the
+weak homepage hero-path assertion; no central environment module; the production Stadia dashboard and
+domain authorisation; the raster label-language limitation; the privacy-page tile-provider
+disclosure. The Gyumri narrow search-thumbnail crop is explicitly out of scope here and unchanged.
+
+**New this step, recorded not fixed:** the row has no museum card and no card in Yerevan; the Learn
+row's alphabet card no longer has a curated place behind it; Khor Virap and Garni share a warm palette
+in the same desktop column; and Next reports Gyumri's image as the `/visit` LCP element without
+`loading="eager"`, which is a pre-existing property of whichever card sits high in the row rather
+than anything Gyumri introduced.
+
+### Deliberately not built
+
+No new article, no new place type, no change to Places taxonomy, coordinates, artwork, sources or
+article content. No change to the hero, "Explore by type", the map section, the Cuisine selection,
+"Learn before you visit", Visit SEO, navigation or structured data. The row stayed at six — no
+seventh card, no carousel, no pagination, no "show more". The curation is still a locale-independent
+slug array resolving titles, excerpts, images, types and reading times through the article and media
+systems; nothing was duplicated into it. No Leaflet, Stadia, provider, tile, geolocation or routing
+change. `.claude/settings.json` was not modified.
+
+No deployment was performed.
+
+## 54. Armenian-language review of the two new categories (August 2026)
+
+A requested review of all Places and Cuisine content in both Armenian editions, for language
+quality and for anything that could read as anti-Armenian framing. No structural, taxonomy, test or
+code change; four small text corrections.
+
+### Framing audit — clean
+
+Every sensitive passage was read in context in all editions: the Genocide references (Matenadaran
+manuscript rescue, Musa Dagh harissa commemoration) use «Հայոց ցեղասպանութիւն/ցեղասպանություն»
+plainly and cite Kevorkian; Ararat is located «սահմանից այն կողմ՝ ներկայիս Թուրքիայում» as fact;
+Alexandropol 1920 names «թուրք ազգայնական ուժեր»; the 1828–29 resettlement, the UNESCO
+lavash/dolma double inscriptions and the Turkic dolma etymology are stated with the established
+inscription-is-not-ownership framing; the Gyumri earthquake keeps its one-paragraph human-dimension
+rule with no casualty figure asserted. No denialist sourcing, no hostile framing, no
+Artsakh/Karabakh content exists to audit. hyw consistently uses Ազրպէյճան/Թուրքիոյ and Կիւմրի (43/0
+vs Գիւմրի), hy uses Ադրբեջան/Գյումրի — each edition internally consistent.
+
+### Corrections applied (validate:content + typecheck PASS after)
+
+- hy dolma intro: «նույն բային ծագող» → «նույն բայից ծագող» (case error; hyw already had բայէն).
+- hy harissa ×6 + en keyword ×1: «քորքոտ» → «կորկոտ» — dictionary form, already used by hyw and
+  matched by the en romanization *korkot*; cross-edition inconsistency removed.
+- hy lavash/dolma ×4: «հմր NNNNN» → «թիվ NNNNN» (nonstandard abbreviation; hyw uses թիւ). Digits
+  untouched — numeral parity unaffected.
+- Khor Virap, both editions: the calque «՝ շատ քիչ բանով միջև/միջեւ» → hy «՝ արանքում շատ քիչ
+  բանով», hyw «՝ մէջտեղը շատ քիչ բանով»։
+
+### Flagged for native Western Armenian review, not changed
+
+- «հէնց» ~19× in hyw places articles — an Eastern-marked particle; per-sentence replacement
+  (ճիշդ/նոյնինքն/restructure) is a native-reviewer call. Joins the standing hyw review debt.
+- Letter-numeral centuries in hyw Gyumri («Ի դարը», «ԺԹ դարու») written without the abbreviating
+  dot — a convention choice to confirm.
+- hyw uses Կարին for the Genocide-era manuscript rescue but Էրզրում in the 1828–29 imperial context
+  — plausibly deliberate; confirm.
+
+### Explicitly NOT errors (checked and kept)
+
+The hyw pattern «ոչինչ/ոչ մէկ + unnegated verb» (~15 sentences) is correct Western Armenian single
+negation, as in Classical Armenian; hy consistently uses Eastern double negation. Both are right;
+neither was touched. Recorded so a later pass does not 'fix' one branch into the other.
+
+No deployment was performed. `.claude/settings.json` untouched.
+
+## 55. Western Armenian review of the two new categories (August 2026)
+
+A follow-up to §54, requested specifically for the hyw edition. The hyw Places file was read in
+full (all ten articles) and the hyw Cuisine file in full (all six), on top of mechanical sweeps.
+
+### Mechanical sweeps — all clean
+
+Zero Eastern «և» anywhere; zero reformed spellings (թվական, -ություն, հարյուր, որպես, վրա, միջև,
+նաև, ինչպես, որտեղ, այնտեղ, կարող է, պետք է all absent in Eastern form); zero Eastern locatives
+(-ում); every «-ում է/են» hit is a noun + copula (վերականգնում է, պնդում է, յիշատակում է…); the
+five «արդեն» hits are all «Վարդենիս»; «Կիւմրի» 43/0 against «Գիւմրի»; the WA elision rule (կ՚
+before vowels, կը before consonants) holds across all 443 uses with exactly one violation, fixed
+below; zero «կը + vowel-initial verb» omissions (all apparent hits were nouns in -կ + article -ը).
+
+### The near-miss worth recording
+
+The hyw pattern «ոչինչ/ոչ մէկ + unnegated verb» (~15 sentences) was checked and confirmed as
+correct Western Armenian single negation (Classical Armenian model), against hy's Eastern double
+negation. Both editions are right; neither was touched. Recorded in §54 and re-confirmed here.
+
+### Corrections applied (validate:content PASS, typecheck PASS, the two Gyumri wording tests PASS)
+
+- «կ՚ղրկուէին» → «կը ղրկուէին» (Dilijan, §49 translation) — elided form before a consonant, the
+  single violation of an otherwise perfect convention.
+- «ՅՈՒՆԵՍԿՕ» → «ԵՈՒՆԵՍՔՕ» ×5, all in the Gyumri article (§51 translation) — the rest of hyw uses
+  the Western form 33×, so Gyumri had silently imported the Eastern house form. Tests pin the
+  element number 01967 and the heritage phrase, not the acronym, so nothing else moved.
+
+### Flagged for native review, unchanged (joins the standing hyw debt)
+
+- «հէնց» ~19× in hyw Places only (zero in cuisine/history/writers/works) — Eastern-marked
+  particle; replacements (ճիշդ / նոյնինքն / restructure) are per-sentence native calls.
+- Letter-numeral centuries in the Gyumri article («Ի դարը», «ԺԹ դարու») written without the
+  abbreviating dot — a convention to confirm, not an error.
+- Author-string drift, site-wide and parallel in hy: «Armat-ի խմբագրական խումբ» (7 places),
+  «Արմատ խմբագրական խումբ» (Sevan, Dilijan, Gyumri), «Armat-ի խմբագրական կազմ» (hyw cuisine and
+  most other hyw categories). Three variants of one credit line; unifying is an editorial
+  branding decision touching all three editions, not a translation fix.
+- hyw uses «Կարին» for the Genocide-era manuscript rescue and «Էրզրում» in the 1828–29 imperial
+  context — read as deliberate register, worth a native confirmation.
+
+### Framing
+
+Nothing anti-Armenian anywhere in hyw: «Հայոց Ցեղասպանութիւն» named plainly, Musa Dagh reverent,
+Ararat located factually, 1920 forces named «թուրք ազգայնական ուժեր», UNESCO double-inscription
+framing intact, earthquake one-paragraph rule intact, no Artsakh/Karabakh content exists.
+
+No deployment was performed. `.claude/settings.json` untouched.
+
+## 56. English review of the two new categories (August 2026)
+
+Following §54 (hy) and §55 (hyw), the same review was run on the English edition of the two
+new categories: all 10 Places articles (`src/data/locales/en/articles/places.ts`, 2180 lines)
+and all 6 Cuisine articles (`src/data/locales/en/articles/cuisine.ts`, 824 lines) were read in
+full, plus mechanical sweeps.
+
+### Mechanical sweeps — all clean
+
+- No doubled words (the the / of of / etc.), no double spaces inside prose.
+- No US spellings. The register is consistently British: -ise verbs (organised, nationalised,
+  standardised, digitisation), metres/kilometres, aubergine/courgette, yoghurt, "per cent"
+  (×4, zero "percent"), "First World War", artefact, hyphenated compass points
+  (north-east etc., zero closed forms). The only grep hits were false positives
+  (literature, cemetery, honorific).
+- No curly quotes; apostrophes in scholarly transliterations (Siwnik', Dawit', Arewelts'i)
+  are deliberate and consistent.
+- Diacritics consistent: Ibn Sayyār al-Warrāq ×2; "harīsa" (macron) reserved for the
+  medieval Baghdadi dish vs "harissa" for the Armenian dish — a deliberate, consistent split.
+- UNESCO identifiers all present and matching the wording tests: lavash no. 00985, dolma
+  no. 01188, blacksmithing element 01967, Etchmiadzin list no. 1011, Geghard no. 960.
+
+### One fix applied
+
+- `en/articles/places.ts` Lake Sevan, how-the-water-moves section: **«joins the Araxes» →
+  «joins the Araks»**. The river was spelled "Araks" twice in Khor Virap (the earlier
+  article) and "Araxes" once in Lake Sevan — the only transliteration drift in the English
+  edition, and exactly the kind the Gyumri article itself legislates against
+  ("this archive uses Alexandropol throughout"). No test pins either form; no digits
+  involved, so numeral parity is unaffected.
+
+Verification: `npm run validate:content` PASS (129 entries across 3 locales);
+`npm run typecheck` PASS.
+
+### Deliberate non-issues (checked, left alone)
+
+- "Alexandrapol" in the Gyumri keywords array is intentional SEO capture of the variant
+  spelling the article itself discusses.
+- Khorovats summary says "a dish of their own" where the section says "a dish of its own" —
+  both idiomatic English with different antecedents; not an error.
+- Citing Priscilla Mary Işın (Ottoman culinary history) in the dolma article is a food-history
+  source, not hostile material; the framing around it explicitly refuses ownership claims
+  in both directions.
+
+### Framing audit — clean
+
+Nothing anti-Armenian and nothing over-claiming: the Armenian Genocide is named plainly
+(Matenadaran rescue narrative, Musa Dagh/harissa with Kévorkian cited); Ararat is located
+factually ("across the border, in present-day Turkey") while its cultural weight is stated;
+Gyumri 1920 uses "Turkish nationalist forces"; the dolma article states the Azerbaijani
+UNESCO nomination as fact and reads it as "a practice, not an origin" — the same
+double-inscription framing as lavash; Erebuni's deportation clause is framed as evidence
+about the Urartian state; the Gyumri earthquake keeps the one-paragraph human-dimension
+rule. No Artsakh/Karabakh content exists in either file.
+
+No deployment was performed. `.claude/settings.json` untouched.
