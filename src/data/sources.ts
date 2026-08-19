@@ -1534,6 +1534,79 @@ const SOURCES: Record<string, Source[]> = {
       note: "Already registered for six other articles. Cited here for the historical geography behind the article's first two sections: the district of Aragatsotn and its relation to the Aragats massif, the position of the Ararat plain below it, and the holdings of the Kamsarakan house in Arsharunik and Shirak to the north and west — which is the tenure half of the seventh-century attribution the article declines to state as a fact.",
     },
   ],
+
+  jermuk: [
+    {
+      author: "Statistical Committee of the Republic of Armenia",
+      title:
+        "Results of the 2022 Population Census of the Republic of Armenia — Figures of the Marz of Vayots Dzor, Section 1: Distribution of the Population by Administrative-Territorial Division",
+      publisher: "Armstat, Yerevan",
+      year: "2024",
+      identifier: { kind: "url", value: "https://armstat.am/en/?nid=956" },
+      note: "The primary source for every population figure in this article, and the only one. Tables 1.1.1 and 1.1.2 of this release were downloaded from the page linked here, extracted and read directly rather than taken from a secondary account, which matters because they are the reason the article can separate four numbers that are routinely quoted as one. For the town of Jermuk they give a permanent (de jure) population of 3936 and a present (de facto) population of 3569 at the census of October 2022, against 5394 and 5146 in 2001 and 4628 and 4346 in 2011. For the Jermuk community — the town plus Kechut, Gndevaz, Karmrashen and Herher — they give 5694 permanent, and for Vayots Dzor marz 47369. The tables state that communities are presented as constituted under the law on administrative-territorial division as amended on 9 June 2022. Cited for the census figures and the settlement/community distinction, and for nothing else.",
+    },
+    {
+      author: "Jermuk Municipality",
+      title: "About the community (Համայնքի մասին)",
+      publisher: "Ջերմուկի համայնքապետարան, jermuk.am",
+      identifier: {
+        kind: "url",
+        value:
+          "https://www.jermuk.am/Pages/CustomPage/?CustomPageID=722b890c-cc0b-4c5d-bdf2-30fbebab4291",
+      },
+      note: "The administering authority's own account of the settlement, in Armenian, and the source that independently corroborates the resort chronology this article uses: the modern town dated to 1940 and the completion of its first sanatorium, the grant of town status in 1967, all-Union resort status in 1970, and the renaming from Istisu to Jermuk in 1924. Also the source for the community's composition and the distances the article gives — Kechut, Gndevaz, Herher and Karmrashen; roughly fifty kilometres from the provincial centre and a hundred and seventy-three from Yerevan — for its elevation figure of 2080 metres, for the count of thirty-six thermal springs, for the bottling plant's date of 1949, and for the waterfall at about seventy metres. It is also cited for a discrepancy rather than a fact: its own population figure of 9276 for the community is a registered count and stands more than half again above the census total above. Not cited for chemistry, for medical claims, or for anything the census answers.",
+    },
+    {
+      author: "Institute of Geological Sciences, National Academy of Sciences of the Republic of Armenia",
+      title: "Section of Mineral Waters",
+      publisher: "geology.am, Yerevan",
+      identifier: { kind: "url", value: "https://geology.am/en/museum-mineral-water/" },
+      note: "The institutional geological source, and the one that carries this article's chemistry. Cited for the country-wide context — more than seven hundred mineral springs and boreholes recorded in Armenia, temperatures from about 40 degrees at the coolest recognised thermal fields to over 80 at the hottest — and for Jermuk specifically: the springs in the Arpa gorge on the Jermuk plateau, a temperature range of roughly 40 to 58 degrees Celsius, a hydrocarbonate–sulphate composition with sodium, calcium and magnesium among the cations, mineralisation of about 4 to 5 grams per litre, and carbon dioxide in the gas. It is also the source of the comparison with Karlovy Vary that the article reports as a resemblance claim rather than a measurement.",
+    },
+    {
+      author: "Armine Saghatelyan, Armine Margaryan, Hovik Panosyan and Nils-Kåre Birkeland",
+      title:
+        "Microbial Diversity of Terrestrial Geothermal Springs in Armenia and Nagorno-Karabakh: A Review",
+      publisher: "Microorganisms 9(7), 1473, MDPI",
+      year: "2021",
+      identifier: { kind: "doi", value: "10.3390/microorganisms9071473" },
+      note: "The one peer-reviewed measurement this article rests on, and it is a measurement of a single spring rather than of the field. Cited for its Jermuk sample: a temperature above 53 degrees Celsius, a circumneutral pH of 7.5, an elevation of 2080 metres, and a description of the source as vigorously degassing and of carbon hydro-sulphate–sodium type — which is compatible with the institutional range above and is why the article can say the two agree. Its tabulated total mineralisation for the Armenian springs it surveys is not usable as stated and is deliberately not quoted here; the mineralisation figure in this article comes from the geological institute instead. The review's own subject is microbial ecology, and nothing in this article rests on that half of it.",
+    },
+    {
+      author: "T. Kh. Hakobyan, S. T. Melik-Bakhshyan and H. Kh. Barseghyan",
+      title: "Dictionary of Toponymy of Armenia and Adjacent Regions, volume 4 (Ն–Վ)",
+      publisher: "Yerevan State University Press, Yerevan",
+      year: "1986–2001",
+      identifier: {
+        kind: "archive",
+        value:
+          "Հակոբյան Թ. Խ., Մելիք-Բախշյան Ս. Տ., Բարսեղյան Հ. Խ., «Հայաստանի և հարակից շրջանների տեղանունների բառարան», հ. 4, ԵՊՀ հրատարակչություն, Երևան",
+      },
+      note: "The standard Armenian toponymic reference, and the work behind the place-name half of this article's second section — the older name Istisu and the reversion to Jermuk in 1924. Registered with an archival identifier rather than a URL or a page because neither could be verified: the volume is not online in a form this article could open, and a page number circulates in secondary citations that has not been checked against the book. It has not been read directly, that is recorded rather than glossed, and the two claims it supports are also carried by the municipality's own page above. The article's statement that jermuk is an ordinary Armenian common noun does not rest on it.",
+    },
+    {
+      title: "Armenian Soviet Encyclopedia, volume 9 — Jermuk",
+      publisher: "Armenian Encyclopedia Publishing House, Yerevan",
+      identifier: {
+        kind: "archive",
+        value: "«Հայկական սովետական հանրագիտարան», հ. 9, «Ջերմուկ» յօդուած, Երևան",
+      },
+      note: "The reference work behind the Soviet-period detail that the municipality's page does not carry: the master plan of 1945 and its revisions, and the attribution of the sanatorium and the mineral-water gallery to the architect Gevorg Tamanyan, built between 1950 and 1956. Like the toponymic dictionary above it is registered with an archival identifier and has not been read directly — the article's account of it comes from Armenian secondary literature citing it — and every claim in the article that depends on it is written as something Armenian reference works report rather than as an established fact. The bed-capacity and airfield figures for the resort at its height are attributed to this literature in the same way, and are given as orders of magnitude.",
+    },
+    {
+      title: "Lake Sevan — \"Sevan\" National Park SNCO",
+      publisher: "Ministry of Environment of the Republic of Armenia, Yerevan",
+      identifier: { kind: "url", value: "https://sevan-park.am/en/2019/03/29/lake-sevan/" },
+      note: "Already registered for the Lake Sevan article, and cited here for one thing: the Arpa–Sevan diversion, which begins at the Kechut reservoir on the Arpa immediately below Jermuk and has carried water under the Vardenis range into the lake since 1981. That is the fact that makes the upper Arpa a managed water system rather than a wilderness, and it is the relationship this article's only authored link points at. Not cited for anything about Jermuk itself.",
+    },
+    {
+      author: "CEE Bankwatch Network",
+      title: "Amulsar gold mine, Armenia",
+      publisher: "Bankwatch, Prague",
+      identifier: { kind: "url", value: "https://bankwatch.org/project/amulsar-gold-mine-armenia" },
+      note: "Cited for the existence and course of the dispute over the Amulsar deposit and for nothing else: that the Armenian government commissioned an independent technical assessment in 2019, that its authors reported the data available to them were insufficient for a comprehensive environmental risk assessment, and that no government decision followed from it. Registered with its position stated rather than hidden — Bankwatch is a network of environmental organisations that has campaigned against this project — which is precisely why it is used only for the process and never for a technical conclusion. The assessment report itself was not obtained, the article therefore adjudicates nothing about the springs, and the one paragraph that mentions Amulsar says so.",
+    },
+  ],
 };
 
 

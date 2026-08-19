@@ -318,6 +318,67 @@ export const PLACE_COORDINATES: Record<string, PlacePoint> = {
   // reader following this point arrives at the castle rather than at the middle
   // of a protected boundary.
   "amberd-fortress": { lat: 40.3885, lon: 44.2263, precision: "site" },
+
+  // The second `settlement` entry, and the first place in this registry set in
+  // Vayots Dzor. Jermuk is a small town of a few thousand people on a plateau
+  // split by the gorge of the Arpa, so — like Gyumri and unlike every `site` above
+  // — this point is not a structure. It is the conventional position a gazetteer
+  // holds for the settlement, and a map that drops a pin on it is marking *the
+  // town*, not a place a visitor stands.
+  //
+  // OpenStreetMap node 210212587 (`Ջերմուկ`, place=town) is at 39.8388185,
+  // 45.6712635; rounded to four places here, which moves it 3.7 m. That node is
+  // OSM's settlement point for Jermuk — the label node Nominatim returns for the
+  // town — rather than any building inside it, which is the same rule §51 applied
+  // to Gyumri.
+  //
+  // Three independent geographic representations were checked, and the agreement
+  // is unusually tight for a settlement:
+  //   - GeoNames 174884 (`Jermuk`, feature class P, code PPLA2, Vayots Dzor) gives
+  //     39.83948, 45.67112 — **75 m** from the value stored here, and inside the
+  //     built-up area. Its ASTER GDEM elevation of 2090 m also sits between the
+  //     two figures the article reports for the town, 2080 and about 2100, without
+  //     settling either, since a DEM sample at a point is not a settlement's
+  //     height;
+  //   - the OSM `place=town` polygon, way 177199402, has its centre 0.73 km
+  //     south-south-east. That polygon reaches well past the built area — its
+  //     bounding box is about 5 km north to south — so its centroid is a centre of
+  //     *administered ground* rather than of a town, which is why the node was
+  //     preferred;
+  //   - Wikidata Q39556 (P625) gives 39.85, 45.683333 — 1.6 km north-east, and
+  //     carried at a coarseness (two decimal places of latitude) below this
+  //     registry's own rounding. As with Gyumri, that is why the OSM node was
+  //     preferred rather than adjudicated against.
+  // Two points 75 m apart in a town roughly two kilometres across is agreement,
+  // not a disagreement to resolve.
+  //
+  // Deliberately not any of these, and the first is what a search for "Jermuk"
+  // surfaces ahead of the settlement point itself:
+  //   - the **Jermuk waterfall** (OSM node 1970452502) 353 m south-west, and a
+  //     second mapped fall 487 m east. A waterfall is the photographed thing here
+  //     and is a feature of the gorge, not the town;
+  //   - the **town hall** (OSM node 10875092608) 453 m west, which is a municipal
+  //     office and would pin the administration rather than the settlement;
+  //   - the mapped **hot spring** north-west of Kechut (OSM node 925967306) 3.8 km
+  //     away — one spring, and the registry's question is not where a spring is;
+  //   - **Kechut** village (OSM node 925967382) 3.8 km south and the **Kechut
+  //     reservoir** (OSM way 79289845) 4.3 km south-south-west. Both are inside the
+  //     Jermuk community, which is exactly the confusion this article spends its
+  //     first section separating: the community is not the town;
+  //   - the stairway down to the waterfall (OSM node 8773342818) 744 m away, and
+  //     the rest of the visitor infrastructure with it. Also excluded in advance:
+  //     the mineral-water gallery, any single sanatorium or hotel, the bottling
+  //     plant, the ski area and any viewpoint.
+  //
+  // `settlement` rather than `site` or `area`, on the distinction §51 wrote into
+  // this file: a monastery enclosure has a point, a lake has only a centroid, and
+  // a town has a conventional centre that is neither.
+  //
+  // Jermuk is at no extreme of this registry — Tatev is still the southernmost and
+  // easternmost, Gyumri still the northernmost and westernmost — so the
+  // marker-derived bounds are unchanged by it. Its nearest neighbour here is Lake
+  // Sevan, 67.5 km away.
+  jermuk: { lat: 39.8388, lon: 45.6713, precision: "settlement" },
 };
 
 /** The recorded position for a place slug, or `undefined` when none is held. */

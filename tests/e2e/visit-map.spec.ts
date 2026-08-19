@@ -93,6 +93,31 @@ const PLACES = [
     assuming.
   */
   "amberd-fortress",
+
+  /*
+    §59. The twelfth marker, and the second `settlement`.
+
+    Jermuk is on this map for the same reason as everything above it: it is a Places
+    article with a coordinate, and nothing in `visit-map.ts`, `map-tiles.ts`,
+    `VisitMap.tsx` or the map's data path was touched to admit it. The map went 11 to
+    12 by an article and a registry entry existing, which is the property this list
+    tests. There is no allow-list to add it to and no new marker type: it is
+    `settlement`, so it draws the glyph §51 added for Gyumri and §59 did not touch.
+
+    It is the second addition in a row that stretches the extent in *no* direction.
+    Tatev pulled the box south, Dilijan north, Gyumri north-west; Amberd sat inside
+    all three edges and Jermuk sits inside them too — south of Lake Sevan, west of
+    Tatev, north of Khor Virap's latitude only by a little, and nowhere near a
+    boundary. The bounds are marker-derived, so a twelfth marker inside the existing
+    box must leave the framing untouched.
+
+    It is also the most isolated point on this map: its nearest neighbour is Lake
+    Sevan, 67 km away, against the six and eight kilometres that produce the two
+    known overlapping pairs. A new collision involving it is close to impossible,
+    which is a prediction the overlap measurement below either confirms or refutes
+    rather than an assumption it is allowed to make.
+  */
+  "jermuk",
 ] as const;
 
 /**
@@ -113,7 +138,7 @@ const AREA_PLACES = ["lake-sevan", "dilijan-national-park"] as const;
  * at all. Kept as a list for the same reason `AREA_PLACES` is: a second town has
  * to be added to a named list rather than to a boolean.
  */
-const SETTLEMENT_PLACES = ["gyumri"] as const;
+const SETTLEMENT_PLACES = ["gyumri", "jermuk"] as const;
 
 const NOT_MAPPED = {
   cuisine: ["lavash", "dolma", "khorovats", "gata", "harissa", "ghapama"],
@@ -540,6 +565,12 @@ test("the derived bounds contain every marker, at every width", async ({ page })
     *visible* at every width — a pin that clears the box at 1440 px can fall outside
     it at 360 px — and that nothing was retuned to make room for it.
 
+    §59 is the second of those in a row. Jermuk is well inside the same box — Tatev
+    is both further south and further east, Gyumri further north and west — so the
+    framing is again unchanged and the claim is again about visibility rather than
+    extent. Two consecutive additions that move no edge is the state this test was
+    written to be able to distinguish from an addition that quietly retunes one.
+
     Widened to the four viewport widths the responsive suite already uses, because
     the failure this guards against is width-dependent in a way §47's single
     measurement could not see: Leaflet fits bounds to the container, and a marker
@@ -553,7 +584,7 @@ test("the derived bounds contain every marker, at every width", async ({ page })
   */
   test.slow();
 
-  expect(getVisitMapPoints("en").length, "the eleventh place is on the map").toBe(PLACES.length);
+  expect(getVisitMapPoints("en").length, "the twelfth place is on the map").toBe(PLACES.length);
 
   for (const width of [360, 390, 768, 1440]) {
     await page.setViewportSize({ width, height: 900 });
@@ -620,6 +651,12 @@ test("adding a marker inside the existing box introduces no new overlap", async 
     neighbour is Etchmiadzin, about 26 km away — four times the Erebuni-Matenadaran
     gap and three times the Garni-Geghard one — so a third overlapping pair is not
     expected. Expected is not measured, which is why this runs.
+
+    §59 adds a twelfth pin, also inside the box, and it is the most isolated marker
+    on the map: Jermuk's nearest neighbour is Lake Sevan, 67 km away, an order of
+    magnitude past the six and eight kilometres that produce the two known pairs. A
+    new collision involving it would be a surprise, and a surprise is exactly what a
+    measurement is for.
 
     The assertion is a *subset* one, not an exact count. Whether the two known
     pairs still overlap, and by how much, is a measurement to be reported rather
@@ -690,7 +727,7 @@ test("precision travels with the point, and each kind stays its own kind", () =>
   ).toEqual([...AREA_PLACES].sort());
   expect(
     points.filter((point) => point.precision === "settlement").map((point) => point.slug).sort(),
-    "exactly one place is a town centre",
+    "the town centres",
   ).toEqual([...SETTLEMENT_PLACES].sort());
 });
 
@@ -708,6 +745,11 @@ test("the settlement marker is generic, and its type reaches the accessible name
 
     There is no Gyumri-specific anything to assert, which is the point. The marker
     is selected by `data-place-type`, not by slug.
+
+    §59 is the step that proves it: Jermuk is the second `settlement` and it took no
+    component change at all. Both markers are asserted below, and the count is the
+    assertion that matters — a glyph added for one article and then special-cased for
+    the next would still pass a test that looked only at Gyumri.
   */
   await page.goto("/en/visit");
   await openMap(page);
@@ -715,6 +757,13 @@ test("the settlement marker is generic, and its type reaches the accessible name
   const marker = page.locator('[data-slug="gyumri"]');
   await expect(marker).toHaveCount(1);
   await expect(marker).toHaveAttribute("data-place-type", "settlement");
+
+  // Both settlements exist and share the one type attribute — §59.
+  await expect(page.locator('[data-slug][data-place-type="settlement"]')).toHaveCount(2);
+  await expect(page.locator('[data-slug="jermuk"]')).toHaveAttribute(
+    "data-place-type",
+    "settlement",
+  );
 
   /*
     §52. Selecting it now shows Gyumri's own file — the inversion of §51, where the
@@ -822,6 +871,74 @@ test("the historical marker took no new glyph, and its type is localized", async
     const typeLabel = bundle(locale).placeTypes.find((filter) => filter.id === "historical")!.label;
 
     await expect(page.locator('[data-slug="amberd-fortress"]'), locale).toHaveAttribute(
+      "aria-label",
+      `${point.title} — ${typeLabel}`,
+    );
+  }
+});
+
+test("the second settlement marker took no new glyph, and shows its own image", async ({
+  page,
+}) => {
+  /*
+    §59's counterpart to the §51 settlement-marker test, and deliberately the
+    *opposite* claim — the same shape §57 used for the third `historical` place.
+
+    §51 added one `TYPE_GLYPH` entry because `settlement` had never had a rendered
+    member, and that test pins the edit as generic. §59 adds no component code at
+    all: `settlement` has had a glyph since §51, Jermuk is the second article under
+    it, and the marker must be indistinguishable from Gyumri's except in position and
+    name. There is nothing Jermuk-specific to assert, which is the point.
+  */
+  await page.goto("/en/visit");
+  await openMap(page);
+
+  const marker = page.locator('[data-slug="jermuk"]');
+  await expect(marker).toHaveCount(1);
+  await expect(marker).toHaveAttribute("data-place-type", "settlement");
+
+  /*
+    Selecting it opens Jermuk and now shows its own file — §60 inverting the `else`
+    branch §59 asserted here, and the twelfth selected card to carry artwork.
+
+    A selected card that quietly borrowed a neighbour's cover would look completely
+    finished, which is why the four below are still checked by name: Gyumri is the
+    other `settlement` and the only urban image in the registry, Dilijan is the other
+    town with a spa history, and Tatev and Lake Sevan are the gorge and the highland
+    water that `PENDING_ARTWORK` recorded as refused. They matter *more* after §60,
+    not less: Jermuk's own cover is off-subject by decision, so repointing this slug
+    at one of them would read as a correction rather than a regression.
+  */
+  const panel = mapSection(page).locator("[aria-live='polite']");
+  await marker.focus();
+  await marker.press("Enter");
+  await expect(panel).toContainText(
+    bundle("en").articles.find((a) => a.slug === "jermuk")!.title,
+  );
+  await expect(panel.locator("img"), "its own artwork").toHaveAttribute(
+    "src",
+    /jermuk\.webp/,
+  );
+  for (const borrowed of ["gyumri", "dilijan-national-park", "tatev-monastery", "lake-sevan"]) {
+    await expect(
+      panel.locator(`img[src*="${borrowed}"]`),
+      `${borrowed} must not illustrate the Jermuk panel`,
+    ).toHaveCount(0);
+  }
+  await expect(
+    panel.getByRole("link", { name: bundle("en").pages.visit.mapCta, exact: true }),
+  ).toHaveAttribute("href", "/en/places/jermuk");
+
+  // And the accessible name is the localized title and the localized type, in every
+  // edition — shape and colour are never the only channel.
+  for (const locale of ["en", "hy", "hyw"] as const) {
+    await page.goto(`/${locale}/visit`);
+    await openMap(page);
+
+    const point = getVisitMapPoints(locale).find((entry) => entry.slug === "jermuk")!;
+    const typeLabel = bundle(locale).placeTypes.find((filter) => filter.id === "settlement")!.label;
+
+    await expect(page.locator('[data-slug="jermuk"]'), locale).toHaveAttribute(
       "aria-label",
       `${point.title} — ${typeLabel}`,
     );

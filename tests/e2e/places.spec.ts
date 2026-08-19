@@ -186,7 +186,40 @@ const GYUMRI = "gyumri";
  */
 const AMBERD = "amberd-fortress";
 
-/** All eleven places, for the assertions that must hold of every article in the section. */
+/**
+ * The twelfth place, the **second** `settlement`, and the first article anywhere in
+ * this archive set in Vayots Dzor — §59.
+ *
+ * It does to `settlement` what §39 did to `historical` and §49 to `nature`: turns a
+ * one-article pill into a pair, which is the transition the filter loop above was
+ * kept in place for. Gyumri and Jermuk have almost nothing in common beyond being
+ * inhabited — a nineteenth-century imperial city of a hundred thousand on an open
+ * plain, and a twentieth-century spa town of a few thousand on a highland plateau —
+ * and that spread is the argument for the breadth of the id, and the reason no
+ * `spa`, `resort`, `town` or `health-resort` pill was invented for this article.
+ *
+ * It split `PLACES` from `ILLUSTRATED` for the eleventh time in §59, exactly as §52
+ * and §58 each predicted the next Place would, and §60 closed the gap again — the
+ * eleventh time the two lists have rejoined. Between §59 and §60 it shipped ahead of
+ * its artwork and rendered the generated placeholder; every placeholder assertion §59
+ * wrote for it is inverted below.
+ *
+ * §60 is the one registration in the section that is **not** a match between file and
+ * article, and the tests say so rather than smoothing it over. The delivered file is
+ * the Jermuk waterfall with no built fabric in it, registered by explicit decision
+ * against the commission in `media.ts`, which had refused a waterfall-only cover in
+ * advance. Nothing here asserts that the picture is *right*; what is asserted is that
+ * it is Jermuk's own file, on every surface, borrowed from nobody — which is the only
+ * part of the question a test can settle.
+ *
+ * Like Amberd it stretches the map in no direction: Tatev is still the southernmost
+ * and easternmost marker and Gyumri still the northernmost and westernmost, so the
+ * marker-derived bounds are unchanged by it. Its nearest neighbour in the coordinate
+ * registry is Lake Sevan, 67 km away, which is why it introduces no new overlap.
+ */
+const JERMUK = "jermuk";
+
+/** All twelve places, for the assertions that must hold of every article in the section. */
 const PLACES = [
   SLUG,
   ETCHMIADZIN,
@@ -199,30 +232,32 @@ const PLACES = [
   DILIJAN,
   GYUMRI,
   AMBERD,
+  JERMUK,
 ] as const;
 
 /**
- * The places whose artwork has actually landed — all eleven, as of §58.
+ * The places whose artwork has actually landed — all twelve, as of §60.
  *
  * Kept as its own list rather than folded into `PLACES` because the section has
- * been in the split state ten times now (§31, §33, §35, §37, §39, §41, §47, §49,
- * §51, §57) and left it ten times (§32, §34, §36, §38, §40, §42, §48, §50, §52,
+ * been in the split state eleven times now (§31, §33, §35, §37, §39, §41, §47, §49,
+ * §51, §57, §59) and left it ten times (§32, §34, §36, §38, §40, §42, §48, §50, §52,
  * §58), and on every one of those occasions the change was to move one slug between
  * these two lines. Artwork assertions run over this one: claiming provenance for a
  * slug that has no file would be asserting a fiction, and the place written ahead
  * of its picture needs this list to already exist rather than to be reconstructed
  * under pressure.
  *
- * **The two lists coincide again, for the tenth time.** That is the normal end
- * state and not a signal that one of them can go: every single coincidence so far
- * (§32, §34, §36, §38, §40, §42, §48, §50, §52) has been ended by the place written
- * after it, which is nine for nine. Place #12 will separate them again, and
- * collapsing these two declarations into one now would mean rediscovering the
- * difference between them under pressure at that point.
+ * **The two lists coincide again, for the eleventh time.** They have now been apart
+ * eleven times and rejoined eleven times, and on every previous occasion the
+ * coincidence was ended by the place written after it — ten for ten before §59, which
+ * ended §58's. That is the whole argument against collapsing the two declarations
+ * into one: Place #13 will separate them again, and the split state needs this list
+ * to already exist rather than to be reconstructed under pressure.
  *
  * The placeholder assertions below read this list to decide what may render an
  * `<svg>`; `PLACES` decides what must exist at all. Those are different questions
- * even when the answers match, and they match now.
+ * even when the answers match, and they match now — which is exactly when the
+ * temptation to merge them appears, and exactly why they stay apart.
  */
 const ILLUSTRATED = [
   SLUG,
@@ -236,6 +271,7 @@ const ILLUSTRATED = [
   DILIJAN,
   GYUMRI,
   AMBERD,
+  JERMUK,
 ] as const;
 
 /**
@@ -248,11 +284,13 @@ const ILLUSTRATED = [
  * from being updated to match a regression.
  *
  * The extensions differ on purpose and are not a typo: Khor Virap's cover is a
- * PNG copied from the homepage hero (§30), while the other ten are WebPs
- * (§32, §34, §36, §38, §40, §42, §48, §50, §52, §58). Their dimensions are not
+ * PNG copied from the homepage hero (§30), while the other eleven are WebPs — and
+ * the map is twelve entries against twelve places again, for the eleventh time
+ * (§32, §34, §36, §38, §40, §42, §48, §50, §52, §58, §60). Their dimensions are not
  * uniform either — `garni-temple.webp` is 1448×1086 and `gyumri.webp` is 1584×993
- * against the 1586×992 of the eight others, which changes what the shared centre
- * crops trim but not what this map holds.
+ * against the 1586×992 of the nine others, which changes what the shared centre
+ * crops trim but not what this map holds. `jermuk.webp` is 1586×992 and adds no new
+ * drift, but at 823 KB it is the heaviest file here.
  *
  * The `satisfies` clause is the part that earns its keep: it is what makes the two
  * lists above disagree at compile time rather than at runtime. Add a slug to
@@ -271,6 +309,7 @@ const ARTWORK = {
   [DILIJAN]: "/images/places/dilijan-national-park.webp",
   [GYUMRI]: "/images/places/gyumri.webp",
   [AMBERD]: "/images/places/amberd-fortress.webp",
+  [JERMUK]: "/images/places/jermuk.webp",
 } as const satisfies Record<(typeof ILLUSTRATED)[number], string>;
 
 /**
@@ -304,9 +343,9 @@ for (const locale of LOCALES) {
     await expect(
       page.getByRole("heading", { name: dict.listing.places.title, level: 1 }),
     ).toBeVisible();
-    await expect(cards(page)).toHaveCount(11);
+    await expect(cards(page)).toHaveCount(12);
 
-    // All eleven places open in this edition, under their own titles. The loop is
+    // All twelve places open in this edition, under their own titles. The loop is
     // what catches an article authored in `hy` and forgotten in the other two —
     // the listing would still render, with one card short and no error anywhere.
     for (const slug of PLACES) {
@@ -348,7 +387,7 @@ test("the Armenian editions never fall back to the English place title", async (
 
 test("the places listing filters by kind of site, and keeps it in the URL", async ({ page }) => {
   await page.goto("/en/places");
-  await expect(cards(page)).toHaveCount(11);
+  await expect(cards(page)).toHaveCount(12);
 
   await page.getByRole("button", { name: placeTypeLabel("en", "monastery") }).click();
 
@@ -395,15 +434,18 @@ test("each single-article filter returns exactly its own article", async ({ page
     below rather than being quietly dropped from coverage.
 
     `nature` left it in §49 on the same terms, and for the same reason: Dilijan is
-    the second article under that pill. §51 is the case the loop was kept for: a new
-    type arriving alone. `settlement` joins `museum` here on its first day, which is
-    exactly the state `historical` and `nature` were in before their second article,
-    and it is the reason this stayed a loop rather than being inlined.
+    the second article under that pill. §51 was the case the loop was kept for: a new
+    type arriving alone. `settlement` joined `museum` here on its first day, which
+    was exactly the state `historical` and `nature` were in before their second
+    article — and §59 takes it out again, because Jermuk is that second article and
+    the pill is asserted as a pair in its own test below.
+
+    That leaves `museum` alone in this loop for the third time, which is the whole
+    reason it is a loop: the Matenadaran has been the only member of its pill since
+    §35 and every other one-article pill has eventually left. Inlining it now would
+    mean rebuilding the loop for Place #13.
   */
-  for (const [type, slug] of [
-    ["museum", MATENADARAN],
-    ["settlement", GYUMRI],
-  ] as const) {
+  for (const [type, slug] of [["museum", MATENADARAN]] as const) {
     await page.goto("/en/places");
     await page.getByRole("button", { name: placeTypeLabel("en", type) }).click();
 
@@ -420,9 +462,9 @@ test("each single-article filter returns exactly its own article", async ({ page
     }
     await expect(page).toHaveURL(new RegExp(`[?&]type=${type}`));
 
-    // Clearing returns all eleven, so the pill filters rather than replaces the set.
+    // Clearing returns all twelve, so the pill filters rather than replaces the set.
     await page.getByRole("button", { name: placeTypeLabel("en", "all") }).click();
-    await expect(cards(page), type).toHaveCount(11);
+    await expect(cards(page), type).toHaveCount(12);
   }
 });
 
@@ -467,7 +509,7 @@ test("the historical filter returns exactly Erebuni, Garni and Amberd", async ({
   await expect(page).toHaveURL(/[?&]type=historical/);
 
   await page.getByRole("button", { name: placeTypeLabel("en", "all") }).click();
-  await expect(cards(page)).toHaveCount(11);
+  await expect(cards(page)).toHaveCount(12);
 });
 
 test("the nature filter returns exactly Lake Sevan and Dilijan National Park", async ({ page }) => {
@@ -504,7 +546,47 @@ test("the nature filter returns exactly Lake Sevan and Dilijan National Park", a
   await expect(page).toHaveURL(/[?&]type=nature/);
 
   await page.getByRole("button", { name: placeTypeLabel("en", "all") }).click();
-  await expect(cards(page)).toHaveCount(11);
+  await expect(cards(page)).toHaveCount(12);
+});
+
+test("the settlement filter returns exactly Gyumri and Jermuk", async ({ page }) => {
+  /*
+    §59, and the §39/§49 move performed a third time: a one-article pill becomes a
+    pair, and the assertion changes shape rather than only its count.
+
+    The pair is the argument for the id. Gyumri is a nineteenth-century imperial city
+    of a hundred thousand people on an open plain in the north-west; Jermuk is a
+    twentieth-century spa town of a few thousand on a highland plateau in the
+    south-east. Nothing about them is alike except that people live in both, which is
+    exactly the breadth §51 chose `settlement` for and the reason no `spa`, `resort`,
+    `town` or `health-resort` pill was invented for the second one.
+
+    Asserted as a set rather than a count: two cards is also what a filter that
+    returned Gyumri twice would produce, and every other place is named as absent so
+    a pill that quietly widened would fail here rather than in a count somewhere else.
+  */
+  const SETTLEMENTS = [GYUMRI, JERMUK] as readonly string[];
+
+  await page.goto("/en/places");
+  await page.getByRole("button", { name: placeTypeLabel("en", "settlement") }).click();
+
+  await expect(cards(page)).toHaveCount(SETTLEMENTS.length);
+  for (const slug of SETTLEMENTS) {
+    await expect(
+      page.getByRole("link", { name: articleTitle("en", slug) }).first(),
+      slug,
+    ).toBeVisible();
+  }
+  for (const other of PLACES.filter((entry) => !SETTLEMENTS.includes(entry))) {
+    await expect(
+      page.getByRole("link", { name: articleTitle("en", other) }),
+      `settlement must not show ${other}`,
+    ).toHaveCount(0);
+  }
+  await expect(page).toHaveURL(/[?&]type=settlement/);
+
+  await page.getByRole("button", { name: placeTypeLabel("en", "all") }).click();
+  await expect(cards(page)).toHaveCount(12);
 });
 
 test("the filter vocabulary is exactly the six ids, in every edition", () => {
@@ -541,6 +623,12 @@ test("the filter vocabulary is exactly the six ids, in every edition", () => {
     the array above and given its article below — and it is the one entry here that
     was ever meant to.
 
+    §59 adds four more of its own, and they are the same temptation in a different
+    dress: `spa`, `resort`, `town` and `health-resort` are all reasonable words for
+    what Jermuk is, every one of them would have been a new pill for one article, and
+    `settlement` already existed and already had a member. A second article under an
+    existing id is the outcome a taxonomy is for.
+
     §57 adds four more, and they are the sharpest yet because Amberd is the first
     place whose *own subject noun* is not in the vocabulary. `fortress`, `castle`,
     `military` and `archaeological` are all reasonable words for what Amberd is, and
@@ -563,6 +651,11 @@ test("the filter vocabulary is exactly the six ids, in every edition", () => {
       "castle",
       "military",
       "archaeological",
+      "spa",
+      "resort",
+      "health-resort",
+      "mineral-water",
+      "sanatorium",
     ]) {
       expect(ids, `${locale} must not gain a "${invented}" pill`).not.toContain(invented);
     }
@@ -582,12 +675,13 @@ test("the filter vocabulary is exactly the six ids, in every edition", () => {
   expect(under("museum")).toEqual([MATENADARAN]);
   expect(under("nature")).toEqual([SEVAN, DILIJAN].sort());
   expect(under("monastery")).toEqual([ETCHMIADZIN, GEGHARD, SLUG, TATEV].sort());
-  // The whole point of §51: `settlement` holds exactly Gyumri and nothing else.
-  expect(under("settlement")).toEqual([GYUMRI]);
+  // §51 gave `settlement` its first member and §59 its second, which is what makes
+  // this the third pill to stop being a singleton.
+  expect(under("settlement")).toEqual([GYUMRI, JERMUK].sort());
 
-  // The whole distribution, pinned against the id count above — eleven places over
-  // six pills, with one holding four, one holding three, one holding two and two
-  // holding one. §57 moves exactly one number and introduces no id.
+  // The whole distribution, pinned against the id count above — twelve places over
+  // six pills, with one holding four, one holding three, two holding two and one
+  // holding one. §59 moves exactly one number and introduces no id.
   const byType = new Map<string, number>();
   for (const entry of bundle("hy").articles.filter((a) => a.category === "places")) {
     byType.set(entry.placeTypeId!, (byType.get(entry.placeTypeId!) ?? 0) + 1);
@@ -597,7 +691,7 @@ test("the filter vocabulary is exactly the six ids, in every edition", () => {
     monastery: 4,
     museum: 1,
     nature: 2,
-    settlement: 1,
+    settlement: 2,
   });
   expect(
     [...byType.values()].reduce((a, b) => a + b, 0),
@@ -969,10 +1063,11 @@ test("the empty search page offers places as a place to start", async ({ page })
   state "AI-generated" rather than "placeholder". A registration that rendered
   the picture without the disclosure would look completely correct.
 
-  These run over `ILLUSTRATED`, which is currently all eleven places. The
-  placeholder branch therefore has no subject again and is asserted as an absence —
-  the tenth time this file has switched between the two states, and the reason
-  `ILLUSTRATED` survives as a separate list rather than collapsing into `PLACES`.
+  These run over `ILLUSTRATED`, which as of §60 is all twelve places again. The
+  placeholder branch therefore has no subject left in this section, which is the
+  eleventh time this file has switched between the two states, and the reason
+  `ILLUSTRATED` survives as a separate list rather than collapsing into `PLACES` —
+  Place #13 will give it one back.
 */
 
 test("each article hero renders its own registered artwork and names the AI provenance", async ({
@@ -981,8 +1076,8 @@ test("each article hero renders its own registered artwork and names the AI prov
   /*
     Declared slow rather than trimmed. This test and the one below it are the two
     that navigate `LOCALES × ILLUSTRATED`, so §42 took each from eighteen page loads
-    to twenty-one, §48 to twenty-four, §50 to twenty-seven, §52 to thirty and §58 to
-    thirty-three — against a dev server
+    to twenty-one, §48 to twenty-four, §50 to twenty-seven, §52 to thirty, §58 to
+    thirty-three and §60 to thirty-six — against a dev server
     that compiles routes on demand, with the rest of the suite competing for it.
     Both cleared the 30s global timeout when the places file ran alone and exceeded
     it in the full run, which is a cost of the loop's size and not a flake: the
@@ -1031,15 +1126,15 @@ test("each article hero renders its own registered artwork and names the AI prov
 });
 
 test("no illustrated place renders the artwork placeholder", async ({ page }) => {
-  // Slow for the same reason as the test above: thirty-three navigations as of §58.
+  // Slow for the same reason as the test above: thirty-six navigations as of §60.
   test.slow();
 
   /*
-    The other half of the caption logic, asserted as an absence — and covering all
-    eleven places again now that `ILLUSTRATED` and `PLACES` coincide.
+    The other half of the caption logic, asserted as an absence — and covering the
+    twelve illustrated places, which as of §60 is all of them again.
 
     It stays scoped to `ILLUSTRATED` rather than being repointed at `PLACES`: the
-    two lists have coincided nine times before and split again every time, and this
+    two lists have coincided ten times and split again every time, and this
     assertion is only ever true of slugs that have a file. None of them may fall
     back to the generated `<svg>`, and none may still be captioned as a picture
     that was never made.
@@ -1608,8 +1703,9 @@ test("the listing renders each registered place's own artwork, and no placeholde
   ).map(decodeURIComponent);
 
   // Every registered file appears: Khor Virap is the featured block *and* a card,
-  // the other ten are cards. The failure this catches is the one-line
-  // registration reaching some surfaces and not others.
+  // and the other eleven are cards — twelve files across thirteen images as of §60.
+  // The failure this catches is the one-line registration reaching some surfaces and
+  // not others.
   for (const slug of ILLUSTRATED) {
     expect(
       sources.some((src) => src.includes(ARTWORK[slug])),
@@ -1649,16 +1745,16 @@ test("the listing renders each registered place's own artwork, and no placeholde
   }
 
   /*
-    Zero placeholders, which is what §58 inverted again.
+    No placeholder, which is what §60 inverted again.
 
-    This assertion has now inverted thirteen times (§37 one, §38 zero, §39 one, §40
+    This assertion has now inverted fifteen times (§37 one, §38 zero, §39 one, §40
     zero, §41 one, §42 zero, §47 one, §48 zero, §49 one, §50 zero, §51 one, §52
-    zero, §57 one, §58 zero), which is the whole argument for pinning the count
+    zero, §57 one, §58 zero, §59 one, §60 zero), which is the whole argument for pinning the count
     rather than asserting "at least one" or "none by inspection". The exact number is
     the only thing that distinguishes the intended state from a place that had
     quietly lost its registration, because neither shows on the rendered page. A
     placeholder card looks perfectly finished, and so does a listing with one missing
-    cover among eleven.
+    cover among twelve.
 
     Derived from the two lists rather than typed as a literal, so the next place to
     ship ahead of its artwork does not need this number edited by hand.
@@ -2373,8 +2469,370 @@ test("Amberd's search card carries its own thumbnail and no placeholder", async 
   expect(insideAni, "Ani must not stand in for Amberd in search").toBe(0);
 });
 
+test("the twelfth place is findable under the places group too", async ({ page }) => {
+  /*
+    §59. This query is uncrowded in one direction and dangerous in another: nothing
+    else in the archive is called Jermuk, but the word is an ordinary Armenian common
+    noun for a warm spring, so an Armenian search for it is a search for a word as
+    much as for a place.
+
+    The claim is the narrow one this test has made since §41: a card linking to this
+    article's own Places route appears, and the Places group heading is on the page.
+    That is what `category: "places"` guarantees and what would silently not happen
+    if a spa town were filed under `nature` — the live risk here, because the article
+    is about water.
+  */
+  const dict = ui("en");
+  await page.goto("/en/search?q=Jermuk");
+
+  const main = page.getByRole("main");
+  await expect(main.getByRole("heading", { name: dict.search.groupPlaces, level: 2 })).toBeVisible();
+  await expect(main.locator(`a[href="/en/places/${JERMUK}"]`).first()).toBeVisible();
+
+  // And under the queries the `keywords` list exists to serve: the older name of the
+  // settlement, and the province it is in. Neither appears in the article's title.
+  for (const query of ["Istisu", "Vayots Dzor"]) {
+    await page.goto(`/en/search?q=${encodeURIComponent(query)}`);
+    await expect(
+      page.getByRole("main").locator(`a[href="/en/places/${JERMUK}"]`).first(),
+      query,
+    ).toBeVisible();
+  }
+
+  // And both Armenian editions find it under their own group heading. The name is
+  // spelled identically in the two orthographies, which is unusual here and is why
+  // the assertion is that each edition finds *its own* route rather than that the
+  // query differs.
+  for (const locale of ["hy", "hyw"] as const) {
+    await page.goto(`/${locale}/search?q=${encodeURIComponent("Ջերմուկ")}`);
+    const localized = page.getByRole("main");
+    await expect(
+      localized.getByRole("heading", { name: ui(locale).search.groupPlaces, level: 2 }),
+      locale,
+    ).toBeVisible();
+    await expect(
+      localized.locator(`a[href="/${locale}/places/${JERMUK}"]`).first(),
+      locale,
+    ).toBeVisible();
+  }
+});
+
+test("Jermuk renders its own file and is captioned as an illustration", async ({ page }) => {
+  /*
+    §60 inverts every assertion §59 wrote here, in all three editions.
+
+    Between §59 and §60 this test asserted the opposite: the inline generated `<svg>`,
+    no raster file, and the placeholder caption. All four have to flip together, and
+    they fail in different directions with only one of them visible. A registration
+    that reached the picture but not the caption would leave the page apologising for
+    a missing image sitting right above the apology; one that reached the caption but
+    not the picture would claim provenance for artwork that is not on the page.
+    `isGeneratedArtwork` flips on registry membership alone, which is what makes the
+    caption the half that actually goes wrong.
+
+    The caption is also the one claim this registration can still make honestly. The
+    file is an AI-generated Armat editorial illustration and is captioned as exactly
+    that; whether it depicts the right subject is a question the disclosure does not
+    answer and this test does not pretend to.
+
+    Every edition, because the caption is read from each locale's own dictionary —
+    the failure §34 caught the first time was exactly one edition being out of step.
+  */
+  for (const locale of LOCALES) {
+    const dict = ui(locale);
+    await page.goto(`/${locale}/places/${JERMUK}`);
+
+    const figure = page.locator("header figure");
+    await expect(figure.locator("img"), `${locale} ${JERMUK}`).toHaveAttribute(
+      "src",
+      fileIn(ARTWORK[JERMUK]),
+    );
+    await expect(figure.locator("svg[role='img']"), `${locale} ${JERMUK}`).toHaveCount(0);
+
+    await expect(figure.locator("figcaption"), `${locale} ${JERMUK}`).toHaveText(
+      dict.article.imageAiIllustrationCaption.replace("{title}", articleTitle(locale, JERMUK)),
+    );
+    await expect(figure.locator("figcaption"), `${locale} ${JERMUK}`).not.toHaveText(
+      dict.article.imagePlaceholderCaption.replace("{title}", articleTitle(locale, JERMUK)),
+    );
+  }
+
+  expect(getImageSrc(JERMUK), "Jermuk must now resolve to its own file").toBe(ARTWORK[JERMUK]);
+  expect(PENDING_ARTWORK, "and must no longer be pending").not.toContain(JERMUK);
+});
+
+test("Jermuk borrows no other article's artwork, and advertises its own", async ({
+  page,
+}) => {
+  /*
+    The stronger half of §59, kept and inverted in §60: a placeholder is visible, a
+    *borrowed* cover is not — it looks finished.
+
+    This is the assertion that outlives registration, and it matters more here than
+    anywhere else in the section. Jermuk's own cover is off-subject by decision, so
+    the standing temptation is not a typo but an *improvement* — repointing this slug
+    at `dilijan-national-park` (the other Armenian spa town) or `gyumri` (the other
+    settlement) would look like someone fixing the mismatch, and would be a silent
+    substitution of one article's picture for another's. Every name below is still
+    refused, and now for a second reason.
+
+    `gyumri` is the sharpest name below and the reason this test is written at all:
+    after this step the two files would sit under the same filter pill, and the only
+    urban image in the registry is the other settlement's. `dilijan-national-park` is
+    the closest conceptual near miss — the other Armenian town with a spa history —
+    and `tatev-monastery` is the gorge in the south that a search returns first. All
+    are recorded as refused in `PENDING_ARTWORK`.
+
+    Scoped to the hero and the metadata rather than to every image on the page, for
+    the reason §58 wrote into this file: `getRelatedArticles` fills a short related
+    row from the article's own category, so other places' covers legitimately appear
+    further down under their own headlines. What must never happen is a neighbour's
+    file appearing where *this* article's own picture would go — the hero, the social
+    tags, the structured data and the sitemap, which are the four surfaces
+    `getImageSrc` reaches.
+  */
+  await page.goto(`/en/places/${JERMUK}`);
+
+  await expect(page.locator("header figure img"), "its own hero raster").toHaveAttribute(
+    "src",
+    fileIn(ARTWORK[JERMUK]),
+  );
+  await expect(page.locator("header figure svg[role='img']"), "no placeholder").toHaveCount(0);
+
+  const heroSources = (
+    await page
+      .locator("header img")
+      .evaluateAll((nodes) => nodes.map((node) => node.getAttribute("src") ?? ""))
+  ).map(decodeURIComponent);
+
+  for (const borrowed of [
+    ...Object.values(ARTWORK).filter((path) => path !== ARTWORK[JERMUK]),
+    "/hero-ararat.png",
+  ]) {
+    expect(
+      heroSources.some((src) => src.includes(borrowed)),
+      `${borrowed} must not illustrate ${JERMUK}`,
+    ).toBe(false);
+  }
+
+  /*
+    And the structured data now carries its own `image` rather than none.
+    `articleLd` only emits the property when a file resolves, so its absence was the
+    §59 state and its presence is the §60 one — and a *neighbour's* path appearing
+    here is the failure neither state would reveal on the rendered page.
+  */
+  const raw = await page.locator('script[type="application/ld+json"]').first().textContent();
+  expect(raw, "Jermuk emits JSON-LD").toBeTruthy();
+  const graph = (JSON.parse(raw ?? "") as { "@graph": { "@type"?: string; image?: unknown }[] })[
+    "@graph"
+  ];
+  const article = graph.find((entry) => entry["@type"] === "Article");
+  expect(article, "an Article node").toBeDefined();
+  expect(JSON.stringify(article!.image), "Article.image is Jermuk's own file").toContain(
+    ARTWORK[JERMUK],
+  );
+
+  /*
+    And no schema type was invented for a spa town, which is the §59 version of a
+    temptation this file has resisted since §41 and which is sharper here than
+    anywhere before it. A settlement with a coordinate, a mineral-water product and a
+    history of medical treatment is the single most inviting article in this archive
+    to describe with `MedicalBusiness`, `HealthAndBeautyBusiness` or
+    `TouristDestination`. None of them belongs to this archive's model: the
+    coordinate exists for Armat's map, and the subject is an article about a place.
+  */
+  for (const speculative of [
+    "City",
+    "Place",
+    "TouristDestination",
+    "TouristAttraction",
+    "HealthAndBeautyBusiness",
+    "MedicalBusiness",
+    "GeoCoordinates",
+    "LocalBusiness",
+    "Product",
+  ]) {
+    expect(raw, `${speculative} must not be introduced`).not.toContain(`"${speculative}"`);
+  }
+
+  // The social tags now carry the file rather than the site default — the exact
+  // inversion of §59, and the surface where a borrowed cover travels furthest,
+  // because a share preview is cached by the receiving platform.
+  for (const property of ['meta[property="og:image"]', 'meta[name="twitter:image"]']) {
+    const content = await page.locator(property).first().getAttribute("content");
+    expect(content, property).toContain(ARTWORK[JERMUK]);
+    expect(content, `${property} must not fall back`).not.toContain("og-default");
+  }
+});
+
+test("Jermuk's search card carries its own thumbnail and no placeholder", async ({ page }) => {
+  await page.goto("/en/search?q=Jermuk");
+
+  /*
+    §60. The search thumbnail is the tightest live crop on the site — the rendered box
+    measures 160×200 CSS px, an 0.801 ratio — so the shared centre crop trims 49.9 per
+    cent of this file's width. For this particular file that is the *best* of the four
+    live crops rather than the worst: the composition is centred and vertically deep,
+    so the narrow column keeps the whole cascade, both gorge walls and the treeline. No
+    `object-position` was added and there is no crop debt recorded against it.
+
+    What is asserted here is ownership, which is the half that can silently regress.
+  */
+  const card = page
+    .getByRole("main")
+    .locator("li")
+    .filter({ has: page.locator(`a[href="/en/places/${JERMUK}"]`) })
+    .first();
+  await expect(card).toBeVisible();
+
+  // Its own file, inside its own card — scoped by the canonical href rather than by
+  // position, because the query legitimately returns other hits too.
+  await expect(card.locator("img")).toHaveAttribute("src", fileIn(ARTWORK[JERMUK]));
+  await expect(card.locator("svg[role='img']"), "no placeholder in the card").toHaveCount(0);
+
+  for (const slug of ILLUSTRATED) {
+    if (slug === JERMUK) continue;
+    const inside = await card.locator(`img[src*="${encodeURIComponent(ARTWORK[slug])}"]`).count();
+    expect(inside, `${slug} must not illustrate the ${JERMUK} card`).toBe(0);
+  }
+});
+
+test("Jermuk describes historical spa practice and prescribes nothing", async ({ page }) => {
+  /*
+    §59's editorial guard, and the one this article most needs.
+
+    Jermuk's waters have been sold for three-quarters of a century, and the marketing
+    vocabulary — cures, treats, heals, prevents — is the same vocabulary the Soviet
+    balneological literature used. An article that slipped into the present tense
+    would be giving medical advice under an encyclopedia's byline, and nothing about
+    the rendered page would announce it.
+
+    Asserted over the *editorial* surfaces in every edition rather than by reading
+    the prose in one: the SEO fields and the summary are where a claim would do the
+    most damage, because they are what a search result shows. The prose itself is
+    checked for the specific present-tense constructions the brief named.
+  */
+  for (const locale of LOCALES) {
+    const article = bundle(locale).articles.find((entry) => entry.slug === JERMUK)!;
+    const seo = [
+      article.seoTitle ?? "",
+      article.metaDescription ?? "",
+      article.summary ?? "",
+      article.excerpt,
+    ]
+      .join(" ")
+      .toLowerCase();
+
+    for (const claim of ["cure", "cures", "heals", "treats", "բուժում է", "կը բուժէ", "դարմանում"]) {
+      expect(seo, `${locale} SEO fields must make no therapeutic claim: ${claim}`).not.toContain(
+        claim,
+      );
+    }
+  }
+
+  /*
+    And the English body says in as many words that it is describing a historical
+    practice and giving no advice. Pinned as a positive assertion rather than only as
+    an absence, because the disclaimer is the thing a later edit would quietly drop
+    while leaving the surrounding paragraph intact.
+  */
+  await page.goto(`/en/places/${JERMUK}`);
+  const main = page.getByRole("main");
+  await expect(main).toContainText("historical practice");
+  await expect(main).toContainText("offers no health advice");
+  await expect(main).toContainText("was promoted, and prescribed");
+});
+
+test("Jermuk dates its population figures and never states a bare one", async ({ page }) => {
+  /*
+    §59. Every population number in this article is a census figure with a year and a
+    label attached, and the labels matter more here than in any previous place: the
+    same census gives the town 3936 permanent residents and 3569 present ones, and
+    the community 5694. Three official numbers for one name, and a bare "population:
+    5694" would be wrong about the town while being right about something.
+
+    Asserted in every edition, because a number is the one thing that survives
+    translation unchanged and is therefore the one thing that can be corrected in one
+    edition and forgotten in the other two — which `validate:content` already checks
+    as a multiset and this checks as a *pairing* with its year.
+  */
+  for (const locale of LOCALES) {
+    const article = bundle(locale).articles.find((entry) => entry.slug === JERMUK)!;
+    const populationFact = article.keyFacts.find((fact) => /3936/.test(fact.value));
+    expect(populationFact, `${locale} states the town's population as a key fact`).toBeDefined();
+    expect(populationFact!.value, `${locale} dates it`).toMatch(/2022/);
+
+    // And the community figure is never given as the town's, in any field.
+    const everything = [
+      article.summary ?? "",
+      article.intro,
+      ...article.keyFacts.map((fact) => fact.value),
+    ].join(" ");
+    expect(everything, `${locale} must not put 5694 where the town's figure belongs`).not.toMatch(
+      /5694/,
+    );
+  }
+
+  // On the page, the census year and both of the town's figures appear together.
+  await page.goto(`/en/places/${JERMUK}`);
+  const main = page.getByRole("main");
+  await expect(main).toContainText("3936");
+  await expect(main).toContainText("3569");
+  await expect(main).toContainText("5694");
+  await expect(main).toContainText("census of October 2022");
+});
+
+test("Jermuk keeps the bottled water separate from the settlement", async ({ page }) => {
+  /*
+    §59. The name on the bottle is better known than the town, and the failure this
+    guards against is an article about a settlement quietly becoming a company
+    history — or worse, a product page. The brief for this step named that risk twice.
+
+    Two things are asserted. The article says in its own prose that the brand and the
+    settlement are different subjects and that not every spring feeds the bottled
+    product; and the SEO surfaces, which are where a product page would announce
+    itself, sell nothing.
+  */
+  await page.goto(`/en/places/${JERMUK}`);
+  const main = page.getByRole("main");
+  await expect(main).toContainText("Not every spring in the field feeds the bottled product");
+  await expect(main).toContainText("commercial story rather than a settlement's story");
+
+  for (const locale of LOCALES) {
+    const article = bundle(locale).articles.find((entry) => entry.slug === JERMUK)!;
+    const seo = [article.seoTitle ?? "", article.metaDescription ?? "", article.excerpt]
+      .join(" ")
+      .toLowerCase();
+    for (const commercial of ["buy", "order", "shop", "price", "delivery", "գնել", "պատուէր"]) {
+      expect(seo, `${locale} sells nothing: ${commercial}`).not.toContain(commercial);
+    }
+  }
+});
+
 test("the sitemap carries every place's illustration for image search", async ({ request }) => {
   const xml = await (await request.get("/sitemap.xml")).text();
+
+  /*
+    §60. Jermuk's three routes now each carry its own `image:loc` — the exact
+    inversion of what §59 asserted here, when the three blocks had to contain none.
+
+    `sitemap.ts` adds the image key only when `getArticleImageSrc` returns something,
+    so §59 asserting the absence proved that condition was real rather than
+    incidental, and §60 asserts the presence for the same reason. Checked route by
+    route rather than by whole-document count: three appearances anywhere would still
+    pass if all three landed on one route and none on the others, and an image
+    crawler handed another place's picture under Jermuk's URL is a failure nothing on
+    the rendered page would reveal.
+  */
+  const jermukBlocks = xml.split("<url>").filter((block) => block.includes(`/places/${JERMUK}<`));
+  expect(jermukBlocks, `${JERMUK} url blocks`).toHaveLength(LOCALES.length);
+  for (const block of jermukBlocks) {
+    expect(block, `${JERMUK} must emit an image:loc`).toContain("image:loc");
+    expect(block, `${JERMUK} sitemap image`).toContain(`https://armat.site${ARTWORK[JERMUK]}`);
+    for (const borrowed of ["gyumri", "dilijan-national-park", "lake-sevan", "tatev-monastery"]) {
+      expect(block, `${borrowed} must not be indexed under ${JERMUK}`).not.toContain(borrowed);
+    }
+  }
 
   /*
     §58. Amberd's three routes now each carry its own `image:loc` — the exact
@@ -2483,25 +2941,25 @@ test("the sitemap carries every place's illustration for image search", async ({
   behind after its file landed would keep a real cover out of the page; a slug
   missing from both `IMAGES` and this list would render the placeholder with
   nothing saying whether that was a decision. Both are silent failures, and the
-  section currently contains neither — the gap is closed rather than merely
-  recorded, which is the state §58 restored.
+  section currently contains neither: the list is empty and all twelve places
+  resolve, which is the state §60 restored.
 */
-test("no place is waiting for artwork, and all eleven resolve", () => {
+test("no place is waiting for artwork, and all twelve resolve", () => {
   /*
-    Empty — the state §58 restores for the tenth time, and the exact inversion of
-    what §57 asserted here when Amberd was the one slug in the list.
+    Zero slugs — the state §60 restores for the eleventh time, and the exact inversion
+    of what §59 asserted here when Jermuk was the one name in the list.
 
-    Asserting the whole array rather than `not.toContain(AMBERD)` is deliberate: it
-    fails on a stale entry left behind after a file lands, which is the half of the
-    invariant no other test covers, and it equally fails on a slug quietly added
-    here to silence the placeholder assertions above.
+    Asserting the whole array rather than a length check is deliberate: it fails on a
+    stale entry left behind after a file lands, which is the half of the invariant no
+    other test covers, and it equally fails on a slug quietly added here to silence
+    the placeholder assertions above.
 
     `toEqual` on the array rather than a length check, so the failure message names
     whatever is actually in there. Derived from the two lists for the same reason
     the placeholder count above is: the place that ships ahead of its picture should
     change one line of data, not a literal in a test. That derivation is why this
     test needed no new literal in either direction — `PLACES` minus `ILLUSTRATED` is
-    the expected array on its own, empty or not, and §58 is the sixth time it has
+    the expected array on its own, empty or not, and §60 is the eighth time it has
     been right without being edited.
   */
   expect([...PENDING_ARTWORK].sort()).toEqual(
@@ -2509,10 +2967,10 @@ test("no place is waiting for artwork, and all eleven resolve", () => {
       .map(String)
       .sort(),
   );
-  expect(PENDING_ARTWORK, "the list is empty rather than merely short").toHaveLength(0);
   expect(getImageSrc(DILIJAN), "Dilijan's artwork must still resolve").toBe(ARTWORK[DILIJAN]);
   expect(getImageSrc(GYUMRI), "Gyumri's artwork must still resolve").toBe(ARTWORK[GYUMRI]);
-  expect(getImageSrc(AMBERD), "and Amberd's must now resolve too").toBe(ARTWORK[AMBERD]);
+  expect(getImageSrc(AMBERD), "Amberd's artwork must still resolve").toBe(ARTWORK[AMBERD]);
+  expect(getImageSrc(JERMUK), "Jermuk's artwork must now resolve").toBe(ARTWORK[JERMUK]);
 
   for (const slug of ILLUSTRATED) {
     expect(getImageSrc(slug), `${slug} should resolve through the registry`).toBe(ARTWORK[slug]);
@@ -2832,7 +3290,7 @@ test("the coordinate registry holds one checked point per place", () => {
       so a second town or a third centroid has to be added to a list.
     */
     const AREA = [SEVAN, DILIJAN] as readonly string[];
-    const SETTLEMENT = [GYUMRI] as readonly string[];
+    const SETTLEMENT = [GYUMRI, JERMUK] as readonly string[];
     const expected = AREA.includes(slug) ? "area" : SETTLEMENT.includes(slug) ? "settlement" : "site";
     expect(point.precision, slug).toBe(expected);
     // Rounded on the way in, so no entry may carry a fifth decimal place.
@@ -3115,6 +3573,78 @@ test("the coordinate registry holds one checked point per place", () => {
   expect(Math.min(...lats), "Amberd is not the southernmost place").not.toBe(amberd.lat);
   expect(Math.min(...lons), "Amberd is not the westernmost place").not.toBe(amberd.lon);
   expect(Math.max(...lons), "Amberd is not the easternmost place").not.toBe(amberd.lon);
+
+  /*
+    The town of Jermuk, from OSM node 210212587 — §59.
+
+    A `settlement` point, so the question it answers is not "where is the building"
+    but "where does a gazetteer put this town", and the wrong answers here are of a
+    different kind from Amberd's. Nothing else carries the name, so the traps are all
+    *features inside or beside the town* that a search surfaces before the settlement
+    itself: a waterfall, a municipal office, a spring, a reservoir. A degree of
+    latitude here is about 111 km and a degree of longitude about 85.
+  */
+  const jermuk = registry[JERMUK];
+  expect(jermuk.lat).toBeCloseTo(39.8388, 4);
+  expect(jermuk.lon).toBeCloseTo(45.6713, 4);
+
+  /*
+    Not the Jermuk waterfall (OSM node 1970452502, about 39.8367, 45.6682), 353 m
+    south-west. This is the assertion the entry exists for: the waterfall is the
+    photographed thing, it is what an image search for "Jermuk" returns, and the
+    article treats it as a feature of the gorge rather than as the settlement. A
+    coordinate that drifted onto it would drop a pin on a real Jermuk landmark and
+    nothing else in this file would notice.
+  */
+  expect(
+    Math.hypot(jermuk.lat - 39.8366998, jermuk.lon - 45.6681832),
+    "the point should be the town, not the waterfall",
+  ).toBeGreaterThan(0.002);
+
+  // Not the town hall (OSM node 10875092608, about 39.8369, 45.6666), 453 m west,
+  // which would pin the administration rather than the settlement.
+  expect(
+    Math.hypot(jermuk.lat - 39.8368858, jermuk.lon - 45.666588),
+    "the point should be the town, not the municipal office",
+  ).toBeGreaterThan(0.003);
+
+  /*
+    And not either half of the confusion the article's first section exists to
+    separate: Kechut village (about 39.8048, 45.6701) and the Kechut reservoir (about
+    39.8015, 45.6595) are both inside the *Jermuk community* and neither is the town.
+    Both are several kilometres south, which is a long way in a settlement two
+    kilometres across.
+  */
+  expect(
+    Math.hypot(jermuk.lat - 39.804847, jermuk.lon - 45.6701486),
+    "the point should be the town, not Kechut village",
+  ).toBeGreaterThan(0.02);
+  expect(
+    Math.hypot(jermuk.lat - 39.80153, jermuk.lon - 45.6594959),
+    "the point should be the town, not the Kechut reservoir",
+  ).toBeGreaterThan(0.02);
+
+  // Not the mapped hot spring 3.8 km away (about 39.8173, 45.6364). One spring is
+  // not a settlement, and this registry's question is where the town is.
+  expect(
+    Math.hypot(jermuk.lat - 39.81728, jermuk.lon - 45.63644),
+    "the point should be the town, not a single spring",
+  ).toBeGreaterThan(0.02);
+
+  // And not the Wikidata point (39.85, 45.683333), 1.6 km north-east and carried at
+  // two decimal places of latitude — coarser than this registry's own rounding,
+  // which is why the OSM node was preferred rather than adjudicated against.
+  expect(
+    Math.hypot(jermuk.lat - 39.85, jermuk.lon - 45.683333),
+    "the point should be the OSM settlement node, not the coarse gazetteer point",
+  ).toBeGreaterThan(0.01);
+
+  // §59: Jermuk is at no extreme either, so the derived bounds are again the same
+  // box before and after — two additions in a row that change no edge.
+  expect(Math.max(...lats), "Jermuk is not the northernmost place").not.toBe(jermuk.lat);
+  expect(Math.min(...lats), "Jermuk is not the southernmost place").not.toBe(jermuk.lat);
+  expect(Math.min(...lons), "Jermuk is not the westernmost place").not.toBe(jermuk.lon);
+  expect(Math.max(...lons), "Jermuk is not the easternmost place").not.toBe(jermuk.lon);
 });
 
 test("no article's bibliography lists two sources under one title", () => {
@@ -3146,7 +3676,7 @@ test("no article's bibliography lists two sources under one title", () => {
   }
 });
 
-test("exactly one place is a settlement, and it is Gyumri", () => {
+test("exactly two places are settlements, and they are Gyumri and Jermuk", () => {
   /*
     The §49 assertion, inverted rather than deleted — which is the point.
 
@@ -3160,23 +3690,32 @@ test("exactly one place is a settlement, and it is Gyumri", () => {
     about.
 
     §51 is the article that earns it, and the debt is spent rather than deleted. So
-    the two halves are asserted positively and exclusively: exactly one coordinate
-    carries `settlement` precision, exactly one article carries the `settlement`
-    type, and they are the same place in all three editions. Deleting this test
-    would have removed the guard that the id stays deliberate.
+    the two halves are asserted positively and exclusively: the coordinates carrying
+    `settlement` precision and the articles carrying the `settlement` type are the
+    same set, in all three editions. Deleting this test would have removed the guard
+    that the id stays deliberate.
+
+    §59 makes the set a pair, and the pairing is the sharper version of the same
+    guard: a `settlement` coordinate and a `settlement` type could now be given to
+    two different places without either count changing. Both halves are therefore
+    asserted as the same sorted array rather than as a length.
   */
   const registry = getPlaceCoordinateRegistry();
 
+  const EXPECTED_SETTLEMENTS = [GYUMRI, JERMUK].sort();
+
   const settlements = Object.entries(registry)
     .filter(([, point]) => point.precision === "settlement")
-    .map(([slug]) => slug);
-  expect(settlements, "exactly one coordinate is a settlement point").toEqual([GYUMRI]);
+    .map(([slug]) => slug)
+    .sort();
+  expect(settlements, "the settlement coordinates").toEqual(EXPECTED_SETTLEMENTS);
 
   for (const locale of LOCALES) {
     const filed = bundle(locale)
       .articles.filter((a) => a.category === "places" && a.placeTypeId === "settlement")
-      .map((a) => a.slug);
-    expect(filed, `${locale}: exactly one place is filed as a settlement`).toEqual([GYUMRI]);
+      .map((a) => a.slug)
+      .sort();
+    expect(filed, `${locale}: the places filed as settlements`).toEqual(EXPECTED_SETTLEMENTS);
   }
 
   /*
@@ -3326,7 +3865,7 @@ test("no edition says the city itself is a World Heritage property", async ({ pa
 /*  Existing categories are unaffected                                         */
 /* -------------------------------------------------------------------------- */
 
-test("every place's editorial fields are pinned, including the eleventh", () => {
+test("every place's editorial fields are pinned, including the twelfth", () => {
   /*
     The seventh article was a pure addition, and registering its picture in §42 was
     a pure registry change. This is the assertion that says both.
@@ -3450,6 +3989,33 @@ test("every place's editorial fields are pinned, including the eleventh", () => 
       dead recommendation.
     */
     [AMBERD]: { type: "historical", featured: false, related: ["bagratid-armenia"] },
+    /*
+      §59. One related slug, and it is the only relationship this article's prose
+      earns.
+
+      `the-arpa-the-gorge-and-the-waterfall` links to `lake-sevan` because the
+      Kechut reservoir immediately below Jermuk is the *intake* of the Arpa–Sevan
+      tunnel: a whole paragraph of this article is about water leaving the upper Arpa
+      basin altogether and travelling under the Vardenis range into the lake, and the
+      Lake Sevan article has carried the other end of that tunnel since §37. The
+      relationship exists in the corpus in both directions and is asserted here in
+      one, like every other link in this section.
+
+      Deliberately *not* here, and each is the kind of link that would look
+      reasonable and mean nothing: Gyumri, on the grounds that both are filed as
+      `settlement` — the archive does not link articles because a filter groups them,
+      and this step's brief named that trap by name; Tatev, on the grounds that both
+      are in the south; Dilijan, on the grounds that both towns have a history as
+      spas, which is a resemblance between two subjects rather than a passage in
+      either article.
+
+      Also deliberately absent: slugs for Vayots Dzor, the Arpa, Amulsar, Kechut and
+      Stepanos Orbelian. All five are named in the article and none is an article,
+      and `validate:content` fails the build on a slug that does not resolve — which
+      is the mechanism that keeps a plausible-looking future slug from shipping as a
+      dead recommendation.
+    */
+    [JERMUK]: { type: "settlement", featured: false, related: ["lake-sevan"] },
     /*
       Keyed on `PLACES` rather than `ILLUSTRATED` from §47 onward.
 

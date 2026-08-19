@@ -94,6 +94,20 @@ const NOT_CURATED = [
     prevent. The row stays at six.
   */
   "amberd-fortress",
+  /*
+    §59. Jermuk is the twelfth place, the second `settlement`, and the second article
+    in a row written after §53 reviewed this row.
+
+    It is the one whose omission is worth stating rather than assuming, because a
+    case could be made for it: the row deliberately carries a settlement — Gyumri —
+    and a spa town in the south would balance a city in the north-west. That is
+    precisely the argument this constant exists to refuse. §53 reviewed six cards on
+    editorial grounds and this step is a content step; promoting the newest article
+    because it fits a slot would make the curation a queue rather than a judgement,
+    and re-cutting the row is a decision for a curation step, not a by-product of
+    writing an article. The row stays at six.
+  */
+  "jermuk",
 ] as const;
 
 const ORIGIN = "https://armat.site";
@@ -396,22 +410,23 @@ test("the curated row has the editorial shape §53 chose, and the map still has 
 
   /*
     And the half that makes the curation safe: nothing was removed from the
-    archive. All eleven places — the six curated and the five not — are on this
+    archive. All twelve places — the six curated and the six not — are on this
     page's own map list, which is server-rendered, so a card leaving the row
     cannot take an article off the map with it.
 
-    §57 is where the gap between the two numbers stops being incidental. The row is
-    six and the section is eleven, so nearly half the Places articles are reachable
-    from this page only through the map and the all-places link. That is the design:
-    the map answers *where can I already read about something* and grows with the
-    section, while the row is an editorial selection reviewed in §53 and left alone
-    here.
+    §59 is where the gap stops being a gap and becomes a majority: the row is six and
+    the section is twelve, so exactly half the Places articles are reachable from
+    this page only through the map and the all-places link. That is the design and
+    not a drift — the map answers *where can I already read about something* and
+    grows with the section, while the row is an editorial selection reviewed in §53
+    and left alone here. It is also the point at which re-cutting the row becomes a
+    real question, and the answer is that it is a question for a curation step.
   */
   await page.goto("/en/visit");
-  await expect(page.locator("[data-map-list] li"), "the map still shows all eleven").toHaveCount(
+  await expect(page.locator("[data-map-list] li"), "the map still shows all twelve").toHaveCount(
     places.length,
   );
-  expect(places.length, "eleven places in the section").toBe(11);
+  expect(places.length, "twelve places in the section").toBe(12);
 
   for (const article of places) {
     const link = page.locator(`[data-map-list-item="${article.slug}"]`);
@@ -925,14 +940,14 @@ test("every canonical route the journey links into still works", async ({ page }
   /*
     The listings themselves, and their counts, which a curation must not touch.
 
-    Places moves 7 → 8 in §47, 8 → 9 in §49, 9 → 10 in §51 and 10 → 11 in §57. The
-    number is edited rather than derived on purpose: the point of this assertion is
+    Places moves 7 → 8 in §47, 8 → 9 in §49, 9 → 10 in §51, 10 → 11 in §57 and
+    11 → 12 in §59. The number is edited rather than derived on purpose: the point of this assertion is
     that adding a *curated row* to `/visit` does not change what the section
     listings contain, so it has to be a figure someone updates deliberately when the
     section genuinely grows.
   */
   for (const [path, count] of [
-    ["/en/places", 11],
+    ["/en/places", 12],
     ["/en/cuisine", 6],
     ["/en/history", 7],
   ] as const) {

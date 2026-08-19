@@ -357,6 +357,84 @@ const IMAGES: Record<string, string> = {
    * (measured 1.778 and 1.780; 10.1 per cent vertically). No `object-position` was
    * added, on the same reasoning as Gyumri.
    */
+  /*
+   * §60. `places/jermuk.webp` — registered by explicit decision against this
+   * file's own commission, which is why this note is longer than the picture
+   * warrants.
+   *
+   * **Container.** A valid RIFF/WEBP: `VP8X` (10 bytes, flags 0x20) + `ICCP` (456)
+   * + `VP8 ` (842,522), the walk ending exactly at EOF with no trailing bytes.
+   * Lossy VP8, no alpha (`isOpaque`), an sRGB display profile present, and no
+   * EXIF, no XMP and no orientation tag. 1586×992, which matches the section's
+   * dominant geometry exactly and adds no new dimension drift — the Gyumri
+   * 1584×993 and Garni 1448×1086 outliers are still the only two. At 823 KB
+   * (843,024 bytes) it is the **heaviest WebP in the registry**, ahead of Erebuni's
+   * 742 KB, which is what a frame of moving water and rock texture costs; the
+   * standing media-optimisation debt is unchanged and the file was not touched.
+   * SHA-256 92b2a0516dd73f626aba6be08439b4f53ccd24cc341a9d283295964d2ce0e7f1. A
+   * hand-written RIFF chunk walk and `sharp` were run independently and agree on
+   * every field. Registered exactly as delivered, unaltered, unoptimised and
+   * unrenamed, like every entry since §30.
+   *
+   * **What is in the frame.** The Jermuk waterfall, seen from the streambed below
+   * and looking up: a fan-shaped cascade spreading over a rounded travertine dome
+   * in the middle distance, a boulder in front of it, sheeting water across bare
+   * rock filling the whole foreground, columnar-jointed gorge walls rising on both
+   * sides with green scrub and a treeline along the top, and blue sky with light
+   * cloud between them. The one man-made thing anywhere in it is a line of rough
+   * stone blocks along the right bank forming a path. It is a competent and
+   * genuinely Jermuk-specific picture — the fan over the tufa dome is that
+   * waterfall's actual form and not a generic cascade.
+   *
+   * **And it is the wrong subject, recorded here rather than argued away.** The
+   * commission below asked for a town: the settlement larger in the frame than any
+   * single building, the gorge legible as something the town stands on both sides
+   * of, mid-century public architecture in parkland, and — in as many words — *no
+   * waterfall as the subject*. This file has no built fabric at all. The article it
+   * covers spends forty paragraphs on how a highland spring landscape became a town
+   * of 3,936 people, gives the waterfall part of one section out of twelve, and
+   * will not say how tall it is because the three published heights (68, 70, 72 m)
+   * have no measurement behind them. So the cover and the article disagree about
+   * what Jermuk is, on the listing card, the hero, the search hit, the map card and
+   * every shared link. This was raised, the mismatch was explained, and
+   * registration was chosen deliberately; it is carried in §60 of PROJECT_STATE.md
+   * as the archive's first knowingly off-subject cover, and it reverses by moving
+   * one line back to `PENDING_ARTWORK` whenever a town image exists.
+   *
+   * A second-order consequence worth naming: `settlement` now holds two covers, and
+   * one of them is a landscape with no settlement in it. The filter pill that
+   * §51 introduced to make a kind of place legible is, for this pair, no longer
+   * doing that.
+   *
+   * It is at least specifically **not** a borrowed neighbour, which is the failure
+   * the five refusals below guard against. It is not Dilijan (no closed broadleaf
+   * forest, no valley floor), not Lake Sevan (no open water, no shoreline), not
+   * Gyumri (no street, no frontages), not Tatev or Geghard (no complex, no
+   * masonry, no medieval anything), not an alpine or ski resort (no snow, no peak,
+   * no chalet), and it carries no bottle, label, brand mark, sanatorium interior,
+   * bath, treatment, patient or figure of any kind — so the medical and product
+   * audits that the mineral-water subject makes necessary all come back clean. The
+   * picture asserts nothing about health, and nothing about a product.
+   *
+   * **Text audit.** Clean, and trivially so: the frame contains no signage, plaque,
+   * board, banner, storefront, poster, vehicle, garment or building surface — no
+   * object in it is the kind that carries text. A contrast-boosted pass over all
+   * four corners found no watermark or signature. No pseudo-Armenian, Russian or
+   * English marks, and none of the tiny unreadable ones that usually need
+   * recording. Nothing was retouched, because nothing needed to be.
+   *
+   * **Crops.** Unusually good, which is the irony of the entry: the composition is
+   * centred and vertically deep, so every live surface keeps the whole subject. The
+   * compact card and mobile hero at 4:3 take 1323×992 and trim 16.6 per cent
+   * horizontally; the tablet hero at 3:2 takes 1488×992 and trims 6.2 per cent; the
+   * listing card, desktop hero and map selected card at 16:9 take 1586×892 and trim
+   * 10.1 per cent vertically, off sky and foreground water. The narrow search
+   * thumbnail — 160×200 CSS px, an 0.801 ratio measured live in §58 — takes 795×992
+   * and trims 49.9 per cent horizontally, and is the *strongest* crop of the set,
+   * keeping the entire cascade, both gorge walls and the treeline. None of the four
+   * degrades, so no `object-position` was added and there is no crop debt here. The
+   * file crops well to the wrong subject, which no crop rule can fix.
+   */
   "khor-virap": "/images/places/khor-virap.png",
   "etchmiadzin-cathedral": "/images/places/etchmiadzin-cathedral.webp",
   "erebuni-fortress": "/images/places/erebuni-fortress.webp",
@@ -368,6 +446,7 @@ const IMAGES: Record<string, string> = {
   "dilijan-national-park": "/images/places/dilijan-national-park.webp",
   gyumri: "/images/places/gyumri.webp",
   "amberd-fortress": "/images/places/amberd-fortress.webp",
+  jermuk: "/images/places/jermuk.webp",
 };
 
 /**
@@ -688,6 +767,91 @@ export const PENDING_ARTWORK: readonly string[] = [
    * drums, the single-cone massif, and the pale fragment beside the church — are
    * recorded against its `IMAGES` entry above and in §58, not fixed by editing the
    * asset.
+   */
+
+  /*
+   * §59. Jermuk — the twelfth Place, the second `settlement`, and the eleventh time
+   * this list has filled.
+   *
+   * Every one of the forty-one files under `public/` was opened rather than read off
+   * its filename, and none of them shows what this article is about: a small
+   * twentieth-century town on a treeless highland plateau, split by a river gorge,
+   * whose principal buildings are mid-century public architecture standing in
+   * parkland above the cut. Armat has one urban image and it is the wrong city; it
+   * has two gorges and neither has a town in it.
+   *
+   * Five substitutions were available and each is recorded as refused.
+   *
+   * `places/gyumri.webp` is the refusal on principle and the sharpest one, because
+   * after this step the two files would sit under the same filter pill. It is the
+   * only urban image in the registry — a wet street of two-storey nineteenth-century
+   * tuff frontages with a phaeton and a church — and it is a Russian imperial city
+   * of a hundred thousand people on an open plain in the north-west. Jermuk is a
+   * Soviet resort of a few thousand on a plateau in the south-east. Lending one
+   * settlement's cover to the other is exactly the substitution this list exists to
+   * stop, and the fact that both are `settlement` is the reason it would look
+   * defensible.
+   *
+   * `places/dilijan-national-park.webp` is the closest *conceptual* near miss and
+   * the one an argument could be built for: Dilijan is the other Armenian town whose
+   * history is a mineral-water spa, and this archive's own Dilijan article says so
+   * in as many words. The file, though, is closed broadleaf forest on both walls of
+   * a valley with a stream on its floor and not one building anywhere in the frame —
+   * Tavush, wooded, at half Jermuk's altitude, and deliberately a picture of there
+   * being no settlement in it. A resemblance between two articles is not a
+   * resemblance between two pictures.
+   *
+   * `places/lake-sevan.webp` is the mood substitution in its usual form: highland
+   * water under a big sky. It is open water, a pale drawdown shoreline and a lone
+   * tree, in a different basin, and a lake is not a spring.
+   *
+   * `places/tatev-monastery.webp` and `places/geghard-monastery.webp` are the two
+   * gorges. Tatev is the one a search would return first — a complex on a promontory
+   * above a deep gorge in southern Armenia, which is the "both are in the south"
+   * trap named in this step's own brief — and both are complete medieval monasteries,
+   * which is the wrong subject in the wrong millennium.
+   *
+   * Also refused in advance, because they are what a brief would drift towards: the
+   * waterfall alone, which is the photogenic thing here and is a feature of the gorge
+   * rather than the town; a bottle, a label or any brand mark, which would illustrate
+   * a product where a settlement belongs and would collapse the distinction the
+   * article spends a section making; a sanatorium interior, a bath, a treatment or
+   * anyone drinking the water, which would put a medical claim in the frame of an
+   * article that carefully makes none; and a generic snow-peak-and-meadow landscape,
+   * which would say nothing.
+   *
+   * What a commission would have to carry, recorded now so it is not reconstructed
+   * later: a small highland town seen so that the gorge dividing it is legible;
+   * mid-century public buildings in stone — long horizontal masses, colonnades, broad
+   * stairs — set among planted parkland on the shelf above the cut; treeless volcanic
+   * slopes and rounded ridges behind, no closed forest and no snow peak as the
+   * subject; the settlement larger in the frame than any single building; no
+   * waterfall as the subject, no water bottle, no brand, no figures in treatment, no
+   * medical imagery and no lettering anywhere.
+   *
+   * §59→§60. Emptied for the eleventh time — and the only one of the eleven where
+   * the delivered file does not answer the commission above.
+   *
+   * What landed is the waterfall alone: the first item on this entry's own
+   * refused-in-advance list, chosen by a generator for the reason that list
+   * predicted, which is that the cascade is the photogenic thing here and is what
+   * the word "Jermuk" returns. It carries no town, no building and no built fabric
+   * of any kind, so of the commission's six requirements it meets one — treeless
+   * volcanic ground is at least partly visible above the gorge walls — and misses
+   * the rest.
+   *
+   * It was registered anyway, as a deliberate editorial decision taken with the
+   * mismatch stated, not as an oversight and not because the picture was mistaken
+   * for the brief. The full reasoning sits against its `IMAGES` entry above and in
+   * §60 of PROJECT_STATE.md, and the commission is deliberately left standing
+   * rather than struck out: it is still the description of the picture this article
+   * should have, and the entry reverses by moving one line back into this list.
+   *
+   * The five refusals above are kept for the usual reason — the failure they guard
+   * against is the cover being repointed at a plausible neighbour later, and that
+   * outlives the file landing. They are, if anything, more load-bearing now: with
+   * an off-subject cover in place, `dilijan-national-park.webp` is exactly the kind
+   * of substitution that would later look like an improvement.
    */
 ];
 

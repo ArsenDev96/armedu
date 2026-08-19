@@ -1,6 +1,6 @@
 # Armat — Project State Report
 
-**Last updated:** 2026-08-19
+**Last updated:** 2026-08-19 (Jermuk artwork)
 **Repo:** `d:\armedu` · branch `seo`
 **Status:** Armenian-first multilingual site, complete in three editions and **live in
 production at [armat.site](https://armat.site)** (Vercel). Crawlable and indexable today.
@@ -77,17 +77,18 @@ has restated them.
 ```
 npm install              → OK
 npm run typecheck        → PASS (0 errors)
-npm run validate:content → PASS (132 entries across 3 locales; no pending-artwork note)
-npm run build            → PASS (141 pages prerendered; `/api/contact` dynamic)
-npm run test:e2e         → PASS (269 passed, 5 skipped, no --workers flag; see §30)
+npm run validate:content → PASS (135 entries across 3 locales; no pending-artwork note)
+npm run build            → PASS (144 pages prerendered; `/api/contact` dynamic)
+npm run test:e2e         → PASS (278 passed, 5 skipped, no --workers flag; see §30)
 ```
 
-Re-run in full at §58 (Amberd artwork), which is the source of the figures above. There is **no**
-pending-artwork note: `PENDING_ARTWORK` is empty and all eleven Places are illustrated.
+Re-run in full at §60 (Jermuk artwork), which is the source of the figures above. There is **no**
+pending-artwork note: `PENDING_ARTWORK` is empty and all twelve Places are illustrated.
 
-Previously re-run at §57 (Amberd Fortress), which added the eleventh Place, three routes and five
-tests and put one slug back on the pending list; §58 registers that slug's file, adds one test, and
-empties the list for the tenth time.
+Previously re-run at §59 (Jermuk), which added the twelfth Place, three routes and eight tests and
+put one slug back on the pending list; §60 registers that slug's file, adds one test, and empties the
+list for the eleventh time — with the caveat, recorded in full in §60, that the delivered file is
+off-subject and was registered by explicit decision.
 
 `validate:content` now also checks: every registered image exists on disk; every article
 has a bibliography entry; every citation carries a valid ISBN, DOI, URL or archival
@@ -11042,3 +11043,894 @@ opportunistically fixed during a registration step:
 - **No overlap fix**, no clustering, no spiderfying, no marker nudging, no viewport change.
 - **No deployment.** Nothing pushed, released, or built for production beyond the local
   `npm run build` verification. `.claude/settings.json` was not modified.
+
+## 59. Jermuk — the twelfth place, the second settlement, and the archive's first town made by water (August 2026)
+
+Jermuk is Place #12, the **second `settlement`**, and the first article anywhere in this archive set
+in **Vayots Dzor**. It is also the first place in the section whose subject is neither a monument nor
+a landscape but an *institution that acquired a population*: a spa settlement planned in the
+twentieth century around a field of thermal mineral springs in the gorge of the Arpa.
+
+The article's organising question is the one this step was given — **how did a highland mineral-water
+landscape become the settlement now called Jermuk?** — and its spine is a distinction the sources
+almost never draw: the word is old, the springs are old, the place-name is at least medieval, and the
+town is not. Nearly everything published about Jermuk collapses those four into one sentence.
+
+### Taxonomy
+
+| Pill | Before | After |
+| --- | --- | --- |
+| All | 11 | **12** |
+| Monastery | 4 | 4 |
+| Historical | 3 | 3 |
+| Museum | 1 | 1 |
+| Nature | 2 | 2 |
+| **Settlement** | **1** | **2** |
+
+`settlement` contains exactly Gyumri and Jermuk. It is the third pill to stop being a singleton —
+`historical` did it in §39, `nature` in §49 — and the transition the single-article filter loop in
+`places.spec.ts` was kept in place for. Khor Virap remains the only `featured: true` Place. **No new
+type**: `spa`, `resort`, `town`, `health-resort`, `mineral-water` and `sanatorium` are all named in a
+test as pills that must not appear.
+
+### Files changed
+
+| File | Change |
+| --- | --- |
+| `src/data/locales/{hy,hyw,en}/articles/places.ts` | The article, three editions, 12 sections each |
+| `src/data/geo.ts` | One coordinate, `precision: "settlement"`, with provenance |
+| `src/data/sources.ts` | Eight-source bibliography |
+| `src/lib/media.ts` | `"jermuk"` → `PENDING_ARTWORK`, with the refusal record |
+| `tests/e2e/places.spec.ts` | Counts, the settlement pair, coordinate, placeholder, and four new editorial guards |
+| `tests/e2e/visit-map.spec.ts` | Twelfth marker, second settlement marker |
+| `tests/e2e/visit.spec.ts` | Curation freeze, counts 11 → 12 |
+| `PROJECT_STATE.md` | This section |
+
+**No component touched.** `visit-map.ts`, `map-tiles.ts`, `VisitMap.tsx` and the `placeTypes` files
+are byte-identical.
+
+### Article structure
+
+12 sections, **40 paragraphs** (`3,3,3,4,3,4,4,3,3,4,3,3`): `where-jermuk-is`, `the-name`,
+`water-in-a-volcanic-highland`, `before-the-resort`, `becoming-a-resort-settlement`, `soviet-jermuk`,
+`the-springs`, `what-the-water-was-used-for`, `the-built-town`,
+`the-arpa-the-gorge-and-the-waterfall`, `the-bottle-and-the-town`, `what-jermuk-is-now`. 6 key facts,
+14 dated entries, 6 interesting facts, 1 related figure, 2 significance paragraphs, 1 prose link,
+1 `relatedSlug`.
+
+The first section does the work the brief asked for before any history begins: it names the five
+different things called Jermuk — the town, the community, the springs, the bottled water and the
+waterfall — and states that a figure quoted for one is not a fact about the others.
+
+### Name and etymology
+
+Three ages, held apart:
+
+| | |
+| --- | --- |
+| The **word** | `ջերմուկ` is an ordinary Armenian common noun — warm water rising from the ground, or a spring of it — from `ջերմ`, warm. Other thermal springs in Armenia are jermuks too |
+| The **place-name** | Reported by Armenian reference literature as appearing in Stepanos Orbelian's thirteenth-century history of Syunik. Also carried the Turkic name **Istisu** (the same description in another language), reverting to Jermuk in **1924** |
+| The **settlement** | Twentieth-century |
+
+The consequence is stated rather than skipped, and it is the article's sharpest single point: **a
+medieval Armenian text containing the word `ջերմուկ` is not automatically a reference to this place.**
+The Orbelian attribution is recorded *as an attribution*; the passage was not read for this article,
+and that is written into the prose rather than glossed. The article's claim that the word is a common
+noun does not depend on it.
+
+### Mineral-spring evidence
+
+| Claim | Status | Source |
+| --- | --- | --- |
+| ~40–58 °C, hydrocarbonate–sulphate, Na–Ca–Mg, ~4–5 g/l, CO₂-charged | **Institutional geology** | Institute of Geological Sciences (NAS RA) |
+| One spring above **53 °C**, pH **7.5**, 2080 m, vigorously degassing | **Peer-reviewed** | Saghatelyan et al. 2021, DOI 10.3390/microorganisms9071473 |
+| 61 °C, 64 °C, ranges from 30 °C | Circulating, unreconciled | recorded as a spread, not adopted |
+| Count of springs | **Range, not a fact** | municipality gives thirty-six; others twenty-odd, others forty; no account states what it counts |
+| Karlovy Vary comparison | A **resemblance claim** | reported once, nothing rests on it |
+
+The article states explicitly that **a single analysis quoted as though it described the whole field
+is being over-read**, that outlets differ in temperature, gas and mineral load, and that the
+mechanism it describes — infiltration, descent along faults, deep CO₂ uptake, ascent — is *a model
+applied by the Armenian geological literature* and not a local measurement. No isotope or
+residence-time study of these springs was read, and the article says so.
+
+**One figure was deliberately not used.** The peer-reviewed review's tabulated total mineralisation
+is not usable as stated; the mineralisation figure in the article comes from the geological institute
+instead, and the omission is recorded in the source note rather than quietly made.
+
+### Medical-claim treatment
+
+The strictest editorial constraint in the article, and it has its own section
+(`what-the-water-was-used-for`) plus a test.
+
+- What is stated: the practice was **balneological in the Soviet institutional sense** — referral, a
+  fixed course of days, measured quantities at prescribed temperatures, baths and procedures; the
+  water **"was promoted, and prescribed,"** for digestive and metabolic conditions among others.
+- What is refused, in the article's own words: *"This article makes no claim that Jermuk's water
+  treats, cures or prevents anything, offers no health advice, and takes no position on the clinical
+  evidence."*
+- Four things are named apart: **historical practice**, **controlled clinical research** (a separate
+  literature this archive has not surveyed), **advertising**, and **what any individual should do**,
+  which is a question for a doctor.
+- The reason the restraint matters more here than anywhere else is stated: at Jermuk the marketing
+  and the history use the same vocabulary.
+
+`places.spec.ts` now asserts that no therapeutic verb appears in the SEO fields, summary or excerpt
+in **any** of the three editions, and that the disclaimer sentences are on the page.
+
+### Spa-development chronology
+
+Separated into acts rather than collapsed into a founding year:
+
+| Year | What actually happened |
+| --- | --- |
+| **1831** | Survey of the waters by a mining engineer in Russian service, revisited in the 1850s — a survey, not a resort |
+| **1860s** | A bathing pool put in order at a local official's expense — the first recorded construction for the water, and still eighty years before the town |
+| **1940** | First sanatorium completed and opened. Armenian reference works and the municipality date the modern settlement from this |
+| **1945** | First master plan; revised in the early 1950s and around the turn of the 1960s |
+| **1950–1956** | Sanatorium and mineral-water gallery, by **Gevorg Tamanyan** |
+| **1949 / 1951** | Bottling plant — **two dates, both recorded, neither chosen** |
+| **1967** | Town of republican significance |
+| **1970** | Resort of all-Union significance |
+
+The article says in as many words that **1940 is a founding date for the resort and not for a town on
+empty ground**, and that 1967 and 1970 are two different decisions by two different authorities about
+two different things. It also draws the consequence: a town grown around a market grows outward from
+a centre, while Jermuk was laid out around a facility that came first — *"a campus that acquired a
+population."*
+
+### Soviet urban-development treatment
+
+Read as a planning history, not a political one. Master plans and their revisions; the buildings that
+came out of them; Gevorg Tamanyan, son of Alexander Tamanyan, and what putting an architect of that
+standing on a mineral-water gallery says about how the state understood the place; the **building
+type** explained, because a roofed colonnaded hall where water is drunk at prescribed temperatures is
+unfamiliar outside spa towns and is the architectural expression of the whole system; the scale by
+the 1980s (on the order of five thousand beds against a settlement of 9014 at the 1989 census, plus
+an airfield), given explicitly **as orders of magnitude from reference literature rather than from an
+audited register**.
+
+The closing judgement is institutional rather than nostalgic: the Soviet period did not discover the
+springs, it converted them into infrastructure — and tied the settlement's fortunes to a single
+institution, which is why the end of the USSR hit this town harder than places with more than one
+reason to exist.
+
+Architecture is treated as one section and not a catalogue. The register is named (mid-century Soviet
+public building in stone: monumental frontages, colonnades, broad stairs, long horizontal masses set
+into sloping ground), it is stated plainly that this **is** the town's principal architectural
+interest and that Jermuk has no medieval quarter and does not pretend to one, and the commonest error
+is named and refused: **not everything standing belongs to one phase** — some renovated, some
+abandoned, and a good deal of hotel and apartment construction since the 2000s in registers unrelated
+to the original plan.
+
+### Geography, gorge and waterfall
+
+Elevation is handled as a spread rather than a fact: **about 2100 m**, with **2080** also printed —
+and the article says neither source states whether it measures the springs, the centre or the highest
+street. (GeoNames' ASTER GDEM sample of 2090 m is recorded in `geo.ts` and deliberately kept out of
+the article, since a DEM point is not a settlement's height.)
+
+The Arpa is explained only where it shapes the place: it has cut a gorge into the plateau, the two
+halves of the town face each other across it, the springs emerge in and around it, and the ground
+that would be an obvious town centre is a ravine.
+
+**The reservoir is the paragraph that earns the article's only link.** The Kechut reservoir
+immediately below the town, completed at the start of the 1980s and holding some twenty-three million
+cubic metres, exists for a purpose that has nothing to do with Jermuk: it is the **intake of the
+Arpa–Sevan tunnel**, in operation since 1981. The article draws the consequence rather than leaving
+it as trivia — the landscape reads as highland wilderness and is in fact a managed water system, and
+a reader who takes the first without the second misunderstands both the river and the reservoir.
+
+The waterfall is a feature of that landscape and not an attraction entry. What is said: it falls into
+the gorge below the town; **accounts differ on what feeds it** (spring-fed in some, a tributary in
+others, all agreeing it lands in the Arpa); its height is published as **68, 70 and 72 metres** and
+**no measurement behind any of the three could be found**. The folk story is named as folklore *told
+about* the waterfall rather than evidence about it. No directions, viewing points, tickets or ranking
+language anywhere.
+
+### Bottled water, kept separate
+
+One section, and it argues its own boundary. Bottling began around the turn of the 1950s — **1949 in
+some Armenian reference accounts, 1951 in others including the industry's own, and nothing found
+settles it, so both are recorded**. Then three separations:
+
+1. **Not every spring feeds the bottled product** — the water sold under the name is drawn from
+   particular sources.
+2. The corporate history since 1991 — successive owners, disputes over the name, several companies
+   bottling water from the area — is **a commercial story rather than a settlement's story, and is
+   deliberately left aside.**
+3. **A brand's reach is not a town's prosperity**: the name can be famous while the place is losing
+   population, which is roughly what happened.
+
+The article also states the consequence for its own method: most of what is written about Jermuk is
+written to sell something, which is why it has had to be careful about chronology, chemistry and
+claims at every stage.
+
+### Population and current data
+
+Every figure is from **Armstat's 2022 census release for Vayots Dzor marz, tables 1.1.1 and 1.1.2**,
+which were downloaded, extracted and read directly rather than taken from a secondary account.
+
+| | 2001 | 2011 | **2022** |
+| --- | --- | --- | --- |
+| Town — permanent (de jure) | 5394 | 4628 | **3936** |
+| Town — present (de facto) | 5146 | 4346 | **3569** |
+| Community — permanent | 7426 | 6401 | **5694** |
+| Vayots Dzor marz — permanent | 55997 | 52324 | **47369** |
+
+Four official numbers for one name, and the article says which is which each time. The peak was
+earlier: **9014 at the 1989 census.**
+
+**A fifth figure is recorded as a discrepancy rather than a fact.** The municipality publishes **9276**
+for the community — a registered count, more than half again above the census total — and the article
+names the gap between a register and a headcount as itself part of what the numbers mean.
+
+### Administrative status
+
+Vayots Dzor Province; the **Jermuk community formed in 2016**, administering the town together with
+Kechut, Gndevaz, Karmrashen and Herher. Included only to the extent that it explains what "Jermuk"
+refers to, which is exactly the confusion the population table above resolves. The Armstat tables'
+own footnote — communities as constituted under the law on administrative-territorial division as
+amended 9 June 2022 — is recorded in the source note rather than in the prose.
+
+### Environmental question
+
+One paragraph, and it deliberately adjudicates nothing. The Amulsar gold deposit in the mountains
+near the town has been the subject of a long contested development process; concern about possible
+effects on Jermuk's waters was central to the opposition, **which is what makes it relevant to an
+article about the settlement at all**; the government commissioned an independent technical
+assessment in 2019; its findings were themselves disputed, its authors stated the baseline data
+available to them were insufficient for a comprehensive environmental risk assessment, and no
+government decision followed.
+
+An earlier draft of this paragraph stated the assessment's specific conclusion about groundwater
+pathways. **It was cut**, because the report itself could not be obtained and the only accounts of
+that conclusion available were second-hand reports of a contested document. What replaced it is the
+narrower claim the sources actually support, plus an explicit sentence saying the technical question
+is not one an encyclopedia entry can settle. That is the whole treatment; there is no advocacy in
+either direction.
+
+### Sources
+
+Eight, each identifier resolved:
+
+| Source | Identifier | Carries |
+| --- | --- | --- |
+| Armstat, 2022 census — Vayots Dzor marz, Section 1 | armstat.am/en/?nid=956 | every population figure; the settlement/community distinction |
+| Jermuk Municipality, "Համայնքի մասին" | jermuk.am | resort chronology, community composition, distances, 2080 m, thirty-six springs, 1949, ~70 m; and the 9276 discrepancy |
+| Institute of Geological Sciences (NAS RA), "Section of Mineral Waters" | geology.am | temperature range, chemistry, mineralisation, national context, Karlovy Vary comparison |
+| Saghatelyan, Margaryan, Panosyan & Birkeland, *Microorganisms* 9(7):1473 | **DOI 10.3390/microorganisms9071473** | the one peer-reviewed sample: >53 °C, pH 7.5, 2080 m |
+| Hakobyan, Melik-Bakhshyan & Barseghyan, *Dictionary of Toponymy…* vol. 4 | archival | Istisu, 1924 — **not read directly** |
+| *Armenian Soviet Encyclopedia* vol. 9 | archival | 1945 plan, Gevorg Tamanyan — **not read directly** |
+| "Sevan" National Park SNCO, Ministry of Environment | sevan-park.am | the Arpa–Sevan diversion (already registered for Lake Sevan) |
+| CEE Bankwatch Network, "Amulsar gold mine, Armenia" | bankwatch.org | the **process only**, with its campaigning position stated in the note |
+
+Tourism sites raised questions and carry no chronology, chemistry, medical claim, population or
+official status. Two sources are flagged as not read directly; both support claims the municipality's
+own page also carries, and every claim depending on them is written as *something Armenian reference
+works report*.
+
+### Coordinate and provenance
+
+```
+stored     39.8388, 45.6713   precision: "settlement"
+OSM        39.8388185, 45.6712635   node 210212587 (place=town, Ջերմուկ)
+GeoNames   39.83948, 45.67112       174884 (P, PPLA2, Vayots Dzor) — 75 m away
+Wikidata   39.85, 45.683333         Q39556 P625 — 1.6 km away, two decimal places
+OSM poly   39.8327037, 45.6744109   way 177199402 centre — 0.73 km away
+```
+
+The OSM settlement node was preferred, on the rule §51 wrote for Gyumri: the label node, not a
+building inside the town. Rounding to 4 dp moves it 3.7 m. **Two points 75 m apart in a town roughly
+two kilometres across is agreement, not a disagreement to resolve.** The polygon centroid was
+rejected because that polygon reaches about five kilometres north to south and its centre is a centre
+of administered ground rather than of a town; the Wikidata point was rejected as coarser than this
+registry's own rounding.
+
+Rejected and named in `geo.ts`, with distances: the **Jermuk waterfall** at 353 m (the closest wrong
+answer, and what an image search returns), a second mapped fall at 487 m, the **town hall** at 453 m,
+the stairway to the waterfall at 744 m, the mapped **hot spring** at 3.8 km, **Kechut village** at
+3.8 km and the **Kechut reservoir** at 4.3 km — the last two being inside the *community* and
+therefore the exact confusion the article's first section separates. Refused in advance: the
+mineral-water gallery, any single sanatorium or hotel, the bottling plant, the ski area, any
+viewpoint. **No existing coordinate was modified** (`git diff` on `geo.ts`: 61 insertions, 0
+deletions), and no bounding box was added.
+
+### Map
+
+**11 → 12** through `Places ∩ PLACE_COORDINATES`, with no hardcoding and no allow-list. Jermuk reuses
+the `settlement` glyph §51 added for Gyumri; **no new glyph, no component change**. Marker title and
+accessible label localized in all three editions; selecting it opens Jermuk with **no image**, which
+is the `else` branch §58 predicted Place #12 would need — the fourth time that branch has been kept
+rather than deleted.
+
+### Bounds and overlap
+
+All 12 markers inside the container at **360 / 390 / 768 / 1440** px. All-pairs measurement at 1440 px
+(66 pairs now):
+
+```
+erebuni-fortress / matenadaran     25 x 26 px
+garni-temple / geghard-monastery   12 x 31 px
+```
+
+**Unchanged, and no new pair.** Jermuk is at no extreme — Tatev remains southernmost and easternmost,
+Gyumri northernmost and westernmost — so the derived bounds are the same box, for the second addition
+in a row. It is also the most isolated marker on the map: nearest neighbour Lake Sevan at **67.5 km**,
+an order of magnitude past the six and eight kilometres that produce the two known pairs. Both
+overlaps carried forward as debt; no clustering, spiderfying, nudging or viewport change.
+
+### Related content
+
+`relatedSlugs: ["lake-sevan"]` — one link, earned by a whole paragraph: the Kechut reservoir below
+Jermuk is the intake of the Arpa–Sevan tunnel, and the Lake Sevan article has carried the other end
+of that tunnel since §37. The prose link sits on "into Lake Sevan" in
+`the-arpa-the-gorge-and-the-waterfall`.
+
+Refused and named in the test: **Gyumri** (shared `settlement` pill is not a relationship, and this
+step's brief named that trap), **Tatev** (both in the south), **Dilijan** (both towns have spa
+histories — a resemblance between subjects, not a passage in either article). Also absent: Vayots
+Dzor, the Arpa, Amulsar, Kechut and Stepanos Orbelian, all named in the prose and none an article.
+
+### Artwork
+
+**Pending.** All forty-one files under `public/` were opened rather than read off filenames, and none
+shows a highland spa settlement. Five refusals recorded in `media.ts`:
+
+- `places/gyumri.webp` — the refusal on principle and the sharpest, because after this step the two
+  would share a filter pill. The only urban image in the registry, and it is a different city of a
+  different century in a different landscape.
+- `places/dilijan-national-park.webp` — the closest **conceptual** near miss, since Dilijan is the
+  other Armenian town with a spa history and this archive says so. The file is closed broadleaf
+  forest with **no building in it at all**. A resemblance between two articles is not a resemblance
+  between two pictures.
+- `places/lake-sevan.webp` — highland water, the mood substitution.
+- `places/tatev-monastery.webp` and `places/geghard-monastery.webp` — the two gorges, both complete
+  medieval monasteries.
+
+Refused in advance: the waterfall alone; a bottle, label or brand mark; a sanatorium interior, bath,
+treatment or anyone drinking the water; a generic snow-peak landscape. A written commission is in the
+file. **No artwork was generated.**
+
+Pending behaviour verified: placeholder `<svg>` + placeholder caption in all three editions, no
+AI-art caption, `Article.image` absent, og/twitter → `/og-default.png`, **no `image:loc`** in any of
+Jermuk's three sitemap blocks, exactly one listing placeholder, map card shows no image and borrows
+none.
+
+### Localization and parity
+
+Three complete editions; the parity harness reports **0 differing rows across 3 editions** on section
+ids, order, paragraph counts, keyFacts, importantDates, interestingFacts, significance,
+relatedFigures, relatedSlugs, SectionLinks and the numeral multiset per validator field group.
+
+The numeral-dense groups match exactly. `sections` holds 53 numerals including 1830, 1850, 1860,
+1924, 1940, 1945, 1949, 1950×5, 1951, 1956, 1960, 1967, 1970, 1980×2, 1981, 1989×2, 1991, 2000, 2001,
+2011, 2016, 2019, 2022, 2080, 2100, 2500, 3000, 3569, 3936, 4628, 47369, 5394, 5694, 9014×2, 9276,
+and the spring figures 30, 40×3, 53, 58×2, 61, 64 and the waterfall's 68, 70, 72. Centuries are
+written as Roman numerals in both Armenian editions (`XIII`, `XIX`, `VIII`) so they never enter the
+multiset, on the §57 precedent.
+
+Terminology reused from the repository rather than invented: `Վայոց ձոր`, `Արփա`, `հանքային ջուր` /
+`հանքային ջուրեր`, `հանքային աղբյուր` / `հանքային աղբիւր`, `առողջարան`, `կիրճ`, `ջրվեժ` / `ջրվէժ`,
+`բնակավայր`, `խորհրդային`, `Սևանա լիճ` / `Սեւանայ լիճ`, `ջրամբար`, `թունել` / `թունէլ`, `մարդահամար`,
+`համայնք`. Names take their house forms: `Ստեփանոս Օրբելյան` / `Ստեփանոս Օրբելեան`, `Գևորգ Թամանյան` /
+`Գէորգ Թամանեան`, `Արամ Խաչատրյան` / `Արամ Խաչատրեան`.
+
+**The Western Armenian edition is unreviewed machine output** and joins the §15 native-review backlog.
+
+### Tests changed
+
+`places.spec.ts` 67 → **74**. New `JERMUK` constant (in `PLACES`, **not** in `ILLUSTRATED`); listing
+counts 11 → 12 in six places; `settlement` **leaves** the single-article filter loop, which now holds
+`museum` alone for the third time; histogram `settlement: 1 → 2`; five new invented-pill guards;
+coordinate `SETTLEMENT` list and the "exactly one settlement" test rewritten as a pair, asserted as
+the same sorted array on both halves so a coordinate and a type could not be given to two different
+places.
+
+Seven new tests:
+
+1. *the twelfth place is findable under the places group too* — plus the `Istisu` and `Vayots Dzor`
+   keyword queries and both Armenian editions.
+2. *Jermuk renders the generated placeholder and says so, in every edition.*
+3. *Jermuk borrows no other article's artwork* — including nine speculative JSON-LD types asserted
+   absent (`City`, `Place`, `TouristDestination`, `TouristAttraction`, `HealthAndBeautyBusiness`,
+   `MedicalBusiness`, `GeoCoordinates`, `LocalBusiness`, `Product`).
+4. *Jermuk describes historical spa practice and prescribes nothing.*
+5. *Jermuk dates its population figures and never states a bare one* — including that the community's
+   5694 never appears where the town's figure belongs.
+6. *Jermuk keeps the bottled water separate from the settlement.*
+7. *the settlement filter returns exactly Gyumri and Jermuk.*
+
+Plus a new coordinate block (waterfall 353 m, town hall 453 m, Kechut village and reservoir, the hot
+spring, the coarse Wikidata point, and four no-extreme assertions), a sitemap absence block, and the
+pending-artwork test inverted back to one slug — its derived `PLACES − ILLUSTRATED` assertion needed
+no edit for the seventh time.
+
+`visit-map.spec.ts` 30 → **31**: twelfth marker; `SETTLEMENT_PLACES` becomes a pair; the §51 glyph
+test now asserts **two** markers carry `data-place-type="settlement"`; **new** test *the second
+settlement marker took no new glyph, and shows no borrowed image*.
+
+`visit.spec.ts`: `NOT_CURATED` gains Jermuk with its reasoning; map-list and `places.length` 11 → 12;
+`/en/places` listing count 11 → 12.
+
+**No assertion was weakened**, no locale coverage removed, no retries added. The two
+`LOCALES × ILLUSTRATED` artwork loops stay at **33 navigations** — `ILLUSTRATED` is unchanged at
+eleven — so §38's condition for a structural change was not met and none was made.
+
+### Commands run, in the prescribed order
+
+```
+1.  port 3002 confirmed clear (netstat: no LISTENING socket; no node processes)
+2.  rm -rf .next            (after confirming no dev server)
+3.  npx tsx scratchpad/check.ts jermuk               OK — 0 differing rows, 3 editions
+4.  npm run typecheck                                PASS
+5.  npm run validate:content                         PASS — 135 entries, 1 pending note
+6.  npx playwright test tests/e2e/places.spec.ts     74 passed (3.1m)
+7.  npx playwright test tests/e2e/visit-map.spec.ts  31 passed (50.9s)
+8.  npx playwright test tests/e2e/visit.spec.ts      see below
+9.  npx playwright test  (full)                      see below
+10. npm run build                                    see below
+```
+
+No two Playwright suites overlapped, and Playwright and `npm run build` never ran concurrently.
+`.next` was removed only with the port confirmed clear.
+
+### Results, including every failure
+
+**Final state — green.**
+
+```
+npx tsx scratchpad/check.ts jermuk            OK — 0 differing rows across 3 editions
+npm run typecheck                             PASS (0 errors)
+npm run validate:content                      PASS — 135 entries across 3 locales
+                                              note: 1 slug has no artwork (jermuk)
+npx playwright test tests/e2e/places.spec.ts      74 passed (3.1m)
+npx playwright test tests/e2e/visit-map.spec.ts   31 passed (50.9s)
+npx playwright test tests/e2e/visit.spec.ts       24 passed (1.1m)
+npx playwright test  (full)                   277 passed, 5 skipped (7.3m)
+npm run build                                 PASS — 144 pages prerendered
+```
+
+Totals moved: **132 → 135 content entries**, **141 → 144 prerendered pages**, **269 → 277 passing
+tests** (eight new: seven in `places.spec.ts`, one in `visit-map.spec.ts`).
+
+**Every failure that occurred, and there was one.**
+
+**`visit.spec.ts › every canonical route the journey links into still works` — 1 failed, 23 passed.**
+The first assertion in the test, `/en/places/khor-virap`, came back **404** one second into the run.
+That is not a missing route — Khor Virap has been in the section since §30 and its own tests had
+passed minutes earlier in the same session — it is the dev server answering before its route manifest
+was ready, which is the known Turbopack cold-route signature in the one form that produces a status
+code rather than a timeout. It was inspected rather than assumed: the failing test re-run alone passed
+in 16.0 s, and the whole spec re-run came back 24 passed. No assertion was weakened and nothing was
+retried in place.
+
+Everything else passed first time, including the full suite. That is unusual for this project and is
+worth recording as the exception rather than the rule: the places spec was the run that rebuilt
+`.next` after it was removed, so the rest of the sequence ran against a warm server.
+
+The `/visit` LCP eager-loading warning fired again, on `gyumri.webp` and `lake-sevan.webp`. Existing
+debt, unchanged. No host memory pressure occurred during this step.
+
+### Confirmations
+
+| | |
+| --- | --- |
+| Places total | **12** |
+| Monastery / Historical / Museum / Nature / Settlement | **4 / 3 / 1 / 2 / 2** |
+| Settlement contains exactly | Gyumri, Jermuk |
+| New place types introduced | **none** |
+| Featured Places | **Khor Virap only**, in all three editions |
+| Jermuk routes | `/hy`, `/hyw`, `/en` — all 200, canonical + hreflang correct |
+| Coordinate precision | `settlement` |
+| Map | **11 → 12**, automatically; no allow-list; no component edit; existing `settlement` glyph |
+| Marker bounds at 360 / 390 / 768 / 1440 px | All 12 visible at every width |
+| Marker overlap | `25 x 26` and `12 x 31` px — unchanged; no new pair |
+| Visit curated row | **6, unchanged**; Jermuk absent by decision |
+| `PENDING_ARTWORK` | `["jermuk"]` |
+| Structured data | Generic `Article` + `BreadcrumbList` only; no city, tourism, medical or geo types |
+| Medical claims | None in any edition's prose or SEO surfaces; historical practice only |
+| Deployment | **None.** Nothing pushed or released; `.claude/settings.json` untouched |
+
+### Visit-curation regression check
+
+| Check | Result |
+| --- | --- |
+| Curated row is exactly six cards | PASS |
+| The six are the §53 slugs, in the §53 order | PASS |
+| Jermuk is absent from the curated row | PASS |
+| Jermuk is present in `/places` (12 cards) | PASS |
+| Jermuk is present on the map and in the map's server-rendered list (12 items) | PASS |
+| Etchmiadzin, Geghard, Erebuni, the Matenadaran, Amberd still off the row and still on the map | PASS |
+| Row shape guards — settlement present, at least one nature, at most two monastery | PASS, unchanged |
+| Type links on `/visit` still five, rendered from `placeTypes` | PASS, unchanged |
+
+The §53 decision was not reopened. This is the point at which the row (six) and the section (twelve)
+are exactly two to one, and the test comment now says so rather than leaving it to be noticed later.
+
+### Existing map and artwork regression check
+
+| Check | Result |
+| --- | --- |
+| The eleven existing marker → article → image mappings | Unchanged |
+| `getImageSrc` for the eleven illustrated places | Unchanged, entry by entry |
+| Non-places entries in `IMAGES` (history, writers, works, cuisine) | Unchanged, asserted as a whole object |
+| Khor Virap still a PNG, still the homepage-hero copy | Unchanged |
+| `hero-ararat.png` still outside the registry | Unchanged |
+| Homepage renders its own hero and no places artwork | PASS |
+| Existing coordinates in `geo.ts` | None modified; one added |
+| Two known marker overlaps | `25 x 26` and `12 x 31` px — identical to §47/§49/§51/§57/§58 |
+| Basemap configuration, tile host, attribution | Untouched |
+| Amberd's artwork, registered in §58 | Still resolves; hero, og, twitter, JSON-LD and sitemap unchanged |
+
+### Technical debt — carried forward, not fixed
+
+Everything below was already open and is deliberately left open:
+
+- bibliography React key uses `source.title` (`ArticleLayout`);
+- marker overlap at the initial extent — Erebuni/Matenadaran, Garni/Geghard;
+- Turbopack/cold-route flake (**it fired once in this step**, as a 404 rather than a timeout);
+- host memory pressure during long Playwright runs;
+- photographic-register concerns for Geghard, Tatev, Dilijan and Gyumri artwork;
+- narrow-search-thumbnail crop for Gyumri and Amberd;
+- Gyumri `1584×993` and Garni `1448×1086` dimension drift;
+- Matenadaran façade colour; Garni stone warmth; Khor Virap PNG weight;
+- Erebuni / Matenadaran / Gyumri / Amberd artwork file weight;
+- global media optimisation;
+- Cuisine hydration flake;
+- one-directional `relatedSlugs`;
+- same-category related-article filler behaviour (§57) — **Jermuk has it too**, since it authors one
+  related slug and the row is completed from its own category;
+- Western Armenian native-review backlog (§15) — **Jermuk joins it**;
+- the Bresson/Fagan issue;
+- sources not read directly: Wilkinson, the Tokarskij/Alpago-Novello monograph, and now **the
+  toponymic dictionary volume 4 and the Armenian Soviet Encyclopedia volume 9**;
+- Kazaryan cited from abstract and Crossref record only;
+- the Hovannisian volume-set ISBN issue;
+- the Armstat Gyumri table caveat;
+- scratchpad harness locations (`scratchpad/check.ts`, `scratchpad/dilcheck.ts`);
+- weak homepage hero-path assertion;
+- no central environment module;
+- Stadia production/domain authorization;
+- raster tile label-language limitation;
+- privacy-page provider disclosure;
+- no museum or Yerevan card in the Visit row;
+- alphabet Learn-card anchor gap;
+- Khor Virap / Garni warm-palette observation;
+- `/visit` LCP eager-loading warning (**fired again**);
+- the two `LOCALES × ILLUSTRATED` artwork loops at 33 navigations — **unchanged this step**, because
+  `ILLUSTRATED` did not grow. They go to 36 when Jermuk's file lands;
+- the three Amberd visual observations from §58 (solid-drum towers, single-cone massif, pale fragment
+  beside the church).
+
+**Two new observations, recorded rather than fixed.**
+
+1. **The municipality's population figure and the census disagree by more than half.** 9276 against
+   5694 for the same community. Both are official; one is a register and one is an enumeration. The
+   article states the gap, but nothing in the archive systematically distinguishes registered from
+   enumerated figures, and the next settlement article will meet the same problem.
+2. **The Visit row is now exactly half the section.** Six curated cards against twelve Places. That
+   is not a fault and the row was deliberately left alone here, but §53 reviewed a row against ten
+   articles and the ratio has moved since. A future curation step, not a content step, is where that
+   belongs.
+
+### Deliberately not built
+
+- **No artwork.** Jermuk is in `PENDING_ARTWORK` with a written commission and five recorded
+  refusals. No file was generated, registered, borrowed or renamed.
+- **No `City`, `Place`, `TouristDestination`, `TouristAttraction`, `HealthAndBeautyBusiness`,
+  `MedicalBusiness`, `GeoCoordinates`, `LocalBusiness` or `Product` JSON-LD.** The generic `Article` +
+  `BreadcrumbList` graph is unchanged, and a new test forbids all nine by name — the temptation is
+  sharper here than for any previous place, because the subject has a coordinate, a product and a
+  history of medical treatment.
+- **No new place type**, no new marker type, no map allow-list, no component edit.
+- **No health advice, and no therapeutic claim in the present tense**, in any edition or any field.
+- **No travel logistics**: no hotels, sanatorium prices, treatment packages, ski prices, opening
+  hours, booking links, driving times, best season or itineraries.
+- **No company history.** The post-1991 ownership of the bottling brand is named as out of scope in
+  the article itself.
+- **No Arpa River article and no Vayots Dzor article.** The river appears where it shapes the town;
+  the province is named to locate it.
+- **No change to Visit curation**, and no reopening of the §53 decision.
+- **No deployment.** Nothing was pushed, built for production beyond the local `npm run build`
+  verification, or released. `.claude/settings.json` was not modified.
+
+---
+
+## §60. Jermuk artwork — registered off-subject, by decision (August 2026)
+
+The twelfth Place gets its cover, `PENDING_ARTWORK` empties for the eleventh time, and the section
+is fully illustrated again. It is also the **first registration in the archive where the file does
+not depict what the article is about**, and that is the fact this entry exists to keep visible.
+
+### What was delivered
+
+`public/images/places/jermuk.webp`
+
+| | |
+| --- | --- |
+| Dimensions | **1586 × 992** (1.599) |
+| Bytes | **843,024** (823 KB) |
+| SHA-256 | `92b2a0516dd73f626aba6be08439b4f53ccd24cc341a9d283295964d2ce0e7f1` |
+| Container | `RIFF/WEBP` → `VP8X` (10, flags `0x20`) + `ICCP` (456) + `VP8 ` (842,522) |
+| Chunk walk | ends at byte 843,024 — **exactly EOF**, no trailing data |
+| Encoding | **lossy** VP8 |
+| Alpha | none (`isOpaque: true`, 3 channels) |
+| ICC | present — `mntr`/`RGB `/`XYZ `, sRGB |
+| EXIF / XMP / orientation | **none** |
+
+Verified twice with independent parsers — a hand-written RIFF chunk walker and `sharp` — which agree
+on every field. Nothing was inferred from the extension. The file was registered exactly as
+delivered: unaltered, uncropped, unoptimised, unrenamed, as every entry since §30.
+
+Two notes against the container. The geometry **matches the section's dominant 1586 × 992 exactly**,
+so it adds no new dimension drift — `garni-temple.webp` (1448 × 1086) and `gyumri.webp` (1584 × 993)
+remain the only two outliers. And at 823 KB it is now the **heaviest WebP in the registry**, ahead of
+Erebuni's 742 KB, which is what a frame of moving water and rock texture costs. The standing
+media-optimisation debt is unchanged and the file was not touched.
+
+### Visual inspection — and the failure
+
+Inspected at full resolution in tiles, not judged from a downscale: the top strip across the full
+width, the centre, and the right bank.
+
+**What is in the frame.** The Jermuk waterfall seen from the streambed below, looking up: a
+fan-shaped cascade spreading over a rounded travertine dome, a boulder in front of it, sheeting water
+across bare rock filling the whole foreground, columnar-jointed gorge walls on both sides with green
+scrub and a treeline along the top, blue sky between them. It is a competent picture and it is
+genuinely Jermuk-specific — the fan over the tufa dome is that waterfall's actual form, not a generic
+cascade.
+
+**What is not in the frame: the town.** There is no building anywhere in the image. The only man-made
+thing in it is a line of rough stone blocks along the right bank forming a path. Against the §59
+commission recorded in `media.ts`, which was written before this file existed:
+
+| The commission asked for | The file has |
+| --- | --- |
+| a small highland town, the gorge dividing it legible | a gorge, no town |
+| mid-century public buildings in stone — colonnades, broad stairs, parkland | no building of any kind |
+| **the settlement larger in the frame than any single building** | no settlement in the frame |
+| treeless volcanic slopes, no closed forest | green gorge walls and a treeline |
+| **no waterfall as the subject** | the waterfall is the entire subject |
+
+The commission had refused a waterfall-only cover **in advance**, in these words: *"the waterfall
+alone, which is the photogenic thing here and is a feature of the gorge rather than the town."* That
+is precisely what arrived, for precisely the predicted reason — the cascade is what the word "Jermuk"
+returns.
+
+It does at least borrow from nobody, which is the failure the five refusals guard against. It is not
+Dilijan (no closed broadleaf forest), not Lake Sevan (no open water), not Gyumri (no street), not
+Tatev or Geghard (no complex, no masonry, nothing medieval), not an alpine or ski resort (no snow, no
+peak, no chalet), and not an empty generic mountain landscape — the gorge and the cascade are
+specific.
+
+### The decision
+
+The mismatch was found before registration, reported in full, and registration was chosen
+deliberately by the project owner after the consequences were set out. It is **not** an oversight and
+the picture was not mistaken for the brief.
+
+What the archive now asserts, on the listing card, the hero, the search hit, the map card and every
+shared link, is that Jermuk is a waterfall. The article behind those surfaces spends forty paragraphs
+on how a highland spring landscape became a town of 3,936 people, gives the waterfall part of one
+section out of twelve, and declines to state its height because the three published figures (68, 70,
+72 m) have no measurement behind them.
+
+**This is carried as artwork debt, not closed.** The commission in `media.ts` is deliberately left
+standing rather than struck out: it is still the description of the picture this article should have.
+The entry reverses by moving one line from `IMAGES` back into `PENDING_ARTWORK`.
+
+A second-order consequence worth naming: `settlement` now holds two covers and one of them is a
+landscape with no settlement in it. The filter pill §51 introduced to make a kind of place legible is,
+for this pair, no longer doing that.
+
+### Medical / product visual audit — clean
+
+The audit the mineral-water subject makes necessary, and it passes without qualification. The frame
+implies no medical treatment, no curing or healing, no doctors, no rehabilitation, no bathing
+patients. It carries no bottle, no label, no brand mark, no factory, no pharmaceutical imagery and no
+figure of any kind. The article's careful separation of settlement, springs, spa history and bottled
+product is not undermined by the picture: it asserts nothing about health and nothing about a product.
+
+Whatever else is wrong with this cover, it does not make a claim the prose refuses to make.
+
+### Text / signage audit — clean
+
+No signage, plaque, board, banner, storefront, poster, street sign, vehicle, plate, garment or
+building surface appears — the frame contains no object of the kind that carries text. A
+contrast-boosted pass over all four corners found no watermark or signature. **No pseudo-Armenian,
+Russian or English marks, and none of the tiny unreadable ones that usually need recording.** Nothing
+was retouched, because nothing needed to be.
+
+This is the one audit the subject makes easy: urban artwork is where generated text appears, and
+there is no urban fabric here to carry it.
+
+### Crop suitability — good, which is the irony
+
+Measured against the live surfaces rather than inferred from Tailwind classes.
+
+| Surface | Ratio | Crop | Trim |
+| --- | --- | --- | --- |
+| Compact card, mobile hero | 4:3 | 1323 × 992 | 16.6 % width |
+| Tablet hero | 3:2 | 1488 × 992 | 6.2 % width |
+| Listing card, desktop hero, map card | 16:9 | 1586 × 892 | 10.1 % height |
+| Search thumbnail | 0.801 (160 × 200 px, measured live in §58) | 795 × 992 | 49.9 % width |
+
+The composition is centred and vertically deep, so **every live crop keeps the whole subject**. The
+narrow search thumbnail — the tightest crop on the site, and the one that dropped Amberd's church
+entirely — is here the *strongest* of the four, keeping the entire cascade, both gorge walls and the
+treeline. No `object-position` was added and **no crop debt is recorded**.
+
+The file crops well to the wrong subject, which no crop rule can fix.
+
+### Files changed
+
+| File | Change |
+| --- | --- |
+| `src/lib/media.ts` | `jermuk` registered in the Places block of `IMAGES`; the §59 commission kept and a §59→§60 record appended; `PENDING_ARTWORK` emptied |
+| `tests/e2e/places.spec.ts` | `JERMUK` added to `ILLUSTRATED` and `ARTWORK`; four §59 assertions inverted; one new test |
+| `tests/e2e/visit-map.spec.ts` | selected-card assertion inverted to its own file |
+| `PROJECT_STATE.md` | this section |
+
+The key is written `jermuk:` unquoted, matching `gyumri:` and `matenadaran:` beside it — the file
+omits quotes on plain identifier keys and no formatter is configured to enforce either way.
+
+**No article content was touched.** The `ջերմուկ` noun/place-name distinction, the medieval-name
+evidence, the mineral chemistry, the spring-count uncertainty, the medical-claim restraint, the
+1831/1860s/1940/1945/1967/1970 chronology, the Soviet planning and Tamanyan treatment, the Arpa gorge
+and Kechut/Arpa–Sevan discussion, the waterfall-height uncertainty, the bottling-date disagreement,
+the population figures, the municipality-vs-census discrepancy, the sources, the coordinate,
+`relatedSlugs`, the `SectionLink`, the SEO fields, the translations and the parity state are all
+byte-identical.
+
+### Provenance behaviour
+
+`isGeneratedArtwork(article)` was read rather than assumed — it is `!article.image && getImageSrc(article.slug) !== undefined`.
+Jermuk has no `image` field and now resolves through the registry, so it returns **true** and the page
+declares AI-generated Armat editorial artwork. `ARTWORK_PROVENANCE` was not modified.
+
+Verified in all three editions: `jermuk.webp` renders, the AI-illustration disclosure appears, the
+placeholder disclosure is gone, the placeholder `<svg>` is gone.
+
+The caption is the one claim this registration still makes honestly — the file *is* AI-generated
+editorial artwork. Whether it depicts the right subject is a question the disclosure does not answer.
+
+### Metadata transition
+
+| | §59 | §60 |
+| --- | --- | --- |
+| hero | placeholder `<svg>` | `/images/places/jermuk.webp` |
+| `Article.image` | absent | `/images/places/jermuk.webp` |
+| `og:image` | `/og-default.png` | `/images/places/jermuk.webp` |
+| `twitter:image` | `/og-default.png` | `/images/places/jermuk.webp` |
+| sitemap `image:loc` | absent from all three routes | present on all three |
+| listing placeholders | 1 | **0** |
+
+The JSON-LD graph is unchanged in shape: generic `Article` + `BreadcrumbList`. The test that forbids
+`City`, `Place`, `TouristDestination`, `TouristAttraction`, `HealthAndBeautyBusiness`,
+`MedicalBusiness`, `GeoCoordinates`, `LocalBusiness` and `Product` **by name** is kept and still
+passes — the mineral-water subject remains the archive's most inviting article to over-describe, and
+gaining a cover does not change that.
+
+Sitemap checked **route block by route block**, not by whole-document count: each of
+`/en/places/jermuk`, `/hy/places/jermuk` and `/hyw/places/jermuk` carries its own `image:loc`, and
+none carries `gyumri`, `dilijan-national-park`, `lake-sevan` or `tatev-monastery`.
+
+### Map selected-card transition
+
+Still exactly **12** markers, still derived from `Places ∩ PLACE_COORDINATES`, still no allow-list.
+Jermuk still uses the `settlement` glyph introduced in §51 — no new glyph, no component code. The
+accessible label is still the localized title and localized type in all three editions. The
+coordinate is untouched and the marker-derived bounds are unchanged.
+
+Selecting Jermuk now shows `/images/places/jermuk.webp` — the `else` branch §59 exercised, inverted.
+The four named refusals are **kept** in that test rather than removed, and they matter more now than
+they did: with an off-subject cover in place, repointing this slug at Dilijan or Gyumri would read as
+a correction rather than a regression.
+
+`src/lib/visit-map.ts`, `src/components/visit/VisitMap.tsx` and `src/lib/map-tiles.ts` are
+byte-identical. No marker overlap was touched.
+
+### Taxonomy and Visit curation — unchanged
+
+All 12 · Monastery 4 · Historical 3 · Museum 1 · Nature 2 · Settlement 2 (`gyumri`, `jermuk`).
+Khor Virap remains the sole `featured: true`. No new type.
+
+The reviewed six are exactly `khor-virap`, `gyumri`, `lake-sevan`, `garni-temple`,
+`dilijan-national-park`, `tatev-monastery`, in the §53 order. **Jermuk was not promoted.** Curated row
+6, map 12, Places listing 12. Registering artwork is not an editorial-promotion event, and §53 was not
+reopened.
+
+### Tests changed
+
+`places.spec.ts` 74 → **75**. `visit-map.spec.ts` **31**, unchanged in count.
+
+`PLACES`, `ILLUSTRATED` and `ARTWORK` are kept as three separate declarations even though `PLACES`
+and `ILLUSTRATED` now hold the same twelve slugs. They have coincided eleven times and split eleven
+times; Place #13 will split them again, and the `satisfies` clause on `ARTWORK` is what makes a
+mismatch fail at compile time rather than at runtime.
+
+Inverted: the Jermuk hero test (placeholder → own file, all three editions), the borrow test (hero,
+`Article.image`, `og:image`, `twitter:image`), the sitemap block, the pending-artwork test, the
+listing placeholder count (derived, so it needed no literal edited — the eighth time), and the map
+selected-card assertion. New: **Jermuk's search card carries its own thumbnail and no placeholder.**
+
+No assertion was weakened, no locale coverage removed, no retries added, no exact-image ownership
+replaced by a count. Two swapped covers still fail.
+
+### Test-runtime outcome
+
+The two `LOCALES × ILLUSTRATED` loops went **33 → 36 navigations**, the level recorded in §58 as
+approaching the practical limit. Both still pass under `test.slow()`; **no split was performed**,
+because the spec's own instruction is not to refactor while the tests pass.
+
+### Results
+
+```
+npm run typecheck                                 PASS
+npm run validate:content                          PASS — 135 entries, NO pending-artwork note
+npx playwright test tests/e2e/places.spec.ts      75 passed (3.2m)
+npx playwright test tests/e2e/visit-map.spec.ts   31 passed (50.1s)
+npx playwright test tests/e2e/visit.spec.ts       24 passed (1.1m)
+npx playwright test  (full)                       278 passed, 5 skipped (7.6m), exit 0
+npm run build                                     PASS — 144 pages prerendered
+```
+
+Totals moved: **277 → 278 passing tests** (one new), **135 content entries** and **144 prerendered
+pages** both unchanged, because §60 adds no route and no content.
+
+**Every failure that occurred, and there were three.**
+
+**1. Two cold-route failures in the first `places.spec.ts` run, on a freshly removed `.next`.**
+`the four existing category listings still load and still count what they did` got **500** from
+`/en/writers`, and `the place article uses its own SEO fields and advertises every edition` failed
+alongside it. Both are the known Turbopack signature — the 500 form is on the recorded list. Both
+were inspected rather than assumed: each passed alone (9.1 s and 22.6 s), and the whole spec re-run
+warm returned 75 passed. No assertion was weakened and nothing was retried in place.
+
+**2. The first full-suite run aborted with a native stack trace** rather than a test failure — the
+known host-memory-pressure debt, recorded separately as instructed.
+
+**3. The second full-suite run hung, and the cause was a tooling mistake rather than the project.**
+Killing the aborted run terminated the Playwright runner but left its `npm run dev` child alive and
+wedged; the next run reused it through `reuseExistingServer` and stalled with `/en/places/jermuk`
+timing out after 20 s and a zero-byte log. Diagnosed by curling the dev server directly rather than
+by guessing, fixed by killing every orphaned `node` process, confirming port 3002 clear, and starting
+again from a fresh server. **The clean run that follows is the one reported above.**
+
+The lesson worth keeping: `reuseExistingServer` will happily reuse a *hung* server, so after killing
+a Playwright run the dev server must be confirmed dead — not merely the runner. This is the first
+time that has bitten in sixty steps and it cost two wasted suite runs.
+
+The `/visit` LCP eager-loading warning fired again on `gyumri.webp` and `lake-sevan.webp`. Existing
+debt, unchanged.
+
+### Technical debt — carried forward, not fixed
+
+Everything already open stays open: the bibliography React key on `source.title`; the two marker
+overlaps (`25 × 26` and `12 × 31` px); the Turbopack cold-route flake (**fired twice this step**, as
+a 500 and a companion failure); host memory pressure during long Playwright runs (**fired once**);
+photographic-register concerns for Geghard, Tatev, Dilijan and Gyumri; the narrow-thumbnail crops for
+Gyumri and Amberd; the Gyumri and Garni dimension drift; artwork file weight (**Jermuk is now the
+heaviest at 823 KB**); global media optimisation; the Cuisine hydration flake; one-directional
+`relatedSlugs`; same-category related filler; the Western Armenian native-review backlog; the
+unread-source caveats including the Jermuk toponymic dictionary and Armenian Soviet Encyclopedia
+volumes; the source-identifier caveats; scratchpad harness locations; the weak homepage hero
+assertion; no central environment module; Stadia production/domain authorization; the raster tile
+label-language limitation; the privacy-page provider disclosure; no museum or Yerevan card in the
+Visit row; the alphabet Learn-card anchor gap; the warm-palette observation; the `/visit` LCP
+warning; the artwork-loop runtime pressure now at 36; the three Amberd visual observations; and the
+Jermuk municipality-vs-census discrepancy.
+
+**One new item, and it is the largest artwork debt in the archive.**
+
+**Jermuk's cover does not depict Jermuk's subject.** A waterfall stands where a town belongs, on
+every surface the article has. It was registered knowingly; the commission describing the correct
+picture is preserved in `media.ts`; and the fix is a one-line reversal whenever a settlement image
+exists.
+
+### Deployment
+
+**None.** Nothing pushed, released, or built for production beyond local verification. No artwork was
+generated, edited, cropped, resized, recoloured, renamed, optimised or replaced.
+`.claude/settings.json` was not modified.

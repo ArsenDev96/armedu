@@ -2447,4 +2447,271 @@ export const placeArticles: Article[] = [
     ],
     relatedSlugs: ["bagratid-armenia"],
   },
+  {
+    slug: "jermuk",
+    href: "/places/jermuk",
+    category: "places",
+    categoryLabel: "Places",
+    title: "Jermuk",
+    seoTitle: "Jermuk: How Mineral Springs Made a Town",
+    placeTypeId: "settlement",
+    featured: false,
+    imageSeed: "jermuk",
+    keywords: [
+      "Jermuk",
+      "Ջերմուկ",
+      "Jermuk Armenia",
+      "Jermuk mineral water",
+      "Jermuk mineral springs",
+      "Jermuk spa town",
+      "Vayots Dzor",
+      "Arpa river",
+      "Istisu",
+      "Armenian mineral water",
+    ],
+    excerpt:
+      "A spa settlement on a high plateau in Vayots Dzor, built in the twentieth century around thermal mineral springs in the gorge of the Arpa — and named after the ordinary Armenian word for a warm spring.",
+    metaDescription:
+      "Jermuk in Vayots Dzor: the thermal springs, the Arpa gorge, the Soviet spa settlement built around them, and what the name actually means.",
+    summary:
+      "Jermuk is a small town in Vayots Dzor Province, in the south of Armenia, standing at about 2100 metres on a plateau split by the gorge of the Arpa. Its name is the ordinary Armenian word for a warm spring, and the springs are the reason the settlement exists: thermal, carbonated, mineralised waters that were used locally long before anything was built around them. The modern town is dated by Armenian reference works to 1940, when the first sanatorium opened; it was granted town status in 1967 and all-Union resort status in 1970. Its plan, its architecture, its economy and its name all descend from the water. The census of October 2022 counted 3936 permanent residents.",
+    intro:
+      "Jermuk is the only place in this archive whose name is also a common noun. In Armenian a jermuk is a warm spring — water that comes out of the ground hot — and the town is called that in the same plain way an English village might be called Wells. That is worth saying first because almost everything written about the place runs the two together: the word is old, the springs are old, and the settlement is not. The town as it now stands is a twentieth-century creation, planned around a set of thermal springs in the gorge of the Arpa, built mostly between 1940 and the 1970s, and shaped by a Soviet institution that no longer exists. Understanding Jermuk means keeping the water, the word and the town apart long enough to see how they came together.",
+    author: "Armat Editorial Team",
+    updated: "2026-08-19",
+    keyFacts: [
+      {
+        label: "Kind of place",
+        value: "A town — a spa settlement in Vayots Dzor Province, and the centre of the Jermuk community",
+      },
+      {
+        label: "Where",
+        value: "On a plateau in the upper basin of the Arpa, in the south of Armenia, roughly fifty kilometres from the provincial centre Yeghegnadzor",
+      },
+      {
+        label: "Height",
+        value: "About 2100 metres above sea level; 2080 is also printed, and the built area covers enough ground that a single number is an approximation",
+      },
+      {
+        label: "The springs",
+        value: "Thermal and carbonated, given by the Institute of Geological Sciences as roughly 40 to 58 degrees Celsius, hydrocarbonate–sulphate sodium–calcium–magnesium waters mineralised at about 4 to 5 grams per litre",
+      },
+      {
+        label: "The modern town",
+        value: "Dated to 1940, when the first sanatorium was completed; town status in 1967; all-Union resort status in 1970",
+      },
+      {
+        label: "Population",
+        value: "3936 in the town at the census of October 2022 — a dated count for the settlement, and not the figure for the community around it",
+      },
+    ],
+    sections: [
+      {
+        id: "where-jermuk-is",
+        heading: "Where Jermuk is, and which Jermuk is meant",
+        paragraphs: [
+          "Jermuk stands in the south of Armenia, in Vayots Dzor Province, on a high plateau in the upper basin of the river Arpa. It is roughly fifty kilometres from Yeghegnadzor, the provincial centre, and something over a hundred and seventy by road from Yerevan. The plateau sits at about 2100 metres — 2080 is the other figure in circulation, and neither source says whether it is measuring the springs, the centre or the highest street — and the mountains around it rise to between 2500 and 3000 metres. The Arpa cuts through the plateau in a gorge, and the town is built on both sides of that cut, which is the single most important fact about its shape.",
+          "Several different things are called Jermuk, and mixing them is the commonest way a statement about this place goes wrong. There is the town itself. There is the Jermuk community, the municipal unit formed in 2016, which administers the town together with the villages of Kechut, Gndevaz, Karmrashen and Herher and covers a great deal of empty upland. There are the mineral springs. There is the bottled water sold under the name. And there is the waterfall. A population, an area, a temperature or a chemical analysis quoted for one of these is not a fact about the others, and this article says which one it means each time.",
+          "This article is about the settlement. The province is named to locate it and does very little else here: Vayots Dzor is a thinly populated marz of high valleys and gorges in the south-east of the country, and Jermuk is neither its centre nor its largest town. What makes the place worth an article is not its administrative weight but the fact that it is a settlement built for one reason, which can still be read in its plan.",
+        ],
+      },
+      {
+        id: "the-name",
+        heading: "The name, and what it does not prove",
+        paragraphs: [
+          "Jermuk — Ջերմուկ — is an ordinary Armenian noun before it is a place. It means warm water rising from the ground, or a spring of such water, and it is formed from jerm, warm, with a suffix that turns the adjective into a thing. Armenian uses the word generically: other thermal springs elsewhere in the country are jermuks too. The settlement is therefore named the way a place might be called Wells or Bath, by the plainest possible description of what is there.",
+          "That has a consequence most accounts skip past. A medieval Armenian text containing the word jermuk is not automatically a reference to this place, because the word had work to do that had nothing to do with Vayots Dzor. Armenian reference literature reports that the springs here are mentioned in the thirteenth-century history of Syunik by Stepanos Orbelian, the same historian whose transcriptions date the church at Tatev. That attribution is recorded here as an attribution: the passage has not been read for this article, and a common noun in a medieval chronicle is exactly the kind of evidence that needs reading rather than repeating.",
+          "The settlement carried a second name for part of its history. It appears as Istisu — Turkic for hot water, which is to say the same name in another language — and reverted to Jermuk in 1924. So three things have three different ages and are constantly collapsed into one: the word, which is old; the place-name, which is at least medieval if the attribution above holds; and the settlement now standing, which is not.",
+        ],
+      },
+      {
+        id: "water-in-a-volcanic-highland",
+        heading: "Why there is hot water here",
+        paragraphs: [
+          "Armenia sits on a tectonically active belt with young volcanic rocks over much of its surface, and mineral and thermal waters are common across it. The Institute of Geological Sciences records more than seven hundred mineral springs and boreholes in the country, with temperatures running from about 40 degrees at the coolest of the recognised thermal fields to over 80 at the hottest, and it names Jermuk first among the handful of deposits significant enough to have had resorts built on them.",
+          "The mechanism generally described for these waters is straightforward in outline and hard to pin down in detail. Rain and snowmelt sink into fractured rock, descend along faults deep enough to be warmed, take up carbon dioxide of deep origin, dissolve mineral matter out of the rock they pass through, and rise again where the structure lets them. That is the model the Armenian geological literature applies to Jermuk. It is a model rather than a local measurement: this article has not read an isotope or residence-time study of these particular springs, and it does not claim one.",
+          "What matters for the settlement is the consequence rather than the mechanism. Hot, gassy, strongly mineralised water arrives at the surface here in quantity, at an altitude where nothing else would have drawn a town. Every later phase of the place — the tracks to it, the buildings on it, the factory below it, the name on the bottle — is downstream of that one geological fact.",
+        ],
+      },
+      {
+        id: "before-the-resort",
+        heading: "What was here before the resort",
+        paragraphs: [
+          "There was habitation near the springs long before there was an institution. Armenian reference works report the remains of a cyclopean fortress and the ruins of an eighth-century basilica in the vicinity, and those are the kind of evidence that establishes people rather than bathing. A fortress wall and a church tell you the ground was occupied and defended; they do not tell you what anyone did with the water.",
+          "This is the point in Jermuk's history most damaged by repetition. The sentence that the healing waters have been famous for thousands of years is a marketing sentence, and it circulates in brochures, on labels and in tourism copy until it reads like a finding. It is worth separating what would actually count. Archaeological evidence would be a bath structure, a channel, a votive deposit. Written evidence would be a text describing use, not merely a place-name. Local tradition is real and is evidence of tradition. Twentieth-century spa literature, written by an institution to justify itself, is a fourth thing again, and modern advertising a fifth.",
+          "By those tests, the local use of the waters before the modern period is best described as attested in general terms and undocumented in particular ones. It is entirely likely that people living in and passing through this valley drank and bathed in springs that come out of the ground hot; that is what people do with such springs everywhere. What is missing is any surviving description of it here that this article has been able to verify, which is a different statement from saying it did not happen.",
+          "The first records that can be dated are nineteenth-century and Russian. Armenian reference literature describes an examination of the waters by a mining engineer in the Russian service, published in the 1830s and revisited in the 1850s, and a bathing pool put in order in the 1860s at the expense of a local official. That is the real beginning of an outside interest in the springs — a survey and a pool, not a resort — and it stands a full century before the town.",
+        ],
+      },
+      {
+        id: "becoming-a-resort-settlement",
+        heading: "How a spring became a settlement",
+        paragraphs: [
+          "Jermuk is a case where a founding date has to be handled carefully, because the thing founded was an institution rather than a town. Armenian reference works date the modern settlement to 1940, the year the first sanatorium was completed and opened. That is a defensible date for the resort. It is not a date on which a settlement came into being on empty ground, and it should not be written as though a town were established that year by decree.",
+          "What followed came in separate acts, and running them together is what produces the tidy and wrong sentence that Jermuk was founded in one year. Building went on through the 1950s, when the principal sanatoria and the mineral-water gallery went up. In 1967 the place was granted the status of a town of republican significance. In 1970 it was designated a resort of all-Union significance, which put it in a category with the great spas of the Caucasus and brought it visitors from across the Soviet Union. Those are three different decisions by two different authorities about two different things — what the settlement was administratively, and what the resort was institutionally.",
+          "The distinction matters beyond pedantry, because it explains the shape of the place. A town that grows around a market or a crossing grows outward from a centre. Jermuk was laid out around a facility, and the facility came first: the sanatoria, the gallery over the springs, the parkland between them, and then the housing for the people who worked in them. That order is still legible on the ground, and it is the reason the settlement reads less like a small town than like a campus that acquired a population.",
+        ],
+      },
+      {
+        id: "soviet-jermuk",
+        heading: "The Soviet town",
+        paragraphs: [
+          "The Soviet decades are the period in which almost everything physical about Jermuk was decided, and they are best read as a planning history rather than a political one. A first master plan was drawn in 1945, five years after the opening of the first sanatorium, and it was revised twice more — in the early 1950s and again around the turn of the 1960s — as the resort's ambitions grew. Planning a settlement on a plateau divided by a gorge is an unusual problem, and the successive plans are essentially answers to it: where to put the institutions, where to put the housing, and how much of the shelf above the river to leave as park.",
+          "The buildings that give the town its character came out of that programme. The sanatorium and the gallery over the mineral springs were designed by Gevorg Tamanyan and built between 1950 and 1956. He was the son of Alexander Tamanyan, whose plan governs central Yerevan, and he had a substantial career of his own — the Aram Khachaturian concert hall in Yerevan is his. A mineral-water gallery is a specific building type and an unfamiliar one outside spa towns: a long, roofed, colonnaded hall built over or beside the springs, in which the water is delivered at taps and drunk on the spot, at a prescribed temperature and in a prescribed quantity. It is the architectural expression of the whole system, and putting an architect of that standing on it says what the state thought the place was for.",
+          "The scale reached by the 1980s is the measure of what had been built. Accounts of the resort at its height describe capacity on the order of five thousand beds across its sanatoria and rest houses, in a settlement whose own population at the 1989 census was 9014 — so at full season the resort could hold something approaching another town alongside the one that ran it. There was an airfield, and flights brought visitors from far outside Armenia. Both figures come from Soviet-period and post-Soviet Armenian reference literature rather than from an audited register, and they are quoted here as orders of magnitude.",
+          "What the Soviet period did to Jermuk, then, was not to discover the springs, which were known, but to convert them into infrastructure. It built the buildings, laid the streets, planted the parks, ran the road and the air link, and created the referral system that filled the beds. It also tied the settlement's fortunes to a single institution, which is why the end of the Soviet Union hit this town harder than it hit places with more than one reason to exist.",
+        ],
+      },
+      {
+        id: "the-springs",
+        heading: "What the springs actually are",
+        paragraphs: [
+          "The figures that describe Jermuk's water vary more than most published accounts admit, and the variation is not all error. The Institute of Geological Sciences gives the Jermuk springs as running between about 40 and 58 degrees Celsius, with a hydrocarbonate–sulphate composition and sodium, calcium and magnesium among the cations, mineralised at roughly 4 to 5 grams per litre and charged with carbon dioxide. A peer-reviewed survey of Armenian geothermal springs sampled one Jermuk source and recorded it at over 53 degrees with a pH of 7.5, describing it as vigorously degassing. Those two are compatible.",
+          "Other figures in circulation are not so easily reconciled. Temperatures of 61 and 64 degrees are printed in several places, and ranges beginning as low as 30 appear in others. Some of that spread is real — a field of springs is not one spring, and outlets differ in temperature, in gas content and in mineral load — and some of it is the ordinary drift of a number copied from source to source without its measurement conditions. The honest statement is that the springs are thermal, that the published central range is roughly 40 to 58 degrees, and that a single analysis quoted as though it described the whole field is being over-read.",
+          "The same applies to counting them. Armenian reference literature has spoken of dozens of therapeutic outlets and the municipality's own account gives thirty-six; other accounts give twenty-odd thermal springs, others forty. No two of these counts are stated on the same basis, and none that this article has seen defines what it is counting — natural outlets, drilled boreholes, or taps in the gallery are three different things. A number of springs is therefore given here as a range rather than a fact, and the important characteristic is not the count but the variation between them.",
+          "The comparison most often made is to Karlovy Vary in Bohemia, and it appears on the Armenian Institute of Geological Sciences' own pages as well as in tourism copy. It is a claim about resemblance in temperature and composition, and it is a reasonable shorthand for readers who know one place and not the other. It is not a measurement, and it carries with it a good deal of nineteenth-century spa prestige that has nothing to do with the water. This article uses it once, as a comparison, and rests nothing on it.",
+        ],
+      },
+      {
+        id: "what-the-water-was-used-for",
+        heading: "What the water was used for, and what that does not mean",
+        paragraphs: [
+          "The historical practice at Jermuk was balneological, in the specific institutional sense that word carried in the Soviet system. Patients came on referral for a course of a fixed number of days, drank measured quantities of water at prescribed temperatures at prescribed times, and were given baths and other procedures alongside it. Sanatoria were not hotels; they were medical institutions inside a state health system, with doctors, admission criteria and a stay that was arranged rather than booked. The water was promoted, and prescribed, for digestive and metabolic conditions among others.",
+          "That sentence is a description of a historical practice and should be read as nothing else. This article makes no claim that Jermuk's water treats, cures or prevents anything, offers no health advice, and takes no position on the clinical evidence. Four things get confused here and are worth naming apart: what was done historically at the resort; what controlled clinical research shows, which is a separate literature this archive has not surveyed; what has been claimed in advertising for a bottled product, which is a commercial genre; and what any individual should do about their own health, which is a question for a doctor and not for an encyclopedia.",
+          "The restraint matters more at Jermuk than at any other place in this archive, because here the marketing and the history use the same vocabulary. A label describing water as healing and a Soviet balneological handbook prescribing a drinking course are not making the same kind of statement, even when the words overlap. Keeping them apart is not scepticism about the place; it is the only way to describe accurately what the institution actually was.",
+        ],
+      },
+      {
+        id: "the-built-town",
+        heading: "The built town",
+        paragraphs: [
+          "Jermuk's built environment is the physical record of the planning history above, and it is legible in a way few settlements are. The institutional buildings occupy the best ground — the shelf above the gorge, with the view down it — while housing sits behind them. Parkland runs between the sanatoria rather than around the edges, because in a resort plan the green space is part of the facility and not a leftover. Avenues follow the contour of the plateau instead of gridding across it, which is what the terrain allows. The gallery over the springs is the hinge of the whole arrangement, and the walk to it was designed as part of the treatment.",
+          "The architectural register is mid-century Soviet public building, in stone rather than bare concrete: monumental frontages, colonnades, broad stairs, long horizontal masses set into sloping ground. That is unsurprising for buildings begun around 1950 by an architect trained in his father's office, and it puts Jermuk in the same family as the sanatorium architecture of the Caucasus spas generally. It is worth saying plainly that this is the town's principal architectural interest. Jermuk has no medieval quarter and does not pretend to one.",
+          "It also has to be said that not everything standing belongs to one phase, and reading the town as a single period is the commonest error made about it. Some of the Soviet stock has been renovated, some of it has been abandoned and stands empty, and a good deal of hotel and apartment construction has gone up since the 2000s in registers that have nothing to do with the original plan. A visitor forms an impression of a Soviet resort town; a closer look shows three or four building campaigns in different states of repair, which is the ordinary condition of any settlement that has outlived the system that made it.",
+        ],
+      },
+      {
+        id: "the-arpa-the-gorge-and-the-waterfall",
+        heading: "The Arpa, the gorge and the waterfall",
+        paragraphs: [
+          "The Arpa rises in the high country north of Jermuk and runs south and west through Vayots Dzor before turning towards the Araks. At Jermuk it has cut a gorge into the plateau, and the gorge is the reason the town has the form it does: the two halves of the settlement face each other across it, the springs emerge in and around it, and the ground that would otherwise be the obvious centre of a town is a ravine. It is a working river here rather than scenery, and what has been done to it upstream and downstream of the town is part of the place.",
+          "Immediately below Jermuk, at the village of Kechut, the Arpa is dammed. The Kechut reservoir was completed at the start of the 1980s and holds something in the order of twenty-three million cubic metres, and it exists for a purpose that has nothing to do with Jermuk at all: it is the intake of the Arpa–Sevan tunnel, driven for roughly fifty kilometres under the Vardenis range to carry water north into Lake Sevan, and in operation since 1981. The most consequential piece of engineering in the upper Arpa basin was built to solve a problem in another watershed entirely.",
+          "That gives the landscape around Jermuk a double character worth stating plainly. It reads as highland wilderness — treeless slopes, alpine meadow, a river in a gorge — and it is in fact a managed water system, in which the flow past the town is regulated by a dam and a share of the river leaves the basin altogether through a tunnel. Neither description is wrong. A reader who takes the first without the second will misunderstand both the river and the reservoir.",
+          "The waterfall belongs to this landscape rather than to a list of attractions. It falls into the gorge below the town, and accounts differ on what feeds it: some describe it as spring-fed, others as a tributary stream, and all agree it lands in the Arpa. Its height is given as 68 metres in some sources, 70 in others and 72 in a few, which is a spread of the kind produced by estimates rather than surveys, and this article has found no published measurement behind any of the three. There is a folk story attached, in which the fall is the hair of a girl transformed; it is folklore of the ordinary kind that gathers around striking places, told about the waterfall rather than evidence about it.",
+        ],
+        links: [{ phrase: "into Lake Sevan", slug: "lake-sevan" }],
+      },
+      {
+        id: "the-bottle-and-the-town",
+        heading: "The bottle and the town",
+        paragraphs: [
+          "Bottling is the part of Jermuk's history that reaches furthest beyond it. A plant to bottle the mineral water was established here around the turn of the 1950s, and from there the name travelled: through the Soviet distribution system Jermuk became one of the recognised mineral waters of the Union, and it remains one of the best-known Armenian brand names anywhere. The founding year is given as 1949 in some Armenian reference accounts and 1951 in others, including the industry's own, and this article has found nothing that settles it; both are recorded rather than one chosen.",
+          "The brand and the settlement then have to be held apart, and the reasons are practical rather than fussy. Not every spring in the field feeds the bottled product; the water sold under the name is drawn from particular sources, which is a normal arrangement for any mineral water and an easy thing to over-generalise. The corporate history since 1991 is a matter of successive owners, disputes over the name and several companies bottling water from the area, which is a commercial story rather than a settlement's story and is deliberately left aside here. And a brand's global reach is not a town's prosperity: a name can be famous while the place it came from is losing population, which is roughly what has happened.",
+          "What the bottle did do for Jermuk, and it is not a small thing, is make the settlement's name known to millions of people who will never see it. That is an unusual position for a town of a few thousand. It also means most of what is written about Jermuk is written to sell something, which is the underlying reason this article has had to be careful about chronology, chemistry and claims at every stage.",
+        ],
+      },
+      {
+        id: "what-jermuk-is-now",
+        heading: "What Jermuk is now",
+        paragraphs: [
+          "The population figures are the clearest statement of what has happened since the Soviet system ended, and they need their labels. At the census of October 2022 the town of Jermuk had a permanent population of 3936 and a present population of 3569; the Jermuk community, which includes the four villages, had 5694 permanent residents against a provincial total of 47369. The town's own permanent figure was 5394 in 2001 and 4628 in 2011, so the decline is continuous rather than a single event, and the peak was earlier still: 9014 at the census of 1989. The municipality publishes a figure of its own for the community — 9276 — which is a registered count rather than an enumerated one and stands more than half again above the census total; the gap between a register and a headcount is itself part of what the numbers mean here. A settlement built around one institution lost most of its population when that institution's system disappeared.",
+          "The other question hanging over the place in recent years has been the protection of the springs themselves. A gold deposit at Amulsar, in the mountains near the town, has been the subject of a long and contested development process, and concern about possible effects on Jermuk's waters has been central to the opposition to it — which is what makes it relevant to an article about the settlement at all. In 2019 the Armenian government commissioned an independent technical assessment from an outside consultancy. Its findings were themselves disputed, its authors stated that the baseline data available to them were insufficient for a comprehensive environmental risk assessment, and no government decision followed from it. This article records that the dispute exists and that it is about the water; the technical question is not one an encyclopedia entry can settle, and nothing here should be read as settling it.",
+          "What defines Jermuk in the end is the singleness of the thing. Most settlements have several reasons to be where they are; this one has one, and it is legible everywhere — in the name, which is the word for the water; in the plan, which is arranged around the gallery; in the architecture, which was built for an institution; in the economy, which is the resort and the bottling plant; and in the population, which rose and fell with them. That is unusual enough to be worth an article, and it is why this is a place rather than a spa with a settlement attached.",
+        ],
+      },
+    ],
+    importantDates: [
+      {
+        year: "1831",
+        event:
+          "The earliest dated outside examination of the springs reported by Armenian reference literature: a survey by a mining engineer in Russian service, published in this year and revisited in the 1850s. A survey, not a resort.",
+      },
+      {
+        year: "1860",
+        event:
+          "A bathing pool at the springs is put in order at the expense of a local official — the first recorded construction here for the use of the water, and still eighty years before the town.",
+      },
+      {
+        year: "1924",
+        event:
+          "The settlement's name reverts to Jermuk, having also been known as Istisu, the same description in another language.",
+      },
+      {
+        year: "1940",
+        event:
+          "The first sanatorium is completed and opened. Armenian reference works date the modern settlement from this, which is a founding date for the resort rather than for a town on empty ground.",
+      },
+      {
+        year: "1945",
+        event: "The first master plan for the settlement is drawn; it is revised in the early 1950s and again around the turn of the 1960s.",
+      },
+      {
+        year: "1950",
+        event:
+          "Construction begins on the sanatorium and the gallery over the mineral springs, designed by Gevorg Tamanyan; the work is completed in 1956.",
+      },
+      {
+        year: "1951",
+        event:
+          "The mineral-water bottling plant is established, by the date the industry itself gives; some Armenian reference accounts date it to 1949 instead, and nothing this article has found settles the two.",
+      },
+      {
+        year: "1967",
+        event: "Jermuk is granted the status of a town of republican significance.",
+      },
+      {
+        year: "1970",
+        event:
+          "It is designated a resort of all-Union significance — a separate act from the grant of town status three years earlier, and the one that brought visitors from across the Soviet Union.",
+      },
+      {
+        year: "1981",
+        event:
+          "The Arpa–Sevan tunnel comes into operation, taking water from the Kechut reservoir on the Arpa immediately below Jermuk and carrying it under the Vardenis range into Lake Sevan.",
+      },
+      {
+        year: "1989",
+        event: "The census records 9014 inhabitants — the highest figure the settlement has reached.",
+      },
+      {
+        year: "2016",
+        event:
+          "The enlarged Jermuk community is formed, administering the town together with the villages of Kechut, Gndevaz, Karmrashen and Herher. From this point a figure for Jermuk means one thing or the other and has to say which.",
+      },
+      {
+        year: "2019",
+        event:
+          "An independent technical assessment commissioned by the Government of Armenia reports on the proposed gold mine at Amulsar, near the town. Its findings are disputed, its authors state that the baseline data available to them were insufficient for a comprehensive environmental risk assessment, and no government decision follows from it.",
+      },
+      {
+        year: "2022",
+        event:
+          "The census of October counts 3936 permanent residents in the town and 5694 in the community — against 5394 in the town in 2001 and 4628 in 2011.",
+      },
+    ],
+    significance: {
+      heading: "Why Jermuk matters",
+      paragraphs: [
+        "Jermuk is the clearest example in Armenia of a settlement made by a single natural resource and a single institution. Nothing about it is accidental: the springs decided where it would be, the resort decided what it would look like, and the Soviet health system decided how large it would grow. Places like that are unusual, and they are unusually easy to read — the plan of the town is a diagram of what it was for. Set against the rest of this archive, which is largely made up of monasteries, fortresses and landscapes, it also fills a real gap: the twentieth century is the period in which most Armenians actually came to live where they now live, and almost none of it is monumental.",
+        "It is also the place where the difference between evidence and promotion matters most. Jermuk's waters have been sold for three-quarters of a century, and the language of that selling — ancient, healing, famous for millennia — has been absorbed into what is written about the town's history, its chemistry and its past. Pulling those apart does not diminish the place. A settlement planned around a mineral field at two thousand metres, built by a named architect for a state health system, and left to work out what it is after that system vanished, is a more interesting subject than the brochure version, and a good deal easier to check.",
+      ],
+    },
+    interestingFacts: [
+      "The town's name is an ordinary Armenian noun. A jermuk is any warm spring, which means a medieval text containing the word is not automatically a reference to this place — a distinction most accounts of the town's antiquity pass over.",
+      "The census of October 2022 counted two different populations for the same town: 3936 people permanently resident and 3569 actually present on census night. Both are official, and they answer different questions.",
+      "The community is larger than the town it is named after — 5694 people against 3936 — because it also administers four villages. A figure quoted without saying which is meant can be wrong by nearly half.",
+      "The sanatorium and the gallery over the springs were designed by Gevorg Tamanyan, son of Alexander Tamanyan, whose plan governs central Yerevan. The same architect built the Aram Khachaturian concert hall.",
+      "The dam immediately below the town is not there for Jermuk. The Kechut reservoir is the intake of the Arpa–Sevan tunnel, which carries water out of this basin altogether and under a mountain range into Lake Sevan.",
+      "The waterfall's height is published as 68, 70 and 72 metres by different sources, and no measurement behind any of the three could be found — a good illustration of how a number becomes a fact by repetition.",
+    ],
+    relatedFigures: [
+      {
+        name: "Gevorg Tamanyan",
+        lifespan: "1910 – 1993",
+        description:
+          "The architect of Jermuk's sanatorium and of the gallery built over the mineral springs, constructed between 1950 and 1956. Son of Alexander Tamanyan, whose plan shaped central Yerevan, he trained in his father's workshop and had a long independent career, including the concert hall in Yerevan that now carries Aram Khachaturian's name. He was made an honoured architect of the Armenian SSR and twice took a state prize. His presence at Jermuk is the clearest indication of what the state took the resort to be: a mineral-water gallery is a modest building type, and it was given to a leading architect.",
+      },
+    ],
+    relatedSlugs: ["lake-sevan"],
+  },
 ];
