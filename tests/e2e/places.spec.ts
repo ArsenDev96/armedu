@@ -170,12 +170,13 @@ const GYUMRI = "gyumri";
  * `fortress`, `castle`, `military` or `archaeological` pill was invented for this
  * article.
  *
- * It splits `PLACES` from `ILLUSTRATED` for the tenth time. Like Etchmiadzin (§31),
- * Erebuni (§33), the Matenadaran (§35), Lake Sevan (§37), Garni (§39), Geghard
- * (§41), Tatev (§47), Dilijan (§49) and Gyumri (§51) before it, it ships ahead of
- * its artwork and renders the generated placeholder — so every placeholder
- * assertion below names it, and every artwork assertion excludes it. §52 said in
- * as many words that Place #11 would separate the two lists again; it does.
+ * It split `PLACES` from `ILLUSTRATED` for the tenth time in §57, and §58 closed
+ * the gap. Like Etchmiadzin (§31), Erebuni (§33), the Matenadaran (§35), Lake Sevan
+ * (§37), Garni (§39), Geghard (§41), Tatev (§47), Dilijan (§49) and Gyumri (§51)
+ * before it, it shipped ahead of its artwork and rendered the generated
+ * placeholder; every placeholder assertion §57 wrote for it is inverted below, and
+ * the borrowing assertions are kept rather than deleted, because a cover can be
+ * repointed at a plausible neighbour long after the file lands.
  *
  * It is the first marker in ten steps that stretches the map in *no* direction.
  * Tatev pulled it south, Dilijan north, Gyumri north-west; Amberd sits inside the
@@ -201,26 +202,27 @@ const PLACES = [
 ] as const;
 
 /**
- * The places whose artwork has actually landed — ten of the eleven, as of §57.
+ * The places whose artwork has actually landed — all eleven, as of §58.
  *
  * Kept as its own list rather than folded into `PLACES` because the section has
- * been in the split state nine times now (§31, §33, §35, §37, §39, §41, §47, §49,
- * §51) and left it nine times (§32, §34, §36, §38, §40, §42, §48, §50, §52), and on
- * every one of those occasions the change was to move one slug between these two
- * lines. Artwork assertions run over this one: claiming provenance for a slug that
- * has no file would be asserting a fiction, and the place written ahead of its
- * picture needs this list to already exist rather than to be reconstructed under
- * pressure.
+ * been in the split state ten times now (§31, §33, §35, §37, §39, §41, §47, §49,
+ * §51, §57) and left it ten times (§32, §34, §36, §38, §40, §42, §48, §50, §52,
+ * §58), and on every one of those occasions the change was to move one slug between
+ * these two lines. Artwork assertions run over this one: claiming provenance for a
+ * slug that has no file would be asserting a fiction, and the place written ahead
+ * of its picture needs this list to already exist rather than to be reconstructed
+ * under pressure.
  *
- * **The two lists are apart again, for the tenth time, and §52 called it.** That
- * entry said in as many words that Place #11 would separate them; Amberd is Place
- * #11 and it has. Every single coincidence so far (§32, §34, §36, §38, §40, §42,
- * §48, §50, §52) has been ended by the place after it, which is nine for nine and
- * the whole argument against collapsing the two declarations into one.
+ * **The two lists coincide again, for the tenth time.** That is the normal end
+ * state and not a signal that one of them can go: every single coincidence so far
+ * (§32, §34, §36, §38, §40, §42, §48, §50, §52) has been ended by the place written
+ * after it, which is nine for nine. Place #12 will separate them again, and
+ * collapsing these two declarations into one now would mean rediscovering the
+ * difference between them under pressure at that point.
  *
  * The placeholder assertions below read this list to decide what may render an
  * `<svg>`; `PLACES` decides what must exist at all. Those are different questions
- * even when the answers match, and they do not match now.
+ * even when the answers match, and they match now.
  */
 const ILLUSTRATED = [
   SLUG,
@@ -233,6 +235,7 @@ const ILLUSTRATED = [
   TATEV,
   DILIJAN,
   GYUMRI,
+  AMBERD,
 ] as const;
 
 /**
@@ -245,11 +248,11 @@ const ILLUSTRATED = [
  * from being updated to match a regression.
  *
  * The extensions differ on purpose and are not a typo: Khor Virap's cover is a
- * PNG copied from the homepage hero (§30), while the other nine are WebPs
- * (§32, §34, §36, §38, §40, §42, §48, §50, §52). Their dimensions are not uniform
- * either — `garni-temple.webp` is 1448×1086 and `gyumri.webp` is 1584×993 against
- * the 1586×992 of the seven others, which changes what the shared centre crops
- * trim but not what this map holds.
+ * PNG copied from the homepage hero (§30), while the other ten are WebPs
+ * (§32, §34, §36, §38, §40, §42, §48, §50, §52, §58). Their dimensions are not
+ * uniform either — `garni-temple.webp` is 1448×1086 and `gyumri.webp` is 1584×993
+ * against the 1586×992 of the eight others, which changes what the shared centre
+ * crops trim but not what this map holds.
  *
  * The `satisfies` clause is the part that earns its keep: it is what makes the two
  * lists above disagree at compile time rather than at runtime. Add a slug to
@@ -267,6 +270,7 @@ const ARTWORK = {
   [TATEV]: "/images/places/tatev-monastery.webp",
   [DILIJAN]: "/images/places/dilijan-national-park.webp",
   [GYUMRI]: "/images/places/gyumri.webp",
+  [AMBERD]: "/images/places/amberd-fortress.webp",
 } as const satisfies Record<(typeof ILLUSTRATED)[number], string>;
 
 /**
@@ -965,10 +969,10 @@ test("the empty search page offers places as a place to start", async ({ page })
   state "AI-generated" rather than "placeholder". A registration that rendered
   the picture without the disclosure would look completely correct.
 
-  These run over `ILLUSTRATED`, which is currently all nine places. The placeholder
-  branch therefore has no subject again and is asserted as an absence — the eighth
-  time this file has switched between the two states, and the reason `ILLUSTRATED`
-  survives as a separate list rather than collapsing into `PLACES`.
+  These run over `ILLUSTRATED`, which is currently all eleven places. The
+  placeholder branch therefore has no subject again and is asserted as an absence —
+  the tenth time this file has switched between the two states, and the reason
+  `ILLUSTRATED` survives as a separate list rather than collapsing into `PLACES`.
 */
 
 test("each article hero renders its own registered artwork and names the AI provenance", async ({
@@ -977,7 +981,8 @@ test("each article hero renders its own registered artwork and names the AI prov
   /*
     Declared slow rather than trimmed. This test and the one below it are the two
     that navigate `LOCALES × ILLUSTRATED`, so §42 took each from eighteen page loads
-    to twenty-one, §48 to twenty-four and §50 to twenty-seven — against a dev server
+    to twenty-one, §48 to twenty-four, §50 to twenty-seven, §52 to thirty and §58 to
+    thirty-three — against a dev server
     that compiles routes on demand, with the rest of the suite competing for it.
     Both cleared the 30s global timeout when the places file ran alone and exceeded
     it in the full run, which is a cost of the loop's size and not a flake: the
@@ -1026,15 +1031,15 @@ test("each article hero renders its own registered artwork and names the AI prov
 });
 
 test("no illustrated place renders the artwork placeholder", async ({ page }) => {
-  // Slow for the same reason as the test above: twenty-seven navigations as of §50.
+  // Slow for the same reason as the test above: thirty-three navigations as of §58.
   test.slow();
 
   /*
     The other half of the caption logic, asserted as an absence — and covering all
-    nine places again now that `ILLUSTRATED` and `PLACES` coincide.
+    eleven places again now that `ILLUSTRATED` and `PLACES` coincide.
 
     It stays scoped to `ILLUSTRATED` rather than being repointed at `PLACES`: the
-    two lists have coincided seven times before and split again every time, and this
+    two lists have coincided nine times before and split again every time, and this
     assertion is only ever true of slugs that have a file. None of them may fall
     back to the generated `<svg>`, and none may still be captioned as a picture
     that was never made.
@@ -1603,7 +1608,7 @@ test("the listing renders each registered place's own artwork, and no placeholde
   ).map(decodeURIComponent);
 
   // Every registered file appears: Khor Virap is the featured block *and* a card,
-  // the other six are cards. The failure this catches is the one-line
+  // the other ten are cards. The failure this catches is the one-line
   // registration reaching some surfaces and not others.
   for (const slug of ILLUSTRATED) {
     expect(
@@ -1644,15 +1649,16 @@ test("the listing renders each registered place's own artwork, and no placeholde
   }
 
   /*
-    Zero placeholders, which is what §52 inverted again.
+    Zero placeholders, which is what §58 inverted again.
 
-    This assertion has now inverted eleven times (§37 one, §38 zero, §39 one, §40
+    This assertion has now inverted thirteen times (§37 one, §38 zero, §39 one, §40
     zero, §41 one, §42 zero, §47 one, §48 zero, §49 one, §50 zero, §51 one, §52
-    zero), which is the whole argument for pinning the count rather than asserting
-    "at least one" or "none by inspection". The exact number is the only thing that
-    distinguishes the intended state from a place that had quietly lost its
-    registration, because neither shows on the rendered page. A placeholder card
-    looks perfectly finished, and so does a listing with one missing cover among ten.
+    zero, §57 one, §58 zero), which is the whole argument for pinning the count
+    rather than asserting "at least one" or "none by inspection". The exact number is
+    the only thing that distinguishes the intended state from a place that had
+    quietly lost its registration, because neither shows on the rendered page. A
+    placeholder card looks perfectly finished, and so does a listing with one missing
+    cover among eleven.
 
     Derived from the two lists rather than typed as a literal, so the next place to
     ship ahead of its artwork does not need this number edited by hand.
@@ -2179,138 +2185,221 @@ test("Gyumri's search card carries its own thumbnail and no placeholder", async 
   expect(insideAni, "Ani must not stand in for Gyumri in search").toBe(0);
 });
 
-test("Amberd renders the generated placeholder and says so, in every edition", async ({
-  page,
-}) => {
+test("Amberd renders its own file and is captioned as an illustration", async ({ page }) => {
   /*
-    §57, and the exact inversion of the four assertions §52 wrote for Gyumri.
+    §58 inverts every assertion §57 wrote here, in all three editions.
 
-    The tenth time this section has been in the split state, and the failure is
-    always the same shape: a place written ahead of its picture must render the
-    inline generated `<svg>` **and** be captioned as a placeholder. A page that
-    rendered the placeholder while claiming AI-illustration provenance would be
-    asserting a picture that was never made; one that borrowed a neighbour's file
-    would look completely finished. Both are silent, and both are checked here.
+    Between §57 and §58 this test asserted the opposite: the inline generated
+    `<svg>`, no raster file, and the placeholder caption. All four have to flip
+    together, and they fail in different directions with only one of them visible.
+    A registration that reached the picture but not the caption would leave the page
+    apologising for a missing image sitting right above the apology; one that
+    reached the caption but not the picture would claim provenance for artwork that
+    is not on the page. `isGeneratedArtwork` flips on registry membership alone,
+    which is what makes the caption the half that actually goes wrong.
 
-    Every edition, because `isGeneratedArtwork` flips on registry membership alone
-    while the caption is read from each locale's own dictionary — which is exactly
-    the divergence §34 caught the first time.
+    Every edition, because the caption is read from each locale's own dictionary —
+    the divergence §34 caught the first time was exactly one edition being out of
+    step, and nothing about registration is locale-aware.
   */
   for (const locale of LOCALES) {
     const dict = ui(locale);
     await page.goto(`/${locale}/places/${AMBERD}`);
 
     const figure = page.locator("header figure");
-    await expect(figure.locator("svg[role='img']"), `${locale} ${AMBERD}`).toHaveCount(1);
-    await expect(figure.locator("img"), `${locale} ${AMBERD}`).toHaveCount(0);
+    await expect(figure.locator("img"), `${locale} ${AMBERD}`).toHaveAttribute(
+      "src",
+      fileIn(ARTWORK[AMBERD]),
+    );
+    await expect(figure.locator("svg[role='img']"), `${locale} ${AMBERD}`).toHaveCount(0);
 
     await expect(figure.locator("figcaption"), `${locale} ${AMBERD}`).toHaveText(
-      dict.article.imagePlaceholderCaption.replace("{title}", articleTitle(locale, AMBERD)),
+      dict.article.imageAiIllustrationCaption.replace("{title}", articleTitle(locale, AMBERD)),
     );
     await expect(figure.locator("figcaption"), `${locale} ${AMBERD}`).not.toHaveText(
-      dict.article.imageAiIllustrationCaption.replace("{title}", articleTitle(locale, AMBERD)),
+      dict.article.imagePlaceholderCaption.replace("{title}", articleTitle(locale, AMBERD)),
     );
   }
 
-  expect(getImageSrc(AMBERD), "Amberd has no registered file").toBeUndefined();
-  expect(PENDING_ARTWORK, "and is declared pending rather than silently bare").toContain(AMBERD);
+  expect(getImageSrc(AMBERD), "Amberd must now resolve to its own file").toBe(ARTWORK[AMBERD]);
+  expect(PENDING_ARTWORK, "and must no longer be pending").not.toContain(AMBERD);
 });
 
-test("Amberd borrows no other article's artwork, on the page or in its metadata", async ({
-  page,
-}) => {
+test("Amberd borrows no other article's artwork, and advertises its own", async ({ page }) => {
   /*
-    The stronger half of §57, and the one the placeholder assertion above cannot
-    make: a placeholder is visible, a *borrowed* cover is not — it looks finished.
+    The half of §57 that outlives registration, and the one the caption assertion
+    above cannot make: a placeholder is visible, a *borrowed* cover is not — it looks
+    finished. §58 keeps every refusal and inverts only the second half.
 
-    The four named below are the substitutions recorded as refused in
-    `PENDING_ARTWORK`, and the first two are the closest near misses this list has
-    ever had to turn down. `tatev-monastery.webp` is a walled enclosure on a
-    promontory above a gorge, seen from the air, which is a fair description of
-    Amberd's setting and of nothing else in the frame; `bagratid-armenia.webp` is
-    Ani, a walled medieval city above a river gorge, in the right kingdom and the
-    right century. Both would pass more than a glance under this headline.
+    The five named below are the substitutions recorded as refused in
+    `PENDING_ARTWORK`, and the first two are the closest near misses that list has
+    ever had to turn down. `tatev-monastery` is a walled enclosure on a promontory
+    above a gorge, seen from the air, which is a fair description of Amberd's setting
+    and of nothing else in the frame; `bagratid-armenia` is Ani, a walled medieval
+    city above a river gorge, in the right kingdom and the right century, and it is
+    already the refused substitute of record for Gyumri. Both would pass more than a
+    glance under this headline, and both are likelier accidents now that this slug
+    has a file to be repointed away from than they were while it had none.
   */
   await page.goto(`/en/places/${AMBERD}`);
 
   /*
-    Scoped to the hero and the metadata rather than to every image on the page, and
-    the reason is a real piece of existing behaviour rather than a weakening.
+    Scoped to the hero, the head and the structured data rather than to every image
+    on the page, and the reason is a real piece of existing behaviour rather than a
+    weakening.
 
     `getRelatedArticles` fills a short related row from the article's own category:
     Amberd authors one related slug — `bagratid-armenia`, the only relationship its
     prose earns — so the row is completed with two Places cards, and each of those
     legitimately carries its own cover under its own headline and its own link. That
     is the filler doing its job, and it is the same behaviour Dilijan has had since
-    §49.
+    §49. A page-global assertion that `bagratid-armenia` appears nowhere would fail
+    on correct output, which is exactly what it did when it was first written.
 
     What must never happen is a neighbouring place's file appearing where *this*
-    article's own picture would go. That is the hero, the social tags, the
-    structured data and the sitemap — the four surfaces `getImageSrc` reaches — and
-    all four are checked here and below.
+    article's own picture goes. That is the hero, the social tags, the structured
+    data and the sitemap — the four surfaces `getImageSrc` reaches — and all four are
+    checked here and below.
   */
-  await expect(page.locator("header figure img"), "no hero raster").toHaveCount(0);
-  await expect(page.locator("header figure svg[role='img']"), "the placeholder").toHaveCount(1);
+  const metaValues = await page
+    .locator("head meta[content]")
+    .evaluateAll((nodes) => nodes.map((node) => node.getAttribute("content") ?? ""));
+  const raw = (await page.locator('script[type="application/ld+json"]').first().textContent()) ?? "";
+  const hero = await page.locator("header figure").innerHTML();
 
-  const heroSources = (
-    await page
-      .locator("header img")
-      .evaluateAll((nodes) => nodes.map((node) => node.getAttribute("src") ?? ""))
-  ).map(decodeURIComponent);
+  for (const borrowed of [
+    "tatev-monastery",
+    "bagratid-armenia",
+    "erebuni-fortress",
+    "geghard-monastery",
+    "garni-temple",
+    "hero-ararat",
+    "khor-virap",
+  ]) {
+    for (const [surface, haystack] of [
+      ["meta", metaValues.join(" ")],
+      ["structured data", raw],
+      ["hero", hero],
+    ] as const) {
+      expect(
+        haystack.includes(borrowed),
+        `${borrowed} must not appear in ${AMBERD}'s ${surface}`,
+      ).toBe(false);
+    }
+  }
 
-  for (const borrowed of [...Object.values(ARTWORK), "/hero-ararat.png"]) {
+  /*
+    `Article.image` is a claim that a picture depicts this article. Between §57 and
+    §58 it had to be *absent*, because no such picture existed and filling it with
+    the generic site card would have been a false claim. Now a picture does depict
+    this article, so the property must be present and must name Amberd's own file —
+    and `og:image` and `twitter:image` must have stopped falling back to the branded
+    default they correctly carried while the slug had no artwork. Those were three
+    different claims before registration and they collapse into one now, which is
+    exactly why they are still asserted separately.
+
+    The JSON-LD graph shape is unchanged: still an `Article` node, still no `Place`,
+    `TouristAttraction`, `Castle`, `Fortress`, `LandmarksOrHistoricalBuildings` or
+    `GeoCoordinates`. Registration adds an `image` property to an existing node and
+    nothing else — asserted below rather than assumed, because a fortress with a
+    stored coordinate is the single most tempting article in this archive to
+    over-describe with tourism types.
+  */
+  const graph = (JSON.parse(raw) as { "@graph": Record<string, unknown>[] })["@graph"];
+  const article = graph.find((entry) => entry["@type"] === "Article");
+  expect(article, "the Article node itself must still be emitted").toBeDefined();
+  expect(JSON.stringify(article?.image), "the Article image must be Amberd's own file").toContain(
+    "amberd-fortress",
+  );
+
+  for (const type of [
+    "Place",
+    "TouristAttraction",
+    "Castle",
+    "Fortress",
+    "LandmarksOrHistoricalBuildings",
+    "GeoCoordinates",
+  ]) {
     expect(
-      heroSources.some((src) => src.includes(borrowed)),
-      `${borrowed} must not illustrate ${AMBERD}`,
+      graph.some((entry) => entry["@type"] === type),
+      `registering artwork must not introduce a ${type} node`,
     ).toBe(false);
   }
 
-  /*
-    And the structured data carries no `image` at all rather than a fallback one.
-    `articleLd` only emits the property when a file resolves, so an `image` here
-    would mean a registration had appeared without a file behind it.
-  */
-  const raw = await page.locator('script[type="application/ld+json"]').first().textContent();
-  expect(raw, "Amberd emits JSON-LD").toBeTruthy();
-  const graph = (JSON.parse(raw ?? "") as { "@graph": { "@type"?: string; image?: unknown }[] })[
-    "@graph"
-  ];
-  const article = graph.find((entry) => entry["@type"] === "Article");
-  expect(article, "an Article node").toBeDefined();
-  expect(article!.image, "no Article.image while the artwork is pending").toBeUndefined();
+  for (const property of ['meta[property="og:image"]', 'meta[name="twitter:image"]']) {
+    await expect(page.locator(property), `${AMBERD} ${property}`).toHaveAttribute(
+      "content",
+      fileIn(ARTWORK[AMBERD]),
+    );
+    await expect(
+      page.locator(property),
+      `${AMBERD} ${property} must not fall back`,
+    ).not.toHaveAttribute("content", /og-default/);
+  }
+
+  await expect(page.locator("header figure img")).toHaveAttribute("src", fileIn(ARTWORK[AMBERD]));
+});
+
+test("Amberd's search card carries its own thumbnail and no placeholder", async ({ page }) => {
+  await page.goto("/en/search?q=Amberd");
 
   /*
-    The social tags fall back to the site default, which is the existing generic
-    behaviour and not something §57 added. Pinned because the alternative failure —
-    a place's Open Graph image quietly resolving to a neighbouring article's file —
-    is invisible everywhere except in a share preview.
+    §58. The search thumbnail is the tightest live crop on the site — the rendered
+    box measures 160×200 CSS px, an 0.801 ratio — so the shared centre crop trims
+    49.9 per cent of this file's width and drops the Vahramashen church entirely,
+    keeping the towers, the spur and the massif. That is recorded against the
+    `IMAGES` entry as degraded rather than unusable and no `object-position` was
+    added; what is asserted here is ownership, which is the half that can silently
+    regress.
   */
-  for (const property of ['meta[property="og:image"]', 'meta[name="twitter:image"]']) {
-    const content = await page.locator(property).first().getAttribute("content");
-    expect(content, property).toContain("/og-default.png");
+  const card = page
+    .getByRole("main")
+    .locator("li")
+    .filter({ has: page.locator(`a[href="/en/places/${AMBERD}"]`) })
+    .first();
+  await expect(card).toBeVisible();
+
+  // Its own file, inside its own card — scoped by the canonical href rather than by
+  // position, because the query legitimately returns other hits too.
+  await expect(card.locator("img")).toHaveAttribute("src", fileIn(ARTWORK[AMBERD]));
+  await expect(card.locator("svg[role='img']"), "no placeholder in the card").toHaveCount(0);
+
+  for (const slug of ILLUSTRATED) {
+    if (slug === AMBERD) continue;
+    const inside = await card.locator(`img[src*="${encodeURIComponent(ARTWORK[slug])}"]`).count();
+    expect(inside, `${slug} must not illustrate the ${AMBERD} card`).toBe(0);
   }
+  const insideAni = await card.locator('img[src*="bagratid-armenia"]').count();
+  expect(insideAni, "Ani must not stand in for Amberd in search").toBe(0);
 });
 
 test("the sitemap carries every place's illustration for image search", async ({ request }) => {
   const xml = await (await request.get("/sitemap.xml")).text();
 
   /*
-    §57. Amberd's three routes must be in the sitemap and must carry no `image:loc`
-    at all, which is the condition `sitemap.ts` actually implements — the key is
-    added only when `getArticleImageSrc` returns something. Asserted first, because
-    it is the half that proves the condition is real rather than incidental, and it
-    is the exact statement §49 made for Dilijan and §51 for Gyumri before their
-    files landed.
+    §58. Amberd's three routes now each carry its own `image:loc` — the exact
+    inversion of what §57 asserted here, when the three blocks had to contain none.
 
-    An image crawler handed another article's picture under Amberd's URL is the
-    failure this catches, and nothing on the rendered page would reveal it.
+    `sitemap.ts` adds the image key only when `getArticleImageSrc` returns something,
+    so §57 asserting the absence proved that condition was real rather than
+    incidental, and §58 asserts the presence for the same reason. Checked route by
+    route rather than by whole-document count: three appearances anywhere would still
+    pass if all three landed on one route and none on the others, and an image
+    crawler handed a 404 — or, far likelier, a neighbouring place's picture indexed
+    under Amberd's URL — is a failure nothing on the rendered page would reveal.
   */
   const amberdBlocks = xml.split("<url>").filter((block) => block.includes(`/places/${AMBERD}<`));
   expect(amberdBlocks, `${AMBERD} url blocks`).toHaveLength(LOCALES.length);
   for (const block of amberdBlocks) {
-    expect(block, `${AMBERD} must emit no image:loc while pending`).not.toContain("image:loc");
-    for (const registered of Object.values(ARTWORK)) {
-      expect(block, `${registered} must not be indexed under ${AMBERD}`).not.toContain(registered);
+    expect(block, `${AMBERD} must emit an image:loc`).toContain("image:loc");
+    expect(block, `${AMBERD} sitemap image`).toContain(`https://armat.site${ARTWORK[AMBERD]}`);
+    for (const borrowed of [
+      "tatev-monastery",
+      "bagratid-armenia",
+      "erebuni-fortress",
+      "garni-temple",
+    ]) {
+      expect(block, `${borrowed} must not be indexed under ${AMBERD}`).not.toContain(borrowed);
     }
   }
 
@@ -2394,14 +2483,15 @@ test("the sitemap carries every place's illustration for image search", async ({
   behind after its file landed would keep a real cover out of the page; a slug
   missing from both `IMAGES` and this list would render the placeholder with
   nothing saying whether that was a decision. Both are silent failures, and the
-  section currently contains neither.
+  section currently contains neither — the gap is closed rather than merely
+  recorded, which is the state §58 restored.
 */
-test("exactly one place is waiting for artwork, and the other ten resolve", () => {
+test("no place is waiting for artwork, and all eleven resolve", () => {
   /*
-    One slug — the state §57 restores for the tenth time, and the exact inversion of
-    what §52 asserted here when the list was empty.
+    Empty — the state §58 restores for the tenth time, and the exact inversion of
+    what §57 asserted here when Amberd was the one slug in the list.
 
-    Asserting the whole array rather than `toContain(AMBERD)` is deliberate: it
+    Asserting the whole array rather than `not.toContain(AMBERD)` is deliberate: it
     fails on a stale entry left behind after a file lands, which is the half of the
     invariant no other test covers, and it equally fails on a slug quietly added
     here to silence the placeholder assertions above.
@@ -2411,7 +2501,7 @@ test("exactly one place is waiting for artwork, and the other ten resolve", () =
     the placeholder count above is: the place that ships ahead of its picture should
     change one line of data, not a literal in a test. That derivation is why this
     test needed no new literal in either direction — `PLACES` minus `ILLUSTRATED` is
-    the expected array on its own, empty or not, and §57 is the fifth time it has
+    the expected array on its own, empty or not, and §58 is the sixth time it has
     been right without being edited.
   */
   expect([...PENDING_ARTWORK].sort()).toEqual(
@@ -2419,9 +2509,10 @@ test("exactly one place is waiting for artwork, and the other ten resolve", () =
       .map(String)
       .sort(),
   );
+  expect(PENDING_ARTWORK, "the list is empty rather than merely short").toHaveLength(0);
   expect(getImageSrc(DILIJAN), "Dilijan's artwork must still resolve").toBe(ARTWORK[DILIJAN]);
   expect(getImageSrc(GYUMRI), "Gyumri's artwork must still resolve").toBe(ARTWORK[GYUMRI]);
-  expect(getImageSrc(AMBERD), "Amberd has none to resolve").toBeUndefined();
+  expect(getImageSrc(AMBERD), "and Amberd's must now resolve too").toBe(ARTWORK[AMBERD]);
 
   for (const slug of ILLUSTRATED) {
     expect(getImageSrc(slug), `${slug} should resolve through the registry`).toBe(ARTWORK[slug]);

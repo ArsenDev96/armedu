@@ -281,6 +281,81 @@ const IMAGES: Record<string, string> = {
    * Gyumri, but "carriage and church" rather than "historic street". No
    * `object-position` was added, because the default centre crop is degraded rather
    * than unusable and this registry has no per-image focus mechanism for scenes.
+   *
+   * `amberd-fortress.webp` is the eleventh place and §58, and it is the first
+   * **ruin** in this registry — every other entry is a complete building, a living
+   * street or a landscape. That is what its verification was about, and what was
+   * checked is recorded here rather than reconstructed later.
+   *
+   * **Container.** 1586×992, the house size, so the "not 1586×992" note above still
+   * refers to Khor Virap's PNG, Garni and Gyumri and gains no fourth member.
+   * `RIFF/WEBP` with `VP8X` + `ICCP` + `VP8 ` — an extended container carrying a
+   * 456-byte sRGB monitor ICC profile, like Erebuni, the Matenadaran and Gyumri and
+   * unlike the six plain `RIFF/VP8` files; it is the fourth ICC-bearing entry, so
+   * that note has stopped being remarkable. The `VP8X` flag byte is `0x20`: ICC set,
+   * alpha, EXIF, XMP and animation all clear, so none of those can be present, and a
+   * full chunk walk ends exactly at EOF with the RIFF size field agreeing with the
+   * file length — the container is internally consistent and the extension is not
+   * being trusted. One lossy VP8 keyframe, three channels, eight bits, sRGB, opaque,
+   * no orientation tag. At 660 KB (675,994 bytes) it is the **third heaviest WebP**
+   * here, behind Erebuni and the Matenadaran and ahead of Gyumri — a consequence of
+   * a frame that is almost entirely fine masonry and rock texture, and not a reason
+   * to touch it; the standing media-optimisation debt is unchanged. SHA-256
+   * dbcf7491eeaa45abf698cecc0a19c04c1d9aa1ba9771962ebc14147951d01884. Registered
+   * exactly as delivered, unaltered, unoptimised and unrenamed, like every entry
+   * since §30.
+   *
+   * **What is in the frame,** because for a fortress the plausible wrong picture is a
+   * *monastery* rather than a mood: a rock spur seen from slightly above, with a
+   * cluster of round broken-topped towers in dark coursed masonry at its point, a
+   * wall line and a ruined outwork running back along the spine of the spur to the
+   * lower left, and a small complete church with a faceted drum and umbrella roof on
+   * a terrace to the left, well below the castle and much smaller in the frame. A
+   * ravine falls away on the left, a dark columnar-jointed cliff drops on the right,
+   * and the two converge below the point — which is the geometry the article's
+   * defensive argument rests on, rather than the word "inaccessible" it refuses to
+   * use. Behind it a broad snow-patched volcanic massif over treeless tawny highland.
+   * The hierarchy is right: **fortress first, church second, mountain third.**
+   *
+   * It is specifically **not** Tatev or Geghard (no complete monastery, no enclosure
+   * of living buildings, no rock-cut chambers), not Garni (no peristyle, no podium),
+   * not Erebuni (no excavated foundation grid, no plain, no suburb), not a European
+   * castle (no keep, no bailey, no moat, no gatehouse, no crenellation), not an
+   * alpine fantasy (the relief is a volcanic shield with rounded ridges, not bare
+   * rock spires) and not an archaeological foundation field. There is no roof on the
+   * castle, no reconstruction, no siege, no army, no fire, no earthquake scene, no
+   * exposed pipeline, no reconstructed bathhouse, no tunnel mouth, no flag, no badge,
+   * no figure in period costume and no visible date — so the picture asserts nothing
+   * the prose deliberately leaves open.
+   *
+   * **Text audit.** No signage, plaque, board, banner, flag, vehicle, poster or
+   * garment appears in the frame at all, and the church and tower surfaces carry no
+   * lettering; a contrast-boosted pass over the whole image found no watermark or
+   * signature in any corner. Nothing was retouched, because nothing needed to be.
+   *
+   * Three things to know rather than rediscover, recorded here and in §58 of
+   * PROJECT_STATE.md rather than corrected. The towers read as solid drums — no
+   * doorway, window or embrasure is legible anywhere in the wall circuit, which is
+   * a stylisation rather than an error but means the frame shows the *mass* of the
+   * defences and not how they were used. The background massif is a single broad
+   * cone where Aragats has four summits around a breached crater: right in kind,
+   * generic in silhouette, and it at least cannot be mistaken for Ararat. And the
+   * pale gabled fragment immediately right of the church is a second ruined
+   * structure whose relationship to the church is not architecturally legible; it
+   * reads as an annex, and at every live crop it is a detail rather than a subject.
+   *
+   * The narrow search thumbnail is the tightest live crop, and it was measured in
+   * the browser rather than assumed: the rendered box is 160×200 CSS px, an 0.801
+   * ratio, so the shared centre crop takes 794×992 out of the file and trims **49.9
+   * per cent horizontally**. It drops the church entirely while keeping the towers,
+   * the spur, the path and the massif — degraded rather than unusable, and degraded
+   * in the right direction, since the fortress is the subject and the church is not.
+   * (Below `sm` that column is hidden outright, so there is no narrower case.) The
+   * church survives every other crop: the compact card and mobile hero at 4:3
+   * (measured 1.336; 16.6 per cent trimmed each side), the tablet hero at 3:2 (6.2
+   * per cent), and the listing card, desktop hero and map selected card at 16:9
+   * (measured 1.778 and 1.780; 10.1 per cent vertically). No `object-position` was
+   * added, on the same reasoning as Gyumri.
    */
   "khor-virap": "/images/places/khor-virap.png",
   "etchmiadzin-cathedral": "/images/places/etchmiadzin-cathedral.webp",
@@ -292,6 +367,7 @@ const IMAGES: Record<string, string> = {
   "tatev-monastery": "/images/places/tatev-monastery.webp",
   "dilijan-national-park": "/images/places/dilijan-national-park.webp",
   gyumri: "/images/places/gyumri.webp",
+  "amberd-fortress": "/images/places/amberd-fortress.webp",
 };
 
 /**
@@ -592,8 +668,27 @@ export const PENDING_ARTWORK: readonly string[] = [
    * is; treeless volcanic slopes rising behind, no forest and no snow peak as the
    * subject; no roof on the castle, no reconstruction, no flags, no figures in
    * period costume, no siege, and no lettering anywhere.
+   *
+   * §57→§58. Emptied for the tenth time. The refusals above are kept rather than
+   * deleted, on the same principle as the Lake Sevan three, the Garni three, the
+   * Geghard five, the Dilijan four and the Gyumri five: the failure they guard
+   * against is the cover being repointed at a plausible neighbour later, and that
+   * outlives the file landing. `tatev-monastery.webp` in particular is still a
+   * walled complex on a promontory above a gorge and still a complete monastery,
+   * and `bagratid-armenia.webp` is now the refused substitute of record for two
+   * articles rather than one.
+   *
+   * The delivered file answers the commission on every point, which is why it is
+   * registered and none of the five substitutes ever was: a spur with a gorge on
+   * both sides converging below the point, a roofless castle of dark coursed
+   * masonry at the tip, broken wall and tower stumps across the landward neck, one
+   * small domed church set apart and smaller in the frame than the castle, treeless
+   * volcanic slopes behind, and no roof, no reconstruction, no figures and no
+   * lettering. The three observations it did raise — the towers reading as solid
+   * drums, the single-cone massif, and the pale fragment beside the church — are
+   * recorded against its `IMAGES` entry above and in §58, not fixed by editing the
+   * asset.
    */
-  "amberd-fortress",
 ];
 
 /**

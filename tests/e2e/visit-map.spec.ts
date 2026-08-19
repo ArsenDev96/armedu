@@ -777,19 +777,32 @@ test("the historical marker took no new glyph, and its type is localized", async
   await expect(page.locator('[data-slug][data-place-type="historical"]')).toHaveCount(3);
 
   /*
-    Selecting it opens Amberd and shows *no* image — the branch §52 said Place #11
-    would need. A selected card that quietly borrowed a neighbour's cover to fill
-    the gap would look completely finished, which is why the two named below are
-    checked by name: Erebuni is the other archaeological `historical` place, and
-    Tatev is the walled-enclosure-above-a-gorge that `PENDING_ARTWORK` records as
-    the closest refused substitute.
+    §58. Selecting it now shows Amberd's own file — the inversion of §57, where the
+    selected card correctly showed no image at all, and the branch §52 predicted
+    Place #11 would exercise in both directions. It is asserted here, beside the
+    marker identity, because the panel is the one surface where the `historical`
+    marker and the `historical` artwork meet.
+
+    A selected card that quietly borrowed a neighbour's cover would look completely
+    finished, which is why the four below are still checked by name: Erebuni is the
+    other archaeological `historical` place, Garni the third, and Tatev and Ani are
+    the two closest refused substitutes `PENDING_ARTWORK` records. Registration is
+    when that failure becomes possible rather than when it stops mattering.
   */
   const panel = mapSection(page).locator("[aria-live='polite']");
   await marker.focus();
   await marker.press("Enter");
-  await expect(panel).toContainText(bundle("en").articles.find((a) => a.slug === "amberd-fortress")!.title);
-  await expect(panel.locator("img"), "no artwork while pending").toHaveCount(0);
-  for (const borrowed of ["erebuni-fortress", "tatev-monastery", "garni-temple", "bagratid-armenia"]) {
+  await expect(panel).toContainText(
+    bundle("en").articles.find((a) => a.slug === "amberd-fortress")!.title,
+  );
+  await expect(panel.locator("img")).toHaveAttribute("src", /amberd-fortress\.webp/);
+  await expect(panel.locator("svg[role='img']"), "no placeholder in the panel").toHaveCount(0);
+  for (const borrowed of [
+    "erebuni-fortress",
+    "tatev-monastery",
+    "garni-temple",
+    "bagratid-armenia",
+  ]) {
     await expect(
       panel.locator(`img[src*="${borrowed}"]`),
       `${borrowed} must not illustrate the Amberd panel`,
@@ -1021,15 +1034,16 @@ test("every place can be selected and shows its own image", async ({ page }) => 
     await expect(panel, slug).toContainText(article.title);
 
     /*
-      §52: every place has a picture again, Gyumri included, so the first branch is
-      the one that runs for all ten.
+      §58: every place has a picture again, Amberd included, so the first branch is
+      the one that runs for all eleven.
 
       The split is kept rather than collapsed into the `registered` branch, and the
-      record now runs three for three: §47 needed the `else` for Tatev, §49 for
-      Dilijan, §51 for Gyumri, and each time the step before had it and was told it
-      could be deleted. The `else` is the stronger of the two claims — an
-      unillustrated place must show *no* image in this panel, which is what catches
-      a neighbour's cover leaking in to fill the gap — and Place #11 will need it.
+      record now runs four for four: §47 needed the `else` for Tatev, §49 for
+      Dilijan, §51 for Gyumri, §57 for Amberd, and each time the step before had it
+      and was told it could be deleted. The `else` is the stronger of the two claims
+      — an unillustrated place must show *no* image in this panel, which is what
+      catches a neighbour's cover leaking in to fill the gap — and Place #12 will
+      need it.
     */
     const registered = getImageSrc(slug);
     if (registered) {

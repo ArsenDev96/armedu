@@ -1,6 +1,6 @@
 # Armat — Project State Report
 
-**Last updated:** 2026-08-05
+**Last updated:** 2026-08-19
 **Repo:** `d:\armedu` · branch `seo`
 **Status:** Armenian-first multilingual site, complete in three editions and **live in
 production at [armat.site](https://armat.site)** (Vercel). Crawlable and indexable today.
@@ -69,22 +69,25 @@ statically prerendered.
 
 ## 3. Verification status (all run and passing)
 
-Current as of 5 August 2026. The figures below had been left at their January values
-(68 entries, 79 pages, 93 tests) long after the cuisine category, the Western Armenian
-completion and the SEO batch changed all three.
+Current as of 18 August 2026. These figures are re-measured whenever content moves; they were
+once left at their January values (68 entries, 79 pages, 93 tests) long after the cuisine category,
+the Western Armenian completion and the SEO batch changed all three, which is why every step since
+has restated them.
 
 ```
 npm install              → OK
 npm run typecheck        → PASS (0 errors)
-npm run validate:content → PASS (129 entries across 3 locales; no pending-artwork note)
-npm run build            → PASS (138 pages prerendered; `/api/contact` dynamic)
-npm run test:e2e         → PASS (263 passed, 5 skipped, no --workers flag; see §30)
+npm run validate:content → PASS (132 entries across 3 locales; no pending-artwork note)
+npm run build            → PASS (141 pages prerendered; `/api/contact` dynamic)
+npm run test:e2e         → PASS (269 passed, 5 skipped, no --workers flag; see §30)
 ```
 
-Re-run in full at §51 (Gyumri), §52 (Gyumri artwork) and §53 (Visit curation). The figures above had
-been left at their August values (105 entries, 111 pages, 173 tests) through the Visit journey, the
-map and four more Places. All ten Places are illustrated and `PENDING_ARTWORK` is empty. §53 added
-one test and moved no content, so only the test count changed.
+Re-run in full at §58 (Amberd artwork), which is the source of the figures above. There is **no**
+pending-artwork note: `PENDING_ARTWORK` is empty and all eleven Places are illustrated.
+
+Previously re-run at §57 (Amberd Fortress), which added the eleventh Place, three routes and five
+tests and put one slug back on the pending list; §58 registers that slug's file, adds one test, and
+empties the list for the tenth time.
 
 `validate:content` now also checks: every registered image exists on disk; every article
 has a bibliography entry; every citation carries a valid ISBN, DOI, URL or archival
@@ -9920,3 +9923,1122 @@ about the Urartian state; the Gyumri earthquake keeps the one-paragraph human-di
 rule. No Artsakh/Karabakh content exists in either file.
 
 No deployment was performed. `.claude/settings.json` untouched.
+
+---
+
+## 57. Amberd — the eleventh place, and the archive's first fortress of the Armenian Middle Ages (August 2026)
+
+Amberd is Place #11 and the first article in this archive whose subject is the **secular stronghold
+of a medieval Armenian noble house**: a castle, a wall circuit, a bathhouse and a water system on a
+rock spur high on Mount Aragats, with one church inside the walls rather than a church with a wall
+around it. It is also the first article set in **Aragatsotn**, which had appeared in the corpus only
+as Mashtots's burial place at Oshakan and as a range on Gyumri's horizon.
+
+The article's editorial centre is not the fortress but the **evidence for its age**. Amberd carries
+exactly one dated inscription, it is on the last major building put up there, and almost everything
+else about the site's chronology is attribution. That distinction is the article's spine and the
+reason it does not open, as nearly every published account of Amberd does, in the seventh century.
+
+### Taxonomy
+
+| Pill | Before | After |
+| --- | --- | --- |
+| All places | 10 | **11** |
+| Monasteries and churches | 4 | 4 |
+| **Historical sites** | **2** | **3 — Erebuni, Garni, Amberd** |
+| Museums | 1 | 1 |
+| Nature | 2 | 2 |
+| Towns and cities | 1 | 1 |
+
+`placeTypeId: "historical"`, `featured: false`, no `chronoOrder` (Places declares it on none). **Khor
+Virap remains the only featured Place**, asserted in all three editions. **No new place type was
+invented**: `fortress`, `castle`, `military` and `archaeological` are each named in `places.spec.ts`
+as pills that must not appear, joining `city`, `town`, `urban`, `cultural-city`, `forest`,
+`national-park` and `protected-area`. Amberd is the first place whose own subject noun is absent from
+the vocabulary, and the trio it completes — an Urartian citadel at foundation level, a classical
+peristyle on a gorge rim, a ruined medieval fortress — is the evidence that `historical` was chosen
+at the right breadth in §33.
+
+### Files changed
+
+| File | Change |
+| --- | --- |
+| `src/data/locales/{en,hy,hyw}/articles/places.ts` | The article, three editions, 12 sections each |
+| `src/data/geo.ts` | One coordinate, `precision: "site"`, with its provenance note |
+| `src/data/sources.ts` | Twelve-source bibliography under `amberd-fortress` |
+| `src/lib/media.ts` | `"amberd-fortress"` into `PENDING_ARTWORK`, with the rejection record |
+| `tests/e2e/places.spec.ts` | Counts, filters, search, placeholder inversion, coordinate, editorial pin, heritage guard |
+| `tests/e2e/visit-map.spec.ts` | Eleventh marker, bounds and overlap reasoning |
+| `tests/e2e/visit.spec.ts` | `NOT_CURATED`, map-list count, `/en/places` listing count |
+| `PROJECT_STATE.md` | This section |
+
+**No component was touched.** `visit-map.ts`, `map-tiles.ts` and `VisitMap.tsx` are byte-identical:
+Amberd is `historical`, so it draws the glyph Erebuni and Garni have drawn since §33, and there was
+no new marker type to add. `src/data/locales/*/places.ts` (the filter vocabulary) is untouched too —
+the first Place in five steps that needed neither a new pill nor a new glyph.
+
+### Article structure
+
+12 sections, 40 paragraphs: `where-it-stands`, `the-mountain-and-the-province`, `dating-the-site`,
+`the-kamsarakan-question`, `pahlavuni-amberd`, `vahramashen-church`, `how-the-fortress-worked`,
+`water-and-the-bathhouse`, `conflict-and-control`, `decline-and-ruin`, `excavation-and-restoration`,
+`what-survives`. 6 key facts, 12 dated entries, 6 interesting facts, 2 related figures, 2
+significance paragraphs, 1 contextual prose link, 1 `relatedSlug`.
+
+Paragraph shape per section: `3,3,4,3,3,3,4,4,3,3,4,3` — identical in all three editions.
+
+### The evidence model, stated in four tiers
+
+The article's third section names the four kinds of claim made about Amberd's age and refuses to
+merge them. This is the spine of the whole piece:
+
+| Tier | What it produces | At Amberd |
+| --- | --- | --- |
+| Inscription | A year | **1026**, inside the church's north portal — the only one |
+| Excavation | A range | **tenth to thirteenth centuries**, on the reserve's own summary |
+| Architectural comparison | A range and an argument | The same range, and the seventh-century proposal |
+| Attribution | A name, not a date | The Kamsarakan house |
+
+The state list of Aragatsotn adds a fourth-century-later bound: its Amberd entry reads **tenth to
+fourteenth centuries**, which disagrees with the reserve at the *late* end. The article says so, and
+says that this is a disagreement about when the site stopped mattering rather than about when it
+began.
+
+### Early chronology — why this article does not start in the seventh century
+
+Almost every published account of Amberd opens with "a seventh-century fortress built by the
+Kamsarakans", and so does the file the culture ministry submitted to Europa Nostra. The article
+records the attribution, names who made it, and declines to state it as a fact. Three things are
+missing and are said to be missing:
+
+- **no inscription at Amberd names a Kamsarakan;**
+- **no surviving text of the period names the fortress at all;**
+- the fabric that would have to carry the dating — the lowest courses of the castle and of some wall
+  stretches — is precisely the part of the site **rebuilt, refaced and consolidated most often**,
+  across campaigns in 1949–1972, the 1970s and 2005–2007.
+
+What the article states positively is the Courtauld project's phasing: the castle was built **under
+the Bagratids of Ani in the tenth century, on the ruins of a seventh-century castle** — which is a
+different sentence from "a seventh-century fortress survives here", and is the one the standing
+fabric supports.
+
+A prehistoric layer on the same spur is named and then explicitly set aside, so that it cannot be
+folded into the seventh-century claim: *a spur used in prehistory and a fortress built in the seventh
+century are two separate assertions, and neither is evidence for the other.*
+
+### Kamsarakan evidence — what was actually checked
+
+The Kamsarakans held Arsharunik and Shirak, north and west of Aragatsotn, which is the *tenure* half
+of the attribution and is what Hewsen is cited for. The *construction* half rests on masonry and plan
+compared with securely dated work elsewhere — a real argument, and a defeasible one. Both halves are
+described as what they are. No date is attached to the family's tenure of Amberd anywhere in the
+article, because none is documented.
+
+### Pahlavuni Amberd, and the five things one prince absorbs
+
+The Pahlavunis held Amberd by the eleventh century and held the hereditary office of **sparapet** at
+the court of Ani. How they acquired it is **known at second hand**: the article attributes the
+acquisition to the letters of Grigor Magistros Pahlavuni, written about the middle of the eleventh
+century, and says so rather than presenting it as archival fact.
+
+Vahram Pahlavuni is named as the patron on the church and as commander of the Bagratid army in the
+kingdom's last decades. The article then separates five things a single named prince usually absorbs:
+
+```
+ownership · construction · reconstruction · church patronage · later addition
+```
+
+**Securely Vahram's: the church.** Everything else usually credited to him — thickened walls, towers
+along the gorge edge, the bathhouse — is credited on the strength of the church's date and the
+family's tenure, and the article says so in as many words: *whether every standing wall on the spur
+is his is a separate question, and the answer is almost certainly no.*
+
+His life dates are given as **about 965 – 1045**, with the article's own related-figure note
+recording that published birth and death dates vary by a year or two.
+
+### Vahramashen — a component, argued as a component
+
+The church of **Surb Astvatsatsin**, called Vahramashen, is treated as the one complete building
+inside a ruined fortress rather than as the subject of the article. It gets one section of twelve,
+and that section closes by naming the temptation and refusing it: an article that let the church take
+over *would end up describing a small monastery on a mountainside instead of a fortress with its
+lord's church inside the walls.*
+
+What is stated: the dedication; **1026** from the inscription inside the north portal; the plan as a
+cross inscribed in a rectangle on a stepped platform, barrel-vaulted arms, semicircular apse,
+two-storey corner chambers; a drum round inside and twelve-sided outside under an umbrella roof;
+local basalt; ceramic vessels set in the mortar under the roof; and the shared form with **Marmashen**
+that is the basis for the same-architect suggestion. The suggestion is reported as a suggestion.
+
+**The church's date is never used as the fortress's.** That is the distinction the whole article is
+built around and it is asserted explicitly in the prose, in the key facts, in the summary and in the
+significance block.
+
+### Fortress architecture, in its own vocabulary
+
+The castle at the point of the spur: mortared basalt, three storeys, timber floors, service below and
+living rooms above, **about 1500 square metres** on published descriptions. The wall circuit follows
+the spur edge with semicircular towers carrying small internal chambers and openings to shoot from;
+the reserve gives the walls **15 to 16 metres** high and **2 to 3 metres** thick. The heaviest
+building is on the landward neck, where the terrain does none of the defending.
+
+Between castle and wall: the bathhouse, a chapel, cisterns, storage, and the excavated foundations of
+houses and workshops. The article's reading is that this is **a small fortified settlement with a
+lord's tower at one end**, not a castle in an empty ward.
+
+The European vocabulary is named and refused rather than silently avoided:
+
+```
+keep · bailey · moat · drawbridge      — none of them used, and the refusal is in the prose
+```
+
+*There is no motte, no ditch and no gatehouse of the European kind.* The article says Amberd is
+better described in its own terms than by analogy, and does that.
+
+### Water and the bathhouse — what is documented, and what is not
+
+| Claim | Status in the article |
+| --- | --- |
+| Cisterns inside the walls | Stated — excavated |
+| Clay pipeline from springs higher on the mountain | Stated — well attested |
+| The pipeline's length | **Approximate**; "several kilometres" circulates without a survey behind it |
+| Two covered passages | Stated — **entered in the state monument list**, and found in excavation |
+| A network of secret tunnels through the mountain | **Refused** — "needs no mystery attached to it" |
+| Bathhouse about **70 metres** from the castle, near the Arkashen gate | Stated |
+| Three-part plan and heating from below | Stated |
+| "Roman bath" | **Refused as a label**, kept as a principle |
+
+The bathhouse sentence is the one that took the most care: *the heating principle is the one Roman
+builders used, and the building is an eleventh-century Armenian bathhouse in a lord's fortress, not a
+Roman institution transplanted to Aragats.* The word **hypocaust** is not used in the English prose;
+the system is described instead.
+
+### Military chronology, with its uncertainty preserved
+
+| Year | Event | How firm |
+| --- | --- | --- |
+| **1045** | Byzantium annexes Ani; the Bagratid kingdom ends; Vahram dies about this time | Firm, and general rather than local |
+| **1070s** | Seljuk seizure of Amberd | **A decade, not a year** — see below |
+| **1064** | Ani itself falls | Firm, and cited as the frame for the decade above |
+| **1196** | Zakarid recovery under Zakare and Ivane; **1197** in some accounts | Both forms carried |
+| **1215** | Amberd passes to the Vachutians, who take their style from it | Firm |
+| **1236** | Mongols take and damage the fortress; repaired under the Vachutians | Firm |
+
+**The Seljuk date is the audit this section exists for.** The article states the decade, states that
+Ani fell in 1064 so the general picture is not in doubt, and then says plainly that *the specific year
+offered for Amberd differs between accounts, and no contemporary source naming this fortress is cited
+for any of them.* It adds the rule the brief asked for: **a change of ruler is not evidence that a
+fortress was destroyed.**
+
+### Decline, ruin and the earthquake question
+
+The neat version — destroyed by Timur in the late fourteenth century and never rebuilt — is described
+as *a summary rather than a finding*. What is stated: Timur's campaigns passed through Armenia in the
+**1380s and 1390s**; the fortress does not appear as a place of consequence afterwards; the state
+list's late bound in the fourteenth century is consistent with that. The verdict is *a plausible end
+and a thinly documented one*.
+
+Occupation did not stop dead: later material is reported from the **sixteenth and seventeenth
+centuries**, and the article generalises that *the abandonment of a stronghold is a process spread
+over generations rather than an event with a year attached to it*.
+
+**Earthquakes are kept separate from war, and no specific earthquake is invoked.** What is said is
+that Armenia is seismically active, that the site's own conservation file names seismic risk as a
+*present* danger to the standing walls, and that six centuries of shaking will have done a great deal
+to mortared rubble on a cliff edge — followed by the sentence that governs the whole section: *a ruin
+is not evidence for any of the causes proposed for it, which is exactly why a ruin attracts so many.*
+
+### Archaeology, restoration, and what a visitor is actually looking at
+
+| Campaign | Years | Who | What |
+| --- | --- | --- | --- |
+| Excavation I | **1936–1940** | Hovsep Orbeli | Bathhouse and surroundings, main stair, cistern, chapel |
+| Excavation II | **1963–1972** | Institute of Archaeology and Ethnography, under Nikolai Tokarski and S. Harutyunyan | Upper fortress, houses, workshops, further wall |
+| Survey and restoration | **from 1949 to 1972** | Architects incl. Karo Ghafadaryan | Measured drawings and the restoration project |
+| Later restoration | **1970s**, **2005–2007** | — | Castle, church and bathhouse consolidated and partly rebuilt |
+
+**A discrepancy is recorded rather than smoothed over.** The reserve's own account names **Toros
+Toramanyan** alongside Orbeli for the 1936–1940 seasons. Toramanyan died in **1934**. The article
+states both, attributes the digging to Orbeli, and places Toramanyan's real work in the generation
+before those campaigns. It is also one of the six interesting facts, because it is the kind of thing
+that gets reprinted without a second look.
+
+The restoration paragraph closes with the sentence the brief asked for: *most of what stands is
+genuinely medieval; the tidy wall tops and the reinstated courses are not, and the line between the
+two is not everywhere marked on the ground.*
+
+### Heritage status — precise, and a correction
+
+| Status | Amberd |
+| --- | --- |
+| UNESCO World Heritage property | **No** |
+| UNESCO tentative list (Armenia) | **No** |
+| State list of monuments, Aragatsotn Marz | **Yes** — decision N 628 of 29 May **2002** |
+| State historical and cultural reserve | **Yes** — decision N 541-N of 18 May **2017**, **45.07 hectares** |
+| Europa Nostra 7 Most Endangered **2024** | **Shortlisted (1 of 11), not selected** |
+
+The last row is the correction. A great deal of the coverage — Armenian and diaspora press alike —
+reports that Amberd *is* one of Europe's seven most endangered monuments. It is not. Europa Nostra
+and the EIB Institute shortlisted eleven sites from nine countries on **30 January 2024** and
+announced the seven on **17 April 2024**; the seven are in France, Greece, Italy (two), Serbia and
+Türkiye (two). Both announcements are registered as separate sources precisely because the second one
+is cited for an *absence*.
+
+The word **UNESCO** appears nowhere in any editorial field of any edition, and a test asserts that
+across all three.
+
+### Sources — twelve, and what each carries
+
+| Source | Identifier | Cited for |
+| --- | --- | --- |
+| Tokarskij & Alpago-Novello, *Amberd*, Documents of Armenian Architecture 5, Ares, Milan, 1978 | CiNii NCID **BA57234763** | The standard architectural documentation of the site |
+| Service for the Protection of Historical Environment and Cultural Museum-Reservations — *Amberd Historical and Cultural Reserve* | URL (hushardzan.am) | Reserve status, dimensions, structures, excavation and restoration history, both datings |
+| Government of Armenia, Decision **N 628** (2002), Aragatsotn state monument list | URL (arlis.am) | Official dating (10th–14th c.), the enumerated components, the two covered passages |
+| American University of Armenia — *Amberd Fortress*, Armenia Hidden Gems | URL | The **2160 m** elevation figure, against the reserve's ~2300 m |
+| Arpine Asryan — *Amberd Fortress*, Crossing Frontiers, Courtauld Institute of Art | URL | The tenth-century-on-seventh-century phasing; plan, towers, storeys; political sequence |
+| Arpine Asryan — *Amberd Church*, Crossing Frontiers, Courtauld Institute of Art | URL | The 1026 inscription, patron, plan, drum, material, acoustic vessels, Marmashen comparison |
+| Europa Nostra & EIB Institute — *…shortlisted for the 7 Most Endangered Programme 2024* | URL | The shortlisting, the nominating ministry, the condition report |
+| Europa Nostra & EIB Institute — *Europe's 7 Most Endangered Heritage Sites 2024* | URL | **The absence** — Amberd is not among the seven |
+| *Toros Toramanian (1864-1934)*, Fundamental Armenology (NAS RA, ISSN 1829-4618) | URL | One date: Toramanian died in 1934 |
+| Armen Kazaryan — *Architecture of Medieval Armenia as a Field of Research…*, **Arts** 12(6):238, 2023 | DOI **10.3390/arts12060238** | The Italian survey programmes of 1966–1980s that produced the Amberd volume — historiography only |
+| Hovannisian (ed.) — *The Armenian People…*, Volume I | ISBN 9781403966360 | Bagratid frame, 1045 annexation, Seljuk conquest and 1064, Zakarid recovery |
+| Hewsen — *Armenia: A Historical Atlas* | ISBN 9780226332284 | Aragatsotn geography; Kamsarakan holdings in Arsharunik and Shirak |
+
+Every identifier was resolved and matched against title, authors and year before registration. Two
+notes on honesty rather than on bibliography:
+
+- **The Tokarskij/Alpago-Novello monograph has not been read directly.** Its `note` says so, and no
+  claim in the article rests on it alone. This joins the standing Wilkinson debt from §39 rather than
+  pretending to be different from it.
+- **Kazaryan is cited from its published abstract and Crossref record**, for the existence and dates
+  of the Italian programme and for nothing about the site. The MDPI full text returned 403 to every
+  fetch attempt; the `note` scopes the citation accordingly.
+
+Tourism sites were used to *find questions* — the elevation spread, the "Roman bath" label, the
+secret-tunnel story, the "one of Europe's seven most endangered" claim — and carry no chronology.
+
+### Coordinate and provenance
+
+```
+stored          40.3885, 44.2263   precision: "site"
+OSM             40.3884555, 44.2262728   relation 15757106 (historic=castle, castle_type=fortress,
+                                         ruins=yes, wikidata=Q457057) — Nominatim label point
+Wikidata        40.3887278, 44.226526    Q457057 (P625)
+separation      about 32 m between the two sources; both on the castle
+```
+
+The rounded value was **tested back against the relation's own outer ring by ray casting and falls
+inside it** — the fourth entry in this registry checked that way, after Garni, Geghard and Dilijan.
+The ring measures roughly 62 by 52 metres, so four decimal places is comfortably inside the building.
+
+Rejected nearby alternatives, all named in `geo.ts` and the first two asserted by distance in
+`places.spec.ts`:
+
+| Rejected | Distance | Why it is the trap |
+| --- | --- | --- |
+| **Amberd river** (OSM relation 16475076) label point | **0.21 km** | The closest wrong answer in the whole registry, and what a lookup for the bare word returns |
+| **Vahramashen church** (OSM way 498609239, Q2507423) | **205 m** | The photographed building and the one with a date — a component, not the complex |
+| Car park, café, toilets, information boards, viewpoints | 110–140 m | Visitor infrastructure, and outside the walls where this point is inside them |
+| **Peak named Amberd** (OSM node 2479027163) | 8.2 km | A summit on the same massif |
+| **Byurakan** village | 6.6 km | The village every description gives the fortress a bearing from |
+| **Amberd village**, Vagharshapat community, Armavir (OSM way 894495861) | 17 km | A different settlement in a different province |
+| Mount Aragats itself | — | A massif; would be an `area` point for a different subject |
+
+`site` rather than `area` despite the 45.07-hectare reserve: the reserve is the protection, the
+fortress is the subject. **No existing coordinate was modified**, and no Armenia bounding box was
+added to validation — `geo.ts` still explains why there is none.
+
+### Map integration — automatic, and the first addition that moves nothing
+
+The map went **10 → 11** through the existing `Places ∩ PLACE_COORDINATES` derivation. No allow-list
+exists and none was added; `visit-map.ts`, `map-tiles.ts` and `VisitMap.tsx` are untouched. Amberd
+draws the `historical` glyph unchanged, its marker title and its accessible label are localized from
+the article and `placeTypes` like every other, and selecting it opens `/‹locale›/places/amberd-fortress`.
+
+**It is the first marker in four steps that stretches the extent in no direction.** Tatev pulled the
+box south (§47), Dilijan north (§49), Gyumri north-west (§51); Amberd sits inside all three edges —
+north of Etchmiadzin, east of Gyumri, nowhere near a boundary. `places.spec.ts` now asserts that
+explicitly: Amberd is not the northernmost, southernmost, westernmost or easternmost place. The
+derived bounds are therefore the same box with one more pin in it, and that is the property the
+bounds test was rewritten to state.
+
+### Bounds and overlap — measured, and unchanged
+
+All eleven markers are inside the container at **360, 390, 768 and 1440** px. The all-pairs overlap
+measurement at 1440 px (now 55 pairs rather than 45):
+
+```
+erebuni-fortress / matenadaran     25 x 26 px
+garni-temple / geghard-monastery   12 x 31 px
+```
+
+**No new pair overlaps, and no Amberd pair overlaps.** The two known pairs measure exactly what §47,
+§49 and §51 recorded, which is the expected result of an addition that does not move the box.
+Amberd's nearest neighbour is Etchmiadzin at about 26 km — four times the Erebuni–Matenadaran gap and
+three times the Garni–Geghard one.
+
+**The overlap was not fixed.** It remains open debt, out of scope for a content step for the same
+reason it was in §47, §49 and §51: fixing it means changing the marker-derived bounds.
+
+### Visit curation — frozen, and this is the step that tested it
+
+The curated row on `/visit` is **unchanged and still six**:
+
+```
+khor-virap · gyumri · lake-sevan · garni-temple · dilijan-national-park · tatev-monastery
+```
+
+Amberd is the first Place written *after* §53 re-cut that row, which makes it the first real test of
+whether the review holds. It does. Amberd is in `NOT_CURATED` with the reasoning written down: adding
+the newest article to the row every time one is written would make the curation a queue rather than a
+judgement.
+
+```
+curated row = 6      map = 11      /places listing = 11
+```
+
+Omission from the row is not omission from discovery: Amberd is on the map, in the map's
+server-rendered list, in the listing, in search, and in the sitemap in all three editions.
+
+### Artwork status — pending, for the tenth time
+
+`PENDING_ARTWORK` holds **one slug: `amberd-fortress`**. Nothing under `public/` depicts this site.
+Every one of the forty files was opened rather than read off its filename.
+
+Five substitutions were available and each is recorded as refused in `src/lib/media.ts`. Two are the
+closest near misses this list has ever had to turn down:
+
+- **`places/tatev-monastery.webp`** — a walled enclosure on a promontory above a gorge, in grey
+  stone, seen from the air. That is a fair description of Amberd's *setting* and of nothing else in
+  the frame: what is inside those walls is a complete thirteenth-century monastery in Syunik with a
+  conical-domed church at its centre and no ruin anywhere. Using it would caption a living monastery
+  as a ruined stronghold — the exact conflation this article's significance section exists to
+  prevent.
+- **`history/bagratid-armenia.webp`** — Ani: a walled medieval city on a plateau above a river gorge,
+  the right kingdom and the right century, and already the refused substitute of record for Gyumri in
+  §51. One picture cannot stand in for a city, a settlement article and a fortress.
+
+Also refused: `places/erebuni-fortress.webp` (the other `historical` place, on principle and on
+resemblance), `places/geghard-monastery.webp` and `places/garni-temple.webp` (Kotayk, wrong building
+type, and Garni is a millennium older). Refused in advance: the church alone, a European castle with
+a keep or moat, a snow-covered Aragats summit, and anything showing visitors, signage or the car
+park.
+
+The commission a future artwork step would have to answer is written out in `media.ts` rather than
+left to be reconstructed.
+
+**Pending-artwork behaviour verified:** hero renders the generated `<svg role="img">` in all three
+editions; the placeholder caption appears and the AI-illustration caption does not; `Article.image` is
+absent from the JSON-LD; `og:image` and `twitter:image` fall back to `/og-default.png`; Amberd's three
+sitemap url blocks carry **no `image:loc`** and no registered file; the listing renders exactly one
+placeholder; and the map's selected card shows **no image at all** rather than a neighbour's.
+
+The `else` branch in `visit-map.spec.ts` that §52 said Place #11 would need is the branch that runs
+for Amberd.
+
+### Related content — one link, and the ones refused
+
+`relatedSlugs: ["bagratid-armenia"]`, earned by the `pahlavuni-amberd` section: the Pahlavunis rose
+with that kingdom and held the office of sparapet at its court, and the military section hangs on the
+annexation of Ani in 1045 and the fall of the city in 1064. One contextual prose link, in that same
+section, on the phrase "the Bagratid kingdom".
+
+Deliberately absent, each named in `places.spec.ts`:
+
+- **Erebuni and Garni** — sharing the `historical` pill is not a relationship;
+- **Gyumri** — both being north-west of Yerevan is not a relationship;
+- **Tatev, Geghard** — a tour combining them is not a relationship;
+- **Vahramashen, Mount Aragats, Ani, Marmashen, the Kamsarakans** — named in the prose, and none is
+  an article. `validate:content` fails the build on a slug that does not resolve, which is what keeps
+  a plausible future slug from shipping as a dead recommendation.
+
+The relationship is one-directional, like every other in this section; `bagratid-armenia` was not
+modified to point back.
+
+**One consequence worth recording rather than rediscovering.** With a single authored `relatedSlug`,
+`getRelatedArticles` fills the row to three from the same category — so Amberd's related block shows
+Khor Virap and Etchmiadzin, each under its own headline with its own cover. That is existing generic
+behaviour (Dilijan has had it since §49) and not a borrowed picture; the artwork guard in
+`places.spec.ts` is scoped to the hero and the metadata for exactly that reason, and the reasoning is
+written into the test.
+
+### Localization and parity
+
+Three complete editions. The parity harness (`scratchpad/check.ts`) reports **0 differing rows across
+3 editions** on every field it compares: section ids, section order, paragraphs per section, key
+facts, dated entries, interesting facts, significance paragraphs, related figures, related slugs,
+SectionLink targets, and the numeral multiset per validator field group.
+
+The numeral groups, identical in `hy`, `hyw` and `en`:
+
+```
+intro             1026
+summary           1026 2017
+seoTitle          (none)
+metaDescription   1026
+keyFacts          07 1026 2002 2017 2160 2300 45
+importantDates    07 1026 1026 1045 1064 1070 1196 1197 1215 1236 18 1936 1940 1963 1972
+                  2002 2017 2024 29 45 541 628
+sections          07 1026 1045 1064 1070 1196 1197 1215 1236 1380 1390 15 1500 16 1934
+                  1936 1936 1940 1940 1949 1963 1970 1972 1972 2002 2002 2005 2007 2017
+                  2024 2024 2160 2300 45 70
+interestingFacts  1026 1934 1936 1940 2024 2160 2300 70
+relatedFigures    1045 965
+```
+
+This is the most numeral-dense article in the section, which is why the group table is reproduced
+here: eleven of the thirty-five numerals in `sections` are dates a correction could plausibly be
+applied to in one edition and forgotten in the others.
+
+Centuries are written as words in English and as Roman numerals in the Armenian editions
+(`X-XIII դդ.`), which is the house style and is why they do not appear in the numeral groups at all.
+
+**Terminology audit.** Existing repository forms were reused rather than reinvented:
+
+| English | `hy` | `hyw` |
+| --- | --- | --- |
+| fortress | ամրոց | ամրոց |
+| castle | դղյակ | դղեակ |
+| citadel | միջնաբերդ | միջնաբերդ |
+| church | եկեղեցի | եկեղեցի |
+| bathhouse | բաղնիք | բաղնիք |
+| water conduit | ջրմուղ | ջրմուղ |
+| gorge | կիրճ | կիրճ |
+| promontory | հրվանդան | հրուանդան |
+| basalt | բազալտ | բազալտ |
+| medieval | միջնադարյան | միջնադարեան |
+| Aragats / Aragatsotn | Արագած / Արագածոտն | Արագած / Արագածոտն |
+| Bagratid kingdom | Բագրատունյաց թագավորություն | Բագրատունեաց թագաւորութիւն |
+| Pahlavuni | Պահլավունի | Պահլաւունի |
+| Kamsarakan | Կամսարական | Կամսարական |
+| Zakarian | Զաքարյան | Զաքարեան |
+| Seljuk | սելջուկյան | սելճուքեան |
+| Mongol | մոնղոլական | մոնկոլական |
+| Byzantium | Բյուզանդիա | Բիւզանդիոն |
+| reserve | արգելոց | արգելոց |
+| sparapet | սպարապետ | սպարապետ |
+
+The title is **«Ամբերդ ամրոց»** in both Armenian editions. `ամրոց` rather than `բերդ` (which `hyw`
+otherwise prefers, as in «Էրեբունի բերդ») because the name *Amberd* already ends in `-բերդ`, and
+«Ամբերդ բերդ» would be a tautology on the page.
+
+**The Western Armenian edition is unreviewed machine output** and joins the standing native-review
+backlog in §15. It was written after the English was stable rather than converted from the Eastern
+text: classical orthography throughout, Western verb morphology (`կը կենայ`, `կ՚ըսէ`, `պիտի ըլլան`),
+Western vocabulary (`դղեակ`, `սելճուքեան`, `մոնկոլական`, `հիմնարկ`), and Western proper nouns
+(`Յովսէփ Օրբելի`, `Թորոս Թորամանեան`, `Կարօ Ղաֆատարեան`, `Բիւրական`, `Արքաշէն`, `Վահրամաշէն`). The
+`easternOrthographyMarker` guard catches only `և` and `ություն` and will not catch bad Western
+Armenian; this edition needs a native reader.
+
+### Tests changed
+
+`tests/e2e/places.spec.ts` — 66 tests (was 63):
+
+- new `AMBERD` constant, added to `PLACES` and **not** to `ILLUSTRATED`;
+- listing counts 10 → 11 in five places; the English-title fallback list gains "Amberd Fortress";
+- the monastery filter's absent-list gains Amberd (a place whose article names and describes a church
+  at length is still not a monastery);
+- **"the historical filter returns exactly Erebuni, Garni and Amberd"** — the pair becomes a trio,
+  written as a named list rather than as two `!==` comparisons;
+- the invented-pill list gains `fortress`, `castle`, `military`, `archaeological`;
+- the type histogram moves one number: `historical: 2 → 3`;
+- **new** "the eleventh place is findable under the places group too" — English, the church's name,
+  and both Armenian editions;
+- **new** "Amberd renders the generated placeholder and says so, in every edition" — the exact
+  inversion of §52's Gyumri test;
+- **new** "Amberd borrows no other article's artwork, on the page or in its metadata" — hero,
+  Open Graph, Twitter, JSON-LD;
+- the sitemap image test gains an Amberd **absence** block, asserted before the presence loop;
+- **"no place is waiting for artwork"** renamed to **"exactly one place is waiting for artwork, and
+  the other ten resolve"** — the assertion itself needed no edit, because it was already derived from
+  `PLACES` minus `ILLUSTRATED`. Fifth time that derivation has been right without being touched;
+- coordinate assertions for Amberd, including the river at 0.21 km and the church at 205 m, plus four
+  new assertions that Amberd is at **no** extreme;
+- the editorial-fields pin gains its `AMBERD` entry, with the refused relationships written out;
+- **new** "Amberd claims no international designation it does not have" — World Heritage proximity
+  check on the rendered page in all three editions, plus a data assertion that `UNESCO` (and its
+  Armenian transliterations) appears in no editorial field.
+
+`tests/e2e/visit-map.spec.ts` — eleventh marker; the bounds test's rationale rewritten for an
+addition that changes no extreme; **"extending the map west introduces no new marker overlap"**
+renamed to **"adding a marker inside the existing box introduces no new overlap"**.
+
+`tests/e2e/visit.spec.ts` — `NOT_CURATED` gains `amberd-fortress`; the map-list count and
+`places.length` move 10 → 11; the `/en/places` listing count in the canonical-routes test moves
+10 → 11.
+
+**No assertion was weakened anywhere.** Two were re-scoped and both are stronger for it: the Amberd
+artwork guard now names the four surfaces `getImageSrc` actually reaches instead of scanning raw HTML
+(which failed on a legitimately-rendered related-article card), and the historical filter is pinned
+as a set rather than as a pair of exclusions.
+
+### Commands run, in order
+
+```
+1.  port 3002 confirmed clear                                   PASS
+2.  rm -rf .next (only after confirming no dev server)           PASS
+3.  npx tsx scratchpad/check.ts amberd-fortress                  PASS — 0 differing rows, 3 editions
+4.  npm run typecheck                                            PASS
+5.  npm run validate:content                                     PASS — 132 entries, 1 pending-artwork note
+6.  npx playwright test tests/e2e/places.spec.ts                  see below
+7.  npx playwright test tests/e2e/visit-map.spec.ts               PASS — 29/29
+8.  npx playwright test tests/e2e/visit.spec.ts                   PASS — 24/24
+9.  npx playwright test                                           see below
+10. npm run build                                                 see below
+```
+
+Playwright and `npm run build` were never run concurrently, and no two Playwright suites overlapped.
+### Results, including every failure
+
+**Final state — green.**
+
+```
+npx tsx scratchpad/check.ts amberd-fortress   OK — 0 differing rows across 3 editions
+npm run typecheck                             PASS (0 errors)
+npm run validate:content                      PASS — 132 entries across 3 locales
+                                              note: 1 slug has no artwork (amberd-fortress)
+npx playwright test tests/e2e/places.spec.ts      66 passed (4.0m)
+npx playwright test tests/e2e/visit-map.spec.ts   30 passed (1.2m)
+npx playwright test tests/e2e/visit.spec.ts       24 passed (1.6m)
+npx playwright test  (full, run 1)            268 passed, 5 skipped (10.7m)
+npx playwright test  (full, run 2)            268 passed, 5 skipped (10.4m)
+npm run build                                 PASS — 141 pages prerendered
+```
+
+Totals moved: **129 → 132 content entries**, **138 → 141 prerendered pages**, **263 → 268 passing
+tests** (five new: four in `places.spec.ts`, one in `visit-map.spec.ts`). Two consecutive clean full
+suites were obtained, and no two Playwright runs and no Playwright/build pair ever overlapped.
+
+**Every failure that occurred, in order.**
+
+1. **First focused `places.spec.ts` run — 56 failed, 10 passed.** `.next` had just been removed and
+   every worker hit an uncompiled dev server at once. The single test re-run in isolation passed in
+   2.3 s. This is the known Turbopack/cold-route signature and not a product failure; it is recorded
+   rather than hidden because the run happened.
+2. **Second focused run — 49 failed, 17 passed.** Same cause, still warming.
+3. **Third focused run — 1 failed, 65 passed.** The first *real* failure of the step:
+   `Amberd borrows no other article's artwork` asserted that the string `bagratid-armenia.` appeared
+   nowhere in the page HTML, and it does appear — legitimately. Amberd's related-articles block
+   renders that article's own card, under its own headline, with its own cover, because
+   `getRelatedArticles` fills a short row from the same category. **The test was wrong, not the
+   page.** It was re-scoped to the four surfaces `getImageSrc` actually reaches (hero, Open Graph,
+   Twitter, JSON-LD) and the reasoning written into the test body. The assertion is stronger after
+   the fix, not weaker.
+4. **Fourth focused run — 1 failed, 65 passed.** `page.goto` timeout at 30 s navigating to
+   `/en/places/dilijan-national-park` inside the `[en] the places listing and the article both load`
+   loop — a route unrelated to this step, compiling under parallel load. Re-run alone: 3 tests
+   passed in 36.5 s. Cold-route signature again.
+5. **Fifth focused run — 66 passed.** Clean.
+6. **`visit.spec.ts` — 1 failed, 23 passed.** A genuine, expected count: `every canonical route the
+   journey links into still works` pins `/en/places` at 10 cards, deliberately as a literal that
+   someone updates when the section grows. Moved to 11.
+7. **First full suite — 4 failed, 263 passed.** `cuisine.spec.ts › every dish's metadata…`,
+   `places.spec.ts › the eleventh place is findable…`, and the two `LOCALES × ILLUSTRATED` artwork
+   loops. All four are timeouts, not assertion failures. Each passed when run alone (11.7 s, 3.6 s,
+   19.2 s, 18.4 s). This run also happened while spec files were still being edited, which is a
+   process error on my part — it was discarded and the whole suite re-run from a clean `.next` after
+   all edits were final.
+8. **Full suites, runs 1 and 2 after the freeze — 268 passed, 5 skipped, 0 failed, twice.**
+
+The 5 skipped tests are the pre-existing `DECLARED_UNAVAILABLE` translation-state cases and are
+unrelated to this step.
+
+**Host memory pressure**, reported separately as the process instructions require: the dev server was
+killed once mid-write while a background suite was being stopped, which corrupted Next's generated
+`.next/dev/types/*.ts` and produced five `tsc` syntax errors in *generated* files. No source file was
+involved. `rm -rf .next` cleared it and `npm run typecheck` passed. Port 3002 was confirmed clear
+before every `.next` removal.
+
+### Confirmations
+
+| | |
+| --- | --- |
+| Places total | **11** |
+| Monastery / Historical / Museum / Nature / Settlement | **4 / 3 / 1 / 2 / 1** |
+| Historical contains exactly | Erebuni Fortress, Garni Temple, Amberd Fortress |
+| Settlement contains exactly | Gyumri |
+| New place types introduced | **none** |
+| Featured Places | **Khor Virap only**, in all three editions |
+| Amberd routes | `/hy`, `/hyw`, `/en` — all 200, all indexable, canonical + hreflang correct |
+| Coordinate precision | `site` |
+| Map | **10 → 11**, automatically; no allow-list; no component edit |
+| Marker bounds at 360 / 390 / 768 / 1440 px | All 11 visible at every width |
+| Marker overlap | `25 x 26` and `12 x 31` px — unchanged; no new pair |
+| Visit curated row | **6, unchanged**; Amberd absent by decision |
+| `PENDING_ARTWORK` | `["amberd-fortress"]` |
+| Structured data | Generic `Article` + `BreadcrumbList` only; no tourism types |
+| UNESCO wording | Absent from every editorial field in every edition |
+| Deployment | **None.** Nothing pushed or released; `.claude/settings.json` untouched |
+
+### Visit-curation regression check
+
+| Check | Result |
+| --- | --- |
+| Curated row is exactly six cards | PASS |
+| The six are the §53 slugs, in the §53 order | PASS |
+| Amberd is absent from the curated row | PASS |
+| Amberd is present in `/places` (11 cards) | PASS |
+| Amberd is present on the map and in the map's server-rendered list (11 items) | PASS |
+| Etchmiadzin, Geghard, Erebuni, the Matenadaran still off the row and still on the map | PASS |
+| Row shape guards — settlement present, ≥1 nature, ≤2 monastery | PASS, unchanged |
+| Type links on `/visit` still five, rendered from `placeTypes` | PASS, unchanged |
+
+The curation decision was not reopened.
+
+### Existing map and artwork regression check
+
+| Check | Result |
+| --- | --- |
+| The ten existing marker → article → image mappings | Unchanged |
+| `getImageSrc` for the ten illustrated places | Unchanged, entry by entry |
+| Non-places entries in `IMAGES` (history, writers, works, cuisine) | Unchanged, asserted as a whole object |
+| Khor Virap still a PNG, still the homepage-hero copy | Unchanged |
+| `hero-ararat.png` still outside the registry | Unchanged |
+| Homepage renders its own hero and no places artwork | PASS |
+| Existing coordinates in `geo.ts` | None modified; one added |
+| Two known marker overlaps | `25 x 26` and `12 x 31` px — identical to §47/§49/§51 |
+| Basemap configuration, tile host, attribution | Untouched |
+
+### Technical debt — carried forward, not fixed
+
+Everything below was already open and is deliberately left open:
+
+- bibliography React key uses `source.title` (`ArticleLayout`);
+- marker overlap at the initial extent — Erebuni/Matenadaran, Garni/Geghard;
+- Turbopack/cold-route flake in the full Playwright suite;
+- host memory pressure during long Playwright runs;
+- photographic-register concern for Geghard, Tatev, Dilijan and Gyumri artwork;
+- Gyumri narrow-search-thumbnail crop;
+- Gyumri `1584×993` dimension drift;
+- Matenadaran façade colour;
+- Garni stone warmth;
+- Garni `1448×1086` dimensions;
+- Khor Virap PNG weight;
+- Erebuni / Matenadaran / Gyumri artwork file weight;
+- global media optimisation;
+- Cuisine hydration flake;
+- one-directional `relatedSlugs`;
+- Western Armenian native-review backlog (§15) — **Amberd joins it**;
+- the Bresson/Fagan issue;
+- the Wilkinson source not directly read — **the Tokarskij/Alpago-Novello monograph joins it**;
+- the Hovannisian volume-set ISBN issue;
+- the Armstat Gyumri table caveat;
+- scratchpad harness locations (`scratchpad/check.ts`, `scratchpad/dilcheck.ts`);
+- weak homepage hero-path assertion;
+- no central environment module;
+- Stadia production/domain authorization;
+- raster label-language limitation on the basemap;
+- privacy-page provider disclosure;
+- no museum or Yerevan card in the Visit row;
+- alphabet Learn-card anchor gap;
+- Khor Virap / Garni warm-palette-column observation;
+- `/visit` LCP eager-loading warning (it fired again during this step's runs, on
+  `gyumri.webp`, `lake-sevan.webp` and `gata.webp`).
+
+**Two new observations, recorded rather than fixed.**
+
+1. **A place with one authored `relatedSlug` gets two same-category fillers.** Amberd authors
+   `bagratid-armenia` and the related row is completed with Khor Virap and Etchmiadzin — the first two
+   Places in array order, not an editorial choice. This is `getRelatedArticles` behaving exactly as
+   documented and Dilijan has had it since §49, but it is worth naming: as the section grows, the
+   filler will keep reaching for the same two articles. It is not fixed here because changing it is
+   component work, not a content step.
+2. **The two `LOCALES × ILLUSTRATED` artwork loops are at the edge of their timeout again.** They are
+   already `test.slow()` (90 s) and were the two failures in the first full-suite run of this step,
+   at thirty navigations each against a dev server compiling routes on demand. They pass alone and
+   they pass in a warm full run. When `ILLUSTRATED` reaches eleven they will need splitting rather
+   than another timeout bump.
+
+### Deliberately not built
+
+- **No artwork.** Amberd is in `PENDING_ARTWORK` with a written commission and five recorded
+  refusals. No file was generated, registered, borrowed or renamed. **Resolved in §58**, which
+  registers `public/images/places/amberd-fortress.webp` and empties the list for the tenth time.
+- **No `Place`, `TouristAttraction`, `LandmarksOrHistoricalBuildings`, `GeoCoordinates`, `Castle` or
+  `Fortress` JSON-LD.** The generic `Article` + `BreadcrumbList` graph is unchanged, and the existing
+  test that forbids tourism types now runs over eleven places.
+- **No new place type**, no new marker type, no map allow-list, no component edit.
+- **No travel logistics**: no opening hours, ticket prices, road conditions, seasonal accessibility,
+  restaurants, hotels, tours, parking, best time to visit or driving directions. Those belong to a
+  future Travel Guide, and `places.spec.ts` already polices the vocabulary on the SEO surfaces.
+- **No Mount Aragats article.** Aragats appears only where it bears on Amberd — altitude, terrain,
+  building stone, snowmelt, strategic position. No summit routes, hikes, weather advice, skiing or
+  travel times. A Nature/Geography article can take the mountain itself.
+- **No Armenia bounding box** in `validate:content`; `geo.ts` still explains why there is none.
+- **No change to Visit curation**, and no reopening of the §53 decision.
+- **No deployment.** Nothing was pushed, built for production beyond the local `npm run build`
+  verification, or released. `.claude/settings.json` was not modified.
+
+## 58. Amberd artwork — the pending entry, cleared for the tenth time (August 2026)
+
+`public/images/places/amberd-fortress.webp` landed. One line entered `IMAGES`, one line left
+`PENDING_ARTWORK`, and the list is empty for the tenth time. Every consumer already asks
+`getImageSrc`, so that pair of lines lit up the hero in three editions, the listing card, the search
+thumbnail, the map's selected card, the Open Graph and Twitter tags, the JSON-LD `Article.image` and
+three sitemap `image:loc` entries at once. **No component changed.**
+
+This is the **first ruin in the registry** — every previous entry is a complete building, a living
+street or a landscape — and the first where the failure to guard against was a *monastery*, because
+the one photogenic whole building on the site is the church the article spends a section arguing is
+not the subject. The verification below is shaped by that.
+
+### The file, opened rather than assumed
+
+| Property | Value |
+| --- | --- |
+| Path | `public/images/places/amberd-fortress.webp` |
+| Dimensions | **1586 × 992** — the house size; the "not 1586×992" note still names Khor Virap's PNG, Garni and Gyumri |
+| Aspect | 1.599 (16:10) |
+| Bytes | **675,994** (660 KB) — third heaviest WebP, behind Erebuni (742 KB) and the Matenadaran (701 KB) |
+| SHA-256 | `dbcf7491eeaa45abf698cecc0a19c04c1d9aa1ba9771962ebc14147951d01884` |
+| Container | `RIFF`/`WEBP` with **three chunks**: `VP8X` (10 B, at offset 12) + `ICCP` (456 B, at 30) + `VP8 ` (675,492 B, at 494) |
+| VP8X flag byte | `0x20` — ICC **set**; alpha, EXIF, XMP and animation all **clear** |
+| Encoding | **Lossy**, one VP8 keyframe |
+| RIFF size field | 675,986 = file length − 8, consistent |
+| Chunk walk | ends at byte **675,994 — exactly EOF**, no trailing bytes, no padding mismatch |
+| Colour | sRGB, 3 channels, 8-bit, opaque (`isOpaque: true`) |
+| ICC | **present** — 456-byte `mntr`/`RGB `/`XYZ ` monitor profile; the fourth ICC-bearing entry after Erebuni, the Matenadaran and Gyumri |
+| Alpha / EXIF / XMP | **none** — the VP8X flags forbid them, and `sharp` agrees |
+| Orientation | none |
+| Channel means / entropy | 98, 95, 87 · 7.574 |
+
+**Format was determined from the bytes, not the extension.** The RIFF chunk table was walked by hand
+with a byte-level parser and then cross-checked against `sharp` 0.34.5; the two agree on every field
+— dimensions, colour space, channel count, depth, alpha, ICC presence and ICC length. The same
+parser was run over all eleven Places assets as a control and correctly separated the four
+ICC-bearing files from the six plain `RIFF/VP8` ones and the single PNG, which is how "ICC is present
+here" is known to be a finding rather than a parser that always says yes.
+
+### Visual verification
+
+Inspected at full frame and then at native resolution in five zoomed regions (the tower group, the
+church, the lower-left outwork, the right-hand cliff, the background massif), plus a four-tile
+contact sheet covering the remaining quadrants and a contrast-boosted pass over the whole image.
+
+| Required reading | Result |
+| --- | --- |
+| Fortress/castle remains are the **primary subject** | **Yes.** A group of round, broken-topped towers occupies the right-of-centre third and the whole upper mass of the frame |
+| Substantial defensive masonry | **Yes.** Coursed dark blockwork, tower drums several storeys tall, a wall line running back along the spur |
+| Credible ruin state | **Yes.** Broken, uneven wall tops, collapsed sections, vegetation rooted in the rubble. No roof anywhere |
+| Vahramashen Church visible but **secondary** | **Yes.** Small, left of centre, on a lower terrace, perhaps a fortieth of the frame — and downhill and apart from the castle, which is where it actually stands |
+| Church does not turn it into a monastery cover | **Correct.** There is no enclosure of monastic buildings, no gavit, no courtyard, no khachkar field; the church stands alone below a ruined stronghold |
+| Highland plateau / spur geography | **Yes.** A triangular spur seen from slightly above, tawny treeless grassland rolling away on both sides |
+| Gorge or steep defensive drop understandable | **Yes, on both flanks.** A ravine falls away to the left below the church terrace, a dark cliff drops on the right directly beneath the towers, and the two converge below the point — the geometry the article's defensive argument rests on |
+| Plausibly Aragats highland terrain | **Yes.** A broad snow-patched volcanic shield behind, rounded ridges, treeless slopes, no forest |
+| Volcanic / dark Armenian stone plausible | **Yes.** Grey-black coursed masonry with ochre lichen; the cliff below shows blocky columnar fracture consistent with basalt |
+
+**And what it is not**, checked explicitly: not Tatev (no complete monastery, no enclosure of living
+buildings); not Geghard (no rock-cut chambers, no cliff-backed courtyard); not Garni (no peristyle,
+no podium, no classical order); not Erebuni (no excavated foundation grid, no plain, no suburb); not
+a European castle (no keep, no bailey, no moat, no gatehouse, no crenellation, no curtain-and-corner
+plan); not a monastery of any kind; not an alpine fantasy fortress (the relief is a volcanic shield
+with rounded ridges, not rock spires, and the towers are squat rather than soaring); not an
+archaeological foundation field (the walls stand at height).
+
+### Unsupported-claim audit
+
+The article's discipline is that most of Amberd's chronology is attribution rather than evidence. A
+picture can assert what prose withholds, so each withheld claim was checked as an absence.
+
+| Claim the article keeps open or refuses | In the frame? |
+| --- | --- |
+| Reconstructed pristine castle | **No.** Roofless, broken-topped, partly collapsed |
+| Dramatic medieval siege | **No.** No figures at all |
+| Seljuk army | **No** |
+| Mongol army | **No** |
+| Earthquake destruction scene | **No.** A ruin, not a ruining |
+| Burning structures | **No.** No smoke, no fire, no scorching |
+| Secret tunnel | **No.** No tunnel mouth, no opening in the rock |
+| Exposed giant pipeline | **No.** No hydraulic infrastructure visible anywhere |
+| Roman-bath reconstruction | **No.** The bathhouse is not depicted as a standing building |
+| UNESCO branding | **No.** No badge, no plaque, no emblem |
+| Named figures as documented occupants | **No.** No people in the frame |
+| Invented inscription or date | **No.** No lettering on any surface, church included |
+
+The distinction the brief drew — *a ruined fortress is correct, a scene explaining why it became
+ruined is not* — is respected: the image shows the outcome and proposes no cause.
+
+### Text and signage audit
+
+There is **no signage, plaque, visitor board, banner, flag, vehicle, poster or garment in the frame
+at all**, which removes most of the surfaces this audit normally examines. The two that remain were
+inspected at native resolution: the church's walls, drum and portal carry **no inscription and no
+ornament that could be read as one**, and the tower masonry carries no mark. A contrast-boosted,
+normalised pass over the whole image was run specifically to surface faint marks and found **no
+watermark, signature or logo in any corner**.
+
+Nothing was retouched, because nothing needed to be. This is the first Places asset since Lake Sevan
+to come through the text audit with zero findings — Gyumri's two tiny unreadable marks are still the
+only ones on record.
+
+### Crop suitability
+
+Ratios were **measured in the browser** rather than inferred from the Tailwind classes, at 1440×900
+and 393×851.
+
+| Surface | Ratio | Crop from 1586×992 | Trim | Fortress? | Church? | Terrain? |
+| --- | --- | --- | --- | --- | --- | --- |
+| Compact card / mobile hero (`aspect-[4/3]`, measured 1.336) | 1.333 | 1323 × 992 | 132 px each side, **16.6 % of width** | Yes, dominant | **Yes**, near the left edge | Both drops, massif |
+| Tablet hero (`sm:aspect-[3/2]`) | 1.5 | 1488 × 992 | 49 px each side, **6.2 %** | Yes | Yes | Yes |
+| Listing card / desktop hero / map selected card (`aspect-[16/9]`, measured 1.778 and 1.780) | 1.778 | 1586 × 892 | 50 px top and bottom, **10.1 % of height** | Yes, dominant | Yes | Yes; loses some sky and some foreground path |
+| Featured / category (`aspect-[16/10]`) | 1.6 | 1586 × 991 | 1 px, **0.2 %** | Whole image | Yes | Yes |
+| **Search thumbnail** (measured **160 × 200 px**, ratio **0.801**) | 0.801 | 794 × 992 | 396 px each side, **49.9 % of width** | **Yes, dominant** | **No — cut out entirely** | Spur, path and massif survive |
+
+The narrow search crop is the one finding. It does **not** become a church, a wall detail or a grass
+field — the failure modes the brief named — it becomes a fortress-only crop, which is the right half
+to keep, since the fortress is the subject and the church is not. Below the `sm` breakpoint that
+column is hidden outright, so there is no narrower live case.
+
+**No `object-position` and no Amberd-specific crop logic were added.** The default centre crop is
+degraded rather than unusable, this registry has no per-image focus mechanism for scenes, and the
+concern is recorded against the `IMAGES` entry instead — the same disposition Gyumri got in §52.
+
+### Three observations, recorded rather than corrected
+
+1. **The towers read as solid drums.** No doorway, window, arrow slit or embrasure is legible
+   anywhere in the wall circuit. The frame therefore shows the *mass* of the defences and not how
+   they were used. A stylisation rather than an error, but the one place where the picture is less
+   informative than the section it heads.
+2. **The background massif is a single broad cone**, where Aragats is four summits around a breached
+   crater. Right in kind — a volcanic shield with lingering snow, not an alpine peak — and generic in
+   silhouette. It at least cannot be mistaken for Ararat, which is the confusion that would have
+   mattered.
+3. **A pale gabled fragment stands immediately right of the church**, in lighter stone, roofless,
+   with two openings. It reads as a ruined annex; its relationship to the church is not
+   architecturally legible. At every live crop it is a detail rather than a subject.
+
+None of the three was fixed by editing the asset, on the rule this registry has followed since §30:
+files are registered exactly as delivered, unaltered, unoptimised and unrenamed.
+
+### Provenance
+
+`isGeneratedArtwork(article)` takes `Pick<ArticleSummary, "slug" | "image">` and returns
+`!article.image && getImageSrc(article.slug) !== undefined` — signature verified against the current
+source rather than assumed. Amberd's `Article` declares no `image`, and the slug is now in `IMAGES`,
+so it returns **`true`** and the page takes the AI-illustration caption. Asserted in **all three
+editions**: the WebP renders, the AI-generated disclosure appears, the placeholder disclosure is
+gone, and the placeholder `<svg>` is gone. `ARTWORK_PROVENANCE` was **not modified**.
+
+The file is a **rendered illustration**, not photographic in register — closer to Lake Sevan and
+Etchmiadzin than to Geghard, Tatev, Dilijan or Gyumri. It therefore does **not** join the
+photographic-register debt, which stays about those four.
+
+### Pending-artwork removal
+
+`PENDING_ARTWORK` is `[]` for the tenth time, emptied after each of the ten times it has filled:
+§31→§32, §33→§34, §35→§36, §37→§38, §39→§40, §41→§42, §47→§48, §49→§50, §51→§52, §57→§58. The §57
+refusal record — Tatev, Ani, Erebuni, Geghard, Garni, plus the four refused in advance — is **kept
+rather than deleted**, on the same principle as every list before it: the failure it guards against
+is the cover being repointed at a plausible neighbour later, and that outlives the file landing.
+
+`validate:content` no longer emits the pending-artwork note. The Places listing renders **zero**
+placeholders. `IMAGES` and `PENDING_ARTWORK` are mutually exclusive, checked in both directions and
+across every category, not just Places.
+
+### Article, listing, search and social surfaces
+
+| Surface | Before §58 | After §58 |
+| --- | --- | --- |
+| Article hero, `en` / `hy` / `hyw` | placeholder `<svg>` + placeholder caption | `amberd-fortress.webp` + AI-illustration caption |
+| Listing card | placeholder | own WebP; listing placeholder count 1 → **0** |
+| Search result thumbnail | placeholder | own WebP, scoped by `/en/places/amberd-fortress` |
+| `og:image` / `twitter:image` | `/og-default.png` | own WebP, and asserted **not** to fall back |
+| JSON-LD `Article.image` | absent | own WebP |
+| Sitemap, all three locale routes | no `image:loc` | one `image:loc` each, checked **route by route** |
+| Map selected card | no image | own WebP, no placeholder |
+
+The JSON-LD graph shape is unchanged: `Article` + `BreadcrumbList`. **No `Place`,
+`TouristAttraction`, `Castle`, `Fortress`, `LandmarksOrHistoricalBuildings` or `GeoCoordinates` node
+was added**, and the test now names all six by name for this article. Registration adds an `image`
+property to an existing node and nothing else.
+
+### Map
+
+`src/lib/visit-map.ts`, `src/components/visit/VisitMap.tsx` and `src/lib/map-tiles.ts` are
+**byte-identical**. The map still derives from `Places ∩ PLACE_COORDINATES`; there are still eleven
+markers; Amberd still carries `data-place-type="historical"` and there are still exactly three
+markers with that type; the accessible name is still `title — localized type` in all three editions;
+the CTA still points at `/{locale}/places/amberd-fortress`; the coordinate is unchanged at
+`40.3885, 44.2263`; the derived bounds are unchanged. The `else` branch in the every-place selection
+loop — the one that asserts an unillustrated place shows *no* image — was kept rather than deleted
+for the fourth time; Place #12 will need it.
+
+**Known overlaps are unchanged and were not touched:** `erebuni-fortress` / `matenadaran` and
+`garni-temple` / `geghard-monastery`. No clustering, spiderfying, nudging or viewport change was
+implemented; no Amberd-specific displacement exists.
+
+### Taxonomy and curation
+
+Unchanged by this step, and re-asserted: All 11, Monastery 4, **Historical 3**, Museum 1, Nature 2,
+Settlement 1; `historical` is exactly Erebuni, Garni, Amberd; no new type; Khor Virap remains the
+sole `featured: true` Place.
+
+The Visit row is still the reviewed six — `khor-virap`, `gyumri`, `lake-sevan`, `garni-temple`,
+`dilijan-national-park`, `tatev-monastery` — in the §53 order. **Amberd is still absent from it**,
+and artwork completion did not trigger curation: curated row 6, map 11, Places listing 11.
+
+### Content preserved
+
+No article content changed. The geography, the elevation discrepancy, the Kamsarakan evidence, the
+tenth-century/seventh-century distinction, the Pahlavuni wording, the Vahram patronage distinction,
+the 1026 inscription, the architecture, the water-system and bathhouse wording, the Seljuk and Mongol
+chronologies, the earthquake restraint, the excavation and restoration chronology, the sources, the
+coordinate, `relatedSlugs`, the `SectionLink`, the SEO fields, the three translations and the
+numerical parity are all untouched. No content cleanup was performed during artwork registration.
+
+### Tests changed
+
+`tests/e2e/places.spec.ts` — 67 tests (was 66):
+
+- `AMBERD` added to `ILLUSTRATED` and to `ARTWORK`; the three lists (`PLACES`, `ILLUSTRATED`,
+  `ARTWORK`) are **kept separate**, and the comments now record that they have coincided ten times
+  and split again after nine of them. Place #12 will separate them for the eleventh.
+- *"Amberd renders the generated placeholder and says so, in every edition"* → **"Amberd renders its
+  own file and is captioned as an illustration"**: all four assertions inverted, in all three
+  editions, plus `getImageSrc` resolving and the slug no longer pending.
+- *"Amberd borrows no other article's artwork, on the page or in its metadata"* → **"…and advertises
+  its own"**: the seven refused files are still asserted absent from the hero, the head and the
+  structured data; `Article.image`, `og:image` and `twitter:image` inverted from absent/fallback to
+  the file; six speculative JSON-LD types asserted absent. Still scoped to the four surfaces
+  `getImageSrc` reaches, with the `getRelatedArticles` reasoning written into the test.
+- **New:** *"Amberd's search card carries its own thumbnail and no placeholder"* — scoped by the
+  canonical href, asserting the file, no placeholder, and no other registered place's file inside the
+  card.
+- Sitemap: Amberd's three route blocks inverted from *no `image:loc`* to *its own `image:loc`*,
+  checked route by route, with four borrowed filenames asserted absent.
+- *"exactly one place is waiting for artwork, and the other ten resolve"* → **"no place is waiting for
+  artwork, and all eleven resolve"**; the derived `PLACES − ILLUSTRATED` assertion needed no edit for
+  the sixth time, and an explicit `toHaveLength(0)` was added.
+- The listing placeholder count is derived and flipped 1 → 0 automatically; the per-card
+  `href → exact file` loop now covers all eleven, so two swapped covers still fail.
+
+`tests/e2e/visit-map.spec.ts` — 30 tests: the selected-panel assertion in *"the historical marker took
+no new glyph, and its type is localized"* inverted from *no image* to *its own file*, keeping the four
+borrowed-file checks and adding a no-placeholder assertion.
+
+`tests/e2e/visit.spec.ts` — unchanged. Amberd is still in `NOT_CURATED`.
+
+**No assertion was weakened, no locale coverage removed, no retries added, and no exact-image
+assertion loosened.** The two `LOCALES × ILLUSTRATED` loops moved from 30 navigations to **33** and
+were **not** refactored: they passed, so §20's condition for the smallest test-only structural change
+never triggered. The comment recording the growth was updated, and the debt entry stands.
+
+### Commands run, in the prescribed order
+
+```
+1.  port 3002 confirmed clear (netstat, no LISTENING socket)
+2.  rm -rf .next            (after confirming no dev server)
+3.  npm run typecheck                                  PASS
+4.  npm run validate:content                           PASS — 132 entries, no pending note
+5.  npx playwright test tests/e2e/places.spec.ts       67 passed (4.1m)
+6.  npx playwright test tests/e2e/visit-map.spec.ts    30 passed (1.4m)
+7.  npx playwright test tests/e2e/visit.spec.ts        24 passed (1.9m)
+8.  npx playwright test  (full, run 1)                 1 failed, 268 passed, 5 skipped (10.1m)
+    npx playwright test tests/e2e/article.spec.ts      15 passed (28.4s) — the failure, alone
+    npx playwright test  (full, run 2)                 269 passed, 5 skipped (8.7m) — clean
+9.  npm run build                                      PASS — 141 pages in 11.7s
+```
+
+No two Playwright suites overlapped, and Playwright and `npm run build` never ran concurrently.
+`.next` was removed only with the port confirmed clear.
+
+### Results, including every failure
+
+All three focused suites passed **first time**, which is the first step in several where the
+cold-route wave did not appear at all — `.next` was rebuilt once by the places run and stayed warm.
+
+One failure occurred, in the first full suite:
+
+**`article.spec.ts › previous and next follow the chronology, not the authored order` — 1 failed, 268
+passed, 5 skipped (10.1m).** The Armenian *Նախորդը* pager link was not found within 10 s on a history
+article. It is unrelated to this step — no places file, no artwork, no map — and it is the known
+Turbopack cold-route signature: a route compiling under parallel load while an assertion waits on
+rendered output. Re-run alone, `article.spec.ts` passed **15/15 in 28.4 s**. No assertion was
+weakened and nothing was retried in place; the full suite was then run again from end to end and
+came back **269 passed, 5 skipped, 0 failed (8.7m)**.
+
+Totals moved: **268 → 269 passing tests** (one new: Amberd's search card). Content entries stay at
+132 and prerendered pages at 141 — registering artwork adds no entry and no route. `npm run build`
+passed, 141/141 pages in 11.7 s.
+
+The `/visit` LCP eager-loading warning fired again during these runs, on `gyumri.webp`. Existing
+debt, unchanged.
+
+No host memory pressure occurred during this step.
+
+### Confirmations
+
+| | |
+| --- | --- |
+| Asset | registered exactly as delivered — not generated, edited, cropped, resized, recoloured, renamed, optimised or replaced |
+| `PENDING_ARTWORK` | **empty** |
+| Places illustrated | **11 of 11** |
+| Listing placeholders | **0** |
+| `ARTWORK_PROVENANCE` | not modified |
+| Article content | not modified |
+| Visit curated row | **6**, unchanged, Amberd still absent |
+| Map | **11** markers, unchanged coordinate, unchanged bounds, unchanged overlaps |
+| Taxonomy | 11 / 4 / 3 / 1 / 2 / 1 — unchanged |
+| Structured data | generic `Article` + `BreadcrumbList`; no tourism, castle or geo types |
+| Components | `visit-map.ts`, `VisitMap.tsx`, `map-tiles.ts` byte-identical |
+| `.claude/settings.json` | not modified |
+| Deployment | **none** |
+
+### Technical debt — carried forward, not fixed
+
+Everything below was already open and is deliberately left open. Nothing on this list was
+opportunistically fixed during a registration step:
+
+- bibliography React key uses `source.title` (`ArticleLayout`);
+- marker overlap at the initial extent — Erebuni/Matenadaran, Garni/Geghard;
+- Turbopack/cold-route flake in the full Playwright suite (**it fired once in this step**, on
+  `article.spec.ts`);
+- host memory pressure during long Playwright runs;
+- photographic-register concerns for Geghard, Tatev, Dilijan and Gyumri artwork — **Amberd does not
+  join them**, it is a rendered illustration;
+- Gyumri narrow-search-thumbnail crop — **Amberd's is now the second entry with this finding**, at
+  49.9 per cent trimmed against Gyumri's 52.8;
+- Gyumri `1584×993` dimension drift;
+- Matenadaran façade colour;
+- Garni stone warmth;
+- Garni `1448×1086` dimensions;
+- Khor Virap PNG weight;
+- Erebuni / Matenadaran / Gyumri artwork file weight — **`amberd-fortress.webp` joins this at
+  660 KB**, third heaviest WebP in the registry;
+- global media optimisation;
+- Cuisine hydration flake;
+- one-directional `relatedSlugs`;
+- same-category related-article filler behaviour (§57);
+- Western Armenian native-review backlog (§15), Amberd included;
+- the Bresson/Fagan issue;
+- the Wilkinson source not directly read, and the Tokarskij/Alpago-Novello monograph likewise;
+- Kazaryan cited from abstract and Crossref record only;
+- the Hovannisian volume-set ISBN issue;
+- the Armstat Gyumri table caveat;
+- scratchpad harness locations (`scratchpad/check.ts`, `scratchpad/dilcheck.ts`);
+- weak homepage hero-path assertion;
+- no central environment module;
+- Stadia production/domain authorization;
+- raster tile label-language limitation;
+- privacy-page provider disclosure;
+- no museum or Yerevan card in the Visit row;
+- alphabet Learn-card anchor gap;
+- Khor Virap / Garni warm-palette observation;
+- `/visit` LCP eager-loading warning (**fired again**, on `gyumri.webp`);
+- the two `LOCALES × ILLUSTRATED` artwork loops nearing their 90 s timeout — **now at 33 navigations
+  each**. They passed in this step, so §20's condition for splitting them was not met and they were
+  left alone. The next place written ahead of its picture takes them to 36.
+
+### Deliberately not done
+
+- **No change to the asset.** Not generated, edited, cropped, resized, recoloured, renamed,
+  optimised or replaced.
+- **No fortress-specific or Amberd-specific media logic**, no new article image fields, no new
+  provenance structure, no new routing, no duplicate image configuration. One line in `IMAGES`, one
+  line out of `PENDING_ARTWORK`.
+- **No `object-position`** and no per-image focus mechanism, despite the narrow-thumbnail finding.
+- **No component change** to the map, the cards or the article layout.
+- **No curation change.** Artwork completion is not an editorial promotion.
+- **No overlap fix**, no clustering, no spiderfying, no marker nudging, no viewport change.
+- **No deployment.** Nothing pushed, released, or built for production beyond the local
+  `npm run build` verification. `.claude/settings.json` was not modified.
