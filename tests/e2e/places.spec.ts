@@ -204,13 +204,22 @@ const AMBERD = "amberd-fortress";
  * its artwork and rendered the generated placeholder; every placeholder assertion §59
  * wrote for it is inverted below.
  *
- * §60 is the one registration in the section that is **not** a match between file and
- * article, and the tests say so rather than smoothing it over. The delivered file is
- * the Jermuk waterfall with no built fabric in it, registered by explicit decision
- * against the commission in `media.ts`, which had refused a waterfall-only cover in
- * advance. Nothing here asserts that the picture is *right*; what is asserted is that
- * it is Jermuk's own file, on every surface, borrowed from nobody — which is the only
- * part of the question a test can settle.
+ * §60 registered a file that did **not** match the article — the Jermuk waterfall,
+ * with no built fabric in it — by explicit decision and against the commission in
+ * `media.ts`, which had refused a waterfall-only cover in advance. **§61 replaced it**
+ * at the same path with an aerial view of the town itself: the settlement on both
+ * rims of the Arpa gorge, mid-century public architecture in parkland, a colonnaded
+ * mineral-water pavilion, and no waterfall as the subject. That debt is closed.
+ *
+ * The episode left one lesson in this file, and it is why the paragraph above is kept
+ * rather than deleted. **The swap changed nothing any test could see.** `PLACES`,
+ * `ILLUSTRATED` and `ARTWORK` were already correct, the path never moved, and the
+ * whole suite passed identically before and after — a rejected cover and its
+ * replacement are indistinguishable to assertions written about filenames. What these
+ * tests can settle is ownership: that this article's own file reaches every surface
+ * and that no neighbour's file ever does. Whether the picture is the *right* picture
+ * is settled by looking at it, and the record of having looked lives in `media.ts` and
+ * PROJECT_STATE.md, keyed by SHA-256.
  *
  * Like Amberd it stretches the map in no direction: Tatev is still the southernmost
  * and easternmost marker and Gyumri still the northernmost and westernmost, so the
@@ -218,6 +227,33 @@ const AMBERD = "amberd-fortress";
  * registry is Lake Sevan, 67 km away, which is why it introduces no new overlap.
  */
 const JERMUK = "jermuk";
+
+/**
+ * Haghpat Monastery — §64, Place #13, and the first article in the archive about
+ * anywhere in Lori.
+ *
+ * It closes the one completely unrepresented province the §62 audit found. That
+ * matters more than a marker count: Lori holds Haghpat and Sanahin, one of
+ * Armenia's three World Heritage properties, and three articles in this section
+ * already tell readers that Armenia has three while covering only two of them.
+ *
+ * It is the fifth `monastery`, which is the largest the pill has ever been and the
+ * reason the artwork refusals in `media.ts` name all four of the others. It is
+ * also the northernmost point in the coordinate registry — the first place since
+ * §51 to move a derived map bound rather than sit inside the existing frame.
+ *
+ * It splits `PLACES` from `ILLUSTRATED` for the twelfth time. It ships ahead of its
+ * artwork and renders the generated placeholder, so every placeholder assertion
+ * below names it and every artwork assertion excludes it.
+ *
+ * The two failures this article is most exposed to are both about conflation, and
+ * both are asserted below rather than trusted. Its World Heritage property contains
+ * Sanahin as well, so any sentence claiming the site alone is inscribed is wrong —
+ * except for the four years between 1996 and 2000, when it actually was. And its
+ * foundation date is genuinely disputed between two UNESCO-family documents and the
+ * specialist survey, so a single confident "founded in" would be a fabrication.
+ */
+const HAGHPAT = "haghpat-monastery";
 
 /** All twelve places, for the assertions that must hold of every article in the section. */
 const PLACES = [
@@ -233,6 +269,7 @@ const PLACES = [
   GYUMRI,
   AMBERD,
   JERMUK,
+  HAGHPAT,
 ] as const;
 
 /**
@@ -343,7 +380,7 @@ for (const locale of LOCALES) {
     await expect(
       page.getByRole("heading", { name: dict.listing.places.title, level: 1 }),
     ).toBeVisible();
-    await expect(cards(page)).toHaveCount(12);
+    await expect(cards(page)).toHaveCount(13);
 
     // All twelve places open in this edition, under their own titles. The loop is
     // what catches an article authored in `hy` and forgotten in the other two —
@@ -387,26 +424,28 @@ test("the Armenian editions never fall back to the English place title", async (
 
 test("the places listing filters by kind of site, and keeps it in the URL", async ({ page }) => {
   await page.goto("/en/places");
-  await expect(cards(page)).toHaveCount(12);
+  await expect(cards(page)).toHaveCount(13);
 
   await page.getByRole("button", { name: placeTypeLabel("en", "monastery") }).click();
 
-  // Four of the ten places are monasteries and churches, so the filter genuinely
-  // narrows. With ten articles and six pills, a filter that quietly matched
-  // everything would no longer look like a plausible count. The count held at two
-  // across §39, because Garni is `historical` and a temple is not a monastery; §41
-  // moved it to three with Geghard, and §47 moves it to four with Tatev. §51 adds a
-  // place and leaves this count alone, which is the thing worth checking: a city is
-  // not a monastery however many churches the article names. §57 is the same check
-  // again and a sharper one — Amberd's article names a church, describes it at
-  // length and calls it by its dedication, and Amberd is not a monastery either.
-  await expect(cards(page)).toHaveCount(4);
-  for (const slug of [SLUG, ETCHMIADZIN, GEGHARD, TATEV]) {
+  // Five of the thirteen places are monasteries and churches, so the filter
+  // genuinely narrows. The count held at two across §39, because Garni is
+  // `historical` and a temple is not a monastery; §41 moved it to three with
+  // Geghard, and §47 to four with Tatev. §51 and §59 each added a place and left
+  // this count alone, which is the thing worth checking: a city and a spa town are
+  // not monasteries however many churches their articles name. §57 was the sharper
+  // version — Amberd's article names a church, describes it at length and calls it
+  // by its dedication, and Amberd is not a monastery either.
+  //
+  // §64 moves it to five, which is the largest this pill has ever been and the
+  // reason the artwork refusals in `media.ts` name all four of the others.
+  await expect(cards(page)).toHaveCount(5);
+  for (const slug of [SLUG, ETCHMIADZIN, GEGHARD, TATEV, HAGHPAT]) {
     await expect(
       page.getByRole("link", { name: articleTitle("en", slug) }).first(),
     ).toBeVisible();
   }
-  for (const slug of [EREBUNI, MATENADARAN, SEVAN, GARNI, GYUMRI, AMBERD]) {
+  for (const slug of [EREBUNI, MATENADARAN, SEVAN, GARNI, GYUMRI, AMBERD, JERMUK]) {
     await expect(page.getByRole("link", { name: articleTitle("en", slug) })).toHaveCount(0);
   }
   await expect(page).toHaveURL(/[?&]type=monastery/);
@@ -462,9 +501,9 @@ test("each single-article filter returns exactly its own article", async ({ page
     }
     await expect(page).toHaveURL(new RegExp(`[?&]type=${type}`));
 
-    // Clearing returns all twelve, so the pill filters rather than replaces the set.
+    // Clearing returns all thirteen, so the pill filters rather than replaces the set.
     await page.getByRole("button", { name: placeTypeLabel("en", "all") }).click();
-    await expect(cards(page), type).toHaveCount(12);
+    await expect(cards(page), type).toHaveCount(13);
   }
 });
 
@@ -509,7 +548,7 @@ test("the historical filter returns exactly Erebuni, Garni and Amberd", async ({
   await expect(page).toHaveURL(/[?&]type=historical/);
 
   await page.getByRole("button", { name: placeTypeLabel("en", "all") }).click();
-  await expect(cards(page)).toHaveCount(12);
+  await expect(cards(page)).toHaveCount(13);
 });
 
 test("the nature filter returns exactly Lake Sevan and Dilijan National Park", async ({ page }) => {
@@ -546,7 +585,7 @@ test("the nature filter returns exactly Lake Sevan and Dilijan National Park", a
   await expect(page).toHaveURL(/[?&]type=nature/);
 
   await page.getByRole("button", { name: placeTypeLabel("en", "all") }).click();
-  await expect(cards(page)).toHaveCount(12);
+  await expect(cards(page)).toHaveCount(13);
 });
 
 test("the settlement filter returns exactly Gyumri and Jermuk", async ({ page }) => {
@@ -586,7 +625,7 @@ test("the settlement filter returns exactly Gyumri and Jermuk", async ({ page })
   await expect(page).toHaveURL(/[?&]type=settlement/);
 
   await page.getByRole("button", { name: placeTypeLabel("en", "all") }).click();
-  await expect(cards(page)).toHaveCount(12);
+  await expect(cards(page)).toHaveCount(13);
 });
 
 test("the filter vocabulary is exactly the six ids, in every edition", () => {
@@ -674,21 +713,22 @@ test("the filter vocabulary is exactly the six ids, in every edition", () => {
   expect(under("historical")).toEqual([EREBUNI, GARNI, AMBERD].sort());
   expect(under("museum")).toEqual([MATENADARAN]);
   expect(under("nature")).toEqual([SEVAN, DILIJAN].sort());
-  expect(under("monastery")).toEqual([ETCHMIADZIN, GEGHARD, SLUG, TATEV].sort());
+  expect(under("monastery")).toEqual([ETCHMIADZIN, GEGHARD, SLUG, TATEV, HAGHPAT].sort());
   // §51 gave `settlement` its first member and §59 its second, which is what makes
   // this the third pill to stop being a singleton.
   expect(under("settlement")).toEqual([GYUMRI, JERMUK].sort());
 
-  // The whole distribution, pinned against the id count above — twelve places over
-  // six pills, with one holding four, one holding three, two holding two and one
-  // holding one. §59 moves exactly one number and introduces no id.
+  // The whole distribution, pinned against the id count above — thirteen places over
+  // six pills, with one holding five, one holding three, two holding two and one
+  // holding one. §64 moves exactly one number and introduces no id, which is what
+  // the audit at twelve places concluded should keep happening until about twenty.
   const byType = new Map<string, number>();
   for (const entry of bundle("hy").articles.filter((a) => a.category === "places")) {
     byType.set(entry.placeTypeId!, (byType.get(entry.placeTypeId!) ?? 0) + 1);
   }
   expect(Object.fromEntries([...byType].sort())).toEqual({
     historical: 3,
-    monastery: 4,
+    monastery: 5,
     museum: 1,
     nature: 2,
     settlement: 2,
@@ -1703,7 +1743,8 @@ test("the listing renders each registered place's own artwork, and no placeholde
   ).map(decodeURIComponent);
 
   // Every registered file appears: Khor Virap is the featured block *and* a card,
-  // and the other eleven are cards — twelve files across thirteen images as of §60.
+  // and the other eleven are cards — twelve files across thirteen images as of §64,
+  // with the thirteenth place carrying no file to look for.
   // The failure this catches is the one-line registration reaching some surfaces and
   // not others.
   for (const slug of ILLUSTRATED) {
@@ -1745,11 +1786,11 @@ test("the listing renders each registered place's own artwork, and no placeholde
   }
 
   /*
-    No placeholder, which is what §60 inverted again.
+    One placeholder, which is what §64 inverted again.
 
     This assertion has now inverted fifteen times (§37 one, §38 zero, §39 one, §40
     zero, §41 one, §42 zero, §47 one, §48 zero, §49 one, §50 zero, §51 one, §52
-    zero, §57 one, §58 zero, §59 one, §60 zero), which is the whole argument for pinning the count
+    zero, §57 one, §58 zero, §59 one, §60 zero, §64 one), which is the whole argument for pinning the count
     rather than asserting "at least one" or "none by inspection". The exact number is
     the only thing that distinguishes the intended state from a place that had
     quietly lost its registration, because neither shows on the rendered page. A
@@ -2944,10 +2985,10 @@ test("the sitemap carries every place's illustration for image search", async ({
   section currently contains neither: the list is empty and all twelve places
   resolve, which is the state §60 restored.
 */
-test("no place is waiting for artwork, and all twelve resolve", () => {
+test("exactly one place is waiting for artwork, and the other twelve resolve", () => {
   /*
-    Zero slugs — the state §60 restores for the eleventh time, and the exact inversion
-    of what §59 asserted here when Jermuk was the one name in the list.
+    One slug — the state §64 restores for the twelfth time, and the exact inversion
+    of what §60 asserted here when the list was empty.
 
     Asserting the whole array rather than a length check is deliberate: it fails on a
     stale entry left behind after a file lands, which is the half of the invariant no
@@ -2971,6 +3012,7 @@ test("no place is waiting for artwork, and all twelve resolve", () => {
   expect(getImageSrc(GYUMRI), "Gyumri's artwork must still resolve").toBe(ARTWORK[GYUMRI]);
   expect(getImageSrc(AMBERD), "Amberd's artwork must still resolve").toBe(ARTWORK[AMBERD]);
   expect(getImageSrc(JERMUK), "Jermuk's artwork must now resolve").toBe(ARTWORK[JERMUK]);
+  expect(getImageSrc(HAGHPAT), "Haghpat has none to resolve").toBeUndefined();
 
   for (const slug of ILLUSTRATED) {
     expect(getImageSrc(slug), `${slug} should resolve through the registry`).toBe(ARTWORK[slug]);
@@ -3556,14 +3598,26 @@ test("the coordinate registry holds one checked point per place", () => {
   */
   const lats = PLACES.map((slug) => registry[slug].lat);
   const lons = PLACES.map((slug) => registry[slug].lon);
-  expect(Math.max(...lats), "Gyumri is now the northernmost place").toBe(registry[GYUMRI].lat);
+  /*
+    §64 moves an extreme for the first time since §51. Haghpat is in Lori, further
+    north than Gyumri, so the northern edge of the derived box is now the monastery
+    rather than the city — the other three corners are unchanged. Recording which
+    edge moved and which did not is the whole value of pinning all four.
+  */
+  expect(Math.max(...lats), "Haghpat is now the northernmost place").toBe(registry[HAGHPAT].lat);
   expect(Math.min(...lats), "Tatev is still the southernmost place").toBe(registry[TATEV].lat);
-  expect(Math.min(...lons), "Gyumri is the westernmost place").toBe(registry[GYUMRI].lon);
+  expect(Math.min(...lons), "Gyumri is still the westernmost place").toBe(registry[GYUMRI].lon);
   expect(Math.max(...lons), "Tatev is still the easternmost place").toBe(registry[TATEV].lon);
   // Dilijan is no longer the northernmost, but it must still be north of everything
-  // that is not Gyumri — a check that the §49 point was not disturbed by §51.
+  // that is not Gyumri or Haghpat — a check that the §49 point was not disturbed by
+  // §51, and now not by §64 either. The exclusion list grows as the north fills in;
+  // what it protects is that Dilijan's own latitude never quietly drifts.
   expect(
-    Math.max(...PLACES.filter((slug) => slug !== GYUMRI).map((slug) => registry[slug].lat)),
+    Math.max(
+      ...PLACES.filter((slug) => slug !== GYUMRI && slug !== HAGHPAT).map(
+        (slug) => registry[slug].lat,
+      ),
+    ),
     "Dilijan is still the northernmost of the others",
   ).toBe(park.lat);
 
@@ -3645,6 +3699,418 @@ test("the coordinate registry holds one checked point per place", () => {
   expect(Math.min(...lats), "Jermuk is not the southernmost place").not.toBe(jermuk.lat);
   expect(Math.min(...lons), "Jermuk is not the westernmost place").not.toBe(jermuk.lon);
   expect(Math.max(...lons), "Jermuk is not the easternmost place").not.toBe(jermuk.lon);
+
+  /*
+    The monastic complex at Haghpat, from OSM way 186536991 — §64.
+
+    Two independent registers agree closely: the OSM way tagged `amenity=monastery`
+    computes to 41.093720 / 44.711774, and Wikidata Q2423898 gives 41.093716 /
+    44.712073 for the same subject, about 25 m away. Rounding to four decimals moves
+    the stored point roughly 3 m.
+
+    `site`, because the subject is one walled complex a couple of hundred metres
+    across. It is deliberately **not** the World Heritage property, which is serial
+    and includes Sanahin four kilometres away: no single coordinate can represent
+    two monasteries, and this registry stores the subject of the article rather than
+    the subject of the designation.
+  */
+  const haghpat = registry[HAGHPAT];
+  expect(haghpat, "Haghpat has a coordinate").toBeDefined();
+  expect(haghpat.precision, "the complex is a site").toBe("site");
+  expect(Math.hypot(haghpat.lat - 41.09372, haghpat.lon - 44.711774)).toBeLessThan(0.001);
+
+  /*
+    Not the village. This is the sharpest miss in the whole registry: Haghpat village
+    adjoins the monastery, carries the same name, and sits about 101 m away, so a
+    gazetteer lookup for "Haghpat" returns the settlement rather than the monument.
+    The tolerance below is tight for exactly that reason.
+  */
+  expect(
+    Math.hypot(haghpat.lat - 41.094419, haghpat.lon - 44.711056),
+    "the point should be the monastery, not Haghpat village",
+  ).toBeGreaterThan(0.0005);
+
+  // Not Kayanberd, the fortress of 1233 built to watch the approaches and discussed
+  // in this article, about 1.1 km west.
+  expect(
+    Math.hypot(haghpat.lat - 41.095124, haghpat.lon - 44.698809),
+    "the point should be the monastery, not Kayanberd",
+  ).toBeGreaterThan(0.008);
+
+  // And emphatically not Sanahin, 3.9 km away, which shares this monastery's World
+  // Heritage inscription and is the one substitution a reader could not catch.
+  expect(
+    Math.hypot(haghpat.lat - 41.087146, haghpat.lon - 44.666269),
+    "the point should be Haghpat, not Sanahin",
+  ).toBeGreaterThan(0.02);
+
+  /*
+    §64 is the first addition since §51 to move a derived bound: Haghpat is the
+    northernmost place in the registry, so the map's framing grows northward rather
+    than gaining a pin inside the existing box. Asserted, because §57 and §59 both
+    asserted the opposite and a reader of this file should see which is which.
+  */
+  expect(Math.max(...lats), "Haghpat is the northernmost place").toBe(haghpat.lat);
+  expect(Math.min(...lats), "Haghpat is not the southernmost place").not.toBe(haghpat.lat);
+  expect(Math.min(...lons), "Haghpat is not the westernmost place").not.toBe(haghpat.lon);
+  expect(Math.max(...lons), "Haghpat is not the easternmost place").not.toBe(haghpat.lon);
+});
+
+test("the thirteenth place is findable, and Lori is on the map at last", async ({ page }) => {
+  /*
+    §64. The queries that matter for this article are the province and the property,
+    not only the name — Lori is the gap this article closes, and a reader who arrives
+    from "World Heritage" should land here rather than nowhere.
+  */
+  const dict = ui("en");
+  await page.goto("/en/search?q=Haghpat");
+
+  const main = page.getByRole("main");
+  await expect(main.getByRole("heading", { name: dict.search.groupPlaces, level: 2 })).toBeVisible();
+  await expect(main.locator(`a[href="/en/places/${HAGHPAT}"]`).first()).toBeVisible();
+
+  for (const query of ["Lori", "Debed", "Surb Nshan"]) {
+    await page.goto(`/en/search?q=${encodeURIComponent(query)}`);
+    await expect(
+      page.getByRole("main").locator(`a[href="/en/places/${HAGHPAT}"]`).first(),
+      query,
+    ).toBeVisible();
+  }
+
+  for (const locale of ["hy", "hyw"] as const) {
+    await page.goto(`/${locale}/search?q=${encodeURIComponent("Հաղպատ")}`);
+    await expect(
+      page.getByRole("main").locator(`a[href="/${locale}/places/${HAGHPAT}"]`).first(),
+      locale,
+    ).toBeVisible();
+  }
+});
+
+test("Haghpat renders the generated placeholder and says so, in every edition", async ({ page }) => {
+  /*
+    §64, and the exact inversion of the four assertions §60 wrote for Jermuk.
+
+    The twelfth time this section has been in the split state. A place written ahead
+    of its picture must render the inline generated `<svg>` **and** be captioned as a
+    placeholder; a page that rendered the placeholder while claiming AI-illustration
+    provenance would assert a picture that was never made, and one that borrowed a
+    neighbour's file would look completely finished.
+  */
+  for (const locale of LOCALES) {
+    const dict = ui(locale);
+    await page.goto(`/${locale}/places/${HAGHPAT}`);
+
+    const figure = page.locator("header figure");
+    await expect(figure.locator("svg[role='img']"), `${locale} ${HAGHPAT}`).toHaveCount(1);
+    await expect(figure.locator("img"), `${locale} ${HAGHPAT}`).toHaveCount(0);
+
+    await expect(figure.locator("figcaption"), `${locale} ${HAGHPAT}`).toHaveText(
+      dict.article.imagePlaceholderCaption.replace("{title}", articleTitle(locale, HAGHPAT)),
+    );
+  }
+
+  expect(getImageSrc(HAGHPAT), "Haghpat has no registered file").toBeUndefined();
+  expect(PENDING_ARTWORK, "and is declared pending rather than silently bare").toContain(HAGHPAT);
+});
+
+test("Haghpat borrows no other monastery's artwork, on the page or in its metadata", async ({
+  page,
+}) => {
+  /*
+    The stronger half of §64, and the hardest borrowing case the section has had.
+
+    `monastery` now holds five articles and four of them have covers. Every one of
+    those four is a walled stone complex photographed from the air, and
+    `tatev-monastery` in particular is a walled grey-stone complex on a promontory
+    above a gorge — a description that fits Haghpat's shape exactly and Haghpat's
+    identity not at all. A borrowed cover here would look completely finished.
+
+    Scoped to the hero and the metadata rather than page-globally, because
+    `getRelatedArticles` legitimately renders Geghard's and Tatev's covers further
+    down: this article authors links to both.
+  */
+  await page.goto(`/en/places/${HAGHPAT}`);
+
+  await expect(page.locator("header figure img"), "no hero raster").toHaveCount(0);
+  await expect(page.locator("header figure svg[role='img']"), "the placeholder").toHaveCount(1);
+
+  const heroSources = (
+    await page
+      .locator("header img")
+      .evaluateAll((nodes) => nodes.map((node) => node.getAttribute("src") ?? ""))
+  ).map(decodeURIComponent);
+
+  for (const borrowed of [...Object.values(ARTWORK), "/hero-ararat.png"]) {
+    expect(
+      heroSources.some((src) => src.includes(borrowed)),
+      `${borrowed} must not illustrate ${HAGHPAT}`,
+    ).toBe(false);
+  }
+
+  const raw = await page.locator('script[type="application/ld+json"]').first().textContent();
+  const graph = (JSON.parse(raw ?? "") as { "@graph": { "@type"?: string; image?: unknown }[] })[
+    "@graph"
+  ];
+  const article = graph.find((entry) => entry["@type"] === "Article");
+  expect(article, "an Article node").toBeDefined();
+  expect(article!.image, "no Article.image while the artwork is pending").toBeUndefined();
+
+  // No schema type was invented for a World Heritage monastery, which is the §64
+  // version of a temptation this file has resisted since §41.
+  for (const speculative of [
+    "Place",
+    "TouristAttraction",
+    "TouristDestination",
+    "LandmarksOrHistoricalBuildings",
+    "Church",
+    "PlaceOfWorship",
+    "Monastery",
+    "GeoCoordinates",
+    "LocalBusiness",
+  ]) {
+    expect(raw, `${speculative} must not be introduced`).not.toContain(`"${speculative}"`);
+  }
+
+  for (const property of ['meta[property="og:image"]', 'meta[name="twitter:image"]']) {
+    const content = await page.locator(property).first().getAttribute("content");
+    expect(content, property).toContain("/og-default.png");
+  }
+});
+
+test("Haghpat states the World Heritage property accurately, and never claims it alone", async ({
+  page,
+}) => {
+  /*
+    §64, and the single most likely factual error in this article.
+
+    The property is serial: it contains Sanahin as well, and the correct name since
+    2000 is "Monasteries of Haghpat and Sanahin". The tempting shorthand — that
+    Haghpat is a World Heritage Site — is wrong now and was *right* between 1996 and
+    2000, which is exactly the kind of staged history that gets flattened. The
+    article has to hold both halves at once, and this asserts that it does.
+  */
+  for (const locale of LOCALES) {
+    await page.goto(`/${locale}/places/${HAGHPAT}`);
+    const body = (await page.locator("main").innerText()).replace(/\s+/g, " ");
+
+    // Both stages are present, in every edition.
+    expect(body, `${locale} names the 1996 inscription`).toContain("1996");
+    expect(body, `${locale} names the 2000 extension`).toContain("2000");
+    // And Sanahin is named, so the property is never presented as this site alone.
+    expect(body.toLowerCase(), `${locale} names Sanahin`).toMatch(/sanahin|սանահին/i);
+  }
+
+  // The English edition is checked for the wording itself rather than only the
+  // numbers: the combined property has to be stated, not implied.
+  await page.goto(`/en/places/${HAGHPAT}`);
+  const en = (await page.locator("main").innerText()).replace(/\s+/g, " ");
+  expect(en, "the combined property is named").toContain("Monasteries of Haghpat and Sanahin");
+  expect(en, "and the criteria are described rather than asserted as a slogan").toMatch(
+    /criteri/i,
+  );
+});
+
+test("Haghpat keeps its disputed dates disputed", async ({ page }) => {
+  /*
+    §64. Three of this article's dates are genuinely contested between the specialist
+    survey and the UNESCO documentation — the start of Surb Nshan, the century of the
+    gavit, and the date and the name of the book room. A later edit that "tidied" any
+    of them into a single confident figure would be a fabrication that reads as an
+    improvement, which is why the disagreement is pinned rather than the values.
+  */
+  await page.goto(`/en/places/${HAGHPAT}`);
+  const body = (await page.locator("main").innerText()).replace(/\s+/g, " ");
+
+  // Both candidate start dates survive, and so does the completion date that is firm.
+  for (const year of ["966", "976", "991"]) {
+    expect(body, `${year} must still appear`).toContain(year);
+  }
+  // Both candidate centuries for the gavit survive.
+  expect(body, "the survey's fourteenth-century dating of the gavit").toContain("1310");
+
+  // And the article says outright that it is not choosing.
+  expect(body.toLowerCase(), "the disagreement is stated, not resolved").toMatch(
+    /does not choose|disagree|not settled|unsettled/,
+  );
+});
+
+test("Haghpat is an educational article, not a visit guide", async ({ page }) => {
+  /*
+    §64. The standing restraint, checked for this article because a World Heritage
+    monastery is the single most likely subject in the section to attract opening
+    hours and a suggested itinerary.
+  */
+  for (const locale of LOCALES) {
+    await page.goto(`/${locale}/places/${HAGHPAT}`);
+    const body = (await page.locator("main").innerText()).toLowerCase();
+    for (const forbidden of [
+      "opening hours",
+      "ticket",
+      "entrance fee",
+      "book your",
+      "best time to visit",
+      "how to get there",
+      "tour operator",
+      "dress code",
+    ]) {
+      expect(body, `${locale} must not read as a guide: ${forbidden}`).not.toContain(forbidden);
+    }
+  }
+});
+
+test("one work carries one identifier across the whole bibliography", () => {
+  /*
+    §63, and the companion to the test below rather than a duplicate of it.
+
+    That one is scoped *within* one article, because two identically titled
+    citations only collide as React keys in a single rendered list. This one is
+    scoped across the registry, because the failure it catches is invisible inside
+    any single article: the same book entered twice, by two different steps, under
+    two different identifiers.
+
+    That is what the §62 audit found. Sanjian's *Colophons of Armenian Manuscripts*
+    was registered under `isbn:9780674142855` in the Matenadaran and
+    `doi:10.4159/harvard.9780674432635` in Geghard, the two titles differing only
+    by an en dash against a hyphen. Both identifiers are real and both resolve to
+    the same 1969 Harvard volume, so nothing false was asserted and every existing
+    check passed — the bibliography simply cited one book two ways.
+
+    The convention this pins is the one the registry already follows everywhere
+    else: a shared source repeats as an identical `Source` object in each article's
+    array — same author, title, publisher, year and identifier — and varies only in
+    `note`. Hewsen's atlas is the model, identical across seven articles.
+
+    `validate:content` now enforces this statically, which is where it belongs and
+    is the cheaper of the two. This is kept as well because it is the assertion a
+    reader of this file is looking for when they add a source that already exists.
+  */
+  const registry = getSourceRegistry();
+
+  const normalize = (text: string) =>
+    text
+      .toLowerCase()
+      .replace(/[‐-―−]/g, "-")
+      .replace(/[.,:;]+/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+
+  const identifiersByWork = new Map<string, Map<string, string[]>>();
+  for (const [slug, sources] of Object.entries(registry)) {
+    for (const source of sources) {
+      const work = `${normalize(source.author ?? "")} | ${normalize(source.title)}`;
+      const key = `${source.identifier.kind}:${source.identifier.value}`;
+      const ids = identifiersByWork.get(work) ?? new Map<string, string[]>();
+      ids.set(key, [...(ids.get(key) ?? []), slug]);
+      identifiersByWork.set(work, ids);
+    }
+  }
+
+  for (const [work, ids] of identifiersByWork) {
+    expect(
+      [...ids.keys()],
+      `${work.split(" | ")[1]} is registered under ${ids.size} identifiers`,
+    ).toHaveLength(1);
+  }
+});
+
+test("the Sanjian colophons volume is one record, cited by two articles", () => {
+  /*
+    §63 pins the specific reconciliation, because the general check above would
+    also pass if the duplicate were resolved by deleting one article's citation
+    instead of by making the two agree. Both articles genuinely use the work and
+    both must keep it.
+
+    The claims each supports are different and both survive: the Matenadaran cites
+    it for what a hishatakaran records, Geghard for the documentary evidence that
+    manuscripts were actually copied there — Ayrivank indexed at 1444, 1447, 1452,
+    1459 and 1476. That is why the notes differ and the bibliographic fields do
+    not.
+  */
+  const registry = getSourceRegistry();
+  const copies = Object.entries(registry).flatMap(([slug, sources]) =>
+    sources.filter((source) => /colophons of armenian manuscripts/i.test(source.title)).map((source) => ({ slug, source })),
+  );
+
+  expect(copies.map((c) => c.slug).sort(), "cited by exactly these two articles").toEqual([
+    "geghard-monastery",
+    "matenadaran",
+  ]);
+
+  for (const { slug, source } of copies) {
+    expect(source.author, slug).toBe("Avedis K. Sanjian");
+    expect(source.title, slug).toBe(
+      "Colophons of Armenian Manuscripts, 1301–1480: A Source for Middle Eastern History",
+    );
+    expect(source.publisher, slug).toBe("Harvard University Press, Harvard Armenian Texts and Studies 2");
+    expect(source.year, slug).toBe("1969");
+    expect(source.identifier, slug).toEqual({ kind: "isbn", value: "9780674142855" });
+    // The DOI is not lost — it is recorded in the note, which is the only field
+    // the schema leaves free and the only one that may differ between copies.
+    expect(source.note, slug).toContain("10.4159/harvard.9780674432635");
+  }
+
+  // And the two notes still say different things, because they support different
+  // claims. Collapsing them would be the other way to get this wrong.
+  expect(copies[0].source.note).not.toBe(copies[1].source.note);
+});
+
+test("Lake Sevan and Jermuk point at each other, and nothing else gained a link", () => {
+  /*
+    §63. The one reciprocal relationship the §62 audit judged earned, added in
+    both directions and in all three editions.
+
+    The basis is prose that already existed on both sides before this step. Lake
+    Sevan's "Bringing the water back" section describes the Arpa-Sevan tunnel
+    driven under the Vardenis range, in operation 1981; Jermuk's gorge section
+    describes Kechut, immediately below the town, as the intake of that same
+    tunnel and carries the only SectionLink in the article. Two articles already
+    describing the same structure from opposite ends is what an earned
+    relationship looks like, and it was the only pair in the section that met it.
+
+    `lake-sevan -> dilijan-national-park` was evaluated at the same time and
+    **refused**. Dilijan links to Sevan legitimately — its own prose has the
+    Areguni range falling towards the lake — but Lake Sevan's article names the
+    Areguni only once, in a list of the three ranges that close the basin, and
+    never mentions Dilijan, the national park or the forest at all. A shared
+    boundary named in passing is not a relationship, and adding it would have made
+    this a reciprocity policy rather than an editorial judgement.
+
+    The second assertion is the one that keeps this step honest: every other
+    article's `relatedSlugs` is unchanged, so this is two edges and not a sweep.
+  */
+  const EXPECTED_RELATIONS: Record<string, readonly string[]> = {
+    [SLUG]: ["adoption-of-christianity", "tigran-the-great"],
+    [ETCHMIADZIN]: ["adoption-of-christianity", "khor-virap", "battle-of-avarayr"],
+    [EREBUNI]: ["kingdom-of-urartu"],
+    [MATENADARAN]: ["mesrop-mashtots-armenian-alphabet", "etchmiadzin-cathedral", "adoption-of-christianity"],
+    [SEVAN]: ["kingdom-of-urartu", "bagratid-armenia", "jermuk"],
+    [GARNI]: ["adoption-of-christianity", "tigran-the-great", "erebuni-fortress"],
+    [GEGHARD]: ["garni-temple", "adoption-of-christianity", "etchmiadzin-cathedral"],
+    [TATEV]: ["geghard-monastery", "matenadaran", "bagratid-armenia"],
+    [DILIJAN]: ["lake-sevan"],
+    [GYUMRI]: ["avetik-isahakyan", "anush", "first-republic-of-armenia"],
+    [AMBERD]: ["bagratid-armenia"],
+    [JERMUK]: ["lake-sevan"],
+  };
+
+  for (const locale of LOCALES) {
+    const articles = bundle(locale).articles;
+    for (const [slug, expected] of Object.entries(EXPECTED_RELATIONS)) {
+      const article = articles.find((candidate) => candidate.slug === slug);
+      expect(article, `${locale} ${slug}`).toBeDefined();
+      // Order is asserted, not just membership: the authored order is the render
+      // order, and a reciprocal edge appended in one edition and prepended in
+      // another would be a silent divergence.
+      expect(article!.relatedSlugs, `${locale} ${slug}`).toEqual(expected);
+    }
+  }
+
+  // Dilijan's link to Sevan stays one-way, which is the refusal above stated as
+  // an assertion rather than only as a comment.
+  for (const locale of LOCALES) {
+    const sevan = bundle(locale).articles.find((a) => a.slug === SEVAN)!;
+    expect(sevan.relatedSlugs, `${locale} must not gain Dilijan`).not.toContain(DILIJAN);
+  }
 });
 
 test("no article's bibliography lists two sources under one title", () => {
@@ -3903,7 +4369,13 @@ test("every place's editorial fields are pinned, including the twelfth", () => {
         "adoption-of-christianity",
       ],
     },
-    [SEVAN]: { type: "nature", featured: false, related: ["kingdom-of-urartu", "bagratid-armenia"] },
+    // §63 appended `jermuk`, the section's first reciprocal edge — Sevan and
+    // Jermuk describe the two ends of the Arpa-Sevan tunnel.
+    [SEVAN]: {
+      type: "nature",
+      featured: false,
+      related: ["kingdom-of-urartu", "bagratid-armenia", "jermuk"],
+    },
     [GARNI]: {
       type: "historical",
       featured: false,
@@ -4016,6 +4488,15 @@ test("every place's editorial fields are pinned, including the twelfth", () => {
       dead recommendation.
     */
     [JERMUK]: { type: "settlement", featured: false, related: ["lake-sevan"] },
+    // §64. Three authored relations, which is the most any place has carried since
+    // §51 and is deliberate: the audit at twelve places found five articles taking
+    // generic filler, and the fix for a *new* article is to earn its own row rather
+    // than to change the fallback.
+    [HAGHPAT]: {
+      type: "monastery",
+      featured: false,
+      related: ["bagratid-armenia", "geghard-monastery", "tatev-monastery"],
+    },
     /*
       Keyed on `PLACES` rather than `ILLUSTRATED` from §47 onward.
 
@@ -4056,11 +4537,17 @@ test("every place's editorial fields are pinned, including the twelfth", () => {
         §47 is the first deliberate exception, and it is narrowed rather than
         dropped. Tatev links to Geghard because the Geghard article already names
         Tatev — "not in the class of Gladzor or Tatev" — so the connection is one
-        the archive asserted before this article existed. Every other place must
-        still not link to Geghard, which is what keeps this from becoming a general
-        licence to cross-link monasteries.
+        the archive asserted before this article existed.
+
+        §64 is the second, and it is earned on different ground: Haghpat links to
+        Geghard through the World Heritage chronology, which its own conservation
+        section has to set out anyway. Armenia has three properties, Haghpat and
+        Sanahin were the first inscribed and Geghard the second, and the two articles
+        describe the same list from opposite ends. It is emphatically *not* licensed
+        by both being monasteries — that is the reasoning this guard exists to
+        refuse, and every place other than these two must still not link to Geghard.
       */
-      if (slug !== TATEV) {
+      if (slug !== TATEV && slug !== HAGHPAT) {
         expect(article!.relatedSlugs, `${locale} ${slug} must not link to Geghard`).not.toContain(
           GEGHARD,
         );

@@ -379,6 +379,41 @@ export const PLACE_COORDINATES: Record<string, PlacePoint> = {
   // marker-derived bounds are unchanged by it. Its nearest neighbour here is Lake
   // Sevan, 67.5 km away.
   jermuk: { lat: 39.8388, lon: 45.6713, precision: "settlement" },
+
+  // The monastic complex at Haghpat, from OSM way 186536991 — §64.
+  //
+  // The way is tagged `amenity=monastery`, is named Haghpat Monastery, and sits in
+  // Lori marz; its computed centre is 41.093720 / 44.711774. Wikidata Q2423898
+  // gives 41.093716 / 44.712073 for the same subject, **25 m away**, which is close
+  // agreement between two independent registers and is what makes this point safe
+  // to store. Rounding the OSM centre to four decimals moves it about 3 m.
+  //
+  // `site`, not `area`: the thing named is one walled complex a couple of hundred
+  // metres across, not a district. It is also emphatically not the property that
+  // UNESCO inscribed, which is serial and contains Sanahin as well — a coordinate
+  // cannot represent two monasteries four kilometres apart, and this registry
+  // stores the subject of the article rather than the subject of the designation.
+  //
+  // Rejected, with distances from the stored point, because every one of them is a
+  // plausible mistake rather than a far-fetched one:
+  //
+  //   Haghpat village node 406352141              101 m   the sharpest miss. The
+  //     village adjoins the monastery and carries the same name, so a gazetteer
+  //     lookup for "Haghpat" returns the settlement, not the monument.
+  //   Kusanats Anapat church node 3279181429      443 m   a church of the same
+  //     village, outside the walls, and not part of the complex.
+  //   Kayan church node 4229665964               1.08 km
+  //   Kayanberd fortress node 4208774633         1.10 km  built in 1233 to watch
+  //     the approaches to Haghpat, discussed in the article, and not the monastery.
+  //   Zarni-Parni caves node 5670322129           0.69 km
+  //   Koshaberd fortress node 10586355925        3.99 km
+  //   Sanahin monastery way 549479405            3.88 km  the other half of the
+  //     World Heritage property and the substitution this note exists to refuse.
+  //
+  // Haghpat is the northernmost marker in the registry — the first to move the
+  // derived bounds since §51 — and its nearest neighbour is Dilijan National Park,
+  // about 74 km south.
+  "haghpat-monastery": { lat: 41.0937, lon: 44.7118, precision: "site" },
 };
 
 /** The recorded position for a place slug, or `undefined` when none is held. */

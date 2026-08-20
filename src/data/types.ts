@@ -518,6 +518,21 @@ export interface StaticPagesContent {
      * evidence that anyone is offline.
      */
     mapUnavailable: string;
+    /**
+     * Accessible name for a map marker that stands for several places at once.
+     *
+     * Carries a `{count}` placeholder and nothing else. It is deliberately not
+     * a list of the places inside — a screen-reader user panning the map would
+     * hear the same four titles announced again on every group they crossed,
+     * and the group is a way *through* to those places rather than a summary of
+     * them. There is no singular form because a group of one is never drawn as
+     * a group; it is drawn as the place.
+     *
+     * Spatial, never editorial: it must not name a city, a province or a
+     * region. What these places share is that they are close together on this
+     * screen at this zoom, which is not a fact about Armenia.
+     */
+    mapClusterLabel: string;
   };
 }
 

@@ -108,6 +108,18 @@ const NOT_CURATED = [
     writing an article. The row stays at six.
   */
   "jermuk",
+  /*
+    §64. Haghpat is not promoted, and this is the case where the argument for
+    promoting it is strongest and still wrong.
+
+    It is half of a World Heritage property, it is the archive's only article about
+    Lori, and the curated row carries nothing from the north beyond Gyumri. Every one
+    of those is a reason to *consider* recutting the row, and none of them is a
+    reason to do it as a side effect of writing an article. §53 reviewed six cards on
+    editorial grounds, the §62 audit re-examined that decision at twelve places and
+    found no reason to reopen it, and a curation step is where this belongs.
+  */
+  "haghpat-monastery",
 ] as const;
 
 const ORIGIN = "https://armat.site";
@@ -423,10 +435,10 @@ test("the curated row has the editorial shape §53 chose, and the map still has 
     real question, and the answer is that it is a question for a curation step.
   */
   await page.goto("/en/visit");
-  await expect(page.locator("[data-map-list] li"), "the map still shows all twelve").toHaveCount(
+  await expect(page.locator("[data-map-list] li"), "the map still shows all thirteen").toHaveCount(
     places.length,
   );
-  expect(places.length, "twelve places in the section").toBe(12);
+  expect(places.length, "thirteen places in the section").toBe(13);
 
   for (const article of places) {
     const link = page.locator(`[data-map-list-item="${article.slug}"]`);
@@ -940,14 +952,14 @@ test("every canonical route the journey links into still works", async ({ page }
   /*
     The listings themselves, and their counts, which a curation must not touch.
 
-    Places moves 7 → 8 in §47, 8 → 9 in §49, 9 → 10 in §51, 10 → 11 in §57 and
-    11 → 12 in §59. The number is edited rather than derived on purpose: the point of this assertion is
+    Places moves 7 → 8 in §47, 8 → 9 in §49, 9 → 10 in §51, 10 → 11 in §57,
+    11 → 12 in §59 and 12 → 13 in §64. The number is edited rather than derived on purpose: the point of this assertion is
     that adding a *curated row* to `/visit` does not change what the section
     listings contain, so it has to be a figure someone updates deliberately when the
     section genuinely grows.
   */
   for (const [path, count] of [
-    ["/en/places", 12],
+    ["/en/places", 13],
     ["/en/cuisine", 6],
     ["/en/history", 7],
   ] as const) {

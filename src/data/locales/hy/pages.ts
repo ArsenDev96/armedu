@@ -152,5 +152,6 @@ export const pages: StaticPagesContent = {
     mapCta: "Իմանալ այս վայրի մասին",
     mapFilterLabel: "Ցուցադրել վայրերն ըստ տեսակի",
     mapUnavailable: "Քարտեզը չհաջողվեց բեռնել։ Դրա բոլոր վայրերը թվարկված են ստորև։",
+    mapClusterLabel: "{count} վայր",
   },
 };

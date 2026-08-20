@@ -305,6 +305,7 @@ export default async function VisitPage({ params }: Params) {
             cta: visit.mapCta,
             filterLabel: visit.mapFilterLabel,
             unavailable: visit.mapUnavailable,
+            clusterLabel: visit.mapClusterLabel,
           }}
         />
       </Section>

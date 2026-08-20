@@ -1,6 +1,14 @@
 import { readFileSync } from "node:fs";
 import { expect, test } from "@playwright/test";
 import { getPlaceCoordinateRegistry } from "@/data/geo";
+import { ALL_FILTER_ID } from "@/data/types";
+import {
+  clusterByScreenDistance,
+  type ClusterInput,
+  MARKER_HALF_HEIGHT,
+  MARKER_HALF_WIDTH,
+  spreadOffsets,
+} from "@/lib/map-cluster";
 import { MAP_TILES, resolveMapTileConfig } from "@/lib/map-tiles";
 import { getImageSrc } from "@/lib/media";
 import { getVisitMapPoints } from "@/lib/visit-map";
@@ -118,6 +126,15 @@ const PLACES = [
     rather than an assumption it is allowed to make.
   */
   "jermuk",
+  /*
+    §64. Haghpat is the thirteenth marker and the first since §51 to move a derived
+    bound: it is the northernmost point in the registry, so the box the map frames
+    grows northward rather than gaining another pin inside the existing frame.
+
+    It is also the fifth `monastery`, which is the largest that glyph group has been.
+    No new glyph was added and none was needed.
+  */
+  "haghpat-monastery",
 ] as const;
 
 /**
@@ -139,6 +156,21 @@ const AREA_PLACES = ["lake-sevan", "dilijan-national-park"] as const;
  * to be added to a named list rather than to a boolean.
  */
 const SETTLEMENT_PLACES = ["gyumri", "jermuk"] as const;
+
+/**
+ * The five `monastery` markers, as of §64.
+ *
+ * Pinned as a list rather than counted, for the same reason `SETTLEMENT_PLACES` is:
+ * the glyph is shared, so a marker rendered with the wrong type would still draw and
+ * still be clickable, and only the membership shows it.
+ */
+const MONASTERY_PLACES = [
+  "khor-virap",
+  "etchmiadzin-cathedral",
+  "geghard-monastery",
+  "tatev-monastery",
+  "haghpat-monastery",
+] as const;
 
 const NOT_MAPPED = {
   cuisine: ["lavash", "dolma", "khorovats", "gata", "harissa", "ghapama"],
@@ -163,8 +195,109 @@ const mapSection = (page: import("@playwright/test").Page) => page.locator("[dat
 async function openMap(page: import("@playwright/test").Page) {
   await mapSection(page).scrollIntoViewIfNeeded();
   await expect(page.locator(".leaflet-container")).toHaveCount(1);
-  await expect(page.locator("[data-slug]").first()).toBeVisible();
+  // Either kind of thing counts as the map having drawn — §65 means the first
+  // element on it may be a group rather than a place.
+  await expect(page.locator("[data-slug], [data-cluster]").first()).toBeVisible();
 }
+
+/**
+ * Bring one place's own marker onto the map, the way a reader reaches it — §65.
+ *
+ * Before §65 every place had a marker from the first frame, six of them piled on
+ * top of each other, and two could not be clicked at all. Now the map draws seven
+ * markers and two groups at the initial extent, and the six places inside those
+ * groups are reached by opening the group they are in. That is the interaction
+ * this helper performs and that most of the tests below depend on: it is not a
+ * convenience, it *is* the behaviour under test, which is why it asserts at every
+ * step rather than polling until something appears.
+ *
+ * Both activation paths are exercised, because they are separate guarantees. A
+ * pointer click is what §64 broke; `focus()` + Enter is what kept the map usable
+ * while it was broken, and neither is allowed to regress.
+ *
+ * The loop is bounded. A group that opens into a smaller group is expected — one
+ * zoom step does not always separate five places — but a group that never opens
+ * is the failure this whole step exists to prevent, so it must end in an
+ * assertion rather than in a timeout.
+ */
+async function reveal(
+  page: import("@playwright/test").Page,
+  slug: string,
+  how: "pointer" | "keyboard" = "pointer",
+) {
+  const marker = page.locator(`[data-slug="${slug}"]`);
+
+  for (let step = 0; step < 5; step += 1) {
+    if ((await marker.count()) === 1) return marker;
+
+    // Exactly one group, addressed by membership rather than by position: the
+    // key is the sorted member slugs, space-separated, so `~=` is an exact
+    // word match and not a substring guess.
+    const group = page.locator(`[data-cluster~="${slug}"]`);
+    await expect(group, `${slug} is drawn either as itself or inside one group`).toHaveCount(1);
+
+    if (how === "pointer") {
+      await group.click();
+    } else {
+      await group.focus();
+      await group.press("Enter");
+    }
+
+    // The group opened. Asserting its disappearance is what makes the loop
+    // meaningful — without it a click that did nothing would just spin.
+    await expect(group, `activating a group must open it`).toHaveCount(0);
+  }
+
+  await expect(marker, `${slug} is reachable in at most five activations`).toHaveCount(1);
+  return marker;
+}
+
+/**
+ * Everything the map currently draws, and whether any of it covers anything else.
+ *
+ * Hit-tested with `elementFromPoint` at each element's own centre, which is the
+ * measurement §64 used to prove the regression and therefore the one that has to
+ * prove it closed. Restricted to elements whose centre is inside the map's own
+ * box: a marker scrolled out of the container after a zoom is not covered, it is
+ * simply elsewhere, and `elementFromPoint` cannot tell the difference.
+ */
+const surveyMap = () => {
+  const box = document.querySelector(".leaflet-container")!.getBoundingClientRect();
+  const drawn = [...document.querySelectorAll("[data-slug][data-place-type], [data-cluster]")];
+
+  const centre = (element: Element) => {
+    const rect = element.getBoundingClientRect();
+    return { x: rect.x + rect.width / 2, y: rect.y + rect.height / 2 };
+  };
+
+  return {
+    markers: drawn
+      .filter((element) => element.hasAttribute("data-slug"))
+      .map((element) => element.getAttribute("data-slug")!)
+      .sort(),
+    clusters: drawn
+      .filter((element) => element.hasAttribute("data-cluster"))
+      .map((element) => ({
+        key: element.getAttribute("data-cluster")!,
+        count: Number(element.getAttribute("data-cluster-count")),
+        label: element.getAttribute("aria-label"),
+        slugs: element.getAttribute("data-cluster")!.split(" "),
+      })),
+    covered: drawn
+      .filter((element) => {
+        const { x, y } = centre(element);
+        return x >= box.x && x <= box.x + box.width && y >= box.y && y <= box.y + box.height;
+      })
+      .map((element) => {
+        const { x, y } = centre(element);
+        const hit = document.elementFromPoint(x, y)?.closest("[data-slug], [data-cluster]");
+        const id = element.getAttribute("data-slug") ?? element.getAttribute("data-cluster");
+        const owner = hit?.getAttribute("data-slug") ?? hit?.getAttribute("data-cluster") ?? null;
+        return owner === id ? null : `${id} <- ${owner}`;
+      })
+      .filter((entry): entry is string => entry !== null),
+  };
+};
 
 /* -------------------------------------------------------------------------- */
 /*  The configured basemap — §45                                              */
@@ -584,7 +717,7 @@ test("the derived bounds contain every marker, at every width", async ({ page })
   */
   test.slow();
 
-  expect(getVisitMapPoints("en").length, "the twelfth place is on the map").toBe(PLACES.length);
+  expect(getVisitMapPoints("en").length, "the thirteenth place is on the map").toBe(PLACES.length);
 
   for (const width of [360, 390, 768, 1440]) {
     await page.setViewportSize({ width, height: 900 });
@@ -600,21 +733,34 @@ test("the derived bounds contain every marker, at every width", async ({ page })
     const container = await page.locator(".leaflet-container").boundingBox();
     expect(container, `the map has a box at ${width}px`).not.toBeNull();
 
-    for (const slug of PLACES) {
-      const marker = page.locator(`[data-slug="${slug}"]`);
-      await expect(marker, `${slug} at ${width}px`).toHaveCount(1);
-      const box = await marker.boundingBox();
-      expect(box, `${slug} is rendered at ${width}px`).not.toBeNull();
-      expect(box!.x, `${slug} left of the map at ${width}px`).toBeGreaterThanOrEqual(
+    /*
+      §65 changes what "every marker" means without weakening the claim.
+
+      Six of the thirteen places are now inside a group at the initial extent, so
+      iterating slugs would assert that a thing which deliberately is not drawn is
+      drawn. What the derived bounds must still guarantee is the same as it always
+      was — nothing the map draws falls outside the frame it fitted — so the loop
+      runs over what is actually on the map, and a separate assertion, in the
+      overlap test below, keeps every place accounted for exactly once.
+    */
+    const drawn = page.locator("[data-slug][data-place-type], [data-cluster]");
+    const count = await drawn.count();
+    expect(count, `the map draws something at ${width}px`).toBeGreaterThan(0);
+
+    for (let index = 0; index < count; index += 1) {
+      const element = drawn.nth(index);
+      const id =
+        (await element.getAttribute("data-slug")) ?? (await element.getAttribute("data-cluster"));
+      const box = await element.boundingBox();
+      expect(box, `${id} is rendered at ${width}px`).not.toBeNull();
+      expect(box!.x, `${id} left of the map at ${width}px`).toBeGreaterThanOrEqual(
         container!.x - 1,
       );
-      expect(box!.y, `${slug} above the map at ${width}px`).toBeGreaterThanOrEqual(
-        container!.y - 1,
-      );
-      expect(box!.x + box!.width, `${slug} right of the map at ${width}px`).toBeLessThanOrEqual(
+      expect(box!.y, `${id} above the map at ${width}px`).toBeGreaterThanOrEqual(container!.y - 1);
+      expect(box!.x + box!.width, `${id} right of the map at ${width}px`).toBeLessThanOrEqual(
         container!.x + container!.width + 1,
       );
-      expect(box!.y + box!.height, `${slug} below the map at ${width}px`).toBeLessThanOrEqual(
+      expect(box!.y + box!.height, `${id} below the map at ${width}px`).toBeLessThanOrEqual(
         container!.y + container!.height + 1,
       );
     }
@@ -622,81 +768,175 @@ test("the derived bounds contain every marker, at every width", async ({ page })
 });
 
 /**
- * The two marker pairs known to overlap at the initial extent.
+ * The pairs that used to overlap, kept as the record of what was fixed — §65.
  *
- * Recorded, not fixed. §47 found them when Tatev zoomed the map out to hold a
- * marker a degree further south, and both were left alone because changing the
- * marker-derived bounds was out of scope for a content step — which it still is
- * in §49. They are the reason the exhaustive selection test below drives the
- * keyboard rather than the mouse.
+ * §47 found the first two, when Tatev zoomed the map out to hold a marker a degree
+ * further south. The §62 audit measured fourteen at 360, 390 and 768 px and
+ * established that the standing two-pair figure had only ever described 1440. §64
+ * then made the two numbers one: Haghpat pushed the northern edge of the fitted box
+ * into Lori, the zoom dropped a level, and the central group collapsed identically
+ * at every width. None of the fourteen involved Haghpat; it moved an extreme rather
+ * than joining a crowd.
  *
- * Sorted pairs, so the assertion below does not depend on marker order.
+ * Two of those fourteen were not merely untidy. `elementFromPoint` at the centre of
+ * Garni's marker returned Geghard, and at the centre of Erebuni's returned the
+ * Matenadaran, so a pointer aimed at the middle of either landed on a different
+ * place — which is why the exhaustive selection tests below had to drive the
+ * keyboard instead of the mouse from §47 onward.
+ *
+ * §65 fixes it generically, and this list stays as the thing the fix is measured
+ * against: every pair here is now either separated or drawn as one group, and the
+ * tests below assert the *consequence* — that nothing covers anything, and that all
+ * thirteen places are independently reachable by pointer and by keyboard.
  */
-const KNOWN_OVERLAPS = [
+const OVERLAPPED_BEFORE_CLUSTERING = [
+  ["amberd-fortress", "etchmiadzin-cathedral"],
+  ["amberd-fortress", "matenadaran"],
+  ["erebuni-fortress", "etchmiadzin-cathedral"],
+  ["erebuni-fortress", "garni-temple"],
+  ["erebuni-fortress", "geghard-monastery"],
+  ["erebuni-fortress", "khor-virap"],
   ["erebuni-fortress", "matenadaran"],
+  ["etchmiadzin-cathedral", "khor-virap"],
+  ["etchmiadzin-cathedral", "matenadaran"],
   ["garni-temple", "geghard-monastery"],
-].map((pair) => pair.slice().sort().join(" / "));
+  ["garni-temple", "khor-virap"],
+  ["garni-temple", "matenadaran"],
+  ["geghard-monastery", "khor-virap"],
+  ["geghard-monastery", "matenadaran"],
+] as const;
 
-test("adding a marker inside the existing box introduces no new overlap", async ({ page }) => {
+/** The two whose centres were actually covered, and therefore unclickable. */
+const UNCLICKABLE_BEFORE_CLUSTERING = ["erebuni-fortress", "garni-temple"] as const;
+
+test("nothing the map draws covers anything else, at every width", async ({ page }) => {
   /*
-    §51 stretched the extent again and in a new direction, so every pair had to be
-    re-measured rather than assumed: pushing the western edge out makes Leaflet fit
-    a wider box, and at a fixed container width that pulls every marker closer to
-    its neighbours — the same effect §49's taller box had, on the other axis.
+    The direct inversion of the §64 test this replaces, and the reason §65 exists.
 
-    §57 does not move the box at all, which changes what this test is for rather
-    than making it redundant. Amberd sits inside the existing frame, so the scale is
-    unchanged and the two known pairs must measure as they did; what is new is an
-    eleventh pin dropped into ground that already had markers around it. Its nearest
-    neighbour is Etchmiadzin, about 26 km away — four times the Erebuni-Matenadaran
-    gap and three times the Garni-Geghard one — so a third overlapping pair is not
-    expected. Expected is not measured, which is why this runs.
+    That test asserted which two marker centres were covered. This one asserts that
+    none is — hit-tested the same way, at the same four widths, over *everything the
+    map draws* rather than over markers alone. Including the group glyphs matters:
+    the cheap way to make an overlap count go to zero is to draw something new on
+    top of the pile, and this would catch that.
 
-    §59 adds a twelfth pin, also inside the box, and it is the most isolated marker
-    on the map: Jermuk's nearest neighbour is Lake Sevan, 67 km away, an order of
-    magnitude past the six and eight kilometres that produce the two known pairs. A
-    new collision involving it would be a surprise, and a surprise is exactly what a
-    measurement is for.
-
-    The assertion is a *subset* one, not an exact count. Whether the two known
-    pairs still overlap, and by how much, is a measurement to be reported rather
-    than pinned — a pixel count would fail on a font or icon change that means
-    nothing. What must not happen is a third pair silently becoming unreachable by
-    mouse, because that is the failure a reader meets and no other test would see.
+    The counts are reported rather than pinned, deliberately. How many groups a
+    given width produces is a function of the container, the pin size and the
+    coordinates, and pinning it would turn an icon change into a red suite. What is
+    pinned is the property that matters to a reader: every place is accounted for
+    exactly once, and nothing is hidden behind anything.
   */
-  await page.setViewportSize({ width: 1440, height: 900 });
-  await page.goto("/en/visit");
-  await openMap(page);
+  test.slow();
 
-  const boxes = new Map<string, { x: number; y: number; width: number; height: number }>();
-  for (const slug of PLACES) {
-    const box = await page.locator(`[data-slug="${slug}"]`).boundingBox();
-    expect(box, `${slug} is rendered`).not.toBeNull();
-    boxes.set(slug, box!);
-  }
+  expect(getVisitMapPoints("en").length, "thirteen places on the map").toBe(PLACES.length);
 
-  const overlaps: string[] = [];
-  for (let i = 0; i < PLACES.length; i += 1) {
-    for (let j = i + 1; j < PLACES.length; j += 1) {
-      const a = boxes.get(PLACES[i])!;
-      const b = boxes.get(PLACES[j])!;
-      const dx = Math.min(a.x + a.width, b.x + b.width) - Math.max(a.x, b.x);
-      const dy = Math.min(a.y + a.height, b.y + b.height) - Math.max(a.y, b.y);
-      if (dx > 0 && dy > 0) {
-        const pair = [PLACES[i], PLACES[j]].slice().sort().join(" / ");
-        overlaps.push(pair);
-        // Reported rather than asserted: the measurement is the point, and a
-        // pixel threshold here would be a test that fails on an icon change.
-        console.log(`  marker overlap: ${pair} — ${Math.round(dx)} x ${Math.round(dy)} px`);
-      }
+  for (const width of [360, 390, 768, 1440]) {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto("/en/visit");
+    await openMap(page);
+
+    const state = await page.evaluate(surveyMap);
+    const biggest = Math.max(0, ...state.clusters.map((cluster) => cluster.count));
+    console.log(
+      `  ${width}px — ${state.markers.length} markers, ${state.clusters.length} groups, largest ${biggest}: ` +
+        state.clusters.map((cluster) => `${cluster.count} [${cluster.key}]`).join(", "),
+    );
+
+    // Nothing covered. This is the assertion §64's counterpart could not make.
+    expect(state.covered, `nothing is covered at ${width}px`).toEqual([]);
+
+    /*
+      Every place is drawn exactly once, as itself or inside exactly one group.
+      A place that fell out of the map entirely would otherwise satisfy the
+      assertion above perfectly.
+    */
+    const accounted = [
+      ...state.markers,
+      ...state.clusters.flatMap((cluster) => cluster.slugs),
+    ].sort();
+    expect(accounted, `all thirteen places are drawn at ${width}px`).toEqual([...PLACES].sort());
+    expect(new Set(accounted).size, `no place is drawn twice at ${width}px`).toBe(PLACES.length);
+
+    // A group of one would be a group glyph standing in for a single place, which
+    // hides a name behind a number for no reason.
+    for (const cluster of state.clusters) {
+      expect(cluster.count, `${cluster.key} is a real group`).toBeGreaterThan(1);
+      expect(cluster.count, `${cluster.key} counts its members`).toBe(cluster.slugs.length);
+    }
+
+    /*
+      And the specific pairs §64 recorded are gone as *pairs of drawn markers*:
+      either they are in one group now, or they are far enough apart to draw. Both
+      are acceptable outcomes; both being visible and overlapping is not.
+    */
+    for (const [a, b] of OVERLAPPED_BEFORE_CLUSTERING) {
+      if (!state.markers.includes(a) || !state.markers.includes(b)) continue;
+      const boxes = await Promise.all(
+        [a, b].map((slug) => page.locator(`[data-slug="${slug}"]`).boundingBox()),
+      );
+      const [first, second] = boxes;
+      if (!first || !second) continue;
+      const dx = Math.min(first.x + first.width, second.x + second.width) - Math.max(first.x, second.x);
+      const dy =
+        Math.min(first.y + first.height, second.y + second.height) - Math.max(first.y, second.y);
+      expect(
+        dx > 0 && dy > 0,
+        `${a} and ${b} are both drawn at ${width}px and still overlap`,
+      ).toBe(false);
     }
   }
+});
 
-  for (const pair of overlaps) {
-    expect(
-      KNOWN_OVERLAPS,
-      `${pair} is a new overlap; §47 recorded only ${KNOWN_OVERLAPS.join(" and ")}`,
-    ).toContain(pair);
+test("the four places that collided are each independently pointer-selectable", async ({
+  page,
+}) => {
+  /*
+    The regression, closed at the level a reader experiences it — §65.
+
+    §64's test proved that a pointer aimed at the middle of Garni's marker hit
+    Geghard, and at the middle of Erebuni's hit the Matenadaran. Deleting that test
+    would have left the fix unmeasured, so it is transformed rather than removed:
+    the same four places, the same pointer, and the full sequence a reader performs
+    — open the group, activate the exact place, read its card.
+
+    Each place starts from a fresh view on purpose. Opening a group zooms into it,
+    so a loop that stayed on one page would be testing thirteen progressively
+    different maps, and the state that has to work is the one a reader arrives in.
+
+    Both directions of each formerly-covering pair are exercised, because "Garni is
+    selectable" and "Garni is selectable *and shows Garni*" are different claims and
+    only the second one failed in §64.
+  */
+  test.slow();
+
+  const copy = bundle("en").pages.visit;
+  const collided = [
+    ...UNCLICKABLE_BEFORE_CLUSTERING,
+    "geghard-monastery",
+    "matenadaran",
+  ] as const;
+
+  for (const slug of collided) {
+    await page.goto("/en/visit");
+    await openMap(page);
+
+    const marker = await reveal(page, slug, "pointer");
+    await marker.click();
+
+    const panel = mapSection(page).locator("[aria-live='polite']");
+    const article = bundle("en").articles.find((entry) => entry.slug === slug)!;
+    await expect(panel, slug).toContainText(article.title);
+
+    // Not the neighbour that used to swallow the click.
+    for (const other of collided) {
+      if (other === slug) continue;
+      const neighbour = bundle("en").articles.find((entry) => entry.slug === other)!;
+      await expect(panel, `${slug} must not show ${other}`).not.toContainText(neighbour.title);
+    }
+
+    await expect(
+      panel.getByRole("link", { name: copy.mapCta, exact: true }),
+      slug,
+    ).toHaveAttribute("href", `/en/places/${slug}`);
   }
 });
 
@@ -729,6 +969,74 @@ test("precision travels with the point, and each kind stays its own kind", () =>
     points.filter((point) => point.precision === "settlement").map((point) => point.slug).sort(),
     "the town centres",
   ).toEqual([...SETTLEMENT_PLACES].sort());
+});
+
+test("the five monastery markers share one glyph, and Haghpat took no new one", async ({
+  page,
+}) => {
+  /*
+    §64. `monastery` is now the largest type on the map, and this is the assertion
+    that keeps that from being invisible.
+
+    §51 added one `TYPE_GLYPH` entry because `settlement` had never had a rendered
+    member. §64 adds no component code at all: `monastery` has had a glyph since the
+    map was built, Haghpat is its fifth article, and its marker must be
+    indistinguishable from the other four except in position and name. There is
+    nothing Haghpat-specific to assert, which is the point.
+
+    Membership is pinned rather than counted because the failure that matters is a
+    marker rendered with the wrong type — it would still draw, still be clickable and
+    still look right.
+  */
+  await page.goto("/en/visit");
+  await openMap(page);
+
+  /*
+    Narrowed to monasteries first — §65.
+
+    Two of the five sit inside a group at the unfiltered extent, so counting
+    `data-place-type="monastery"` markers on the whole map would count three.
+    Filtering is not a workaround for that: it is the cheaper of the two ways to
+    put all five on the map at once, and it makes this test say something extra
+    that is worth saying — the groups recompute from the filtered set, so five
+    monasteries spread far enough apart to draw individually where thirteen
+    places did not.
+  */
+  await mapSection(page).locator('[data-map-filter="monastery"]').click();
+
+  const markers = page.locator('[data-slug][data-place-type="monastery"]');
+  await expect(markers).toHaveCount(MONASTERY_PLACES.length);
+  await expect(page.locator("[data-cluster]"), "five monasteries need no group").toHaveCount(0);
+
+  const slugs = await markers.evaluateAll((nodes) =>
+    nodes.map((node) => node.getAttribute("data-slug") ?? ""),
+  );
+  expect(slugs.sort(), "the five monasteries").toEqual([...MONASTERY_PLACES].sort());
+
+  // Selecting Haghpat opens Haghpat and shows no image — the `else` branch again,
+  // and the four names checked here are the four covers a borrowed file would most
+  // plausibly come from, because every one of them is a walled stone complex.
+  const panel = mapSection(page).locator("[aria-live='polite']");
+  const haghpat = page.locator('[data-slug="haghpat-monastery"]');
+  await haghpat.click();
+  await expect(panel).toContainText(
+    bundle("en").articles.find((a) => a.slug === "haghpat-monastery")!.title,
+  );
+  await expect(panel.locator("img"), "no artwork while pending").toHaveCount(0);
+  for (const borrowed of [
+    "tatev-monastery",
+    "geghard-monastery",
+    "khor-virap",
+    "etchmiadzin-cathedral",
+  ]) {
+    await expect(
+      panel.locator(`img[src*="${borrowed}"]`),
+      `${borrowed} must not illustrate the Haghpat panel`,
+    ).toHaveCount(0);
+  }
+  await expect(
+    panel.getByRole("link", { name: bundle("en").pages.visit.mapCta, exact: true }),
+  ).toHaveAttribute("href", "/en/places/haghpat-monastery");
 });
 
 test("the settlement marker is generic, and its type reaches the accessible name", async ({
@@ -818,12 +1126,23 @@ test("the historical marker took no new glyph, and its type is localized", async
   await page.goto("/en/visit");
   await openMap(page);
 
-  const marker = page.locator('[data-slug="amberd-fortress"]');
-  await expect(marker).toHaveCount(1);
+  /*
+    §65: Amberd shares a group with Etchmiadzin at the initial extent, so it is
+    reached the way a reader reaches it. The claim is unchanged — the marker that
+    comes out of that group carries the shared `historical` type and nothing of
+    its own.
+  */
+  const marker = await reveal(page, "amberd-fortress");
   await expect(marker).toHaveAttribute("data-place-type", "historical");
 
-  // All three `historical` markers exist and share the one type attribute.
+  // All three `historical` markers exist and share the one type attribute, once
+  // the filter has put them all on the map at once.
+  await mapSection(page).locator('[data-map-filter="historical"]').click();
+  for (const slug of ["erebuni-fortress", "garni-temple", "amberd-fortress"]) {
+    await reveal(page, slug);
+  }
   await expect(page.locator('[data-slug][data-place-type="historical"]')).toHaveCount(3);
+  await mapSection(page).locator(`[data-map-filter="${ALL_FILTER_ID}"]`).click();
 
   /*
     §58. Selecting it now shows Amberd's own file — the inversion of §57, where the
@@ -870,7 +1189,9 @@ test("the historical marker took no new glyph, and its type is localized", async
     const point = getVisitMapPoints(locale).find((entry) => entry.slug === "amberd-fortress")!;
     const typeLabel = bundle(locale).placeTypes.find((filter) => filter.id === "historical")!.label;
 
-    await expect(page.locator('[data-slug="amberd-fortress"]'), locale).toHaveAttribute(
+    // §65: opened out of its group first, in every edition — the grouping is not
+    // locale-dependent, and a marker that came out of one had better be named.
+    await expect(await reveal(page, "amberd-fortress"), locale).toHaveAttribute(
       "aria-label",
       `${point.title} — ${typeLabel}`,
     );
@@ -905,9 +1226,14 @@ test("the second settlement marker took no new glyph, and shows its own image", 
     finished, which is why the four below are still checked by name: Gyumri is the
     other `settlement` and the only urban image in the registry, Dilijan is the other
     town with a spa history, and Tatev and Lake Sevan are the gorge and the highland
-    water that `PENDING_ARTWORK` recorded as refused. They matter *more* after §60,
-    not less: Jermuk's own cover is off-subject by decision, so repointing this slug
-    at one of them would read as a correction rather than a regression.
+    water that `PENDING_ARTWORK` recorded as refused.
+
+    They mattered most between §60 and §61, when Jermuk's own cover was off-subject by
+    decision and repointing this slug at one of them would have read as a correction
+    rather than a regression. §61 replaced that file with an aerial view of the town,
+    so the pressure is gone — and Gyumri is now the sharper name of the four rather
+    than the softer one, because the two `settlement` covers are both urban and could
+    be swapped without either card looking wrong.
   */
   const panel = mapSection(page).locator("[aria-live='polite']");
   await marker.focus();
@@ -1044,11 +1370,17 @@ test("every marker is a real, named control carrying its own type", async ({ pag
   await openMap(page);
 
   const types = bundle("en").placeTypes;
-  const markers = page.locator("[data-slug]");
-  await expect(markers).toHaveCount(PLACES.length);
 
+  /*
+    §65: every place still has to be a named control, but six of them have to be
+    revealed first. `reveal` is the reader's own path, so what this now asserts is
+    slightly stronger than before — a marker that only exists after its group is
+    opened must come out of that group fully formed, with its name, its type and
+    its keyboard affordance intact, and not as a bare div the grouping code
+    forgot to decorate.
+  */
   for (const slug of PLACES) {
-    const marker = page.locator(`[data-slug="${slug}"]`);
+    const marker = await reveal(page, slug);
     await expect(marker, slug).toHaveCount(1);
     await expect(marker, slug).toHaveAttribute("role", "button");
 
@@ -1061,6 +1393,9 @@ test("every marker is a real, named control carrying its own type", async ({ pag
     // Focusable without a mouse: Leaflet's own keyboard support, kept on.
     await expect(marker, slug).toHaveAttribute("tabindex", "0");
   }
+
+  // And with everything opened out, the map is showing all thirteen and no group.
+  await expect(page.locator("[data-slug][data-place-type]")).toHaveCount(PLACES.length);
 });
 
 /* -------------------------------------------------------------------------- */
@@ -1090,7 +1425,20 @@ test("selecting a marker reveals that place, and never a neighbour's", async ({ 
     const article = bundle("en").articles.find((entry) => entry.slug === chosen)!;
     const other = bundle("en").articles.find((entry) => entry.slug === mustNotShow)!;
 
-    await page.locator(`[data-slug="${chosen}"]`).click();
+    /*
+      Back on the pointer in §65, which is the point of §65.
+
+      §47 moved this loop to the keyboard because the two pins overlapped; §64
+      recorded that Geghard was actually covering the centre of Garni's marker and
+      the Matenadaran was covering Erebuni's, so the mouse path was not merely
+      awkward but wrong. Both are now inside one group at the initial extent, and
+      opening it is what a reader does. Restoring the mouse here is the strongest
+      statement this file can make that the regression is closed — if grouping ever
+      stops separating this pair, this test goes red at the click rather than
+      silently passing on a path readers do not take.
+    */
+    const marker = await reveal(page, chosen, "pointer");
+    await marker.click();
 
     await expect(panel, chosen).toContainText(article.title);
     await expect(panel, `${chosen} must not show ${mustNotShow}`).not.toContainText(other.title);
@@ -1113,10 +1461,25 @@ test("selecting a marker reveals that place, and never a neighbour's", async ({ 
   }
 });
 
-test("every place can be selected and shows its own image", async ({ page }) => {
-  test.slow();
-  await page.goto("/en/visit");
-  await openMap(page);
+test("every place can be selected with a pointer and shows its own image", async ({ page }) => {
+  /*
+    §65 gives this test a fresh map for each place, and that is not a workaround.
+
+    Opening a group zooms into it. After two or three places the map is looking at
+    one valley, the rest of the country is outside the container, and a click aimed
+    at a marker that is positioned off the visible map lands on the page behind it
+    — which is what happened on the first run of this version, in exactly those
+    words. Reloading between places is not avoidance of that: the state every
+    reader actually arrives in is the fitted extent, so testing thirteen
+    resolutions *from* that state is the more faithful loop as well as the one that
+    passes.
+
+    It costs thirteen page loads, which is why the timeout is raised here rather
+    than in the config. Raising it is not hiding a failure — nothing here retries,
+    nothing is forced, and every one of the thirteen resolutions asserts its own
+    result.
+  */
+  test.setTimeout(180_000);
 
   const panel = mapSection(page).locator("[aria-live='polite']");
 
@@ -1143,9 +1506,18 @@ test("every place can be selected and shows its own image", async ({ page }) => 
     explicitly not allowed to touch.
   */
   for (const slug of PLACES) {
-    const marker = page.locator(`[data-slug="${slug}"]`);
-    await marker.focus();
-    await marker.press("Enter");
+    /*
+      §65 restores the mouse here, and the long note above is now history rather
+      than current practice: the overlap it describes is gone, and the places that
+      were unreachable by pointer are reached by opening the group they are drawn
+      in. `reveal` performs that opening and asserts it worked, so a group that
+      refused to open fails here as loudly as a covered marker did.
+    */
+    await page.goto("/en/visit");
+    await openMap(page);
+
+    const marker = await reveal(page, slug, "pointer");
+    await marker.click();
 
     const article = bundle("en").articles.find((entry) => entry.slug === slug)!;
     await expect(panel, slug).toContainText(article.title);
@@ -1183,6 +1555,409 @@ test("every place can be selected and shows its own image", async ({ page }) => 
         panel.locator(`img[src*="${borrowed}"]`),
         `${slug} must not show ${other}`,
       ).toHaveCount(0);
+    }
+  }
+});
+
+/* -------------------------------------------------------------------------- */
+/*  Density grouping — §65                                                     */
+/* -------------------------------------------------------------------------- */
+
+test("the grouping is arithmetic over pixels, and knows nothing about Armenia", () => {
+  /*
+    The whole of §65's decision-making, tested without a browser.
+
+    This is the reason the algorithm is a pure module rather than a closure inside
+    `VisitMap`: the cases that must not go wrong are the ones the real registry
+    cannot produce. Thirteen Armenian coordinates cannot express two places at the
+    same point, and inventing a fourteenth Place to provoke one would be putting a
+    fixture in the content registry to satisfy a test.
+  */
+
+  // A place inside another place's walls: same pixel, twice. Neither is dropped,
+  // and the group carries both.
+  const identical = clusterByScreenDistance([
+    { slug: "outer", x: 200, y: 120 },
+    { slug: "inner", x: 200, y: 120 },
+    { slug: "far", x: 600, y: 400 },
+  ]);
+  expect(identical.map((group) => group.slugs.sort().join(" ")).sort()).toEqual([
+    "far",
+    "inner outer",
+  ]);
+
+  /*
+    Order independence. The registry's order is editorial — section order in the
+    articles file — and the map must not inherit it. Two enumerations of the same
+    points produce the same groups.
+  */
+  const points = [
+    { slug: "a", x: 100, y: 100 },
+    { slug: "b", x: 112, y: 108 },
+    { slug: "c", x: 400, y: 100 },
+    { slug: "d", x: 405, y: 118 },
+  ];
+  const forward = clusterByScreenDistance(points).map((group) => group.key).sort();
+  const backward = clusterByScreenDistance([...points].reverse())
+    .map((group) => group.key)
+    .sort();
+  expect(forward).toEqual(backward);
+  expect(forward).toEqual(["a b", "c d"]);
+
+  /*
+    The guarantee the whole step rests on: whatever comes out, no two results can
+    cover each other. A pin is 28x38 with its centre 19 px above its anchor, so one
+    centre is covered by another exactly when the two are within 14 px across and
+    19 px down. Every surviving pair must clear that.
+  */
+  const spread: ClusterInput[] = [];
+  for (let i = 0; i < 40; i += 1) {
+    // A deterministic scatter, dense in one corner and sparse elsewhere, which is
+    // the shape of the real problem: one crowded region and a long tail.
+    spread.push({ slug: `p${i}`, x: (i * 37) % 320, y: (i * 53) % 240 });
+  }
+  const groups = clusterByScreenDistance(spread);
+  for (let i = 0; i < groups.length; i += 1) {
+    for (let j = i + 1; j < groups.length; j += 1) {
+      const covered =
+        Math.abs(groups[i].x - groups[j].x) <= MARKER_HALF_WIDTH &&
+        Math.abs(groups[i].y - groups[j].y) <= MARKER_HALF_HEIGHT;
+      expect(covered, `${groups[i].key} and ${groups[j].key} would cover each other`).toBe(false);
+    }
+  }
+
+  // Nothing is lost and nothing is duplicated, however dense the input.
+  expect(groups.flatMap((group) => group.slugs).sort()).toEqual(
+    spread.map((point) => point.slug).sort(),
+  );
+
+  /*
+    And the last resort separates too. `spreadOffsets` is what runs when zooming
+    cannot help — two places at one coordinate — and it is dead code in the current
+    registry, which is precisely why it is asserted here instead of being assumed
+    to work on the day it first runs.
+  */
+  for (let count = 2; count <= PLACES.length; count += 1) {
+    const offsets = spreadOffsets(count);
+    expect(offsets, `${count} offsets`).toHaveLength(count);
+    for (let i = 0; i < count; i += 1) {
+      for (let j = i + 1; j < count; j += 1) {
+        const covered =
+          Math.abs(offsets[i].dx - offsets[j].dx) <= MARKER_HALF_WIDTH &&
+          Math.abs(offsets[i].dy - offsets[j].dy) <= MARKER_HALF_HEIGHT;
+        expect(covered, `spread of ${count}: ${i} and ${j} still cover`).toBe(false);
+      }
+    }
+  }
+});
+
+test("no place, province or coordinate is named in the grouping code", () => {
+  /*
+    §64's regression was caused by a generic rule meeting a new extreme, and the
+    tempting fix was a specific one — a Yerevan group, a nudged coordinate, a
+    hand-tuned zoom for thirteen places. This is the test that refuses all of them,
+    and it reads the source rather than the behaviour because that is where the
+    shortcut would be visible on the day it is written.
+  */
+  const cluster = readFileSync("src/lib/map-cluster.ts", "utf8");
+  const component = readFileSync("src/components/visit/VisitMap.tsx", "utf8");
+
+  for (const slug of PLACES) {
+    expect(cluster, `${slug} must not be named in the grouping`).not.toContain(`"${slug}"`);
+    expect(component, `${slug} must not be named in the map component`).not.toContain(
+      `"${slug}"`,
+    );
+  }
+
+  /*
+    And no province standing in for a slug. Checked against the code with its
+    comments removed, because the comments in both files *explain* §64 and have to
+    be able to say "Haghpat", "Lori" and "the Ararat–Kotayk cluster" to do it. What
+    must not exist is a line of logic that knows any of those words.
+  */
+  const code = (source: string) => source.replace(/\/\*[\s\S]*?\*\/|\/\/.*$/gm, "");
+  for (const word of ["Yerevan", "Kotayk", "Ararat", "Armenia", "Lori", "Haghpat"]) {
+    expect(code(component), `${word} must not appear in map component code`).not.toContain(word);
+    expect(code(cluster), `${word} must not appear in grouping code`).not.toContain(word);
+  }
+
+  /*
+    And no hardcoded viewport. The bounds stay derived from the markers, which is
+    the decision §64 proved costly and §65 keeps anyway: the alternative is a fixed
+    national box, and choosing one is an editorial claim about where Armenian sites
+    are, made inside a component.
+  */
+  expect(component, "the extent is still fitted to the markers").toContain("fitBounds");
+  expect(component, "no hardcoded centre").not.toMatch(/setView\(\s*\[/);
+  expect(cluster, "the grouping never touches coordinates").not.toContain("lat");
+});
+
+test("the map groups what it cannot draw apart, and says how many", async ({ page }) => {
+  /*
+    §65's positive claim, stated where a reader would see it: at the extent the map
+    fits to, some places are drawn as a group, and the group says how many places
+    it stands for.
+
+    The counts are read from the DOM and checked against the group's own membership
+    rather than pinned to a number, for the reason given in the overlap test — how
+    many groups a width produces is a function of geometry, and pinning it would
+    make an icon change a failure. What is pinned is that a group is a real control
+    with a real name: `role="button"`, keyboard-reachable, and labelled in words
+    rather than as a bare numeral.
+  */
+  await page.goto("/en/visit");
+  await openMap(page);
+
+  const groups = page.locator("[data-cluster]");
+  await expect(groups, "the dense centre is grouped at the fitted extent").not.toHaveCount(0);
+
+  const count = await groups.count();
+  for (let index = 0; index < count; index += 1) {
+    const group = groups.nth(index);
+    const key = (await group.getAttribute("data-cluster"))!;
+    const members = key.split(" ");
+
+    await expect(group, key).toHaveAttribute("role", "button");
+    await expect(group, key).toHaveAttribute("tabindex", "0");
+    await expect(group, key).toHaveAttribute("data-cluster-count", String(members.length));
+
+    // "4 places", not "4". A screen reader must not be handed a bare quantity.
+    const label = (await group.getAttribute("aria-label"))!;
+    expect(label, `${key} is labelled in words`).toBe(
+      bundle("en").pages.visit.mapClusterLabel.replace("{count}", String(members.length)),
+    );
+    expect(label.trim(), `${key} is not just a number`).not.toMatch(/^\d+$/);
+
+    // Every member is a real Place, and none of them is drawn twice.
+    for (const slug of members) {
+      expect(PLACES, `${slug} is a Place`).toContain(slug);
+      await expect(page.locator(`[data-slug="${slug}"]`), `${slug} is inside ${key}`).toHaveCount(
+        0,
+      );
+    }
+
+    // A group is navigation, not content: selecting one must not produce a card.
+    expect(label, `${key} must not read as an article`).not.toContain(
+      bundle("en").pages.visit.mapCta,
+    );
+  }
+});
+
+test("a group opens from the keyboard and hands focus to what it revealed", async ({ page }) => {
+  /*
+    The accessibility half of §65, and the reason it is not the clustering library.
+
+    `leaflet.markercluster` contains no `role`, no `aria-` and no `tabindex` in its
+    entire source, and on Enter it returns focus to the map container — which is
+    precisely the focus loss this test forbids. The group here is a labelled button
+    that answers Enter and Space, and when it opens it moves focus to the first
+    place it revealed, so a keyboard reader is left on something rather than on
+    `<body>`.
+  */
+  const panel = mapSection(page).locator("[aria-live='polite']");
+
+  for (const key of ["Enter", " "] as const) {
+    await page.goto("/en/visit");
+    await openMap(page);
+
+    const group = page.locator("[data-cluster]").first();
+    const members = (await group.getAttribute("data-cluster"))!.split(" ");
+
+    await group.focus();
+    await expect(group, "the group takes focus").toBeFocused();
+    await group.press(key);
+    await expect(group, `${key} opens the group`).toHaveCount(0);
+
+    /*
+      Focus landed on something inside the map, and specifically on a place that
+      was in the group — not on the body, not on the container, not nowhere.
+    */
+    const landed = await page.evaluate(() => ({
+      slug: document.activeElement?.getAttribute("data-slug") ?? null,
+      cluster: document.activeElement?.getAttribute("data-cluster") ?? null,
+      tag: document.activeElement?.tagName ?? null,
+    }));
+    expect(landed.tag, `focus survived ${key}`).not.toBe("BODY");
+    const settled = landed.slug ?? landed.cluster?.split(" ")[0] ?? null;
+    expect(members, `focus landed inside the group after ${key}`).toContain(settled);
+
+    // And Enter on the revealed place selects it — the group is a way through.
+    if (landed.slug) {
+      await page.locator(`[data-slug="${landed.slug}"]`).press("Enter");
+      const article = bundle("en").articles.find((entry) => entry.slug === landed.slug)!;
+      await expect(panel, landed.slug).toContainText(article.title);
+    }
+  }
+});
+
+test("every place can be selected from the keyboard, group or no group", async ({ page }) => {
+  /*
+    The §64 escape route, kept as a guarantee rather than as a workaround.
+
+    While the pointer path was broken, keyboard activation was the only way to
+    reach Garni and Erebuni, and the exhaustive selection test drove it for that
+    reason. §65 fixes the pointer and this test keeps the keyboard, because "still
+    works" is a claim that only survives if something checks it: the whole of the
+    grouping — the group button, the expansion, the focus handoff and the marker
+    that comes out — has to be operable without a mouse for all thirteen.
+  */
+  test.setTimeout(180_000);
+
+  const panel = mapSection(page).locator("[aria-live='polite']");
+
+  for (const slug of PLACES) {
+    await page.goto("/en/visit");
+    await openMap(page);
+
+    const marker = await reveal(page, slug, "keyboard");
+    await marker.focus();
+    await expect(marker, slug).toBeFocused();
+    await marker.press("Enter");
+
+    const article = bundle("en").articles.find((entry) => entry.slug === slug)!;
+    await expect(panel, slug).toContainText(article.title);
+    await expect(
+      panel.getByRole("link", { name: bundle("en").pages.visit.mapCta, exact: true }),
+      slug,
+    ).toHaveAttribute("href", `/en/places/${slug}`);
+  }
+});
+
+test("filtering regroups from the visible markers, and leaves nothing stale", async ({ page }) => {
+  /*
+    A group must count what the reader can see, and nothing else — §65.
+
+    The failure this guards against is specific and easy to write: groups computed
+    once at mount, then left alone while the filter hides markers underneath them.
+    The map would show "4 places" over a filtered view containing one, and the
+    number would be a lie about a set the reader had explicitly narrowed.
+
+    The other half is the return path. Narrowing and widening again must restore
+    exactly the opening state, with no group left behind from the intermediate
+    view — which is what `expanded` being cleared on every filter change is for.
+  */
+  await page.goto("/en/visit");
+  await openMap(page);
+
+  const opening = await page.evaluate(surveyMap);
+  expect(opening.clusters.length, "the unfiltered map groups something").toBeGreaterThan(0);
+
+  for (const type of bundle("en").placeTypes) {
+    if (type.id === ALL_FILTER_ID) continue;
+
+    await mapSection(page).locator(`[data-map-filter="${type.id}"]`).click();
+
+    const expected = getVisitMapPoints("en")
+      .filter((point) => point.placeTypeId === type.id)
+      .map((point) => point.slug)
+      .sort();
+
+    await expect(
+      page.locator("[data-map-list] li"),
+      `${type.id}: the list narrows too`,
+    ).toHaveCount(expected.length);
+
+    const state = await page.evaluate(surveyMap);
+
+    // Every place of this type is drawn exactly once, and nothing else is.
+    const accounted = [
+      ...state.markers,
+      ...state.clusters.flatMap((cluster) => cluster.slugs),
+    ].sort();
+    expect(accounted, `${type.id}: exactly this type is drawn`).toEqual(expected);
+
+    // No group counts a marker the filter has hidden.
+    for (const cluster of state.clusters) {
+      expect(cluster.count, `${type.id}: ${cluster.key} counts its members`).toBe(
+        cluster.slugs.length,
+      );
+      for (const slug of cluster.slugs) {
+        expect(expected, `${type.id}: ${slug} is hidden but counted in ${cluster.key}`).toContain(
+          slug,
+        );
+      }
+    }
+
+    // And nothing is covered in the narrowed view either.
+    expect(state.covered, `${type.id}: nothing covered`).toEqual([]);
+  }
+
+  await mapSection(page).locator(`[data-map-filter="${ALL_FILTER_ID}"]`).click();
+  await expect(page.locator("[data-map-list] li")).toHaveCount(PLACES.length);
+
+  const restored = await page.evaluate(surveyMap);
+  expect(restored.markers, "returning to All restores the same markers").toEqual(opening.markers);
+  expect(
+    restored.clusters.map((cluster) => cluster.key).sort(),
+    "returning to All restores the same groups, and adds no stale one",
+  ).toEqual(opening.clusters.map((cluster) => cluster.key).sort());
+});
+
+test("the group label is a real string in every edition, and names no place", () => {
+  /*
+    Static, because a string's existence in three editions is a data invariant and
+    dragging three browsers through it would prove nothing extra.
+
+    The last clause is the one worth having. A group label is *spatial* — it means
+    "these are close together on this screen at this zoom", which is not a fact
+    about Armenia — so it must not name a city, a province or a region, in any
+    edition. That is the difference between a map that scales and a map that has to
+    be re-captioned every time a Place is added.
+  */
+  for (const locale of LOCALES) {
+    const template = bundle(locale).pages.visit.mapClusterLabel;
+
+    expect(template, `${locale} has a group label`).toBeTruthy();
+    expect(template, `${locale} interpolates the count`).toContain("{count}");
+
+    // A number and a word, not a bare number.
+    const rendered = template.replace("{count}", "4");
+    expect(rendered, `${locale}: "${rendered}" is more than a numeral`).not.toMatch(/^\s*\d+\s*$/);
+    expect(rendered.length, `${locale}: "${rendered}" carries a noun`).toBeGreaterThan(3);
+
+    for (const place of getVisitMapPoints(locale)) {
+      expect(template, `${locale} must not name ${place.slug}`).not.toContain(place.title);
+    }
+    for (const word of ["Yerevan", "Երևան", "Երեւան", "Kotayk", "Կոտայք", "Lori", "Լոռի"]) {
+      expect(template, `${locale} must not name ${word}`).not.toContain(word);
+    }
+  }
+
+  // The two Armenian editions were written separately; neither is the English one.
+  expect(bundle("hy").pages.visit.mapClusterLabel).not.toBe(
+    bundle("en").pages.visit.mapClusterLabel,
+  );
+  expect(bundle("hyw").pages.visit.mapClusterLabel).not.toBe(
+    bundle("en").pages.visit.mapClusterLabel,
+  );
+});
+
+test("groups are localized on the rendered map, not only in the dictionary", async ({ page }) => {
+  /*
+    One browser assertion per edition, and no more: the interaction is tested
+    exhaustively in English above, and repeating it three times would triple the
+    slowest tests in this file to prove a string lookup. What has to be seen in a
+    browser is that the label the component renders is this edition's, which is the
+    failure a dictionary test cannot catch — a hardcoded English fallback would
+    pass every static check in the file above.
+  */
+  for (const locale of LOCALES) {
+    await page.goto(`/${locale}/visit`);
+    await openMap(page);
+
+    const group = page.locator("[data-cluster]").first();
+    const members = (await group.getAttribute("data-cluster"))!.split(" ");
+
+    await expect(group, locale).toHaveAttribute(
+      "aria-label",
+      bundle(locale).pages.visit.mapClusterLabel.replace("{count}", String(members.length)),
+    );
+
+    if (locale !== "en") {
+      await expect(group, `${locale} must not fall back to English`).not.toHaveAttribute(
+        "aria-label",
+        bundle("en").pages.visit.mapClusterLabel.replace("{count}", String(members.length)),
+      );
     }
   }
 });
@@ -1265,7 +2040,11 @@ test("the map asks for no location, plots no route and sells nothing", async ({ 
 
   await page.goto("/en/visit");
   await openMap(page);
-  await page.locator('[data-slug="garni-temple"]').click();
+  // §65: Garni is inside a group at the initial extent, so it is opened first.
+  // What this test is about is that neither opening a group nor selecting a place
+  // asks for a location — the new interaction is covered by the same claim.
+  const garni = await reveal(page, "garni-temple", "pointer");
+  await garni.click();
 
   expect(
     await page.evaluate(() => (window as unknown as { __geo: number }).__geo),

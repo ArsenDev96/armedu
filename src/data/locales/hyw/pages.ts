@@ -151,5 +151,6 @@ export const pages: StaticPagesContent = {
     mapCta: "Ծանօթանալ այս վայրին",
     mapFilterLabel: "Ցուցադրել վայրերը ըստ տեսակի",
     mapUnavailable: "Քարտէսը չկրցաւ բեռնուիլ։ Անոր բոլոր վայրերը թուարկուած են վարը։",
+    mapClusterLabel: "{count} վայր",
   },
 };

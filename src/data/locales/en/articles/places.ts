@@ -952,7 +952,7 @@ export const placeArticles: Article[] = [
           "The engineer whose published proposal argued that Lake Sevan's water was being wasted by evaporation and should be drawn down to irrigate the Ararat plain and generate electricity. The scheme carried out under Soviet rule was a partial execution of his argument; his own dates are not securely recorded.",
       },
     ],
-    relatedSlugs: ["kingdom-of-urartu", "bagratid-armenia"],
+    relatedSlugs: ["kingdom-of-urartu", "bagratid-armenia", "jermuk"],
   },
   {
     slug: "garni-temple",
@@ -2713,5 +2713,313 @@ export const placeArticles: Article[] = [
       },
     ],
     relatedSlugs: ["lake-sevan"],
+  },
+  {
+    slug: "haghpat-monastery",
+    href: "/places/haghpat-monastery",
+    category: "places",
+    categoryLabel: "Places",
+    title: "Haghpat Monastery",
+    seoTitle: "Haghpat Monastery: A Medieval Centre in Lori",
+    metaDescription:
+      "Haghpat Monastery in Lori, founded under the Bagratids in the tenth century, grew over three hundred years into a major centre of Armenian learning and building.",
+    summary:
+      "Haghpat Monastery stands on a shelf of high ground above the Debed gorge in Lori, in the north of the Republic of Armenia. It was founded in the tenth century under the Bagratid king Ashot III, and its principal church, Surb Nshan, was finished in 991 to designs attributed to the architect Trdat. What makes Haghpat unusual is not any single building but the fact that it kept growing: a library, a refectory, a bell tower, a gavit and a series of chapels were added across three centuries, and the resulting group shows what a large medieval Armenian monastery actually needed in order to work. With Sanahin, about four kilometres away, it forms one World Heritage property.",
+    placeTypeId: "monastery",
+    featured: false,
+    imageSeed: "haghpat-monastery",
+    keywords: [
+      "Haghpat",
+      "Haghpat Monastery",
+      "Surb Nshan",
+      "Lori",
+      "Debed",
+      "Bagratid",
+      "Kiurikian",
+      "Zakarian",
+      "gavit",
+      "khachkar",
+      "Armenian medieval architecture",
+      "World Heritage",
+    ],
+    excerpt:
+      "A Bagratid foundation above the Debed gorge that went on being built for three hundred years, and the buildings that show what it was for.",
+    intro:
+      "Haghpat is the kind of place that is easy to describe badly. Photographed from the right angle it is a picturesque group of grey stone volumes on a green shelf, and most accounts of it stop there, or reach for the word that a visitor already half expects: ancient, remote, timeless. None of those is much use. What is worth knowing about Haghpat is that it was a working institution for centuries, that almost everything standing there was built to do a job, and that the jobs changed. A church came first. Then somewhere to keep books, somewhere to eat, somewhere to gather and be buried, somewhere to ring a bell from. The complex is the record of those decisions, and it can be read.",
+    author: "Armat Editorial Team",
+    updated: "2026-08-20",
+    keyFacts: [
+      {
+        label: "Kind of place",
+        value: "Monastery of the Armenian Apostolic Church, and a medieval centre of learning",
+      },
+      {
+        label: "Where",
+        value: "Above the Debed gorge, by the village of Haghpat, Lori Province, northern Armenia",
+      },
+      {
+        label: "Principal church",
+        value: "Surb Nshan, the Holy Sign, completed in 991 — the design attributed to the architect Trdat",
+      },
+      {
+        label: "Founded by",
+        value: "Queen Khosrovanuysh, wife of the Bagratid king Ashot III, for her sons Smbat and Gurgen",
+      },
+      {
+        label: "Built over",
+        value: "Roughly three centuries, with most of the surviving buildings other than the church added in the thirteenth",
+      },
+      {
+        label: "World Heritage",
+        value: "Inscribed alone in 1996; Sanahin was added by extension in 2000 and the two now form one property",
+      },
+    ],
+    sections: [
+      {
+        id: "haghpat-in-lori",
+        heading: "Haghpat in Lori",
+        paragraphs: [
+          "Haghpat stands in Lori, the northern province of the Republic of Armenia, on a shelf of high ground on the eastern side of the Debed valley. This is the archive's first article about anywhere in Lori, so it is worth saying plainly where that is: north of Yerevan, close to the border with Georgia, in country that is greener, wetter and more wooded than the volcanic uplands most of Armenia's better-known monuments sit on. The Debed has cut a deep gorge through it, and much of Lori's history has happened along that cut.",
+          "The monastery is not on a peak and not in the bottom of the gorge. It occupies a broad terrace part way up the eastern side, high enough to see a long way down the valley and level enough to build a large group of buildings on. The village of Haghpat adjoins it directly, which matters: this was never an isolated hermitage but a landholding institution with a settlement attached, and the village is treated as part of the monument's setting in its heritage protection.",
+          "About four kilometres away, on the other side of the gorge, stands the monastery of Sanahin. The two are constantly named together, and since 2000 they have shared a single World Heritage inscription. They are not, however, one place, and this article is about Haghpat. Sanahin appears below only where the comparison actually explains something.",
+        ],
+        links: [],
+      },
+      {
+        id: "foundation-under-the-bagratids",
+        heading: "Foundation under the Bagratids",
+        paragraphs: [
+          "Haghpat belongs to a period of recovery. Armenian building had largely stopped during the Arab occupation that began at the end of the seventh century, and it resumed when Armenian kingship was re-established under the Bagratid house at the end of the ninth. Haghpat and Sanahin are products of that revival, and both are royal foundations rather than the work of a local community.",
+          "The founder named in the sources is Queen Khosrovanuysh, wife of the Bagratid king Ashot III, and the church was dedicated for her two sons, Smbat and Gurgen. That detail is not decoration: Smbat later took his father's throne at Ani, and Gurgen inherited the smaller kingdom in Lori whose line is known as the Kiurikian. Haghpat was built, in other words, by and for the family that ruled the region, and it stayed tied to them.",
+          "The foundation date is less settled than it looks. UNESCO's documentation gives 976 for the founding of the monastery by Khosrovanuysh. The specialist architectural survey of the site, and the advisory evaluation that drew on it, instead say that the church was begun in 966 or 967. Both dates are in print and each is repeated confidently by writers following one source or the other.",
+          "There is a way to test them, and it is internal to the earlier source. That survey states that the church was finished in 991 and that the work therefore lasted fifteen years — an arithmetic that fits a start in 976 and does not fit one in 966. The safest reading is that the 991 completion is firm, resting on an inscription on the north side of the church, and that the start date is not. This article treats the tenth century as the period of foundation and 991 as the one date the building itself supplies.",
+        ],
+        links: [
+          {
+            phrase: "Armenian kingship was re-established under the Bagratid house at the end of the ninth",
+            slug: "bagratid-armenia",
+          },
+        ],
+      },
+      {
+        id: "surb-nshan",
+        heading: "Surb Nshan",
+        paragraphs: [
+          "The principal church is Surb Nshan, the Holy Sign, and it is the oldest thing standing at Haghpat. It belongs to a type usually called the domed hall: a broadly rectangular building, slightly longer than it is wide, with a cross-shaped space inside and a central dome carried on four heavy piers built into the side walls. The outer walls are worked almost all over with the narrow triangular niches that are a signature of Armenian church building in this period.",
+          "The design is traditionally attributed to Trdat, the best-documented Armenian architect of the age. He worked for the Bagratids across the later tenth and early eleventh centuries, the cathedral at Ani is his, and he is the man called to Constantinople to rebuild the dome of Hagia Sophia after the earthquake of 986. The attribution at Haghpat rests on tradition rather than on a signed inscription, and is worth stating as such, but the resemblance between the piers here and those at Ani is close enough that the surveys take it seriously.",
+          "On the east front, set in a rectangular niche, is a carved panel showing two figures in court dress facing one another and holding a model of the church between them. These are the founder's sons. Here the sources part company over a name: the UNESCO statement calls them Smbat and Gurgen, while the earlier advisory evaluation calls them Smbat and Kiurike. The disagreement is smaller than it looks — Gurgen is also known as Kiurike, and the Kiurikian line is named after him — but a reader meeting the two accounts side by side would reasonably think they described different people.",
+          "The church is often described as surviving unchanged, and that is close to true but not exactly true. The survey records repairs in the eleventh century and again at the end of the twelfth, and suggests that a band of carved stone near the top of the dome belongs to the later of those. Inside, the apse keeps the earliest layer of its painting, with Christ enthroned as the main composition. A building that has stood for a thousand years in an earthquake zone has been worked on, and Haghpat is no exception.",
+        ],
+        links: [],
+      },
+      {
+        id: "a-monastery-built-over-centuries",
+        heading: "A monastery built over centuries",
+        paragraphs: [
+          "Almost everything at Haghpat other than Surb Nshan is later than the church, and most of it is very much later. The small church of Saint Gregory was built between 1005 and 1025, and it did not stay as designed: its dome was replaced by a barrel vault in the thirteenth century. Symmetrically placed to the north is a chapel of the Holy Virgin, raised in the thirteenth century on the grant of a princess named Khatun.",
+          "The thirteenth century is when the site takes the shape a visitor sees now. The bell tower went up in 1245 on the highest ground in the complex, three storeys with a cross-shaped plan below, an eight-sided storey above it and an open rotunda of columns carrying the bells at the top. A large hall known as the building of Abbot Hamazasp was added in the same century — UNESCO dates it to 1257, while the architectural survey gives only the century and the abbot's name. The refectory, standing apart from the main group, is also thirteenth century.",
+          "Two further additions are easy to overlook and say a great deal. The space between the church, the Hamazasp hall and the library was roofed over and turned into a burial vault, and a second corridor-shaped tomb chamber was formed along the eastern side of the church. Building over the gaps between existing structures is what an institution does when it has run out of room and will not move.",
+          "Set out together, the list stops being an inventory and becomes an argument. A church is for worship. A refectory means a community eating together on a fixed rule. A library and a scriptorium mean books being kept and made. A gavit means assembly, teaching and burial. A bell tower means a timetable audible across the valley. Walls and towers mean property worth defending. Haghpat is the physical record of a community that did all of those things at once, and kept needing more room for them.",
+        ],
+        links: [],
+      },
+      {
+        id: "the-gavit",
+        heading: "The gavit",
+        paragraphs: [
+          "The most distinctive building at Haghpat is its gavit. The word has no clean equivalent in English, and translating it as narthex, cloister or chapter house misleads more than it helps, because those name European things with different functions. A gavit is a large hall built against the west end of an Armenian church, and the surveys describe it as serving three purposes at once: it was where the community assembled, where novices were taught, and where the dead were buried. UNESCO's documentation does use the word narthex for it, which is worth knowing when comparing accounts.",
+          "The form is domestic in origin. The roof is carried on four columns standing free in the middle of the floor, an arrangement borrowed from the timber houses of the region, and pairs of arches spring across the space from opposite sides and cross one another, dividing the ceiling into nine compartments. The central compartment, the yerdik, is raised above the rest and open, so that it both lights the hall and lets smoke out. At Haghpat the system is doubled, a second set of arches lifting the lantern higher still.",
+          "Its date is the largest open question at the site. The architectural survey places the gavit in 1310 to 1320, on the site of an earlier Kiurikian funerary building of 1185 associated with Mariam, a daughter of King Kiurike. UNESCO's statement and the advisory evaluation both put the building itself in the second decade of the thirteenth century and attribute it to Princess Mariam. Those are a century apart, and the likeliest explanation is that one account has absorbed the patron of the earlier structure into the date of the later one. This article does not choose between them.",
+          "What is not in doubt is who lies under it. The floor of the gavit is paved with the gravestones of the Kiurikian family. Whatever century the hall was raised in, the family that founded the kingdom in Lori was still burying its dead at Haghpat, and the building exists partly to house them.",
+        ],
+        links: [],
+      },
+      {
+        id: "books-teaching-and-the-library",
+        heading: "Books, teaching and the library",
+        paragraphs: [
+          "Haghpat kept a book repository, and it survives. It is a compact square room, roofed by the same system of crossing arches used in the larger halls and lit from a central opening, with niches cut into the surrounding walls where the manuscripts were stored. What to call it and when it was built are both unsettled: the architectural survey calls it the library and dates the original structure to the twelfth century, while UNESCO calls it the scriptorium, puts it in the eleventh and adds that it was rebuilt substantially in the thirteenth. The distinction matters, because a room for keeping books and a room for copying them are not the same claim.",
+          "It is worth being careful about what a medieval Armenian monastic school was. Haghpat is often called a university, and that word imports an institution — faculties, degrees, a charter — that did not exist here. What the evidence supports is a monastic school teaching within a religious community, alongside the copying and keeping of manuscripts. That is a considerable thing without being a modern one, and the later school at Tatev, which did develop into something closer to a formal centre of higher study, shows how far the distinction can run inside Armenia itself.",
+          "One name is regularly attached to Haghpat: Hovhannes Sarkavag, called Imastaser, the Philosopher, a scholar of mathematics, calendar reckoning, theology and hymnody who lived from about 1045 to 1129. The biographical literature has him studying and later teaching at Haghpat, and his tomb is pointed out at the monastery. It is an association worth reporting and worth flagging: neither the architectural survey used here nor the UNESCO documentation names him, and this article has not been able to check the claim against a source that would settle it. The advisory evaluation does say the two monasteries together housed some five hundred monks, which is a figure from that document rather than a headcount anyone can now verify.",
+        ],
+        links: [
+          {
+            phrase: "the later school at Tatev",
+            slug: "tatev-monastery",
+          },
+        ],
+      },
+      {
+        id: "the-zakarian-century",
+        heading: "The Zakarian century",
+        paragraphs: [
+          "The thirteenth-century building campaign happened under a new political order. The Zakarian princes, governing northern Armenia within the Georgian kingdom after the Seljuk period, presided over a general revival in which monasteries acquired patrons, land and buildings at a rate not seen since the Bagratids. Haghpat's bell tower, its refectory, the Hamazasp hall, the burial vaults and most of its chapels all belong to this window.",
+          "It is tempting to hand the whole of that to the Zakarians as a family, and the evidence does not support it. The patrons who can actually be named are named individually and locally: an abbot, Hamazasp, whose hall carries his name; a princess, Khatun, whose grant paid for the chapel of the Virgin. Attribution at this site works best building by building, from inscriptions, and worst as a general statement about a dynasty.",
+          "The period also produced a fortress. Kayanberd was built in 1233 on high ground about a kilometre west of the monastery, and the advisory evaluation is explicit that it existed to watch the approaches to Haghpat and Sanahin. That a monastery was worth building a castle for is the clearest single measure of what these houses were by then: landholders, treasuries and centres of population, not only places of prayer.",
+        ],
+        links: [],
+      },
+      {
+        id: "khachkars-and-inscriptions",
+        heading: "Khachkars and inscriptions",
+        paragraphs: [
+          "A khachkar is an upright stone slab carved with a cross and, usually, with dense interlace around and beneath it. They were raised as memorials, as thanks, to mark a foundation or a gift, and they are among the most characteristic Armenian objects of the medieval centuries. Haghpat has a number of them, together with the tombs of several families.",
+          "The best known is the khachkar called Amenaprkich, the Redeemer, carved in 1273 and standing near the northern entrance of Surb Nshan. Both the architectural survey and the UNESCO documentation single it out; the survey calls it an outstanding example of Armenian medieval sculpture. This article leaves the ranking there rather than repeating the superlatives that circulate about it.",
+          "Inscriptions are the reason any of this can be dated at all. The completion of Surb Nshan in 991 is known from a text on the north side of the church, not from a chronicle; the khachkar carries its own year; the buildings that lack an inscription are precisely the ones the sources disagree about. When a monastery like this appears to have a confident chronology, it is usually because someone stood in front of the walls and read them.",
+        ],
+        links: [],
+      },
+      {
+        id: "changing-political-worlds",
+        heading: "Haghpat in changing political worlds",
+        paragraphs: [
+          "Haghpat outlived the kingdom that built it, and the sequence of powers that followed is easy to compress into a list of disasters. It is worth resisting that, because conquest, damage, abandonment and rebuilding are four different things and they did not always arrive together.",
+          "Damage there certainly was. The advisory evaluation records that the monastery was taken and burned in 1105 by a Seljuk commander it names as Amir-Ghzil, and that Kayanberd, built to protect the two houses, was itself stormed in 1241 during the Mongol campaigns. The site has also been shaken repeatedly: it stands in an active seismic zone, and earthquake damage appears in the record more than once.",
+          "What did not happen is the ending that the word sacked usually implies. Monastic life continued after 1105 and after 1241, and the great majority of the buildings standing today went up after the first of those dates and around or after the second. A change of overlord did not automatically empty an Armenian monastery, and at Haghpat the thirteenth century — politically the most turbulent — was also the most productive.",
+          "The later centuries are quieter in the record. Building activity fell away, and the next clearly documented phase is a series of repairs in the seventeenth century, dated to 1651, 1676 and 1677. Through the Persian and later Russian periods the monastery continued in use, and it remains a church of the Armenian Apostolic Church, which owns it, today.",
+        ],
+        links: [],
+      },
+      {
+        id: "the-monastery-and-the-debed",
+        heading: "The monastery and the Debed",
+        paragraphs: [
+          "The Debed gorge explains the siting. A monastery needed defensible ground, water, workable land and a position on a route, and the terraces along this valley offer all four. The gorge also explains the pairing with Sanahin: the two houses face each other across it, close enough to be spoken of together and separated enough to have been independent institutions with their own patrons and their own histories.",
+          "The valley below is now industrial. Alaverdi, the town at the foot of the gorge, has been a copper-mining and smelting centre since the nineteenth century, and the UNESCO assessment names the pollution of the surrounding environment, together with seismic activity and pressure from visitors, among the threats to the property. That is an unusual sentence to find in a description of a medieval monastery, and it is a fair description of where Haghpat actually sits.",
+          "The landscape is not merely a backdrop here. UNESCO's assessment of the property treats the setting as part of what is protected, and the surrounding village is subject to planning control for the same reason. The argument is that the buildings were composed in relation to the ground they stand on, and that separating them from it would leave something less than the thing that was inscribed.",
+        ],
+        links: [],
+      },
+      {
+        id: "conservation-and-world-heritage",
+        heading: "Conservation and World Heritage",
+        paragraphs: [
+          "The seventeenth-century repairs were the first documented campaign. The next came under Soviet Armenia: the republic's monument preservation committee began work in 1939 and 1940, and a much larger programme ran from 1960 to 1980. That programme is the reason the churches are in the condition they are, and it is also the reason a visitor should be careful about reading every course of masonry as medieval. Restored fabric is a statement about the twentieth century as well as the tenth, and where the record does not say exactly what was replaced, this article does not guess.",
+          "The World Heritage history is staged, and flattening it loses the most interesting part. In 1996 the property was inscribed under the name Haghpat Monastery, on its own, under criteria two and four. In 2000 a second nomination extended it, and the property was renamed Monasteries of Haghpat and Sanahin. The dossier number carries the trace of that: the original was 777 and the extension 777bis.",
+          "So the accurate statement is that Haghpat is part of a World Heritage property that also contains Sanahin — and, for four years between 1996 and 2000, that Haghpat was inscribed by itself. The criteria adopted describe the two monasteries as a blending of Byzantine church architecture with the vernacular building of the region, and as outstanding examples of the ecclesiastical architecture that developed in Armenia between the tenth and thirteenth centuries.",
+          "Armenia has three World Heritage properties. This is one; the monastery of Geghard and the upper Azat valley, inscribed in 2000, is another; the cathedral and churches of Etchmiadzin with the site of Zvartnots, inscribed in 2000, is the third. Haghpat and Sanahin were the first of the three onto the list.",
+        ],
+        links: [
+          {
+            phrase: "the monastery of Geghard and the upper Azat valley",
+            slug: "geghard-monastery",
+          },
+        ],
+      },
+      {
+        id: "what-haghpat-represents",
+        heading: "What Haghpat represents",
+        paragraphs: [
+          "The description that fits Haghpat best is the one UNESCO's own assessment reaches for: organic growth. This is not a designed ensemble but an accumulation, three centuries of additions each fitted to what was already there, and the surveys note that the result is asymmetrical and still balanced. Buildings were placed with regard to the ones beside them, and the gaps between them were eventually roofed and used.",
+          "It is not a fortress, and the walls should not be allowed to make it one. Haghpat has an enclosing rampart with towers, and a castle was built nearby to watch over it, but the vocabulary of keeps and baileys does not belong here. What the walls describe is a wealthy landholding community in a dangerous century, protecting itself and its property in the ordinary way of the time.",
+          "What the complex finally shows is an institution that thought in centuries. A community that builds a refectory, a library and a bell tower is not expecting to leave, and one that roofs over the alleys between its buildings has been there long enough to run out of space. That, rather than any single façade, is what makes Haghpat worth the attention it gets.",
+        ],
+        links: [],
+      },
+    ],
+    importantDates: [
+      {
+        year: "966 or 976",
+        event:
+          "The two dates given in the literature for the start of work on Surb Nshan. The earlier comes from the architectural survey and the advisory evaluation; the later from the UNESCO statement, which gives it as the founding of the monastery by Queen Khosrovanuysh.",
+      },
+      {
+        year: "986",
+        event:
+          "An earthquake brings down the dome of Hagia Sophia in Constantinople; Trdat, the architect to whom Surb Nshan is attributed, is called to rebuild it.",
+      },
+      {
+        year: "991",
+        event:
+          "Surb Nshan is completed. The date comes from an inscription on the north side of the church and is the firmest in the whole chronology.",
+      },
+      {
+        year: "1005–1025",
+        event: "The small church of Saint Gregory is built. Its dome is replaced by a barrel vault two centuries later.",
+      },
+      {
+        year: "1105",
+        event:
+          "The monastery is taken and burned by a Seljuk commander named in the advisory evaluation as Amir-Ghzil. Monastic life continues afterwards.",
+      },
+      {
+        year: "1185",
+        event:
+          "A Kiurikian funerary building associated with Mariam, daughter of King Kiurike, is raised on the ground the gavit later occupies.",
+      },
+      {
+        year: "1233",
+        event:
+          "The fortress of Kayanberd is built about a kilometre west, to watch the approaches to Haghpat and Sanahin.",
+      },
+      {
+        year: "1241",
+        event: "Kayanberd is taken by storm during the Mongol campaigns. The monastery itself continues in use.",
+      },
+      {
+        year: "1245",
+        event:
+          "The bell tower is built on the highest ground in the complex: a cross-shaped lower storey, an eight-sided second storey and an open rotunda carrying the bells.",
+      },
+      {
+        year: "1257",
+        event:
+          "The date UNESCO gives for the hall of Abbot Hamazasp. The architectural survey gives only the century and the abbot's name.",
+      },
+      {
+        year: "1273",
+        event: "The khachkar called Amenaprkich, the Redeemer, is carved. It stands near the northern entrance of Surb Nshan.",
+      },
+      {
+        year: "1651, 1676 and 1677",
+        event: "The documented seventeenth-century repairs, the first clear campaign of restoration after the medieval centuries.",
+      },
+      {
+        year: "1960–1980",
+        event:
+          "The major Soviet-era restoration programme, following smaller work begun in 1939 and 1940. Most of the present condition of the buildings dates from it.",
+      },
+      {
+        year: "1996 and 2000",
+        event:
+          "Haghpat Monastery is inscribed on the World Heritage List on its own in 1996; in 2000 the property is extended to include Sanahin and renamed Monasteries of Haghpat and Sanahin.",
+      },
+    ],
+    significance: {
+      heading: "Why Haghpat matters",
+      paragraphs: [
+        "Haghpat is the clearest surviving demonstration of what a major medieval Armenian monastery was for. Individually its buildings have parallels elsewhere; together they show a single community worshipping, eating, teaching, copying and keeping books, burying its patrons and defending its property, and doing all of it on one terrace for three hundred years. Very few sites let the functions be read off the plan this directly.",
+        "It also holds a particular place in how Armenia's heritage is presented to the world. It was the first Armenian property inscribed on the World Heritage List, four years before either of the other two, and it carried that status alone until Sanahin was joined to it. For readers outside Armenia, Haghpat is often the first medieval Armenian building they encounter by name.",
+      ],
+    },
+    interestingFacts: [
+      "The architect credited with Surb Nshan, Trdat, is the same man called to Constantinople to rebuild the dome of Hagia Sophia after the earthquake of 986.",
+      "Haghpat was a World Heritage Site by itself for four years: inscribed alone in 1996, it was joined to Sanahin only by the extension of 2000.",
+      "The two figures carved on the east front of the church are the founder's sons, and one of them appears in the sources under two different names — Gurgen in one, Kiurike in the other. They are the same man.",
+      "The floor of the gavit is paved with the gravestones of the Kiurikian royal family.",
+      "The bell tower's masonry includes a course of stones cut to interlock, a detail the architectural survey reads as a deliberate measure against earthquakes.",
+      "A castle, Kayanberd, was built in 1233 for the specific purpose of watching the approaches to Haghpat and Sanahin — and was stormed in 1241, while the monasteries it guarded carried on.",
+    ],
+    relatedFigures: [
+      {
+        name: "Queen Khosrovanuysh",
+        lifespan: "tenth century",
+        description:
+          "Wife of the Bagratid king Ashot III and the founder named in the sources for both Haghpat and Sanahin. The church at Haghpat was dedicated for her two sons, Smbat and Gurgen, who are the figures carved holding a model of it on the east front.",
+      },
+      {
+        name: "Trdat",
+        lifespan: "tenth to eleventh century",
+        description:
+          "The best-documented Armenian architect of the period, who worked for the Bagratids and built the cathedral at Ani. Surb Nshan is attributed to him by tradition rather than by a signed inscription. He was called to Constantinople to rebuild the dome of Hagia Sophia after the earthquake of 986.",
+      },
+      {
+        name: "Hovhannes Sarkavag",
+        lifespan: "about 1045 – 1129",
+        description:
+          "Scholar of mathematics, calendar reckoning, theology and hymnody, called Imastaser, the Philosopher. The biographical literature associates him with Haghpat as a student and later a teacher, and his tomb is shown there; neither the architectural survey nor the UNESCO documentation used for this article names him.",
+      },
+    ],
+    relatedSlugs: ["bagratid-armenia", "geghard-monastery", "tatev-monastery"],
   },
 ];
