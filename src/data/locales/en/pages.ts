@@ -151,5 +151,6 @@ export const pages: StaticPagesContent = {
     mapCta: "Learn about this place",
     mapFilterLabel: "Show places by type",
     mapUnavailable: "The map could not be loaded. All the places on it are listed below.",
+    mapClusterLabel: "{count} places",
   },
 };

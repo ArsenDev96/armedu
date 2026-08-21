@@ -427,7 +427,7 @@ export const cuisineArticles: Article[] = [
     dishType: "Ceremonial dishes",
     dishTypeId: "ceremonial",
     imageSeed: "harissa",
-    keywords: ["harissa", "harisa", "Հարիսա", "korkot", "քորքոտ", "Musa Dagh", "Musaler", "Մուսա Լեռ"],
+    keywords: ["harissa", "harisa", "Հարիսա", "korkot", "կորկոտ", "Musa Dagh", "Musaler", "Մուսա Լեռ"],
     excerpt:
       "Wheat and meat stirred together for hours until they become one substance — a dish recorded in a tenth-century Baghdadi cookbook, and the food around which the Musa Dagh resistance is commemorated every September.",
     metaDescription:
@@ -820,5 +820,166 @@ export const cuisineArticles: Article[] = [
         "Carried to the table whole and cut open along its ridges in front of the guests; served towards the end of the meal, with the filling spooned out together with the flesh.",
     },
     relatedSlugs: ["gata", "dolma", "harissa"],
+  },
+  {
+    slug: "spas",
+    href: "/cuisine/spas",
+    category: "cuisine",
+    categoryLabel: "Armenian Cuisine",
+    title: "Spas",
+    seoTitle: "Spas: The Armenian Soup Made from Matsun",
+    dishType: "Main dishes",
+    dishTypeId: "main",
+    imageSeed: "spas",
+    keywords: [
+      "spas",
+      "Սպաս",
+      "tanapur",
+      "Թանապուր",
+      "matsun",
+      "մածուն",
+      "dzavar",
+      "ձավար",
+      "Armenian yogurt soup",
+    ],
+    excerpt:
+      "A soup with no stock in it: the liquid is matsun thinned with water, cooked with a grain until it thickens — and the whole method exists to stop the fermented milk from curdling.",
+    metaDescription:
+      "Spas, the Armenian soup whose body is matsun rather than stock: the grain in it, why it curdles when heated, and what its two names actually record.",
+    summary:
+      "Spas is a soup whose liquid body is matsun — fermented milk — thinned with water and cooked with a grain, usually dzavar, then finished with herbs. Its defining feature is a technical problem: matsun is acidic, and acidic milk coagulates when it is heated, so a stabiliser of egg or flour is beaten in and the pot is warmed slowly and stirred throughout. It is eaten hot in cold weather and cool in warm weather, with bread, and it belongs to ordinary household cooking rather than to any feast. Its two names arrive from opposite directions — one from an old word for what is served, the other naming the dairy itself — and the age of neither word establishes the age of the dish.",
+    intro:
+      "Spas is the everyday side of Armenian cooking. It is a soup made from matsun, fermented milk, let down with water and cooked with a grain until it thickens, then finished with herbs; it is served hot or cool, and it is the kind of thing a household eats on an ordinary evening rather than the kind of thing made for a feast. It also sets a real technical problem, because heating fermented milk is exactly what makes it curdle, and most of what is distinctive about preparing spas is the answer to that.",
+    author: "Armat Editorial Team",
+    updated: "2026-08-20",
+    keyFacts: [
+      { label: "Kind of dish", value: "Soup built on fermented milk" },
+      { label: "Base", value: "Matsun, thinned with water — or tan, which is matsun already diluted" },
+      { label: "Grain", value: "Dzavar most characteristically; also rice, wheat berries or barley" },
+      { label: "Herbs", value: "Cilantro, mint, parsley or dill, varying by household and season" },
+      {
+        label: "The technical problem",
+        value: "Acidic dairy coagulates when heated; a stabiliser and slow warming prevent it",
+      },
+      { label: "Served", value: "Hot in cold weather, cool in warm weather, with bread" },
+    ],
+    sections: [
+      {
+        id: "what-spas-is",
+        heading: "What spas is",
+        paragraphs: [
+          "Spas is built the other way round from most soups. There is no stock in it. The liquid body of the dish is matsun, Armenian fermented milk, let down with water until it pours, and everything else — the grain, the herbs, the salt — goes into that.",
+          "A grain is cooked in it until it softens and the soup thickens a little. Dzavar, hulled and cracked wheat, is the characteristic choice; rice is common in modern kitchens, and whole wheat and barley appear as well. The herbs go in at or near the end.",
+          "The result is white, faintly sour, and thicker than water without being anything like a purée. It can be eaten straight from the pot or cooled and eaten cold, and with bread it is a meal rather than a first course before something else.",
+        ],
+      },
+      {
+        id: "matsun-as-the-base",
+        heading: "Matsun as the base",
+        paragraphs: [
+          "Matsun is milk fermented by bacteria that turn its sugars into lactic acid. That acidity is what keeps it, what gives it its taste, and — as the next sections describe — what makes it awkward on a stove.",
+          "In spas it is not a spoonful stirred in at the table but the body of the dish, and it is nearly always thinned. Some cooks let it down with water; others use tan, which is matsun already diluted and salted, and which is normally drunk as it is.",
+          "Matsun has a much wider life than this one soup. It is eaten plain and strained, set beside grain and meat dishes, and worked into dough, and that wider life belongs to an article of its own. What matters here is narrower: it is the liquid, it is acidic, and the method is organised around that fact.",
+        ],
+      },
+      {
+        id: "grain-and-herbs",
+        heading: "Grain and herbs",
+        paragraphs: [
+          "Dzavar is wheat hulled and cracked into groats — coarser than semolina, finer than a whole berry — and it is the grain most associated with spas. It softens without dissolving, so the soup thickens while the grain stays distinct in it.",
+          "It is not the only one used. Rice is widespread in contemporary cooking and gives a smoother result; whole wheat berries make a chewier soup; barley turns up where barley was the field crop. Presenting any one of these as the correct grain would be describing a household rather than a dish.",
+          "The herbs vary more still. Cilantro, mint — often dried — parsley and dill all appear, singly and together, and which of them a cook reaches for depends on the season, the region and what is growing. The Smithsonian's Armenia programme recorded that each region has its own favoured wild plants, and this is a soup in which that shows.",
+        ],
+      },
+      {
+        id: "keeping-it-from-curdling",
+        heading: "Keeping it from curdling",
+        paragraphs: [
+          "The interesting thing about spas is a problem rather than an ingredient. Milk is unusually tolerant of heat: unlike egg or meat, its proteins do not set when they are cooked. Harold McGee's account of the chemistry adds the exception that matters here — they do coagulate once the milk has turned acidic. Matsun is acidic by definition, so heating it does precisely what heating milk does not.",
+          "Left to itself the mixture separates into grains of curd in a thin liquid. It is still edible; it is not spas. What cooks do about it is to add a stabiliser — an egg or a yolk beaten in, or flour, or the starch the grain itself releases — and to bring the pot up slowly, stirring throughout, so that no part of it races ahead of the rest.",
+          "One piece of advice travels with the recipe: stir in one direction. It is worth being exact about its standing. The accounts that explain the chemistry deal in temperature, acidity, agitation and added stabilisers, and none of them makes the direction of the spoon a variable. What the instruction reliably produces is steady, continuous stirring, which does matter. It is kitchen custom rather than a mechanism, and it is repeated here as custom.",
+        ],
+      },
+      {
+        id: "two-names",
+        heading: "Spas and tanapur",
+        paragraphs: [
+          "The dish answers to two names, and they arrive from opposite directions. Spas is the older and the stranger of the two. The word is a borrowing from Middle Iranian, where it meant service, and in Classical Armenian its range ran from service, through the vessels and dishes set out for a meal, to what was served in them. The standard dictionary of the classical language, published in Venice in 1836 and 1837, lists soup among its senses.",
+          "Tanapur is transparent beside it: tan, the diluted matsun, and apur, soup — the soup made of tan. The same dictionary records an older sense of tan itself that is closer to broth than to a drink, which is a reminder that this vocabulary has moved.",
+          "In current usage the two names generally mean the same dish, and this article uses them so. Whether they once meant different things, or divided along regional lines, is not something the available sources settle. What the age of the words does not establish is the age of the soup: a name can be centuries older than the particular thing later attached to it, and no documentary record places this dish in the classical period.",
+        ],
+      },
+      {
+        id: "hot-cold-and-the-season",
+        heading: "Hot, cold and the season",
+        paragraphs: [
+          "Spas is commonly described as a winter soup served hot and a summer soup served cold, and in many contemporary accounts that is how the choice is put. It is better read as a range than as a rule: the same preparation works at either temperature, and households differ.",
+          "The cold version is the simpler of the two, since a soup that is never heated cannot curdle. That the hot version demands the whole business of stabilising, slow warming and constant stirring, and is made anyway, is a fair measure of how much it is wanted in winter.",
+          "Either way it is eaten with bread. Lavash torn into the bowl is the usual accompaniment, and in the cold version, where the soup is thin and sharp, it is what makes the meal substantial.",
+        ],
+        links: [{ phrase: "Lavash", slug: "lavash" }],
+      },
+      {
+        id: "everyday-cooking",
+        heading: "Everyday cooking",
+        paragraphs: [
+          "Every other dish in this section is, one way or another, an occasion. Harissa is cooked in great pots for a commemoration; ghapama comes to the table at a feast; khorovats gathers people around a fire. Spas is not an occasion. It is what is made on an ordinary evening out of what is already in the house.",
+          "The Smithsonian's Armenia programme of 2018 put the distinction plainly: the menu of a feast differs from daily meals in its ingredients, its techniques and the etiquette of serving it. Spas sits on the daily side of that line, and it is the first article in this section that does.",
+          "That is also why it is economical in a way the festive dishes are not. Matsun is made at home from milk that would otherwise spoil, the grain is a store-cupboard staple, and the herbs are grown, gathered or dried. It is assembled from what a household already keeps rather than shopped for.",
+        ],
+        links: [{ phrase: "Harissa", slug: "harissa" }],
+      },
+      {
+        id: "a-wider-family",
+        heading: "A wider family",
+        paragraphs: [
+          "Soups of grain and herbs, and the use of soured or dried dairy in cooking, are not particular to Armenia. Bert Fragner's survey of Iranian cookery for the Encyclopædia Iranica describes porridge-like soups of cereals, vegetables and herbs — the āsh family — as ordinary town food by the fourteenth and fifteenth centuries, and notes the wider use of milk products such as kashk in flavouring them.",
+          "The same survey treats the making of yogurt, dried yogurt and white cheese as practices that spread widely and early across the Iranian plateau and Central Asia. Fermented-dairy soups accordingly exist across a broad region under many names, related to one another by method rather than descended one from another.",
+          "None of that diminishes the Armenian dish. Spas has its own names, its own characteristic grain, its own herbs and its own place in the day, and those are what this article describes. Which cuisine first made a soup out of fermented milk is not a question the evidence can answer, and not one worth asking.",
+        ],
+      },
+    ],
+    importantDates: [
+      {
+        year: "1836–1837",
+        event:
+          "The Nor baṛgirkʻ haykazean lezui, the standard dictionary of Classical Armenian, is published in Venice; soup is among the senses it lists for the word spas.",
+      },
+    ],
+    significance: {
+      heading: "Why spas matters",
+      paragraphs: [
+        "Spas is the first dish in this section that nobody puts on a table in order to mark anything, and that is exactly its value here. A cuisine described only through its festive food is a cuisine described through its exceptions, and the ordinary cooking that most people eat most of the time goes unrecorded.",
+        "It is also the clearest case in this section of a dish organised around a technique rather than an ingredient list. The whole shape of the preparation — the stabiliser, the slow heat, the unbroken stirring — exists to solve one problem, and understanding that problem explains the dish more completely than any recipe would.",
+      ],
+    },
+    interestingFacts: [
+      "There is no stock in spas: the liquid body of the soup is fermented milk let down with water.",
+      "Milk proteins are unusually heat-tolerant and do not set when cooked — but they do coagulate once the milk has turned acidic, which is why matsun has to be handled carefully on a stove.",
+      "The word spas is a Middle Iranian borrowing meaning service, and passed through the sense of what is set out for a meal before it came to mean this soup.",
+      "Tanapur is a transparent compound: tan, the diluted matsun, plus apur, soup.",
+      "The familiar instruction to stir in one direction is kitchen custom; the accounts that explain the chemistry deal in temperature, acidity, agitation and stabilisers, not direction.",
+    ],
+    relatedFigures: [],
+    cuisine: {
+      ingredients: [
+        "Matsun, thinned with water",
+        "Dzavar — hulled, cracked wheat",
+        "Egg or flour, as a stabiliser",
+        "Onion",
+        "Cilantro, mint, parsley or dill",
+        "Salt",
+      ],
+      preparation:
+        "Matsun is thinned and beaten smooth with a stabilising egg or flour, then warmed slowly and stirred throughout so the acidic dairy does not coagulate; the grain is cooked in it until it softens and the soup thickens, and the herbs go in near the end. It is served hot, or cooled and served cold.",
+      occasions: ["Ordinary household meals", "Winter, served hot", "Summer, served cool"],
+      regions: [
+        "Made throughout Armenia and in the diaspora",
+        "The grain follows what is grown locally — wheat, and barley where barley was the field crop",
+      ],
+      serving:
+        "In a bowl with bread; hot in cold weather and cool in warm, as a meal in itself rather than a course before one.",
+    },
+    relatedSlugs: ["harissa", "lavash"],
   },
 ];

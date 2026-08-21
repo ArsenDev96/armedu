@@ -20,13 +20,18 @@ import { LOCALES, bundle, cards, ui } from "./helpers";
  * a decision someone has to take twice.
  */
 
+/*
+  Re-curated in §53, and the order is part of what is being pinned: this array is
+  copied from the page rather than imported, so a change to either the selection
+  or the sequence has to be made twice by someone who meant it.
+*/
 const FEATURED_PLACES = [
-  "garni-temple",
-  "geghard-monastery",
-  "lake-sevan",
   "khor-virap",
-  "matenadaran",
-  "erebuni-fortress",
+  "gyumri",
+  "lake-sevan",
+  "garni-temple",
+  "dilijan-national-park",
+  "tatev-monastery",
 ] as const;
 
 const FEATURED_DISHES = ["lavash", "dolma", "khorovats", "gata"] as const;
@@ -38,11 +43,84 @@ const LEARN_ARTICLES = [
   "tigran-the-great",
 ] as const;
 
-/** The four place types the journey offers, minus `all`. Ids, not labels. */
-const PLACE_TYPES = ["monastery", "historical", "museum", "nature"] as const;
+/**
+ * The place types the journey offers, minus `all`. Ids, not labels.
+ *
+ * Five as of §51: `settlement` arrives with Gyumri and the Visit hub picks it up
+ * for free, because the type links are rendered from `placeTypes` rather than
+ * from a list kept here. That is what this array is really pinning — a hub that
+ * had its own copy of the taxonomy would still show four links and nobody would
+ * notice.
+ */
+const PLACE_TYPES = ["monastery", "historical", "museum", "nature", "settlement"] as const;
 
 /** Etchmiadzin is the deliberate omission — reachable only through the CTA. */
 const NOT_FEATURED = "etchmiadzin-cathedral";
+
+/**
+ * The places that exist, are on the map, and are deliberately *not* in the row.
+ *
+ * Etchmiadzin above was the first, and it stood alone while the row held six of
+ * seven. It no longer does, and §53 changed *which* four are out rather than how
+ * many: Tatev, Dilijan and Gyumri came in, and Geghard, Erebuni and the
+ * Matenadaran went out.
+ *
+ * That gap is the invariant, not an oversight to be closed. The map answers
+ * *where can I already read about something* and grows with the section; the row
+ * is an editorial selection and changes when someone decides it should. Naming
+ * the excluded slugs explicitly is what keeps a later step from quietly appending
+ * the newest place to the row because the number looked untidy — and it is now
+ * doing a second job it was not doing before §53. Three of these four are not new
+ * articles waiting their turn; they are *removals*, and the failure this list
+ * catches is one of them drifting back in and taking the row to seven.
+ *
+ * The Matenadaran is the one to watch. It is the section's only museum and its
+ * only article in Yerevan, and it is the most likely to be re-added by someone
+ * who notices the row has neither.
+ */
+const NOT_CURATED = [
+  NOT_FEATURED,
+  "geghard-monastery",
+  "erebuni-fortress",
+  "matenadaran",
+  /*
+    §57. Amberd is the eleventh place and the first one written *after* §53 reviewed
+    this row, which makes it the first real test of whether the review holds.
+
+    It is on the map and in `/places` and it is deliberately not here. The row was
+    curated on editorial grounds a step ago and adding the newest article to it
+    every time one is written would make the curation a queue rather than a
+    judgement — which is exactly what the list this constant belongs to exists to
+    prevent. The row stays at six.
+  */
+  "amberd-fortress",
+  /*
+    §59. Jermuk is the twelfth place, the second `settlement`, and the second article
+    in a row written after §53 reviewed this row.
+
+    It is the one whose omission is worth stating rather than assuming, because a
+    case could be made for it: the row deliberately carries a settlement — Gyumri —
+    and a spa town in the south would balance a city in the north-west. That is
+    precisely the argument this constant exists to refuse. §53 reviewed six cards on
+    editorial grounds and this step is a content step; promoting the newest article
+    because it fits a slot would make the curation a queue rather than a judgement,
+    and re-cutting the row is a decision for a curation step, not a by-product of
+    writing an article. The row stays at six.
+  */
+  "jermuk",
+  /*
+    §64. Haghpat is not promoted, and this is the case where the argument for
+    promoting it is strongest and still wrong.
+
+    It is half of a World Heritage property, it is the archive's only article about
+    Lori, and the curated row carries nothing from the north beyond Gyumri. Every one
+    of those is a reason to *consider* recutting the row, and none of them is a
+    reason to do it as a side effect of writing an article. §53 reviewed six cards on
+    editorial grounds, the §62 audit re-examined that decision at twelve places and
+    found no reason to reopen it, and a curation step is where this belongs.
+  */
+  "haghpat-monastery",
+] as const;
 
 const ORIGIN = "https://armat.site";
 
@@ -260,6 +338,129 @@ test("every featured place card links to its canonical route and shows its own a
     cards(page).filter({ has: page.locator(`a[href="/en/places/${NOT_FEATURED}"]`) }),
     "Etchmiadzin stays behind the all-places link",
   ).toHaveCount(0);
+
+  /*
+    And the same for every other uncurated place, which is the assertion §49
+    actually needs.
+
+    The row held six of seven when this test was written, so "Etchmiadzin is
+    absent" and "the row is a curation" were nearly the same statement. With nine
+    places and six cards they are not: the failure worth catching now is a newly
+    written place being appended to the row on the way past, and only Etchmiadzin
+    was ever named. §51 makes it ten places against the same six cards, and Gyumri
+    — the only city, and the one a curator would reach for first — is on the map
+    and must not be here.
+  */
+  for (const slug of NOT_CURATED) {
+    await expect(
+      cards(page).filter({ has: page.locator(`a[href="/en/places/${slug}"]`) }),
+      `${slug} is on the map but not in the curated row`,
+    ).toHaveCount(0);
+  }
+
+  // The row itself is still exactly six cards, which is the other half of the
+  // same statement: nothing was added and nothing was quietly dropped.
+  await expect(
+    cards(page).filter({ has: page.locator('a[href^="/en/places/"]') }),
+    "the curated places row stays at six",
+  ).toHaveCount(FEATURED_PLACES.length);
+});
+
+test("the curated row has the editorial shape §53 chose, and the map still has everything", async ({
+  page,
+}) => {
+  /*
+    The shape guards, deliberately few.
+
+    The six-slug array above is already the strongest statement of the editorial
+    decision, and a test that tried to re-derive it — latitude bands, a region
+    quota, a type histogram — would be re-running the judgement rather than
+    protecting it. What is worth pinning is the small number of properties the
+    curation would be *wrong* without, each of which a future edit could break
+    while leaving six plausible-looking cards in place.
+  */
+  const places = bundle("en").articles.filter((article) => article.category === "places");
+
+  // No duplicate: six slots, six different places. A repeated slug renders twice
+  // and still counts as six cards.
+  expect(new Set(FEATURED_PLACES).size, "no curated slug is repeated").toBe(
+    FEATURED_PLACES.length,
+  );
+
+  // Every curated slug is a real place, so a typo cannot silently shorten the row.
+  for (const slug of FEATURED_PLACES) {
+    expect(
+      places.some((article) => article.slug === slug),
+      `${slug} must be a Places article`,
+    ).toBe(true);
+  }
+
+  const typeOf = (slug: string) => places.find((article) => article.slug === slug)!.placeTypeId;
+  const types = FEATURED_PLACES.map(typeOf);
+
+  /*
+    Three properties, and the reasoning for each is in `visit/page.tsx`:
+
+    - the city is in. §53's central claim is that a row without a `settlement`
+      describes a country of monuments and no inhabitants, and Gyumri is the only
+      one there is;
+    - at least one landscape. The row carries two, and one is the floor;
+    - at most two monasteries. The old row had two of six and the section has
+      four of ten; three would make the row read as "Armenia is monasteries",
+      which is what kept Geghard out.
+  */
+  expect(types, "the only settlement is curated").toContain("settlement");
+  expect(FEATURED_PLACES, "and it is Gyumri").toContain("gyumri");
+  expect(
+    types.filter((type) => type === "nature").length,
+    "at least one landscape",
+  ).toBeGreaterThanOrEqual(1);
+  expect(
+    types.filter((type) => type === "monastery").length,
+    `at most two monasteries: ${types.join(", ")}`,
+  ).toBeLessThanOrEqual(2);
+
+  /*
+    And the half that makes the curation safe: nothing was removed from the
+    archive. All twelve places — the six curated and the six not — are on this
+    page's own map list, which is server-rendered, so a card leaving the row
+    cannot take an article off the map with it.
+
+    §59 is where the gap stops being a gap and becomes a majority: the row is six and
+    the section is twelve, so exactly half the Places articles are reachable from
+    this page only through the map and the all-places link. That is the design and
+    not a drift — the map answers *where can I already read about something* and
+    grows with the section, while the row is an editorial selection reviewed in §53
+    and left alone here. It is also the point at which re-cutting the row becomes a
+    real question, and the answer is that it is a question for a curation step.
+  */
+  await page.goto("/en/visit");
+  await expect(page.locator("[data-map-list] li"), "the map still shows all thirteen").toHaveCount(
+    places.length,
+  );
+  expect(places.length, "thirteen places in the section").toBe(13);
+
+  for (const article of places) {
+    const link = page.locator(`[data-map-list-item="${article.slug}"]`);
+    await expect(link, `${article.slug} is on the map`).toHaveCount(1);
+    await expect(link, `${article.slug} map link`).toHaveAttribute(
+      "href",
+      `/en/places/${article.slug}`,
+    );
+  }
+
+  /*
+    The three §53 removals specifically, checked as removals rather than as
+    absences: each is off the row, still on the map, and still reachable at its
+    canonical route. A re-curation that dropped a card *and* its article would
+    pass every assertion above about the six that remain.
+  */
+  for (const slug of ["geghard-monastery", "erebuni-fortress", "matenadaran"]) {
+    expect(FEATURED_PLACES as readonly string[], `${slug} is out of the row`).not.toContain(slug);
+    await expect(page.locator(`[data-map-list-item="${slug}"]`), `${slug} kept its pin`).toHaveCount(
+      1,
+    );
+  }
 });
 
 test("every dish card links to its canonical route and shows its own artwork", async ({ page }) => {
@@ -306,21 +507,43 @@ test("every learn card links to a history article that genuinely relates to a fe
     The editorial guard, and the reason this test is worth more than a link
     check: a "learn before you visit" card is only honest if the connection was
     already declared in the content. Every learn slug must appear in the
-    `relatedSlugs` of at least one featured place — which is what stops a fourth
-    card being added because a row of three looked thin.
+    `relatedSlugs` of a Places article — which is what stops a fourth card being
+    added because a row of three looked thin.
+
+    §53 split this into two assertions instead of loosening the one that was
+    here. Until then the rule was the stricter "declared by a *curated* place",
+    and three of the four still clear it. The alphabet does not: its only carrier
+    is the Matenadaran, which §53 removed from the row while leaving it in the
+    section. Writing that down as its own expectation — rather than widening the
+    original until it stopped noticing — is what keeps the cost visible, and it
+    fails in both directions: re-curating the Matenadaran breaks the second
+    assertion, and dropping the alphabet card breaks the first.
   */
   const articles = bundle("en").articles;
-  const declared = new Set(
-    FEATURED_PLACES.flatMap(
-      (slug) => articles.find((article) => article.slug === slug)?.relatedSlugs ?? [],
-    ),
-  );
+  const relatedOf = (slugs: readonly string[]) =>
+    new Set(slugs.flatMap((slug) => articles.find((a) => a.slug === slug)?.relatedSlugs ?? []));
+
+  const byCurated = relatedOf(FEATURED_PLACES);
+  const ALPHABET = "mesrop-mashtots-armenian-alphabet";
+
   for (const slug of LEARN_ARTICLES) {
+    if (slug === ALPHABET) continue;
     expect(
-      declared.has(slug),
-      `${slug} is offered as context but no featured place relates to it`,
+      byCurated.has(slug),
+      `${slug} is offered as context but no curated place relates to it`,
     ).toBe(true);
   }
+
+  // The documented exception, pinned to its exact cause rather than waived.
+  expect(byCurated.has(ALPHABET), "the alphabet is not declared by any curated place").toBe(false);
+  expect(
+    relatedOf(NOT_CURATED).has(ALPHABET),
+    "the alphabet must still be declared by an uncurated Places article",
+  ).toBe(true);
+  expect(
+    articles.find((a) => a.slug === "matenadaran")?.relatedSlugs,
+    "and that article is the Matenadaran",
+  ).toContain(ALPHABET);
 });
 
 test("the curated cards resolve in the Armenian editions too", async ({ page }) => {
@@ -729,14 +952,15 @@ test("every canonical route the journey links into still works", async ({ page }
   /*
     The listings themselves, and their counts, which a curation must not touch.
 
-    Places moves 7 → 8 in §47. The number is edited rather than derived on purpose:
-    the point of this assertion is that adding a *curated row* to `/visit` does not
-    change what the section listings contain, so it has to be a figure someone
-    updates deliberately when the section genuinely grows.
+    Places moves 7 → 8 in §47, 8 → 9 in §49, 9 → 10 in §51, 10 → 11 in §57,
+    11 → 12 in §59 and 12 → 13 in §64. The number is edited rather than derived on purpose: the point of this assertion is
+    that adding a *curated row* to `/visit` does not change what the section
+    listings contain, so it has to be a figure someone updates deliberately when the
+    section genuinely grows.
   */
   for (const [path, count] of [
-    ["/en/places", 8],
-    ["/en/cuisine", 6],
+    ["/en/places", 13],
+    ["/en/cuisine", 7],
     ["/en/history", 7],
   ] as const) {
     const response = await page.goto(path);

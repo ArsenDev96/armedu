@@ -58,6 +58,47 @@ const IMAGES: Record<string, string> = {
   ghapama: "/images/cuisine/ghapama.webp",
 
   /*
+   * §69. Spas — the first Cuisine cover this archive has put through the artwork
+   * gate, because it is the first Cuisine article that ever shipped without one.
+   *
+   * 1586×992, 198 KB (203,194 bytes), a single lossy `VP8 ` chunk with no VP8X
+   * extension, and therefore no alpha, no ICC profile, no EXIF and no XMP. Verified
+   * twice, by a hand-written RIFF chunk walk and by `sharp`, which agree on every
+   * field. Registered exactly as delivered: unaltered, uncropped, unoptimised,
+   * unrenamed. The geometry is `lavash.webp`'s exactly and is the archive's dominant
+   * one; the other five cuisine covers are 1448×1086 or 1536×1024, so this adds no
+   * new ratio.
+   *
+   * **What is in the frame, and it is the dish.** A wide shallow stoneware bowl,
+   * unglazed pale grey with a hand-painted band of blue leaf motifs low on the wall,
+   * standing on a striped linen cloth on a bare wood table. The bowl holds a white,
+   * faintly green-flecked soup, thin enough that the level and the meniscus against
+   * the bowl wall are both visible, with plump cooked whole grains suspended through
+   * it rather than settled under it, chopped dill worked through, and cut scallion
+   * greens. A carved wooden spoon lies on the cloth at the left, a small plate of
+   * fresh dill and spring onions sits behind, and a torn wheat loaf lies to the
+   * right. Daylight, cool, from the left.
+   *
+   * **The harissa test, which is the one that mattered.** The §68 note beside this
+   * slug's pending entry predicted the failure precisely — a pale grain-and-liquid
+   * dish, photographed from above, in a bowl on a rustic table, is what both dishes
+   * are — and the file avoids it on every axis the note named. Harissa is opaque,
+   * stiff, beige, glossed with butter, threaded with chicken, and lit by an open
+   * hearth. This is fluid, white, cool-lit, herbed, and has no fire in it. Held side
+   * by side at the 16:9 card width and again at the 160px search thumbnail, the two
+   * do not resemble each other at all: the harissa card reads dark amber, this one
+   * reads white and green. The distinction survives the smallest crop the site
+   * renders, which is the condition §69 set.
+   *
+   * One thing the file does not carry: the bread beside the bowl is a crusty wheat
+   * loaf, not lavash. The article links to `lavash` as what spas is eaten with, so
+   * the cover and the prose point at slightly different breads. It is background at
+   * every crop and no claim rests on it — recorded as minor debt rather than treated
+   * as a subject error.
+   */
+  spas: "/images/cuisine/spas.webp",
+
+  /*
    * Places
    *
    * `khor-virap.png` is byte-for-byte the same file as `public/hero-ararat.png`,
@@ -181,6 +222,362 @@ const IMAGES: Record<string, string> = {
    * more cautious of the two claims, but it is the first entry where that caption is
    * worth re-confirming against the source rather than assuming. The file was not
    * altered.
+   *
+   * `dilijan-national-park.webp` is the ninth place and §50, and it takes the list
+   * back to empty for the eighth time. It is 1586×992 again, so the "not 1586×992"
+   * note above still refers to Khor Virap's PNG and Garni alone. Container-wise it
+   * is the plainest file in this map: a single `RIFF/VP8` chunk and nothing else —
+   * no `VP8X`, and therefore no ICC profile, no alpha, no EXIF and no XMP — like
+   * Etchmiadzin, Lake Sevan, Garni, Geghard and Tatev. sRGB, three channels, eight
+   * bits. At 249 KB (255,030 bytes) it is the fourth lightest of the nine, between
+   * Etchmiadzin and Tatev. SHA-256
+   * 9dc7a49c1855e5a97e67e4414a63c340331640ef1620851fd2a1d156704d3120. Registered
+   * exactly as delivered, unaltered, unoptimised and unrenamed, like every entry
+   * since §30.
+   *
+   * What was checked before registering, because at Dilijan the plausible picture is
+   * the *wrong forest* rather than a wrong building: the frame is a broadleaf valley
+   * seen from a rocky overlook, both walls closed canopy to the ridgeline, a stream
+   * on the valley floor, limestone outcrops breaking through the trees on the right
+   * bank, and forested ridges receding into humid haze under overcast sky. The
+   * foreground branch is unmistakably broadleaf — lobed and serrated leaves, no
+   * needles anywhere in the frame — which is the one thing this file had to get
+   * right, since the article's own distinguishing fact is that barely one per cent
+   * of the park's forest is coniferous. There is no building of any kind, no lake as
+   * a subject, no snow peak, no people, no wildlife, no logging and no vehicle; the
+   * subject is the forest itself. It is not Lake Sevan (no open water, no treeless
+   * ridges), not Tatev or Khor Virap (no plateau, no plain, no monument) and not
+   * alpine (rounded mid-mountain relief, no bare rock summits, no conifer belt).
+   *
+   * Two things to know rather than rediscover, recorded here and in §50 of
+   * PROJECT_STATE.md rather than corrected. Like Geghard and Tatev this file is
+   * photographic in register where most of this map is rendered illustration; it
+   * inherits `ARTWORK_PROVENANCE` and is captioned AI-generated, which remains the
+   * more cautious of the two claims. And nothing in the frame identifies Armenia
+   * specifically — there is no landmark, and there cannot be one, because the
+   * article's subject is a forest rather than a monument. That is a limit of the
+   * genre and not a fault in the file: the caption and the article carry the
+   * geography, and the alternative would have been putting a building in the frame
+   * of an article about there not being one.
+   *
+   * `gyumri.webp` is the tenth place and §52, and it is the **first urban street
+   * artwork in this registry** — every other entry is a monument, a landscape or a
+   * building in isolation. That makes its verification different in kind, and what
+   * was checked is recorded here rather than reconstructed later.
+   *
+   * **Container.** 1584×993 — a *third* distinct size, so the "not 1586×992" note
+   * above no longer refers to Khor Virap's PNG and Garni alone. The aspect is
+   * effectively unchanged (1.595 against 1.599), so nothing about the crops moves;
+   * the file is simply two pixels narrower and one taller than the house size.
+   * `RIFF/WEBP` with `VP8X` + `ICCP` + `VP8 ` — an extended container carrying a
+   * 456-byte sRGB monitor ICC profile, like Erebuni and the Matenadaran and unlike
+   * the six plain `RIFF/VP8` files. The `VP8X` flag byte is `0x20`: ICC set, and
+   * alpha, EXIF, XMP and animation all clear, so none of those can be present. One
+   * lossy VP8 keyframe, sync `9D 01 2A`, three channels, eight bits, sRGB, no
+   * orientation. At 530 KB (542,872 bytes) it is the **third heaviest** file here,
+   * behind Erebuni and the Matenadaran — a consequence of a dense street scene with
+   * fine masonry detail rather than of the file being unoptimised, and it does not
+   * change the standing media-optimisation debt. SHA-256
+   * 11f593161584a5579094562f3b20faaa59f96bca333853ac7b18ee3bcdfdf72e. Registered
+   * exactly as delivered, unaltered, unoptimised and unrenamed, like every entry
+   * since §30.
+   *
+   * **What is in the frame,** because for a city the plausible wrong picture is a
+   * *monument* rather than a place: a wet paved square and a street receding to a
+   * vanishing point, with a long terrace of two-storey Alexandropol-era façades on
+   * the left — dark grey-black tuff with reddish-brown tuff surrounds, pilasters and
+   * cornices, hand-carved window and door frames, wrought-iron balconies, all on the
+   * street line. On the right a church in black tuff with red-orange geometric
+   * inlay. Between them a horse and a traditional phaeton with its driver, street
+   * lamps, spruces, pedestrians in winter coats and a few parked cars in the middle
+   * distance, under overcast Shirak light. It reads as a **living city**, not a
+   * monument portrait: the left half is entirely secular urban fabric and the church
+   * is one element among several.
+   *
+   * It is specifically **not** the Black Fortress, a monastery, a cathedral cover,
+   * Erebuni or Yerevan, a generic Russian imperial city or a generic European old
+   * town — the black-and-red tuff, the carved surrounds and the low two-storey
+   * street line are Gyumri's own register. There is no ruin, no rubble, no
+   * earthquake scene, no flag, no Soviet iconography, no invented event, no
+   * high-rise and no traffic-dominated composition.
+   *
+   * **Text audit,** run because this is the first artwork with a street in it. No
+   * shopfront sign, banner, plaque, street sign, wall inscription or poster carries
+   * lettering, and the church's red-tuff ornament is geometric rather than
+   * epigraphic. Two tiny unreadable marks survive and are recorded rather than
+   * edited away: a small white pavement notice by the left terrace (~20×30 px in
+   * source, resolving at 8× to colour smears with no letterforms) and one car number
+   * plate (~20×8 px, a blue tab and a grey smear with no legible characters). The
+   * file was not retouched.
+   *
+   * Two things to know rather than rediscover, recorded here and in §52 of
+   * PROJECT_STATE.md rather than corrected. Like Geghard, Tatev and Dilijan this
+   * file is photographic in register, and it is **the most photographic entry in the
+   * registry** — a documentary street photograph in look, including a legible face
+   * on the carriage driver. It inherits `ARTWORK_PROVENANCE` and is captioned
+   * AI-generated, which remains the more cautious of the two claims and matters more
+   * here than anywhere before it. And the narrow search thumbnail, which is the
+   * tightest live crop, trims 52.8 per cent horizontally and keeps the carriage, the
+   * square and the church while losing most of the terrace — still recognisably
+   * Gyumri, but "carriage and church" rather than "historic street". No
+   * `object-position` was added, because the default centre crop is degraded rather
+   * than unusable and this registry has no per-image focus mechanism for scenes.
+   *
+   * `amberd-fortress.webp` is the eleventh place and §58, and it is the first
+   * **ruin** in this registry — every other entry is a complete building, a living
+   * street or a landscape. That is what its verification was about, and what was
+   * checked is recorded here rather than reconstructed later.
+   *
+   * **Container.** 1586×992, the house size, so the "not 1586×992" note above still
+   * refers to Khor Virap's PNG, Garni and Gyumri and gains no fourth member.
+   * `RIFF/WEBP` with `VP8X` + `ICCP` + `VP8 ` — an extended container carrying a
+   * 456-byte sRGB monitor ICC profile, like Erebuni, the Matenadaran and Gyumri and
+   * unlike the six plain `RIFF/VP8` files; it is the fourth ICC-bearing entry, so
+   * that note has stopped being remarkable. The `VP8X` flag byte is `0x20`: ICC set,
+   * alpha, EXIF, XMP and animation all clear, so none of those can be present, and a
+   * full chunk walk ends exactly at EOF with the RIFF size field agreeing with the
+   * file length — the container is internally consistent and the extension is not
+   * being trusted. One lossy VP8 keyframe, three channels, eight bits, sRGB, opaque,
+   * no orientation tag. At 660 KB (675,994 bytes) it is the **third heaviest WebP**
+   * here, behind Erebuni and the Matenadaran and ahead of Gyumri — a consequence of
+   * a frame that is almost entirely fine masonry and rock texture, and not a reason
+   * to touch it; the standing media-optimisation debt is unchanged. SHA-256
+   * dbcf7491eeaa45abf698cecc0a19c04c1d9aa1ba9771962ebc14147951d01884. Registered
+   * exactly as delivered, unaltered, unoptimised and unrenamed, like every entry
+   * since §30.
+   *
+   * **What is in the frame,** because for a fortress the plausible wrong picture is a
+   * *monastery* rather than a mood: a rock spur seen from slightly above, with a
+   * cluster of round broken-topped towers in dark coursed masonry at its point, a
+   * wall line and a ruined outwork running back along the spine of the spur to the
+   * lower left, and a small complete church with a faceted drum and umbrella roof on
+   * a terrace to the left, well below the castle and much smaller in the frame. A
+   * ravine falls away on the left, a dark columnar-jointed cliff drops on the right,
+   * and the two converge below the point — which is the geometry the article's
+   * defensive argument rests on, rather than the word "inaccessible" it refuses to
+   * use. Behind it a broad snow-patched volcanic massif over treeless tawny highland.
+   * The hierarchy is right: **fortress first, church second, mountain third.**
+   *
+   * It is specifically **not** Tatev or Geghard (no complete monastery, no enclosure
+   * of living buildings, no rock-cut chambers), not Garni (no peristyle, no podium),
+   * not Erebuni (no excavated foundation grid, no plain, no suburb), not a European
+   * castle (no keep, no bailey, no moat, no gatehouse, no crenellation), not an
+   * alpine fantasy (the relief is a volcanic shield with rounded ridges, not bare
+   * rock spires) and not an archaeological foundation field. There is no roof on the
+   * castle, no reconstruction, no siege, no army, no fire, no earthquake scene, no
+   * exposed pipeline, no reconstructed bathhouse, no tunnel mouth, no flag, no badge,
+   * no figure in period costume and no visible date — so the picture asserts nothing
+   * the prose deliberately leaves open.
+   *
+   * **Text audit.** No signage, plaque, board, banner, flag, vehicle, poster or
+   * garment appears in the frame at all, and the church and tower surfaces carry no
+   * lettering; a contrast-boosted pass over the whole image found no watermark or
+   * signature in any corner. Nothing was retouched, because nothing needed to be.
+   *
+   * Three things to know rather than rediscover, recorded here and in §58 of
+   * PROJECT_STATE.md rather than corrected. The towers read as solid drums — no
+   * doorway, window or embrasure is legible anywhere in the wall circuit, which is
+   * a stylisation rather than an error but means the frame shows the *mass* of the
+   * defences and not how they were used. The background massif is a single broad
+   * cone where Aragats has four summits around a breached crater: right in kind,
+   * generic in silhouette, and it at least cannot be mistaken for Ararat. And the
+   * pale gabled fragment immediately right of the church is a second ruined
+   * structure whose relationship to the church is not architecturally legible; it
+   * reads as an annex, and at every live crop it is a detail rather than a subject.
+   *
+   * The narrow search thumbnail is the tightest live crop, and it was measured in
+   * the browser rather than assumed: the rendered box is 160×200 CSS px, an 0.801
+   * ratio, so the shared centre crop takes 794×992 out of the file and trims **49.9
+   * per cent horizontally**. It drops the church entirely while keeping the towers,
+   * the spur, the path and the massif — degraded rather than unusable, and degraded
+   * in the right direction, since the fortress is the subject and the church is not.
+   * (Below `sm` that column is hidden outright, so there is no narrower case.) The
+   * church survives every other crop: the compact card and mobile hero at 4:3
+   * (measured 1.336; 16.6 per cent trimmed each side), the tablet hero at 3:2 (6.2
+   * per cent), and the listing card, desktop hero and map selected card at 16:9
+   * (measured 1.778 and 1.780; 10.1 per cent vertically). No `object-position` was
+   * added, on the same reasoning as Gyumri.
+   */
+  /*
+   * §60. **SUPERSEDED — describes the rejected first asset, kept as history.** The
+   * file at this path was replaced in §61; everything below described a different
+   * image with a different hash, and none of it applies to what ships now. It is
+   * retained rather than deleted because the path is unchanged, which means nothing
+   * in the repository would otherwise record that the cover was ever wrong. Read
+   * §61 below for the asset actually registered.
+   *
+   * §60. `places/jermuk.webp` — registered by explicit decision against this
+   * file's own commission, which is why this note is longer than the picture
+   * warrants.
+   *
+   * **Container.** A valid RIFF/WEBP: `VP8X` (10 bytes, flags 0x20) + `ICCP` (456)
+   * + `VP8 ` (842,522), the walk ending exactly at EOF with no trailing bytes.
+   * Lossy VP8, no alpha (`isOpaque`), an sRGB display profile present, and no
+   * EXIF, no XMP and no orientation tag. 1586×992, which matches the section's
+   * dominant geometry exactly and adds no new dimension drift — the Gyumri
+   * 1584×993 and Garni 1448×1086 outliers are still the only two. At 823 KB
+   * (843,024 bytes) it is the **heaviest WebP in the registry**, ahead of Erebuni's
+   * 742 KB, which is what a frame of moving water and rock texture costs; the
+   * standing media-optimisation debt is unchanged and the file was not touched.
+   * SHA-256 92b2a0516dd73f626aba6be08439b4f53ccd24cc341a9d283295964d2ce0e7f1. A
+   * hand-written RIFF chunk walk and `sharp` were run independently and agree on
+   * every field. Registered exactly as delivered, unaltered, unoptimised and
+   * unrenamed, like every entry since §30.
+   *
+   * **What is in the frame.** The Jermuk waterfall, seen from the streambed below
+   * and looking up: a fan-shaped cascade spreading over a rounded travertine dome
+   * in the middle distance, a boulder in front of it, sheeting water across bare
+   * rock filling the whole foreground, columnar-jointed gorge walls rising on both
+   * sides with green scrub and a treeline along the top, and blue sky with light
+   * cloud between them. The one man-made thing anywhere in it is a line of rough
+   * stone blocks along the right bank forming a path. It is a competent and
+   * genuinely Jermuk-specific picture — the fan over the tufa dome is that
+   * waterfall's actual form and not a generic cascade.
+   *
+   * **And it is the wrong subject, recorded here rather than argued away.** The
+   * commission below asked for a town: the settlement larger in the frame than any
+   * single building, the gorge legible as something the town stands on both sides
+   * of, mid-century public architecture in parkland, and — in as many words — *no
+   * waterfall as the subject*. This file has no built fabric at all. The article it
+   * covers spends forty paragraphs on how a highland spring landscape became a town
+   * of 3,936 people, gives the waterfall part of one section out of twelve, and
+   * will not say how tall it is because the three published heights (68, 70, 72 m)
+   * have no measurement behind them. So the cover and the article disagree about
+   * what Jermuk is, on the listing card, the hero, the search hit, the map card and
+   * every shared link. This was raised, the mismatch was explained, and
+   * registration was chosen deliberately; it is carried in §60 of PROJECT_STATE.md
+   * as the archive's first knowingly off-subject cover, and it reverses by moving
+   * one line back to `PENDING_ARTWORK` whenever a town image exists.
+   *
+   * A second-order consequence worth naming: `settlement` now holds two covers, and
+   * one of them is a landscape with no settlement in it. The filter pill that
+   * §51 introduced to make a kind of place legible is, for this pair, no longer
+   * doing that.
+   *
+   * It is at least specifically **not** a borrowed neighbour, which is the failure
+   * the five refusals below guard against. It is not Dilijan (no closed broadleaf
+   * forest, no valley floor), not Lake Sevan (no open water, no shoreline), not
+   * Gyumri (no street, no frontages), not Tatev or Geghard (no complex, no
+   * masonry, no medieval anything), not an alpine or ski resort (no snow, no peak,
+   * no chalet), and it carries no bottle, label, brand mark, sanatorium interior,
+   * bath, treatment, patient or figure of any kind — so the medical and product
+   * audits that the mineral-water subject makes necessary all come back clean. The
+   * picture asserts nothing about health, and nothing about a product.
+   *
+   * **Text audit.** Clean, and trivially so: the frame contains no signage, plaque,
+   * board, banner, storefront, poster, vehicle, garment or building surface — no
+   * object in it is the kind that carries text. A contrast-boosted pass over all
+   * four corners found no watermark or signature. No pseudo-Armenian, Russian or
+   * English marks, and none of the tiny unreadable ones that usually need
+   * recording. Nothing was retouched, because nothing needed to be.
+   *
+   * **Crops.** Unusually good, which is the irony of the entry: the composition is
+   * centred and vertically deep, so every live surface keeps the whole subject. The
+   * compact card and mobile hero at 4:3 take 1323×992 and trim 16.6 per cent
+   * horizontally; the tablet hero at 3:2 takes 1488×992 and trims 6.2 per cent; the
+   * listing card, desktop hero and map selected card at 16:9 take 1586×892 and trim
+   * 10.1 per cent vertically, off sky and foreground water. The narrow search
+   * thumbnail — 160×200 CSS px, an 0.801 ratio measured live in §58 — takes 795×992
+   * and trims 49.9 per cent horizontally, and is the *strongest* crop of the set,
+   * keeping the entire cascade, both gorge walls and the treeline. None of the four
+   * degrades, so no `object-position` was added and there is no crop debt here. The
+   * file crops well to the wrong subject, which no crop rule can fix.
+   */
+  /*
+   * §61. `places/jermuk.webp` — the replacement, and the first time in this registry
+   * that a file has been swapped underneath an unchanged path.
+   *
+   * That is the fact which makes this note necessary. `IMAGES`, `PENDING_ARTWORK`,
+   * `ILLUSTRATED` and `ARTWORK` were already in their final state after §60 and
+   * needed no edit at all; every path-based test passed before the swap and passed
+   * after it, because the path never moved. **Nothing in the code could tell these
+   * two images apart.** The hashes are the only durable record:
+   *
+   *   rejected  92b2a0516dd73f626aba6be08439b4f53ccd24cc341a9d283295964d2ce0e7f1
+   *   accepted  5f5b6df9ec8a01a414abcff64df80c2a33005e2c92db6c19ce9a756d95c8cfb6
+   *
+   * They are documentation, not runtime input — no application logic reads a hash.
+   *
+   * **Container.** A valid RIFF/WEBP, and a structurally *simpler* file than the one
+   * it replaces: a bare `RIFF/VP8 ` with **no `VP8X` and no `ICCP`**, the single
+   * bitstream chunk running 650,828 bytes and the walk ending exactly at EOF. Lossy
+   * VP8, no alpha (`isOpaque`, 3 channels), and no EXIF, no XMP and no orientation
+   * tag. The dropped ICC profile is the one regression against the old asset: this
+   * file carries no embedded colour profile, so it is rendered as untagged sRGB.
+   * That matches `lake-sevan.webp`, which has shipped the same way since §38 with no
+   * observable difference, so it is recorded here rather than treated as a defect.
+   * 1586×992 — the section's dominant geometry again, no new dimension drift. 636 KB
+   * (650,848 bytes), which also **hands back the "heaviest file" title**: Erebuni's
+   * 742 KB is once more the largest WebP here, and the §60 note claiming that
+   * distinction for Jermuk no longer holds. Verified twice, by a hand-written RIFF
+   * chunk walk and by `sharp`, which agree on every field. Registered exactly as
+   * delivered, unaltered, uncropped, unoptimised and unrenamed.
+   *
+   * **What is in the frame, and it is the town.** An elevated three-quarter view down
+   * the length of Jermuk: the Arpa gorge running from the far distance into the
+   * foreground, a road bridge crossing it on tall piers, and the settlement built on
+   * both rims — which is the single thing the commission most wanted legible and the
+   * thing the rejected file could not show at all. On the near side, a tree-lined
+   * avenue with a green boulevard strip runs the depth of the picture past a large
+   * mid-century public building in pale stone (long horizontal mass, a tall glazed
+   * bay, a corner tower, a monument on a plinth in the forecourt), a **colonnaded
+   * rotunda standing in mown parkland** — the mineral-water pavilion type, named in
+   * the commission as "colonnades" — and then blocks of two- and three-storey stone
+   * apartment housing with hipped roofs, parked cars and side streets. On the far
+   * rim, a sanatorium complex of long low blocks with flat roofs, ribbon glazing and
+   * terraces stepping along the cliff edge. A single slab tower stands mid-frame.
+   * Behind it all, rounded highland ridges, part wooded and part open tawny grass,
+   * rising to a mountain skyline under broken cloud.
+   *
+   * The hierarchy is right and it is the inverse of §60's: **town first, gorge
+   * second, landscape third.** No single building dominates — the civic block, the
+   * rotunda, the tower and the sanatorium each occupy a small fraction of the frame,
+   * which is what stops this being the hotel-portrait failure that a brief correcting
+   * a waterfall could easily have produced.
+   *
+   * **The waterfall is not in it.** White water shows in the gorge where the Arpa
+   * runs over rock, which is the river rather than the fall, and at no crop does it
+   * become a subject. The old failure is fixed rather than rebalanced.
+   *
+   * It also reads as **Jermuk and not Gyumri**, which is the distinction the two
+   * `settlement` covers now have to carry between them: a dispersed highland town of
+   * planned mid-century blocks in parkland astride a gorge, against a dense
+   * nineteenth-century street of black-tuff frontages on an open plain. Nothing in
+   * this frame is a merchant façade, a historic square or an imperial grid.
+   *
+   * **Medical and product audit.** Clean. No treatment, bathing, patient, doctor,
+   * rehabilitation equipment or clinical space is visible; no bottle, label, brand
+   * mark, pack shot or factory. The spa identity is entirely architectural — a
+   * pavilion and a sanatorium seen as buildings in a town — which is exactly the
+   * register the article's own restraint requires.
+   *
+   * **Text audit.** No legible lettering anywhere. The viewpoint is high and distant
+   * enough that no façade, sign, plaque, banner, shopfront or vehicle plate resolves
+   * into characters; a contrast-boosted pass over all four corners found no watermark
+   * or signature. Several buildings carry marks at roof and door scale that read as
+   * texture rather than text and cannot be resolved as glyphs in any orthography —
+   * recorded here as the tiny unreadable marks the audit asks for, and **not
+   * retouched**.
+   *
+   * **Register.** This is photographic rather than illustrative — it reads as a drone
+   * photograph, with real lens perspective, cast shadows and atmospheric haze. It is
+   * still AI-generated editorial artwork and is captioned as such by
+   * `ARTWORK_PROVENANCE`, but it joins Geghard, Tatev, Dilijan and Gyumri on the
+   * standing photographic-register debt rather than sitting apart from it.
+   *
+   * **Crops.** Strong at every live surface, and the 16:9 is the best of them. The
+   * compact card and mobile hero at 4:3 take 1323×992 and trim 16.6 per cent
+   * horizontally, keeping the civic building, the rotunda, the bridge and the
+   * sanatorium; the tablet hero at 3:2 takes 1488×992 and trims 6.2 per cent; the
+   * listing card, desktop hero and map selected card at 16:9 take 1586×892 and trim
+   * 10.1 per cent vertically off sky and foreground roofs, losing nothing that
+   * matters. The narrow search thumbnail — 160×200 CSS px, an 0.801 ratio measured
+   * live in §58 — takes 795×992 and trims 49.9 per cent horizontally: it **drops the
+   * large civic building on the left edge**, but keeps the avenue, the rotunda, the
+   * tower, the bridge, the gorge, the far-rim sanatorium and the housing, so the
+   * subject is still unmistakably a town. Degraded in the same direction as Amberd's
+   * thumbnail and for the same reason — one landmark lost, the subject intact — and
+   * recorded as debt rather than corrected. No `object-position` was added.
    */
   "khor-virap": "/images/places/khor-virap.png",
   "etchmiadzin-cathedral": "/images/places/etchmiadzin-cathedral.webp",
@@ -190,6 +587,39 @@ const IMAGES: Record<string, string> = {
   "garni-temple": "/images/places/garni-temple.webp",
   "geghard-monastery": "/images/places/geghard-monastery.webp",
   "tatev-monastery": "/images/places/tatev-monastery.webp",
+  "dilijan-national-park": "/images/places/dilijan-national-park.webp",
+  gyumri: "/images/places/gyumri.webp",
+  "amberd-fortress": "/images/places/amberd-fortress.webp",
+  jermuk: "/images/places/jermuk.webp",
+  /*
+   * §66. Haghpat, and the first cover in this registry that had to be checked
+   * against a photograph rather than against a description.
+   *
+   * The file answers the §64 commission closely enough to be recognisable as the
+   * place rather than as the type: a free-standing bell tower square below and
+   * opening into an arcaded belfry above, standing apart on higher ground; the
+   * short heavy polygonal drum of Surb Nshan under an umbrella roof; the broad low
+   * gavit joined to it with a lantern on its ridge; a refectory range, smaller
+   * chapels and a rubble enclosure around a courtyard of flat grave slabs; dark
+   * grey-blue basalt with lichen on stone-tiled roofs; and wooded Lori ridges with
+   * cleared pasture behind. Eight distinct volumes, none of them dominant, which is
+   * the argument the article makes in prose.
+   *
+   * What must be recorded rather than admired: **this file is photographic**, and
+   * the §64 brief and the commission both asked for the painterly register that
+   * `tatev-monastery.webp` and `geghard-monastery.webp` use. It was accepted
+   * anyway, because subject accuracy is what a cover is for and this one is exact
+   * where the four monastery covers it had to be told apart from are merely
+   * plausible. The register split the §62 audit recorded therefore widens here, and
+   * Haghpat is now the clearest member of the photographic side.
+   *
+   * That has one consequence worth stating in this file rather than only in
+   * PROJECT_STATE: it is AI-generated and it looks like a documentary photograph of
+   * a real monastery, which is a stronger claim than a painting makes to a reader
+   * skimming. `ARTWORK_PROVENANCE` and the AI caption are doing more work for this
+   * slug than for any other, and neither may be weakened for it.
+   */
+  "haghpat-monastery": "/images/places/haghpat-monastery.webp",
 };
 
 /**
@@ -300,6 +730,435 @@ export const PENDING_ARTWORK: readonly string[] = [
    * a small free-standing pillar in the courtyard south-east of the church, which
    * reads correctly and carries no motion, instrument or seismograph imagery of
    * any kind — the failure that section of the article exists to avoid.
+   */
+
+  /*
+   * §49→§50 (Dilijan National Park). Emptied for the eighth time.
+   *
+   * Dilijan is the ninth Place and the eighth time this list has filled. It was
+   * also the first entry where the search came up not merely short but empty of
+   * near misses in the usual direction, and the reason is the article's own
+   * subject: nothing under `public/` showed closed broadleaf mountain forest,
+   * because nothing else in this archive is set in it.
+   *
+   * All thirty-six files were opened rather than read off their filenames. The
+   * landscape they share is the one this article exists to contrast with — dry
+   * ground, bare ridges, open sky. `works/anush.webp` is a treeless ochre
+   * hillside above a village, which is very nearly the photographic negative of
+   * Dilijan; `history/bagratid-armenia.webp` is Ani on a steppe plateau above a
+   * bare gorge; `writers/hovhannes-tumanyan.webp` is a portrait with a dry plain
+   * behind it, and its subject being a Lori man is not evidence about a picture.
+   *
+   * Four substitutions were available and are recorded as refused, because each
+   * would have been easy to justify.
+   *
+   * `places/lake-sevan.webp` is the other `nature` article and would sit under
+   * the same filter pill. It is open water under treeless highland ridges — the
+   * exact landscape the Dilijan article spends a whole section distinguishing
+   * itself from — and lending it here would illustrate the contrast with a
+   * picture of the wrong side of it. This is the Lake Sevan *mood* substitution
+   * from §37 running in reverse, and it is the sharpest one on the list.
+   *
+   * `places/geghard-monastery.webp` is the only file in the registry with real
+   * trees in the frame, which is precisely what makes it dangerous. They are
+   * scrub and scattered stands on a Kotayk gorge wall, not closed forest, and the
+   * subject of the frame is a rock-cut monastery in a different province. A
+   * wooded slope is not a forest, and a monastery on a wooded slope is not a
+   * national park.
+   *
+   * `places/tatev-monastery.webp` offers a plateau above a gorge in Syunik, and
+   * `khor-virap.png` — still byte-identical to `hero-ararat.png` — offers a
+   * mountain over an irrigated plain. Both are the Armenia of the photographs,
+   * which is the thing this article is about *not* being.
+   *
+   * All four are named in a `places.spec.ts` test, on the same principle as the
+   * Lake Sevan three, the Garni three and the Geghard five.
+   *
+   * What a commission would need to carry, recorded then so it would not be
+   * reconstructed later: closed broadleaf forest — beech, hornbeam and oak, not
+   * conifers — running up both sides of a valley to a ridge, in leaf, with no
+   * monastery, no lake as the subject, no snow peak on the horizon and no
+   * classical or medieval building anywhere in the frame. The park's own
+   * distinguishing fact is that almost none of its forest is coniferous, so a
+   * pine-and-fir picture would have stated the opposite of the article beneath it.
+   *
+   * §50. The delivered file answers that commission on every point, which is why it
+   * is registered and none of the four substitutes ever was: broadleaf canopy on
+   * both valley walls with no needle-leaf tree anywhere in the frame, a valley and
+   * ridgeline that stay legible at every crop, and not one building in it. The four
+   * refusals above are kept rather than deleted, on the same principle as the Lake
+   * Sevan three, the Garni three and the Geghard five: the failure they guard
+   * against is the cover being repointed at a plausible neighbour later, and that
+   * outlives the file landing.
+   */
+
+  /*
+   * §51. Gyumri — the tenth Place, the first `settlement`, and the ninth time this
+   * list has filled.
+   *
+   * Every file under `public/` was opened rather than read off its filename, and
+   * none of them shows what this article is about: a nineteenth-century city of
+   * dark tuff on a grid, one- and two-storey stone frontages on the street line,
+   * carved surrounds and forged iron. Armat has no urban imagery of any kind
+   * except the medieval one named below.
+   *
+   * Five substitutions were available and each is recorded as refused, because
+   * each could be argued for and three of them look right at a glance.
+   *
+   * `history/bagratid-armenia.webp` is the sharpest and the one a search would
+   * return first. It is a *city* — a dense stone townscape with domed churches
+   * seen from above — and it is Ani: a walled medieval capital on a steppe plateau
+   * above a gorge, abandoned since the eighteenth century, in the country west of
+   * the present border. Gyumri is an inhabited nineteenth-century imperial grid on
+   * an open plain. Using Ani here would illustrate "old Armenian stone city" and
+   * caption a ruin as a living one, which is the precise conflation this article's
+   * early-history section exists to prevent.
+   *
+   * `writers/avetik-isahakyan.webp` is the biographical trap. Isahakyan was born
+   * in Alexandropol, this article names him, and the file is in the repository —
+   * but it is an interior portrait of a man at a writing desk, with no city in it
+   * at all, and lending a writer's portrait to a settlement article would put a
+   * face where a place belongs.
+   *
+   * `places/khor-virap.png` (still byte-identical to `hero-ararat.png`) and
+   * `places/tatev-monastery.webp` are the Armenia of the photographs — a mountain
+   * over a plain, a monastery on a plateau — and they are what this article is
+   * least about. `places/erebuni-fortress.webp` is excluded on principle rather
+   * than resemblance: an excavated citadel is the archaeological register, and
+   * borrowing a site's cover for a city is the substitution this list exists to
+   * stop.
+   *
+   * Also refused in advance, and worth writing down because they are what a brief
+   * would drift towards: the Black Fortress alone, which is a Russian military
+   * work and not the city and which the article deliberately keeps in its own
+   * paragraph; anything showing the 1988 earthquake or its damage, which would
+   * make a disaster image the identity of a living place; and a generic Caucasian
+   * street, which would say nothing.
+   *
+   * What a commission would have to carry, recorded now so it is not reconstructed
+   * later: a street or small square in the historic core, one- and two-storey
+   * load-bearing stone frontages set to the street line, dark grey to black tuff
+   * with red tuff present rather than absent, carved window and door surrounds,
+   * forged iron grilles and balcony railings, an open high plain implied beyond
+   * the roofline, no snow peak, no dome as the subject, no ruin and no rubble.
+   *
+   * §51→§52. Emptied for the ninth time. The refusals above are kept rather than
+   * deleted, on the same principle as the Lake Sevan three, the Garni three, the
+   * Geghard five and the Dilijan four: the failure they guard against is the cover
+   * being repointed at a plausible neighbour later, and that outlives the file
+   * landing. `bagratid-armenia.webp` in particular is still the only other stone
+   * city in this repository and is still Ani.
+   *
+   * The delivered file answers the commission on every point, which is why it is
+   * registered and none of the five substitutes ever was: a street and a square
+   * rather than one building, two-storey load-bearing frontages on the street line,
+   * dark tuff with red tuff present rather than absent, carved surrounds and forged
+   * iron, no snow peak, no dome as the subject, no ruin and no rubble. The two
+   * findings it did raise — the photographic register and the narrow-thumbnail crop
+   * — are recorded against its `IMAGES` entry above, not fixed by editing the asset.
+   */
+
+  /*
+   * §57. Amberd Fortress — the eleventh Place, the third `historical` site, and the
+   * tenth time this list has filled.
+   *
+   * Every one of the forty files under `public/` was opened rather than read off its
+   * filename, and none of them shows what this article is about: a ruined stone
+   * castle on a rock spur with a gorge on either side, a broken wall circuit with the
+   * stumps of its towers, a bathhouse shell, and one small domed church standing
+   * whole beside all of it, high on the flank of a volcano.
+   *
+   * Five substitutions were available and each is recorded as refused, because two of
+   * them are the closest near misses this list has ever had to turn down.
+   *
+   * `places/tatev-monastery.webp` is the sharpest by a distance, and it would pass
+   * more than a glance. It is a walled enclosure on a promontory above a gorge, in
+   * grey stone, seen from the air — which is a fair description of Amberd's *setting*
+   * and of nothing else in the frame. What is inside those walls is a complete
+   * thirteenth-century monastery in Syunik with a conical-domed church at its centre
+   * and no ruin anywhere; Amberd is a secular fortress in Aragatsotn whose castle is
+   * a roofless shell. Using it here would illustrate "Armenian complex on a spur" and
+   * caption a living monastery as a ruined stronghold, which is the exact conflation
+   * this article's own significance section exists to prevent — that the Armenian
+   * Middle Ages survive above ground almost only as churches.
+   *
+   * `history/bagratid-armenia.webp` is the second, and it is the one a search for
+   * "Armenian fortress above a gorge" would return first. It is Ani: a walled
+   * medieval *city* on a steppe plateau above a river gorge, with domed churches
+   * inside the circuit and a gate tower in the foreground. It is the right kingdom
+   * and the right century — Amberd's Pahlavuni section is about the court at Ani —
+   * and it is a capital rather than a highland stronghold. It is also already the
+   * refused substitute of record for Gyumri (§51), which is the point: one picture
+   * cannot be the stand-in for a city, a settlement article and a fortress.
+   *
+   * `places/erebuni-fortress.webp` is excluded on principle rather than resemblance,
+   * on the rule this list has followed since §39: it is the other `historical` place,
+   * and lending one site's cover to another under the same filter pill is the
+   * substitution this list exists to stop. On resemblance it fails anyway — an
+   * excavated Urartian citadel at foundation level, beside a modern suburb on a dry
+   * plain, some eighteen centuries older than anything Amberd's article is about.
+   *
+   * `places/geghard-monastery.webp` offers a stone complex in a gorge and
+   * `places/garni-temple.webp` a monument on a promontory with mountains falling away
+   * behind it. Both are Kotayk, both are the wrong building type, and Garni is a
+   * classical peristyle roughly a millennium older than the castle here.
+   *
+   * Also refused in advance, because they are what a brief would drift towards: the
+   * Vahramashen church alone, which is the photogenic building and which this article
+   * spends a section arguing is a component and not the subject; a European castle
+   * with a keep, a moat or a gatehouse, which the prose explicitly says Amberd is not;
+   * a snow-covered summit of Aragats, which would make a mountain article of a
+   * fortress one; and anything showing visitors, signage or the car park, since the
+   * coordinate note in `geo.ts` spent a paragraph excluding exactly that ground.
+   *
+   * What a commission would have to carry, recorded now so it is not reconstructed
+   * later: a triangular rock spur with a gorge falling away on both sides and the two
+   * converging below the point; a roofless three-storey block of dark mortared basalt
+   * at the tip of it; broken wall stretches and the stumps of semicircular towers
+   * across the landward neck; a small twelve-sided drum with an umbrella roof on a
+   * complete church set apart from the castle, smaller in the frame than the castle
+   * is; treeless volcanic slopes rising behind, no forest and no snow peak as the
+   * subject; no roof on the castle, no reconstruction, no flags, no figures in
+   * period costume, no siege, and no lettering anywhere.
+   *
+   * §57→§58. Emptied for the tenth time. The refusals above are kept rather than
+   * deleted, on the same principle as the Lake Sevan three, the Garni three, the
+   * Geghard five, the Dilijan four and the Gyumri five: the failure they guard
+   * against is the cover being repointed at a plausible neighbour later, and that
+   * outlives the file landing. `tatev-monastery.webp` in particular is still a
+   * walled complex on a promontory above a gorge and still a complete monastery,
+   * and `bagratid-armenia.webp` is now the refused substitute of record for two
+   * articles rather than one.
+   *
+   * The delivered file answers the commission on every point, which is why it is
+   * registered and none of the five substitutes ever was: a spur with a gorge on
+   * both sides converging below the point, a roofless castle of dark coursed
+   * masonry at the tip, broken wall and tower stumps across the landward neck, one
+   * small domed church set apart and smaller in the frame than the castle, treeless
+   * volcanic slopes behind, and no roof, no reconstruction, no figures and no
+   * lettering. The three observations it did raise — the towers reading as solid
+   * drums, the single-cone massif, and the pale fragment beside the church — are
+   * recorded against its `IMAGES` entry above and in §58, not fixed by editing the
+   * asset.
+   */
+
+  /*
+   * §59. Jermuk — the twelfth Place, the second `settlement`, and the eleventh time
+   * this list has filled.
+   *
+   * Every one of the forty-one files under `public/` was opened rather than read off
+   * its filename, and none of them shows what this article is about: a small
+   * twentieth-century town on a treeless highland plateau, split by a river gorge,
+   * whose principal buildings are mid-century public architecture standing in
+   * parkland above the cut. Armat has one urban image and it is the wrong city; it
+   * has two gorges and neither has a town in it.
+   *
+   * Five substitutions were available and each is recorded as refused.
+   *
+   * `places/gyumri.webp` is the refusal on principle and the sharpest one, because
+   * after this step the two files would sit under the same filter pill. It is the
+   * only urban image in the registry — a wet street of two-storey nineteenth-century
+   * tuff frontages with a phaeton and a church — and it is a Russian imperial city
+   * of a hundred thousand people on an open plain in the north-west. Jermuk is a
+   * Soviet resort of a few thousand on a plateau in the south-east. Lending one
+   * settlement's cover to the other is exactly the substitution this list exists to
+   * stop, and the fact that both are `settlement` is the reason it would look
+   * defensible.
+   *
+   * `places/dilijan-national-park.webp` is the closest *conceptual* near miss and
+   * the one an argument could be built for: Dilijan is the other Armenian town whose
+   * history is a mineral-water spa, and this archive's own Dilijan article says so
+   * in as many words. The file, though, is closed broadleaf forest on both walls of
+   * a valley with a stream on its floor and not one building anywhere in the frame —
+   * Tavush, wooded, at half Jermuk's altitude, and deliberately a picture of there
+   * being no settlement in it. A resemblance between two articles is not a
+   * resemblance between two pictures.
+   *
+   * `places/lake-sevan.webp` is the mood substitution in its usual form: highland
+   * water under a big sky. It is open water, a pale drawdown shoreline and a lone
+   * tree, in a different basin, and a lake is not a spring.
+   *
+   * `places/tatev-monastery.webp` and `places/geghard-monastery.webp` are the two
+   * gorges. Tatev is the one a search would return first — a complex on a promontory
+   * above a deep gorge in southern Armenia, which is the "both are in the south"
+   * trap named in this step's own brief — and both are complete medieval monasteries,
+   * which is the wrong subject in the wrong millennium.
+   *
+   * Also refused in advance, because they are what a brief would drift towards: the
+   * waterfall alone, which is the photogenic thing here and is a feature of the gorge
+   * rather than the town; a bottle, a label or any brand mark, which would illustrate
+   * a product where a settlement belongs and would collapse the distinction the
+   * article spends a section making; a sanatorium interior, a bath, a treatment or
+   * anyone drinking the water, which would put a medical claim in the frame of an
+   * article that carefully makes none; and a generic snow-peak-and-meadow landscape,
+   * which would say nothing.
+   *
+   * What a commission would have to carry, recorded now so it is not reconstructed
+   * later: a small highland town seen so that the gorge dividing it is legible;
+   * mid-century public buildings in stone — long horizontal masses, colonnades, broad
+   * stairs — set among planted parkland on the shelf above the cut; treeless volcanic
+   * slopes and rounded ridges behind, no closed forest and no snow peak as the
+   * subject; the settlement larger in the frame than any single building; no
+   * waterfall as the subject, no water bottle, no brand, no figures in treatment, no
+   * medical imagery and no lettering anywhere.
+   *
+   * §59→§60. Emptied for the eleventh time — and the only one of the eleven where
+   * the delivered file does not answer the commission above.
+   *
+   * What landed is the waterfall alone: the first item on this entry's own
+   * refused-in-advance list, chosen by a generator for the reason that list
+   * predicted, which is that the cascade is the photogenic thing here and is what
+   * the word "Jermuk" returns. It carries no town, no building and no built fabric
+   * of any kind, so of the commission's six requirements it meets one — treeless
+   * volcanic ground is at least partly visible above the gorge walls — and misses
+   * the rest.
+   *
+   * It was registered anyway, as a deliberate editorial decision taken with the
+   * mismatch stated, not as an oversight and not because the picture was mistaken
+   * for the brief. The full reasoning sits against its `IMAGES` entry above and in
+   * §60 of PROJECT_STATE.md, and the commission is deliberately left standing
+   * rather than struck out: it is still the description of the picture this article
+   * should have, and the entry reverses by moving one line back into this list.
+   *
+   * The five refusals above are kept for the usual reason — the failure they guard
+   * against is the cover being repointed at a plausible neighbour later, and that
+   * outlives the file landing. They are, if anything, more load-bearing now: with
+   * an off-subject cover in place, `dilijan-national-park.webp` is exactly the kind
+   * of substitution that would later look like an improvement.
+   *
+   * §61. **Resolved.** The off-subject file was replaced at the same path by one that
+   * answers this commission on every point — the settlement on both rims of the
+   * gorge, the mid-century public architecture in parkland, the colonnaded pavilion,
+   * the treeless-to-scrubby highland ridges behind, the town larger in the frame than
+   * any single building, and no waterfall as the subject. The paragraph above stands
+   * as the record of what was registered in the interval; it is history now rather
+   * than a live caveat, and the artwork debt §60 opened is closed.
+   *
+   * The commission text is still kept, unstruck, for the same reason the refusals
+   * are: it is the description this slug was measured against twice, and it is what a
+   * third attempt would be measured against if this file were ever replaced again.
+   */
+
+  /*
+   * §64. Haghpat Monastery — Place #13, the twelfth time this list has filled, and
+   * the first article in the archive about anywhere in Lori.
+   *
+   * All forty-one files under `public/` were opened rather than read off their
+   * filenames, and none of them shows what this article is about: a walled monastic
+   * complex of many separate volumes standing on a broad terrace above a deep river
+   * gorge in the wooded north, with a domed tenth-century church at its centre, a
+   * free-standing three-storey bell tower on the highest ground beside it, and a
+   * village against its walls.
+   *
+   * The registry now holds four monasteries, and every one of them was considered
+   * and refused. That is the point of writing this down: after §64 the `monastery`
+   * pill contains five articles, and the temptation to treat their covers as
+   * interchangeable will only grow.
+   *
+   * `places/tatev-monastery.webp` is the sharpest refusal by a wide margin, and it
+   * is the same file that Amberd had to turn down in §57 for a different reason. It
+   * shows a walled grey-stone complex on a promontory above a gorge, seen from the
+   * air, with a conical-domed church at its centre — which is a fair description of
+   * Haghpat's *shape* and of the wrong monastery. Tatev is in Syunik, on a bare
+   * plateau above the Vorotan, and its silhouette is dominated by one tall drum;
+   * Haghpat is in Lori, in wooded country, and its whole argument is that no single
+   * volume dominates. Two monasteries that answer to the same one-line description
+   * are exactly what an exact-ownership test exists to keep apart.
+   *
+   * `places/geghard-monastery.webp` is the second, and it is dangerous because both
+   * sites sit in a gorge and both are World Heritage. Geghard's frame is a cliff
+   * face with rock-cut chambers driven into it and a small built church below —
+   * architecture that is subtracted from the mountain rather than raised on a
+   * terrace. Nothing at Haghpat is rock-cut.
+   *
+   * `places/khor-virap.png` is the mood substitution: a monastery on a hill under a
+   * mountain, warm light, the most reproduced image in the country. It is a single
+   * walled enclosure with one church, on the flat Ararat plain, with Ararat filling
+   * the horizon — no gorge, no north, no group of buildings.
+   *
+   * `places/etchmiadzin-cathedral.webp` is a working cathedral on level ground in a
+   * town on the Ararat plain, and the wrong institution as well as the wrong place.
+   *
+   * Also refused in advance, because they are where a brief would drift. **Sanahin
+   * is the one that must never be used**: it is four kilometres away, it shares this
+   * monastery's World Heritage inscription, it is photographed from similar angles,
+   * and a picture of it filed under Haghpat would be wrong in a way almost no reader
+   * could catch — which is precisely why it is named here. Then: a generic Armenian
+   * monastery with no identifying feature; a single church portrait, which would lose
+   * the whole point of a complex built over three centuries; a Debed Canyon landscape
+   * with the monastery small or absent; and any khachkar photographed as the subject.
+   *
+   * What a commission would have to carry, recorded now so it is not reconstructed
+   * later: a walled monastic complex of several distinct volumes on a green terrace
+   * high above a river gorge; a compact domed church with a many-sided drum and
+   * triangular wall niches as the centre of the group; a free-standing three-storey
+   * bell tower, square below and eight-sided above, on the highest ground; lower
+   * halls and a refectory ranged around and between them so the group reads as
+   * accumulated rather than composed; wooded ridges of the northern highlands
+   * behind, not treeless volcanic slope and not a snow peak; the complex larger in
+   * the frame than any single building in it; and no rock-cut chambers, no second
+   * monastery on the far side of the gorge, no figures, and no lettering anywhere.
+   *
+   * §66. **Resolved.** The file that arrived answers this description item by item —
+   * the free-standing bell tower on higher ground, the short heavy drum, the broad
+   * gavit, the ranged lower halls, the rubble enclosure, the wooded Lori ridges, and
+   * eight volumes with no single one dominant. Sanahin is absent: the only other
+   * buildings in the frame are village houses with pitched roofs on the far
+   * hillside, checked at magnification because that was the substitution no reader
+   * could have caught. There is no lettering anywhere, and the carved surfaces stay
+   * texture rather than resolving into writing.
+   *
+   * It missed the register. The commission asked for the painterly treatment the
+   * other monastery covers use and what landed is photographic; it was registered
+   * anyway, for the reason given beside its entry in `IMAGES` above. This list is
+   * empty for the thirteenth time, and every Place in the archive now has a cover.
+   */
+
+  /*
+   * §68. Spas — Cuisine #7, and the first entry on this list from outside Places.
+   *
+   * All six existing cuisine files were opened rather than read off their names, and
+   * none of them is this dish — but the nearest one is nearer than expected, which is
+   * why it is described here in detail rather than merely listed.
+   *
+   * `harissa.webp` is a pale cream-coloured grain dish in a clay bowl, with torn
+   * lavash lying beside it and a lit hearth behind. Almost every element of that
+   * sentence is also true of a plausible spas photograph, and the colour is not the
+   * separator a first glance assumes: harissa is not meat-coloured. What actually
+   * separates them is consistency and finish. Harissa is opaque and stiff enough to
+   * hold the mark of a spoon, glossed with melted butter and threaded with shredded
+   * chicken; spas is thin, white, sour, and its grain is suspended in liquid rather
+   * than bound into a mass, with fresh green herbs on top that harissa has none of.
+   * A borrowed harissa cover would not look absurd here, and that is exactly the kind
+   * of substitution that survives review.
+   *
+   * `dolma`, `khorovats`, `lavash`, `gata` and `ghapama` are plainly other dishes.
+   * Nothing outside `public/images/cuisine/` was considered: a Place cover under a
+   * soup would be a category error before it was a subject one.
+   *
+   * What a commission would have to carry, written down now so it is not
+   * reconstructed later: a bowl of white, faintly sour soup, thin enough to pour and
+   * only slightly thickened, with cracked wheat visible suspended in it rather than
+   * settled at the bottom; fresh green herbs strewn on top and not arranged; a plain
+   * bowl on a plain surface. Bread may appear but must not be staged the way the
+   * harissa cover stages it, and no hearth, fire or tonir may appear at all —
+   * borrowing that setting is precisely how this file would end up looking like the
+   * one next to it. Domestic and unstaged — this is the
+   * one article in the section about ordinary weekday food, and the picture has to
+   * say so. Explicitly refused in advance: restaurant styling, a swirl of cream, a
+   * mint-sprig garnish placed for a photograph, the pale-and-wholesome lighting of
+   * health-food photography, any tonir or hearth staging borrowed from `lavash`, and
+   * lettering of any kind.
+   *
+   * §69 **Resolved.** The file that landed carries the commission: white fluid soup,
+   * grain suspended rather than settled, herbs strewn rather than arranged, a plain
+   * bowl on a plain table, no hearth and no lettering. It is registered above, with
+   * the harissa comparison recorded there. Two things the commission did not ask for
+   * arrived anyway and were kept: a side plate of raw dill and scallions, and a loaf
+   * of wheat bread rather than lavash. Neither is staged as a recipe step.
+   *
+   * The list is empty again, and for the first time that sentence covers the whole
+   * archive rather than only Places: every article in every section now has a cover.
    */
 ];
 

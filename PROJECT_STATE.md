@@ -1,6 +1,6 @@
 # Armat — Project State Report
 
-**Last updated:** 2026-08-05
+**Last updated:** 2026-08-21 (Spas artwork registered — every article in the archive is now illustrated)
 **Repo:** `d:\armedu` · branch `seo`
 **Status:** Armenian-first multilingual site, complete in three editions and **live in
 production at [armat.site](https://armat.site)** (Vercel). Crawlable and indexable today.
@@ -69,17 +69,26 @@ statically prerendered.
 
 ## 3. Verification status (all run and passing)
 
-Current as of 5 August 2026. The figures below had been left at their January values
-(68 entries, 79 pages, 93 tests) long after the cuisine category, the Western Armenian
-completion and the SEO batch changed all three.
+Current as of 18 August 2026. These figures are re-measured whenever content moves; they were
+once left at their January values (68 entries, 79 pages, 93 tests) long after the cuisine category,
+the Western Armenian completion and the SEO batch changed all three, which is why every step since
+has restated them.
 
 ```
 npm install              → OK
 npm run typecheck        → PASS (0 errors)
-npm run validate:content → PASS (105 entries across 3 locales; no pending-artwork note)
-npm run build            → PASS (111 pages prerendered; `/api/contact` dynamic)
-npm run test:e2e         → PASS (173 passed, 5 skipped, no --workers flag; see §30)
+npm run validate:content → PASS (138 entries across 3 locales; one pending-artwork note)
+npm run build            → PASS (147 pages prerendered; `/api/contact` dynamic)
+npm run test:e2e         → PASS (297 passed, 5 skipped, no --workers flag; see §30)
 ```
+
+Re-run in full at §60 (Jermuk artwork), which is the source of the figures above. There is **no**
+pending-artwork note: `PENDING_ARTWORK` is empty and all twelve Places are illustrated.
+
+Previously re-run at §59 (Jermuk), which added the twelfth Place, three routes and eight tests and
+put one slug back on the pending list; §60 registers that slug's file, adds one test, and empties the
+list for the eleventh time — with the caveat, recorded in full in §60, that the delivered file is
+off-subject and was registered by explicit decision.
 
 `validate:content` now also checks: every registered image exists on disk; every article
 has a bibliography entry; every citation carries a valid ISBN, DOI, URL or archival
@@ -7964,3 +7973,6263 @@ map architecture, provider configuration or curation change. No new structured-d
 overlap was left alone.
 
 No deployment was performed.
+
+## 49. Dilijan National Park — the ninth place, and the archive reaches the north (August 2026)
+
+§47 took the map south to Syunik. This one takes it north, and it does something the previous eight
+did not: it adds a place that is not a building. Every Place in this archive so far has been a
+structure or a lake — something with an address. Dilijan National Park is a legal designation over
+33,765 hectares of forested mountain, and almost every difficulty in writing it came from that one
+fact.
+
+It also corrects a picture the archive was quietly painting. Khor Virap, Garni, Etchmiadzin, Erebuni,
+the Matenadaran, Sevan, Tatev — dry ground, bare ridges, a mountain on the horizon. That is the
+Armenia of the photographs and it is most of the country, but it is not all of it, and an archive
+that only ever showed it would be making a claim about the Armenian Highland that is false. The
+north-east faces the moist air off the Caucasus and grows closed broadleaf forest. The last section
+of the article is about exactly that, and it is why the article exists rather than being a park
+description.
+
+### Taxonomy
+
+| Filter | Before | After |
+| --- | --- | --- |
+| All | 8 | **9** |
+| Monastery | 4 | 4 |
+| Historical | 2 | 2 |
+| Museum | 1 | 1 |
+| Nature | 1 | **2** |
+
+`placeTypeId: "nature"`, `featured: false`. **Khor Virap remains the only featured place.** No new
+place type was invented: `national-park`, `protected-area` and `forest` were all available and all
+rejected, because `nature` already means "the place is a landscape rather than a building" and a
+taxonomy with one member per article is not a taxonomy. This is the first time a `places` filter has
+gone from one member to two, which matters more than it sounds — a single-member filter cannot fail
+in the ways a multi-member one can, and the listing tests had to stop treating `nature` as the
+special case it had been since §37.
+
+### Structure
+
+Eleven sections, `3/3/4/3/4/3/4/3/4/4/3` paragraphs, **38 in total** — the same paragraph count as
+Tatev in one more section, with `keyFacts 6 · importantDates 8 · interestingFacts 5 · significance 2
+· relatedFigures 0 · relatedSlugs 1 · section links 1`. The sections are: where the park is; the
+ridges, the valleys and the height of it; from reserve to national park; how large it is and what the
+figure measures; the forest; the plants and what the counts are evidence of; the animals; rivers,
+lakes and springs; the monastic landscape; what the forest has been through; why Dilijan does not
+look like the rest of Armenia.
+
+**`relatedFigures` is empty, for the first time in a Places article.** That is a finding, not an
+omission. Tatev has Orbelian, Vorotnetsi and Tatevatsi; Garni has Tiridates; the Matenadaran has
+Mashtots. A forest has no biography attached to it, and inventing one — Soviet-era resort composers,
+the monasteries' founders — would have been the article borrowing significance from people who
+belong in other articles. The field is empty because the honest answer is empty.
+
+### The chronology, which is where the published numbers go wrong
+
+The single most important thing the article establishes is that **1958 and 2002 are two different
+legal acts, not one event described twice.**
+
+- **1958** — the Dilijan **state reserve**, established by **decree P-341 of the Council of Ministers
+  of the Armenian SSR**, on ground that had until then been worked as the Dilijan and Kuybishev
+  forest enterprises. It is one of Armenia's first three specially protected areas, alongside Khosrov
+  Forest and Shikahogh, and all three were created for forest.
+- **21 February 2002** — **Dilijan National Park**, established by **decree 165 of the Government of
+  the Republic of Armenia**, as a state non-commercial organisation on the basis of that reserve.
+
+A Soviet *zapovednik* is a stricter designation than a national park: it exists to be kept intact and
+studied, not visited. Forty-four years separate the two acts. A source that dates "the park" to 1958
+is describing the reserve; a source that dates it to 2002 is describing the park; and a figure
+quoted from one period does not describe the other. Almost every confused number published about
+Dilijan comes from collapsing the two, which is why the article spends a whole section on it before
+it gets anywhere near the area.
+
+**The Akhnabad yew grove is a third thing and is kept out of both.** Twenty-five hectares of relict
+*Taxus baccata* on the Tsaghkot spur of the Miapor range near Aghavnavank, at 1,400 to 1,700 metres,
+protected in its own right on 13 September 1958 — a **sanctuary**, administered by the Dilijan park
+organisation but never part of the park's own area. The same administration also manages a juniper
+sparse-forest sanctuary of 1,807 hectares over in Gegharkunik. **Managed by is not inside**, and the
+article says so twice because the yew is in nearly every description of this forest and is the
+easiest 25 hectares in Armenia to add to the wrong total.
+
+### The area, and what the figure measures
+
+| Figure | Source | What it says it measures |
+| --- | --- | --- |
+| **33,765 ha** + **8,167 ha** buffer | the park administration, via NABU | the land held by the national park as an organisation, buffer stated separately |
+| 240 km² | Wikipedia, Wikidata (Q1984244) | **unstated** — no boundary, no date |
+
+The article uses the administration's figure, and the reason given is not that it is larger but that
+**it is the only one that says what it counts.** The 240 km² figure is about two thirds of it, is
+close to the order usually quoted for the Soviet-era reserve, and carries neither a boundary nor a
+date on either surface that publishes it. The article's verdict is deliberately unexciting: it is a
+different measurement of something, unattributed.
+
+There is independent corroboration from an unexpected direction. Computing the area of the OSM
+outline during the coordinate work (below) put it at **about 352 km²** — the order of the
+administration's 337.65 km², not of the 240. That is recorded in `geo.ts` because it is the reason a
+mapped boundary was preferred to a gazetteer point in the first place.
+
+The rule the section states is the transferable part: *the park is not the reserve, not the buffer
+zone, not the forest enterprise it was made from, not the municipality, and not the tourist region
+that shares its name.* Any of those could be measured; each gives a different answer; a figure with
+no boundary attached is not a fact about the place.
+
+### The forest
+
+Roughly half the park is under trees and the trees are **98.85 per cent broadleaved against 1.15 per
+cent coniferous** — a 2019 satellite classification from Morin et al., not an impression. That single
+number does most of the section's work: describing Dilijan as oak, beech and hornbeam is not
+shorthand, it is very nearly the complete account.
+
+The three dominants are *Fagus orientalis* on the moist shaded slopes, *Carpinus betulus* and
+*Carpinus orientalis* through the middle ground and dry edges, and oak on the hard positions —
+*Quercus macranthera* high and cold, plus the eastern Caucasian oak that older Armenian literature
+calls *Quercus iberica* and recent treatments fold into *Quercus petraea* as a subspecies. **That
+disagreement is flagged as a taxonomic revision, not a dispute about which tree grows there**, which
+is the kind of distinction that otherwise reads as two sources contradicting each other.
+
+The conifers are handled as the exception the park was partly created to keep, and the yew is
+explicitly a relict of an older, wetter climate rather than a feature of the current forest — which
+is also why the artwork brief below forbids a pine-and-fir picture. A coniferous cover image would
+state the opposite of the article beneath it.
+
+### Biodiversity — the counts, and what they are evidence of
+
+The park's flora is quoted everywhere as **902 vascular plant species**, 881 of them flowering, with
+about 40 rare, 29 in Armenia's Red Book and **four in the Red Data Book of the USSR**.
+
+That last clause is the section's whole point, and it is usually reprinted without anyone noticing
+what it says. **A count whose rarity criteria include a Soviet red list is a count assembled before
+1991.** The number may still be broadly right — a flora does not turn over in a generation — but it
+is a survey result from a particular period restated ever since as a standing fact, and the article
+refuses to treat it as evidence about the park's plants today. The dating comes from the figure's own
+wording rather than from any external claim about it, which is what makes it usable.
+
+The vertebrate figures get the same treatment for the same reason. **~150 birds and 40+ mammals**
+appear in almost every description, always without a date, a surveyor or a method. The article calls
+them plausible **orders of magnitude for a forested protected area of this size in the Caucasus** and
+says they are worth exactly that much. No species total is presented as a measurement anywhere in the
+article.
+
+Two things are stated with confidence because they have documentation behind them:
+
+- **The Caucasian red deer**, *Cervus elaphus maral* — widespread in the nineteenth century, locally
+  extinct in the 1950s, critically endangered in Armenia's Red Book. Reintroduction begun 2013 by the
+  environment ministry with WWF Armenia; a fenced enclosure of about 10 hectares of forest near Parz
+  Lake; founder animals from Iran in 2018 and the first calf born that year; later releases into the
+  park itself stated **without a headcount, because the published numbers differ between accounts.**
+- **A caddisfly new to science**, *Wormaldia dilijanica*, described in 2026 from one tributary of the
+  Aghstev, from specimens taken during a short survey in May 2025. This is cited for one purpose: a
+  protected area where a brief visit to a single stream yields an undescribed species is not a place
+  whose species lists should be read as complete. It is the evidential basis for the caution applied
+  to every count above.
+
+### The cultural landscape, and the enclave pattern
+
+| Monument | Relative to the mapped boundary |
+| --- | --- |
+| Haghartsin | inside, well within the forest in a northern side valley |
+| Jukhtak Vank | inside, on the slopes above Dilijan town |
+| Matosavank | inside, likewise |
+| Aghavnavank | inside, in the east near the village and the yew grove |
+| **Goshavank** | **~280 m outside**, in the Gosh village enclave, park forest on every side |
+
+The boundary is drawn **around** the inhabited ground rather than over it. The town of Dilijan sits
+inside the outline and outside the protected land; so does the village of Gosh. That is why a visitor
+can stand in the town centre and be outside the park, and it is why Goshavank — which the park
+administration's own descriptions list among its monuments — falls just beyond the line as OSM maps
+it.
+
+**The article states the geography instead of choosing a side.** Both claims are defensible and they
+answer different questions: the administration is describing what it presents and interprets, the
+outline is describing where the protection legally sits. The ~280 m is a measurement taken against
+the OSM outline during the coordinate work; the article prose says only "a few hundred metres", which
+is the right precision for a community-maintained boundary.
+
+The enclave pattern is then used to explain three other things at once: why the area figure excludes
+the town, why grazing and building pressure arrive from *inside* the outline rather than from beyond
+it, and why a monastery can be in the middle of the park and outside it simultaneously.
+
+**What the section deliberately does not do is tell these monasteries' histories.** Haghartsin and
+Goshavank are major medieval foundations with their own chronologies, inscriptions and disputes, and
+each deserves its own article rather than a paragraph borrowed from a park's. They appear here as
+buildings in a forest. Neither is in `relatedSlugs`, because neither has an article and
+`validate:content` fails the build on a slug that does not resolve — which is the mechanism that
+stops a plausible-looking future slug from shipping as a dead recommendation.
+
+### Conservation — the best-documented thing about the place
+
+The strongest source in the bibliography is **Morin et al. 2021** (*Remote Sensing* 13(15), 2942,
+doi:10.3390/rs13152942), produced for UNDP Armenia — **the first remote-sensing assessment of any
+specially protected area in Armenia**, mapping forest density and land cover at eight dates from 1991
+to 2019 from Landsat and Sentinel-2, calibrated against high-resolution photography.
+
+| Period | Forest lost | Degraded |
+| --- | --- | --- |
+| 1991–1995 | 253 ha | 384 ha |
+| 1995–2000 | — | 363 ha |
+| **2002–2005** | **none measured** | **22 ha** |
+| 2015–2019 | 45 ha (against **104 ha regenerating**) | — |
+
+The curve breaks immediately after the national park was declared, and the authors attribute that
+directly to the protective measures the new status brought. This is the rarest thing in the article:
+a legal act and a measured curve that turn at the same date. It is also why the significance block
+argues the park's value in terms of *evidence about what protection does* rather than in terms of
+scenery.
+
+**The authors' own caveat is repeated rather than buried.** They attributed every degraded patch to
+human causes unless they could prove otherwise, had no field data on storms or disease, and state
+plainly that their anthropogenic figure is therefore **very likely an overestimate**. The article
+carries that sentence because a source that limits its own findings is more useful quoted with the
+limit than without it.
+
+Visitor pressure is handled by a second, narrower study: **Arzumanyan et al.**, *Journal of
+Ecotourism* 22(4) (doi:10.1080/14724049.2022.2100894), which used **terrestrial molluscs** — land
+snails, sedentary and quick to respond to trampling — as bioindicators, comparing heavily visited
+plots against controls inside this park. Significantly lower diversity, richness and abundance where
+visitor intensity was high; the gap widest in autumn; **all five rare species among the thirty-one
+detected occurred only in the low-traffic plots.** It is cited for exactly what it measured and
+explicitly not as a general warning about tourism — a narrow, dated finding about one animal group in
+one park is worth more than a generalisation, and is presented as such.
+
+### Sources
+
+**Nine**, under `dilijan-national-park`, and the shape of the bibliography is itself an argument: two
+peer-reviewed papers with DOIs carrying the load, an administration source for the chronology and
+area, a ministry register for the sanctuary distinction, a mapped outline for the geography, a funder
+page for the deer programme, and the two general-reference surfaces cited **as carriers of the
+figures the article examines, not as authorities for them.**
+
+1. NABU Armenia — `Dilijan National Park — "Dilijan" National Park SNCO`. The administration's own
+   description, republished by the conservation organisation that works with it, cited that way
+   because the ministry's own national-parks page has moved and no longer resolves.
+2. Ministry of Environment — *State sanctuaries of the Republic of Armenia*. The Akhnabad and juniper
+   sanctuary facts.
+3. Morin et al. 2021, *Remote Sensing* — doi:10.3390/rs13152942.
+4. Arzumanyan et al., *Journal of Ecotourism* — doi:10.1080/14724049.2022.2100894.
+5. Ibrahimi et al. 2026, *Ecologica Montenegrina* — doi:10.37828/em.2026.94.2. The caddisfly.
+6. Caucasus Nature Fund — the red deer reintroduction.
+7. OpenStreetMap relation 7594000 — cited as a community-maintained representation and **explicitly
+   not as the legal boundary.**
+8. Wikipedia — *Dilijan National Park*.
+9. Wikidata — Q1984244.
+
+**A source title had to be disambiguated, and the reason turned out to be mechanical as well as
+editorial.** The NABU entry and the Wikipedia entry were both plainly titled "Dilijan National Park".
+`ArticleLayout` keys the rendered bibliography by `source.title`, so the two collided as React keys
+the first time this article rendered. The NABU entry was retitled to name the SNCO — which is how the
+Lake Sevan bibliography already disambiguates its administrator, so it is a precedent rather than an
+invention. Two identically titled citations one above the other are worth avoiding on their own
+account; the duplicate key is the second reason. **The key's fragility is recorded as debt below
+rather than fixed in a content step**, and a new test now fails on any article whose bibliography
+lists two sources under one title, so the next collision is caught before it renders.
+
+### The coordinate
+
+`{ lat: 40.7417, lon: 44.9312, precision: "area" }` — the second `area` entry after Lake Sevan, and
+**the first point in the registry that had to be computed rather than looked up.** No gazetteer holds
+a point for this park that is both defensible and near the middle of it.
+
+The method, recorded in `geo.ts` at length: OSM relation 7594000 (`Դիլիջան ազգային պարկ`,
+`boundary=protected_area`, `protect_class=2`, `wikidata=Q1984244`), four outer rings stitched, the
+**area-weighted polygon centroid** computed on an equirectangular projection about the polygon's own
+mean latitude, giving 40.741695, 44.931181. The rounded value was then **ray-cast back against the
+polygon and falls inside it** — checked rather than assumed, as it was for Garni and Geghard.
+
+Two independent cross-checks, both consistent: the outline's bounding-box centre (40.73670, 44.94545)
+is 1.3 km away and also inside; Wikidata's P625 (40.65639, 45.02139) is inside too but about 12 km
+south-east, out in the Getik ground. The Wikidata point corroborates the region and is a fair
+illustration of why this entry is `area` and why the gazetteer point was not adopted.
+
+**One coincidence is written down before anyone can mistake it for a copy.** OSM's own label point for
+the *town* of Dilijan is 40.7417126, 44.8722210 — which rounds to **the same latitude 40.7417** as the
+computed centroid. The longitudes differ by 0.059°, about **5.0 km**, and the town is **outside** the
+park polygon. Anyone auditing `geo.ts` will notice the matching latitude before anything else, so the
+comment states plainly that the two points were derived independently and are five kilometres apart.
+Also named as deliberately rejected: the administration's office in the town, Haghartsin (7.5 km
+north-west), Goshavank (5.7 km south-east and outside the boundary), Parz Lake (2.6 km north-east),
+the Akhnabad grove, and any trailhead, hotel or road junction on the approach.
+
+### The map integrated itself
+
+**Nothing in `visit-map.ts` or `VisitMap.tsx` was touched.** The map is derived from
+`places ∩ PLACE_COORDINATES`, so the ninth place appeared on it by existing — which is the property
+§47 predicted in a comment ("a ninth will too") and this step confirms. Marker count 8 → 9, the
+`nature` filter pill now yields two markers instead of one, and Dilijan is now the archive's
+**northernmost** point as Tatev is its southernmost.
+
+### Bounds and overlap — measured, and unchanged
+
+The bounds test was widened to loop **360 / 390 / 768 / 1440** rather than assert at one width, and a
+new test measures **every one of the 36 marker pairs** and asserts the overlapping set is a subset of
+the two known pairs. It is a subset assertion rather than a pixel threshold on purpose: whether the
+known pairs still overlap and by how much is a measurement to report, not a number to pin, since a
+font or icon change would break a threshold while meaning nothing.
+
+Measured at 1440 × 900, `/en/visit`:
+
+```
+erebuni-fortress / matenadaran     25 x 26 px
+garni-temple / geghard-monastery   12 x 31 px
+```
+
+**Identical to §47, to the pixel.** Neither pair got better and neither got worse, and **no third
+pair overlaps** — extending the extent north introduced no new collision. §47 recorded the same
+`25 x 26` and `12 x 31`, so the horizontal figures quoted in that section's debt list (25 px and
+12 px) are unchanged.
+
+That the numbers did not move at all means the fit did not zoom out when the northern edge rose: at
+1440 the extent is evidently constrained by the east–west span (Etchmiadzin to Tatev, about 1.96° of
+longitude) rather than by latitude, so Dilijan's 0.35° of new northern reach fitted inside the
+vertical room already there. **That explanation is an inference from the identical measurements, not
+something this step instrumented** — the measurement is the finding; the cause is offered as the
+likely reading and was not verified, because doing so would mean touching map internals this step is
+forbidden to touch.
+
+**The overlap was not fixed.** It remains open debt, out of scope for a content step for the same
+reason as in §47, and the exhaustive marker-selection test still drives the keyboard rather than the
+mouse.
+
+### Artwork — pending, for the eighth time
+
+`PENDING_ARTWORK` filled again with `"dilijan-national-park"`, the eighth time the list has filled and
+the second time a place has been written ahead of its picture without any near-miss candidate at all.
+No image file was added; none exists in `public/` for this slug; the generated placeholder renders,
+and `validate:content` names the slug in its note.
+
+All thirty-six existing files were **opened rather than read off their filenames**. Nothing in the
+repository shows closed broadleaf mountain forest, because nothing else in the archive is set in it.
+Four substitutions were available and each is recorded as refused, because each would have been easy
+to justify:
+
+- **`places/lake-sevan.webp`** — the other `nature` article, same filter pill. It is open water under
+  treeless highland ridges, which is the exact landscape this article spends a section distinguishing
+  itself from. Lending it would illustrate the contrast with a picture of the wrong side of it. This
+  is the §37 Lake Sevan *mood* substitution running in reverse, and it is the sharpest refusal here.
+- **`places/geghard-monastery.webp`** — the only file in the registry with real trees in frame, which
+  is what makes it dangerous. Scrub and scattered stands on a Kotayk gorge wall, not closed forest,
+  and the subject is a rock-cut monastery in another province. A wooded slope is not a forest.
+- **`places/tatev-monastery.webp`** — a plateau above a Syunik gorge.
+- **`khor-virap.png`** — still byte-identical to `hero-ararat.png`; a mountain over an irrigated
+  plain. Both are the Armenia of the photographs, which is the thing this article is about not being.
+
+All four are named in a `places.spec.ts` test, on the same principle as the Lake Sevan three, the
+Garni three and the Geghard five. **The commission brief is recorded now so it is not reconstructed
+later:** closed broadleaf forest — beech, hornbeam and oak, *not* conifers — running up both sides of
+a valley to a ridge, in leaf, with no monastery, no lake as the subject, no snow peak on the horizon
+and no classical or medieval building in frame.
+
+### Localization and parity
+
+All three editions written: `en`, `hy`, `hyw`. The parity harness
+(`npx tsx scratchpad/check.ts dilijan-national-park`) reports **0 differing rows across 3 editions**
+— field counts, section ids, paragraph counts, link targets, `relatedSlugs`, and the numeral multiset
+per validator field group all identical. The numerals check is the load-bearing one for an article
+this dense in figures: 1958, 2002, 33 765, 8 167, 902, 240, 253, 384, 363, 22, 104, 45, P-341, 165 and
+the rest appear in the same multiset in all three.
+
+**Western Armenian is flagged for native review**, as every `hyw` article since §16 has been. The
+terminology this one adds to that queue is the protected-area and forestry vocabulary — reserve
+versus national park versus sanctuary, and the tree names — which has no precedent in the archive
+because no previous article needed it.
+
+### Tests changed
+
+`tests/e2e/places.spec.ts` (+470 lines), `tests/e2e/visit-map.spec.ts` (+186),
+`tests/e2e/visit.spec.ts` (+51).
+
+- `PLACES` 8 → 9 with a `DILIJAN` const; every count assertion 8 → 9; `byType` `nature` 1 → 2.
+- **`nature` moved out of the single-article loop** into its own Lake Sevan + Dilijan pair test — the
+  filter is no longer a special case and can no longer pass by accident.
+- English-title fallback list gained Tatev and Dilijan.
+- New search test, English and both Armenian editions by «Դիլիջան».
+- New Dilijan placeholder-artwork test, and a **borrows-nothing** test asserting the four refused
+  substitutes appear in no meta tag, JSON-LD block, hero or sitemap image for this slug.
+- Coordinate assertions: the park centroid against the town, Parz Lake, Haghartsin, Goshavank and the
+  Wikidata point; plus a northernmost/southernmost check (Dilijan north, Tatev south).
+- **New: "no place is recorded as a settlement"** — the `settlement` precision value is declared in
+  the union and used by nothing, and this pins that.
+- **New: "no article's bibliography lists two sources under one title"** — imports `getSourceRegistry`
+  from `@/data/sources` and runs over the whole registry, not just this article. This is the guard
+  against the React key collision described above.
+- Pending-artwork test renamed to "exactly one place is waiting for artwork".
+- `visit-map.spec.ts`: `PLACES` gains the slug; **`AREA_PLACE` became `AREA_PLACES`** (Sevan +
+  Dilijan) with a set assertion; the bounds test loops four widths; the new all-pairs overlap test.
+- `visit.spec.ts`: `NOT_CURATED` (etchmiadzin, tatev, dilijan) asserted absent from the curated row;
+  the curated row pinned at 6; `/en/places` count 8 → 9. **Visit curation was not touched** — the
+  ninth place does not appear in the curated row, and the test now proves that rather than assuming
+  it.
+
+### Commands run, and results
+
+| # | Command | Result |
+| --- | --- | --- |
+| 1 | `npm run typecheck` | **PASS** — no `tsc` output |
+| 2 | `npm run validate:content` | **PASS** — 126 entries, placeholder note names `dilijan-national-park` |
+| 3 | `npx tsx scratchpad/check.ts dilijan-national-park` | **PASS** — 0 differing rows across hy, hyw, en |
+| 4 | port 3002 / dev server | clear — no listener on 3000–3010, checked **before** `.next` was removed |
+| 5 | remove `.next` | removed |
+| 6 | `visit-map.spec.ts` (desktop) | **PASS** — 28 |
+| 7 | `visit.spec.ts` (desktop) | **PASS** — 23 |
+| 8 | `places.spec.ts` (desktop) | **PASS** — 55 |
+| 9 | `npx playwright test` | **PASS** — 254 passed, 5 skipped |
+| 10 | `npm run build` | **PASS** — 135 routes, no warnings |
+
+**Zero failures.** Nothing was retried, and no assertion was loosened to make anything pass.
+
+Four notes on the output, none of them faults:
+
+1. **The 5 skips are pre-existing and expected** — the untranslated-article tests in `locale.spec.ts`,
+   `seo.spec.ts` and `mobile.spec.ts`. Every article exists in all three editions, so there is no
+   untranslated page for them to exercise. Unchanged from previous steps.
+2. **The build emitted no React duplicate-key warning**, which is the confirmation that the source
+   retitling actually fixed the collision rather than merely moving it.
+3. **All three Dilijan routes prerendered** — `/en/`, `/hy/` and `/hyw/places/dilijan-national-park`
+   are in `prerender-manifest.json`. Checked there rather than in the build's route list, which
+   truncates with `[+N more paths]`.
+4. **The `[newsletter] insert failed` console noise in the suite log is a passing test**, not an
+   error: it comes from "missing Supabase configuration is reported, not faked", which asserts exactly
+   that failure is surfaced rather than faked.
+
+**Playwright and the production build were never run concurrently**, and no two full-suite runs
+overlapped — the §48 process failure did not recur. `.next` was removed only after the port was
+confirmed clear, which is the other §48 failure and it did not recur either.
+
+### Existing Visit and map behaviour — regression check
+
+- **No map architecture change.** Leaflet, the Stadia configuration, tile environment variables,
+  attribution, the network and privacy tests, lazy loading, marker glyphs, map-local filters, marker
+  selection and the accessible fallback are all untouched. `visit-map.ts` and `VisitMap.tsx` were not
+  edited — the ninth marker is derived, and the diffstat proves it.
+- **No routing, geolocation, geocoding or API addition.**
+- **Visit curation unchanged** — the curated places row is still the same 6, still pinned by a test,
+  and the ninth place is asserted absent from it.
+- **No existing artwork file was modified, renamed, moved, re-encoded or re-registered.** All eight
+  prior covers keep their paths; `ARTWORK_PROVENANCE`, `IMAGE_SIZES` and `PORTRAIT_FOCUS` are
+  unchanged, as are `getImageSrc`, `getArticleImageSrc` and `isGeneratedArtwork`.
+- **No existing article's content changed.** The only edit outside the appended Dilijan blocks is the
+  NABU source title, which is a new entry, and the `getSourceRegistry` export, which is additive.
+- **No new structured-data type**; the place emits the same generic `Article` schema and no tourism
+  types, still asserted.
+- `.claude/settings.json` unchanged.
+
+Files changed: `src/data/locales/{en,hy,hyw}/articles/places.ts`, `src/data/sources.ts`,
+`src/data/geo.ts`, `src/lib/media.ts`, `tests/e2e/places.spec.ts`, `tests/e2e/visit-map.spec.ts`,
+`tests/e2e/visit.spec.ts`, `scratchpad/dilcheck.ts`, and this document. No image file added.
+
+### Still open
+
+Carried forward, plus one new entry. Nothing on this list was fixed here.
+
+- **NEW — `ArticleLayout` keys the bibliography by `source.title`.** Two same-titled works cited by
+  one article collide as React keys. **Worked around in content, not fixed**: the NABU source was
+  retitled to disambiguate, and a new test now fails on any article whose bibliography lists two
+  sources under one title. The rendering code is unchanged and the next article to cite two works of
+  the same name will hit the same wall — the proper fix is keying by index or by identifier, which is
+  a component change and not a content step's business.
+- **Map marker overlap** — Erebuni/Matenadaran at 25 x 26 px and Garni/Geghard at 12 x 31 px at the
+  initial extent, **re-measured this step and unchanged**. Still the reason the exhaustive marker test
+  drives the keyboard.
+- **Khalpakhchian 1962 not read directly** — still cited at one remove through Karakhanian and
+  Abgaryan 2004.
+- **The photographic register** — two of the eight existing Places covers read as photographs rather
+  than illustrations.
+- **The Matenadaran facade colour**, unchanged since §36.
+- **The Garni stone warmth**, unchanged since §40.
+- **The Garni 4:3 artwork dimensions** — still the only WebP that is not 1586 x 992.
+- **A dedicated Khor Virap image** — still the only PNG, still 1.4 MB, still byte-identical to
+  `hero-ararat.png`.
+- **Erebuni and Matenadaran artwork weight** — 742 KB and 701 KB.
+- **Global media optimisation.**
+- **The Cuisine hydration flake** — `cuisine.spec.ts`. Did not reproduce here.
+- **One-directional `relatedSlugs`** — Dilijan points at Lake Sevan and Lake Sevan does not point
+  back, with the documented Tatev-to-Geghard exception still the only one.
+- **Western Armenian native review** — nineteen terminology items, plus this article's protected-area
+  and forestry vocabulary.
+- **The Bresson and Fagan Garni attribution.**
+- **Wilkinson's Garni source not read directly.**
+- **The Hovannisian ISBN.**
+- **`scratchpad/check.ts` living outside `scripts/`** — and now `scratchpad/dilcheck.ts` beside it.
+- **The weak homepage hero-path assertion.**
+- **`settlement`** — declared in the `precision` union and used by no entry. Now pinned by a test that
+  asserts no place uses it, which documents the gap rather than closing it.
+- **No central environment module.**
+- **Production Stadia dashboard and domain authorisation** — operational, outside this repository.
+- **Raster label-language limitation** — Stadia raster tiles bake in bilingual labels.
+- **Privacy-page provider disclosure** — undecided.
+
+### Deliberately not built
+
+No image was generated, sourced, edited or substituted. No new place type, no new filter, no new
+content field, no new component, no custom routing, no new structured-data type. No map architecture,
+provider configuration, tile change, geolocation, routing or curation change. Haghartsin and Goshavank
+were not given articles and were not added to `relatedSlugs` as future slugs. The marker overlap was
+left alone. The `ArticleLayout` bibliography key was left alone.
+
+No deployment was performed.
+
+## 50. Dilijan artwork — the pending entry, cleared for the eighth time (August 2026)
+
+`public/images/places/dilijan-national-park.webp` landed. One line entered `IMAGES`, one line left
+`PENDING_ARTWORK`, and the list is empty for the eighth time. Every consumer already asks
+`getImageSrc`, so that pair of lines lit up the hero in three editions, the listing card, the featured
+surfaces, the search thumbnail, the Open Graph and Twitter tags, the JSON-LD `Article.image` and three
+sitemap `image:loc` entries at once. No component changed.
+
+### The file, opened rather than assumed
+
+| Property | Value |
+| --- | --- |
+| Path | `public/images/places/dilijan-national-park.webp` |
+| Dimensions | **1586 × 992** (16:10) |
+| Bytes | **255,030** (249 KB) |
+| SHA-256 | `9dc7a49c1855e5a97e67e4414a63c340331640ef1620851fd2a1d156704d3120` |
+| MD5 | `df3b1f49e4d616a6be96facbb2f6d672` |
+| Container | `RIFF`/`WEBP`, **one `VP8 ` chunk** at offset 12, size 255,010 |
+| Keyframe sync | `9D 01 2A` — a valid lossy VP8 keyframe |
+| RIFF size field | 255,022 = file length − 8, consistent |
+| Colour | sRGB, 3 channels, 8-bit |
+| Alpha / ICC / EXIF / XMP / IPTC | **none of them** — there is no `VP8X`, so none can be present |
+| Orientation | none |
+
+**Format was determined from the bytes, not the extension.** The RIFF chunk table was walked by hand
+and then checked a second time against `sharp`'s metadata; the two agree on every field. The parser
+was also run over the five existing WebPs as a control, and it correctly reported Garni's 1448×1086
+and Erebuni's `VP8X`+`ICCP` chunks — which is how the "no ICC here" claim above is known to be a
+finding rather than a parser that cannot see ICC profiles.
+
+This is the **plainest container in the registry**: a bare `RIFF/VP8` with no extension chunk at all,
+like Etchmiadzin, Lake Sevan, Garni, Geghard and Tatev. At 249 KB it is the fourth lightest of the
+nine, between Etchmiadzin (242 KB) and Tatev (265 KB). It is 1586×992 again, so the "not 1586×992"
+note in `media.ts` still refers to Khor Virap's PNG and Garni alone. **The file was registered exactly
+as delivered — not generated, edited, cropped, resized, recoloured, renamed, optimised or replaced**,
+which has been the rule since §30.
+
+### What is actually in the frame
+
+A broadleaf valley seen from a rocky overlook. Both walls are closed canopy to the ridgeline, a stream
+runs the valley floor, limestone outcrops break through the trees on the right bank, and forested
+ridges recede into humid haze under overcast sky.
+
+Checked against the §49 commission point by point:
+
+- **Broadleaf dominates.** The foreground branch is unmistakably broadleaf — lobed and serrated leaves
+  — and the canopy across both slopes is rounded and closed. This was the one thing the file had to get
+  right, because the article's own distinguishing fact is that barely one per cent of the park's forest
+  is coniferous.
+- **No conifer anywhere.** No spruce, fir or pine silhouette in the frame. A pine-and-fir picture would
+  have stated the opposite of the article beneath it.
+- **Beech/oak/hornbeam is visually plausible** — mixed mesophilous broadleaf canopy of exactly the kind
+  the forest section describes, with no species contradicted by the frame.
+- **Forest rises over slopes and ridges**, and the **mountain-valley structure is legible**: two walls,
+  a floor, a watercourse, and receding ridges giving real depth.
+- **Greener and more humid than central or southern Armenia.** Overcast, hazy, saturated — which is the
+  whole argument of the article's last section.
+- **Forest is the focal subject.** There is no building of any kind in the frame.
+
+And the things it must *not* read as, each checked rather than assumed: **not Lake Sevan** (no open
+water, no treeless ridges); **not Dilijan town** (no settlement, no roofs, no road); **not alpine**
+(rounded mid-mountain relief, no bare rock summits, no conifer belt, no snow); **not Scandinavian
+conifer forest** (no needle-leaf at all); **not Tatev or Syunik** (no plateau, no basalt shelf, no
+gorge rim); **not Geghard, Khor Virap or any monastery cover** (no monument, no cliff-cut chamber, no
+mountain-over-plain). No unsupported scene dominates either: no wildlife, no red deer, no logging, no
+protest, no Parz Lake recreation, no hotel or resort, no zipline, no hiking group, no monastery.
+
+**Two concerns are reported rather than corrected**, and neither changed the file:
+
+1. **It is photographic in register**, like Geghard (§42) and Tatev (§48), where most of this map is
+   rendered illustration. It inherits `ARTWORK_PROVENANCE` and is captioned AI-generated, which is the
+   more cautious of the two claims. This is the third entry for which that caption is worth
+   re-confirming against the source rather than assuming, and it joins the existing debt item.
+2. **Nothing in the frame identifies Armenia specifically.** There is no landmark — and there cannot
+   be one, because the subject is a forest rather than a monument. The same frame could be the
+   Carpathians or the Balkans. This is a limit of the genre, not a fault in the file: the caption and
+   the article carry the geography, and the alternative would have been putting a building in the
+   frame of an article about there not being one. Recorded so it is not rediscovered as a surprise.
+
+### Crops — the real ones, measured
+
+Geometry computed for `object-cover` with the default `object-center`, against the actual project
+slots, and each crop rendered and looked at rather than reasoned about:
+
+| Slot | Ratio | Result | Trim |
+| --- | --- | --- | --- |
+| Compact card, mobile hero | 4:3 | 1323 × 992 | 263 px left/right (132 each, 16.6%) |
+| Tablet hero (`sm:`) | 3:2 | 1488 × 992 | 98 px left/right (49 each, 6.2%) |
+| Listing card, desktop hero, map card | 16:9 | 1586 × 892 | 100 px top/bottom (50 each, 10.1%) |
+| Category / featured | 16:10 | 1586 × 991 | 1 px — effectively the whole image |
+| Search thumbnail (square bound) | 1:1 | 992 × 992 | 594 px left/right (297 each, 37.5%) |
+
+**Every crop holds.** Broadleaf canopy still dominates in all of them; the valley and ridges stay
+legible in all of them; and none turns the image into generic trees without geographic depth. The
+16:10 source ratio is why: it is close enough to 16:9 that the widest slot trims only sky and
+foreground, and tall enough that the 4:3 slot keeps the full vertical composition and loses only side
+margin. The 16:9 crop is arguably the best of the set, tightening onto the valley.
+
+The **search thumbnail is the tightest crop in the project** — a fixed 128 px column (160 px at `lg:`)
+running the full height of the result card, so it takes a near-square slice from the centre of a 16:10
+landscape. That is the one that had to be checked rather than assumed, and it survives: at 1:1 the
+frame still carries the foreground branch, both forested walls, the stream and the receding ridges. It
+reads as forested mountain landscape at thumbnail size.
+
+**No custom `object-position` was added and none is needed.** The default centre crop is correct for
+this file, which is the outcome to prefer — a Dilijan-specific crop rule would have been the kind of
+special case §30 onward has avoided. `PORTRAIT_FOCUS` stays what it is: the writers' rule, untouched.
+
+### Registration and provenance
+
+One line in `IMAGES`, one line out of `PENDING_ARTWORK`. **The only two non-comment changes in
+`media.ts`** — verified against the diff rather than asserted:
+
+```
++  "dilijan-national-park": "/images/places/dilijan-national-park.webp",
+-  "dilijan-national-park",
+```
+
+Everything else in that file's diff is prose. `ARTWORK_PROVENANCE`, `IMAGE_SIZES`, `PORTRAIT_FOCUS`,
+`getImageSrc`, `getArticleImageSrc` and `isGeneratedArtwork` are **unchanged**. No Dilijan-specific
+image logic, no new image field, no new provenance infrastructure, no special card component, no
+custom image routing.
+
+Probed directly rather than inferred from the rendered page:
+
+```
+getImageSrc("dilijan-national-park")     -> /images/places/dilijan-national-park.webp
+getArticleImageSrc(article)              -> /images/places/dilijan-national-park.webp
+isGeneratedArtwork(article)              -> true
+PENDING_ARTWORK                          -> []
+ARTWORK_PROVENANCE                       -> { source: "ai-generated", documentary: false }
+registry total 32, places 9, registered-and-pending: none
+isGeneratedArtwork(with credited image)  -> false
+```
+
+That last line matters: a real credited photograph would still override both the registry file and the
+AI caption. Registration did not close that door.
+
+The disclosure was verified in **all three editions** on the rendered page: the AI-generated
+illustration caption appears, the placeholder caption is gone, the inline placeholder `<svg>` is gone,
+and the registered file renders.
+
+### Pending-artwork state
+
+`PENDING_ARTWORK` is **empty**, for the eighth time — emptied after each of the eight times it has
+filled: §31→§32, §33→§34, §35→§36, §37→§38, §39→§40, §41→§42, §47→§48, §49→§50.
+
+`validate:content` **no longer prints the Dilijan missing-artwork note**, and still reports 126
+entries. The Places listing renders **zero** placeholders. Dilijan borrows nothing: not Lake Sevan,
+not Geghard, not Tatev, not Khor Virap.
+
+**The §49 rejected-substitute reasoning was kept, not deleted.** All four refusals stay in `media.ts`
+as history, on the same principle as the Lake Sevan three, the Garni three and the Geghard five: the
+failure they guard against is the cover being repointed at a plausible neighbour later, and that
+outlives the file landing. Lake Sevan is a *likelier* accident now than it was while this slug had no
+file at all.
+
+### Tests
+
+`ILLUSTRATED` gained the slug and `ARTWORK` gained the path. **`PLACES`, `ILLUSTRATED` and `ARTWORK`
+remain three separate declarations** even though `PLACES` and `ILLUSTRATED` now both hold all nine.
+That is deliberate and §49 is the proof rather than the argument: §48 recorded the case for keeping
+them apart while they matched, and the very next place split them again one step later. Every previous
+coincidence (§32, §34, §36, §38, §40, §42, §48) was ended by the place after it. They also answer
+different questions — `PLACES` decides what must exist, `ILLUSTRATED` decides what may render an
+`<svg>` — and the `satisfies Record<(typeof ILLUSTRATED)[number], string>` clause on `ARTWORK` is what
+makes a mismatch between the two a **compile** error rather than a runtime one.
+
+Inverted, not deleted:
+
+- `Dilijan renders the generated placeholder and says so` → **`Dilijan renders its own file and is
+  captioned as an illustration`**, all three editions: own `<img>`, no `<svg>`, AI caption present,
+  placeholder caption absent, `getImageSrc` resolves, slug not pending.
+- `Dilijan borrows no other article's artwork, and advertises none of its own` → **`…and advertises
+  its own`**. The borrowing refusals are kept in full; the metadata half inverts — `Article.image` now
+  names Dilijan's file, `og:image` and `twitter:image` stop falling back to `og-default`, and the
+  three sitemap blocks carry `image:loc` instead of none.
+- `exactly one place is waiting for artwork` → **`no place is waiting for artwork, and every one
+  resolves to its own file`**. It needed no new literal: the expected array is derived from
+  `PLACES` minus `ILLUSTRATED`, so it emptied on its own.
+- The listing placeholder count is derived the same way and fell to zero without an edit. That
+  assertion has now inverted ten times (§37 one, §38 zero, §39 one, §40 zero, §41 one, §42 zero, §47
+  one, §48 zero, §49 one, §50 zero), which is the whole argument for pinning an exact count.
+
+Added: **`Dilijan's search card carries its own thumbnail and no placeholder`** — scoped by the
+canonical `/en/places/dilijan-national-park` href rather than by result position, because "Dilijan" has
+rivals in this archive (the park article names the town throughout, and Lake Sevan's article names the
+ridge between them). It also asserts the four refused files are absent from that card. Tatev and
+Dilijan were added to the per-place search-thumbnail loop, which had stopped at Geghard.
+
+**Per-card image ownership is preserved for all nine**, unchanged in form: the listing test still
+matches each place's own href to its own exact file, one card at a time. It was not replaced by an
+image-count assertion — **two swapped covers must still fail**, which a count would not catch.
+
+`visit-map.spec.ts` changed by one comment. The selected-card assertion is derived from `getImageSrc`
+and needed no edit: it now takes the `registered` branch for all nine and asserts Dilijan's own file.
+The `else` branch — an unillustrated place must show *no* image — was **kept**, because it has been
+needed twice already (§47, §49) and deleting it would only have to be undone by the tenth place.
+
+### Commands run, and results
+
+| # | Command | Result |
+| --- | --- | --- |
+| 1 | port 3002 / dev server | clear — no listener on 3000–3010, checked **before** `.next` was removed |
+| 2 | remove `.next` | removed |
+| 3 | `npm run typecheck` | **PASS** |
+| 4 | `npm run validate:content` | **PASS** — 126 entries, **placeholder note gone** |
+| 5 | `places.spec.ts` (desktop) | **PASS** — 56 |
+| 6 | `visit-map.spec.ts` (desktop) | **PASS** — 28 |
+| 7 | `visit.spec.ts` (desktop) | **PASS** — 23 |
+| 8 | `npx playwright test` (run 1) | **1 FAILED** — 254 passed, 1 failed, 5 skipped |
+| 9 | `listing.spec.ts` (desktop, isolated) | **PASS** — 17 |
+| 10 | `npx playwright test` (run 2) | **1 FAILED** — 254 passed, 1 failed, 5 skipped |
+| 11 | `brand.spec.ts` (desktop, isolated) | **PASS** — 8 |
+| 12 | `npm run build` | **PASS** — 135 routes, no warnings |
+| 13 | `npx playwright test` (run 3, fresh server) | **PASS** — 255 passed, 5 skipped |
+
+**Two full-suite runs failed, and both failures are recorded here rather than smoothed over.**
+
+1. **Run 1** — `listing.spec.ts › the writers listing filters within its own edition`. Expected 6
+   writer cards, received 0. The saved page snapshot shows the **Next.js dev overlay**, not the
+   listing: `Runtime SyntaxError: Unexpected end of JSON input` at `JSON.parse`, 15 frames of which 14
+   are ignore-listed framework frames.
+2. **Run 2** — `brand.spec.ts › [hy] no page … still shows the former brand`. `/hy/about` returned
+   **500** where 200 was expected.
+
+Neither is in Places, artwork, media or the map. Both were re-run in isolation and **both passed**
+(17/17 and 8/8). Run 3, against a freshly started dev server, passed the **entire suite**.
+
+The reading, stated as a diagnosis rather than a dismissal: these are **dev-server transients** —
+`playwright.config.ts` runs `npm run dev` (Turbopack) with `fullyParallel: true`, eleven workers and
+`retries: 0`, and both failures landed on cold routes immediately after `.next` had been deleted or
+overwritten by a production build. A truncated `JSON.parse` inside Next's own runtime and a 500 on an
+unrelated static route are the shape of a compile race, not of a registry change. The production build
+compiles and prerenders all 135 routes cleanly, and every spec passes alone.
+
+**Honest caveat.** This step added one test and three page loads to each of two `LOCALES × ILLUSTRATED`
+loops (24 → 27 navigations), so it did put marginally more load on that dev server. That could make an
+existing race fire more often. It is not a product defect and nothing in the shipped application
+changed to cause it, but the timing is worth writing down rather than leaving for someone else to
+notice. It joins the existing flake debt.
+
+Playwright and the production build were never run concurrently, and no two full-suite runs overlapped.
+`.next` was removed only after port 3002 was confirmed clear — the §48 failure mode did not recur.
+
+### Map integration — verified, not modified
+
+`src/lib/visit-map.ts`, `src/components/visit/VisitMap.tsx` and `src/lib/map-tiles.ts` are
+**unchanged**, confirmed against the diff.
+
+- The map still carries **exactly 9 Places**, derived from `places ∩ PLACE_COORDINATES`.
+- **No map-specific slug list exists** — nothing was added to admit or illustrate the ninth marker.
+- The selected Dilijan card now shows `/images/places/dilijan-national-park.webp` and links to the
+  localized article.
+- Lake Sevan keeps its own image; all other eight markers keep theirs; no panel shows a neighbour's.
+- Dilijan is still `precision: "area"`, and the two area centroids are still asserted as a pair.
+- Bounds behaviour unchanged at all four widths.
+
+**Marker overlap re-measured only because the existing §49 test already measures it**, and not fixed:
+
+```
+erebuni-fortress / matenadaran     25 x 26 px
+garni-temple / geghard-monastery   12 x 31 px
+```
+
+Identical to §47 and §49, to the pixel. No third pair overlaps. Registering artwork does not move
+markers, and this confirms it rather than assuming it.
+
+### Visit curation — unchanged
+
+**Dilijan was not added to the six curated Visit cards**, and having artwork is not a reason to add it.
+The curated row is still the same 6, still pinned by a test, with Etchmiadzin, Tatev and Dilijan
+asserted absent from it. `curated Visit row ≠ complete map coverage` is preserved deliberately:
+Dilijan is on the map and in `/places`, and curation stays an editorial choice rather than a
+consequence of a file landing.
+
+### Metadata transition
+
+| Surface | Before (§49) | After (§50) |
+| --- | --- | --- |
+| Hero | placeholder `<svg>` | Dilijan WebP |
+| `Article.image` | absent | Dilijan WebP |
+| `og:image` | `og-default` fallback | Dilijan WebP |
+| `twitter:image` | `og-default` fallback | Dilijan WebP |
+| Sitemap `image:loc` | none on all three routes | Dilijan WebP on all three |
+
+**The JSON-LD graph shape did not change.** Still the generic `Article` node; registration added an
+`image` property to it and nothing else. A test now asserts that no `Place`, `TouristAttraction`,
+`NationalPark` or `GeoCoordinates` node appeared — a park is the most tempting article in this archive
+to over-describe with tourism types, so the absence is pinned rather than trusted.
+
+### Article content — untouched
+
+No Dilijan content was modified. The three `articles/places.ts` files, `sources.ts` and `geo.ts` are
+**unchanged**, confirmed against the diff: the protected-area chronology, the 1958/2002 distinction,
+the area discussion, the Akhnabad sanctuary distinction, forest composition, the biodiversity caution,
+the red deer, *Wormaldia dilijanica*, the cultural-landscape wording, the Goshavank boundary nuance,
+the conservation studies, the sources, the coordinate, `relatedSlugs`, the SectionLink, the SEO fields,
+the taxonomy, the translations and the numerical parity all stand exactly as §49 left them.
+
+Files changed: `src/lib/media.ts`, `tests/e2e/places.spec.ts`, `tests/e2e/visit-map.spec.ts`, and this
+document. Added: `public/images/places/dilijan-national-park.webp`.
+
+### Still open
+
+Carried forward unchanged. Nothing on this list was fixed here.
+
+- **`ArticleLayout` keys the bibliography by `source.title`** — unchanged from §49. Two same-titled
+  works cited by one article collide as React keys; worked around in content, guarded by a test, not
+  fixed in the component.
+- **Map marker overlap** — Erebuni/Matenadaran at 25 x 26 px and Garni/Geghard at 12 x 31 px,
+  re-measured this step and unchanged. Still the reason the exhaustive marker test drives the keyboard.
+- **The photographic register** — now three of the nine Places covers (Geghard, Tatev, Dilijan) read
+  as photographs rather than illustrations, all captioned AI-generated.
+- **Dilijan carries no Armenian landmark — new, and inherent.** The frame could be any temperate
+  broadleaf mountain forest. Reported in §50, not corrected; the caption and article carry the
+  geography.
+- **Dev-server suite flakiness — new.** Two unrelated specs failed once each across three full runs on
+  a cold Turbopack dev server under eleven parallel workers, and both passed in isolation. Joins the
+  Cuisine hydration flake as harness debt rather than product debt.
+- **Khalpakhchian 1962 not read directly.**
+- **The Matenadaran facade colour**, unchanged since §36.
+- **The Garni stone warmth**, unchanged since §40.
+- **The Garni 4:3 artwork dimensions** — still the only WebP that is not 1586 x 992.
+- **A dedicated Khor Virap image** — still the only PNG, still 1.4 MB, still byte-identical to
+  `hero-ararat.png`.
+- **Erebuni and Matenadaran artwork weight** — 742 KB and 701 KB. Dilijan at 249 KB does not move this.
+- **Global media optimisation.**
+- **The Cuisine hydration flake** — `cuisine.spec.ts`. Did not reproduce here.
+- **One-directional `relatedSlugs`**, with the documented Tatev-to-Geghard exception.
+- **Western Armenian native review** — nineteen terminology items, plus §49's protected-area and
+  forestry vocabulary.
+- **The Bresson and Fagan Garni attribution.**
+- **Wilkinson's Garni source not read directly.**
+- **The Hovannisian ISBN.**
+- **`scratchpad/check.ts` and `scratchpad/dilcheck.ts` living outside `scripts/`.**
+- **The weak homepage hero-path assertion.**
+- **`settlement`** — declared in the `precision` union and used by no entry.
+- **No central environment module.**
+- **Production Stadia dashboard and domain authorisation** — operational, outside this repository.
+- **Raster label-language limitation** — Stadia raster tiles bake in bilingual labels.
+- **Privacy-page provider disclosure** — undecided.
+
+### Deliberately not built
+
+The image was not generated, edited, cropped, resized, recoloured, renamed, optimised or replaced. No
+`object-position` rule, no Dilijan-specific image logic, no new image field, no per-image provenance,
+no new component, no custom routing. No article content, coordinate, source or translation touched. No
+map architecture, provider configuration or curation change. No new structured-data type. The marker
+overlap was left alone, and so were the bibliography React key, `scratchpad/check.ts`,
+`scratchpad/dilcheck.ts`, media optimisation, the provider infrastructure, the Stadia settings,
+Leaflet, the map labels and the privacy-page wording. `.claude/settings.json` was not modified.
+
+No deployment was performed.
+
+---
+
+## 51. Gyumri — the tenth place, the first settlement, and a whole city (August 2026)
+
+Gyumri is Place #10 and the first article in this archive whose subject is an **inhabited city**
+rather than a building, an enclosure, a museum, an archaeological site, a lake or a protected
+landscape. It spends the `settlement` taxonomy, which had been declared twice over and used by
+nothing since §30.
+
+### Taxonomy
+
+| Pill | Before | After |
+| --- | --- | --- |
+| All places | 9 | **10** |
+| Monasteries and churches | 4 | 4 |
+| Historical sites | 2 | 2 |
+| Museums | 1 | 1 |
+| Nature | 2 | 2 |
+| **Settlement** | **absent** | **1 — Gyumri, and only Gyumri** |
+
+`placeTypeId: "settlement"`, `featured: false`, no `chronoOrder` (Places declares it on none). **Khor
+Virap remains the only featured Place**, now asserted in all three editions rather than only in `en`.
+No new place type was invented: `city`, `town`, `urban` and `cultural-city` are each named in
+`places.spec.ts` as pills that must not appear.
+
+### Files changed
+
+| File | Change |
+| --- | --- |
+| `src/data/locales/{en,hy,hyw}/articles/places.ts` | The article, three editions, 12 sections each |
+| `src/data/locales/{en,hy,hyw}/places.ts` | `settlement` filter pill + rewritten header comment |
+| `src/data/geo.ts` | One coordinate, `precision: "settlement"` |
+| `src/data/sources.ts` | Nine-source bibliography under `gyumri` |
+| `src/lib/media.ts` | `"gyumri"` into `PENDING_ARTWORK`, with the rejection record |
+| `src/components/visit/VisitMap.tsx` | One `TYPE_GLYPH` entry — the only component edit |
+| `tests/e2e/places.spec.ts` | Counts, filters, search, artwork, coordinate, settlement inversion |
+| `tests/e2e/visit-map.spec.ts` | Tenth marker, `settlement` precision, marker test |
+| `tests/e2e/visit.spec.ts` | Fifth type link, `NOT_CURATED`, listing count |
+
+### Article structure
+
+12 sections: `where-it-is`, `the-names`, `before-the-city`, `the-russian-century`, `the-stone`,
+`the-historic-core`, `blacksmithing`, `buildings`, `the-earthquake`, `reconstruction`, `counting`,
+`what-it-is-called`. 6 key facts, 13 dated entries, 6 interesting facts, 0 related figures, 3
+contextual prose links, 3 `relatedSlugs`.
+
+### Name chronology, as separate acts
+
+| Name | From | The act |
+| --- | --- | --- |
+| Kumayri | — | The old name; Gyumri is taken to be the same word worn down by use |
+| Alexandropol | **1837** | Renaming on Nicholas I's visit, after Empress Alexandra Feodorovna |
+| — | **1840** | **City status** and district centre — a *separate* act, three years later |
+| Leninakan | **1924** | Soviet renaming, the year Lenin died |
+| Kumayri | **1990** | The Soviet name dropped, before independence |
+| Gyumri | **1992** | The present name, after independence |
+
+The 1837/1840 merge is the commonest error in writing about this city and the article separates them
+explicitly. **Alexandropol** is the project's prose convention; `Alexandrapol` is carried in
+`keywords` only, and named in the article as a transliteration difference rather than another place.
+
+### Early-history evidence
+
+Four claims are kept apart rather than merged: archaeological occupation, a textual reference to a
+place of this name, continuous settlement, and the existence of a city. What the article states is
+that occupation reaches into prehistory (unremarkable for a watered highland plain), that **Kumayri is
+named in Armenian narrative sources from the early medieval period** in connection with the risings
+against Arab rule, and that the place was still village-scale in the early nineteenth century. It
+says explicitly that claims tying the name to an Urartian royal inscription are **inferences from
+campaign accounts naming other places in the district**, not the same kind of evidence. **No "Gyumri
+is X thousand years old" claim is made anywhere.**
+
+### Nineteenth-century urban transformation
+
+Four causes, each physical or social rather than celebratory or political: the migration from Kars and
+Erzurum after the war of **1828–1829**; the fortress ordered in **1834**; the surveyor's grid that is
+still the plan of the old town; and the railway — Tiflis to Alexandropol **1899**, on to Kars the same
+year, the Yerevan branch by **1902**. The garrison is treated as an economic fact (a permanent market
+for bread, leather, iron, cloth, cartage and building work) rather than as politics. Alexandropol as
+the largest city of Russian-ruled Eastern Armenia, larger than Yerevan, is stated as the outcome.
+
+### Architecture and material culture
+
+Tuff is explained as consolidated volcanic ash before "black tuff" is used, and the article states
+plainly that **not every historic building is black** — red and reddish tuff are in the local
+repertoire and the contrast is deliberate. The coherence is attributed to method rather than colour:
+load-bearing cut stone, one or two storeys, street-line frontage, interior courts, hand-cut surrounds
+and cornices, and forged iron as part of the architecture rather than applied to it. The phrase
+**"freedom within the grid"** comes from Ivanov's ISPRS study.
+
+### The historic core, and the monument counts
+
+The Kumayri reserve was declared in **1980** under the Armenian SSR to stop demolition of the low-rise
+old town, covers on the order of a **fifth of the city's area**, and was transferred to **municipal**
+ownership in **1998** — which is why it is administered by the community rather than by the national
+museum-reserve service, and why it is often missing from national heritage listings.
+
+Circulating counts run from about a thousand to eighteen hundred and are printed with no statement of
+what is counted, inside which boundary, on what date. The article refuses all of them and quotes
+instead the **State List of immovable historical and cultural monuments of Shirak Marz**, approved by
+Government Decision **N 1270-N of 9 September 2004**, whose Gyumri section runs to **roughly a
+thousand numbered entries** — the one figure with a boundary and a date attached.
+
+### Blacksmithing and UNESCO
+
+**Inscribed:** *Tradition of blacksmithing in Gyumri*, Representative List of the Intangible Cultural
+Heritage of Humanity, **2023**, element **01967**, on Armenia's nomination. The article states in as
+many words that **Gyumri is not a World Heritage Site and no part of it is a World Heritage
+property**, and a test asserts that no sentence in any edition pairs the city's name with World
+Heritage wording without a negation.
+
+Two further UNESCO checks were run rather than assumed: Gyumri **is** a member of the UNESCO Global
+Network of Learning Cities (joined **2016**) — a lifelong-learning municipal network, not a heritage
+designation — and Gyumri is **not** a UNESCO Creative City. No Armenian city is currently in the
+Creative Cities Network.
+
+### Earthquake and reconstruction
+
+**7 December 1988**, epicentre near Spitak, moment magnitude about **6.8**, surface break of the order
+of **13 km**. The city's name at the time was **Leninakan**, stated explicitly for readers who know
+the disaster under that name. The damage is explained through engineering rather than imagery:
+multi-storey precast-concrete blocks failing **at their connections**, and soft sediment under the
+city amplifying ground motion in the period range that mattered to buildings of that height — which is
+also why the low-rise stone core stood.
+
+**No graphic description of casualties or injuries, no disaster imagery, and no precise Gyumri death
+toll.** The article says regional figures are wide-range estimates, that figures attributed to the
+city are quoted without saying what they measure, and that this archive assigns none because it found
+no authoritative source defining one.
+
+Reconstruction is written honestly as unfinished: several thousand apartments before the USSR ceased
+to exist, the *domik* temporary shelters still inhabited decades later, phased clearance continuing
+into this century, and the Church of the Holy Saviour reconsecrated in **December 2024** after roughly
+thirty years of restoration — used as the marker for when the earthquake stopped being an active
+condition of the city. It stops short of contemporary policy criticism.
+
+### Population and current-data policy
+
+| Census | Count |
+| --- | --- |
+| 2001 | 150 917 |
+| 2011 | 121 976 |
+| **October 2022** | **112 301** |
+
+Written as **`112 301`, spaced rather than comma-grouped**, because a comma splits the numeral for the
+parity harness. A dedicated section explains that Armenia's census reports a **permanent (de jure)**
+and a **current (de facto)** population which differed nationally by about a quarter of a million in
+2022, and that the annual inter-census estimates are a different series again. A test asserts that
+every passage stating the figure states **2022** in the same passage.
+
+**Source date recorded here as required:** the population figures are from Armstat, *The Main Results
+of RA Census 2022*, enumerated **13–22 October 2022**.
+
+**Source caveat, recorded rather than hidden.** Armstat's settlement-level tables are distributed as
+PDF and 7z-compressed Excel and could not be opened directly in this environment. The publication
+itself was reached and confirmed at `armstat.am/en/?nid=82&id=2623`, and 112 301 is consistently
+reported from it. This joins the existing "source caveats" debt.
+
+### Coordinate provenance
+
+| Field | Value |
+| --- | --- |
+| Slug | `gyumri` |
+| Stored | **40.7852, 43.8416** |
+| Precision | **`settlement`** — the first use of that union member |
+| Source entity | OpenStreetMap **node 130037434** (`Գյումրի`, `place=city`, `capital=4`, `wikidata=Q199500`) |
+| Raw | 40.7852085, 43.8416095 |
+| Meaning | The city's conventional centre — not a building, not a natural centroid |
+
+**Cross-checks, both independent and both corroborating at city scale:** GeoNames **616635** at
+40.7930545, 43.8463497 (about 1.0 km NNE); Wikidata **Q199500** at 40°47′N 43°50′E = 40.78333,
+43.83333 (about 0.7 km WSW, and only to whole arc-minutes, which is coarser than this registry's
+rounding). Three points inside a kilometre of each other in a city roughly seven kilometres across.
+
+**Rejected, and each named in `geo.ts` and in a test:** the Black Fortress; Vartanants Square (the
+closest wrong answer at some hundreds of metres, and the one that would never have looked wrong); the
+railway station; Shirak airport; the municipality building; the cathedral of Yot Verk; any tourist
+information point; and the Kumayri reserve, which is a real legal boundary but is the historic core
+rather than the city. No existing coordinate was modified.
+
+### Map integration
+
+**9 → 10 automatically.** `getVisitMapPoints` is `places ∩ PLACE_COORDINATES`; `src/lib/visit-map.ts`
+and `src/lib/map-tiles.ts` were **not touched**, and there is no Gyumri allow-list anywhere. Gyumri is
+now the **northernmost and westernmost** marker — north of Dilijan and about 0.7° west of
+Etchmiadzin, which had been the western edge for ten steps — so the derived bounds now span a box that
+is wider as well as taller. Nothing was retuned.
+
+### Settlement marker
+
+The one component edit in this step. `TYPE_GLYPH` had no `settlement` entry, because the taxonomy had
+never had a rendered member, so the marker fell back to the bare pin. **One line was added**: two
+blocks on a ground line, in the same shared pin as every other type. No skyline, no coat of arms, no
+city-specific icon, no new map taxonomy, no colour channel. The accessible name already carried the
+localized type through `labelFor`, and a test now pins that for `settlement` in all three editions.
+
+### Bounds and overlap measurements
+
+All ten markers inside the container at **360, 390, 768 and 1440 px**. Overlaps re-measured at 1440 px
+with the wider extent:
+
+| Pair | §50 | §51 |
+| --- | --- | --- |
+| Erebuni Fortress / Matenadaran | 25 × 26 px | **25 × 26 px** |
+| Garni Temple / Geghard Monastery | 12 × 31 px | **12 × 31 px** |
+
+**No new overlapping pair.** The two known pairs are unchanged — the westward stretch widened the box
+without changing the fitted zoom enough to move them. Carried forward as debt, not fixed: the eventual
+answer is clustering, spiderfying or zoom-aware displacement, and none of that belongs in a content
+step. No pixel-distance rule was added.
+
+### Related content
+
+`["avetik-isahakyan", "anush", "first-republic-of-armenia"]` — each earned by a named passage, and
+each a relationship the corpus already asserted from the other side. Isahakyan's article says he was
+born in Alexandropol; the Anush article says the opera premiered there in 1912; the history article
+covers the capture of the city in 1920 and the treaty that carries its name. **Deliberately not
+added:** Dilijan (both northern), Lake Sevan (both destinations), any monastery (tours combine them).
+No non-existent slugs — Amenaprkich, Yot Verk, the Black Fortress and the Kumayri reserve are named in
+the prose and are not articles.
+
+### Artwork
+
+**`PENDING_ARTWORK` refills for the ninth time.** Every file under `public/` was opened rather than
+read off its filename; none shows a nineteenth-century tuff city on a grid. Five substitutions are
+recorded as refused in `media.ts` and named in a test — most sharply
+`history/bagratid-armenia.webp`, which *is* a stone city with domed churches and is Ani: a ruined
+medieval capital on a plateau above a gorge, in the country west of the present border. Also refused:
+`writers/avetik-isahakyan.webp` (a portrait, not a place), `khor-virap.png`, `tatev-monastery.webp`
+and `erebuni-fortress.webp`. Refused in advance: the Black Fortress alone, any earthquake imagery, and
+a generic Caucasian street. No artwork was generated in this step.
+
+### Localisation and parity
+
+Three genuine editions. House forms confirmed against the existing corpus rather than transliterated
+afresh: **Գյումրի** in `hy` and **Կիւմրի** in `hyw` (the form the writers and works articles have used
+since they were written, and the Western Armenian Wikipedia form), with Կումայրի, Ալեքսանդրապոլ,
+Լենինական and Շիրակ shared. `ՅՈՒՆԵՍԿՕ` and the Representative List wording follow the cuisine
+articles.
+
+**Numeral parity: identical multisets in all three editions across every validator field group**, on
+the first harness run. Verified with `scratchpad/dilcheck.ts gyumri`.
+
+**The whole `hyw` edition is flagged for native review**, joining the existing backlog. New
+terminology this step: դարբնութիւն, երկաթագործութիւն, հրաբխային տուֆ, արգելոց-թանգարան, երկրաշարժ,
+վերակառուցում, համքարութիւն, մարդահամար, բնակֆոնտ, տոմիկ.
+
+### Structured data
+
+Unchanged. The generic `Article` model only. **No** `City`, `Place`, `AdministrativeArea`,
+`TouristDestination`, `GeoCoordinates` or `LocalBusiness` JSON-LD was introduced — the settlement
+coordinate exists for Armat's map, not as an instruction to change schema.
+
+### Tests
+
+`places.spec.ts` — listing 9→10 in the locale loop and every filter reset; `settlement` added to the
+single-article filter loop beside `museum`; the vocabulary test moved to six ids with `city`, `town`,
+`urban` and `cultural-city` named as forbidden; `under("settlement")` pinned to Gyumri alone; the
+distribution table gained `settlement: 1`; a tenth-place search test covering *Gyumri*,
+*Alexandropol* and both Armenian names; three new artwork-absence tests (hero placeholder in three
+editions, no borrowed picture in the article's own surfaces or JSON-LD, no thumbnail in search); a
+sitemap assertion that Gyumri's three URL blocks carry **no** `image:loc`; `PENDING_ARTWORK` re-pinned
+as non-empty; the coordinate precision check made three-way; the extremes reworked for the new north
+and west; and a content test that the article does not read as a travel guide and dates its census
+figure.
+
+**`no place is recorded as a settlement` was inverted, not deleted.** It is now `exactly one place is
+a settlement, and it is Gyumri`, asserting one settlement coordinate, one settlement-typed article per
+edition, the stored coordinate, and the rejected monument alternatives.
+
+`visit-map.spec.ts` — tenth marker; `SETTLEMENT_PLACES`; three-way precision with both memberships
+pinned as sets; a new generic-marker test; the overlap test renamed for the westward stretch.
+`visit.spec.ts` — `settlement` in `PLACE_TYPES`, `gyumri` in `NOT_CURATED`, listing count 9→10.
+
+### Visit regression
+
+Curated row **unchanged at six**. Gyumri is on the map, in `/places`, and **not** curated — recorded
+as a deliberate exclusion in `NOT_CURATED` rather than an oversight, with the reasoning that a curated
+card is a picture card and this place has no picture yet. `/visit` route architecture untouched. A
+Visit-curation review is deferred to its own step, after the artwork lands.
+
+### Commands run, in order
+
+```
+netstat :3002            -> clear
+rm -rf .next             -> after confirming no dev server
+tsx scratchpad/dilcheck.ts gyumri  -> three editions, identical numeral multisets
+npm run typecheck        -> PASS (0 errors)
+npm run validate:content -> PASS (129 entries across 3 locales; 1 pending-artwork note: gyumri)
+npx playwright test tests/e2e/places.spec.ts        -> 1 failed, 63 passed  (see below)
+npx playwright test tests/e2e/visit-map.spec.ts     -> 29 passed
+npx playwright test places.spec.ts visit.spec.ts    -> 1 failed, 84 passed (see below)
+npx playwright test tests/e2e/visit.spec.ts         -> 23 passed
+npx playwright test                                 -> 262 passed, 5 skipped, 0 failed
+npm run build                                       -> PASS (138 pages prerendered)
+```
+
+### Every failure, recorded
+
+Two failures occurred and both were real test defects, fixed rather than worked around.
+
+1. **`the settlement article dates its population and keeps UNESCO wording exact`** — a first draft of
+   the UNESCO guard used a hardcoded phrase table and flagged the `hy` sentence
+   «քաղաքը Համաշխարհային ժառանգության օբյեկտ չէ» — *the city is **not** a World Heritage property* —
+   which is the article correctly making the distinction. The phrase-table version was removed and
+   replaced with a sentence-level check that requires a negation, so the article's own denial passes
+   and a bare claim fails. No product assertion was weakened.
+2. **`every canonical route the journey links into still works`** — `visit.spec.ts` pins the `/places`
+   listing count as a deliberately hand-edited literal. It was 9 and is now 10.
+
+The known Turbopack `Unexpected end of JSON input` / cold-route 500 signature **did not appear** in
+this step. The full suite produced one clean run with no retries and no flakes.
+
+### Technical debt
+
+Carried forward unchanged: bibliography React key by `source.title`; marker overlap (measured above);
+dev-server/Turbopack full-suite flake; the photographic register; media optimisation; the Khor Virap
+PNG; the Matenadaran facade colour and Garni stone warmth; Garni's 4:3 artwork; one-directional
+`relatedSlugs` with the Tatev-to-Geghard exception; the Western Armenian review backlog, now including
+this article; source caveats, now including the Armstat settlement table; `scratchpad/check.ts` and
+`scratchpad/dilcheck.ts` outside `scripts/`; the weak homepage hero-path assertion; no central
+environment module; the production Stadia dashboard and domain authorisation; the raster
+label-language limitation; the privacy-page tile-provider disclosure.
+
+**Removed:** ~~`settlement` — declared in the `precision` union and used by no entry.~~ Spent by this
+step, in both places it was declared.
+
+### Deliberately not built
+
+No new place type. No `City` or tourism JSON-LD. No Gyumri-specific map logic, allow-list, viewport or
+icon. No change to `visit-map.ts`, `map-tiles.ts`, Stadia, tile environment variables, Leaflet, lazy
+loading, attribution, network privacy, geolocation, routing or geocoding. No marker clustering or
+overlap fix. No Visit curation change. No artwork generated. No existing coordinate modified. No
+restaurant, hotel, tour, direction, booking or live-travel content of any kind.
+`.claude/settings.json` was not modified.
+
+No deployment was performed.
+
+---
+
+## 52. Gyumri artwork — the pending entry, cleared for the ninth time (August 2026)
+
+`public/images/places/gyumri.webp` landed. One line entered `IMAGES`, one line left
+`PENDING_ARTWORK`, and the list is empty for the ninth time. Every consumer already asks
+`getImageSrc`, so that pair of lines lit up the hero in three editions, the listing card, the search
+thumbnail, the map's selected card, the Open Graph and Twitter tags, the JSON-LD `Article.image` and
+three sitemap `image:loc` entries at once. **No component changed.**
+
+This is the **first urban street artwork in the registry** — every previous entry is a monument, a
+landscape or a building in isolation — so the verification below is different in kind from the eight
+before it, particularly the text audit and the narrow-crop check.
+
+### The file, opened rather than assumed
+
+| Property | Value |
+| --- | --- |
+| Path | `public/images/places/gyumri.webp` |
+| Dimensions | **1584 × 993** — a *third* distinct size in the registry |
+| Bytes | **542,872** (530 KB) |
+| SHA-256 | `11f593161584a5579094562f3b20faaa59f96bca333853ac7b18ee3bcdfdf72e` |
+| MD5 | `7c05da0747f6ccb20ceccf6f812ead4e` |
+| Container | `RIFF`/`WEBP` with **three chunks**: `VP8X` (10 B) + `ICCP` (456 B) + `VP8 ` (542,370 B) |
+| VP8X flag byte | `0x20` — ICC **set**; alpha, EXIF, XMP and animation all **clear** |
+| Encoding | **Lossy**, one VP8 keyframe, sync `9D 01 2A`, frame 1584 × 993 |
+| RIFF size field | 542,864 = file length − 8, consistent |
+| Colour | sRGB, 3 channels, 8-bit |
+| ICC | **present** — 456-byte `mntr`/`RGB `/`XYZ ` monitor profile |
+| Alpha / EXIF / XMP / IPTC | **none** — the VP8X flags forbid them |
+| Orientation | none |
+
+**Format was determined from the bytes, not the extension.** The RIFF chunk table was walked by hand
+and then checked against `sharp`; the two agree on every field. The parser was run over all nine
+existing Places assets as a control and correctly reported Erebuni's and the Matenadaran's ICC
+profiles and the six plain `RIFF/VP8` files with none — which is how "ICC is present here" is known
+to be a finding rather than a parser that always says yes.
+
+**Two structural firsts, both recorded rather than corrected.** The dimensions are **1584 × 993**,
+so the "not 1586 × 992" note in `media.ts` no longer refers to Khor Virap's PNG and Garni alone. The
+aspect is effectively unchanged (1.595 against 1.599), so no crop moves; the file is two pixels
+narrower and one taller than the house size. At **530 KB** it is the **third heaviest** file in the
+registry, behind Erebuni (742 KB) and the Matenadaran (701 KB) and well above the 122–277 KB of the
+six mid-weight WebPs — a consequence of a dense street scene with fine masonry detail rather than of
+the file being unoptimised. It does not change the standing media-optimisation debt.
+
+**The file was registered exactly as delivered — not generated, edited, cropped, resized,
+recoloured, renamed, optimised or replaced**, which has been the rule since §30.
+
+### What is actually in the frame
+
+A wet paved square with a street receding to a vanishing point. Down the left runs a long terrace of
+**two-storey Alexandropol-era façades**: dark grey-black tuff with **reddish-brown tuff** surrounds,
+pilasters, rustication and cornices; hand-carved window and door frames; wrought-iron balconies; all
+of it on the street line, exactly as the article describes. On the right stands a church in **black
+tuff with red-orange geometric inlay** — crosses, roundels and arcading on a faceted drum under a
+conical roof. Between them a white horse and a traditional phaeton with its driver, a row of street
+lamps, spruces, pedestrians in winter coats and a few parked cars in the middle distance, under flat
+overcast light.
+
+**It reads as a living city, not a monument portrait.** The left half is entirely secular urban
+fabric, multiple buildings establish a street rather than one isolated subject, and the perspective
+carries genuine urban depth to a vanishing point rather than flattening into a façade study. The
+palette is muted and cold — appropriate restrained Shirak atmosphere, with no tourism-poster
+saturation.
+
+**Confirmed it does not read primarily as** the Black Fortress, a monastery, a cathedral cover,
+Erebuni or Yerevan, a generic Russian imperial city, or a generic European old town. The black-and-red
+tuff, the carved surrounds and the low two-storey street line are Gyumri's own register and no other
+Armenian city's.
+
+**Confirmed absent:** no disaster scene, no ruined city, no rubble, no earthquake imagery, no Soviet
+propaganda, no flags, no invented historical event, no modern high-rise, and no traffic-dominated
+composition. Cars are present but parked, small and in the middle distance.
+
+### Two concerns, reported and not corrected
+
+**Photographic register — the strongest instance so far.** Like Geghard (§42), Tatev (§48) and
+Dilijan (§50), this file is photographic rather than illustrative, and it is **the most photographic
+entry in the registry**: it reads as a documentary street photograph, including a legible, detailed
+face on the carriage driver. It inherits `ARTWORK_PROVENANCE` and is captioned AI-generated, which
+remains the more cautious of the two claims — and matters more here than anywhere before it, because
+an undisclosed cover of this kind would read as a photograph of a real street and a real person.
+Joins the existing photographic-register debt.
+
+**The narrow search thumbnail.** Measured below; it survives but is weakened. Recorded, not fixed.
+
+### Text and signage audit
+
+Run in detail because this is the first artwork with a street in it. Every storefront, sign, plaque,
+banner, street sign, wall inscription, vehicle plate and poster was inspected at up to 12× on
+extracted crops.
+
+**No lettering anywhere.** The ground-floor openings along the left terrace are unsigned; there are no
+shopfront names, no banners, no street signs, no wall inscriptions and no posters. The church's
+red-tuff ornament is geometric — crosses, roundels, arcading — not epigraphic. The carriage carries no
+lettering. **No prominent gibberish pseudo-Armenian, Russian or English text exists in the frame.**
+
+Two tiny unreadable marks survive and are reported rather than edited away:
+
+| Mark | Size in source | At 8–12× |
+| --- | --- | --- |
+| White A-frame pavement notice by the left terrace | ~20 × 30 px | Colour smears with a red-brown band; **no letterforms** |
+| One car number plate, middle distance | ~20 × 8 px | A blue EU-style tab and a grey smear; **no legible characters** |
+
+The car's grille badge is a generic oval crest, not a legible marque. **The image was not retouched.**
+
+### Crop suitability against the live surfaces
+
+Source 1584 × 993 (1.595). Default `object-cover`, centred, no `object-position`.
+
+| Surface | Ratio | Crop | Trimmed | Verdict |
+| --- | --- | --- | --- | --- |
+| Listing card, desktop hero, map selected card | 16:9 | 1584 × 891 | 10.3 % vertical | **Best of the set.** Loses sky and foreground paving only; terrace, depth, church, carriage and square all intact |
+| Compact card, mobile hero | 4:3 | 1324 × 993 | 16.4 % horizontal | **Very good.** Loses the far-left façade edge and the right lamp cluster; street depth and tuff fully preserved |
+| Tablet hero | 3:2 | 1490 × 993 | 5.9 % horizontal | Effectively the full frame |
+| Search thumbnail (`w-32`/`lg:w-40`, card height) | ~128 × 170 portrait | 748 × 993 | **52.8 % horizontal** | **Weakened but usable** — see below |
+
+**The search thumbnail is the one finding.** It is the tightest live crop by a wide margin and keeps
+the centre band: the spruce, the horse and carriage, the wet square and part of the church, while
+losing almost all of the left terrace. It does **not** collapse into "one random doorway" — a
+horse-drawn carriage on a wet square below a black-and-red tuff church is recognisably Gyumri, and the
+carriages on Vartanants Square are a genuine fixture of the city. But at that ratio the picture reads
+as *carriage and church* rather than *historic street*, which is the article's actual subject. Two
+mitigations are worth recording: the thumbnail is `hidden … sm:block`, so it does not render on small
+screens at all, and it displays at 128–160 px where the loss of terrace detail matters less than the
+ratio suggests.
+
+**No major building becomes unintentionally dominant in any crop.** The church occupies the right
+third at 16:9 and 4:3 and never becomes the subject; only the portrait thumbnail brings it forward,
+and even there the carriage holds the foreground.
+
+**No `object-position` was introduced.** The default centre crop is degraded at one surface, not
+genuinely unusable, and this registry has no per-image focus mechanism for scenes — `PORTRAIT_FOCUS`
+exists for writer portraits and is deliberately not generalised.
+
+### Files changed
+
+| File | Change |
+| --- | --- |
+| `src/lib/media.ts` | `gyumri` into `IMAGES` with the verification record; `"gyumri"` out of `PENDING_ARTWORK`, refusals preserved |
+| `tests/e2e/places.spec.ts` | Gyumri into `ILLUSTRATED` and `ARTWORK`; three absence tests inverted to presence; sitemap block inverted; counts and comments |
+| `tests/e2e/visit-map.spec.ts` | Selected-card assertion for Gyumri's own file; `else`-branch comment |
+| `PROJECT_STATE.md` | This section |
+
+**No article content, coordinate, source, translation, taxonomy, map library, provider configuration
+or curation was touched.** `public/images/places/gyumri.webp` itself is unmodified.
+
+### Media-registry entry
+
+```ts
+gyumri: "/images/places/gyumri.webp",
+```
+
+One line, in the existing Places block of `IMAGES`. No settlement-specific media logic, no
+Gyumri-specific card logic, no new image field, no new provenance infrastructure, no special routing
+and no duplicate configuration.
+
+### Provenance behaviour
+
+`isGeneratedArtwork` was read rather than assumed. Its current signature is
+`(article: Pick<ArticleSummary, "slug" | "image">) => boolean`, and its body is
+`!article.image && getImageSrc(article.slug) !== undefined`. Tested directly against the Gyumri
+article in every edition:
+
+```
+PENDING_ARTWORK      : []
+getImageSrc(gyumri)  : /images/places/gyumri.webp
+en   | isGeneratedArtwork: true | getArticleImageSrc: /images/places/gyumri.webp | article.image: undefined
+hy   | isGeneratedArtwork: true | getArticleImageSrc: /images/places/gyumri.webp | article.image: undefined
+hyw  | isGeneratedArtwork: true | getArticleImageSrc: /images/places/gyumri.webp | article.image: undefined
+```
+
+On the rendered pages: the AI-generated illustration disclosure appears, the placeholder disclosure
+disappears, and the placeholder `<svg role="img">` disappears — asserted in all three editions.
+**`ARTWORK_PROVENANCE` is unchanged**, and provenance was not redesigned.
+
+### Pending-artwork removal
+
+`"gyumri"` removed from `PENDING_ARTWORK`, which is now empty. **The rejected-substitute notes from
+§51 are preserved in full** — `bagratid-armenia.webp` (Ani, the only other stone city in the
+repository), `avetik-isahakyan.webp` (a portrait, not a place), `khor-virap.png`,
+`tatev-monastery.webp`, `erebuni-fortress.webp`, plus the advance refusals of the Black Fortress
+alone, earthquake imagery and a generic Caucasian street — on the same principle as the Lake Sevan
+three, the Garni three, the Geghard five and the Dilijan four: the failure they guard against is the
+cover being repointed at a plausible neighbour later, and that outlives the file landing.
+
+`validate:content` no longer reports Gyumri as pending; the pending-artwork note has disappeared from
+its output entirely.
+
+### Listing, article and search verification
+
+* Gyumri's listing card renders `/images/places/gyumri.webp`.
+* `/en/places/gyumri`, `/hy/places/gyumri` and `/hyw/places/gyumri` heroes all render it.
+* Placeholder `<svg role="img">` absent in all three; placeholder disclosure absent in all three;
+  AI-generated illustration disclosure present in all three.
+* The global search card for Gyumri renders its own WebP, scoped by the canonical
+  `a[href="/en/places/gyumri"]` rather than by position — necessary because "Gyumri" legitimately
+  matches Isahakyan's and Anush's articles.
+* `IMAGES` and `PENDING_ARTWORK` are mutually exclusive in both directions, checked repository-wide.
+* The Places listing renders **zero** placeholder covers, and exactly `ILLUSTRATED.length + 1` images
+  — ten cards plus the featured block's repeat of Khor Virap.
+* Gyumri borrows nothing: none of the other nine Places files, and none of
+  `bagratid-armenia.webp`, `avetik-isahakyan.webp`, `anush.webp` or `first-republic-armenia.webp`
+  appears in its hero, meta tags or structured data.
+
+### Per-card artwork ownership
+
+The per-card ownership test loops `ILLUSTRATED`, which now holds all ten, and asserts **exact href →
+exact artwork** for every one: `khor-virap`, `etchmiadzin-cathedral`, `erebuni-fortress`,
+`matenadaran`, `lake-sevan`, `garni-temple`, `geghard-monastery`, `tatev-monastery`,
+`dilijan-national-park`, `gyumri`. It is not an image count — a swapped pair of covers fails it, which
+is the borrowed-neighbour failure the section guards hardest.
+
+### Social metadata, JSON-LD and sitemap
+
+| Surface | Before (§51) | After (§52) |
+| --- | --- | --- |
+| Hero | placeholder `<svg>` | `gyumri.webp` |
+| `og:image` | absent | `https://armat.site/images/places/gyumri.webp` |
+| `twitter:image` | absent | `https://armat.site/images/places/gyumri.webp` |
+| `Article.image` | absent | `{ "@type": "ImageObject", url: "https://armat.site/images/places/gyumri.webp" }` |
+| Sitemap `image:loc` | none in any of the three URL blocks | one in **each** of the three |
+
+The sitemap is checked **block by block per locale route**, not by a global count of three — three
+appearances anywhere would still pass if all three landed on one route. Each Gyumri block was also
+checked to contain none of `bagratid-armenia`, `avetik-isahakyan`, `erebuni-fortress` or `anush`.
+
+**The JSON-LD graph shape is unchanged.** The `@graph` still carries a generic `Article` node; the
+only structured-data change is that node gaining `image`. No `City`, `AdministrativeArea`,
+`TouristDestination`, `GeoCoordinates` or `LocalBusiness` type was introduced, and a test now asserts
+their absence on this article by name — the settlement coordinate exists for Armat's map, not as an
+instruction to change schema.
+
+### Map selected-card transition
+
+`src/lib/visit-map.ts`, `src/lib/map-tiles.ts` and `VisitMap.tsx` were **not modified**. The generic
+`settlement` glyph added in §51 is unchanged.
+
+Verified: the map still holds exactly **10** Places; Gyumri's marker still carries
+`data-place-type="settlement"`; its accessible name is still `title — localized settlement label` in
+all three editions; selecting it now shows **Gyumri's own WebP** where §51 asserted no image at all;
+the selected card links to `/en/places/gyumri`; the panel shows no placeholder and none of Ani,
+Erebuni or Dilijan; all nine other selected cards keep their existing images; no allow-list exists;
+the coordinate is unchanged at 40.7852, 43.8416; and the marker-derived bounds are unchanged. Marker
+overlap was not addressed in this step.
+
+### Settlement and taxonomy regression
+
+Unchanged and re-asserted: All 10 · Monastery 4 · Historical 2 · Museum 1 · Nature 2 ·
+**Settlement 1**, containing exactly Gyumri. `precision: "settlement"` is still held by exactly one
+coordinate. Khor Virap is still the only featured Place, in all three editions. No place type was
+added.
+
+### Visit-curation regression
+
+**Curated row unchanged at six.** Gyumri is on `/places`, on the map, and still absent from the
+curated row — it remains in `NOT_CURATED` alongside Etchmiadzin, Tatev and Dilijan. Now that it is
+illustrated, the reasoning recorded in §51 (a curated card is a picture card) no longer blocks
+curation, so the deferred **Visit-curation review is now unblocked** and belongs in its own step. It
+was deliberately not taken here.
+
+### Tests changed
+
+`places.spec.ts` — `GYUMRI` moved into `ILLUSTRATED` and added to `ARTWORK`; **`PLACES`,
+`ILLUSTRATED` and `ARTWORK` kept as three separate declarations** even though the first two now
+coincide again, for the eighth time and on the same reasoning §48 and §50 recorded and §51 vindicated
+one step later. The three §51 absence tests were **inverted, not deleted**: the placeholder test
+became `Gyumri renders its own file and is captioned as an illustration`, the borrowed-artwork test
+gained the positive `Article.image`, `og:image` and `twitter:image` assertions, and the search test
+became `Gyumri's search card carries its own thumbnail and no placeholder`. The sitemap block
+assertion flipped from "no `image:loc`" to "its own `image:loc`"; Gyumri joined the per-route sitemap
+loop and the per-query search-thumbnail loop; `PENDING_ARTWORK` is pinned empty again; the listing
+placeholder count is back to zero.
+
+`visit-map.spec.ts` — the settlement-marker test gained the selected-card assertions; the
+`else`-branch comment records that the unillustrated branch has now been needed three times and will
+be needed again.
+
+**The generic illustrated/unillustrated branching is intact everywhere** for Place #11.
+
+### Commands run, in order
+
+```
+inspect asset (hand-walked chunk table + sharp cross-check, 9-file control run)
+visual + text audit on extracted crops (no asset modified)
+crop measurement at 16:9, 4:3, 3:2 and the search-thumbnail ratio
+netstat :3002            -> clear
+rm -rf .next             -> after confirming no dev server
+npm run typecheck        -> PASS (0 errors)
+npm run validate:content -> PASS (129 entries across 3 locales; no pending-artwork note)
+npx playwright test tests/e2e/places.spec.ts    -> 1 failed, 61 passed (see below)
+npx playwright test tests/e2e/places.spec.ts    -> 62 passed (after fix)
+npx playwright test tests/e2e/visit-map.spec.ts -> 29 passed
+npx playwright test tests/e2e/visit.spec.ts     -> 23 passed
+npx playwright test                             -> 262 passed, 5 skipped, 0 failed
+npm run build                                   -> PASS (138 pages prerendered)
+```
+
+### Every failure, recorded
+
+One failure, and it was a test defect rather than a product one.
+
+**`Gyumri borrows no other article's artwork, and advertises its own`** — the new `Article.image`
+assertion was written against the wrong JSON-LD shape. It assumed a flat object with a top-level
+`image`; the page actually emits `{"@graph": [...]}` with an `Article` node whose `image` is
+`{"@type":"ImageObject","url":…}`, which is what the existing `the artwork reaches Open Graph,
+Twitter and the article's structured data` test already reads correctly. `String(image)` therefore
+compared against `"undefined"`. Fixed by reading the graph the same way the existing test does. **No
+product assertion was weakened**, and the failure was in the new test only — the pre-existing
+structured-data test passed throughout.
+
+The known Turbopack `Unexpected end of JSON input` / cold-route 500 signature **did not appear** in
+this step. The full suite produced one clean run with no retries and no flakes.
+
+### Technical debt
+
+Carried forward unchanged, and none opportunistically fixed: bibliography React key by
+`source.title`; marker overlap (Erebuni/Matenadaran 25 × 26 px, Garni/Geghard 12 × 31 px);
+Turbopack/cold-route full-suite flake; the Cuisine hydration flake; the photographic register, now
+with Gyumri as its strongest instance and its first legible face; the Matenadaran façade colour; the
+Garni stone warmth; the Garni 4:3 dimensions; the Khor Virap PNG at 1.4 MB; Erebuni and Matenadaran
+artwork weight, now joined by Gyumri at 530 KB as the third heaviest; global media optimisation;
+one-directional `relatedSlugs` with the Tatev-to-Geghard exception; the Western Armenian review
+backlog; the Bresson and Fagan Garni attribution; Wilkinson's Garni source not read directly; the
+Hovannisian ISBN; the Armstat Gyumri settlement-table caveat; `scratchpad/check.ts` and
+`scratchpad/dilcheck.ts` outside `scripts/`; the weak homepage hero-path assertion; no central
+environment module; the production Stadia dashboard and domain authorisation; the raster
+label-language limitation; the privacy-page tile-provider disclosure.
+
+**New this step, recorded not fixed:** the Gyumri narrow-thumbnail crop, and Gyumri's 1584 × 993
+dimensions as a third distinct size in the registry.
+
+### Deliberately not built
+
+The image was not generated, edited, cropped, resized, recoloured, renamed, optimised or replaced. No
+`object-position` rule, no Gyumri-specific image logic, no settlement-specific media logic, no new
+image field, no per-image provenance, no new component and no custom routing. No article content,
+coordinate, source, taxonomy or translation touched. No map architecture, marker glyph, provider
+configuration, tile URL, attribution, environment variable, lazy loading, geolocation, routing,
+geocoding, privacy behaviour or map filter taxonomy changed. No Visit curation change. No new
+structured-data type. Leaflet and Stadia untouched. The marker overlap was left alone.
+`.claude/settings.json` was not modified.
+
+No deployment was performed.
+
+## 53. Visit curation — the row re-cut once the section reached ten (August 2026)
+
+The first step in nine that changed **no article, no coordinate, no source, no artwork and no
+component**. It edits one six-element array of slugs, the comment that justifies it, and the tests
+that pin it. Everything a reader sees change on `/visit` is resolved from data that was already
+there.
+
+§52 ended by noting that the reasoning which had kept Gyumri out of the curated row — a curated card
+is a picture card — no longer applied. This is the step that acts on it, and the review it triggered
+turned out to be about far more than Gyumri.
+
+### The row before this step
+
+Read from `src/app/[locale]/visit/page.tsx` rather than from this file, because a curation is exactly
+the kind of thing PROJECT_STATE can describe correctly and still be out of date about:
+
+```
+garni-temple  geghard-monastery  lake-sevan  khor-virap  matenadaran  erebuni-fortress
+```
+
+Six of a seven-article section when it was written, and the seventh — Etchmiadzin — was excluded on
+a stated rule: it would have been the row's third monastery.
+
+### What the audit found
+
+The row was a fair curation of the section it was written for and a poor one of the section that now
+exists.
+
+| Card | Type | Where | Distance from Yerevan |
+|---|---|---|---|
+| erebuni-fortress | historical | Yerevan | in the city |
+| matenadaran | museum | Yerevan | in the city |
+| garni-temple | historical | Kotayk | ~28 km |
+| geghard-monastery | monastery | Kotayk | ~36 km |
+| khor-virap | monastery | Ararat plain | ~30 km |
+| lake-sevan | nature | Gegharkunik | ~60 km |
+
+**Five of six inside about forty kilometres of the capital**, and two pairs that nearly duplicate each
+other: Erebuni and the Matenadaran are both in Yerevan, and Garni and Geghard are eight kilometres
+apart in the same valley — the two articles that link to each other more than to anything else.
+
+Type spread was monastery 2, historical 2, museum 1, nature 1, settlement 0.
+
+Syunik, Tavush and Shirak — the three provinces the section spent §47, §49 and §51 acquiring — had no
+card at all. The row was, without intending to be, a picture of the area around Yerevan.
+
+### The row after this step
+
+```
+khor-virap  gyumri  lake-sevan  garni-temple  dilijan-national-park  tatev-monastery
+```
+
+**In:** `gyumri`, `dilijan-national-park`, `tatev-monastery`.
+**Out:** `geghard-monastery`, `erebuni-fortress`, `matenadaran`.
+
+A three-card turnover, which is half the row, and it is the corpus that changed rather than the
+taste: the three articles added since the row was last cut are the three that fill the gaps the audit
+found.
+
+| Card | Type | Where | Picture |
+|---|---|---|---|
+| khor-virap | monastery | Ararat plain | warm monastery under Ararat |
+| gyumri | settlement | Shirak (NW) | grey winter street, carriage |
+| lake-sevan | nature | Gegharkunik (E) | open blue water |
+| garni-temple | historical | Kotayk (C) | classical colonnade |
+| dilijan-national-park | nature | Tavush (NE) | dense green forest |
+| tatev-monastery | monastery | Syunik (S) | grey complex on a cliff |
+
+Six provinces, no two cards in the same one. Type spread is monastery 2, nature 2, settlement 1,
+historical 1, museum 0.
+
+### Why each place is in
+
+- **khor-virap** — kept despite being the most predictable card here. It is the most recognisable view
+  in the country and the origin of the Christian story the section keeps returning to. A first
+  impression that omits it is one trying to prove a point.
+- **gyumri** — the whole argument for re-cutting. The only `settlement`, the only card whose subject
+  is somewhere people *live* rather than somewhere people visit, and the northwest. A row of
+  monuments with no inhabited place in it describes a country that does not exist.
+- **lake-sevan** — the natural feature Armenia is defined by, and the only large water in the archive.
+- **garni-temple** — the entire pre-Christian layer, carried alone now. Without it the row starts in
+  the fourth century, which is false, and Erebuni's removal is what made this card load-bearing.
+- **dilijan-national-park** — the northeast, and the only landscape in the registry that is green and
+  closed rather than open and dry. It is the card that looks least like the Armenia of the
+  photographs, which is exactly its editorial value.
+- **tatev-monastery** — the south, and a monastery that resembles the other monastery in category
+  only. Syunik had no card at all before this step.
+
+### Why each removal, and what it cost
+
+Written as costs rather than as justifications, because all three are real.
+
+- **geghard-monastery** — the cheapest removal and the first one made. Armat loses a World Heritage
+  property and the only rock-cut architecture in the section. It went because it is eight kilometres
+  from Garni in the same valley and would have been the row's third monastery, which is the rule that
+  kept Etchmiadzin out in the first place and it applies unchanged.
+- **erebuni-fortress** — the deep-antiquity card. Armat loses Urartu, the eighth century BC and the
+  founding of Yerevan from the row. Garni now carries "Armenia is older than its churches" alone,
+  which it can do, but it does it from the first century rather than the eighth BC.
+- **matenadaran** — **the removal this step is least comfortable with.** Armat loses the only `museum`
+  in the section, the only card about written culture, and the only remaining card in the capital,
+  where nearly every reader of this page actually is. It went because §3's five buckets name
+  "historic monuments" and do not name "museum", and between the Matenadaran and Garni only one of
+  them answers that. The row now has no museum and no card in Yerevan. Both are one click behind the
+  all-places CTA; both are recorded here and in the page comment so the next curator argues with the
+  decision rather than rediscovering it.
+
+Etchmiadzin remains uncurated on its original reasoning, and is now one of four places on the map
+that are not in the row.
+
+### The Learn row, and the invariant this step broke
+
+The strongest argument *against* this curation, recorded because it is a genuine cost and not an
+oversight.
+
+"Learn before you visit" offers four history articles, and `visit/page.tsx` carried a rule: every one
+of them is declared in the `relatedSlugs` of at least one **curated** place. That is what stops a
+fourth card being added because a row of three looked thin.
+
+Three of the four still clear it — `adoption-of-christianity` and `tigran-the-great` through Khor
+Virap and Garni, `kingdom-of-urartu` through Lake Sevan. **`mesrop-mashtots-armenian-alphabet` does
+not.** Its only carrier anywhere in the section is the Matenadaran, which this step removed from the
+row while leaving it in the section, on the map, in search and in the listing.
+
+Three ways out were available and two were refused:
+
+- re-curate the Matenadaran to satisfy the rule — letting a comment about a different section pick
+  the Places row;
+- drop the alphabet card — changing "Learn before you visit", which this step was told not to touch
+  and had no editorial reason to;
+- record it.
+
+So: the Learn array is **unchanged**, the rule is restated as "declared by at least one Places
+article" — which is still true, and still rejects a history article with no place connection at all —
+and the test now asserts the exception explicitly rather than widening until it stops noticing. The
+real cost stands: a reader now meets the alphabet card without having just seen the building that
+holds the manuscripts.
+
+### Visual rhythm, and why the order is what it is
+
+The order is editorial and survives every grid the page uses. Measured at 360, 390, 768 and 1440 in
+all three editions — twelve renders, six cards each, zero horizontal overflow everywhere:
+
+| Width | Grid | Row shape |
+|---|---|---|
+| 360 | 1 column | 1,1,1,1,1,1 |
+| 390 | 1 column | 1,1,1,1,1,1 |
+| 768 | 2 columns | 2,2,2 |
+| 1440 | 3 columns | 3,3 |
+
+Six divides evenly into one, two and three, so there is no orphaned final row at any width. Card
+images are 16:9 at every width (320×179, 340×190, 389×218) — which is Gyumri's best crop and the
+reason the §52 narrow-thumbnail concern does not reach this page.
+
+At three columns the rows read monastery / city / lake and temple / forest / monastery: the two
+monasteries land in opposite corners, the two landscapes never touch, and no column pairs two cards
+of the same kind. At two columns the pairs are city-beside-monastery, temple-beside-lake and
+monastery-beside-forest. In a single column no two adjacent cards are the same kind of picture.
+
+**One visual observation, reported not fixed.** Khor Virap and Garni are both warm golden-hour
+images, and at three columns they sit one above the other in the left column. They are different
+subjects — a domed monastery on a plain against a colonnade on a promontory — and the sequence has no
+better position for either without breaking the monastery separation that matters more. Recorded as
+an observation rather than a defect.
+
+Card-height variance within a single column reaches 68 px in `hy` at 360 and 23 px elsewhere, which
+is excerpt length and not a layout fault; rows stretch to equal height at every multi-column width.
+
+### Tests
+
+`tests/e2e/visit.spec.ts` only. `places.spec.ts` and `visit-map.spec.ts` have no curation coupling,
+which was checked rather than assumed.
+
+- `FEATURED_PLACES` rewritten to the new six **in order** — still copied from the page rather than
+  imported, so the decision has to be made twice.
+- `NOT_CURATED` now names Geghard, Erebuni and the Matenadaran beside Etchmiadzin, and does a job it
+  was not doing before: three of its four entries are *removals*, so the failure it catches is one of
+  them drifting back in and taking the row to seven. The comment names the Matenadaran as the one to
+  watch.
+- The Learn guard **split into two assertions** rather than loosened — three slugs must be declared by
+  a curated place, and the alphabet must be declared by an *uncurated* one that is specifically the
+  Matenadaran. It fails in both directions.
+- One new test, `the curated row has the editorial shape §53 chose, and the map still has everything`:
+  no duplicate slug; every curated slug is a real Places article; the settlement is curated and it is
+  Gyumri; at least one nature; at most two monasteries; all ten places still on the page's own
+  server-rendered map list with correct hrefs; and the three removals checked *as removals* — off the
+  row, still pinned, still routed.
+
+Deliberately not written: latitude thresholds, region quotas, or any test that re-derives the
+selection. The six-slug array is the strongest statement of the decision; a test that recomputed it
+would be re-running the judgement instead of protecting it.
+
+### Verification
+
+In the mandated order, on a cleared port and a removed `.next`:
+
+- `npm run typecheck` → PASS, 0 errors.
+- `npm run validate:content` → PASS, 129 entries across 3 locales. Unchanged, as it must be: no
+  content moved.
+- `npx playwright test tests/e2e/visit.spec.ts` → 23 passed, 1 failed. The failure was
+  `each section CTA resolves, in every edition`, a 90 s timeout navigating to `/en/cuisine` with a
+  Turbopack `ChunkLoadError` in the log. Re-run alone: **passed in 23.1 s**. Known flake, untouched
+  route.
+- `npx playwright test tests/e2e/places.spec.ts` → 60 passed, 2 failed: the `hy` and `hyw`
+  `places listing and the article both load` tests, timing out at 30 s on cold Armenian article
+  routes. Re-run alone: **both passed, 24.7 s each** — warm, just inside a budget they exceed cold.
+  Known flake.
+- `npx playwright test tests/e2e/visit-map.spec.ts` → **29 passed**, no failures.
+- `npx playwright test` → **262 passed, 5 skipped, 1 failed** of 268. The failure was
+  `the current language is marked in the mobile selector`, preceded by a Turbopack
+  `Uncaught SyntaxError: Unexpected token '.'` chunk corruption in the dev server. Re-run alone:
+  **passed in 3.3 s**. Known flake, and mobile header nav is untouched by this step.
+- `npm run build` → PASS, **138 pages** prerendered — identical to §52, which is the check that no
+  route was added or removed.
+
+**Two environment failures worth recording separately,** because they are not test flakes. The first
+`places.spec.ts` run died with a V8 `FATAL ERROR: Committing semi space failed` at a 69 MB heap, and
+a second attempt reproduced it; `powershell` then failed to start the CLR with HRESULT 80004005. The
+machine had 2.2 GB of 16 GB free. No orphaned `node` processes were found — the crashed runs had
+cleaned up — and both suites ran normally once memory recovered to 3.7 GB. This is host memory
+pressure, not a regression, and it is the reason two `places.spec.ts` attempts appear in this record.
+
+### Confirmations
+
+- **Map remains ten.** `getVisitMapPoints` is still `places articles ∩ PLACE_COORDINATES` and was not
+  touched. All ten appear in the server-rendered `[data-map-list]`, now asserted on `/visit` itself.
+- **`/places` remains ten.** The hand-edited listing count in `visit.spec.ts` is unchanged at 10.
+- **Nothing left the archive.** The three removals keep their articles, coordinates, artwork,
+  map pins, search entries, sitemap URLs and canonical routes. A card leaving the row cannot take an
+  article with it, and that is now a test.
+- **No article content changed.** No coordinate, `relatedSlugs`, `placeTypeId`, `featured`, SEO field,
+  artwork file, media-registry entry or source list. Khor Virap is still the only `featured: true`
+  place, and `featured` remains a different system from this row.
+- **No Western Armenian copy written.** No Visit UI label changed, so `hyw` needed no edit and got
+  none.
+
+### Technical debt
+
+All carried forward unfixed: the bibliography React-key issue; the Erebuni/Matenadaran 25 × 26 px and
+Garni/Geghard 12 × 31 px marker overlaps; the Turbopack suite flake, which produced three separate
+failures in this step and was re-confirmed as a flake three times; the photographic-register concern
+across Geghard, Tatev, Dilijan and Gyumri; the image-size and weight inconsistencies including
+Gyumri's 1584 × 993 third size; media optimisation; the Cuisine hydration issue; one-directional
+relationships; the pending Western Armenian native review; the source caveats including the Armstat
+Gyumri settlement tables; `scratchpad/check.ts` and `scratchpad/dilcheck.ts` outside `scripts/`; the
+weak homepage hero-path assertion; no central environment module; the production Stadia dashboard and
+domain authorisation; the raster label-language limitation; the privacy-page tile-provider
+disclosure. The Gyumri narrow search-thumbnail crop is explicitly out of scope here and unchanged.
+
+**New this step, recorded not fixed:** the row has no museum card and no card in Yerevan; the Learn
+row's alphabet card no longer has a curated place behind it; Khor Virap and Garni share a warm palette
+in the same desktop column; and Next reports Gyumri's image as the `/visit` LCP element without
+`loading="eager"`, which is a pre-existing property of whichever card sits high in the row rather
+than anything Gyumri introduced.
+
+### Deliberately not built
+
+No new article, no new place type, no change to Places taxonomy, coordinates, artwork, sources or
+article content. No change to the hero, "Explore by type", the map section, the Cuisine selection,
+"Learn before you visit", Visit SEO, navigation or structured data. The row stayed at six — no
+seventh card, no carousel, no pagination, no "show more". The curation is still a locale-independent
+slug array resolving titles, excerpts, images, types and reading times through the article and media
+systems; nothing was duplicated into it. No Leaflet, Stadia, provider, tile, geolocation or routing
+change. `.claude/settings.json` was not modified.
+
+No deployment was performed.
+
+## 54. Armenian-language review of the two new categories (August 2026)
+
+A requested review of all Places and Cuisine content in both Armenian editions, for language
+quality and for anything that could read as anti-Armenian framing. No structural, taxonomy, test or
+code change; four small text corrections.
+
+### Framing audit — clean
+
+Every sensitive passage was read in context in all editions: the Genocide references (Matenadaran
+manuscript rescue, Musa Dagh harissa commemoration) use «Հայոց ցեղասպանութիւն/ցեղասպանություն»
+plainly and cite Kevorkian; Ararat is located «սահմանից այն կողմ՝ ներկայիս Թուրքիայում» as fact;
+Alexandropol 1920 names «թուրք ազգայնական ուժեր»; the 1828–29 resettlement, the UNESCO
+lavash/dolma double inscriptions and the Turkic dolma etymology are stated with the established
+inscription-is-not-ownership framing; the Gyumri earthquake keeps its one-paragraph human-dimension
+rule with no casualty figure asserted. No denialist sourcing, no hostile framing, no
+Artsakh/Karabakh content exists to audit. hyw consistently uses Ազրպէյճան/Թուրքիոյ and Կիւմրի (43/0
+vs Գիւմրի), hy uses Ադրբեջան/Գյումրի — each edition internally consistent.
+
+### Corrections applied (validate:content + typecheck PASS after)
+
+- hy dolma intro: «նույն բային ծագող» → «նույն բայից ծագող» (case error; hyw already had բայէն).
+- hy harissa ×6 + en keyword ×1: «քորքոտ» → «կորկոտ» — dictionary form, already used by hyw and
+  matched by the en romanization *korkot*; cross-edition inconsistency removed.
+- hy lavash/dolma ×4: «հմր NNNNN» → «թիվ NNNNN» (nonstandard abbreviation; hyw uses թիւ). Digits
+  untouched — numeral parity unaffected.
+- Khor Virap, both editions: the calque «՝ շատ քիչ բանով միջև/միջեւ» → hy «՝ արանքում շատ քիչ
+  բանով», hyw «՝ մէջտեղը շատ քիչ բանով»։
+
+### Flagged for native Western Armenian review, not changed
+
+- «հէնց» ~19× in hyw places articles — an Eastern-marked particle; per-sentence replacement
+  (ճիշդ/նոյնինքն/restructure) is a native-reviewer call. Joins the standing hyw review debt.
+- Letter-numeral centuries in hyw Gyumri («Ի դարը», «ԺԹ դարու») written without the abbreviating
+  dot — a convention choice to confirm.
+- hyw uses Կարին for the Genocide-era manuscript rescue but Էրզրում in the 1828–29 imperial context
+  — plausibly deliberate; confirm.
+
+### Explicitly NOT errors (checked and kept)
+
+The hyw pattern «ոչինչ/ոչ մէկ + unnegated verb» (~15 sentences) is correct Western Armenian single
+negation, as in Classical Armenian; hy consistently uses Eastern double negation. Both are right;
+neither was touched. Recorded so a later pass does not 'fix' one branch into the other.
+
+No deployment was performed. `.claude/settings.json` untouched.
+
+## 55. Western Armenian review of the two new categories (August 2026)
+
+A follow-up to §54, requested specifically for the hyw edition. The hyw Places file was read in
+full (all ten articles) and the hyw Cuisine file in full (all six), on top of mechanical sweeps.
+
+### Mechanical sweeps — all clean
+
+Zero Eastern «և» anywhere; zero reformed spellings (թվական, -ություն, հարյուր, որպես, վրա, միջև,
+նաև, ինչպես, որտեղ, այնտեղ, կարող է, պետք է all absent in Eastern form); zero Eastern locatives
+(-ում); every «-ում է/են» hit is a noun + copula (վերականգնում է, պնդում է, յիշատակում է…); the
+five «արդեն» hits are all «Վարդենիս»; «Կիւմրի» 43/0 against «Գիւմրի»; the WA elision rule (կ՚
+before vowels, կը before consonants) holds across all 443 uses with exactly one violation, fixed
+below; zero «կը + vowel-initial verb» omissions (all apparent hits were nouns in -կ + article -ը).
+
+### The near-miss worth recording
+
+The hyw pattern «ոչինչ/ոչ մէկ + unnegated verb» (~15 sentences) was checked and confirmed as
+correct Western Armenian single negation (Classical Armenian model), against hy's Eastern double
+negation. Both editions are right; neither was touched. Recorded in §54 and re-confirmed here.
+
+### Corrections applied (validate:content PASS, typecheck PASS, the two Gyumri wording tests PASS)
+
+- «կ՚ղրկուէին» → «կը ղրկուէին» (Dilijan, §49 translation) — elided form before a consonant, the
+  single violation of an otherwise perfect convention.
+- «ՅՈՒՆԵՍԿՕ» → «ԵՈՒՆԵՍՔՕ» ×5, all in the Gyumri article (§51 translation) — the rest of hyw uses
+  the Western form 33×, so Gyumri had silently imported the Eastern house form. Tests pin the
+  element number 01967 and the heritage phrase, not the acronym, so nothing else moved.
+
+### Flagged for native review, unchanged (joins the standing hyw debt)
+
+- «հէնց» ~19× in hyw Places only (zero in cuisine/history/writers/works) — Eastern-marked
+  particle; replacements (ճիշդ / նոյնինքն / restructure) are per-sentence native calls.
+- Letter-numeral centuries in the Gyumri article («Ի դարը», «ԺԹ դարու») written without the
+  abbreviating dot — a convention to confirm, not an error.
+- Author-string drift, site-wide and parallel in hy: «Armat-ի խմբագրական խումբ» (7 places),
+  «Արմատ խմբագրական խումբ» (Sevan, Dilijan, Gyumri), «Armat-ի խմբագրական կազմ» (hyw cuisine and
+  most other hyw categories). Three variants of one credit line; unifying is an editorial
+  branding decision touching all three editions, not a translation fix.
+- hyw uses «Կարին» for the Genocide-era manuscript rescue and «Էրզրում» in the 1828–29 imperial
+  context — read as deliberate register, worth a native confirmation.
+
+### Framing
+
+Nothing anti-Armenian anywhere in hyw: «Հայոց Ցեղասպանութիւն» named plainly, Musa Dagh reverent,
+Ararat located factually, 1920 forces named «թուրք ազգայնական ուժեր», UNESCO double-inscription
+framing intact, earthquake one-paragraph rule intact, no Artsakh/Karabakh content exists.
+
+No deployment was performed. `.claude/settings.json` untouched.
+
+## 56. English review of the two new categories (August 2026)
+
+Following §54 (hy) and §55 (hyw), the same review was run on the English edition of the two
+new categories: all 10 Places articles (`src/data/locales/en/articles/places.ts`, 2180 lines)
+and all 6 Cuisine articles (`src/data/locales/en/articles/cuisine.ts`, 824 lines) were read in
+full, plus mechanical sweeps.
+
+### Mechanical sweeps — all clean
+
+- No doubled words (the the / of of / etc.), no double spaces inside prose.
+- No US spellings. The register is consistently British: -ise verbs (organised, nationalised,
+  standardised, digitisation), metres/kilometres, aubergine/courgette, yoghurt, "per cent"
+  (×4, zero "percent"), "First World War", artefact, hyphenated compass points
+  (north-east etc., zero closed forms). The only grep hits were false positives
+  (literature, cemetery, honorific).
+- No curly quotes; apostrophes in scholarly transliterations (Siwnik', Dawit', Arewelts'i)
+  are deliberate and consistent.
+- Diacritics consistent: Ibn Sayyār al-Warrāq ×2; "harīsa" (macron) reserved for the
+  medieval Baghdadi dish vs "harissa" for the Armenian dish — a deliberate, consistent split.
+- UNESCO identifiers all present and matching the wording tests: lavash no. 00985, dolma
+  no. 01188, blacksmithing element 01967, Etchmiadzin list no. 1011, Geghard no. 960.
+
+### One fix applied
+
+- `en/articles/places.ts` Lake Sevan, how-the-water-moves section: **«joins the Araxes» →
+  «joins the Araks»**. The river was spelled "Araks" twice in Khor Virap (the earlier
+  article) and "Araxes" once in Lake Sevan — the only transliteration drift in the English
+  edition, and exactly the kind the Gyumri article itself legislates against
+  ("this archive uses Alexandropol throughout"). No test pins either form; no digits
+  involved, so numeral parity is unaffected.
+
+Verification: `npm run validate:content` PASS (129 entries across 3 locales);
+`npm run typecheck` PASS.
+
+### Deliberate non-issues (checked, left alone)
+
+- "Alexandrapol" in the Gyumri keywords array is intentional SEO capture of the variant
+  spelling the article itself discusses.
+- Khorovats summary says "a dish of their own" where the section says "a dish of its own" —
+  both idiomatic English with different antecedents; not an error.
+- Citing Priscilla Mary Işın (Ottoman culinary history) in the dolma article is a food-history
+  source, not hostile material; the framing around it explicitly refuses ownership claims
+  in both directions.
+
+### Framing audit — clean
+
+Nothing anti-Armenian and nothing over-claiming: the Armenian Genocide is named plainly
+(Matenadaran rescue narrative, Musa Dagh/harissa with Kévorkian cited); Ararat is located
+factually ("across the border, in present-day Turkey") while its cultural weight is stated;
+Gyumri 1920 uses "Turkish nationalist forces"; the dolma article states the Azerbaijani
+UNESCO nomination as fact and reads it as "a practice, not an origin" — the same
+double-inscription framing as lavash; Erebuni's deportation clause is framed as evidence
+about the Urartian state; the Gyumri earthquake keeps the one-paragraph human-dimension
+rule. No Artsakh/Karabakh content exists in either file.
+
+No deployment was performed. `.claude/settings.json` untouched.
+
+---
+
+## 57. Amberd — the eleventh place, and the archive's first fortress of the Armenian Middle Ages (August 2026)
+
+Amberd is Place #11 and the first article in this archive whose subject is the **secular stronghold
+of a medieval Armenian noble house**: a castle, a wall circuit, a bathhouse and a water system on a
+rock spur high on Mount Aragats, with one church inside the walls rather than a church with a wall
+around it. It is also the first article set in **Aragatsotn**, which had appeared in the corpus only
+as Mashtots's burial place at Oshakan and as a range on Gyumri's horizon.
+
+The article's editorial centre is not the fortress but the **evidence for its age**. Amberd carries
+exactly one dated inscription, it is on the last major building put up there, and almost everything
+else about the site's chronology is attribution. That distinction is the article's spine and the
+reason it does not open, as nearly every published account of Amberd does, in the seventh century.
+
+### Taxonomy
+
+| Pill | Before | After |
+| --- | --- | --- |
+| All places | 10 | **11** |
+| Monasteries and churches | 4 | 4 |
+| **Historical sites** | **2** | **3 — Erebuni, Garni, Amberd** |
+| Museums | 1 | 1 |
+| Nature | 2 | 2 |
+| Towns and cities | 1 | 1 |
+
+`placeTypeId: "historical"`, `featured: false`, no `chronoOrder` (Places declares it on none). **Khor
+Virap remains the only featured Place**, asserted in all three editions. **No new place type was
+invented**: `fortress`, `castle`, `military` and `archaeological` are each named in `places.spec.ts`
+as pills that must not appear, joining `city`, `town`, `urban`, `cultural-city`, `forest`,
+`national-park` and `protected-area`. Amberd is the first place whose own subject noun is absent from
+the vocabulary, and the trio it completes — an Urartian citadel at foundation level, a classical
+peristyle on a gorge rim, a ruined medieval fortress — is the evidence that `historical` was chosen
+at the right breadth in §33.
+
+### Files changed
+
+| File | Change |
+| --- | --- |
+| `src/data/locales/{en,hy,hyw}/articles/places.ts` | The article, three editions, 12 sections each |
+| `src/data/geo.ts` | One coordinate, `precision: "site"`, with its provenance note |
+| `src/data/sources.ts` | Twelve-source bibliography under `amberd-fortress` |
+| `src/lib/media.ts` | `"amberd-fortress"` into `PENDING_ARTWORK`, with the rejection record |
+| `tests/e2e/places.spec.ts` | Counts, filters, search, placeholder inversion, coordinate, editorial pin, heritage guard |
+| `tests/e2e/visit-map.spec.ts` | Eleventh marker, bounds and overlap reasoning |
+| `tests/e2e/visit.spec.ts` | `NOT_CURATED`, map-list count, `/en/places` listing count |
+| `PROJECT_STATE.md` | This section |
+
+**No component was touched.** `visit-map.ts`, `map-tiles.ts` and `VisitMap.tsx` are byte-identical:
+Amberd is `historical`, so it draws the glyph Erebuni and Garni have drawn since §33, and there was
+no new marker type to add. `src/data/locales/*/places.ts` (the filter vocabulary) is untouched too —
+the first Place in five steps that needed neither a new pill nor a new glyph.
+
+### Article structure
+
+12 sections, 40 paragraphs: `where-it-stands`, `the-mountain-and-the-province`, `dating-the-site`,
+`the-kamsarakan-question`, `pahlavuni-amberd`, `vahramashen-church`, `how-the-fortress-worked`,
+`water-and-the-bathhouse`, `conflict-and-control`, `decline-and-ruin`, `excavation-and-restoration`,
+`what-survives`. 6 key facts, 12 dated entries, 6 interesting facts, 2 related figures, 2
+significance paragraphs, 1 contextual prose link, 1 `relatedSlug`.
+
+Paragraph shape per section: `3,3,4,3,3,3,4,4,3,3,4,3` — identical in all three editions.
+
+### The evidence model, stated in four tiers
+
+The article's third section names the four kinds of claim made about Amberd's age and refuses to
+merge them. This is the spine of the whole piece:
+
+| Tier | What it produces | At Amberd |
+| --- | --- | --- |
+| Inscription | A year | **1026**, inside the church's north portal — the only one |
+| Excavation | A range | **tenth to thirteenth centuries**, on the reserve's own summary |
+| Architectural comparison | A range and an argument | The same range, and the seventh-century proposal |
+| Attribution | A name, not a date | The Kamsarakan house |
+
+The state list of Aragatsotn adds a fourth-century-later bound: its Amberd entry reads **tenth to
+fourteenth centuries**, which disagrees with the reserve at the *late* end. The article says so, and
+says that this is a disagreement about when the site stopped mattering rather than about when it
+began.
+
+### Early chronology — why this article does not start in the seventh century
+
+Almost every published account of Amberd opens with "a seventh-century fortress built by the
+Kamsarakans", and so does the file the culture ministry submitted to Europa Nostra. The article
+records the attribution, names who made it, and declines to state it as a fact. Three things are
+missing and are said to be missing:
+
+- **no inscription at Amberd names a Kamsarakan;**
+- **no surviving text of the period names the fortress at all;**
+- the fabric that would have to carry the dating — the lowest courses of the castle and of some wall
+  stretches — is precisely the part of the site **rebuilt, refaced and consolidated most often**,
+  across campaigns in 1949–1972, the 1970s and 2005–2007.
+
+What the article states positively is the Courtauld project's phasing: the castle was built **under
+the Bagratids of Ani in the tenth century, on the ruins of a seventh-century castle** — which is a
+different sentence from "a seventh-century fortress survives here", and is the one the standing
+fabric supports.
+
+A prehistoric layer on the same spur is named and then explicitly set aside, so that it cannot be
+folded into the seventh-century claim: *a spur used in prehistory and a fortress built in the seventh
+century are two separate assertions, and neither is evidence for the other.*
+
+### Kamsarakan evidence — what was actually checked
+
+The Kamsarakans held Arsharunik and Shirak, north and west of Aragatsotn, which is the *tenure* half
+of the attribution and is what Hewsen is cited for. The *construction* half rests on masonry and plan
+compared with securely dated work elsewhere — a real argument, and a defeasible one. Both halves are
+described as what they are. No date is attached to the family's tenure of Amberd anywhere in the
+article, because none is documented.
+
+### Pahlavuni Amberd, and the five things one prince absorbs
+
+The Pahlavunis held Amberd by the eleventh century and held the hereditary office of **sparapet** at
+the court of Ani. How they acquired it is **known at second hand**: the article attributes the
+acquisition to the letters of Grigor Magistros Pahlavuni, written about the middle of the eleventh
+century, and says so rather than presenting it as archival fact.
+
+Vahram Pahlavuni is named as the patron on the church and as commander of the Bagratid army in the
+kingdom's last decades. The article then separates five things a single named prince usually absorbs:
+
+```
+ownership · construction · reconstruction · church patronage · later addition
+```
+
+**Securely Vahram's: the church.** Everything else usually credited to him — thickened walls, towers
+along the gorge edge, the bathhouse — is credited on the strength of the church's date and the
+family's tenure, and the article says so in as many words: *whether every standing wall on the spur
+is his is a separate question, and the answer is almost certainly no.*
+
+His life dates are given as **about 965 – 1045**, with the article's own related-figure note
+recording that published birth and death dates vary by a year or two.
+
+### Vahramashen — a component, argued as a component
+
+The church of **Surb Astvatsatsin**, called Vahramashen, is treated as the one complete building
+inside a ruined fortress rather than as the subject of the article. It gets one section of twelve,
+and that section closes by naming the temptation and refusing it: an article that let the church take
+over *would end up describing a small monastery on a mountainside instead of a fortress with its
+lord's church inside the walls.*
+
+What is stated: the dedication; **1026** from the inscription inside the north portal; the plan as a
+cross inscribed in a rectangle on a stepped platform, barrel-vaulted arms, semicircular apse,
+two-storey corner chambers; a drum round inside and twelve-sided outside under an umbrella roof;
+local basalt; ceramic vessels set in the mortar under the roof; and the shared form with **Marmashen**
+that is the basis for the same-architect suggestion. The suggestion is reported as a suggestion.
+
+**The church's date is never used as the fortress's.** That is the distinction the whole article is
+built around and it is asserted explicitly in the prose, in the key facts, in the summary and in the
+significance block.
+
+### Fortress architecture, in its own vocabulary
+
+The castle at the point of the spur: mortared basalt, three storeys, timber floors, service below and
+living rooms above, **about 1500 square metres** on published descriptions. The wall circuit follows
+the spur edge with semicircular towers carrying small internal chambers and openings to shoot from;
+the reserve gives the walls **15 to 16 metres** high and **2 to 3 metres** thick. The heaviest
+building is on the landward neck, where the terrain does none of the defending.
+
+Between castle and wall: the bathhouse, a chapel, cisterns, storage, and the excavated foundations of
+houses and workshops. The article's reading is that this is **a small fortified settlement with a
+lord's tower at one end**, not a castle in an empty ward.
+
+The European vocabulary is named and refused rather than silently avoided:
+
+```
+keep · bailey · moat · drawbridge      — none of them used, and the refusal is in the prose
+```
+
+*There is no motte, no ditch and no gatehouse of the European kind.* The article says Amberd is
+better described in its own terms than by analogy, and does that.
+
+### Water and the bathhouse — what is documented, and what is not
+
+| Claim | Status in the article |
+| --- | --- |
+| Cisterns inside the walls | Stated — excavated |
+| Clay pipeline from springs higher on the mountain | Stated — well attested |
+| The pipeline's length | **Approximate**; "several kilometres" circulates without a survey behind it |
+| Two covered passages | Stated — **entered in the state monument list**, and found in excavation |
+| A network of secret tunnels through the mountain | **Refused** — "needs no mystery attached to it" |
+| Bathhouse about **70 metres** from the castle, near the Arkashen gate | Stated |
+| Three-part plan and heating from below | Stated |
+| "Roman bath" | **Refused as a label**, kept as a principle |
+
+The bathhouse sentence is the one that took the most care: *the heating principle is the one Roman
+builders used, and the building is an eleventh-century Armenian bathhouse in a lord's fortress, not a
+Roman institution transplanted to Aragats.* The word **hypocaust** is not used in the English prose;
+the system is described instead.
+
+### Military chronology, with its uncertainty preserved
+
+| Year | Event | How firm |
+| --- | --- | --- |
+| **1045** | Byzantium annexes Ani; the Bagratid kingdom ends; Vahram dies about this time | Firm, and general rather than local |
+| **1070s** | Seljuk seizure of Amberd | **A decade, not a year** — see below |
+| **1064** | Ani itself falls | Firm, and cited as the frame for the decade above |
+| **1196** | Zakarid recovery under Zakare and Ivane; **1197** in some accounts | Both forms carried |
+| **1215** | Amberd passes to the Vachutians, who take their style from it | Firm |
+| **1236** | Mongols take and damage the fortress; repaired under the Vachutians | Firm |
+
+**The Seljuk date is the audit this section exists for.** The article states the decade, states that
+Ani fell in 1064 so the general picture is not in doubt, and then says plainly that *the specific year
+offered for Amberd differs between accounts, and no contemporary source naming this fortress is cited
+for any of them.* It adds the rule the brief asked for: **a change of ruler is not evidence that a
+fortress was destroyed.**
+
+### Decline, ruin and the earthquake question
+
+The neat version — destroyed by Timur in the late fourteenth century and never rebuilt — is described
+as *a summary rather than a finding*. What is stated: Timur's campaigns passed through Armenia in the
+**1380s and 1390s**; the fortress does not appear as a place of consequence afterwards; the state
+list's late bound in the fourteenth century is consistent with that. The verdict is *a plausible end
+and a thinly documented one*.
+
+Occupation did not stop dead: later material is reported from the **sixteenth and seventeenth
+centuries**, and the article generalises that *the abandonment of a stronghold is a process spread
+over generations rather than an event with a year attached to it*.
+
+**Earthquakes are kept separate from war, and no specific earthquake is invoked.** What is said is
+that Armenia is seismically active, that the site's own conservation file names seismic risk as a
+*present* danger to the standing walls, and that six centuries of shaking will have done a great deal
+to mortared rubble on a cliff edge — followed by the sentence that governs the whole section: *a ruin
+is not evidence for any of the causes proposed for it, which is exactly why a ruin attracts so many.*
+
+### Archaeology, restoration, and what a visitor is actually looking at
+
+| Campaign | Years | Who | What |
+| --- | --- | --- | --- |
+| Excavation I | **1936–1940** | Hovsep Orbeli | Bathhouse and surroundings, main stair, cistern, chapel |
+| Excavation II | **1963–1972** | Institute of Archaeology and Ethnography, under Nikolai Tokarski and S. Harutyunyan | Upper fortress, houses, workshops, further wall |
+| Survey and restoration | **from 1949 to 1972** | Architects incl. Karo Ghafadaryan | Measured drawings and the restoration project |
+| Later restoration | **1970s**, **2005–2007** | — | Castle, church and bathhouse consolidated and partly rebuilt |
+
+**A discrepancy is recorded rather than smoothed over.** The reserve's own account names **Toros
+Toramanyan** alongside Orbeli for the 1936–1940 seasons. Toramanyan died in **1934**. The article
+states both, attributes the digging to Orbeli, and places Toramanyan's real work in the generation
+before those campaigns. It is also one of the six interesting facts, because it is the kind of thing
+that gets reprinted without a second look.
+
+The restoration paragraph closes with the sentence the brief asked for: *most of what stands is
+genuinely medieval; the tidy wall tops and the reinstated courses are not, and the line between the
+two is not everywhere marked on the ground.*
+
+### Heritage status — precise, and a correction
+
+| Status | Amberd |
+| --- | --- |
+| UNESCO World Heritage property | **No** |
+| UNESCO tentative list (Armenia) | **No** |
+| State list of monuments, Aragatsotn Marz | **Yes** — decision N 628 of 29 May **2002** |
+| State historical and cultural reserve | **Yes** — decision N 541-N of 18 May **2017**, **45.07 hectares** |
+| Europa Nostra 7 Most Endangered **2024** | **Shortlisted (1 of 11), not selected** |
+
+The last row is the correction. A great deal of the coverage — Armenian and diaspora press alike —
+reports that Amberd *is* one of Europe's seven most endangered monuments. It is not. Europa Nostra
+and the EIB Institute shortlisted eleven sites from nine countries on **30 January 2024** and
+announced the seven on **17 April 2024**; the seven are in France, Greece, Italy (two), Serbia and
+Türkiye (two). Both announcements are registered as separate sources precisely because the second one
+is cited for an *absence*.
+
+The word **UNESCO** appears nowhere in any editorial field of any edition, and a test asserts that
+across all three.
+
+### Sources — twelve, and what each carries
+
+| Source | Identifier | Cited for |
+| --- | --- | --- |
+| Tokarskij & Alpago-Novello, *Amberd*, Documents of Armenian Architecture 5, Ares, Milan, 1978 | CiNii NCID **BA57234763** | The standard architectural documentation of the site |
+| Service for the Protection of Historical Environment and Cultural Museum-Reservations — *Amberd Historical and Cultural Reserve* | URL (hushardzan.am) | Reserve status, dimensions, structures, excavation and restoration history, both datings |
+| Government of Armenia, Decision **N 628** (2002), Aragatsotn state monument list | URL (arlis.am) | Official dating (10th–14th c.), the enumerated components, the two covered passages |
+| American University of Armenia — *Amberd Fortress*, Armenia Hidden Gems | URL | The **2160 m** elevation figure, against the reserve's ~2300 m |
+| Arpine Asryan — *Amberd Fortress*, Crossing Frontiers, Courtauld Institute of Art | URL | The tenth-century-on-seventh-century phasing; plan, towers, storeys; political sequence |
+| Arpine Asryan — *Amberd Church*, Crossing Frontiers, Courtauld Institute of Art | URL | The 1026 inscription, patron, plan, drum, material, acoustic vessels, Marmashen comparison |
+| Europa Nostra & EIB Institute — *…shortlisted for the 7 Most Endangered Programme 2024* | URL | The shortlisting, the nominating ministry, the condition report |
+| Europa Nostra & EIB Institute — *Europe's 7 Most Endangered Heritage Sites 2024* | URL | **The absence** — Amberd is not among the seven |
+| *Toros Toramanian (1864-1934)*, Fundamental Armenology (NAS RA, ISSN 1829-4618) | URL | One date: Toramanian died in 1934 |
+| Armen Kazaryan — *Architecture of Medieval Armenia as a Field of Research…*, **Arts** 12(6):238, 2023 | DOI **10.3390/arts12060238** | The Italian survey programmes of 1966–1980s that produced the Amberd volume — historiography only |
+| Hovannisian (ed.) — *The Armenian People…*, Volume I | ISBN 9781403966360 | Bagratid frame, 1045 annexation, Seljuk conquest and 1064, Zakarid recovery |
+| Hewsen — *Armenia: A Historical Atlas* | ISBN 9780226332284 | Aragatsotn geography; Kamsarakan holdings in Arsharunik and Shirak |
+
+Every identifier was resolved and matched against title, authors and year before registration. Two
+notes on honesty rather than on bibliography:
+
+- **The Tokarskij/Alpago-Novello monograph has not been read directly.** Its `note` says so, and no
+  claim in the article rests on it alone. This joins the standing Wilkinson debt from §39 rather than
+  pretending to be different from it.
+- **Kazaryan is cited from its published abstract and Crossref record**, for the existence and dates
+  of the Italian programme and for nothing about the site. The MDPI full text returned 403 to every
+  fetch attempt; the `note` scopes the citation accordingly.
+
+Tourism sites were used to *find questions* — the elevation spread, the "Roman bath" label, the
+secret-tunnel story, the "one of Europe's seven most endangered" claim — and carry no chronology.
+
+### Coordinate and provenance
+
+```
+stored          40.3885, 44.2263   precision: "site"
+OSM             40.3884555, 44.2262728   relation 15757106 (historic=castle, castle_type=fortress,
+                                         ruins=yes, wikidata=Q457057) — Nominatim label point
+Wikidata        40.3887278, 44.226526    Q457057 (P625)
+separation      about 32 m between the two sources; both on the castle
+```
+
+The rounded value was **tested back against the relation's own outer ring by ray casting and falls
+inside it** — the fourth entry in this registry checked that way, after Garni, Geghard and Dilijan.
+The ring measures roughly 62 by 52 metres, so four decimal places is comfortably inside the building.
+
+Rejected nearby alternatives, all named in `geo.ts` and the first two asserted by distance in
+`places.spec.ts`:
+
+| Rejected | Distance | Why it is the trap |
+| --- | --- | --- |
+| **Amberd river** (OSM relation 16475076) label point | **0.21 km** | The closest wrong answer in the whole registry, and what a lookup for the bare word returns |
+| **Vahramashen church** (OSM way 498609239, Q2507423) | **205 m** | The photographed building and the one with a date — a component, not the complex |
+| Car park, café, toilets, information boards, viewpoints | 110–140 m | Visitor infrastructure, and outside the walls where this point is inside them |
+| **Peak named Amberd** (OSM node 2479027163) | 8.2 km | A summit on the same massif |
+| **Byurakan** village | 6.6 km | The village every description gives the fortress a bearing from |
+| **Amberd village**, Vagharshapat community, Armavir (OSM way 894495861) | 17 km | A different settlement in a different province |
+| Mount Aragats itself | — | A massif; would be an `area` point for a different subject |
+
+`site` rather than `area` despite the 45.07-hectare reserve: the reserve is the protection, the
+fortress is the subject. **No existing coordinate was modified**, and no Armenia bounding box was
+added to validation — `geo.ts` still explains why there is none.
+
+### Map integration — automatic, and the first addition that moves nothing
+
+The map went **10 → 11** through the existing `Places ∩ PLACE_COORDINATES` derivation. No allow-list
+exists and none was added; `visit-map.ts`, `map-tiles.ts` and `VisitMap.tsx` are untouched. Amberd
+draws the `historical` glyph unchanged, its marker title and its accessible label are localized from
+the article and `placeTypes` like every other, and selecting it opens `/‹locale›/places/amberd-fortress`.
+
+**It is the first marker in four steps that stretches the extent in no direction.** Tatev pulled the
+box south (§47), Dilijan north (§49), Gyumri north-west (§51); Amberd sits inside all three edges —
+north of Etchmiadzin, east of Gyumri, nowhere near a boundary. `places.spec.ts` now asserts that
+explicitly: Amberd is not the northernmost, southernmost, westernmost or easternmost place. The
+derived bounds are therefore the same box with one more pin in it, and that is the property the
+bounds test was rewritten to state.
+
+### Bounds and overlap — measured, and unchanged
+
+All eleven markers are inside the container at **360, 390, 768 and 1440** px. The all-pairs overlap
+measurement at 1440 px (now 55 pairs rather than 45):
+
+```
+erebuni-fortress / matenadaran     25 x 26 px
+garni-temple / geghard-monastery   12 x 31 px
+```
+
+**No new pair overlaps, and no Amberd pair overlaps.** The two known pairs measure exactly what §47,
+§49 and §51 recorded, which is the expected result of an addition that does not move the box.
+Amberd's nearest neighbour is Etchmiadzin at about 26 km — four times the Erebuni–Matenadaran gap and
+three times the Garni–Geghard one.
+
+**The overlap was not fixed.** It remains open debt, out of scope for a content step for the same
+reason it was in §47, §49 and §51: fixing it means changing the marker-derived bounds.
+
+### Visit curation — frozen, and this is the step that tested it
+
+The curated row on `/visit` is **unchanged and still six**:
+
+```
+khor-virap · gyumri · lake-sevan · garni-temple · dilijan-national-park · tatev-monastery
+```
+
+Amberd is the first Place written *after* §53 re-cut that row, which makes it the first real test of
+whether the review holds. It does. Amberd is in `NOT_CURATED` with the reasoning written down: adding
+the newest article to the row every time one is written would make the curation a queue rather than a
+judgement.
+
+```
+curated row = 6      map = 11      /places listing = 11
+```
+
+Omission from the row is not omission from discovery: Amberd is on the map, in the map's
+server-rendered list, in the listing, in search, and in the sitemap in all three editions.
+
+### Artwork status — pending, for the tenth time
+
+`PENDING_ARTWORK` holds **one slug: `amberd-fortress`**. Nothing under `public/` depicts this site.
+Every one of the forty files was opened rather than read off its filename.
+
+Five substitutions were available and each is recorded as refused in `src/lib/media.ts`. Two are the
+closest near misses this list has ever had to turn down:
+
+- **`places/tatev-monastery.webp`** — a walled enclosure on a promontory above a gorge, in grey
+  stone, seen from the air. That is a fair description of Amberd's *setting* and of nothing else in
+  the frame: what is inside those walls is a complete thirteenth-century monastery in Syunik with a
+  conical-domed church at its centre and no ruin anywhere. Using it would caption a living monastery
+  as a ruined stronghold — the exact conflation this article's significance section exists to
+  prevent.
+- **`history/bagratid-armenia.webp`** — Ani: a walled medieval city on a plateau above a river gorge,
+  the right kingdom and the right century, and already the refused substitute of record for Gyumri in
+  §51. One picture cannot stand in for a city, a settlement article and a fortress.
+
+Also refused: `places/erebuni-fortress.webp` (the other `historical` place, on principle and on
+resemblance), `places/geghard-monastery.webp` and `places/garni-temple.webp` (Kotayk, wrong building
+type, and Garni is a millennium older). Refused in advance: the church alone, a European castle with
+a keep or moat, a snow-covered Aragats summit, and anything showing visitors, signage or the car
+park.
+
+The commission a future artwork step would have to answer is written out in `media.ts` rather than
+left to be reconstructed.
+
+**Pending-artwork behaviour verified:** hero renders the generated `<svg role="img">` in all three
+editions; the placeholder caption appears and the AI-illustration caption does not; `Article.image` is
+absent from the JSON-LD; `og:image` and `twitter:image` fall back to `/og-default.png`; Amberd's three
+sitemap url blocks carry **no `image:loc`** and no registered file; the listing renders exactly one
+placeholder; and the map's selected card shows **no image at all** rather than a neighbour's.
+
+The `else` branch in `visit-map.spec.ts` that §52 said Place #11 would need is the branch that runs
+for Amberd.
+
+### Related content — one link, and the ones refused
+
+`relatedSlugs: ["bagratid-armenia"]`, earned by the `pahlavuni-amberd` section: the Pahlavunis rose
+with that kingdom and held the office of sparapet at its court, and the military section hangs on the
+annexation of Ani in 1045 and the fall of the city in 1064. One contextual prose link, in that same
+section, on the phrase "the Bagratid kingdom".
+
+Deliberately absent, each named in `places.spec.ts`:
+
+- **Erebuni and Garni** — sharing the `historical` pill is not a relationship;
+- **Gyumri** — both being north-west of Yerevan is not a relationship;
+- **Tatev, Geghard** — a tour combining them is not a relationship;
+- **Vahramashen, Mount Aragats, Ani, Marmashen, the Kamsarakans** — named in the prose, and none is
+  an article. `validate:content` fails the build on a slug that does not resolve, which is what keeps
+  a plausible future slug from shipping as a dead recommendation.
+
+The relationship is one-directional, like every other in this section; `bagratid-armenia` was not
+modified to point back.
+
+**One consequence worth recording rather than rediscovering.** With a single authored `relatedSlug`,
+`getRelatedArticles` fills the row to three from the same category — so Amberd's related block shows
+Khor Virap and Etchmiadzin, each under its own headline with its own cover. That is existing generic
+behaviour (Dilijan has had it since §49) and not a borrowed picture; the artwork guard in
+`places.spec.ts` is scoped to the hero and the metadata for exactly that reason, and the reasoning is
+written into the test.
+
+### Localization and parity
+
+Three complete editions. The parity harness (`scratchpad/check.ts`) reports **0 differing rows across
+3 editions** on every field it compares: section ids, section order, paragraphs per section, key
+facts, dated entries, interesting facts, significance paragraphs, related figures, related slugs,
+SectionLink targets, and the numeral multiset per validator field group.
+
+The numeral groups, identical in `hy`, `hyw` and `en`:
+
+```
+intro             1026
+summary           1026 2017
+seoTitle          (none)
+metaDescription   1026
+keyFacts          07 1026 2002 2017 2160 2300 45
+importantDates    07 1026 1026 1045 1064 1070 1196 1197 1215 1236 18 1936 1940 1963 1972
+                  2002 2017 2024 29 45 541 628
+sections          07 1026 1045 1064 1070 1196 1197 1215 1236 1380 1390 15 1500 16 1934
+                  1936 1936 1940 1940 1949 1963 1970 1972 1972 2002 2002 2005 2007 2017
+                  2024 2024 2160 2300 45 70
+interestingFacts  1026 1934 1936 1940 2024 2160 2300 70
+relatedFigures    1045 965
+```
+
+This is the most numeral-dense article in the section, which is why the group table is reproduced
+here: eleven of the thirty-five numerals in `sections` are dates a correction could plausibly be
+applied to in one edition and forgotten in the others.
+
+Centuries are written as words in English and as Roman numerals in the Armenian editions
+(`X-XIII դդ.`), which is the house style and is why they do not appear in the numeral groups at all.
+
+**Terminology audit.** Existing repository forms were reused rather than reinvented:
+
+| English | `hy` | `hyw` |
+| --- | --- | --- |
+| fortress | ամրոց | ամրոց |
+| castle | դղյակ | դղեակ |
+| citadel | միջնաբերդ | միջնաբերդ |
+| church | եկեղեցի | եկեղեցի |
+| bathhouse | բաղնիք | բաղնիք |
+| water conduit | ջրմուղ | ջրմուղ |
+| gorge | կիրճ | կիրճ |
+| promontory | հրվանդան | հրուանդան |
+| basalt | բազալտ | բազալտ |
+| medieval | միջնադարյան | միջնադարեան |
+| Aragats / Aragatsotn | Արագած / Արագածոտն | Արագած / Արագածոտն |
+| Bagratid kingdom | Բագրատունյաց թագավորություն | Բագրատունեաց թագաւորութիւն |
+| Pahlavuni | Պահլավունի | Պահլաւունի |
+| Kamsarakan | Կամսարական | Կամսարական |
+| Zakarian | Զաքարյան | Զաքարեան |
+| Seljuk | սելջուկյան | սելճուքեան |
+| Mongol | մոնղոլական | մոնկոլական |
+| Byzantium | Բյուզանդիա | Բիւզանդիոն |
+| reserve | արգելոց | արգելոց |
+| sparapet | սպարապետ | սպարապետ |
+
+The title is **«Ամբերդ ամրոց»** in both Armenian editions. `ամրոց` rather than `բերդ` (which `hyw`
+otherwise prefers, as in «Էրեբունի բերդ») because the name *Amberd* already ends in `-բերդ`, and
+«Ամբերդ բերդ» would be a tautology on the page.
+
+**The Western Armenian edition is unreviewed machine output** and joins the standing native-review
+backlog in §15. It was written after the English was stable rather than converted from the Eastern
+text: classical orthography throughout, Western verb morphology (`կը կենայ`, `կ՚ըսէ`, `պիտի ըլլան`),
+Western vocabulary (`դղեակ`, `սելճուքեան`, `մոնկոլական`, `հիմնարկ`), and Western proper nouns
+(`Յովսէփ Օրբելի`, `Թորոս Թորամանեան`, `Կարօ Ղաֆատարեան`, `Բիւրական`, `Արքաշէն`, `Վահրամաշէն`). The
+`easternOrthographyMarker` guard catches only `և` and `ություն` and will not catch bad Western
+Armenian; this edition needs a native reader.
+
+### Tests changed
+
+`tests/e2e/places.spec.ts` — 66 tests (was 63):
+
+- new `AMBERD` constant, added to `PLACES` and **not** to `ILLUSTRATED`;
+- listing counts 10 → 11 in five places; the English-title fallback list gains "Amberd Fortress";
+- the monastery filter's absent-list gains Amberd (a place whose article names and describes a church
+  at length is still not a monastery);
+- **"the historical filter returns exactly Erebuni, Garni and Amberd"** — the pair becomes a trio,
+  written as a named list rather than as two `!==` comparisons;
+- the invented-pill list gains `fortress`, `castle`, `military`, `archaeological`;
+- the type histogram moves one number: `historical: 2 → 3`;
+- **new** "the eleventh place is findable under the places group too" — English, the church's name,
+  and both Armenian editions;
+- **new** "Amberd renders the generated placeholder and says so, in every edition" — the exact
+  inversion of §52's Gyumri test;
+- **new** "Amberd borrows no other article's artwork, on the page or in its metadata" — hero,
+  Open Graph, Twitter, JSON-LD;
+- the sitemap image test gains an Amberd **absence** block, asserted before the presence loop;
+- **"no place is waiting for artwork"** renamed to **"exactly one place is waiting for artwork, and
+  the other ten resolve"** — the assertion itself needed no edit, because it was already derived from
+  `PLACES` minus `ILLUSTRATED`. Fifth time that derivation has been right without being touched;
+- coordinate assertions for Amberd, including the river at 0.21 km and the church at 205 m, plus four
+  new assertions that Amberd is at **no** extreme;
+- the editorial-fields pin gains its `AMBERD` entry, with the refused relationships written out;
+- **new** "Amberd claims no international designation it does not have" — World Heritage proximity
+  check on the rendered page in all three editions, plus a data assertion that `UNESCO` (and its
+  Armenian transliterations) appears in no editorial field.
+
+`tests/e2e/visit-map.spec.ts` — eleventh marker; the bounds test's rationale rewritten for an
+addition that changes no extreme; **"extending the map west introduces no new marker overlap"**
+renamed to **"adding a marker inside the existing box introduces no new overlap"**.
+
+`tests/e2e/visit.spec.ts` — `NOT_CURATED` gains `amberd-fortress`; the map-list count and
+`places.length` move 10 → 11; the `/en/places` listing count in the canonical-routes test moves
+10 → 11.
+
+**No assertion was weakened anywhere.** Two were re-scoped and both are stronger for it: the Amberd
+artwork guard now names the four surfaces `getImageSrc` actually reaches instead of scanning raw HTML
+(which failed on a legitimately-rendered related-article card), and the historical filter is pinned
+as a set rather than as a pair of exclusions.
+
+### Commands run, in order
+
+```
+1.  port 3002 confirmed clear                                   PASS
+2.  rm -rf .next (only after confirming no dev server)           PASS
+3.  npx tsx scratchpad/check.ts amberd-fortress                  PASS — 0 differing rows, 3 editions
+4.  npm run typecheck                                            PASS
+5.  npm run validate:content                                     PASS — 132 entries, 1 pending-artwork note
+6.  npx playwright test tests/e2e/places.spec.ts                  see below
+7.  npx playwright test tests/e2e/visit-map.spec.ts               PASS — 29/29
+8.  npx playwright test tests/e2e/visit.spec.ts                   PASS — 24/24
+9.  npx playwright test                                           see below
+10. npm run build                                                 see below
+```
+
+Playwright and `npm run build` were never run concurrently, and no two Playwright suites overlapped.
+### Results, including every failure
+
+**Final state — green.**
+
+```
+npx tsx scratchpad/check.ts amberd-fortress   OK — 0 differing rows across 3 editions
+npm run typecheck                             PASS (0 errors)
+npm run validate:content                      PASS — 132 entries across 3 locales
+                                              note: 1 slug has no artwork (amberd-fortress)
+npx playwright test tests/e2e/places.spec.ts      66 passed (4.0m)
+npx playwright test tests/e2e/visit-map.spec.ts   30 passed (1.2m)
+npx playwright test tests/e2e/visit.spec.ts       24 passed (1.6m)
+npx playwright test  (full, run 1)            268 passed, 5 skipped (10.7m)
+npx playwright test  (full, run 2)            268 passed, 5 skipped (10.4m)
+npm run build                                 PASS — 141 pages prerendered
+```
+
+Totals moved: **129 → 132 content entries**, **138 → 141 prerendered pages**, **263 → 268 passing
+tests** (five new: four in `places.spec.ts`, one in `visit-map.spec.ts`). Two consecutive clean full
+suites were obtained, and no two Playwright runs and no Playwright/build pair ever overlapped.
+
+**Every failure that occurred, in order.**
+
+1. **First focused `places.spec.ts` run — 56 failed, 10 passed.** `.next` had just been removed and
+   every worker hit an uncompiled dev server at once. The single test re-run in isolation passed in
+   2.3 s. This is the known Turbopack/cold-route signature and not a product failure; it is recorded
+   rather than hidden because the run happened.
+2. **Second focused run — 49 failed, 17 passed.** Same cause, still warming.
+3. **Third focused run — 1 failed, 65 passed.** The first *real* failure of the step:
+   `Amberd borrows no other article's artwork` asserted that the string `bagratid-armenia.` appeared
+   nowhere in the page HTML, and it does appear — legitimately. Amberd's related-articles block
+   renders that article's own card, under its own headline, with its own cover, because
+   `getRelatedArticles` fills a short row from the same category. **The test was wrong, not the
+   page.** It was re-scoped to the four surfaces `getImageSrc` actually reaches (hero, Open Graph,
+   Twitter, JSON-LD) and the reasoning written into the test body. The assertion is stronger after
+   the fix, not weaker.
+4. **Fourth focused run — 1 failed, 65 passed.** `page.goto` timeout at 30 s navigating to
+   `/en/places/dilijan-national-park` inside the `[en] the places listing and the article both load`
+   loop — a route unrelated to this step, compiling under parallel load. Re-run alone: 3 tests
+   passed in 36.5 s. Cold-route signature again.
+5. **Fifth focused run — 66 passed.** Clean.
+6. **`visit.spec.ts` — 1 failed, 23 passed.** A genuine, expected count: `every canonical route the
+   journey links into still works` pins `/en/places` at 10 cards, deliberately as a literal that
+   someone updates when the section grows. Moved to 11.
+7. **First full suite — 4 failed, 263 passed.** `cuisine.spec.ts › every dish's metadata…`,
+   `places.spec.ts › the eleventh place is findable…`, and the two `LOCALES × ILLUSTRATED` artwork
+   loops. All four are timeouts, not assertion failures. Each passed when run alone (11.7 s, 3.6 s,
+   19.2 s, 18.4 s). This run also happened while spec files were still being edited, which is a
+   process error on my part — it was discarded and the whole suite re-run from a clean `.next` after
+   all edits were final.
+8. **Full suites, runs 1 and 2 after the freeze — 268 passed, 5 skipped, 0 failed, twice.**
+
+The 5 skipped tests are the pre-existing `DECLARED_UNAVAILABLE` translation-state cases and are
+unrelated to this step.
+
+**Host memory pressure**, reported separately as the process instructions require: the dev server was
+killed once mid-write while a background suite was being stopped, which corrupted Next's generated
+`.next/dev/types/*.ts` and produced five `tsc` syntax errors in *generated* files. No source file was
+involved. `rm -rf .next` cleared it and `npm run typecheck` passed. Port 3002 was confirmed clear
+before every `.next` removal.
+
+### Confirmations
+
+| | |
+| --- | --- |
+| Places total | **11** |
+| Monastery / Historical / Museum / Nature / Settlement | **4 / 3 / 1 / 2 / 1** |
+| Historical contains exactly | Erebuni Fortress, Garni Temple, Amberd Fortress |
+| Settlement contains exactly | Gyumri |
+| New place types introduced | **none** |
+| Featured Places | **Khor Virap only**, in all three editions |
+| Amberd routes | `/hy`, `/hyw`, `/en` — all 200, all indexable, canonical + hreflang correct |
+| Coordinate precision | `site` |
+| Map | **10 → 11**, automatically; no allow-list; no component edit |
+| Marker bounds at 360 / 390 / 768 / 1440 px | All 11 visible at every width |
+| Marker overlap | `25 x 26` and `12 x 31` px — unchanged; no new pair |
+| Visit curated row | **6, unchanged**; Amberd absent by decision |
+| `PENDING_ARTWORK` | `["amberd-fortress"]` |
+| Structured data | Generic `Article` + `BreadcrumbList` only; no tourism types |
+| UNESCO wording | Absent from every editorial field in every edition |
+| Deployment | **None.** Nothing pushed or released; `.claude/settings.json` untouched |
+
+### Visit-curation regression check
+
+| Check | Result |
+| --- | --- |
+| Curated row is exactly six cards | PASS |
+| The six are the §53 slugs, in the §53 order | PASS |
+| Amberd is absent from the curated row | PASS |
+| Amberd is present in `/places` (11 cards) | PASS |
+| Amberd is present on the map and in the map's server-rendered list (11 items) | PASS |
+| Etchmiadzin, Geghard, Erebuni, the Matenadaran still off the row and still on the map | PASS |
+| Row shape guards — settlement present, ≥1 nature, ≤2 monastery | PASS, unchanged |
+| Type links on `/visit` still five, rendered from `placeTypes` | PASS, unchanged |
+
+The curation decision was not reopened.
+
+### Existing map and artwork regression check
+
+| Check | Result |
+| --- | --- |
+| The ten existing marker → article → image mappings | Unchanged |
+| `getImageSrc` for the ten illustrated places | Unchanged, entry by entry |
+| Non-places entries in `IMAGES` (history, writers, works, cuisine) | Unchanged, asserted as a whole object |
+| Khor Virap still a PNG, still the homepage-hero copy | Unchanged |
+| `hero-ararat.png` still outside the registry | Unchanged |
+| Homepage renders its own hero and no places artwork | PASS |
+| Existing coordinates in `geo.ts` | None modified; one added |
+| Two known marker overlaps | `25 x 26` and `12 x 31` px — identical to §47/§49/§51 |
+| Basemap configuration, tile host, attribution | Untouched |
+
+### Technical debt — carried forward, not fixed
+
+Everything below was already open and is deliberately left open:
+
+- bibliography React key uses `source.title` (`ArticleLayout`);
+- marker overlap at the initial extent — Erebuni/Matenadaran, Garni/Geghard;
+- Turbopack/cold-route flake in the full Playwright suite;
+- host memory pressure during long Playwright runs;
+- photographic-register concern for Geghard, Tatev, Dilijan and Gyumri artwork;
+- Gyumri narrow-search-thumbnail crop;
+- Gyumri `1584×993` dimension drift;
+- Matenadaran façade colour;
+- Garni stone warmth;
+- Garni `1448×1086` dimensions;
+- Khor Virap PNG weight;
+- Erebuni / Matenadaran / Gyumri artwork file weight;
+- global media optimisation;
+- Cuisine hydration flake;
+- one-directional `relatedSlugs`;
+- Western Armenian native-review backlog (§15) — **Amberd joins it**;
+- the Bresson/Fagan issue;
+- the Wilkinson source not directly read — **the Tokarskij/Alpago-Novello monograph joins it**;
+- the Hovannisian volume-set ISBN issue;
+- the Armstat Gyumri table caveat;
+- scratchpad harness locations (`scratchpad/check.ts`, `scratchpad/dilcheck.ts`);
+- weak homepage hero-path assertion;
+- no central environment module;
+- Stadia production/domain authorization;
+- raster label-language limitation on the basemap;
+- privacy-page provider disclosure;
+- no museum or Yerevan card in the Visit row;
+- alphabet Learn-card anchor gap;
+- Khor Virap / Garni warm-palette-column observation;
+- `/visit` LCP eager-loading warning (it fired again during this step's runs, on
+  `gyumri.webp`, `lake-sevan.webp` and `gata.webp`).
+
+**Two new observations, recorded rather than fixed.**
+
+1. **A place with one authored `relatedSlug` gets two same-category fillers.** Amberd authors
+   `bagratid-armenia` and the related row is completed with Khor Virap and Etchmiadzin — the first two
+   Places in array order, not an editorial choice. This is `getRelatedArticles` behaving exactly as
+   documented and Dilijan has had it since §49, but it is worth naming: as the section grows, the
+   filler will keep reaching for the same two articles. It is not fixed here because changing it is
+   component work, not a content step.
+2. **The two `LOCALES × ILLUSTRATED` artwork loops are at the edge of their timeout again.** They are
+   already `test.slow()` (90 s) and were the two failures in the first full-suite run of this step,
+   at thirty navigations each against a dev server compiling routes on demand. They pass alone and
+   they pass in a warm full run. When `ILLUSTRATED` reaches eleven they will need splitting rather
+   than another timeout bump.
+
+### Deliberately not built
+
+- **No artwork.** Amberd is in `PENDING_ARTWORK` with a written commission and five recorded
+  refusals. No file was generated, registered, borrowed or renamed. **Resolved in §58**, which
+  registers `public/images/places/amberd-fortress.webp` and empties the list for the tenth time.
+- **No `Place`, `TouristAttraction`, `LandmarksOrHistoricalBuildings`, `GeoCoordinates`, `Castle` or
+  `Fortress` JSON-LD.** The generic `Article` + `BreadcrumbList` graph is unchanged, and the existing
+  test that forbids tourism types now runs over eleven places.
+- **No new place type**, no new marker type, no map allow-list, no component edit.
+- **No travel logistics**: no opening hours, ticket prices, road conditions, seasonal accessibility,
+  restaurants, hotels, tours, parking, best time to visit or driving directions. Those belong to a
+  future Travel Guide, and `places.spec.ts` already polices the vocabulary on the SEO surfaces.
+- **No Mount Aragats article.** Aragats appears only where it bears on Amberd — altitude, terrain,
+  building stone, snowmelt, strategic position. No summit routes, hikes, weather advice, skiing or
+  travel times. A Nature/Geography article can take the mountain itself.
+- **No Armenia bounding box** in `validate:content`; `geo.ts` still explains why there is none.
+- **No change to Visit curation**, and no reopening of the §53 decision.
+- **No deployment.** Nothing was pushed, built for production beyond the local `npm run build`
+  verification, or released. `.claude/settings.json` was not modified.
+
+## 58. Amberd artwork — the pending entry, cleared for the tenth time (August 2026)
+
+`public/images/places/amberd-fortress.webp` landed. One line entered `IMAGES`, one line left
+`PENDING_ARTWORK`, and the list is empty for the tenth time. Every consumer already asks
+`getImageSrc`, so that pair of lines lit up the hero in three editions, the listing card, the search
+thumbnail, the map's selected card, the Open Graph and Twitter tags, the JSON-LD `Article.image` and
+three sitemap `image:loc` entries at once. **No component changed.**
+
+This is the **first ruin in the registry** — every previous entry is a complete building, a living
+street or a landscape — and the first where the failure to guard against was a *monastery*, because
+the one photogenic whole building on the site is the church the article spends a section arguing is
+not the subject. The verification below is shaped by that.
+
+### The file, opened rather than assumed
+
+| Property | Value |
+| --- | --- |
+| Path | `public/images/places/amberd-fortress.webp` |
+| Dimensions | **1586 × 992** — the house size; the "not 1586×992" note still names Khor Virap's PNG, Garni and Gyumri |
+| Aspect | 1.599 (16:10) |
+| Bytes | **675,994** (660 KB) — third heaviest WebP, behind Erebuni (742 KB) and the Matenadaran (701 KB) |
+| SHA-256 | `dbcf7491eeaa45abf698cecc0a19c04c1d9aa1ba9771962ebc14147951d01884` |
+| Container | `RIFF`/`WEBP` with **three chunks**: `VP8X` (10 B, at offset 12) + `ICCP` (456 B, at 30) + `VP8 ` (675,492 B, at 494) |
+| VP8X flag byte | `0x20` — ICC **set**; alpha, EXIF, XMP and animation all **clear** |
+| Encoding | **Lossy**, one VP8 keyframe |
+| RIFF size field | 675,986 = file length − 8, consistent |
+| Chunk walk | ends at byte **675,994 — exactly EOF**, no trailing bytes, no padding mismatch |
+| Colour | sRGB, 3 channels, 8-bit, opaque (`isOpaque: true`) |
+| ICC | **present** — 456-byte `mntr`/`RGB `/`XYZ ` monitor profile; the fourth ICC-bearing entry after Erebuni, the Matenadaran and Gyumri |
+| Alpha / EXIF / XMP | **none** — the VP8X flags forbid them, and `sharp` agrees |
+| Orientation | none |
+| Channel means / entropy | 98, 95, 87 · 7.574 |
+
+**Format was determined from the bytes, not the extension.** The RIFF chunk table was walked by hand
+with a byte-level parser and then cross-checked against `sharp` 0.34.5; the two agree on every field
+— dimensions, colour space, channel count, depth, alpha, ICC presence and ICC length. The same
+parser was run over all eleven Places assets as a control and correctly separated the four
+ICC-bearing files from the six plain `RIFF/VP8` ones and the single PNG, which is how "ICC is present
+here" is known to be a finding rather than a parser that always says yes.
+
+### Visual verification
+
+Inspected at full frame and then at native resolution in five zoomed regions (the tower group, the
+church, the lower-left outwork, the right-hand cliff, the background massif), plus a four-tile
+contact sheet covering the remaining quadrants and a contrast-boosted pass over the whole image.
+
+| Required reading | Result |
+| --- | --- |
+| Fortress/castle remains are the **primary subject** | **Yes.** A group of round, broken-topped towers occupies the right-of-centre third and the whole upper mass of the frame |
+| Substantial defensive masonry | **Yes.** Coursed dark blockwork, tower drums several storeys tall, a wall line running back along the spur |
+| Credible ruin state | **Yes.** Broken, uneven wall tops, collapsed sections, vegetation rooted in the rubble. No roof anywhere |
+| Vahramashen Church visible but **secondary** | **Yes.** Small, left of centre, on a lower terrace, perhaps a fortieth of the frame — and downhill and apart from the castle, which is where it actually stands |
+| Church does not turn it into a monastery cover | **Correct.** There is no enclosure of monastic buildings, no gavit, no courtyard, no khachkar field; the church stands alone below a ruined stronghold |
+| Highland plateau / spur geography | **Yes.** A triangular spur seen from slightly above, tawny treeless grassland rolling away on both sides |
+| Gorge or steep defensive drop understandable | **Yes, on both flanks.** A ravine falls away to the left below the church terrace, a dark cliff drops on the right directly beneath the towers, and the two converge below the point — the geometry the article's defensive argument rests on |
+| Plausibly Aragats highland terrain | **Yes.** A broad snow-patched volcanic shield behind, rounded ridges, treeless slopes, no forest |
+| Volcanic / dark Armenian stone plausible | **Yes.** Grey-black coursed masonry with ochre lichen; the cliff below shows blocky columnar fracture consistent with basalt |
+
+**And what it is not**, checked explicitly: not Tatev (no complete monastery, no enclosure of living
+buildings); not Geghard (no rock-cut chambers, no cliff-backed courtyard); not Garni (no peristyle,
+no podium, no classical order); not Erebuni (no excavated foundation grid, no plain, no suburb); not
+a European castle (no keep, no bailey, no moat, no gatehouse, no crenellation, no curtain-and-corner
+plan); not a monastery of any kind; not an alpine fantasy fortress (the relief is a volcanic shield
+with rounded ridges, not rock spires, and the towers are squat rather than soaring); not an
+archaeological foundation field (the walls stand at height).
+
+### Unsupported-claim audit
+
+The article's discipline is that most of Amberd's chronology is attribution rather than evidence. A
+picture can assert what prose withholds, so each withheld claim was checked as an absence.
+
+| Claim the article keeps open or refuses | In the frame? |
+| --- | --- |
+| Reconstructed pristine castle | **No.** Roofless, broken-topped, partly collapsed |
+| Dramatic medieval siege | **No.** No figures at all |
+| Seljuk army | **No** |
+| Mongol army | **No** |
+| Earthquake destruction scene | **No.** A ruin, not a ruining |
+| Burning structures | **No.** No smoke, no fire, no scorching |
+| Secret tunnel | **No.** No tunnel mouth, no opening in the rock |
+| Exposed giant pipeline | **No.** No hydraulic infrastructure visible anywhere |
+| Roman-bath reconstruction | **No.** The bathhouse is not depicted as a standing building |
+| UNESCO branding | **No.** No badge, no plaque, no emblem |
+| Named figures as documented occupants | **No.** No people in the frame |
+| Invented inscription or date | **No.** No lettering on any surface, church included |
+
+The distinction the brief drew — *a ruined fortress is correct, a scene explaining why it became
+ruined is not* — is respected: the image shows the outcome and proposes no cause.
+
+### Text and signage audit
+
+There is **no signage, plaque, visitor board, banner, flag, vehicle, poster or garment in the frame
+at all**, which removes most of the surfaces this audit normally examines. The two that remain were
+inspected at native resolution: the church's walls, drum and portal carry **no inscription and no
+ornament that could be read as one**, and the tower masonry carries no mark. A contrast-boosted,
+normalised pass over the whole image was run specifically to surface faint marks and found **no
+watermark, signature or logo in any corner**.
+
+Nothing was retouched, because nothing needed to be. This is the first Places asset since Lake Sevan
+to come through the text audit with zero findings — Gyumri's two tiny unreadable marks are still the
+only ones on record.
+
+### Crop suitability
+
+Ratios were **measured in the browser** rather than inferred from the Tailwind classes, at 1440×900
+and 393×851.
+
+| Surface | Ratio | Crop from 1586×992 | Trim | Fortress? | Church? | Terrain? |
+| --- | --- | --- | --- | --- | --- | --- |
+| Compact card / mobile hero (`aspect-[4/3]`, measured 1.336) | 1.333 | 1323 × 992 | 132 px each side, **16.6 % of width** | Yes, dominant | **Yes**, near the left edge | Both drops, massif |
+| Tablet hero (`sm:aspect-[3/2]`) | 1.5 | 1488 × 992 | 49 px each side, **6.2 %** | Yes | Yes | Yes |
+| Listing card / desktop hero / map selected card (`aspect-[16/9]`, measured 1.778 and 1.780) | 1.778 | 1586 × 892 | 50 px top and bottom, **10.1 % of height** | Yes, dominant | Yes | Yes; loses some sky and some foreground path |
+| Featured / category (`aspect-[16/10]`) | 1.6 | 1586 × 991 | 1 px, **0.2 %** | Whole image | Yes | Yes |
+| **Search thumbnail** (measured **160 × 200 px**, ratio **0.801**) | 0.801 | 794 × 992 | 396 px each side, **49.9 % of width** | **Yes, dominant** | **No — cut out entirely** | Spur, path and massif survive |
+
+The narrow search crop is the one finding. It does **not** become a church, a wall detail or a grass
+field — the failure modes the brief named — it becomes a fortress-only crop, which is the right half
+to keep, since the fortress is the subject and the church is not. Below the `sm` breakpoint that
+column is hidden outright, so there is no narrower live case.
+
+**No `object-position` and no Amberd-specific crop logic were added.** The default centre crop is
+degraded rather than unusable, this registry has no per-image focus mechanism for scenes, and the
+concern is recorded against the `IMAGES` entry instead — the same disposition Gyumri got in §52.
+
+### Three observations, recorded rather than corrected
+
+1. **The towers read as solid drums.** No doorway, window, arrow slit or embrasure is legible
+   anywhere in the wall circuit. The frame therefore shows the *mass* of the defences and not how
+   they were used. A stylisation rather than an error, but the one place where the picture is less
+   informative than the section it heads.
+2. **The background massif is a single broad cone**, where Aragats is four summits around a breached
+   crater. Right in kind — a volcanic shield with lingering snow, not an alpine peak — and generic in
+   silhouette. It at least cannot be mistaken for Ararat, which is the confusion that would have
+   mattered.
+3. **A pale gabled fragment stands immediately right of the church**, in lighter stone, roofless,
+   with two openings. It reads as a ruined annex; its relationship to the church is not
+   architecturally legible. At every live crop it is a detail rather than a subject.
+
+None of the three was fixed by editing the asset, on the rule this registry has followed since §30:
+files are registered exactly as delivered, unaltered, unoptimised and unrenamed.
+
+### Provenance
+
+`isGeneratedArtwork(article)` takes `Pick<ArticleSummary, "slug" | "image">` and returns
+`!article.image && getImageSrc(article.slug) !== undefined` — signature verified against the current
+source rather than assumed. Amberd's `Article` declares no `image`, and the slug is now in `IMAGES`,
+so it returns **`true`** and the page takes the AI-illustration caption. Asserted in **all three
+editions**: the WebP renders, the AI-generated disclosure appears, the placeholder disclosure is
+gone, and the placeholder `<svg>` is gone. `ARTWORK_PROVENANCE` was **not modified**.
+
+The file is a **rendered illustration**, not photographic in register — closer to Lake Sevan and
+Etchmiadzin than to Geghard, Tatev, Dilijan or Gyumri. It therefore does **not** join the
+photographic-register debt, which stays about those four.
+
+### Pending-artwork removal
+
+`PENDING_ARTWORK` is `[]` for the tenth time, emptied after each of the ten times it has filled:
+§31→§32, §33→§34, §35→§36, §37→§38, §39→§40, §41→§42, §47→§48, §49→§50, §51→§52, §57→§58. The §57
+refusal record — Tatev, Ani, Erebuni, Geghard, Garni, plus the four refused in advance — is **kept
+rather than deleted**, on the same principle as every list before it: the failure it guards against
+is the cover being repointed at a plausible neighbour later, and that outlives the file landing.
+
+`validate:content` no longer emits the pending-artwork note. The Places listing renders **zero**
+placeholders. `IMAGES` and `PENDING_ARTWORK` are mutually exclusive, checked in both directions and
+across every category, not just Places.
+
+### Article, listing, search and social surfaces
+
+| Surface | Before §58 | After §58 |
+| --- | --- | --- |
+| Article hero, `en` / `hy` / `hyw` | placeholder `<svg>` + placeholder caption | `amberd-fortress.webp` + AI-illustration caption |
+| Listing card | placeholder | own WebP; listing placeholder count 1 → **0** |
+| Search result thumbnail | placeholder | own WebP, scoped by `/en/places/amberd-fortress` |
+| `og:image` / `twitter:image` | `/og-default.png` | own WebP, and asserted **not** to fall back |
+| JSON-LD `Article.image` | absent | own WebP |
+| Sitemap, all three locale routes | no `image:loc` | one `image:loc` each, checked **route by route** |
+| Map selected card | no image | own WebP, no placeholder |
+
+The JSON-LD graph shape is unchanged: `Article` + `BreadcrumbList`. **No `Place`,
+`TouristAttraction`, `Castle`, `Fortress`, `LandmarksOrHistoricalBuildings` or `GeoCoordinates` node
+was added**, and the test now names all six by name for this article. Registration adds an `image`
+property to an existing node and nothing else.
+
+### Map
+
+`src/lib/visit-map.ts`, `src/components/visit/VisitMap.tsx` and `src/lib/map-tiles.ts` are
+**byte-identical**. The map still derives from `Places ∩ PLACE_COORDINATES`; there are still eleven
+markers; Amberd still carries `data-place-type="historical"` and there are still exactly three
+markers with that type; the accessible name is still `title — localized type` in all three editions;
+the CTA still points at `/{locale}/places/amberd-fortress`; the coordinate is unchanged at
+`40.3885, 44.2263`; the derived bounds are unchanged. The `else` branch in the every-place selection
+loop — the one that asserts an unillustrated place shows *no* image — was kept rather than deleted
+for the fourth time; Place #12 will need it.
+
+**Known overlaps are unchanged and were not touched:** `erebuni-fortress` / `matenadaran` and
+`garni-temple` / `geghard-monastery`. No clustering, spiderfying, nudging or viewport change was
+implemented; no Amberd-specific displacement exists.
+
+### Taxonomy and curation
+
+Unchanged by this step, and re-asserted: All 11, Monastery 4, **Historical 3**, Museum 1, Nature 2,
+Settlement 1; `historical` is exactly Erebuni, Garni, Amberd; no new type; Khor Virap remains the
+sole `featured: true` Place.
+
+The Visit row is still the reviewed six — `khor-virap`, `gyumri`, `lake-sevan`, `garni-temple`,
+`dilijan-national-park`, `tatev-monastery` — in the §53 order. **Amberd is still absent from it**,
+and artwork completion did not trigger curation: curated row 6, map 11, Places listing 11.
+
+### Content preserved
+
+No article content changed. The geography, the elevation discrepancy, the Kamsarakan evidence, the
+tenth-century/seventh-century distinction, the Pahlavuni wording, the Vahram patronage distinction,
+the 1026 inscription, the architecture, the water-system and bathhouse wording, the Seljuk and Mongol
+chronologies, the earthquake restraint, the excavation and restoration chronology, the sources, the
+coordinate, `relatedSlugs`, the `SectionLink`, the SEO fields, the three translations and the
+numerical parity are all untouched. No content cleanup was performed during artwork registration.
+
+### Tests changed
+
+`tests/e2e/places.spec.ts` — 67 tests (was 66):
+
+- `AMBERD` added to `ILLUSTRATED` and to `ARTWORK`; the three lists (`PLACES`, `ILLUSTRATED`,
+  `ARTWORK`) are **kept separate**, and the comments now record that they have coincided ten times
+  and split again after nine of them. Place #12 will separate them for the eleventh.
+- *"Amberd renders the generated placeholder and says so, in every edition"* → **"Amberd renders its
+  own file and is captioned as an illustration"**: all four assertions inverted, in all three
+  editions, plus `getImageSrc` resolving and the slug no longer pending.
+- *"Amberd borrows no other article's artwork, on the page or in its metadata"* → **"…and advertises
+  its own"**: the seven refused files are still asserted absent from the hero, the head and the
+  structured data; `Article.image`, `og:image` and `twitter:image` inverted from absent/fallback to
+  the file; six speculative JSON-LD types asserted absent. Still scoped to the four surfaces
+  `getImageSrc` reaches, with the `getRelatedArticles` reasoning written into the test.
+- **New:** *"Amberd's search card carries its own thumbnail and no placeholder"* — scoped by the
+  canonical href, asserting the file, no placeholder, and no other registered place's file inside the
+  card.
+- Sitemap: Amberd's three route blocks inverted from *no `image:loc`* to *its own `image:loc`*,
+  checked route by route, with four borrowed filenames asserted absent.
+- *"exactly one place is waiting for artwork, and the other ten resolve"* → **"no place is waiting for
+  artwork, and all eleven resolve"**; the derived `PLACES − ILLUSTRATED` assertion needed no edit for
+  the sixth time, and an explicit `toHaveLength(0)` was added.
+- The listing placeholder count is derived and flipped 1 → 0 automatically; the per-card
+  `href → exact file` loop now covers all eleven, so two swapped covers still fail.
+
+`tests/e2e/visit-map.spec.ts` — 30 tests: the selected-panel assertion in *"the historical marker took
+no new glyph, and its type is localized"* inverted from *no image* to *its own file*, keeping the four
+borrowed-file checks and adding a no-placeholder assertion.
+
+`tests/e2e/visit.spec.ts` — unchanged. Amberd is still in `NOT_CURATED`.
+
+**No assertion was weakened, no locale coverage removed, no retries added, and no exact-image
+assertion loosened.** The two `LOCALES × ILLUSTRATED` loops moved from 30 navigations to **33** and
+were **not** refactored: they passed, so §20's condition for the smallest test-only structural change
+never triggered. The comment recording the growth was updated, and the debt entry stands.
+
+### Commands run, in the prescribed order
+
+```
+1.  port 3002 confirmed clear (netstat, no LISTENING socket)
+2.  rm -rf .next            (after confirming no dev server)
+3.  npm run typecheck                                  PASS
+4.  npm run validate:content                           PASS — 132 entries, no pending note
+5.  npx playwright test tests/e2e/places.spec.ts       67 passed (4.1m)
+6.  npx playwright test tests/e2e/visit-map.spec.ts    30 passed (1.4m)
+7.  npx playwright test tests/e2e/visit.spec.ts        24 passed (1.9m)
+8.  npx playwright test  (full, run 1)                 1 failed, 268 passed, 5 skipped (10.1m)
+    npx playwright test tests/e2e/article.spec.ts      15 passed (28.4s) — the failure, alone
+    npx playwright test  (full, run 2)                 269 passed, 5 skipped (8.7m) — clean
+9.  npm run build                                      PASS — 141 pages in 11.7s
+```
+
+No two Playwright suites overlapped, and Playwright and `npm run build` never ran concurrently.
+`.next` was removed only with the port confirmed clear.
+
+### Results, including every failure
+
+All three focused suites passed **first time**, which is the first step in several where the
+cold-route wave did not appear at all — `.next` was rebuilt once by the places run and stayed warm.
+
+One failure occurred, in the first full suite:
+
+**`article.spec.ts › previous and next follow the chronology, not the authored order` — 1 failed, 268
+passed, 5 skipped (10.1m).** The Armenian *Նախորդը* pager link was not found within 10 s on a history
+article. It is unrelated to this step — no places file, no artwork, no map — and it is the known
+Turbopack cold-route signature: a route compiling under parallel load while an assertion waits on
+rendered output. Re-run alone, `article.spec.ts` passed **15/15 in 28.4 s**. No assertion was
+weakened and nothing was retried in place; the full suite was then run again from end to end and
+came back **269 passed, 5 skipped, 0 failed (8.7m)**.
+
+Totals moved: **268 → 269 passing tests** (one new: Amberd's search card). Content entries stay at
+132 and prerendered pages at 141 — registering artwork adds no entry and no route. `npm run build`
+passed, 141/141 pages in 11.7 s.
+
+The `/visit` LCP eager-loading warning fired again during these runs, on `gyumri.webp`. Existing
+debt, unchanged.
+
+No host memory pressure occurred during this step.
+
+### Confirmations
+
+| | |
+| --- | --- |
+| Asset | registered exactly as delivered — not generated, edited, cropped, resized, recoloured, renamed, optimised or replaced |
+| `PENDING_ARTWORK` | **empty** |
+| Places illustrated | **11 of 11** |
+| Listing placeholders | **0** |
+| `ARTWORK_PROVENANCE` | not modified |
+| Article content | not modified |
+| Visit curated row | **6**, unchanged, Amberd still absent |
+| Map | **11** markers, unchanged coordinate, unchanged bounds, unchanged overlaps |
+| Taxonomy | 11 / 4 / 3 / 1 / 2 / 1 — unchanged |
+| Structured data | generic `Article` + `BreadcrumbList`; no tourism, castle or geo types |
+| Components | `visit-map.ts`, `VisitMap.tsx`, `map-tiles.ts` byte-identical |
+| `.claude/settings.json` | not modified |
+| Deployment | **none** |
+
+### Technical debt — carried forward, not fixed
+
+Everything below was already open and is deliberately left open. Nothing on this list was
+opportunistically fixed during a registration step:
+
+- bibliography React key uses `source.title` (`ArticleLayout`);
+- marker overlap at the initial extent — Erebuni/Matenadaran, Garni/Geghard;
+- Turbopack/cold-route flake in the full Playwright suite (**it fired once in this step**, on
+  `article.spec.ts`);
+- host memory pressure during long Playwright runs;
+- photographic-register concerns for Geghard, Tatev, Dilijan and Gyumri artwork — **Amberd does not
+  join them**, it is a rendered illustration;
+- Gyumri narrow-search-thumbnail crop — **Amberd's is now the second entry with this finding**, at
+  49.9 per cent trimmed against Gyumri's 52.8;
+- Gyumri `1584×993` dimension drift;
+- Matenadaran façade colour;
+- Garni stone warmth;
+- Garni `1448×1086` dimensions;
+- Khor Virap PNG weight;
+- Erebuni / Matenadaran / Gyumri artwork file weight — **`amberd-fortress.webp` joins this at
+  660 KB**, third heaviest WebP in the registry;
+- global media optimisation;
+- Cuisine hydration flake;
+- one-directional `relatedSlugs`;
+- same-category related-article filler behaviour (§57);
+- Western Armenian native-review backlog (§15), Amberd included;
+- the Bresson/Fagan issue;
+- the Wilkinson source not directly read, and the Tokarskij/Alpago-Novello monograph likewise;
+- Kazaryan cited from abstract and Crossref record only;
+- the Hovannisian volume-set ISBN issue;
+- the Armstat Gyumri table caveat;
+- scratchpad harness locations (`scratchpad/check.ts`, `scratchpad/dilcheck.ts`);
+- weak homepage hero-path assertion;
+- no central environment module;
+- Stadia production/domain authorization;
+- raster tile label-language limitation;
+- privacy-page provider disclosure;
+- no museum or Yerevan card in the Visit row;
+- alphabet Learn-card anchor gap;
+- Khor Virap / Garni warm-palette observation;
+- `/visit` LCP eager-loading warning (**fired again**, on `gyumri.webp`);
+- the two `LOCALES × ILLUSTRATED` artwork loops nearing their 90 s timeout — **now at 33 navigations
+  each**. They passed in this step, so §20's condition for splitting them was not met and they were
+  left alone. The next place written ahead of its picture takes them to 36.
+
+### Deliberately not done
+
+- **No change to the asset.** Not generated, edited, cropped, resized, recoloured, renamed,
+  optimised or replaced.
+- **No fortress-specific or Amberd-specific media logic**, no new article image fields, no new
+  provenance structure, no new routing, no duplicate image configuration. One line in `IMAGES`, one
+  line out of `PENDING_ARTWORK`.
+- **No `object-position`** and no per-image focus mechanism, despite the narrow-thumbnail finding.
+- **No component change** to the map, the cards or the article layout.
+- **No curation change.** Artwork completion is not an editorial promotion.
+- **No overlap fix**, no clustering, no spiderfying, no marker nudging, no viewport change.
+- **No deployment.** Nothing pushed, released, or built for production beyond the local
+  `npm run build` verification. `.claude/settings.json` was not modified.
+
+## 59. Jermuk — the twelfth place, the second settlement, and the archive's first town made by water (August 2026)
+
+Jermuk is Place #12, the **second `settlement`**, and the first article anywhere in this archive set
+in **Vayots Dzor**. It is also the first place in the section whose subject is neither a monument nor
+a landscape but an *institution that acquired a population*: a spa settlement planned in the
+twentieth century around a field of thermal mineral springs in the gorge of the Arpa.
+
+The article's organising question is the one this step was given — **how did a highland mineral-water
+landscape become the settlement now called Jermuk?** — and its spine is a distinction the sources
+almost never draw: the word is old, the springs are old, the place-name is at least medieval, and the
+town is not. Nearly everything published about Jermuk collapses those four into one sentence.
+
+### Taxonomy
+
+| Pill | Before | After |
+| --- | --- | --- |
+| All | 11 | **12** |
+| Monastery | 4 | 4 |
+| Historical | 3 | 3 |
+| Museum | 1 | 1 |
+| Nature | 2 | 2 |
+| **Settlement** | **1** | **2** |
+
+`settlement` contains exactly Gyumri and Jermuk. It is the third pill to stop being a singleton —
+`historical` did it in §39, `nature` in §49 — and the transition the single-article filter loop in
+`places.spec.ts` was kept in place for. Khor Virap remains the only `featured: true` Place. **No new
+type**: `spa`, `resort`, `town`, `health-resort`, `mineral-water` and `sanatorium` are all named in a
+test as pills that must not appear.
+
+### Files changed
+
+| File | Change |
+| --- | --- |
+| `src/data/locales/{hy,hyw,en}/articles/places.ts` | The article, three editions, 12 sections each |
+| `src/data/geo.ts` | One coordinate, `precision: "settlement"`, with provenance |
+| `src/data/sources.ts` | Eight-source bibliography |
+| `src/lib/media.ts` | `"jermuk"` → `PENDING_ARTWORK`, with the refusal record |
+| `tests/e2e/places.spec.ts` | Counts, the settlement pair, coordinate, placeholder, and four new editorial guards |
+| `tests/e2e/visit-map.spec.ts` | Twelfth marker, second settlement marker |
+| `tests/e2e/visit.spec.ts` | Curation freeze, counts 11 → 12 |
+| `PROJECT_STATE.md` | This section |
+
+**No component touched.** `visit-map.ts`, `map-tiles.ts`, `VisitMap.tsx` and the `placeTypes` files
+are byte-identical.
+
+### Article structure
+
+12 sections, **40 paragraphs** (`3,3,3,4,3,4,4,3,3,4,3,3`): `where-jermuk-is`, `the-name`,
+`water-in-a-volcanic-highland`, `before-the-resort`, `becoming-a-resort-settlement`, `soviet-jermuk`,
+`the-springs`, `what-the-water-was-used-for`, `the-built-town`,
+`the-arpa-the-gorge-and-the-waterfall`, `the-bottle-and-the-town`, `what-jermuk-is-now`. 6 key facts,
+14 dated entries, 6 interesting facts, 1 related figure, 2 significance paragraphs, 1 prose link,
+1 `relatedSlug`.
+
+The first section does the work the brief asked for before any history begins: it names the five
+different things called Jermuk — the town, the community, the springs, the bottled water and the
+waterfall — and states that a figure quoted for one is not a fact about the others.
+
+### Name and etymology
+
+Three ages, held apart:
+
+| | |
+| --- | --- |
+| The **word** | `ջերմուկ` is an ordinary Armenian common noun — warm water rising from the ground, or a spring of it — from `ջերմ`, warm. Other thermal springs in Armenia are jermuks too |
+| The **place-name** | Reported by Armenian reference literature as appearing in Stepanos Orbelian's thirteenth-century history of Syunik. Also carried the Turkic name **Istisu** (the same description in another language), reverting to Jermuk in **1924** |
+| The **settlement** | Twentieth-century |
+
+The consequence is stated rather than skipped, and it is the article's sharpest single point: **a
+medieval Armenian text containing the word `ջերմուկ` is not automatically a reference to this place.**
+The Orbelian attribution is recorded *as an attribution*; the passage was not read for this article,
+and that is written into the prose rather than glossed. The article's claim that the word is a common
+noun does not depend on it.
+
+### Mineral-spring evidence
+
+| Claim | Status | Source |
+| --- | --- | --- |
+| ~40–58 °C, hydrocarbonate–sulphate, Na–Ca–Mg, ~4–5 g/l, CO₂-charged | **Institutional geology** | Institute of Geological Sciences (NAS RA) |
+| One spring above **53 °C**, pH **7.5**, 2080 m, vigorously degassing | **Peer-reviewed** | Saghatelyan et al. 2021, DOI 10.3390/microorganisms9071473 |
+| 61 °C, 64 °C, ranges from 30 °C | Circulating, unreconciled | recorded as a spread, not adopted |
+| Count of springs | **Range, not a fact** | municipality gives thirty-six; others twenty-odd, others forty; no account states what it counts |
+| Karlovy Vary comparison | A **resemblance claim** | reported once, nothing rests on it |
+
+The article states explicitly that **a single analysis quoted as though it described the whole field
+is being over-read**, that outlets differ in temperature, gas and mineral load, and that the
+mechanism it describes — infiltration, descent along faults, deep CO₂ uptake, ascent — is *a model
+applied by the Armenian geological literature* and not a local measurement. No isotope or
+residence-time study of these springs was read, and the article says so.
+
+**One figure was deliberately not used.** The peer-reviewed review's tabulated total mineralisation
+is not usable as stated; the mineralisation figure in the article comes from the geological institute
+instead, and the omission is recorded in the source note rather than quietly made.
+
+### Medical-claim treatment
+
+The strictest editorial constraint in the article, and it has its own section
+(`what-the-water-was-used-for`) plus a test.
+
+- What is stated: the practice was **balneological in the Soviet institutional sense** — referral, a
+  fixed course of days, measured quantities at prescribed temperatures, baths and procedures; the
+  water **"was promoted, and prescribed,"** for digestive and metabolic conditions among others.
+- What is refused, in the article's own words: *"This article makes no claim that Jermuk's water
+  treats, cures or prevents anything, offers no health advice, and takes no position on the clinical
+  evidence."*
+- Four things are named apart: **historical practice**, **controlled clinical research** (a separate
+  literature this archive has not surveyed), **advertising**, and **what any individual should do**,
+  which is a question for a doctor.
+- The reason the restraint matters more here than anywhere else is stated: at Jermuk the marketing
+  and the history use the same vocabulary.
+
+`places.spec.ts` now asserts that no therapeutic verb appears in the SEO fields, summary or excerpt
+in **any** of the three editions, and that the disclaimer sentences are on the page.
+
+### Spa-development chronology
+
+Separated into acts rather than collapsed into a founding year:
+
+| Year | What actually happened |
+| --- | --- |
+| **1831** | Survey of the waters by a mining engineer in Russian service, revisited in the 1850s — a survey, not a resort |
+| **1860s** | A bathing pool put in order at a local official's expense — the first recorded construction for the water, and still eighty years before the town |
+| **1940** | First sanatorium completed and opened. Armenian reference works and the municipality date the modern settlement from this |
+| **1945** | First master plan; revised in the early 1950s and around the turn of the 1960s |
+| **1950–1956** | Sanatorium and mineral-water gallery, by **Gevorg Tamanyan** |
+| **1949 / 1951** | Bottling plant — **two dates, both recorded, neither chosen** |
+| **1967** | Town of republican significance |
+| **1970** | Resort of all-Union significance |
+
+The article says in as many words that **1940 is a founding date for the resort and not for a town on
+empty ground**, and that 1967 and 1970 are two different decisions by two different authorities about
+two different things. It also draws the consequence: a town grown around a market grows outward from
+a centre, while Jermuk was laid out around a facility that came first — *"a campus that acquired a
+population."*
+
+### Soviet urban-development treatment
+
+Read as a planning history, not a political one. Master plans and their revisions; the buildings that
+came out of them; Gevorg Tamanyan, son of Alexander Tamanyan, and what putting an architect of that
+standing on a mineral-water gallery says about how the state understood the place; the **building
+type** explained, because a roofed colonnaded hall where water is drunk at prescribed temperatures is
+unfamiliar outside spa towns and is the architectural expression of the whole system; the scale by
+the 1980s (on the order of five thousand beds against a settlement of 9014 at the 1989 census, plus
+an airfield), given explicitly **as orders of magnitude from reference literature rather than from an
+audited register**.
+
+The closing judgement is institutional rather than nostalgic: the Soviet period did not discover the
+springs, it converted them into infrastructure — and tied the settlement's fortunes to a single
+institution, which is why the end of the USSR hit this town harder than places with more than one
+reason to exist.
+
+Architecture is treated as one section and not a catalogue. The register is named (mid-century Soviet
+public building in stone: monumental frontages, colonnades, broad stairs, long horizontal masses set
+into sloping ground), it is stated plainly that this **is** the town's principal architectural
+interest and that Jermuk has no medieval quarter and does not pretend to one, and the commonest error
+is named and refused: **not everything standing belongs to one phase** — some renovated, some
+abandoned, and a good deal of hotel and apartment construction since the 2000s in registers unrelated
+to the original plan.
+
+### Geography, gorge and waterfall
+
+Elevation is handled as a spread rather than a fact: **about 2100 m**, with **2080** also printed —
+and the article says neither source states whether it measures the springs, the centre or the highest
+street. (GeoNames' ASTER GDEM sample of 2090 m is recorded in `geo.ts` and deliberately kept out of
+the article, since a DEM point is not a settlement's height.)
+
+The Arpa is explained only where it shapes the place: it has cut a gorge into the plateau, the two
+halves of the town face each other across it, the springs emerge in and around it, and the ground
+that would be an obvious town centre is a ravine.
+
+**The reservoir is the paragraph that earns the article's only link.** The Kechut reservoir
+immediately below the town, completed at the start of the 1980s and holding some twenty-three million
+cubic metres, exists for a purpose that has nothing to do with Jermuk: it is the **intake of the
+Arpa–Sevan tunnel**, in operation since 1981. The article draws the consequence rather than leaving
+it as trivia — the landscape reads as highland wilderness and is in fact a managed water system, and
+a reader who takes the first without the second misunderstands both the river and the reservoir.
+
+The waterfall is a feature of that landscape and not an attraction entry. What is said: it falls into
+the gorge below the town; **accounts differ on what feeds it** (spring-fed in some, a tributary in
+others, all agreeing it lands in the Arpa); its height is published as **68, 70 and 72 metres** and
+**no measurement behind any of the three could be found**. The folk story is named as folklore *told
+about* the waterfall rather than evidence about it. No directions, viewing points, tickets or ranking
+language anywhere.
+
+### Bottled water, kept separate
+
+One section, and it argues its own boundary. Bottling began around the turn of the 1950s — **1949 in
+some Armenian reference accounts, 1951 in others including the industry's own, and nothing found
+settles it, so both are recorded**. Then three separations:
+
+1. **Not every spring feeds the bottled product** — the water sold under the name is drawn from
+   particular sources.
+2. The corporate history since 1991 — successive owners, disputes over the name, several companies
+   bottling water from the area — is **a commercial story rather than a settlement's story, and is
+   deliberately left aside.**
+3. **A brand's reach is not a town's prosperity**: the name can be famous while the place is losing
+   population, which is roughly what happened.
+
+The article also states the consequence for its own method: most of what is written about Jermuk is
+written to sell something, which is why it has had to be careful about chronology, chemistry and
+claims at every stage.
+
+### Population and current data
+
+Every figure is from **Armstat's 2022 census release for Vayots Dzor marz, tables 1.1.1 and 1.1.2**,
+which were downloaded, extracted and read directly rather than taken from a secondary account.
+
+| | 2001 | 2011 | **2022** |
+| --- | --- | --- | --- |
+| Town — permanent (de jure) | 5394 | 4628 | **3936** |
+| Town — present (de facto) | 5146 | 4346 | **3569** |
+| Community — permanent | 7426 | 6401 | **5694** |
+| Vayots Dzor marz — permanent | 55997 | 52324 | **47369** |
+
+Four official numbers for one name, and the article says which is which each time. The peak was
+earlier: **9014 at the 1989 census.**
+
+**A fifth figure is recorded as a discrepancy rather than a fact.** The municipality publishes **9276**
+for the community — a registered count, more than half again above the census total — and the article
+names the gap between a register and a headcount as itself part of what the numbers mean.
+
+### Administrative status
+
+Vayots Dzor Province; the **Jermuk community formed in 2016**, administering the town together with
+Kechut, Gndevaz, Karmrashen and Herher. Included only to the extent that it explains what "Jermuk"
+refers to, which is exactly the confusion the population table above resolves. The Armstat tables'
+own footnote — communities as constituted under the law on administrative-territorial division as
+amended 9 June 2022 — is recorded in the source note rather than in the prose.
+
+### Environmental question
+
+One paragraph, and it deliberately adjudicates nothing. The Amulsar gold deposit in the mountains
+near the town has been the subject of a long contested development process; concern about possible
+effects on Jermuk's waters was central to the opposition, **which is what makes it relevant to an
+article about the settlement at all**; the government commissioned an independent technical
+assessment in 2019; its findings were themselves disputed, its authors stated the baseline data
+available to them were insufficient for a comprehensive environmental risk assessment, and no
+government decision followed.
+
+An earlier draft of this paragraph stated the assessment's specific conclusion about groundwater
+pathways. **It was cut**, because the report itself could not be obtained and the only accounts of
+that conclusion available were second-hand reports of a contested document. What replaced it is the
+narrower claim the sources actually support, plus an explicit sentence saying the technical question
+is not one an encyclopedia entry can settle. That is the whole treatment; there is no advocacy in
+either direction.
+
+### Sources
+
+Eight, each identifier resolved:
+
+| Source | Identifier | Carries |
+| --- | --- | --- |
+| Armstat, 2022 census — Vayots Dzor marz, Section 1 | armstat.am/en/?nid=956 | every population figure; the settlement/community distinction |
+| Jermuk Municipality, "Համայնքի մասին" | jermuk.am | resort chronology, community composition, distances, 2080 m, thirty-six springs, 1949, ~70 m; and the 9276 discrepancy |
+| Institute of Geological Sciences (NAS RA), "Section of Mineral Waters" | geology.am | temperature range, chemistry, mineralisation, national context, Karlovy Vary comparison |
+| Saghatelyan, Margaryan, Panosyan & Birkeland, *Microorganisms* 9(7):1473 | **DOI 10.3390/microorganisms9071473** | the one peer-reviewed sample: >53 °C, pH 7.5, 2080 m |
+| Hakobyan, Melik-Bakhshyan & Barseghyan, *Dictionary of Toponymy…* vol. 4 | archival | Istisu, 1924 — **not read directly** |
+| *Armenian Soviet Encyclopedia* vol. 9 | archival | 1945 plan, Gevorg Tamanyan — **not read directly** |
+| "Sevan" National Park SNCO, Ministry of Environment | sevan-park.am | the Arpa–Sevan diversion (already registered for Lake Sevan) |
+| CEE Bankwatch Network, "Amulsar gold mine, Armenia" | bankwatch.org | the **process only**, with its campaigning position stated in the note |
+
+Tourism sites raised questions and carry no chronology, chemistry, medical claim, population or
+official status. Two sources are flagged as not read directly; both support claims the municipality's
+own page also carries, and every claim depending on them is written as *something Armenian reference
+works report*.
+
+### Coordinate and provenance
+
+```
+stored     39.8388, 45.6713   precision: "settlement"
+OSM        39.8388185, 45.6712635   node 210212587 (place=town, Ջերմուկ)
+GeoNames   39.83948, 45.67112       174884 (P, PPLA2, Vayots Dzor) — 75 m away
+Wikidata   39.85, 45.683333         Q39556 P625 — 1.6 km away, two decimal places
+OSM poly   39.8327037, 45.6744109   way 177199402 centre — 0.73 km away
+```
+
+The OSM settlement node was preferred, on the rule §51 wrote for Gyumri: the label node, not a
+building inside the town. Rounding to 4 dp moves it 3.7 m. **Two points 75 m apart in a town roughly
+two kilometres across is agreement, not a disagreement to resolve.** The polygon centroid was
+rejected because that polygon reaches about five kilometres north to south and its centre is a centre
+of administered ground rather than of a town; the Wikidata point was rejected as coarser than this
+registry's own rounding.
+
+Rejected and named in `geo.ts`, with distances: the **Jermuk waterfall** at 353 m (the closest wrong
+answer, and what an image search returns), a second mapped fall at 487 m, the **town hall** at 453 m,
+the stairway to the waterfall at 744 m, the mapped **hot spring** at 3.8 km, **Kechut village** at
+3.8 km and the **Kechut reservoir** at 4.3 km — the last two being inside the *community* and
+therefore the exact confusion the article's first section separates. Refused in advance: the
+mineral-water gallery, any single sanatorium or hotel, the bottling plant, the ski area, any
+viewpoint. **No existing coordinate was modified** (`git diff` on `geo.ts`: 61 insertions, 0
+deletions), and no bounding box was added.
+
+### Map
+
+**11 → 12** through `Places ∩ PLACE_COORDINATES`, with no hardcoding and no allow-list. Jermuk reuses
+the `settlement` glyph §51 added for Gyumri; **no new glyph, no component change**. Marker title and
+accessible label localized in all three editions; selecting it opens Jermuk with **no image**, which
+is the `else` branch §58 predicted Place #12 would need — the fourth time that branch has been kept
+rather than deleted.
+
+### Bounds and overlap
+
+All 12 markers inside the container at **360 / 390 / 768 / 1440** px. All-pairs measurement at 1440 px
+(66 pairs now):
+
+```
+erebuni-fortress / matenadaran     25 x 26 px
+garni-temple / geghard-monastery   12 x 31 px
+```
+
+**Unchanged, and no new pair.** Jermuk is at no extreme — Tatev remains southernmost and easternmost,
+Gyumri northernmost and westernmost — so the derived bounds are the same box, for the second addition
+in a row. It is also the most isolated marker on the map: nearest neighbour Lake Sevan at **67.5 km**,
+an order of magnitude past the six and eight kilometres that produce the two known pairs. Both
+overlaps carried forward as debt; no clustering, spiderfying, nudging or viewport change.
+
+### Related content
+
+`relatedSlugs: ["lake-sevan"]` — one link, earned by a whole paragraph: the Kechut reservoir below
+Jermuk is the intake of the Arpa–Sevan tunnel, and the Lake Sevan article has carried the other end
+of that tunnel since §37. The prose link sits on "into Lake Sevan" in
+`the-arpa-the-gorge-and-the-waterfall`.
+
+Refused and named in the test: **Gyumri** (shared `settlement` pill is not a relationship, and this
+step's brief named that trap), **Tatev** (both in the south), **Dilijan** (both towns have spa
+histories — a resemblance between subjects, not a passage in either article). Also absent: Vayots
+Dzor, the Arpa, Amulsar, Kechut and Stepanos Orbelian, all named in the prose and none an article.
+
+### Artwork
+
+**Pending.** All forty-one files under `public/` were opened rather than read off filenames, and none
+shows a highland spa settlement. Five refusals recorded in `media.ts`:
+
+- `places/gyumri.webp` — the refusal on principle and the sharpest, because after this step the two
+  would share a filter pill. The only urban image in the registry, and it is a different city of a
+  different century in a different landscape.
+- `places/dilijan-national-park.webp` — the closest **conceptual** near miss, since Dilijan is the
+  other Armenian town with a spa history and this archive says so. The file is closed broadleaf
+  forest with **no building in it at all**. A resemblance between two articles is not a resemblance
+  between two pictures.
+- `places/lake-sevan.webp` — highland water, the mood substitution.
+- `places/tatev-monastery.webp` and `places/geghard-monastery.webp` — the two gorges, both complete
+  medieval monasteries.
+
+Refused in advance: the waterfall alone; a bottle, label or brand mark; a sanatorium interior, bath,
+treatment or anyone drinking the water; a generic snow-peak landscape. A written commission is in the
+file. **No artwork was generated.**
+
+Pending behaviour verified: placeholder `<svg>` + placeholder caption in all three editions, no
+AI-art caption, `Article.image` absent, og/twitter → `/og-default.png`, **no `image:loc`** in any of
+Jermuk's three sitemap blocks, exactly one listing placeholder, map card shows no image and borrows
+none.
+
+### Localization and parity
+
+Three complete editions; the parity harness reports **0 differing rows across 3 editions** on section
+ids, order, paragraph counts, keyFacts, importantDates, interestingFacts, significance,
+relatedFigures, relatedSlugs, SectionLinks and the numeral multiset per validator field group.
+
+The numeral-dense groups match exactly. `sections` holds 53 numerals including 1830, 1850, 1860,
+1924, 1940, 1945, 1949, 1950×5, 1951, 1956, 1960, 1967, 1970, 1980×2, 1981, 1989×2, 1991, 2000, 2001,
+2011, 2016, 2019, 2022, 2080, 2100, 2500, 3000, 3569, 3936, 4628, 47369, 5394, 5694, 9014×2, 9276,
+and the spring figures 30, 40×3, 53, 58×2, 61, 64 and the waterfall's 68, 70, 72. Centuries are
+written as Roman numerals in both Armenian editions (`XIII`, `XIX`, `VIII`) so they never enter the
+multiset, on the §57 precedent.
+
+Terminology reused from the repository rather than invented: `Վայոց ձոր`, `Արփա`, `հանքային ջուր` /
+`հանքային ջուրեր`, `հանքային աղբյուր` / `հանքային աղբիւր`, `առողջարան`, `կիրճ`, `ջրվեժ` / `ջրվէժ`,
+`բնակավայր`, `խորհրդային`, `Սևանա լիճ` / `Սեւանայ լիճ`, `ջրամբար`, `թունել` / `թունէլ`, `մարդահամար`,
+`համայնք`. Names take their house forms: `Ստեփանոս Օրբելյան` / `Ստեփանոս Օրբելեան`, `Գևորգ Թամանյան` /
+`Գէորգ Թամանեան`, `Արամ Խաչատրյան` / `Արամ Խաչատրեան`.
+
+**The Western Armenian edition is unreviewed machine output** and joins the §15 native-review backlog.
+
+### Tests changed
+
+`places.spec.ts` 67 → **74**. New `JERMUK` constant (in `PLACES`, **not** in `ILLUSTRATED`); listing
+counts 11 → 12 in six places; `settlement` **leaves** the single-article filter loop, which now holds
+`museum` alone for the third time; histogram `settlement: 1 → 2`; five new invented-pill guards;
+coordinate `SETTLEMENT` list and the "exactly one settlement" test rewritten as a pair, asserted as
+the same sorted array on both halves so a coordinate and a type could not be given to two different
+places.
+
+Seven new tests:
+
+1. *the twelfth place is findable under the places group too* — plus the `Istisu` and `Vayots Dzor`
+   keyword queries and both Armenian editions.
+2. *Jermuk renders the generated placeholder and says so, in every edition.*
+3. *Jermuk borrows no other article's artwork* — including nine speculative JSON-LD types asserted
+   absent (`City`, `Place`, `TouristDestination`, `TouristAttraction`, `HealthAndBeautyBusiness`,
+   `MedicalBusiness`, `GeoCoordinates`, `LocalBusiness`, `Product`).
+4. *Jermuk describes historical spa practice and prescribes nothing.*
+5. *Jermuk dates its population figures and never states a bare one* — including that the community's
+   5694 never appears where the town's figure belongs.
+6. *Jermuk keeps the bottled water separate from the settlement.*
+7. *the settlement filter returns exactly Gyumri and Jermuk.*
+
+Plus a new coordinate block (waterfall 353 m, town hall 453 m, Kechut village and reservoir, the hot
+spring, the coarse Wikidata point, and four no-extreme assertions), a sitemap absence block, and the
+pending-artwork test inverted back to one slug — its derived `PLACES − ILLUSTRATED` assertion needed
+no edit for the seventh time.
+
+`visit-map.spec.ts` 30 → **31**: twelfth marker; `SETTLEMENT_PLACES` becomes a pair; the §51 glyph
+test now asserts **two** markers carry `data-place-type="settlement"`; **new** test *the second
+settlement marker took no new glyph, and shows no borrowed image*.
+
+`visit.spec.ts`: `NOT_CURATED` gains Jermuk with its reasoning; map-list and `places.length` 11 → 12;
+`/en/places` listing count 11 → 12.
+
+**No assertion was weakened**, no locale coverage removed, no retries added. The two
+`LOCALES × ILLUSTRATED` artwork loops stay at **33 navigations** — `ILLUSTRATED` is unchanged at
+eleven — so §38's condition for a structural change was not met and none was made.
+
+### Commands run, in the prescribed order
+
+```
+1.  port 3002 confirmed clear (netstat: no LISTENING socket; no node processes)
+2.  rm -rf .next            (after confirming no dev server)
+3.  npx tsx scratchpad/check.ts jermuk               OK — 0 differing rows, 3 editions
+4.  npm run typecheck                                PASS
+5.  npm run validate:content                         PASS — 135 entries, 1 pending note
+6.  npx playwright test tests/e2e/places.spec.ts     74 passed (3.1m)
+7.  npx playwright test tests/e2e/visit-map.spec.ts  31 passed (50.9s)
+8.  npx playwright test tests/e2e/visit.spec.ts      see below
+9.  npx playwright test  (full)                      see below
+10. npm run build                                    see below
+```
+
+No two Playwright suites overlapped, and Playwright and `npm run build` never ran concurrently.
+`.next` was removed only with the port confirmed clear.
+
+### Results, including every failure
+
+**Final state — green.**
+
+```
+npx tsx scratchpad/check.ts jermuk            OK — 0 differing rows across 3 editions
+npm run typecheck                             PASS (0 errors)
+npm run validate:content                      PASS — 135 entries across 3 locales
+                                              note: 1 slug has no artwork (jermuk)
+npx playwright test tests/e2e/places.spec.ts      74 passed (3.1m)
+npx playwright test tests/e2e/visit-map.spec.ts   31 passed (50.9s)
+npx playwright test tests/e2e/visit.spec.ts       24 passed (1.1m)
+npx playwright test  (full)                   277 passed, 5 skipped (7.3m)
+npm run build                                 PASS — 144 pages prerendered
+```
+
+Totals moved: **132 → 135 content entries**, **141 → 144 prerendered pages**, **269 → 277 passing
+tests** (eight new: seven in `places.spec.ts`, one in `visit-map.spec.ts`).
+
+**Every failure that occurred, and there was one.**
+
+**`visit.spec.ts › every canonical route the journey links into still works` — 1 failed, 23 passed.**
+The first assertion in the test, `/en/places/khor-virap`, came back **404** one second into the run.
+That is not a missing route — Khor Virap has been in the section since §30 and its own tests had
+passed minutes earlier in the same session — it is the dev server answering before its route manifest
+was ready, which is the known Turbopack cold-route signature in the one form that produces a status
+code rather than a timeout. It was inspected rather than assumed: the failing test re-run alone passed
+in 16.0 s, and the whole spec re-run came back 24 passed. No assertion was weakened and nothing was
+retried in place.
+
+Everything else passed first time, including the full suite. That is unusual for this project and is
+worth recording as the exception rather than the rule: the places spec was the run that rebuilt
+`.next` after it was removed, so the rest of the sequence ran against a warm server.
+
+The `/visit` LCP eager-loading warning fired again, on `gyumri.webp` and `lake-sevan.webp`. Existing
+debt, unchanged. No host memory pressure occurred during this step.
+
+### Confirmations
+
+| | |
+| --- | --- |
+| Places total | **12** |
+| Monastery / Historical / Museum / Nature / Settlement | **4 / 3 / 1 / 2 / 2** |
+| Settlement contains exactly | Gyumri, Jermuk |
+| New place types introduced | **none** |
+| Featured Places | **Khor Virap only**, in all three editions |
+| Jermuk routes | `/hy`, `/hyw`, `/en` — all 200, canonical + hreflang correct |
+| Coordinate precision | `settlement` |
+| Map | **11 → 12**, automatically; no allow-list; no component edit; existing `settlement` glyph |
+| Marker bounds at 360 / 390 / 768 / 1440 px | All 12 visible at every width |
+| Marker overlap | `25 x 26` and `12 x 31` px — unchanged; no new pair |
+| Visit curated row | **6, unchanged**; Jermuk absent by decision |
+| `PENDING_ARTWORK` | `["jermuk"]` |
+| Structured data | Generic `Article` + `BreadcrumbList` only; no city, tourism, medical or geo types |
+| Medical claims | None in any edition's prose or SEO surfaces; historical practice only |
+| Deployment | **None.** Nothing pushed or released; `.claude/settings.json` untouched |
+
+### Visit-curation regression check
+
+| Check | Result |
+| --- | --- |
+| Curated row is exactly six cards | PASS |
+| The six are the §53 slugs, in the §53 order | PASS |
+| Jermuk is absent from the curated row | PASS |
+| Jermuk is present in `/places` (12 cards) | PASS |
+| Jermuk is present on the map and in the map's server-rendered list (12 items) | PASS |
+| Etchmiadzin, Geghard, Erebuni, the Matenadaran, Amberd still off the row and still on the map | PASS |
+| Row shape guards — settlement present, at least one nature, at most two monastery | PASS, unchanged |
+| Type links on `/visit` still five, rendered from `placeTypes` | PASS, unchanged |
+
+The §53 decision was not reopened. This is the point at which the row (six) and the section (twelve)
+are exactly two to one, and the test comment now says so rather than leaving it to be noticed later.
+
+### Existing map and artwork regression check
+
+| Check | Result |
+| --- | --- |
+| The eleven existing marker → article → image mappings | Unchanged |
+| `getImageSrc` for the eleven illustrated places | Unchanged, entry by entry |
+| Non-places entries in `IMAGES` (history, writers, works, cuisine) | Unchanged, asserted as a whole object |
+| Khor Virap still a PNG, still the homepage-hero copy | Unchanged |
+| `hero-ararat.png` still outside the registry | Unchanged |
+| Homepage renders its own hero and no places artwork | PASS |
+| Existing coordinates in `geo.ts` | None modified; one added |
+| Two known marker overlaps | `25 x 26` and `12 x 31` px — identical to §47/§49/§51/§57/§58 |
+| Basemap configuration, tile host, attribution | Untouched |
+| Amberd's artwork, registered in §58 | Still resolves; hero, og, twitter, JSON-LD and sitemap unchanged |
+
+### Technical debt — carried forward, not fixed
+
+Everything below was already open and is deliberately left open:
+
+- bibliography React key uses `source.title` (`ArticleLayout`);
+- marker overlap at the initial extent — Erebuni/Matenadaran, Garni/Geghard;
+- Turbopack/cold-route flake (**it fired once in this step**, as a 404 rather than a timeout);
+- host memory pressure during long Playwright runs;
+- photographic-register concerns for Geghard, Tatev, Dilijan and Gyumri artwork;
+- narrow-search-thumbnail crop for Gyumri and Amberd;
+- Gyumri `1584×993` and Garni `1448×1086` dimension drift;
+- Matenadaran façade colour; Garni stone warmth; Khor Virap PNG weight;
+- Erebuni / Matenadaran / Gyumri / Amberd artwork file weight;
+- global media optimisation;
+- Cuisine hydration flake;
+- one-directional `relatedSlugs`;
+- same-category related-article filler behaviour (§57) — **Jermuk has it too**, since it authors one
+  related slug and the row is completed from its own category;
+- Western Armenian native-review backlog (§15) — **Jermuk joins it**;
+- the Bresson/Fagan issue;
+- sources not read directly: Wilkinson, the Tokarskij/Alpago-Novello monograph, and now **the
+  toponymic dictionary volume 4 and the Armenian Soviet Encyclopedia volume 9**;
+- Kazaryan cited from abstract and Crossref record only;
+- the Hovannisian volume-set ISBN issue;
+- the Armstat Gyumri table caveat;
+- scratchpad harness locations (`scratchpad/check.ts`, `scratchpad/dilcheck.ts`);
+- weak homepage hero-path assertion;
+- no central environment module;
+- Stadia production/domain authorization;
+- raster tile label-language limitation;
+- privacy-page provider disclosure;
+- no museum or Yerevan card in the Visit row;
+- alphabet Learn-card anchor gap;
+- Khor Virap / Garni warm-palette observation;
+- `/visit` LCP eager-loading warning (**fired again**);
+- the two `LOCALES × ILLUSTRATED` artwork loops at 33 navigations — **unchanged this step**, because
+  `ILLUSTRATED` did not grow. They go to 36 when Jermuk's file lands;
+- the three Amberd visual observations from §58 (solid-drum towers, single-cone massif, pale fragment
+  beside the church).
+
+**Two new observations, recorded rather than fixed.**
+
+1. **The municipality's population figure and the census disagree by more than half.** 9276 against
+   5694 for the same community. Both are official; one is a register and one is an enumeration. The
+   article states the gap, but nothing in the archive systematically distinguishes registered from
+   enumerated figures, and the next settlement article will meet the same problem.
+2. **The Visit row is now exactly half the section.** Six curated cards against twelve Places. That
+   is not a fault and the row was deliberately left alone here, but §53 reviewed a row against ten
+   articles and the ratio has moved since. A future curation step, not a content step, is where that
+   belongs.
+
+### Deliberately not built
+
+- **No artwork.** Jermuk is in `PENDING_ARTWORK` with a written commission and five recorded
+  refusals. No file was generated, registered, borrowed or renamed.
+- **No `City`, `Place`, `TouristDestination`, `TouristAttraction`, `HealthAndBeautyBusiness`,
+  `MedicalBusiness`, `GeoCoordinates`, `LocalBusiness` or `Product` JSON-LD.** The generic `Article` +
+  `BreadcrumbList` graph is unchanged, and a new test forbids all nine by name — the temptation is
+  sharper here than for any previous place, because the subject has a coordinate, a product and a
+  history of medical treatment.
+- **No new place type**, no new marker type, no map allow-list, no component edit.
+- **No health advice, and no therapeutic claim in the present tense**, in any edition or any field.
+- **No travel logistics**: no hotels, sanatorium prices, treatment packages, ski prices, opening
+  hours, booking links, driving times, best season or itineraries.
+- **No company history.** The post-1991 ownership of the bottling brand is named as out of scope in
+  the article itself.
+- **No Arpa River article and no Vayots Dzor article.** The river appears where it shapes the town;
+  the province is named to locate it.
+- **No change to Visit curation**, and no reopening of the §53 decision.
+- **No deployment.** Nothing was pushed, built for production beyond the local `npm run build`
+  verification, or released. `.claude/settings.json` was not modified.
+
+---
+
+## §60. Jermuk artwork — registered off-subject, by decision (August 2026)
+
+The twelfth Place gets its cover, `PENDING_ARTWORK` empties for the eleventh time, and the section
+is fully illustrated again. It is also the **first registration in the archive where the file does
+not depict what the article is about**, and that is the fact this entry exists to keep visible.
+
+### What was delivered
+
+`public/images/places/jermuk.webp`
+
+| | |
+| --- | --- |
+| Dimensions | **1586 × 992** (1.599) |
+| Bytes | **843,024** (823 KB) |
+| SHA-256 | `92b2a0516dd73f626aba6be08439b4f53ccd24cc341a9d283295964d2ce0e7f1` |
+| Container | `RIFF/WEBP` → `VP8X` (10, flags `0x20`) + `ICCP` (456) + `VP8 ` (842,522) |
+| Chunk walk | ends at byte 843,024 — **exactly EOF**, no trailing data |
+| Encoding | **lossy** VP8 |
+| Alpha | none (`isOpaque: true`, 3 channels) |
+| ICC | present — `mntr`/`RGB `/`XYZ `, sRGB |
+| EXIF / XMP / orientation | **none** |
+
+Verified twice with independent parsers — a hand-written RIFF chunk walker and `sharp` — which agree
+on every field. Nothing was inferred from the extension. The file was registered exactly as
+delivered: unaltered, uncropped, unoptimised, unrenamed, as every entry since §30.
+
+Two notes against the container. The geometry **matches the section's dominant 1586 × 992 exactly**,
+so it adds no new dimension drift — `garni-temple.webp` (1448 × 1086) and `gyumri.webp` (1584 × 993)
+remain the only two outliers. And at 823 KB it is now the **heaviest WebP in the registry**, ahead of
+Erebuni's 742 KB, which is what a frame of moving water and rock texture costs. The standing
+media-optimisation debt is unchanged and the file was not touched.
+
+### Visual inspection — and the failure
+
+Inspected at full resolution in tiles, not judged from a downscale: the top strip across the full
+width, the centre, and the right bank.
+
+**What is in the frame.** The Jermuk waterfall seen from the streambed below, looking up: a
+fan-shaped cascade spreading over a rounded travertine dome, a boulder in front of it, sheeting water
+across bare rock filling the whole foreground, columnar-jointed gorge walls on both sides with green
+scrub and a treeline along the top, blue sky between them. It is a competent picture and it is
+genuinely Jermuk-specific — the fan over the tufa dome is that waterfall's actual form, not a generic
+cascade.
+
+**What is not in the frame: the town.** There is no building anywhere in the image. The only man-made
+thing in it is a line of rough stone blocks along the right bank forming a path. Against the §59
+commission recorded in `media.ts`, which was written before this file existed:
+
+| The commission asked for | The file has |
+| --- | --- |
+| a small highland town, the gorge dividing it legible | a gorge, no town |
+| mid-century public buildings in stone — colonnades, broad stairs, parkland | no building of any kind |
+| **the settlement larger in the frame than any single building** | no settlement in the frame |
+| treeless volcanic slopes, no closed forest | green gorge walls and a treeline |
+| **no waterfall as the subject** | the waterfall is the entire subject |
+
+The commission had refused a waterfall-only cover **in advance**, in these words: *"the waterfall
+alone, which is the photogenic thing here and is a feature of the gorge rather than the town."* That
+is precisely what arrived, for precisely the predicted reason — the cascade is what the word "Jermuk"
+returns.
+
+It does at least borrow from nobody, which is the failure the five refusals guard against. It is not
+Dilijan (no closed broadleaf forest), not Lake Sevan (no open water), not Gyumri (no street), not
+Tatev or Geghard (no complex, no masonry, nothing medieval), not an alpine or ski resort (no snow, no
+peak, no chalet), and not an empty generic mountain landscape — the gorge and the cascade are
+specific.
+
+### The decision
+
+The mismatch was found before registration, reported in full, and registration was chosen
+deliberately by the project owner after the consequences were set out. It is **not** an oversight and
+the picture was not mistaken for the brief.
+
+What the archive now asserts, on the listing card, the hero, the search hit, the map card and every
+shared link, is that Jermuk is a waterfall. The article behind those surfaces spends forty paragraphs
+on how a highland spring landscape became a town of 3,936 people, gives the waterfall part of one
+section out of twelve, and declines to state its height because the three published figures (68, 70,
+72 m) have no measurement behind them.
+
+**This is carried as artwork debt, not closed.** The commission in `media.ts` is deliberately left
+standing rather than struck out: it is still the description of the picture this article should have.
+The entry reverses by moving one line from `IMAGES` back into `PENDING_ARTWORK`.
+
+A second-order consequence worth naming: `settlement` now holds two covers and one of them is a
+landscape with no settlement in it. The filter pill §51 introduced to make a kind of place legible is,
+for this pair, no longer doing that.
+
+### Medical / product visual audit — clean
+
+The audit the mineral-water subject makes necessary, and it passes without qualification. The frame
+implies no medical treatment, no curing or healing, no doctors, no rehabilitation, no bathing
+patients. It carries no bottle, no label, no brand mark, no factory, no pharmaceutical imagery and no
+figure of any kind. The article's careful separation of settlement, springs, spa history and bottled
+product is not undermined by the picture: it asserts nothing about health and nothing about a product.
+
+Whatever else is wrong with this cover, it does not make a claim the prose refuses to make.
+
+### Text / signage audit — clean
+
+No signage, plaque, board, banner, storefront, poster, street sign, vehicle, plate, garment or
+building surface appears — the frame contains no object of the kind that carries text. A
+contrast-boosted pass over all four corners found no watermark or signature. **No pseudo-Armenian,
+Russian or English marks, and none of the tiny unreadable ones that usually need recording.** Nothing
+was retouched, because nothing needed to be.
+
+This is the one audit the subject makes easy: urban artwork is where generated text appears, and
+there is no urban fabric here to carry it.
+
+### Crop suitability — good, which is the irony
+
+Measured against the live surfaces rather than inferred from Tailwind classes.
+
+| Surface | Ratio | Crop | Trim |
+| --- | --- | --- | --- |
+| Compact card, mobile hero | 4:3 | 1323 × 992 | 16.6 % width |
+| Tablet hero | 3:2 | 1488 × 992 | 6.2 % width |
+| Listing card, desktop hero, map card | 16:9 | 1586 × 892 | 10.1 % height |
+| Search thumbnail | 0.801 (160 × 200 px, measured live in §58) | 795 × 992 | 49.9 % width |
+
+The composition is centred and vertically deep, so **every live crop keeps the whole subject**. The
+narrow search thumbnail — the tightest crop on the site, and the one that dropped Amberd's church
+entirely — is here the *strongest* of the four, keeping the entire cascade, both gorge walls and the
+treeline. No `object-position` was added and **no crop debt is recorded**.
+
+The file crops well to the wrong subject, which no crop rule can fix.
+
+### Files changed
+
+| File | Change |
+| --- | --- |
+| `src/lib/media.ts` | `jermuk` registered in the Places block of `IMAGES`; the §59 commission kept and a §59→§60 record appended; `PENDING_ARTWORK` emptied |
+| `tests/e2e/places.spec.ts` | `JERMUK` added to `ILLUSTRATED` and `ARTWORK`; four §59 assertions inverted; one new test |
+| `tests/e2e/visit-map.spec.ts` | selected-card assertion inverted to its own file |
+| `PROJECT_STATE.md` | this section |
+
+The key is written `jermuk:` unquoted, matching `gyumri:` and `matenadaran:` beside it — the file
+omits quotes on plain identifier keys and no formatter is configured to enforce either way.
+
+**No article content was touched.** The `ջերմուկ` noun/place-name distinction, the medieval-name
+evidence, the mineral chemistry, the spring-count uncertainty, the medical-claim restraint, the
+1831/1860s/1940/1945/1967/1970 chronology, the Soviet planning and Tamanyan treatment, the Arpa gorge
+and Kechut/Arpa–Sevan discussion, the waterfall-height uncertainty, the bottling-date disagreement,
+the population figures, the municipality-vs-census discrepancy, the sources, the coordinate,
+`relatedSlugs`, the `SectionLink`, the SEO fields, the translations and the parity state are all
+byte-identical.
+
+### Provenance behaviour
+
+`isGeneratedArtwork(article)` was read rather than assumed — it is `!article.image && getImageSrc(article.slug) !== undefined`.
+Jermuk has no `image` field and now resolves through the registry, so it returns **true** and the page
+declares AI-generated Armat editorial artwork. `ARTWORK_PROVENANCE` was not modified.
+
+Verified in all three editions: `jermuk.webp` renders, the AI-illustration disclosure appears, the
+placeholder disclosure is gone, the placeholder `<svg>` is gone.
+
+The caption is the one claim this registration still makes honestly — the file *is* AI-generated
+editorial artwork. Whether it depicts the right subject is a question the disclosure does not answer.
+
+### Metadata transition
+
+| | §59 | §60 |
+| --- | --- | --- |
+| hero | placeholder `<svg>` | `/images/places/jermuk.webp` |
+| `Article.image` | absent | `/images/places/jermuk.webp` |
+| `og:image` | `/og-default.png` | `/images/places/jermuk.webp` |
+| `twitter:image` | `/og-default.png` | `/images/places/jermuk.webp` |
+| sitemap `image:loc` | absent from all three routes | present on all three |
+| listing placeholders | 1 | **0** |
+
+The JSON-LD graph is unchanged in shape: generic `Article` + `BreadcrumbList`. The test that forbids
+`City`, `Place`, `TouristDestination`, `TouristAttraction`, `HealthAndBeautyBusiness`,
+`MedicalBusiness`, `GeoCoordinates`, `LocalBusiness` and `Product` **by name** is kept and still
+passes — the mineral-water subject remains the archive's most inviting article to over-describe, and
+gaining a cover does not change that.
+
+Sitemap checked **route block by route block**, not by whole-document count: each of
+`/en/places/jermuk`, `/hy/places/jermuk` and `/hyw/places/jermuk` carries its own `image:loc`, and
+none carries `gyumri`, `dilijan-national-park`, `lake-sevan` or `tatev-monastery`.
+
+### Map selected-card transition
+
+Still exactly **12** markers, still derived from `Places ∩ PLACE_COORDINATES`, still no allow-list.
+Jermuk still uses the `settlement` glyph introduced in §51 — no new glyph, no component code. The
+accessible label is still the localized title and localized type in all three editions. The
+coordinate is untouched and the marker-derived bounds are unchanged.
+
+Selecting Jermuk now shows `/images/places/jermuk.webp` — the `else` branch §59 exercised, inverted.
+The four named refusals are **kept** in that test rather than removed, and they matter more now than
+they did: with an off-subject cover in place, repointing this slug at Dilijan or Gyumri would read as
+a correction rather than a regression.
+
+`src/lib/visit-map.ts`, `src/components/visit/VisitMap.tsx` and `src/lib/map-tiles.ts` are
+byte-identical. No marker overlap was touched.
+
+### Taxonomy and Visit curation — unchanged
+
+All 12 · Monastery 4 · Historical 3 · Museum 1 · Nature 2 · Settlement 2 (`gyumri`, `jermuk`).
+Khor Virap remains the sole `featured: true`. No new type.
+
+The reviewed six are exactly `khor-virap`, `gyumri`, `lake-sevan`, `garni-temple`,
+`dilijan-national-park`, `tatev-monastery`, in the §53 order. **Jermuk was not promoted.** Curated row
+6, map 12, Places listing 12. Registering artwork is not an editorial-promotion event, and §53 was not
+reopened.
+
+### Tests changed
+
+`places.spec.ts` 74 → **75**. `visit-map.spec.ts` **31**, unchanged in count.
+
+`PLACES`, `ILLUSTRATED` and `ARTWORK` are kept as three separate declarations even though `PLACES`
+and `ILLUSTRATED` now hold the same twelve slugs. They have coincided eleven times and split eleven
+times; Place #13 will split them again, and the `satisfies` clause on `ARTWORK` is what makes a
+mismatch fail at compile time rather than at runtime.
+
+Inverted: the Jermuk hero test (placeholder → own file, all three editions), the borrow test (hero,
+`Article.image`, `og:image`, `twitter:image`), the sitemap block, the pending-artwork test, the
+listing placeholder count (derived, so it needed no literal edited — the eighth time), and the map
+selected-card assertion. New: **Jermuk's search card carries its own thumbnail and no placeholder.**
+
+No assertion was weakened, no locale coverage removed, no retries added, no exact-image ownership
+replaced by a count. Two swapped covers still fail.
+
+### Test-runtime outcome
+
+The two `LOCALES × ILLUSTRATED` loops went **33 → 36 navigations**, the level recorded in §58 as
+approaching the practical limit. Both still pass under `test.slow()`; **no split was performed**,
+because the spec's own instruction is not to refactor while the tests pass.
+
+### Results
+
+```
+npm run typecheck                                 PASS
+npm run validate:content                          PASS — 135 entries, NO pending-artwork note
+npx playwright test tests/e2e/places.spec.ts      75 passed (3.2m)
+npx playwright test tests/e2e/visit-map.spec.ts   31 passed (50.1s)
+npx playwright test tests/e2e/visit.spec.ts       24 passed (1.1m)
+npx playwright test  (full)                       278 passed, 5 skipped (7.6m), exit 0
+npm run build                                     PASS — 144 pages prerendered
+```
+
+Totals moved: **277 → 278 passing tests** (one new), **135 content entries** and **144 prerendered
+pages** both unchanged, because §60 adds no route and no content.
+
+**Every failure that occurred, and there were three.**
+
+**1. Two cold-route failures in the first `places.spec.ts` run, on a freshly removed `.next`.**
+`the four existing category listings still load and still count what they did` got **500** from
+`/en/writers`, and `the place article uses its own SEO fields and advertises every edition` failed
+alongside it. Both are the known Turbopack signature — the 500 form is on the recorded list. Both
+were inspected rather than assumed: each passed alone (9.1 s and 22.6 s), and the whole spec re-run
+warm returned 75 passed. No assertion was weakened and nothing was retried in place.
+
+**2. The first full-suite run aborted with a native stack trace** rather than a test failure — the
+known host-memory-pressure debt, recorded separately as instructed.
+
+**3. The second full-suite run hung, and the cause was a tooling mistake rather than the project.**
+Killing the aborted run terminated the Playwright runner but left its `npm run dev` child alive and
+wedged; the next run reused it through `reuseExistingServer` and stalled with `/en/places/jermuk`
+timing out after 20 s and a zero-byte log. Diagnosed by curling the dev server directly rather than
+by guessing, fixed by killing every orphaned `node` process, confirming port 3002 clear, and starting
+again from a fresh server. **The clean run that follows is the one reported above.**
+
+The lesson worth keeping: `reuseExistingServer` will happily reuse a *hung* server, so after killing
+a Playwright run the dev server must be confirmed dead — not merely the runner. This is the first
+time that has bitten in sixty steps and it cost two wasted suite runs.
+
+The `/visit` LCP eager-loading warning fired again on `gyumri.webp` and `lake-sevan.webp`. Existing
+debt, unchanged.
+
+### Technical debt — carried forward, not fixed
+
+Everything already open stays open: the bibliography React key on `source.title`; the two marker
+overlaps (`25 × 26` and `12 × 31` px); the Turbopack cold-route flake (**fired twice this step**, as
+a 500 and a companion failure); host memory pressure during long Playwright runs (**fired once**);
+photographic-register concerns for Geghard, Tatev, Dilijan and Gyumri; the narrow-thumbnail crops for
+Gyumri and Amberd; the Gyumri and Garni dimension drift; artwork file weight (**Jermuk is now the
+heaviest at 823 KB**); global media optimisation; the Cuisine hydration flake; one-directional
+`relatedSlugs`; same-category related filler; the Western Armenian native-review backlog; the
+unread-source caveats including the Jermuk toponymic dictionary and Armenian Soviet Encyclopedia
+volumes; the source-identifier caveats; scratchpad harness locations; the weak homepage hero
+assertion; no central environment module; Stadia production/domain authorization; the raster tile
+label-language limitation; the privacy-page provider disclosure; no museum or Yerevan card in the
+Visit row; the alphabet Learn-card anchor gap; the warm-palette observation; the `/visit` LCP
+warning; the artwork-loop runtime pressure now at 36; the three Amberd visual observations; and the
+Jermuk municipality-vs-census discrepancy.
+
+**One new item, and it is the largest artwork debt in the archive.**
+
+**Jermuk's cover does not depict Jermuk's subject.** A waterfall stands where a town belongs, on
+every surface the article has. It was registered knowingly; the commission describing the correct
+picture is preserved in `media.ts`; and the fix is a one-line reversal whenever a settlement image
+exists.
+
+### Deployment
+
+**None.** Nothing pushed, released, or built for production beyond local verification. No artwork was
+generated, edited, cropped, resized, recoloured, renamed, optimised or replaced.
+`.claude/settings.json` was not modified.
+
+---
+
+## §61. Jermuk replacement artwork — the town, accepted (August 2026)
+
+§60's cover was replaced. The new file passes the visual gate the old one failed, and the largest
+artwork debt in the archive is closed one step after it was opened.
+
+**§60 above is left exactly as written.** It is the record of what shipped in the interval, and
+because the replacement reuses the same path it is the only thing in the repository that would
+otherwise show the cover had ever been wrong.
+
+### The replacement chain
+
+```
+original Jermuk artwork   →  technically valid  →  visually REJECTED (waterfall only, no settlement)
+                          →  registered anyway by explicit decision (§60), recorded as debt
+
+replacement artwork       →  different hash, verified
+                          →  visual review: town, gorge, spa-era architecture
+                          →  settlement requirement PASSED
+                          →  registration confirmed, debt closed (§61)
+```
+
+### Old vs new hash
+
+The decisive check, because the path did not change:
+
+```
+rejected  92b2a0516dd73f626aba6be08439b4f53ccd24cc341a9d283295964d2ce0e7f1   843,024 bytes
+accepted  5f5b6df9ec8a01a414abcff64df80c2a33005e2c92db6c19ce9a756d95c8cfb6   650,848 bytes
+```
+
+**Different — the file was genuinely replaced.** Recorded here and in `media.ts` as documentation
+only; no application logic reads a hash.
+
+### Pre-registration state
+
+Already the desired final state, inherited from §60 and needing no edit:
+
+| | |
+| --- | --- |
+| `IMAGES` contains `jermuk` | yes → `/images/places/jermuk.webp` |
+| `PENDING_ARTWORK` contains `jermuk` | no — the array is `[]` |
+| `ILLUSTRATED` contains `JERMUK` | yes |
+| `ARTWORK[JERMUK]` | `/images/places/jermuk.webp` |
+
+So §61 changed no registry data at all. **The swap was invisible to every test**, which is the fact
+this section exists to record: the whole suite passed identically before and after, because a
+rejected cover and its replacement are indistinguishable to assertions written about filenames. The
+visual gate is the only thing that separated them, and its result is written down here.
+
+### New asset verification
+
+| | |
+| --- | --- |
+| Dimensions | **1586 × 992** (1.599) — the section's dominant geometry, no new drift |
+| Bytes | **650,848** (636 KB) |
+| SHA-256 | `5f5b6df9ec8a01a414abcff64df80c2a33005e2c92db6c19ce9a756d95c8cfb6` |
+| Container | bare `RIFF/WEBP` → `VP8 ` (650,828) — **no `VP8X`, no `ICCP`** |
+| Chunk walk | ends at byte 650,848 — **exactly EOF** |
+| Encoding | **lossy** VP8 |
+| Alpha | none (`isOpaque`, 3 channels) |
+| ICC | **absent** — untagged, rendered as sRGB |
+| EXIF / XMP / orientation | none |
+
+Verified by a hand-written RIFF chunk walker and by `sharp`, which agree on every field.
+
+Two changes against the superseded asset worth naming. It is **structurally simpler** — the old file
+carried `VP8X` + `ICCP`, this one is a bare bitstream with **no embedded colour profile**. That
+matches `lake-sevan.webp`, which has shipped untagged since §38 with no observable difference, so it
+is recorded rather than treated as a defect. And it is **192 KB lighter**, which hands the
+"heaviest WebP in the registry" title back to Erebuni at 742 KB — the §60 note claiming that
+distinction for Jermuk no longer applies.
+
+### Visual acceptance — PASSED
+
+An elevated three-quarter view down the length of the town. The Arpa gorge runs from the far distance
+into the foreground with a road bridge crossing it on tall piers, and **the settlement is built on
+both rims** — the single thing the commission most wanted legible and the thing the rejected file
+could not show at all.
+
+**Settlement visibility.** Not marginal: dozens of buildings, a tree-lined avenue with a green
+boulevard strip running the depth of the frame, side streets, parked cars, mown parkland. Blocks of
+two- and three-storey stone apartment housing with hipped roofs fill the foreground. This is a town,
+not a landscape with a building in it.
+
+**Spa/urban architecture.** Present and legible as a period: a large mid-century public building in
+pale stone (long horizontal mass, tall glazed bay, corner tower, monument on a plinth in the
+forecourt); a **colonnaded rotunda standing in parkland** — the mineral-water pavilion type, named in
+the commission as "colonnades"; a slab tower mid-frame; and on the far rim a **sanatorium complex** of
+long low blocks with flat roofs, ribbon glazing and terraces stepping along the cliff edge. Twentieth-
+century planned character is visible rather than merely credible.
+
+**No single-building substitution.** The failure mode of correcting `waterfall-only` into `hotel-only`
+did not occur. The civic block, the rotunda, the tower and the sanatorium each occupy a small
+fraction of the frame; none dominates, and the town as a whole is plainly the subject.
+
+**Gorge / waterfall balance.** The gorge is structural to the composition — it divides the town and
+explains its shape. White water shows where the Arpa runs over rock in the cut, which is the river
+rather than the fall, and at **no crop does it become a subject**. The old failure is fixed, not
+rebalanced.
+
+Asked "what is this image about?", the answer is *Jermuk town* — not a waterfall, a hotel, a
+sanatorium, a forest or a gorge.
+
+### Settlement identity against Gyumri
+
+The two `settlement` covers now read as different kinds of place, which is what the pill is for. This
+is a dispersed highland town of planned mid-century blocks in parkland astride a gorge; Gyumri is a
+dense nineteenth-century street of black-tuff frontages on an open plain. Nothing in this frame is a
+merchant façade, an Alexandropol-era core or a historic square.
+
+The §60 observation that `settlement` held two covers and one had no settlement in it **is resolved.**
+
+### Medical / product audit — clean
+
+No treatment, bathing, patient, doctor, rehabilitation equipment or clinical space. No bottle, label,
+brand mark, pack shot or factory. The spa identity is entirely architectural and historical — a
+pavilion and a sanatorium seen as buildings in a town — which is the register the article's own
+restraint requires.
+
+### Signage audit — clean
+
+No legible lettering anywhere. The viewpoint is high and distant enough that no façade, sign, plaque,
+banner, shopfront or vehicle plate resolves into characters; a contrast-boosted pass over all four
+corners found no watermark or signature. Several buildings carry marks at roof and door scale that
+read as texture and **cannot be resolved as glyphs in any orthography** — recorded as the tiny
+unreadable marks the audit asks for, and **not retouched**.
+
+### Crop suitability
+
+| Surface | Crop | Trim | Result |
+| --- | --- | --- | --- |
+| 4:3 compact / mobile hero | 1323 × 992 | 16.6 % width | civic building, rotunda, bridge, sanatorium all kept |
+| 3:2 tablet hero | 1488 × 992 | 6.2 % width | effectively the full frame |
+| 16:9 listing / desktop / map | 1586 × 892 | 10.1 % height | **the best crop of the four** — loses only sky and foreground roofs |
+| 0.801 search thumbnail | 795 × 992 | 49.9 % width | **drops the large civic building on the left**; keeps avenue, rotunda, tower, bridge, gorge, sanatorium, housing |
+
+The narrow thumbnail is degraded in the same direction as Amberd's and for the same reason — one
+landmark lost, the subject intact. It does not become one building, does not become pure landscape,
+and does not promote the river. **Recorded as debt; no `object-position` added.**
+
+### Provenance and register
+
+`isGeneratedArtwork` re-read, not assumed: `!article.image && getImageSrc(article.slug) !== undefined`
+→ **true**. `ARTWORK_PROVENANCE` untouched. In all three editions the new WebP renders, the
+AI-illustration disclosure appears, and both the placeholder disclosure and placeholder `<svg>` are
+absent.
+
+**Register: photographic, not illustrative.** It reads as a drone photograph — real lens perspective,
+cast shadows, atmospheric haze. Still AI-generated editorial artwork and captioned as such, but it
+**joins the standing photographic-register debt** alongside Geghard, Tatev, Dilijan and Gyumri rather
+than sitting apart from it.
+
+### Files changed
+
+| File | Change |
+| --- | --- |
+| `src/lib/media.ts` | §60 block marked **superseded** and kept; new §61 block with both hashes, structure, visual, audits and crops; `PENDING_ARTWORK` history annotated as resolved |
+| `tests/e2e/places.spec.ts` | `JERMUK` doc corrected — the off-subject caveat replaced by the replacement record and the lesson about path-based tests |
+| `tests/e2e/visit-map.spec.ts` | selected-card doc corrected; Gyumri noted as the sharper refusal now that both settlement covers are urban |
+| `PROJECT_STATE.md` | this section |
+
+**No registry data changed** — `IMAGES`, `PENDING_ARTWORK`, `ILLUSTRATED` and `ARTWORK` were already
+correct. **No article content touched**: etymology, medieval-name treatment, mineral chemistry,
+medical restraint, spa chronology, Soviet planning, gorge, waterfall-height uncertainty, bottling
+dates, population, the municipality/census discrepancy, the coordinate, `relatedSlugs`, sources,
+translations and parity are all byte-identical. No component touched.
+
+### Surfaces verified
+
+All resolve to `/images/places/jermuk.webp`: the `en`, `hy` and `hyw` heroes; the Places listing card;
+the global search card; the map selected card; `og:image`; `twitter:image`; generic `Article.image`;
+and `image:loc` in all three sitemap route blocks, **checked block by block rather than by filename
+count**. No placeholder remains anywhere; the listing carries zero.
+
+### Regression checks
+
+Map still **12** markers, Jermuk still `placeTypeId: settlement` and `precision: settlement`, existing
+`settlement` glyph, localized labels, coordinate and bounds unchanged, both known overlaps unchanged.
+`visit-map.ts`, `map-tiles.ts` and `VisitMap.tsx` byte-identical. The other eleven cards keep their
+artwork.
+
+Taxonomy: All 12 · Monastery 4 · Historical 3 · Museum 1 · Nature 2 · Settlement 2 (`gyumri`,
+`jermuk`). Khor Virap sole `featured: true`.
+
+Visit curation untouched — the six §53 slugs in the §53 order, Jermuk still absent; curated row 6, map
+12, listing 12.
+
+### Technical debt
+
+**Closed:** the §60 off-subject cover, and the §60 note that `settlement` held a cover with no
+settlement in it.
+
+**Carried forward unchanged**, plus two updates: Jermuk **joins the photographic-register debt**, and
+its **narrow-thumbnail crop** joins Gyumri's and Amberd's. Everything else stays open — the
+bibliography React key; the two marker overlaps; the Turbopack cold-route flake; host memory pressure;
+artwork file weight; global media optimisation; the Cuisine hydration flake; one-directional
+`relatedSlugs`; same-category related filler; the Western Armenian native-review backlog; unread-source
+and source-identifier caveats; scratchpad harness locations; the weak homepage hero assertion; no
+central environment module; Stadia authorization; raster tile label language; the privacy-page
+provider disclosure; no museum or Yerevan card in the Visit row; the Learn alphabet anchor gap; the
+warm-palette observation; the `/visit` LCP warning; the artwork loops at 36 navigations; the three
+Amberd visual observations; and the Jermuk municipality-vs-census discrepancy.
+
+One durable note, new: **a file swapped under an unchanged path is invisible to this test suite.**
+Nothing asserts image content, and nothing should — but it means the SHA-256 pair recorded above is
+the only audit trail, and any future replacement must record its hash the same way.
+
+### Deployment
+
+**None.** Nothing pushed, released, or built for production beyond local verification. The image was
+not modified, cropped, resized, recoloured, optimised, renamed or regenerated.
+`.claude/settings.json` untouched.
+
+---
+
+## §62. Places milestone audit at 12 articles (August 2026)
+
+An audit step, not a build step. No product or content file was changed. Everything below was measured
+from the repository rather than read out of this document.
+
+### Corpus baseline — verified from source
+
+Twelve Places, all three editions, registry order:
+
+| # | slug | type | prec | artwork | rel | §links | src | sec | paras | words |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | khor-virap | monastery **featured** | site | khor-virap.png | 2 | 1 | 4 | 6 | 19 | 961 |
+| 2 | etchmiadzin-cathedral | monastery | site | .webp | 3 | 3 | 7 | 8 | 25 | 1485 |
+| 3 | erebuni-fortress | historical | site | .webp | 1 | 1 | 6 | 8 | 25 | 1638 |
+| 4 | matenadaran | museum | site | .webp | 3 | 2 | 6 | 10 | 32 | 1968 |
+| 5 | lake-sevan | nature | area | .webp | 2 | 2 | 6 | 10 | 35 | 2771 |
+| 6 | garni-temple | historical | site | .webp | 3 | 3 | 11 | 10 | 36 | 2759 |
+| 7 | geghard-monastery | monastery | site | .webp | 3 | 3 | 12 | 10 | 38 | 2931 |
+| 8 | tatev-monastery | monastery | site | .webp | 3 | 3 | 10 | 10 | 38 | 2884 |
+| 9 | dilijan-national-park | nature | area | .webp | 1 | 1 | 9 | 11 | 38 | 3380 |
+| 10 | gyumri | settlement | settlement | .webp | 3 | 3 | 9 | 12 | 50 | 4153 |
+| 11 | amberd-fortress | historical | site | .webp | 1 | 1 | 12 | 12 | 40 | 3277 |
+| 12 | jermuk | settlement | settlement | .webp | 1 | 1 | 8 | 12 | 40 | 4011 |
+
+**No discrepancies.** Taxonomy is All 12 / Monastery 4 / Historical 3 / Museum 1 / Nature 2 /
+Settlement 2; Khor Virap is the only `featured`; `PENDING_ARTWORK` is empty; there are no orphan
+coordinates; `placeTypeId`, `featured` and `relatedSlugs` are identical across all three locales; all
+24 SectionLinks resolve and every phrase is present in its own paragraph.
+
+The one strong pattern is a **maturity gradient**: article length runs 961 → 4153 words and sources
+4 → 12 in almost perfect registry order. Khor Virap is the outlier at both ends — 6 sections, 19
+paragraphs, 4 sources, less than a quarter of Gyumri's length — and it is also the `featured` article
+and the map's most-seen card.
+
+### Content quality — no C, no D
+
+The older articles were checked against the newer evidence standard rather than assumed weak, and
+they hold up. Every conventional date is marked as conventional and the alternative is given:
+Erebuni's 782 BC is "the conventional date… the foundation inscription records"; Etchmiadzin's is
+"Armenian tradition places the foundation"; Garni gives AD 77 from the regnal year in the Greek
+inscription *and* the minority second-century mausoleum reading; Khor Virap states that the pit is
+"a place where a tradition is kept, not a documented cell with a documented prisoner", names
+Agathangelos as a narrative written a century later, and refuses 301 as settled in favour of the
+301-vs-314 discussion.
+
+The UNESCO handling is the strongest single thing in the corpus and was checked claim by claim:
+Etchmiadzin inscribed 2000 ✓, Geghard 2000 ✓, Matenadaran **Memory of the World** 1997 with the
+instrument distinguished ✓, Garni **not** inscribed and on the tentative list only from 2025 ✓, Tatev
+"is not a World Heritage Site" ✓, Amberd "on neither" ✓, Gyumri not a World Heritage property but
+intangible-heritage blacksmithing 2023 and Learning Cities 2016 ✓. **No article claims a designation
+it does not have.**
+
+```
+A — strong, no review needed   8   garni, geghard, tatev, dilijan, gyumri, amberd, jermuk, lake-sevan
+B — minor improvement later    4   khor-virap, etchmiadzin, erebuni, matenadaran
+C — substantive review         0
+D — critical defect            0
+```
+
+The four Bs are the four oldest and the reason is **depth, not rigor**: fewest sources, shortest
+treatment, no explicit statements of source disagreement, and no read-limit caveats. Khor Virap adds
+one mild note — its closing section carries light visitor-guide register ("Visitors are welcome, and
+the ordinary courtesies of a place of worship apply"), which no later article does.
+
+### Sources — 100 entries, one real defect
+
+`isbn 32 · url 41 · doi 23 · archive 4`. No identifier names two different titles. Advocacy is
+disclosed (Bankwatch is cited "for the existence and course of the dispute… and for nothing else").
+Shared sources are consistent: Hewsen's atlas is one ISBN across six articles.
+
+**Medium — one work registered twice under two identifiers.** Sanjian, *Colophons of Armenian
+Manuscripts, 1301–1480* (1969) appears as `isbn:9780674142855` under Matenadaran and
+`doi:10.4159/harvard.9780674432635` under Geghard, with titles differing by en-dash versus hyphen.
+Both identifiers are real and resolve to the same Harvard volume, so nothing false is asserted, but
+the corpus cites one book two ways and the existing bibliography test cannot see it because the two
+live in different articles.
+
+**Acceptable caveats, retained:** Wilkinson (Garni) and Tokarskij (Amberd) not read directly; Kazaryan
+from abstract and Crossref record; Khalpakhchian at one remove; the Hovannisian volume-set ISBN; the
+Bresson/Fagan attribution; the Armstat Gyumri table caveat; and Jermuk's two unread works (the
+toponymic dictionary vol. 4, the Armenian Soviet Encyclopedia vol. 9). All verified as still
+accurately described. **No critical source problem.**
+
+### Geographic coverage
+
+| Marz | n | Places | Subject kinds |
+| --- | --- | --- | --- |
+| Yerevan | 2 | erebuni-fortress, matenadaran | Urartian citadel, manuscript institute |
+| Kotayk | 2 | garni-temple, geghard-monastery | Hellenistic temple, rock-cut monastery |
+| Ararat | 1 | khor-virap | monastery |
+| Armavir | 1 | etchmiadzin-cathedral | cathedral |
+| Aragatsotn | 1 | amberd-fortress | fortress |
+| Gegharkunik | 1 | lake-sevan | lake |
+| Shirak | 1 | gyumri | city |
+| Syunik | 1 | tatev-monastery | monastery |
+| Tavush | 1 | dilijan-national-park | forest park |
+| Vayots Dzor | 1 | jermuk | spa town |
+| **Lori** | **0** | — | **completely unrepresented** |
+
+Extent 39.379–40.785 N, 43.842–46.250 E. **7 of 66 pairs sit under 25 km and every one of them is in
+the Yerevan–Ararat–Kotayk cluster**; the median pair distance is 74.7 km. Five of twelve Places are
+inside one ~25 km cluster, which is the central-Armenia concentration stated numerically.
+
+Lori is the only marz with nothing, and it is not an ordinary gap: **it holds Haghpat and Sanahin,
+one of Armenia's three World Heritage properties** — and this archive already tells readers, in the
+Amberd article, that Armenia has three. Two are covered; the third is in the empty marz.
+
+### Taxonomy — healthy, review at 20
+
+**`taxonomy usable but review at 20 Places`.** No Place is forced. `settlement` genuinely spans Gyumri
+and Jermuk — the two are deliberately dissimilar and the pill still reads. `nature` holds a lake and a
+forest park, which is broad but coherent as "places whose subject is land and water rather than
+building". `museum` as a singleton is not a problem; singletons have resolved themselves three times
+already, and inventing a type to avoid one is the error to avoid.
+
+`historical` is the one to watch. It now holds an Urartian citadel, a Hellenistic temple and a
+medieval fortress — three subjects with nothing in common but "old and not religious". At 20 Places it
+will likely be the largest and least informative pill. **Do not split it now**; revisit when
+`historical` reaches 6, or at 20 Places, whichever comes first. No type was added or renamed.
+
+### Internal links — the clearest scaling problem in the audit
+
+**Filler is the finding.** `getRelatedArticles` fills any article with fewer than three authored
+relations from `all.filter(category === article.category)` — in **registry order**, unshuffled. The
+consequence, measured:
+
+```
+6 of 12 Places receive filler
+filler is always the same two articles: khor-virap ×5, etchmiadzin-cathedral ×5
+```
+
+Amberd, Jermuk, Dilijan and Erebuni each get *both*. So a spa town, a national park and an Urartian
+citadel each recommend two monasteries, and the two oldest and thinnest articles are the ones every
+under-linked page points at. **This does not improve with scale — it worsens deterministically**: more
+Places means more articles with one authored relation, and the filler still starts from the top of the
+registry. At 20 Places the same two articles would fill perhaps a dozen rows.
+
+**Reciprocity: all nine place↔place edges are one-way. Not one is reciprocal.** And five Places have
+**zero inbound links from anywhere in the corpus** — tatev, dilijan, gyumri, amberd, jermuk, which is
+the five newest. New articles are pure link sinks: they cite outward and nothing cites back.
+
+The strongest reciprocal candidates on the actual data are `lake-sevan → jermuk` (Arpa–Sevan is
+genuinely bidirectional and both articles already describe the same tunnel from opposite ends) and
+`lake-sevan → dilijan` (the Areguni range, already named in Dilijan's prose). Neither exists.
+
+Conclusion: **`review before 20 Places`** — closer to "fix early", since the cheapest half is authoring
+two or three reciprocal slugs, which needs no code change at all.
+
+### Cross-category links
+
+Places → History is well built: 10 of 12 link into history articles. Places → Writers/Works exists
+only from Gyumri (Isahakyan, *Anush*). Places → Cuisine: none.
+
+**Nothing in History, Writers, Works or Cuisine links to any Place — zero `relatedSlugs` and zero
+SectionLinks inbound.** The knowledge graph is entirely one-directional into Places.
+
+Candidates the content already supports, offered as candidates only: `adoption-of-christianity →
+khor-virap / etchmiadzin` (both articles already narrate the same events); `kingdom-of-urartu →
+erebuni-fortress` (Erebuni's foundation inscription is discussed in both); `mesrop-mashtots →
+matenadaran`; `bagratid-armenia → tatev / amberd`; `avetik-isahakyan → gyumri` (Gyumri already links
+out to him). No Cuisine→Place linking is proposed; the architecture is not the obstacle, the editorial
+justification is.
+
+### SEO — healthy
+
+All 12 Places carry `seoTitle` and `metaDescription` in all three editions. **No duplicate `seoTitle`
+or `metaDescription` anywhere in the 35-article English corpus**, and no title collision between a
+Place and another category. Lengths are in budget (39–49 chars; 138–165). Canonical, hreflang,
+x-default, OG/Twitter ownership, sitemap `image:loc` per route, Article schema and breadcrumbs are all
+covered by passing tests.
+
+One corpus-level observation outside Places: **12 non-Place articles have no `seoTitle` and no
+`metaDescription` at all** — 6 writers, 4 works and 2 history articles, the oldest content in the
+repository. The field is optional, so validation passes. Not a Places problem; recorded because it is
+the largest untreated SEO surface in the archive.
+
+Search-intent positioning for the two risk articles is correct. Gyumri targets name/history/
+architecture — its sections are about Alexandropol, the tuff city, the 1988 earthquake — and Jermuk
+targets the town, the springs and the spa history. Neither reads as "things to do", neither carries
+hotels, prices, hours or booking. **Cannibalisation risk against future Travel Guides is low but real
+for exactly these two**: a future `/travel/gyumri` would compete with `/places/gyumri` on the bare
+city name. The mitigation is guide-side, not here — keep guides on intent words and leave the bare
+name to the article.
+
+### Search / discovery — healthy, no gaps
+
+Every alternate name in the content resolves to its Place: Vagharshapat → Etchmiadzin, Ayrivank →
+Geghard, Mashtots → Matenadaran, Alexandropol / Leninakan / Kumayri → Gyumri, Istisu → Jermuk, and the
+regional queries Shirak, Syunik, Vayots Dzor and Aragats all reach the right article. Category label
+and thumbnails are correct. (An earlier pass in this audit reported false negatives for Erebuni,
+Matenadaran, Tatev, Kumayri, Istisu, Vayots Dzor and Shirak; that was a measurement artifact —
+the harness did not wait for client-side search to render. Re-measured with a settle delay, all pass.)
+
+### Artwork — all 12 inspected visually
+
+**No P1. No cover has a wrong subject or wrong geography.** Every file depicts its own article,
+verified by looking rather than by filename, including the Jermuk replacement registered in §61.
+
+Top five problems:
+
+1. **P2 — the corpus has two visual registers.** Khor Virap, Etchmiadzin, Erebuni, Matenadaran and
+   Garni are painterly illustrations — soft light, painted texture, warm palettes. Lake Sevan,
+   Geghard, Tatev, Dilijan, Gyumri, Amberd and Jermuk are photographic — real lens perspective, cast
+   shadows, and in Gyumri's case a legible human face. **5 against 7**, and the two groups sit
+   side by side in the listing grid. This is the largest artwork issue and it is a house-style
+   decision, not a defect in any one file.
+2. **P3 — Khor Virap is a 1437 KB PNG**, 23 % of all Places artwork bytes on its own, still
+   byte-identical to the homepage hero, and the cover of the `featured` article, so it loads on the
+   listing, the article, `/visit` and the homepage.
+3. **P3 — the heavy-WebP tail.** Erebuni 742 KB, Matenadaran 701 KB, Amberd 660 KB, Jermuk 636 KB.
+   With Khor Virap the top five are **69.6 % of the section's bytes**.
+4. **P4 — three narrow-thumbnail crops lose their landmark**: Gyumri, Amberd (the church) and Jermuk
+   (the civic building). Degraded, not unusable; no `object-position` anywhere.
+5. **P4 — colour and geometry drift on the earliest files**: the Matenadaran façade reads pale grey
+   where the building is dark basalt, Garni's stone is warmer than reference, and Garni alone is
+   1448×1086 (1.333) against the 1586×992 of nine others. Lake Sevan's cover is also the least
+   identifying in the set — open water and a lone tree, with no Sevanavank.
+
+### Artwork performance
+
+```
+total 6,141,838 bytes = 5.86 MB across 12 files
+average 500 KB · median 400 KB
+largest 5   khor-virap 1437 · erebuni 742 · matenadaran 701 · amberd 660 · jermuk 636  KB
+smallest 5  garni 120 · lake-sevan 144 · etchmiadzin 243 · dilijan 249 · tatev 265     KB
+formats     1 PNG / 11 WebP        ICC 4 with / 8 without
+dimensions  1586x992 ×9 · 1355x793 ×1 · 1584x993 ×1 · 1448x1086 ×1
+top five    69.6 % of total bytes
+```
+
+**Recommendation: `before 20 Places`.** Not now, because nothing is broken and the largest single win
+is one file. At the current 500 KB average, 20 Places is ~10 MB and 30 is ~15 MB of covers. The
+highest-value action is not a global pipeline but **converting Khor Virap's PNG to WebP**, which alone
+would recover roughly 1.2 MB — a fifth of the section — and is a single-file change.
+
+### Map scalability — and an understated debt
+
+Measured live at four widths. All 12 markers render, all stay inside the container at every width,
+the server-rendered fallback list is 12 at every width, markers are `div[tabindex=0]` at 28×38 px
+(above the 24 px target), and every marker carries a localized `aria-label` of the form
+"Khor Virap — Monasteries and churches". Lazy mounting works: Leaflet is not loaded until the section
+scrolls into view.
+
+**The overlap debt is larger than recorded.** The standing note says two overlapping pairs. That is
+true only at 1440 px:
+
+```
+1440 px    2 pairs   erebuni/matenadaran 25x26 · garni/geghard 12x31
+ 768 px   14 pairs
+ 390 px   14 pairs
+ 360 px   14 pairs
+```
+
+At mobile widths the Yerevan–Ararat–Kotayk cluster collapses into a pile: Khor Virap, Etchmiadzin,
+Erebuni, Matenadaran, Garni, Geghard and Amberd all overlap one another. **Seven times more overlap
+than the recorded figure, at the widths most readers use.** Nothing measured mobile before, which is
+why it was never seen.
+
+Scalability, reasoning from the existing coordinates rather than invented ones: at **15** the desktop
+map stays usable and mobile worsens roughly in proportion to how many additions land in the centre;
+at **20** DOM markers are still trivial but mobile overlap is unusable if the central concentration
+continues, and Tab order — currently a flat 12-stop sequence in registry order, unrelated to geography
+— becomes a long undifferentiated list; at **30** the selected-card pattern still works but finding a
+specific marker by eye does not, and the filter becomes the primary way in rather than a refinement.
+
+Conclusion: **`clustering/spiderfying likely needed before ~20` — and the trigger is mobile overlap,
+not marker count.** Recommended review trigger: **any width showing more than ~6 overlapping pairs, or
+16 markers, whichever comes first.** Nothing was implemented.
+
+### Visit curation — keep the current six
+
+Verified live: exactly six cards — khor-virap, gyumri, lake-sevan, garni-temple,
+dilijan-national-park, tatev-monastery — in §53 order, with the map at 12 and the listing at 12.
+Geography stays diverse (Ararat, Shirak, Gegharkunik, Kotayk, Tavush, Syunik — six different marzes),
+and the row still carries a monastery, a settlement, a lake, a temple, a forest and a cliff monastery.
+
+Neither Amberd nor Jermuk creates an editorial reason to recut it. **`keep current six`.** The one
+thing worth writing down is that the row is now exactly half the section, and at 20 Places it will be
+under a third — the review is a curation step, not a content step, and it is not due yet.
+
+### Test scalability
+
+```
+places.spec.ts     72 tests  4191 lines   ~2.9–4.0 min
+visit-map.spec.ts  28 tests  1426 lines   ~0.8–1.5 min
+visit.spec.ts      21 tests   969 lines   ~1.1–1.4 min
+full suite        283 tests               ~7.6–8.2 min
+```
+
+`places.spec.ts` is the largest spec in the repository by a wide margin — more tests than the next two
+combined and 3× the lines. The two `LOCALES × ILLUSTRATED` loops are at **36 navigations** each.
+
+Projection: at **15** the loops are 45 navigations each and the file passes but the two slow tests
+approach their 90 s budget; at **20** they are 60 each, `places.spec.ts` alone is around 8–10 minutes
+and cold-route flakes multiply because the number of first-visit routes grows with the corpus; at
+**30** it is 90 each and a single spec dominates the suite.
+
+**Ten of the 72 Places tests need no browser at all** — filter vocabulary, artwork/pending
+exclusivity, unrelated-artwork, Geghard→Garni, the coordinate registry, bibliography titles, the
+settlement pair, the pinned editorial fields, and the settlement-statistics check. They currently pay
+full dev-server cost for pure data assertions.
+
+Conclusion: **`partition before Place #16`.** The trigger is the artwork loops reaching ~45
+navigations. The recommended split is by concern rather than by count — move the ten data tests to
+static validation, then split the remainder into artwork-ownership and behaviour files — preserving
+all 12 Places, all 3 locales and exact per-place image ownership. No retries, no timeout inflation, no
+weakened locale coverage.
+
+### Static-validation opportunities
+
+Already static and working: coordinates for every Place, no orphan coordinates, `placeTypeId` validity
+and filter coverage, `PENDING_ARTWORK`/registry exclusivity, image existence, source identifiers,
+SectionLink phrase presence, `relatedSlugs` resolution, and cross-locale parity including
+`relatedSlugs`.
+
+Top three that should move out of the browser:
+
+1. **Corpus-wide `seoTitle` / `metaDescription` uniqueness.** Length is validated per article;
+   uniqueness is validated nowhere. Two articles could ship the same title and only a human would
+   notice. Cheapest and highest value.
+2. **The ten data-only Places tests**, above — same assertions, no dev server, ~1 s instead of
+   minutes.
+3. **One work, one identifier.** A registry-wide check that a normalised title never carries two
+   different identifiers would have caught the Sanjian duplicate; the existing test only looks inside
+   a single article's bibliography.
+
+### Western Armenian backlog
+
+All **12** Places carry unreviewed `hyw` — the backlog has grown one-for-one with the section since
+§15 and nothing has ever been reviewed. The editions are structurally sound (parity is machine-checked
+every step, orthography markers are enforced), so the risk is terminological rather than structural.
+
+Highest-risk domains, in order: **spa and hydrogeology** (Jermuk — balneology, mineralisation,
+hydrocarbonate–sulphate, and the medical restraint that must survive translation intact);
+**protected-area ecology** (Dilijan, Lake Sevan — IUCN categories, buffer zone, endemism); **urban
+planning** (Gyumri, Jermuk — master plan, reserve, sanatorium); **medieval architecture** (the four
+monasteries plus Amberd — gavit, zhamatun, drum, squinch, umbrella roof).
+
+Recommendation: **`continue and batch-review later`**, with one qualification — Jermuk's medical
+language should be reviewed before it is used as a translation precedent, because a mistranslation
+there converts editorial restraint into a health claim. Twelve articles is a reviewable batch; twenty
+is not.
+
+### Current-data freshness
+
+| slug | time-sensitive claim | source date | re-check |
+| --- | --- | --- | --- |
+| gyumri | population 112,301 | census Oct 2022 | next census (~2032) |
+| gyumri | Kumayri reserve extent | declared 1980 | 5 years |
+| jermuk | town population 3,936; community 5,694 | census Oct 2022 | next census |
+| jermuk | municipality figure 9,276 vs census | register, undated | 2 years |
+| jermuk | elevation ~2100 m / 2080 m | published spread | none — stable |
+| lake-sevan | surface level ~1900 m | managed, explicitly not fixed | 3 years |
+| dilijan-national-park | 33,765 ha + 8,167 ha buffer | administration's own figure | 3 years |
+| amberd-fortress | reserve since 2002; area | decision N 541-N, 2017 | 5 years |
+| etchmiadzin / geghard | World Heritage inscription 2000 | UNESCO | 5 years |
+| matenadaran | Memory of the World 1997; ~17,000 mss | UNESCO 1997 | 5 years |
+| gyumri | intangible heritage 2023; Learning Cities 2016 | UNESCO | 5 years |
+
+**Nothing is demonstrably stale and nothing was changed.** Both population figures are explicitly
+dated in the prose ("a dated count, not a standing fact"), which is the newer standard doing its job.
+Lake Sevan's level is labelled "a managed figure, not a fixed one".
+
+### Accessibility and responsive
+
+Measured at 360 / 390 / 768 / 1440 across the listing, four article types and `/visit`.
+
+Accessibility: exactly one `h1` per page, **no heading-level skips anywhere**, every image has an
+`alt` attribute, alt text is meaningful ("Illustration for Geghard Monastery"), no link lacks an
+accessible name, the placeholder `<svg role="img">` and `<figcaption>` disclosure behave correctly,
+and map markers are focusable with localized names. **No actionable issue found.** One note only: each
+page has a single intentionally empty `alt=""` on a decorative image, which is correct.
+
+Responsive: **no horizontal overflow on any of the six pages at any of the four widths.** Titles wrap,
+cards and filters stay inside the viewport, bibliography and related rows reflow. The only
+width-dependent problem found anywhere is map marker overlap, recorded above.
+
+### Blockers for Place #13
+
+**None.** Nothing found in this audit makes adding a thirteenth Place materially more expensive or
+riskier than adding the twelfth. Every scaling issue identified — filler, map overlap, test runtime,
+artwork weight — degrades gradually and has a named trigger well above 13.
+
+### Prioritized action plan
+
+**Fix now, before Place #13** — cheap and high value, none of them blocking:
+- author 2–3 reciprocal `relatedSlugs` (`lake-sevan → jermuk`, `lake-sevan → dilijan`) — data only,
+  no code, and it directly reduces filler;
+- reconcile the Sanjian duplicate to one identifier and one title.
+
+**Fix before 20 Places:**
+- related-article filler: stop the two oldest articles filling every under-linked row;
+- map clustering or spiderfying, triggered by mobile overlap (>6 pairs at any width, or 16 markers);
+- partition `places.spec.ts` at ~Place #16, starting by moving the ten data tests to static
+  validation;
+- add corpus-wide SEO-uniqueness and one-work-one-identifier static checks;
+- convert `khor-virap.png` to WebP (~1.2 MB, a fifth of all Places artwork);
+- decide the artwork house style — illustrative or photographic — before the split widens;
+- batch-review the `hyw` editions, Jermuk's medical language first;
+- revisit `historical` when it reaches 6 members.
+
+**Carry as debt:** the four B-grade articles' depth; the acceptable source caveats; narrow-thumbnail
+crops (×3); Matenadaran façade colour, Garni warmth and Garni's ratio drift; Lake Sevan's
+low-identifiability cover; the heavy-WebP tail; the 12 non-Place articles with no SEO fields;
+Turbopack cold-route flake; host memory pressure; one-directional `relatedSlugs`; Visit row now half
+the section.
+
+**No action — reviewed and healthy:** taxonomy; UNESCO and designation handling; conventional-date
+handling; cross-locale parity; coordinate registry; SEO uniqueness and metadata ownership; search and
+alternate-name discovery; accessibility; responsive behaviour; Visit curation; artwork subject
+accuracy; `PENDING_ARTWORK` consistency; marker bounds, labels, sizing and lazy-loading.
+
+### Top three next-Place directions
+
+1. **Lori — Haghpat or Sanahin.** Type `monastery`. Fills the only completely unrepresented marz, adds
+   the Debed canyon and the north, and closes the archive's own loose end: three articles state that
+   Armenia has three World Heritage properties, and this is the one not covered. Risk: `monastery`
+   goes to 5 and becomes the dominant type — mitigated by writing it as a Debed/Lori subject rather
+   than a fifth monastery portrait.
+2. **Lori — Vanadzor.** Type `settlement`. Same marz, no monastery inflation, and a third settlement
+   of a genuinely different kind — a Soviet chemical-industry city, against an imperial garrison town
+   and a spa resort. Weaker on iconic pull; stronger on corpus balance, and it would make `settlement`
+   the clearest-defined pill in the taxonomy.
+3. **Syunik or Ararat depth — Zorats Karer, or Areni.** Type `historical`. The corpus has no
+   prehistoric or early-archaeological subject at all; everything begins with Urartu. This is the
+   largest *chronological* gap as opposed to geographic, and it would give `historical` a coherent
+   centre rather than leaving it a residue category. Risk: `historical` goes to 4 and needs the
+   review flagged above.
+
+**Lori is confirmed as the strongest direction**, on evidence rather than assumption: it is the only
+empty marz and it contains a World Heritage property the archive already references. The open question
+is Haghpat/Sanahin versus Vanadzor, and that is a type-balance decision rather than a geographic one.
+
+### Verification
+
+```
+npm run typecheck        PASS
+npm run validate:content PASS — 135 entries across 3 locales
+```
+
+No product or content file was changed, so no Playwright run was required. Focused browser inspection
+was used for the map, accessibility and responsive measurements, driven by temporary scripts under
+`scratchpad/` which were removed afterwards. The dev server was started and stopped under the usual
+port-3002 discipline. **No deployment.** `.claude/settings.json` untouched.
+
+---
+
+## §63. Post-audit cleanup before Place #13 (August 2026)
+
+Two narrow fixes taken from §62, plus the static check that stops the first one recurring. No article
+prose was rewritten, no Place added.
+
+### Sanjian — one work, two records, reconciled
+
+§62 found the same volume registered twice. Verified from the registry rather than from the audit
+summary:
+
+| | Matenadaran | Geghard |
+| --- | --- | --- |
+| author | Avedis K. Sanjian | Avedis K. Sanjian |
+| title | Colophons of Armenian Manuscripts, 1301**–**1480: A Source for Middle Eastern History | …1301**-**1480: … (hyphen) |
+| publisher | Harvard University Press, Harvard Armenian Texts and Studies 2 | Harvard Armenian Texts and Studies 2, Harvard University Press, Cambridge MA |
+| year | 1969 | 1969 |
+| identifier | `isbn:9780674142855` | `doi:10.4159/harvard.9780674432635` |
+
+Both identifiers were checked before anything was changed. The DOI was resolved through Crossref and
+returns *Colophons of Armenian Manuscripts, 1301-1480*, Harvard University Press, issued 1969, an
+edited book — **the same work**, so neither record was wrong and nothing false had been asserted. The
+bibliography simply cited one book two ways.
+
+**Canonical entry: `isbn:9780674142855`, en-dash title, publisher-first form.** The ISBN was kept
+because `year: "1969"` and the Harvard Armenian Texts and Studies 2 series name identify the print
+volume actually being cited; Crossref reports a different print ISBN (`9780674432611`) for the record
+behind the DOI, which is the reissue rather than the edition in the note.
+
+`Source.identifier` holds one identifier and the schema was not changed to hold two. **The DOI is
+preserved in `note`**, the only free field, on both copies: *"Harvard's digital edition of the same
+volume carries DOI 10.4159/harvard.9780674432635, checked against Crossref and confirmed as this
+work; the ISBN above is kept as the identifier because the 1969 print volume is the edition cited."*
+
+**No source object was deleted.** The registry keys bibliographies per slug, and the established
+convention — Hewsen's atlas is identical across seven articles, varying only in `note` — is that a
+shared work repeats as an identical `Source` object in each article's array. What was removed is the
+*divergence*, not a citation: Geghard's copy now matches the Matenadaran's in author, title,
+publisher, year and identifier, and keeps its own note. Both articles keep the work and both keep the
+claims it supports — the Matenadaran for what a hishatakaran records, Geghard for the documentary
+evidence of copying at Ayrivank in 1444, 1447, 1452, 1459 and 1476. **No prose was touched.**
+
+### The static check that stops it recurring
+
+`validateSources` already asserted *one identifier must not name two works*. §63 adds the inverse,
+which is the case that was blind: **one work must not carry two identifiers.**
+
+Author and title are normalised for case, whitespace, dash variants (`‐-―−` → `-`), quote variants and
+trailing punctuation only — the typography that differs when the same line is typed twice. There is no
+fuzzy matching, no semantic comparison and no external lookup, because a check that guesses would be
+worse than none: two genuinely different works with similar titles must stay separate.
+
+It was proved rather than assumed. The original divergence was temporarily reintroduced and
+`validate:content` failed with:
+
+```
+✖ source "colophons of armenian manuscripts 1301-1480 a source for middle eastern history"
+  is registered under 2 different identifiers:
+  isbn:9780674142855 (matenadaran) and doi:10.4159/harvard.9780674432635 (geghard-monastery).
+```
+
+— correctly normalising the dash so the two titles resolve to one work, and naming both slugs. The
+divergence was then reverted and validation passes. This closes one of the three
+**before-20-Places** static-validation items §62 recorded.
+
+### Relationships
+
+**`lake-sevan → jermuk` — added.** The basis existed in both articles before this step. Lake Sevan's
+"Bringing the water back" section: *"The first of these was the Arpa–Sevan tunnel, driven for tens of
+kilometres under the Vardenis range to bring the waters of the Arpa north into the lake. It came into
+operation in 1981."* Jermuk's gorge section describes Kechut, immediately below the town, as the
+intake of that same tunnel, and carries the article's only SectionLink. Two articles describing one
+structure from opposite ends is what an earned relationship looks like. Appended rather than inserted,
+so authored order is unchanged, and applied identically in `en`, `hy` and `hyw`.
+
+This is the section's **first reciprocal edge**. The other nine place↔place links remain one-way, by
+decision — §62 recommended specific earned relationships, not a reciprocity policy.
+
+**`lake-sevan → dilijan-national-park` — not added; insufficient textual basis.** Dilijan's link to
+Sevan is legitimate and stays: its own prose has the Areguni range falling towards the lake. But the
+Lake Sevan article names the Areguni exactly once, in a list of the three ranges that close the basin
+(*"the Areguni and Sevan ranges to the north-east, the Vardenis range to the south, the Gegham range
+to the west"*), and **never mentions Dilijan, the national park, the forest or Tavush at all**. A
+shared boundary named in passing is a boundary, not a relationship. Adding it would have rested on
+"both are `nature`" and "both are in the north-east", which §62 and this step's brief both exclude.
+
+`getRelatedArticles` was not modified. No helper, no auto-reciprocity, no graph traversal.
+
+### Filler behaviour — measured before and after
+
+```
+before   6 of 12 places receive filler   khor-virap ×5, etchmiadzin-cathedral ×5
+after    5 of 12 places receive filler   khor-virap ×4, etchmiadzin-cathedral ×5
+```
+
+Lake Sevan is the one that changed: its row was `kingdom-of-urartu, bagratid-armenia, khor-virap` and
+is now `kingdom-of-urartu, bagratid-armenia, jermuk` — fully authored, no filler.
+
+**Jermuk still receives generic monastery filler. Dilijan still receives generic monastery filler.**
+So do Amberd and Erebuni. All four still show `khor-virap` and `etchmiadzin-cathedral`.
+
+**The improvement is real but small, and the reason is worth recording for the pre-20 fix: reciprocity
+does not reduce filler at the receiving end.** Filler triggers on an article's own count of authored
+slugs being under three. Adding `lake-sevan → jermuk` gave *Lake Sevan* a third slug and fixed Lake
+Sevan; it did nothing for Jermuk, which still authors one. The four weakest cases — a spa town, a
+national park, a fortress and an Urartian citadel each recommending two monasteries — are unchanged,
+and they can only be fixed either by authoring more slugs on those four articles or by changing the
+fallback. Neither was in scope here.
+
+The fallback algorithm was not modified. This measurement is the baseline for that later fix.
+
+### Scope confirmations
+
+| | |
+| --- | --- |
+| Article prose rewritten | **none** — no paragraph, heading, keyFact, date or fact changed |
+| Taxonomy | unchanged — All 12 / Monastery 4 / Historical 3 / Museum 1 / Nature 2 / Settlement 2 |
+| Featured | Khor Virap only |
+| Map | unchanged — 12 markers; `visit-map.ts`, `map-tiles.ts`, `VisitMap.tsx` untouched |
+| Visit curation | unchanged — the same six, in the §53 order |
+| Artwork | unchanged — `IMAGES` untouched, `PENDING_ARTWORK` still empty, no asset touched |
+| Coordinates | `PLACE_COORDINATES` untouched |
+| SEO / JSON-LD / routing / search | untouched |
+| Relationship validity | every slug resolves, no self-link, no duplicate, order stable, parity across three editions |
+| SectionLinks | unchanged and still valid |
+
+### Tests
+
+`places.spec.ts` 75 → **78**. Three added, all data-only — no new browser navigation, and the
+`LOCALES × ILLUSTRATED` loops stay at 36:
+
+- **one work carries one identifier across the whole bibliography** — the registry-wide companion to
+  the existing per-article title-collision test, which could not see this failure because the two
+  copies lived in different articles;
+- **the Sanjian colophons volume is one record, cited by two articles** — pins the specific
+  reconciliation, because the general check would also pass if the duplicate had been resolved by
+  deleting one article's citation instead of by making the two agree. Asserts both articles keep it,
+  all five bibliographic fields match, the DOI survives in the note, and the two notes still differ;
+- **Lake Sevan and Jermuk point at each other, and nothing else gained a link** — pins the authored
+  `relatedSlugs` of all twelve Places in all three editions, in order, and asserts Lake Sevan did
+  *not* gain Dilijan, so the refusal is an assertion and not only a comment.
+
+One existing test was updated: `every place's editorial fields are pinned` had Lake Sevan's
+`relatedSlugs` pinned, and it caught the change exactly as designed. The pin was updated rather than
+loosened.
+
+### Results
+
+```
+npm run typecheck                                   PASS
+npm run validate:content                            PASS — 135 entries across 3 locales
+  (and PROVEN to fail on the reintroduced duplicate)
+npx playwright test tests/e2e/places.spec.ts        78 passed (4.2m)
+npx playwright test visit-map + visit + article     70 tests, green on re-run
+npx playwright test  (full)                         see below
+```
+
+**Failures, all investigated.**
+
+`[locale] the places listing and the article both load in this edition` failed intermittently — once
+on `hyw`+`en`, once on `hy`+`hyw`, once on `hy` alone — and at two different assertions on different
+runs: the route status not being 200, and the "not available in this edition" heading being present.
+It was not assumed to be a flake. All twelve `hy` routes were fetched directly from the dev server and
+every one returned the correct `<h1>` (`Խոր Վիրապ`, `Սևանա լիճ`, `Ջերմուկ` …) with no `noindex` and no
+unavailable page, deterministically, twice. The test then passed **four consecutive times** against a
+warm server, and the full spec passed at 78. This is the known Turbopack cold-route flake in a test
+that performs 36 sequential navigations — the exact shape §62 predicted would suffer first. Nothing in
+this step touches routing, locale resolution or the unavailable page.
+
+`article.spec.ts › an Armenian history article opens with its editorial furniture` failed once in a
+combined three-spec run and passed alone and in a full re-run of its own spec. Same signature. It was
+checked rather than dismissed because `sources.ts` renders in every article's bibliography, so a
+shared-data regression was plausible; it was not one.
+
+No assertion was weakened, no retry added, no timeout raised.
+
+### Deployment
+
+**None.** Nothing pushed or released. `.claude/settings.json` untouched.
+
+---
+
+## §64. Haghpat Monastery — Place #13, the first Lori article, and a map regression (August 2026)
+
+The thirteenth Place, written to close the one completely unrepresented province the §62 audit
+found. It also produced the most consequential side effect of any content step so far, recorded in
+full below: **adding a northern point collapsed the map's fitted zoom and brought the known mobile
+marker pile-up to every width.**
+
+### Taxonomy and coverage
+
+```
+All 13 · Monastery 5 · Historical 3 · Museum 1 · Nature 2 · Settlement 2
+```
+
+`monastery` is now the largest pill it has ever been. Khor Virap remains the only `featured: true`.
+No type was added, renamed or split — the §62 audit's conclusion holds that the five ids stay usable
+to about twenty places, and that `historical`, not `monastery`, is the one to watch.
+
+**Lori 0 → 1.** The only marz with nothing now has one article, and it is a `monastery` — which
+matters for choosing Place #14, because Lori is now represented by exactly the type that is already
+the corpus's largest. The audit's second Lori candidate, Vanadzor, would answer that; a second Lori
+monastery would not. Geographic balance is **not** complete: Yerevan and Kotayk still hold two each,
+and the Ararat–Kotayk cluster is still five articles inside ~25 km.
+
+### Why Haghpat rather than another monastery
+
+The gap it closes is not only geographic. Haghpat and Sanahin are one of Armenia's three World
+Heritage properties, and three articles in this section already tell readers that Armenia has three
+while the archive covered only two of them. That is now closed.
+
+### Structure
+
+12 sections, **42 paragraphs** (`3,4,4,4,4,3,3,3,4,3,4,3`): `haghpat-in-lori`,
+`foundation-under-the-bagratids`, `surb-nshan`, `a-monastery-built-over-centuries`, `the-gavit`,
+`books-teaching-and-the-library`, `the-zakarian-century`, `khachkars-and-inscriptions`,
+`changing-political-worlds`, `the-monastery-and-the-debed`, `conservation-and-world-heritage`,
+`what-haghpat-represents`. 6 key facts, 14 dated entries, 6 interesting facts, 2 significance
+paragraphs, 3 related figures, 3 prose links, 3 authored `relatedSlugs`.
+
+### Foundation chronology — three sources, two dates, one internal test
+
+The article refuses a single "founded in" date, and the reason is checkable rather than cautious.
+
+| Source | Start of Surb Nshan |
+| --- | --- |
+| UNESCO Statement of OUV | monastery founded by Queen Khosrovanuysh in **976** |
+| ICOMOS advisory evaluation, 1996 | church begun **966-67** |
+| *Documents of Armenian Architecture* 1, 1967 | church begun **966-67** |
+
+Both are in print and each is repeated confidently by writers following one or the other. What
+settles the weighting is internal to the earlier source: the 1967 survey states that the church was
+finished in 991 and that the work therefore **lasted fifteen years**, which fits a start in 976 and
+not one in 966. So the article treats **991 as the one firm date** — it rests on an inscription on
+the north side of the church — the tenth century as the period of foundation, and the start date as
+open. Foundation of the monastery, construction of the church, royal patronage and later expansion
+are kept as four separate things.
+
+### Bagratid patronage and Surb Nshan
+
+Founded by **Queen Khosrovanuysh**, wife of **Ashot III**, and dedicated for her sons **Smbat** and
+**Gurgen** — Smbat later took the throne at Ani, Gurgen inherited the Lori kingdom whose line is the
+**Kiurikian**. The monastery was built by and for the family that ruled the region and stayed tied to
+it.
+
+The church is a domed hall, dome on four piers built into the side walls, outer walls worked with
+triangular niches, attributed by tradition to **Trdat** — the architect of Ani cathedral and the man
+called to Constantinople to rebuild the dome of Hagia Sophia after the earthquake of **986**. The
+attribution is stated as traditional, not as documented.
+
+A **name disagreement** is recorded rather than resolved silently: the UNESCO statement calls the
+carved figures on the east front Smbat and **Gurgen**, the ICOMOS evaluation calls them Smbat and
+**Kiurike**. They are the same man — Gurgen is also Kiurike, and the dynasty is named after him — but
+a reader meeting both accounts would reasonably think otherwise, so the article says so.
+
+The church is **not** described as unchanged: the survey records repairs in the eleventh century and
+again at the end of the twelfth.
+
+### Architectural phases
+
+Saint Gregory **1005–1025**, its dome replaced by a barrel vault in the thirteenth century; the
+chapel of the Virgin on **Princess Khatun's** grant; the bell tower of **1245** on the highest ground;
+the hall of **Abbot Hamazasp** (UNESCO **1257**, the survey gives only the century and the name); the
+thirteenth-century refectory; and two burial vaults formed by roofing over the gaps between existing
+buildings — which is what an institution does when it has run out of room and will not move.
+
+The list is presented as an argument rather than an inventory: church, refectory, library and
+scriptorium, gavit, bell tower and walls together describe worship, community, teaching, manuscript
+culture, burial, a timetable and property worth defending.
+
+### Gavit terminology
+
+Explained rather than translated. The article states that narthex, cloister and chapter house all
+mislead, gives the sourced functional description — assembly, teaching of novices, burial — and notes
+that **UNESCO's own documentation calls it a narthex**, which is what a reader comparing accounts
+needs. The form is described from the survey: four free-standing columns, crossing arches dividing
+the ceiling into nine bays, the raised central **yerdik**.
+
+Its date is the site's largest open question and is left open: the 1967 survey puts the gavit at
+**1310–1320** on the site of a Kiurikian funerary building of **1185** associated with Mariam; UNESCO
+and ICOMOS put the building itself in the **second decade of the thirteenth century** and attribute it
+to Princess Mariam. **A century apart.** The article's suggestion is that one account absorbed the
+patron of the earlier structure into the date of the later one, and it does not choose.
+
+### Manuscripts and teaching
+
+The book room is described with both readings stated: the survey calls it the **library**, twelfth
+century; UNESCO calls it the **scriptorium**, eleventh century, rebuilt in the thirteenth. The article
+says why the distinction matters — a room for keeping books and a room for copying them are not the
+same claim.
+
+**"University" is refused.** The article states plainly that the word imports faculties, degrees and a
+charter that did not exist, and that what the evidence supports is a monastic school inside a
+religious community alongside manuscript copying — with the later school at Tatev shown as how far
+the distinction runs inside Armenia itself. That comparison is what earns the Tatev link.
+
+**Hovhannes Sarkavag** (about 1045–1129) is included with an explicit caveat: the biographical
+literature has him at Haghpat and his tomb is shown there, but **neither the architectural survey nor
+the UNESCO documentation names him**, and the article says it could not check the claim against a
+source that would settle it. ICOMOS's figure of some **five hundred monks** is attributed to that
+document, is for the two monasteries together, and is not presented as a headcount.
+
+### Political chronology and the Zakarian century
+
+Conquest, damage, abandonment and rebuilding are kept apart. Damage is evidenced — taken and burned
+in **1105** by a Seljuk commander ICOMOS names as Amir-Ghzil; Kayanberd, built **1233** to watch the
+approaches, stormed in **1241**. What did not happen is the ending the word "sacked" implies: monastic
+life continued, and most of the surviving buildings postdate 1105 and cluster around or after 1241.
+The thirteenth century was politically the most turbulent and architecturally the most productive.
+
+Patronage is attributed **building by building** rather than to the Zakarians collectively: Abbot
+Hamazasp by his hall, Princess Khatun by her grant. Later phases: repairs of **1651, 1676 and 1677**,
+then Persian and Russian periods, and the monastery is still a church of the Armenian Apostolic
+Church, which owns it.
+
+### Khachkars and inscriptions
+
+The **Amenaprkich khachkar of 1273** is named and its significance attributed to the survey rather
+than asserted; no superlative is repeated. Inscriptions are presented as the dating instrument — 991
+comes from a text on the north wall, not a chronicle, and the buildings that lack an inscription are
+precisely the ones the sources disagree about.
+
+### Haghpat and Sanahin — kept apart
+
+The two are named together throughout the literature and share one inscription, and the article
+states that they are **not one place**. Sanahin appears only where the comparison explains something,
+its own buildings are not described, and no `sanahin-monastery` slug was invented.
+
+### UNESCO — the staged designation, from primary documents
+
+Verified against `whc.unesco.org/en/list/777` and both ICOMOS evaluations, downloaded and read:
+
+```
+1996   inscribed as "Haghpat Monastery", ALONE, criteria (ii) and (iv)   dossier 777
+2000   extended to include Sanahin, renamed "Monasteries of Haghpat and Sanahin"   dossier 777bis
+```
+
+The proof is in the documents themselves: the 1996 evaluation is headed *Haghpat Monastery* and
+evaluates Haghpat alone on a nomination of 16 October 1995; the 2000 evaluation is headed as an
+**extension**, its subject is Sanahin, and it states in its own words that "the inscription of the
+Haghpat Monastery in 1996 was on the basis of criteria ii and iv."
+
+So the accurate statement — and the one the article makes — is that Haghpat is **part of** a property
+that also contains Sanahin, and that for four years it was inscribed by itself. No UNESCO promotional
+language is quoted. **Armenia's three properties were re-checked against the current States Parties
+listing** (777, 960, 1011) rather than assumed: the count of three that three other articles already
+state is correct, and Haghpat and Sanahin were the first of the three inscribed.
+
+### Conservation
+
+Seventeenth-century repairs, then Soviet work begun **1939–1940** and the major programme of
+**1960–1980**. The article states that restored fabric is a statement about the twentieth century as
+well as the tenth, and declines to guess what was replaced where the record does not say.
+
+### Geography
+
+Lori is introduced for readers meeting it for the first time — north of Yerevan, near the Georgian
+border, greener and more wooded than the volcanic uplands most Armenian monuments sit on. The Debed
+gorge explains the siting and the pairing with Sanahin. **Alaverdi's copper smelting** is included
+because UNESCO's own assessment names environmental pollution, seismic activity and visitor pressure
+as the threats to the property — an unusual sentence in a description of a medieval monastery and an
+accurate one.
+
+### Sources — 7 entries, 3 reused
+
+New: the UNESCO list entry for property 777; the **1996 ICOMOS evaluation** (its canonical archive
+path redirects, so the resolving document URL is registered); the **2000 ICOMOS extension
+evaluation**; and **Mnatsakanyan and Alpago-Novello, *Hakhpat*, Documents of Armenian Architecture 1
+(Milan, 1967)** — volume 1 of the same Milan/Yerevan series whose Geghard volume this repo already
+cites for that article.
+
+Reused under the §63 one-work-one-identifier rule, with no new identifier for any of them: **Hewsen**
+(now 8 articles), **Hovannisian Volume I** (6), **Maranci** (5). `validate:content` passes, which
+means the new bibliography introduced no duplicate work.
+
+### Coordinate
+
+```
+stored     41.0937, 44.7118    precision: "site"
+OSM        41.093720, 44.711774   way 186536991, amenity=monastery
+Wikidata   41.093716, 44.712073   Q2423898 — 25 m away
+```
+
+Two independent registers agreeing to 25 m. Rounding moves the point about 3 m. Rejected with
+distances: **Haghpat village node 406352141 at 101 m** — the sharpest miss in the whole registry,
+because the village adjoins the monastery and carries the same name; Kusanats Anapat church 443 m;
+Zarni-Parni caves 0.69 km; Kayan church 1.08 km; **Kayanberd 1.10 km**; Koshaberd 3.99 km; and
+**Sanahin at 3.88 km**, the substitution a reader could not catch. No existing coordinate modified.
+
+### Map — 12 → 13 automatically, and the regression
+
+The marker appeared through `Places ∩ PLACE_COORDINATES` with no allow-list, no hardcoding and no
+component edit. `visit-map.ts`, `VisitMap.tsx` and `map-tiles.ts` are byte-identical. The existing
+`monastery` glyph was reused; no World Heritage glyph was introduced.
+
+**And then the map got worse, at every width.**
+
+```
+                    before §64        after §64
+1440 px             2 pairs           14 pairs
+ 768 px            14 pairs           14 pairs
+ 390 px            14 pairs           14 pairs
+ 360 px            14 pairs           14 pairs
+pairs involving Haghpat                0
+```
+
+**Not one overlapping pair involves Haghpat**, and no new pair was created. Haghpat is isolated — its
+nearest registry neighbour is Dilijan, about 74 km south. What it did was move an extreme: it is the
+northernmost point in the registry, the fitted box grows into Lori, the zoom drops a level, and the
+Ararat–Kotayk cluster collapses. **The fourteen pairs are the same fourteen the §62 audit already
+recorded on mobile; desktop has simply joined them.**
+
+The consequence is functional and is now pinned by its own test. At the fitted zoom,
+`elementFromPoint` at the centre of the **Garni** marker returns Geghard, and at the centre of the
+**Erebuni** marker returns the Matenadaran. **Two of thirteen marker centres are covered**, so a
+pointer click aimed at the middle of either lands on the wrong place. Both remain reachable by
+keyboard and through the server-rendered list, so the map is degraded rather than broken.
+
+Nothing was fixed here — this is a content step and clustering is a map change — but two existing
+tests had to stop clicking Garni by pointer and now activate it by keyboard, which is the path the
+map already supports and the accessibility tests already use. The guarantee they make is unchanged.
+**The audit's clustering trigger of ~16 markers has effectively fired at 13**, and this is carried as
+the highest-priority item for the next map step.
+
+### Related content
+
+Three authored relations, all earned by prose written for them: **`bagratid-armenia`** (royal
+foundation, Ashot III, Smbat at Ani, Trdat), **`geghard-monastery`** (the World Heritage chronology
+the conservation section sets out — Armenia's three properties, Haghpat and Sanahin first, Geghard
+second), **`tatev-monastery`** (the monastic-school comparison that lets the article refuse the word
+"university"). No filler is rendered.
+
+This is the second deliberate exception to the rule that nothing links to Geghard, and the test that
+enforces it now names both exceptions and says why each is earned — Tatev because Geghard's own prose
+names Tatev, Haghpat because both articles describe the same World Heritage list from opposite ends.
+Explicitly **not** licensed by both being monasteries.
+
+### Artwork
+
+**Pending.** All forty-one files under `public/` were opened. All four existing monastery covers were
+considered and refused, with `tatev-monastery` recorded as the sharpest — a walled grey-stone complex
+on a promontory above a gorge, which fits Haghpat's shape and not its identity. Refused in advance
+and named so it cannot be reached for later: **Sanahin above all**, then a generic monastery, a single
+church portrait, a Debed Canyon landscape with the monastery small or absent, and a khachkar as
+subject. A written commission is in `media.ts`. No artwork generated.
+
+### Localization
+
+Three complete editions. The parity harness reports **0 differing rows across 3 editions** on every
+structural field and on the numeral multiset in every validator field group — including all four
+contested dates, the UNESCO years and the dossier number. Terminology follows the existing
+conventions (`ՅՈՒՆԵՍԿՕ` / `ԵՈՒՆԵՍՔՕ`, `գավիթ` / `գաւիթ`, `զանգակատուն`, `սեղանատուն`, `խաչքար`,
+`արձանագրություն` / `արձանագրութիւն`). **The Western Armenian edition is unreviewed machine output**
+and joins the §15 backlog, which is now thirteen articles — and medieval architectural vocabulary is
+the domain the §62 audit ranked highest-risk after Jermuk's medical language.
+
+### Results
+
+```
+parity harness                                    OK — 0 differing rows, 3 editions
+npm run typecheck                                 PASS
+npm run validate:content                          PASS — 138 entries; 1 pending-artwork note
+npx playwright test tests/e2e/places.spec.ts      84 passed
+npx playwright test tests/e2e/visit-map.spec.ts   33 passed
+npx playwright test tests/e2e/visit.spec.ts       24 passed
+```
+
+Content entries 135 → 138. Places tests 78 → 84, map tests 31 → 33.
+
+**Every failure, and there were six, all of them pins doing their job.** The first places run failed
+three: the monastery filter expected four cards and found five; the coordinate test asserted Gyumri
+was northernmost and Haghpat is; and the pinned editorial map rejected Haghpat's link to Geghard under
+the §47 rule that nothing but Tatev may point there. A fourth surfaced on the re-run — a §49 guard
+that Dilijan is northernmost of everything except Gyumri, which now needs Haghpat excluded too. All
+four were updated rather than loosened, and each carries the reason.
+
+The map spec then failed three, and those were not pins but the regression above: the overlap test
+found fourteen pairs where two were recorded, and two tests timed out clicking Garni. Causation was
+established rather than assumed — the pair list was measured at all four widths, and
+`elementFromPoint` was used to confirm which marker centres are covered by which neighbours.
+
+### Scope confirmations
+
+| | |
+| --- | --- |
+| Visit curation | unchanged — the same six in §53 order; Haghpat **not** promoted despite being World Heritage |
+| Required state | curated row 6, map 13, listing 13 |
+| Existing coordinates | none modified |
+| Map components | `visit-map.ts`, `VisitMap.tsx`, `map-tiles.ts` byte-identical |
+| Existing artwork | `IMAGES` unchanged; the twelve existing covers untouched |
+| Taxonomy | five ids, unchanged; only the monastery count moves |
+| `getRelatedArticles` | not modified |
+| Deployment | **none** |
+
+### Technical debt
+
+Everything on the §62 and §63 lists is carried forward untouched. Three items move:
+
+1. **Map clustering is now the top item, not a scheduled one.** The trigger fired at 13 markers
+   instead of ~16, desktop overlap went 2 → 14, and two marker centres are covered.
+2. The `hyw` review backlog is **13 articles**, and medieval architecture joins spa/hydrogeology as a
+   high-risk domain.
+3. `monastery` at five makes the artwork-substitution risk concrete rather than theoretical, which is
+   why all four refusals are named in `media.ts`.
+
+One new observation: **Lori is now represented, but by the corpus's most common type.** Place #14
+should probably not be another monastery, which strengthens the audit's Vanadzor option over a second
+Lori monastery.
+
+---
+
+## §65. Map marker density — the §64 regression, fixed generically (August 2026)
+
+The first step in this project taken **because the previous one broke something**, rather than to add
+something. §64 shipped Haghpat and reported, rather than smoothed away, that it had collapsed the
+map's fitted zoom. This closes that.
+
+### The regression, restated from the measurements
+
+```
+Haghpat added (§64)
+  → northernmost point in the registry, so the marker-derived box grows into Lori
+  → the fitted zoom drops a level
+  → the Yerevan–Ararat–Kotayk group collapses at every width
+  → desktop overlapping pairs 2 → 14   (mobile was already 14)
+  → Garni's marker centre covered by Geghard; Erebuni's covered by the Matenadaran
+```
+
+Two things about this are worth keeping, because they are what made the fix generic rather than
+local. **Haghpat was in none of the fourteen pairs** — its nearest registry neighbour is Dilijan, 74 km
+away — so the marker that caused the regression was not part of it. And the cause was not the new
+place but the *rule*: bounds derived from the marker set mean any addition anywhere can change the
+scale everywhere. That rule is correct and is kept; §65 absorbs its cost instead of trading it away
+for a hardcoded Armenia box, which would have been an editorial claim about where Armenian sites are,
+made inside a component.
+
+### Options evaluated
+
+**Option A — `leaflet.markercluster`.** Evaluated from the package itself rather than from
+reputation: `npm pack`, unpacked, read.
+
+| | |
+| --- | --- |
+| version | 1.5.3, last published **June 2022** |
+| size | 34 KB minified + two stylesheets |
+| types | none first-party; DefinitelyTyped only |
+| accessibility | **zero** occurrences of `role`, `aria-` or `tabindex` in 81 KB of source |
+| keyboard | on Enter it calls `this._map._container.focus()` — *"Focus the map again for keyboard users"* |
+
+The last two rows decided it. A cluster there is an unlabelled focusable div, and activating one
+**drops the reader onto the map container** — precisely the focus loss this step's acceptance criteria
+forbid. Every accessible name, every ARIA attribute and the whole focus-handoff would have had to be
+layered on top of DOM the library owns and rebuilds. Its default visuals (green/yellow/red bubbles,
+spiderfy legs, coverage polygons) would all have been overridden as well, and its integration model —
+markers belong to the cluster group, not to the map — would have meant rewriting the existing
+filtering, decoration and selection code, all three of which reach markers through `getElement()`.
+
+**Option B — a small local screen-space grouping.** Chosen.
+
+The brief's own test is whether a custom implementation *creates significantly more interaction and
+accessibility complexity*. Here it creates less: the group is a `divIcon` this repo controls, so
+`role="button"`, a localized accessible name and a deliberate focus handoff are three lines rather
+than three workarounds, and the existing filter/selection/decoration code keeps working because
+markers still belong to the map. **No dependency was added.** `package.json` is unchanged; the map's
+one library is still Leaflet 1.9.4, which the existing "one map dependency, pinned by name" test
+already asserts.
+
+### The algorithm — `src/lib/map-cluster.ts`, new, pure
+
+No Leaflet, no DOM, no React. Container pixels in, groups in container pixels out.
+
+- **Grouped on projected pixels, at the current view**, recomputed on `moveend`, `zoomend` and
+  `resize`. What collides is pixels, and which pixels a coordinate occupies depends on a zoom nobody
+  authored — which is exactly the fact §64 discovered the hard way.
+- **Rectangular threshold, 24 × 30 px**, not a radius: pins are 28 × 38, taller than they are wide.
+- **The margin is a proof, not a guess.** A pin's centre is covered by a neighbour exactly when the
+  two centres are within 14 px across and 19 px down. Any pair that survives grouping is at least
+  24 px apart horizontally *or* 30 px apart vertically, and both exceed the coverage half-extents, so
+  no surviving marker can cover another's centre. The group glyph is 34 px square (half-extent 17) and
+  the same argument covers marker–group and group–group.
+- **Leader grouping, not single-link chaining**, so a line of pins 25 px apart cannot become one group
+  of thirteen spanning the country.
+- **Run to a fixpoint.** Merging moves a group to its centroid, and a centroid can drift into range of
+  a marker that was outside the threshold when the pass began — one pass would let a group glyph land
+  on a lone pin, which is the same bug in a new costume.
+- **Order-independent.** Input is sorted before grouping, so the registry's editorial order does not
+  leak into the map.
+
+### Interaction
+
+**Pointer.** Activating a group zooms toward it — `getBoundsZoom` answers *is there a zoom at which
+these sit further apart than now?* If yes, `fitBounds`. If no, the members are spread around the
+group's centre. In the current registry the first branch always runs and **one click fully resolves
+the four-place group**; the second exists for the case that has no zoom answer at all, two Places at
+one coordinate, which is what a chapel inside a monastery's walls would be.
+
+The spread applies **pixel offsets to the icon anchor**, never to the coordinate. That is the
+difference between it and the nudged-coordinate fix the brief ruled out: a moved coordinate is a lie
+at every zoom, whereas an anchor offset is recomputed from scratch on the next view change and
+discarded when the group closes. `getLatLng()` stays true throughout. It is unreachable with the
+current thirteen coordinates, which is exactly why it is asserted directly in a static test rather
+than assumed to work on the day it first runs.
+
+**Keyboard — Model A, with the handoff made explicit.** The group is a `role="button"` with
+`tabindex="0"` that answers Enter and Space. Opening it removes it from the document, and a focused
+element that disappears drops focus to `<body>`, so focus is moved deliberately to the first place
+revealed — or, if one zoom step only split a large group into smaller ones, to the group that still
+holds the wanted place, so the next Enter carries on. Focus always lands on something. This is the
+half `leaflet.markercluster` gets wrong.
+
+**Accessible name.** `"4 places"`, localized, never the bare numeral and never the four member titles
+— a reader panning the map would hear the same names announced again at every group.
+
+### Localization
+
+`mapClusterLabel` added to `PagesContent.visit` and to all three editions:
+
+```
+en    "{count} places"
+hy    "{count} վայր"
+hyw   "{count} վայր"
+```
+
+The two Armenian forms are identical because Armenian takes the singular after a numeral in both
+orthographies and `վայր` carries no Eastern marker — **convergence, not fallback**. The component does
+the `{count}` substitution with one `replace` rather than importing `t()` from `lib/i18n`, because
+that module pulls the locale bundles and would ship the whole corpus into the map's lazily-loaded
+chunk to draw a number on a circle.
+
+A static test asserts the string exists in all three editions, interpolates the count, is more than a
+numeral, and **names no place, city or province in any edition** — the grouping is spatial, and a
+label that said "Yerevan" would need re-captioning every time a Place moved.
+
+### Responsive results
+
+Identical at every width, which is itself the finding — the collapse §64 measured is gone rather than
+pushed to one breakpoint:
+
+| | 360 | 390 | 768 | 1440 |
+| --- | --- | --- | --- | --- |
+| individual markers | 7 | 7 | 7 | 7 |
+| groups | 2 | 2 | 2 | 2 |
+| largest group | 4 | 4 | 4 | 4 |
+| covered centres (`elementFromPoint`) | **0** | **0** | **0** | **0** |
+| every place independently selectable | yes | yes | yes | yes |
+
+The two groups are `[amberd-fortress, etchmiadzin-cathedral]` and
+`[erebuni-fortress, garni-temple, geghard-monastery, matenadaran]`. Compare §64: **14 overlapping
+pairs and 2 covered centres at all four widths.**
+
+### Regression closure
+
+**Garni, Geghard, Erebuni and the Matenadaran are each independently pointer-selectable again**, tested
+through the sequence a reader performs — open the group, click the exact place, read the card, check
+the link. Each of the four is also asserted *not* to show any of the other three, because "Garni is
+clickable" and "Garni is clickable and shows Garni" are different claims and only the second one
+failed in §64.
+
+Two tests that §64 had to move to the keyboard are **back on the mouse**, which is the strongest
+statement this suite can make that the fix is real: `selecting a marker reveals that place, and never
+a neighbour's`, and the exhaustive selection loop. The keyboard path is kept as its own test rather
+than dropped.
+
+### Scope
+
+| | |
+| --- | --- |
+| coordinates | **byte-identical** — `geo.ts` untouched |
+| marker source | still `Places ∩ PLACE_COORDINATES`, no allow-list, no hardcoded grouping |
+| bounds | still marker-derived; no fixed zoom, centre or Armenia box |
+| `map-tiles.ts` | **untouched** — Stadia config, OSM fallback, attribution, max zoom, env vars all as they were |
+| SSR list | unchanged, all 13 in every edition, whatever the map is doing |
+| lazy mount | unchanged — Leaflet still `import()`ed inside the `IntersectionObserver` |
+| selected card | unchanged; a group produces no card, because a group is navigation, not content |
+| Visit curation | the same six in §53 order; Haghpat still not promoted |
+| taxonomy | All 13 · Monastery 5 · Historical 3 · Museum 1 · Nature 2 · Settlement 2 |
+| artwork | `IMAGES`, `PENDING_ARTWORK`, `ARTWORK_PROVENANCE` untouched; Haghpat still pending |
+| `getRelatedArticles` / `relatedSlugs` | untouched; Lake Sevan → Jermuk intact, → Dilijan still absent |
+| new map features | none — no geolocation, routing, geocoding, fullscreen, satellite or popups |
+| deployment | **none** |
+
+### Tests
+
+`visit-map.spec.ts` 33 → **41**. Nine existing tests failed on the new behaviour and every one was
+*transformed rather than deleted or loosened*, because in each case the marker it addressed is now
+reached by opening a group:
+
+- the two §64 tests — the fourteen-pair list and the two-covered-centres pin — became
+  `nothing the map draws covers anything else, at every width` and
+  `the four places that collided are each independently pointer-selectable`. The old pair list is
+  kept in the file as `OVERLAPPED_BEFORE_CLUSTERING`, as the thing the fix is measured against;
+- the derived-bounds test now iterates what the map draws rather than the thirteen slugs, and the
+  "every place accounted for exactly once" claim moved to the overlap test, where it is stronger;
+- the monastery-glyph test narrows to `monastery` first, which makes it also prove that groups
+  recompute from the filtered set;
+- four tests gained `reveal()`, the helper that performs a reader's own path through a group and
+  asserts each step, so a group that refused to open fails loudly instead of timing out.
+
+Eight new tests: the pure-algorithm test (identical coordinates, order independence, a 40-point
+scatter with no pair able to cover another, and the spread offsets for every count 2–13); a static
+source test that **no slug, city or province appears in the grouping or component code**, and that
+`fitBounds` is still there and no `setView([…])` has crept in; group structure and labelling;
+keyboard opening and the focus handoff, for Enter and Space; keyboard selection of all thirteen;
+filter recomputation with no stale group and an exact return to the opening state; the localized-label
+data test; and one rendered-label test per edition.
+
+The two exhaustive loops reload the map for each place. This is not avoidance: opening a group zooms
+into it, so a loop that stayed on one page would be testing thirteen progressively different maps,
+and the state every reader arrives in is the fitted extent. Their timeouts are raised to 180 s for
+that reason — nothing is retried, nothing is forced, and every one of the thirteen resolutions
+asserts its own result.
+
+### Results
+
+```
+npm run typecheck                                 PASS
+npm run validate:content                          PASS — 138 entries; 1 pending-artwork note
+npx playwright test tests/e2e/visit-map.spec.ts   41 passed
+npx playwright test tests/e2e/visit.spec.ts       24 passed
+npx playwright test tests/e2e/places.spec.ts      84 passed
+npx playwright test (full)                        297 passed, 5 skipped
+npm run build                                     PASS — 147 pages
+```
+
+**Failures, all recorded.** Nine on the first map run, all the "marker not individually rendered"
+class described above, all transformed. Two more on the second run: the exhaustive pointer loop
+failed with *"container-page intercepts pointer events"* — the honest signal that after several
+expansions the remaining markers sit outside the visible map — which is what produced the
+reload-per-place design; and the localized accessible-name loop needed a `reveal` in each edition. One
+of my own new tests failed correctly on its first run, because a doc comment in `map-cluster.ts` used
+a real slug as an example of the selector shape; the comment was rewritten rather than the test
+relaxed.
+
+**One host-memory failure, reported separately.** The first `places.spec.ts` run died with
+`FATAL ERROR: Committing semi space failed. Allocation failed — JavaScript heap out of memory` at
+~60 MB of heap, which is a host allocation failure rather than a V8 limit. It took the runner and the
+dev server with it; no node process survived and port 3002 was clear afterwards. Re-run clean, 84
+passed. This is the standing host-memory-pressure debt from §60, not a new symptom.
+
+### Performance
+
+No measurable change. The grouping is O(n²) over thirteen points, runs on view-change events only,
+and re-applies an icon solely when its signature changes — which is also what stops a pan from
+rebuilding marker DOM and throwing away a keyboard reader's focus. No new bytes reach the client:
+`map-cluster.ts` is ~190 lines of arithmetic with no dependency, and no library was added. Lazy mount
+is unchanged, since Leaflet is still what waits for the `IntersectionObserver`. The map spec grew from
+33 tests in ~2.6 min to 41 in a comparable window, the growth being the two thirteen-reload loops.
+
+### Debt after this change
+
+Removed from the list: **map clustering**, which §64 had promoted to the top item, and the desktop and
+mobile overlap counts with it. The §62 trigger — *review before ~16 markers or 20 Places* — is
+discharged rather than deferred.
+
+Remaining, unchanged: the raster basemap's label-language limitation and the Stadia operational debt;
+the artwork register split, the Khor Virap PNG, the heavy WebP tail and the thumbnail crop debt; the
+weak same-category filler in `getRelatedArticles` and the one-directional relationship graph; the four
+B-depth early Places; the twelve non-Place articles lacking SEO fields; the thirteen-article `hyw`
+native-review backlog; the Turbopack cold-route flake and host-memory pressure; and the
+`places.spec.ts` partition, still planned before Place #16 and **not** performed here.
+
+New and small: `spreadOffsets` is unreachable with the current registry and is covered only by its
+static test. It becomes live the first time two Places share a coordinate closely enough that no zoom
+separates them — a chapel inside a monastery, a museum inside a fortress — and that is the day to
+look at it in a browser.
+
+---
+
+## §66. Haghpat artwork — registered, and the first cover checked against a photograph (August 2026)
+
+The thirteenth Place gets its picture, `PENDING_ARTWORK` empties for the thirteenth time, and for the
+first time in this project's history **every Place in the archive has a cover**.
+
+### The asset
+
+```
+public/images/places/haghpat-monastery.webp
+1586 × 992   ratio 1.5988 (16:10, the house standard)
+685,282 bytes  (669 KB)
+sha256  95874d2616e0d3b5c9caba749ae461adf7f0ac77567e8e2b39c97386daf7fdeb
+```
+
+Verified twice, independently. A hand-written RIFF walk reports `RIFF`/`WEBP`, a declared size field of
+685,274 that equals the file length minus eight, and **one chunk**: a bare `VP8 ` of 685,262 bytes with
+a lossy keyframe measuring 1586 × 992. No `VP8X`, therefore no ICC, no alpha, no EXIF, no XMP and no
+animation — the flags cannot exist without the extended header. `sharp` agrees on every count:
+`format: webp`, 1586 × 992, 3 channels, `hasAlpha: false`, and `icc`/`exif`/`xmp`/`iptc` all absent,
+with no EXIF orientation to rotate anything. **No dimension drift**: it is exactly the geometry ten of
+the twelve existing Place covers use.
+
+### Visual acceptance — passed
+
+Opened at full resolution and then at 2× and 4× on six regions rather than judged from the whole frame.
+
+**It is Haghpat, not a monastery.** The identifying features are all present and all in the right
+relationship to each other:
+
+- the **bell tower** standing free of everything else on higher ground to the left — square masonry
+  below, opening into an arcaded belfry of slender colonnettes under a gabled conical roof. Armenian
+  medieval geometry, emphatically not a Western campanile, and it does not dominate the frame;
+- **Surb Nshan**'s short, heavy, many-sided drum under a stone-tiled umbrella roof, centre-right —
+  the proportion the commission asked for, with no exaggerated dome height;
+- the broad low **gavit** across the foreground, wider than the church it adjoins, with a small
+  conical lantern on its ridge;
+- a **refectory range**, an arcaded gallery, two smaller domed chapels, and a rubble **enclosure wall**
+  with an arched gate;
+- a courtyard of flat grave slabs, authentic to the site and correctly plain.
+
+**Eight distinct volumes, none of them dominant.** That is precisely the argument the article makes in
+prose — a complex accumulated across three centuries rather than one building — and it is the
+requirement §64 recorded as non-negotiable. No single façade fills the frame; no isolated church.
+
+### Told apart from the four it had to be told apart from
+
+| | why it is not that |
+| --- | --- |
+| **Geghard** | no cliff face, nothing rock-cut, the complex stands open on a terrace |
+| **Tatev** | no canyon; the gorge is absent from frame, the viewpoint is across the plateau rather than a high aerial, and no single tall drum dominates |
+| **Khor Virap** | no Ararat, no plain, no single walled enclosure |
+| **Etchmiadzin** | rural and monastic, no town, no cathedral campus |
+
+The Tatev comparison was the one to watch, since §64 named that file the sharpest refusal. Set side by
+side the two are not confusable: Tatev's cover is a high aerial of a promontory above a canyon with one
+tall drum; this is a mountainside view of a dense low group under wooded ridges.
+
+### Sanahin — excluded, and checked rather than assumed
+
+The one substitution no reader could have caught. The only other buildings in the frame are on the far
+hillside at mid-left, and they were examined at magnification: **village houses** with pitched pale
+roofs and white walls among trees, hedgerows and cleared pasture. No dome, no drum, no cross, no
+ecclesiastical silhouette. There is no second monastery and no composite.
+
+### Lori landscape
+
+Wooded slopes with cleared pasture patches, hedgerows, deciduous forest and mist on the ridge — cool
+northern Armenian highland. Distinct from the dry Ararat plain, from Vayots Dzor, from the Syunik
+canyon and from Dilijan's closed forest; not alpine. The monastery stays primary; no gorge overwhelms
+it. Late-summer green, no snow, no autumn orange.
+
+### Architecture, material and artefacts
+
+Dark grey-blue basalt ashlar with lighter blocks and lichen on the stone-tiled roofs — the correct
+material register, and none of the failure modes the brief listed (no orange sandstone, no pink tuff,
+no polished white, no monochrome black). Masonry courses are regular, arches are structurally
+plausible, the courtyard slabs recede consistently, and there is no melted masonry, no duplicated
+structure and no repeated-window artefact.
+
+Two mild painterly softnesses, recorded and not retouched: the colonnettes of the right-hand arcade
+blur where they meet the ground, and small dark protrusions recur on some wall faces which read as
+weathered putlog holes. Neither damages the editorial read.
+
+**No people appear.** Permitted rather than required, and their absence removes a whole class of risk.
+No modern elements at all — no scaffolding, crane, visitor centre, parking, bus, sign or power line.
+
+### Text and signage — clean
+
+Inspected at 4× on the drum band and the gavit portal, the two surfaces where generated pseudo-text
+appears if it appears anywhere. The drum carries scattered pale marks and the portal surround carries
+shallow relief; **neither resolves into writing** — there is no baseline, no repeated glyph form and
+nothing legible. The grave slabs are plain. No Armenian, Russian or English lettering, no plaque, no
+UNESCO emblem, no watermark, no signature.
+
+### Visual register — photographic, and that is the debt this widens
+
+**Classified photographic.** The §64 commission and the Step 36 brief both asked for the painterly
+register `tatev-monastery.webp` and `geghard-monastery.webp` use, and what landed reads as a drone
+photograph. It was registered anyway: subject accuracy is what a cover is for, and this one is *exact*
+where the four monastery covers it had to be distinguished from are merely plausible.
+
+The consequence is recorded in `media.ts` beside the entry, because it is not only a style note. **The
+file is AI-generated and looks like documentary evidence of a real building**, which is a stronger
+claim to a skimming reader than a painting makes. `ARTWORK_PROVENANCE` and the AI caption therefore do
+more work for this slug than for any other, and the rewritten hero test requires the *AI-generated
+wording specifically* rather than merely "not the placeholder".
+
+### Crops
+
+Centre crops, since no `object-position` was added and none was needed.
+
+| surface | crop | trim | verdict |
+| --- | --- | --- | --- |
+| 16:10 source | 1586 × 991 | 0.1 % height | native |
+| 16:9 listing / hero / map card | 1586 × 892 | 10.1 % height | **best crop** — everything survives |
+| 3:2 tablet | 1488 × 992 | 6.2 % width | all features survive |
+| 4:3 mobile hero | 1323 × 992 | 16.6 % width | all features survive |
+| search thumbnail (0.8) | 794 × 992 | **49.9 % width** | complex still reads |
+
+Even at the thumbnail's fifty-percent trim the drum, the gavit, three further volumes, the courtyard
+wall and the wooded hillside all remain — it never degrades into one dome, one wall or grass. It does
+lose the free-standing bell tower, which is one of the two strongest identifiers; recorded as minor
+artwork debt rather than a defect, since the complex still reads without it.
+
+### Registration
+
+```
+IMAGES            "haghpat-monastery": "/images/places/haghpat-monastery.webp"   (13 places)
+PENDING_ARTWORK   []                                                             (empty)
+ILLUSTRATED       13
+ARTWORK           13, written out per slug
+```
+
+Nothing else changed: no monastery-specific image logic, no Haghpat-specific component code, no new
+image field, no new provenance infrastructure. `ARTWORK_PROVENANCE` untouched. `validate:content` no
+longer prints the pending-artwork note — the first time it has been silent on that line.
+
+The `§64` commission block is kept unstruck and marked **§66 Resolved**, in the same style as §61: it
+is the description the file was measured against, and it is what a replacement would be measured
+against.
+
+### Every surface
+
+| surface | result |
+| --- | --- |
+| hero, en/hy/hyw | own file, correct `alt`, AI-illustration caption, placeholder `<svg>` gone |
+| listing | 13 cards, **0 placeholders** — the derived count evaluates to zero for the first time |
+| search | own thumbnail, scoped by canonical href |
+| map selected card | transitions from no image to Haghpat's own file; the four monastery covers still refused by name |
+| `Article.image` | Haghpat's file (was absent) |
+| `og:image` / `twitter:image` | Haghpat's file, and asserted **not** to be `/og-default.png` any more |
+| JSON-LD | generic `Article` only; no `Place`, `TouristAttraction`, `Church`, `GeoCoordinates` or the six other speculative types |
+
+**Sitemap, verified route by route** rather than by a global filename count — `sitemap()` was called
+directly and its output inspected:
+
+```
+/hy/places/haghpat-monastery    images: [.../haghpat-monastery.webp]
+/hyw/places/haghpat-monastery   images: [.../haghpat-monastery.webp]
+/en/places/haghpat-monastery    images: [.../haghpat-monastery.webp]
+```
+
+Exactly one image per block, Haghpat's own, no neighbouring monastery's file anywhere in the three.
+
+### Map cluster regression — none
+
+Registration touched no map code, and the measurements are identical to §65 at every width:
+
+```
+13 places · 7 individual markers · 2 groups (2 and 4) · largest 4 · 0 covered centres
+```
+
+Garni, Geghard, Erebuni and the Matenadaran remain independently pointer-selectable; all thirteen
+remain pointer- and keyboard-selectable. Coordinates, bounds and grouping rules untouched.
+
+### Everything held unchanged
+
+Taxonomy `All 13 · Monastery 5 · Historical 3 · Museum 1 · Nature 2 · Settlement 2`, Khor Virap still
+sole `featured`. Lori still represented by exactly `haghpat-monastery`; no coordinate touched. Visit
+curation the same six in §53 order — **Haghpat not promoted because it now has a picture**, curated row
+6, map 13, listing 13. `relatedSlugs`, `SectionLinks` and `getRelatedArticles` untouched; Lake
+Sevan → Jermuk present, → Dilijan still intentionally absent. No editorial field, source or translation
+altered: the 976/966-67 disagreement, the firm 991, the Gurgen/Kiurike explanation, the gavit century
+gap, the refusal of "university", the 500-monks attribution, the 1273 khachkar and the staged 1996/2000
+UNESCO chronology all stand exactly as §64 wrote them. Source validation green, one work → one
+identifier.
+
+### Artwork performance
+
+**Haghpat enters the top five heaviest Places assets, fourth at 669 KB.**
+
+```
+1  khor-virap.png              1437 KB     5  amberd-fortress.webp   660 KB
+2  erebuni-fortress.webp        742 KB     …
+3  matenadaran.webp             701 KB    13  garni-temple.webp      120 KB
+4  haghpat-monastery.webp       669 KB    total 6667 KB / 13 files
+```
+
+Not optimized, and Khor Virap not converted — artwork optimization remains a before-20-Places task. The
+tail is now five files over 600 KB against four, which strengthens the case rather than changing it.
+
+### Test-runtime observation
+
+The artwork loops went **36 → 39 navigations**. `places.spec.ts` moved from 4.9 min to **5.7 min** at
+84 tests — a real increase, proportional to the three added navigations, and stable rather than flaky.
+Nothing was partitioned, no retry was added and no timeout was raised. **The planned pre-Place-16
+partition stands where it was**; this step gives no reason to bring it forward, but Place #14 will add
+three more navigations to the same loops and should be watched.
+
+### Results, and every failure
+
+```
+npm run typecheck                                 PASS
+npm run validate:content                          PASS — 138 entries, no pending-artwork note
+npx playwright test tests/e2e/places.spec.ts      84 passed (5.7m)
+npx playwright test tests/e2e/visit-map.spec.ts   41 passed (1.8m)
+npx playwright test tests/e2e/visit.spec.ts       24 passed (1.5m)
+npx playwright test (full)                        297 passed, 5 skipped (8.8m) — clean first run
+npm run build                                     PASS — 147 pages
+```
+
+**Three failures, and the diagnosis of the third corrects a standing debt entry.**
+
+1. A **Turbopack internal panic** during the `places.spec.ts` dev-server start —
+   `thread 'tokio-runtime-worker' panicked … Every task must have a task type` in
+   `turbo-tasks-backend`. No test failed; the suite ran green. Turbopack then deleted its own
+   filesystem cache and said so on the next start.
+2. `visit.spec.ts` then **died twice on startup**, both times with V8 and Rust allocation failures —
+   `FATAL ERROR: Committing semi space failed`, `Fatal process out of memory: Zone`,
+   `memory allocation of 278544 bytes failed`, and once `UNKNOWN: unknown error, write` from the
+   reporter.
+3. Which looked exactly like the standing **host-memory-pressure** debt from §60 — and, measured,
+   was not. At the moment of failure the machine had **9.98 GB of 15.94 GB physical RAM free**, node's
+   heap limit was a normal **4144 MB**, `NODE_OPTIONS` was empty at every scope, and the failing heaps
+   were **6–13 MB**. A process cannot be out of memory at 10 MB with 10 GB free.
+
+   The common factor is the panic in (1): every dev-server start after Turbopack discarded its cache
+   was a full cold compile off freshly-wiped state, and that is where it died. Removing `.next` and
+   re-running gave 24 passed with no other change.
+
+   **This reframes the §60/§64/§65 debt.** Those OOMs carried the same signature — tiny heaps,
+   `Committing semi space failed`, the runner and dev server dying together — and were recorded as host
+   memory pressure without the free-memory figure ever being taken. On this evidence the more likely
+   cause is **corrupted Turbopack cache state**, and the remedy is `rm -rf .next` rather than closing
+   applications. Stated as the better hypothesis, not as settled: it has been diagnosed once.
+
+No test was weakened, no retry added, no timeout raised, and no assertion was changed to match a
+regression.
+
+### Debt after this step
+
+Closed: the pending-artwork slot, empty for the first time with every Place illustrated.
+
+Reframed: **host-memory pressure → probable Turbopack cache corruption**, with `rm -rf .next` as the
+first response rather than the last.
+
+Carried forward unchanged: artwork optimization before 20 Places, now with five files over 600 KB;
+the Khor Virap PNG at 1437 KB; the thumbnail crop debt, which Haghpat joins in the mild form of losing
+its bell tower at the narrowest crop; the Matenadaran colour discrepancy; the weak same-category filler
+and the one-directional relationship graph; the four B-depth early Places; the twelve non-Place
+articles lacking SEO fields; the thirteen-article `hyw` native-review backlog; the raster basemap's
+label-language limitation and the Stadia operational debt; and the `places.spec.ts` partition before
+Place #16.
+
+Widened: **the visual-register split.** Haghpat is now the clearest photographic member of a corpus
+whose other covers are painted, and it is the strongest argument yet that the split needs an editorial
+decision rather than another accretion.
+
+### No deployment
+
+---
+
+## §67. Cuisine expansion planning — audit before Article #7 (August 2026)
+
+Places pauses at thirteen. This is a **repository inspection only**: no article, no artwork, no taxonomy
+and no code changed, and `PROJECT_STATE.md` is the single file this step writes.
+
+### Current state
+
+**Six articles**, identical in all three editions: `lavash`, `dolma`, `khorovats`, `harissa`, `gata`,
+`ghapama`. Full locale parity — same slugs in the same order, same section counts, same paragraph
+counts, same `relatedSlugs`, same dates and facts. All six illustrated; `PENDING_ARTWORK` empty.
+Complete SEO fields throughout (`seoTitle` 38–49, `metaDescription` 129–156). All six last updated
+2026-07-31; none is `featured`.
+
+`cuisineTypes` holds five ids plus `all`, and the distribution is almost flat:
+
+```
+bread 1 · main 1 · meat 1 · ceremonial 2 · dessert 1
+```
+
+### Coverage, and the gap that matters
+
+| group | covered |
+| --- | --- |
+| bread / grain | lavash |
+| festive / ceremonial | harissa, ghapama, dolma |
+| meat | khorovats |
+| desserts / pastries | gata |
+| **soups** | **none** |
+| **dairy / fermentation** | **none** |
+| **preserved foods** | **none** |
+| **drinks** | **none** |
+| **vegetable dishes** | none (dolma is meat-stuffed in its main form) |
+| **regional foods** | **none** |
+| techniques | only inside lavash (the tonir) |
+
+The single most important finding is not a missing dish. **Every one of the six is festive, ceremonial
+or iconic.** There is no ordinary weekday food in the section at all — nothing a household actually eats
+on a Tuesday — which makes the category read as a list of national symbols rather than as a cuisine.
+
+Three structural findings, from reading the corpus rather than the record:
+
+1. **Cuisine is a sealed island.** Zero inbound links from the other 129 articles, zero outbound links
+   to them. The six link only to each other. Places, by contrast, link into History.
+2. **Zero `SectionLinks` in all six.** Places author prose links; Cuisine has none anywhere.
+3. **A uniform template.** All six carry the identical six section ids and headings — `what-it-is`,
+   `cultural-role`, `history`, `ingredients-and-preparation`, `occasions`, `variations` — at 17–18
+   paragraphs. Haghpat, for comparison, has twelve bespoke sections and 42 paragraphs. No article has
+   `relatedFigures`.
+
+### Content quality — **A on evidence, B on depth**
+
+The prose is better than the template suggests and materially better than feared. Lavash sets out
+*both* UNESCO inscriptions and states plainly that neither awards ownership of a bread. Harissa leads
+with a tenth-century Baghdadi cookbook, marks the Gregory the Illuminator story as folklore in the
+article itself, presents the Musaler link as community memory rather than archive, and corrects
+Werfel's "forty days". No article claims invention, antiquity or primacy. **No C or D items.**
+
+All six are **B**, for the same reason: depth and structure, not accuracy. Uniform sectioning, roughly
+half the paragraph count of a current Place, no prose links, no figures. One source-concentration note:
+Petrosian & Underwood's *Armenian Food: Fact, Fiction & Folklore* appears in five of the six. It is an
+apt choice for a section at folklore risk, but it is popular press, and the next article should not make
+it six of seven by default.
+
+### Ranked next five
+
+```
+#1  spas               main        soup · fermented dairy · everyday food
+#2  jingalov-hats      bread       Artsakh · regional · herb bread
+#3  khash              meat        winter ritual · social institution
+#4  matsun             (no type)   foundational ingredient · fermentation
+#5  basturma           meat        preservation · diaspora
+```
+
+**Harissa and ghapama were on the brief's candidate list and already exist**; `tolma` variations are
+covered inside `dolma`, and tonir technique is substantially covered inside `lavash`. All three are
+excluded as duplicates rather than ranked.
+
+A constraint that shapes the list: `matsun`, `tan`, Armenian coffee and Armenian cheeses have **no
+home in the current five dish types**, so each would force a taxonomy decision before it could ship.
+Every one of #1, #2, #3 and #5 fits an existing id.
+
+### Recommendation — **`spas` is Cuisine article #7**
+
+It is the only candidate that closes three gaps at once — first soup, first fermented dairy, first
+ordinary weekday food — while fitting the existing `main` type, carrying essentially no origin-claim
+risk, and needing no article that does not yet exist. Its technique is genuinely explicable: matsun
+must be stabilised with egg or flour and stirred in one direction or it splits, which is a real piece
+of knowledge rather than a recipe step. It also seeds the ingredient hub that `matsun` would later
+become, which is how the section stops being an island.
+
+`jingalov-hats` is the stronger article in the abstract and should follow — but **the archive contains
+no Artsakh article of any kind**, in any category. Writing it now would force a Cuisine page to carry
+the whole regional and political context alone, which is the wrong place for it. That ordering is the
+recommendation, not a downgrade.
+
+### Recorded for later, not acted on
+
+- Cuisine ↔ History and Cuisine ↔ Places links exist nowhere; harissa ↔ Musaler/Armavir and lavash ↔
+  tonir/Places are the obvious first candidates. No restaurant or travel linking.
+- The uniform six-section template should be relaxed for #7 rather than copied a seventh time.
+- A dairy or drinks dish type will be needed before `matsun`, `tan` or cheeses can ship.
+- Cuisine artwork is uniformly light (114–155 KB against Places' 120–1437 KB) and is **not** part of
+  the artwork-weight debt.
+
+### Scope
+
+No article added. No artwork created or registered. No taxonomy, Places, Visit, map or code change.
+`PROJECT_STATE.md` is the only file changed. No deployment.
+
+---
+
+## §68. Spas — Cuisine #7, and the section's first everyday dish (August 2026)
+
+Places pauses at thirteen. Cuisine goes 6 → 7, and the addition is chosen to change what the section
+*is* rather than to lengthen it: the first soup, the first article built on fermented dairy, and the
+first dish in the section that nobody puts on a table to mark anything.
+
+### Why this one
+
+The §67 audit found that all six existing articles were festive, ceremonial or iconic — lavash, dolma,
+khorovats, harissa, gata, ghapama. There was no ordinary weekday food in the section at all, which
+made Cuisine read as a list of national symbols rather than as a cuisine. Spas closes three gaps at
+once (soup, fermented dairy, everyday food) while fitting the existing `main` type, carrying almost no
+origin-claim risk, and needing no article that does not yet exist.
+
+```
+bread 1 · main 2 · meat 1 · ceremonial 2 · dessert 1
+```
+
+No dish type was added. `matsun`, `tan`, coffee and cheeses still have no home in the five ids, and
+that decision is still deferred.
+
+### Structure — the template broken on purpose
+
+The six existing articles share an identical six-section shell at 17–18 paragraphs. Spas does not use
+it. **Eight bespoke sections, 24 section paragraphs plus 2 in `significance`**: `what-spas-is`,
+`matsun-as-the-base`, `grain-and-herbs`, `keeping-it-from-curdling`, `two-names`,
+`hot-cold-and-the-season`, `everyday-cooking`, `a-wider-family`. Six key facts, five interesting facts,
+**one** important date, no related figures.
+
+One date rather than three is deliberate. The §67 brief allowed few or none where the evidence does not
+support dated chronology, and manufacturing a timeline for a dish with no documented chronology is
+precisely the failure this article is written to avoid.
+
+### The evidence model
+
+**Terminology is the strongest finding, and it is not the one expected.** The two names arrive from
+opposite directions:
+
+- **spas** is a borrowing from Middle Iranian, where it meant *service*. In Classical Armenian its
+  range runs from service, through the vessels and dishes set out for a meal, to what was served in
+  them. The `Nor baṛgirkʻ haykazean lezui` (Venice, 1836–1837) lists soup among its senses.
+- **tanapur** is a transparent compound — *tan*, the diluted matsun, plus *apur*, soup. The same
+  dictionary records an older sense of *tan* itself closer to broth than to a drink.
+
+So the article does **not** write "spas, also called tanapur". Whether the two ever named different
+things, or divided regionally, is not something the sources settle, and it says so. It also states the
+thing the etymology tempts a writer to elide: **the age of the words does not establish the age of the
+dish.** No documentary record places this soup in the classical period, and the article says that
+outright rather than letting an old word imply an old recipe.
+
+**The technique is the article's best educational material, and it is sourced rather than asserted.**
+Harold McGee's account gives the mechanism: milk proteins are unusually heat-tolerant and do *not* set
+when cooked — but they coagulate once the milk has turned acidic. Matsun is acidic by definition, so
+heating it does exactly what heating milk does not. That single exception explains the whole method:
+the beaten egg or flour, the starch from the grain, the slow warming, the unbroken stirring.
+
+**The stirring-direction claim is handled as §39 asked.** "Stir in one direction" travels with every
+recipe. The article states its status precisely: the accounts that explain the chemistry deal in
+temperature, acidity, agitation and added stabilisers, and none of them makes direction a variable;
+what the instruction reliably produces is steady continuous stirring, which does matter. It is recorded
+as **kitchen custom rather than mechanism** — and the article earns the right to say so by explaining
+what does matter first.
+
+**Matsun is established without being exhausted.** It is defined (milk fermented by bacteria that turn
+its sugars into lactic acid), its role is given (the body of the dish, nearly always thinned, sometimes
+via tan), and the article says in its own words that the wider account "belongs to an article of its
+own". No claim that Armenians invented yogurt. **No health, probiotic, digestion or nutrition claim
+anywhere** — a test enforces their absence in all three editions.
+
+**Grain and herbs are presented as ranges, not canon.** Dzavar — hulled, cracked wheat — is the
+characteristic grain, with rice, whole wheat berries and barley named as real alternatives and the
+explicit note that presenting one as correct would describe a household rather than a dish. Herbs
+(cilantro, mint often dried, parsley, dill) vary by season, region and what is growing; the Smithsonian
+programme's record that each region has its own favoured wild plants is what licenses that.
+
+**Hot and cold are described, not legislated.** "Commonly described as", "in many contemporary
+accounts", "better read as a range than as a rule" — never *Armenians always*.
+
+**The regional family is handled from outside.** Bert Fragner's Encyclopædia Iranica survey supplies
+the context: porridge-like soups of cereals, vegetables and herbs as ordinary town food by the
+fourteenth and fifteenth centuries, milk products such as kashk used to flavour them, and yogurt-making
+spreading widely and early. The article's closing line on the subject is that which cuisine first made
+a soup of fermented milk "is not a question the evidence can answer, and not one worth asking." A
+source from outside Armenian scholarship was chosen deliberately so the shared-family point is not made
+by an interested party.
+
+### Sources — five, and one refusal
+
+New: the **1836–1837 Classical Armenian dictionary** (`archive`), **McGee, On Food and Cooking**
+(2004, isbn), **Fragner, "ĀŠPAZĪ", Encyclopædia Iranica** (1987, url). Reused: the **Smithsonian
+Foodways** page and **Uvezian, The Cuisine of Armenia**. Every one is load-bearing.
+
+**Petrosian & Underwood is refused, and the refusal is recorded in `sources.ts` beside the block.** The
+§67 audit found it in five of the six existing articles. That is not a judgement on the book — it is a
+sensible choice for a section at folklore risk — but the two questions this article turns on are
+answered better elsewhere: the chemistry by McGee, the lexicography by the primary dictionary rather
+than a secondary report of it. **The Oxford Companion to Food was also left out**, for the opposite
+reason: already in the registry and easy to add, but no claim here rests on it.
+
+Source validation passes: one work → one identifier, one identifier → one work, no normalized
+duplicate.
+
+### Related content, and the cross-category decision
+
+**Two authored relations, both carried by a `SectionLink` in the paragraph that justifies them** —
+`harissa` (the contrast the article is built on: the same grain, cooked to a mass for a commemoration
+feeding hundreds, against a household soup on an ordinary evening) and `lavash` (what it is eaten
+with). These are the **first `SectionLink`s anywhere in Cuisine**, which until now had none.
+
+Two rather than three is deliberate, per §39's preference for strong authored links over filler
+suppression. The consequence was measured rather than assumed: `getRelatedArticles` fills the third
+slot with **`dolma`, identically in all three editions**, because it is first in registry order among
+the unclaimed. Spas is currently the only Cuisine article that renders any filler — the other six
+author three each.
+
+**No cross-category link was added, and the reason is specific.** The corpus was searched for articles
+whose prose genuinely discusses food, dairy or grain. Four turned up. `anush` treats flocks as literary
+imagery, not food culture. `erebuni-fortress` and `dilijan-national-park` mention grain and pasture in
+passing. The one real candidate, `kingdom-of-urartu`, discusses storerooms of grain and a livestock
+economy — and linking to it would have quietly implied for this dish exactly the antiquity the article
+spends a paragraph refusing. **The link that was available was the one that would have undone the
+article's central caution**, so none was made. Cuisine remains a sealed island; that repair stays
+scheduled.
+
+### Artwork — pending
+
+No dedicated asset exists; `public/images/cuisine/` holds exactly six files, all registered. `spas`
+added to `PENDING_ARTWORK` — **the first entry on that list from outside Places.**
+
+The refusal note is longer than usual because the nearest file is nearer than expected.
+`harissa.webp` was opened, and the first draft of the note described it from memory as
+"meat-coloured", which is wrong: it is a **pale cream grain dish in a clay bowl with torn lavash beside
+it and a lit hearth behind**. Almost every element of that is also true of a plausible spas photograph.
+The note was corrected to say what actually separates them — harissa is opaque and stiff, glossed with
+butter and threaded with chicken; spas is thin, white, sour, with grain suspended in liquid and fresh
+green herbs on top — and the commission now explicitly forbids hearth, fire or tonir staging, because
+borrowing that setting is how this file would end up looking like the one beside it.
+
+### Localization and parity
+
+Three complete editions. The `hyw` edition is written in Western Armenian orthography and register
+rather than converted — `ձաւար`, `մածուն`, `թանապուր`, `կանաչեղէն`, `արուեստագիտական`, `կերակուր` — and
+is **unreviewed machine output**, joining the standing backlog. The parity harness reports **0 differing
+rows across 3 editions over 20 checks**: section ids, paragraph counts, `SectionLink` slugs, key-fact
+and fact counts, related slugs, dish type, and the numeral multiset in every validator field group
+(1836, 1837, 2018 identical throughout).
+
+### Tests
+
+`cuisine.spec.ts` 33 → **43**, and the section gained its first `ILLUSTRATED` list. Cuisine shipped all
+six of its originals with artwork already in place, so `SLUGS` and "the illustrated ones" were the same
+set and no split existed; Spas is the first Cuisine article to ship ahead of its picture, which is the
+situation `places.spec.ts` has been in twelve times.
+
+Ten new tests: corpus and type integrity (including that no dish type was invented and that `main` now
+holds two); three-edition rendering with canonical and hreflang; search; **the claim-class test**, which
+checks the absence of antiquity, invention, health and recipe framing in all three editions; the
+two-names and stirring-custom pins; matsun-established-but-deferred; pending artwork with no borrowing;
+the one-placeholder listing count; the bibliography test that pins the Petrosian & Underwood refusal;
+and the earned-links test that verifies every `SectionLink` phrase is a real substring of a paragraph
+in its own section.
+
+Three counts updated elsewhere: `places.spec.ts` category listing 6 → 7, `visit.spec.ts` route count,
+`visit-map.spec.ts` non-mapped cuisine list.
+
+### Results, and every failure
+
+```
+parity harness                                  OK — 0 differing rows, 20 checks
+npm run typecheck                               PASS
+npm run validate:content                        PASS — 141 entries; 1 pending-artwork note (spas)
+npx playwright test tests/e2e/cuisine.spec.ts   43 passed, first run
+npx playwright test (full)                      307 passed, 5 skipped (9.3m), exit 0
+npm run build                                   PASS — 150 pages (147 → 150)
+```
+
+**Two real test failures, both mine from §66, both correct catches.** `PENDING_ARTWORK` is archive-wide,
+not per-section. While every pending slug happened to be a Place the distinction cost nothing, and two
+assertions in `places.spec.ts` compared the *whole list* against the Places shortfall — one of them the
+`toEqual([])` written in §66. Adding a Cuisine slug made them assert something about Cuisine that the
+Places file has no business asserting. **Both were rescoped to Places rather than relaxed**, and the
+comment records that this is a correction, not a weakening.
+
+**Two infrastructure incidents, both self-inflicted and both worth recording.** The first full-suite
+attempt was piped through `tail`, which buffers: the output file sat at zero bytes while ninety-four
+node processes worked, giving a blind nine-minute run — the exact failure mode the user had asked to
+avoid. It was killed and re-run unpiped. Killing it mid-suite then left the Turbopack cache damaged,
+and the next run produced scattered failures and timeouts across specs that had passed minutes earlier.
+That is the §66 signature: **not memory** — 6.1 GB of 15.9 GB was free — but cache corruption.
+`rm -rf .next`, orphaned processes cleared, port confirmed, re-run.
+
+### Scope
+
+Cuisine taxonomy unchanged. No Places, Visit, map, coordinate, cluster or artwork-registry change. The
+six existing Cuisine articles are untouched. No new category. `.claude/settings.json` untouched. **No
+deployment.**
+
+### Debt
+
+Carried forward unchanged, and one item now has a first data point: the **Cuisine link island** (still
+zero inbound, still zero outbound, with the reason a cross-category link was refused here recorded
+above), the **uniform six-section template** in the older six, **Petrosian & Underwood's concentration**
+at five of seven, the `hyw` review backlog now fourteen articles, and the deferred **dairy/drinks dish
+type** that `matsun`, `tan` and cheeses all need. New: spas is the only Cuisine article rendering
+filler, and the filler is deterministic — `dolma`, in every edition.
+
+---
+
+## §69. Spas artwork — verified, registered, and the archive fully illustrated (August 2026)
+
+No content step. `public/images/cuisine/spas.webp` arrived, was inspected before anything was
+written, and is now registered. With it, `PENDING_ARTWORK` is empty in a sense it has never been
+before: not "no Place is waiting" but **no article anywhere in the archive is waiting**.
+
+### Pre-registration state, read from source
+
+Seven Cuisine articles, six illustrated, `PENDING_ARTWORK = ["spas"]` and nothing else.
+`public/images/cuisine/` held six registered files plus the new untracked one. Spas had no `IMAGES`
+key, no `Article.image`, the fallback `/og-default.png` on both social cards, and no `image:loc` in
+the sitemap. Every expectation §69 stated was already true; nothing had to be corrected first.
+
+### The asset
+
+```
+public/images/cuisine/spas.webp
+1586 × 992          (1.599:1, the preferred geometry exactly)
+203,194 bytes       (198.4 KB)
+sha256              f2e35f27cdb1ab6276591514adc7e62395613c143fa46ddedce1b546fcf7f1ed
+RIFF                203,186 declared, 203,186 actual — consistent
+chunks              WEBP → "VP8 " (203,174 bytes), single chunk, sync 9d012a
+no VP8X             therefore no alpha, no ICC, no EXIF, no XMP, no orientation flag
+```
+
+Verified twice, by a hand-written RIFF chunk walk and by `sharp`, which agree on every field:
+`webp`, 1586×992, `srgb`, 3 channels, 8-bit, `hasAlpha: false`, `hasProfile: false`, not palette,
+not progressive. Simple lossy — a single `VP8 ` chunk with no extension header, so the metadata
+absence is structural rather than merely empty.
+
+The geometry is `lavash.webp`'s exactly; the other five cuisine covers are 1448×1086 or 1536×1024.
+No new ratio enters the section.
+
+### The visual gate
+
+Opened at full resolution and at 3× on six regions before any file was edited.
+
+A wide shallow stoneware bowl, unglazed pale grey with a hand-painted band of blue leaf motifs low
+on the wall, on a striped linen cloth on bare wood. The bowl holds a white, green-flecked soup with
+plump cooked grains suspended through it, dill worked through and cut scallion greens on top. A
+carved wooden spoon lies on the cloth at the left, a small plate of fresh dill and spring onions
+behind, a torn wheat loaf to the right. Cool daylight from the left.
+
+It reads as **spas** — fermented-dairy soup with grain and herbs — and not as any of the failure
+reads §69 named. It is not a generic cream soup (the grain and herbs are the subject, not a
+garnish), not a yogurt bowl (it is clearly a cooked, served soup), not porridge (the liquid level
+and the meniscus against the bowl wall are both visible), not rice soup, not a restaurant
+appetizer.
+
+### Spas against Harissa — the check that mattered
+
+The §68 refusal note predicted this failure precisely: a pale grain-and-liquid dish, seen from
+above, in a bowl on a rustic table, is what **both** dishes are. The file avoids it on every axis
+the note named.
+
+|            | harissa.webp                      | spas.webp                          |
+| ---------- | --------------------------------- | ---------------------------------- |
+| colour     | beige, warm amber                 | white, cool                        |
+| light      | open hearth burning behind        | daylight, no fire in frame         |
+| consistency| opaque, holds a spoon mark        | fluid, level and meniscus visible  |
+| finish     | butter pool, shredded chicken     | herbs, grain suspended             |
+| vessel     | dark red clay                     | pale grey stoneware                |
+
+Compared at full resolution, at a 380px 16:9 card, and at a 160px search thumbnail. **The
+distinction survives the smallest crop the site renders** — the harissa card reads dark amber, the
+spas card reads white and green, and at thumbnail size that difference is the first thing visible
+rather than the last. The condition §69 set is met.
+
+All six existing covers were opened, not inferred from paths. Lavash (flatbreads on a board),
+dolma (grape-leaf rolls), khorovats (skewers), gata (golden pastry) and ghapama (stuffed pumpkin)
+are plainly other dishes; none shares a vessel, a palette or a composition with this one.
+
+### Texture, grain, herbs
+
+**Soup.** Pourable and spoonable, slightly creamy, irregular. The level sits below the rim
+everywhere and nothing crosses it. No plastic gloss, no impossible surface tension, no unnatural
+foam, no repeated texture tiling, no floating artifact. In a few places the white pools smoothly
+over the grain in a way that reads slightly thicker than a poured spoonful would — painterly rather
+than wrong, and recorded rather than penalised.
+
+**Grain.** Present, plentiful, integrated, and secondary to the liquid rather than covering it.
+Rounded, plump, pearly, partly coated — cooked whole or hulled wheat, plausibly dzavar or a wheat
+berry. It is not long and slender (rice), not flaked and mushy (oatmeal), not fine and uniform
+(couscous), not coloured (lentil). Culinary readability, which is what §69 asked for, rather than
+botanical identification.
+
+**Herbs.** Restrained and integrated. Fine dill fronds through the soup, chopped scallion greens,
+in muted natural greens rather than neon. No duplicated leaf, no herb floating above the surface,
+no garnish pile, no flowers, no microgreens, no fine-dining plating. The side plate of raw dill and
+spring onions is an ingredient at rest on a table, not a styled garnish set.
+
+### Everyday character, and the audits
+
+Simple home meal: one bowl, one spoon, one cloth, bread, herbs. No wedding table, no festival
+spread, no fine dining, no advertisement styling. This is the section's article about ordinary
+weekday food and the picture says so — which is the one editorial thing it had to do that no
+technical check could confirm.
+
+**Health and product audit.** Clean. No packaging, no dairy container, no probiotic or health
+iconography, no diet styling, no wellness framing, and none of the pale-and-wholesome lighting the
+§68 commission refused in advance. The fermented-dairy character comes from the soup itself.
+
+**Recipe restraint.** No ingredient lineup, no measuring spoons, no recipe card, no numbered steps,
+no labels, no instructional staging. The dill plate is the only thing in frame that could be read
+as a component, and it is placed as a table object rather than as step one.
+
+**Tableware and artifact audit.** The bowl rim is continuous and correctly elliptical; the double
+lip is consistent all the way round. The wooden spoon is well-formed — bowl and handle continuous,
+grain direction consistent, no impossible junction. One bowl, one spoon, one plate, one loaf;
+nothing duplicated, nothing merged, nothing floating. The linen folds and the wood grain behave.
+No significant artifact found.
+
+**Text and signage audit.** No readable text anywhere. The blue band on the bowl was examined at 3×
+specifically for pseudo-glyphs: it resolves into leaf and rosette motifs between two banding lines,
+with a small diamond-and-dot separator. Decorative, hand-painted, and at no magnification does it
+become lettering. No logo, watermark, signature or textile writing.
+
+**Armenian context.** Carried by the dish and by plain materials — stoneware, linen, wood — with no
+flag, no Ararat, no monastery, no khachkar, no carpet motif and no souvenir. One mismatch worth
+recording: the bread is a crusty wheat loaf, not lavash, while the article links to `lavash` as
+what spas is eaten with. It is background at every crop and no claim rests on it. **Minor debt, not
+a subject error.**
+
+### Visual register
+
+**Photographic**, and correctly so. All six existing Cuisine covers are photographic, warm-lit,
+rustic-styled food photography; spas is the same treatment, differing only in being the brightest
+and coolest of the seven — which is precisely what makes it separable from harissa. The section is
+internally consistent.
+
+This is the opposite of §66's finding, and worth stating plainly: Haghpat missed its register
+because Places is painterly and the file was photographic. Cuisine's register *is* photographic, so
+the same treatment is a match here rather than a miss. The register is per-section.
+
+### Crops
+
+| crop  | dimensions | trim        | bowl | white soup | grain | herbs | ≠ harissa |
+| ----- | ---------- | ----------- | ---- | ---------- | ----- | ----- | --------- |
+| 4:3   | 1323×992   | 132 px l/r  | full | yes        | yes   | yes   | yes       |
+| 3:2   | 1488×992   | 49 px l/r   | full | yes        | yes   | yes   | yes       |
+| 16:9  | 1586×892   | 50 px t/b   | full | yes        | yes   | yes   | yes       |
+| 16:10 | 1586×991   | 1 px        | full | yes        | yes   | yes   | yes       |
+| 1:1   | 992×992    | 297 px l/r  | full | yes        | yes   | yes   | yes       |
+| 4:5   | 794×992    | 396 px l/r  | full | yes        | yes   | yes   | yes       |
+
+The subject is centred and large, so every crop the project renders keeps the whole bowl. The
+narrow portrait crop — the search thumbnail's shape, and the one §69 warned could degrade into a
+rim, a garnish or a white circle — is arguably the **best** crop of the set: the bowl fills it and
+the grain and dill are more legible than at full width. No `object-position` was added; none is
+needed.
+
+### Registration
+
+`spas: "/images/cuisine/spas.webp"` added to `IMAGES` through the generic pipeline — no
+Cuisine-specific media logic, no Spas-specific component logic, no new image field, no new
+provenance infrastructure. `ARTWORK_PROVENANCE` untouched.
+
+`spas` removed from `PENDING_ARTWORK`, whose commission note is kept and marked **Resolved** in the
+convention §66 established. The list is empty, and for the first time that sentence covers the
+whole archive rather than only Places.
+
+```
+Cuisine articles      7
+Cuisine illustrated   7
+Cuisine placeholders  0
+PENDING_ARTWORK       []
+```
+
+### Provenance, read rather than assumed
+
+`isGeneratedArtwork` is `!article.image && getImageSrc(article.slug) !== undefined` — it means
+"this archive generated it", and it is true exactly when a slug resolves through the registry
+without the article carrying its own `image` object. Spas has no `Article.image` literal, so
+registering the file flipped it to generated. In all three editions the raster renders, the
+AI-illustration disclosure appears in that edition's own words, the placeholder caption disappears
+and the inline placeholder SVG disappears.
+
+### Every surface
+
+- **Listing.** Seven cards, seven distinct covers, zero placeholder SVGs. Spas resolves through
+  `/_next/image?url=%2Fimages%2Fcuisine%2Fspas.webp`; no existing cover changed.
+- **Hero.** `/en`, `/hy` and `/hyw` `/cuisine/spas` each render exactly `spas.webp`, with the AI
+  illustration caption and no placeholder line. Scoped to the hero — related links legitimately
+  render harissa's and lavash's covers further down.
+- **Search.** The spas row, scoped by canonical href rather than title, carries its own thumbnail
+  and not harissa's. `spas`, `tanapur`, `dzavar`, `Սպաս` and `Թանապուր` all reach the article.
+- **Metadata.** `og:image` and `twitter:image` are the absolute `spas.webp` in every edition and no
+  longer the `/og-default.png` fallback; `og:image:alt` localizes (`Spas` / `Սպաս`).
+- **JSON-LD.** `Article.image` is `{"@type": "ImageObject", "url": ".../images/cuisine/spas.webp"}`,
+  five citations, and the graph is `Organization · WebSite · Article · BreadcrumbList`. No `Recipe`,
+  `HowTo`, `NutritionInformation`, `MenuItem` or `FoodEstablishment`, and no `recipeIngredient`,
+  `recipeInstructions`, `cookTime` or `nutrition` key anywhere in the block.
+- **Sitemap.** Checked route by route rather than by global filename count: the `<url>` block for
+  `/en`, `/hy` and `/hyw` `/cuisine/spas` each carries exactly one `image:loc`, its own, and no
+  other dish's file.
+
+### Content, relations and taxonomy — unchanged
+
+No Spas editorial content was touched. `relatedSlugs` remain `["harissa", "lavash"]`, the two
+`SectionLink`s remain, `getRelatedArticles` is untouched, and the filler is still `dolma` in all
+three editions. Cuisine stays at seven with `bread 1 · main 2 · meat 1 · ceremonial 2 · dessert 1`,
+no new dish type, nothing featured.
+
+### Asset performance
+
+Cuisine was 114,582–155,340 bytes (112–152 KB) across six files. Spas at **203,194 bytes (198 KB)**
+sits **31% above the previous heaviest** (`khorovats.webp`, 152 KB) and forms a small heavy tail
+rather than joining the band. Archive-wide it is unremarkable — Places runs to Erebuni's 742 KB —
+and at 1586×992 the byte count is proportionate to a photographic frame with fine herb and grain
+detail, which is expensive to encode. Not optimised, per §69. Recorded so that "Cuisine files are
+around 120 KB" is not repeated as if it were still true.
+
+### Test runtime
+
+`cuisine.spec.ts` 43 → **46 tests, 1.5m** on a cold Turbopack cache (`.next` cleared first, so the
+figure includes first-compile cost). Locale × illustrated coverage rose from 6×3 = 18 to 7×3 = 21
+as predicted. No partition, no retries, no timeout changes.
+
+### Tests
+
+`cuisine.spec.ts` 43 → 46. The §68 pending test was **inverted rather than deleted**, so the
+transition is pinned in both directions: raster where the placeholder was, AI caption where the
+placeholder caption was, out of `PENDING_ARTWORK` where it was in, real file where the fallback OG
+image was. The sitemap test moved from a global filename check to a per-route ownership check. The
+listing placeholder count returned to zero without its expression changing — it is still
+`SLUGS.length - ILLUSTRATED.length`.
+
+Three new: whole-section artwork ownership across all seven heroes; the search thumbnail scoped by
+href; and a structured-data guard against `Recipe`, `HowTo`, `NutritionInformation`, `MenuItem` and
+`FoodEstablishment` plus the four recipe property keys. `ARTWORK` was added as a literal map beside
+`ILLUSTRATED`, kept as a literal for the same reason: a derived expectation agrees with the registry
+by construction, including on the day the registry is wrong.
+
+### Results, and every failure
+
+```
+port 3002 clear, 0 node processes, .next cleared before starting
+npm run typecheck                                PASS
+npm run validate:content                         PASS — 141 entries, no pending-artwork note
+npx playwright test tests/e2e/cuisine.spec.ts    46 passed (1.5m)
+npx playwright test tests/e2e/places.spec.ts     83 passed, 1 failed → fixed → 84 passed
+npx playwright test visit + visit-map            65 passed (2.4m)
+npx playwright test (full)                       310 passed, 5 skipped (8.9m), exit 0
+npm run build                                    PASS — 150/150 static pages, 0 errors
+```
+
+307 -> 310 across the suite, which is the three new cuisine tests and nothing else. The build
+generates the same 150 pages as before: registering artwork mints no route.
+
+**One real failure, and it was the right one.** `no unrelated article artwork changed` in
+`places.spec.ts` pins the entire non-Places half of `IMAGES` as a literal object. Registering a
+Cuisine cover — from a step that touched no Place at all — made it fail, which is exactly the event
+that snapshot exists to report. The expected object gained one line; every other value is
+byte-identical. Updating the literal is the maintenance this shape asks for. Deriving it from the
+registry would have made it agree by construction and it would never fail again, including on the
+day a path is genuinely retyped.
+
+No Turbopack instability this time. `.next` was cleared **before** the run rather than in response
+to one, with the port confirmed clear and no node process alive, and the whole sequence ran without
+an internal error or an OOM-shaped failure.
+
+### Scope
+
+Spas content, Cuisine taxonomy, `ARTWORK_PROVENANCE`, `PLACE_COORDINATES`, `VisitMap`,
+`map-cluster.ts`, `visit-map.ts`, `map-tiles.ts`, Visit curation, Places content and Places artwork
+are all untouched. The map is unchanged: 13 Places, 2 groups, 7 individual markers at the opening
+fitted state, 0 covered visible centres. No Cuisine #8. `.claude/settings.json` untouched. **No
+deployment.**
+
+### Debt
+
+Carried forward: the **Cuisine link island** (still sealed, with §68's refusal reasoning recorded),
+the **uniform six-section template** in the older six, **Petrosian & Underwood** at five of seven,
+the `hyw` review backlog at fourteen, the deferred **dairy/drinks dish type**, and spas as the only
+Cuisine article rendering filler. New and small: **`spas.webp` is Cuisine's heavy tail at 198 KB**,
+and **its bread is a wheat loaf where the article links to lavash**.

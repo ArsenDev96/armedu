@@ -1,4 +1,6 @@
 import { expect, test, type Page } from "@playwright/test";
+import { PENDING_ARTWORK, getImageSrc } from "@/lib/media";
+import { getSources } from "@/data/sources";
 import { LOCALES, articleTitle, bundle, cards, ui } from "./helpers";
 
 /**
@@ -11,11 +13,56 @@ import { LOCALES, articleTitle, bundle, cards, ui } from "./helpers";
  * rather than being a page that merely exists.
  *
  * The one thing they check that the other sections' tests cannot is the absence
- * of a translation gap: all six dishes are published in all three editions, so
- * no cuisine URL may ever render the "not available in this language" page.
+ * of a translation gap: every dish is published in all three editions, so no
+ * cuisine URL may ever render the "not available in this language" page.
  */
 
-const SLUGS = ["lavash", "dolma", "khorovats", "harissa", "gata", "ghapama"] as const;
+const SPAS = "spas";
+
+/** Every dish in the section, as of §68. */
+const SLUGS = ["lavash", "dolma", "khorovats", "harissa", "gata", "ghapama", SPAS] as const;
+
+/**
+ * The dishes that have a registered cover — §68, and the first time this section
+ * has needed the distinction at all.
+ *
+ * Cuisine shipped its first six articles with their artwork already in place, so
+ * `SLUGS` and this list were the same set and no separate list existed. Spas is
+ * the section's first article to ship ahead of its picture, which is exactly the
+ * situation `places.spec.ts` has been in twelve times: what must *exist* and what
+ * must *render a raster* stop being the same question, and a single list can only
+ * answer one of them.
+ *
+ * §69 closed the gap: `spas.webp` is registered and the two lists name the same
+ * seven slugs again. The declaration stays, and stays separate. It is worth more
+ * now than it was while it differed, because every assertion below that says "each
+ * illustrated dish" keeps meaning that when the eighth dish ships ahead of its
+ * picture, with no edit here.
+ *
+ * Kept as its own literal rather than derived from `getImageSrc`, for the reason
+ * the Places file gives: a derived list agrees with the registry by construction,
+ * including on the day the registry is wrong.
+ */
+const ILLUSTRATED = [
+  "lavash",
+  "dolma",
+  "khorovats",
+  "harissa",
+  "gata",
+  "ghapama",
+  SPAS,
+] as const;
+
+/** Where each dish's cover must live, spelled out rather than templated. */
+const ARTWORK: Record<string, string> = {
+  lavash: "/images/cuisine/lavash.webp",
+  dolma: "/images/cuisine/dolma.webp",
+  khorovats: "/images/cuisine/khorovats.webp",
+  harissa: "/images/cuisine/harissa.webp",
+  gata: "/images/cuisine/gata.webp",
+  ghapama: "/images/cuisine/ghapama.webp",
+  spas: "/images/cuisine/spas.webp",
+};
 
 const dishTypeLabel = (locale: "hy" | "hyw" | "en", id: string) => {
   const filter = bundle(locale).cuisineTypes.find((entry) => entry.id === id);
@@ -202,10 +249,453 @@ test("a dish hero renders its own artwork and names the AI provenance", async ({
   );
 });
 
-test("the sitemap lists each dish's illustration for image search", async ({ request }) => {
+test("the sitemap gives every dish, in every edition, its own image", async ({ request }) => {
   const xml = await (await request.get("/sitemap.xml")).text();
-  for (const slug of SLUGS) {
-    expect(xml, slug).toContain(`https://armat.site/images/cuisine/${slug}.webp`);
+
+  /*
+    §69 replaces a global filename count with a route-by-route claim, because the
+    two are not the same test. Every cuisine cover appearing *somewhere* in the
+    document was already true while spas had no artwork at all, and would stay true
+    if this route advertised harissa's picture. What has to hold is narrower: the
+    `<url>` block for each dish, in each edition, carries its own file and no other
+    dish's.
+  */
+  const blocks = xml.split("<url>").slice(1);
+
+  for (const locale of LOCALES) {
+    for (const slug of ILLUSTRATED) {
+      const block = blocks.find((entry) => entry.includes(`/${locale}/cuisine/${slug}</loc>`));
+      expect(block, `${locale}/${slug} must have a sitemap entry`).toBeDefined();
+      expect(block, `${locale}/${slug} advertises its own image`).toContain(
+        `<image:loc>https://armat.site${ARTWORK[slug]}</image:loc>`,
+      );
+
+      for (const other of ILLUSTRATED) {
+        if (other === slug) continue;
+        expect(block, `${locale}/${slug} must not advertise ${other}`).not.toContain(
+          ARTWORK[other],
+        );
+      }
+    }
+  }
+});
+
+/* -------------------------------------------------------------------------- */
+/*  Spas — Cuisine #7, §68                                                     */
+/* -------------------------------------------------------------------------- */
+
+test("the seventh dish exists in every edition and is a main dish", async ({ page }) => {
+  /*
+    The corpus assertions, kept as data rather than as page loads where they can be.
+
+    Cuisine has had six articles since the section was written, and the count is
+    pinned rather than derived for the reason every count in this repo is: a
+    listing that quietly lost a card looks completely finished.
+  */
+  for (const locale of LOCALES) {
+    const dishes = bundle(locale).articles.filter((a) => a.category === "cuisine");
+    expect(dishes.length, `${locale} dish count`).toBe(SLUGS.length);
+    expect(
+      dishes.map((a) => a.slug),
+      `${locale} keeps the section in one order`,
+    ).toEqual([...SLUGS]);
+
+    const spas = dishes.find((a) => a.slug === SPAS);
+    expect(spas, `${locale} has spas`).toBeDefined();
+    expect(spas!.dishTypeId, `${locale} type`).toBe("main");
+    expect(spas!.featured ?? false, `${locale}: no cuisine article is featured`).toBe(false);
+  }
+
+  // No new dish type was invented to hold a soup — the §67 audit's constraint.
+  for (const locale of LOCALES) {
+    expect(
+      bundle(locale).cuisineTypes.map((t) => t.id),
+      `${locale} taxonomy unchanged`,
+    ).toEqual(["all", "bread", "main", "meat", "ceremonial", "dessert"]);
+  }
+
+  // And the type genuinely holds two dishes now, which is the visible half.
+  await page.goto("/en/cuisine?type=main");
+  await expect(cards(page)).toHaveCount(2);
+  for (const slug of ["dolma", SPAS]) {
+    await expect(
+      page.getByRole("link", { name: articleTitle("en", slug), exact: true }).first(),
+    ).toBeVisible();
+  }
+});
+
+test("spas renders in every edition and carries its own SEO fields", async ({ page }) => {
+  for (const locale of LOCALES) {
+    const article = bundle(locale).articles.find((a) => a.slug === SPAS)!;
+    await page.goto(`/${locale}/cuisine/${SPAS}`);
+
+    await expect(page.locator("html")).toHaveAttribute("lang", locale);
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText(article.title);
+
+    // This edition's own title, never the default edition's.
+    await expect(page).toHaveTitle(new RegExp(article.seoTitle!.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+    await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+      "href",
+      `https://armat.site/${locale}/cuisine/${SPAS}`,
+    );
+    for (const alternate of LOCALES) {
+      await expect(
+        page.locator(`link[rel="alternate"][hreflang="${alternate}"]`),
+      ).toHaveAttribute("href", `https://armat.site/${alternate}/cuisine/${SPAS}`);
+    }
+    await expect(page.locator('link[rel="alternate"][hreflang="x-default"]')).toHaveAttribute(
+      "href",
+      `https://armat.site/hy/cuisine/${SPAS}`,
+    );
+  }
+});
+
+test("spas is findable in search, under the cuisine group", async ({ page }) => {
+  await page.goto("/en/search?q=spas");
+  const result = page.getByRole("link", { name: articleTitle("en", SPAS), exact: true }).first();
+  await expect(result).toBeVisible();
+  await expect(result).toHaveAttribute("href", `/en/cuisine/${SPAS}`);
+});
+
+test("spas makes no claim about antiquity, invention or health", async ({ page }) => {
+  /*
+    The three claim classes §67 identified as the real risk for this dish, checked
+    against the rendered page in every edition rather than against the source file,
+    because what a reader meets is the page.
+
+    These are deliberately phrased as *absences*. A dish whose written record is
+    thin is exactly where a confident sentence gets invented, and the Armenian
+    editions are where an English review would not catch it.
+  */
+  for (const locale of LOCALES) {
+    await page.goto(`/${locale}/cuisine/${SPAS}`);
+    const text = ((await page.getByRole("main").textContent()) ?? "").toLowerCase();
+
+    // No invention or ownership claim, in any edition.
+    for (const forbidden of [
+      "invented",
+      "the world's oldest",
+      "oldest soup",
+      "thousands of years",
+      "հնագույն",
+      "հազարավոր տարի",
+      "հազարաւոր տարի",
+      "հայերը հորինել",
+      "հայերը գիւտ",
+    ]) {
+      expect(text, `${locale} must not claim: ${forbidden}`).not.toContain(forbidden);
+    }
+
+    // No health or nutrition claim. Matsun is described as fermented milk and
+    // nothing more — the article states ingredients, never benefits.
+    for (const forbidden of [
+      "probiotic",
+      "immune",
+      "digestion",
+      "superfood",
+      "weight loss",
+      "healthy",
+      "մարսողութ",
+      "օգտակար է առողջ",
+      "իմունիտետ",
+    ]) {
+      expect(text, `${locale} must not claim: ${forbidden}`).not.toContain(forbidden);
+    }
+
+    // Not a recipe page: no quantities, no timings, no shopping framing.
+    for (const forbidden of ["tablespoon", "teaspoon", "servings", "prep time", "easy recipe"]) {
+      expect(text, `${locale} must not read as a recipe: ${forbidden}`).not.toContain(forbidden);
+    }
+  }
+});
+
+test("spas keeps the two names open, and the stirring advice as custom", async ({ page }) => {
+  /*
+    The two evidence-sensitive treatments §67 asked for, pinned so that a later
+    edit cannot quietly simplify either into the confident version.
+
+    The naming section must not flatten to "spas, also called tanapur": the sources
+    do not settle whether the two ever meant different things, and the article says
+    so. And the familiar "stir in one direction" must stay marked as kitchen custom
+    rather than promoted into a mechanism — the accounts that explain the chemistry
+    deal in temperature, acidity, agitation and stabilisers, not direction.
+  */
+  await page.goto(`/en/cuisine/${SPAS}`);
+  const text = (await page.getByRole("main").textContent()) ?? "";
+
+  expect(text, "the names are not asserted as settled synonyms").toContain(
+    "is not something the available sources settle",
+  );
+  expect(text, "the age of the word is separated from the age of the dish").toContain(
+    "What the age of the words does not establish is the age of the soup",
+  );
+  expect(text, "the stirring advice is marked as custom").toContain(
+    "kitchen custom rather than a mechanism",
+  );
+
+  // The chemistry is stated as the reason, which is what makes the custom claim
+  // safe to make: the article explains what does matter before saying what does not.
+  expect(text, "the actual mechanism is given").toContain("once the milk has turned acidic");
+});
+
+test("spas introduces matsun without becoming the matsun article", async ({ page }) => {
+  /*
+    §67 wanted matsun established here and deliberately left with material for its
+    own future article. Both halves are checkable: the base has to be explained,
+    and the article has to say out loud that the wider account belongs elsewhere.
+  */
+  await page.goto(`/en/cuisine/${SPAS}`);
+  const text = (await page.getByRole("main").textContent()) ?? "";
+
+  expect(text, "matsun is defined").toContain("milk fermented by bacteria");
+  expect(text, "the article defers the rest").toContain("belongs to an article of its own");
+
+  // And no slug was invented for the article that does not exist yet.
+  const hrefs = await page
+    .getByRole("main")
+    .locator("a")
+    .evaluateAll((nodes) => nodes.map((a) => a.getAttribute("href") ?? ""));
+  expect(hrefs.some((h) => h.includes("/matsun")), "no link to a nonexistent matsun page").toBe(
+    false,
+  );
+});
+
+test("spas owns its artwork in every edition, and borrows nobody else's", async ({ page }) => {
+  /*
+    §69 inverts the §68 test rather than deleting it. Every assertion that pinned
+    the pending state has a mirror here, so the transition is checked in both
+    directions: the raster present where the placeholder was, the AI caption where
+    the placeholder caption was, the slug out of `PENDING_ARTWORK` where it was in,
+    and the real file where the fallback OG image was.
+
+    A registration that flipped some of these and not others — a registry key with
+    no rendered image, or a rendered image still captioned as a placeholder — is
+    exactly the half-done state this shape catches.
+  */
+  for (const locale of LOCALES) {
+    const dict = ui(locale);
+    await page.goto(`/${locale}/cuisine/${SPAS}`);
+
+    const figure = page.locator("header figure");
+    await expect(figure.locator("svg[role='img']"), `${locale} no placeholder`).toHaveCount(0);
+    await expect(figure.locator("img"), `${locale} raster`).toHaveCount(1);
+    await expect(figure.locator("img"), `${locale} exact file`).toHaveAttribute(
+      "src",
+      /spas\.webp/,
+    );
+
+    // A dish is a scene rather than a likeness, so it takes the illustration
+    // caption — and it must say "AI-generated" outright, as the other six do.
+    await expect(figure.locator("figcaption"), locale).toHaveText(
+      dict.article.imageAiIllustrationCaption.replace("{title}", articleTitle(locale, SPAS)),
+    );
+    await expect(figure.locator("figcaption"), `${locale} not the placeholder line`).not.toHaveText(
+      dict.article.imagePlaceholderCaption.replace("{title}", articleTitle(locale, SPAS)),
+    );
+  }
+
+  expect(getImageSrc(SPAS), "registered file").toBe(ARTWORK[SPAS]);
+  expect(PENDING_ARTWORK, "no longer pending").not.toContain(SPAS);
+
+  /*
+    And it still borrows nothing. Harissa is named first because it is the real
+    risk: the §68 refusal note records that its cover is also a pale grain dish in a
+    clay bowl with lavash beside it, which is a description a careless substitution
+    would pass. Scoped to the hero and the metadata, since related links legitimately
+    render harissa's and lavash's covers further down the page.
+  */
+  await page.goto(`/en/cuisine/${SPAS}`);
+  const heroSources = await page
+    .locator("header img")
+    .evaluateAll((nodes) => nodes.map((el) => decodeURIComponent(el.getAttribute("src") ?? "")));
+  expect(
+    heroSources.some((src) => src.includes(ARTWORK[SPAS])),
+    "the hero is spas's own file",
+  ).toBe(true);
+  for (const other of ILLUSTRATED) {
+    if (other === SPAS) continue;
+    expect(
+      heroSources.some((src) => src.includes(`/cuisine/${other}.webp`)),
+      `${other} must not illustrate spas`,
+    ).toBe(false);
+  }
+
+  for (const property of ['meta[property="og:image"]', 'meta[name="twitter:image"]']) {
+    const content = await page.locator(property).first().getAttribute("content");
+    expect(content, property).toContain(ARTWORK[SPAS]);
+    expect(content, `${property} is no longer the fallback`).not.toContain("/og-default.png");
+  }
+
+  const raw = await page.locator('script[type="application/ld+json"]').first().textContent();
+  const graph = (JSON.parse(raw ?? "") as { "@graph": LdNode[] })["@graph"];
+  expect(JSON.stringify(node(graph, "Article").image), "Article.image").toContain(ARTWORK[SPAS]);
+});
+
+test("registering spas turned no dish's cover into another dish's", async ({ page }) => {
+  /*
+    The whole-section ownership claim, which is the one a single new key in a flat
+    map can break without touching any file but `media.ts`. Each of the seven heroes
+    must carry its own cover and none of the other six.
+
+    English only: the artwork registry is not localized, and the per-edition claim is
+    made for spas by the test above.
+  */
+  for (const slug of ILLUSTRATED) {
+    await page.goto(`/en/cuisine/${slug}`);
+
+    const sources = await page
+      .locator("header img")
+      .evaluateAll((nodes) => nodes.map((el) => decodeURIComponent(el.getAttribute("src") ?? "")));
+
+    expect(sources.some((src) => src.includes(ARTWORK[slug])), `${slug} shows its own`).toBe(true);
+    for (const other of ILLUSTRATED) {
+      if (other === slug) continue;
+      expect(
+        sources.some((src) => src.includes(ARTWORK[other])),
+        `${slug} must not show ${other}`,
+      ).toBe(false);
+    }
+  }
+});
+
+test("the spas search result carries its own thumbnail", async ({ page }) => {
+  /*
+    Scoped by canonical href rather than by title, because a search page renders many
+    covers and the failure worth catching is this row showing a neighbour's.
+  */
+  await page.goto("/en/search?q=spas");
+
+  const row = page.locator("li").filter({ has: page.locator(`a[href="/en/cuisine/${SPAS}"]`) });
+  await expect(row).toHaveCount(1);
+
+  const sources = await row
+    .locator("img")
+    .evaluateAll((nodes) => nodes.map((el) => decodeURIComponent(el.getAttribute("src") ?? "")));
+  expect(sources.some((src) => src.includes(ARTWORK[SPAS])), "spas thumbnail").toBe(true);
+  expect(
+    sources.some((src) => src.includes("/cuisine/harissa.webp")),
+    "not harissa's",
+  ).toBe(false);
+});
+
+test("spas gained a picture and no recipe markup with it", async ({ page }) => {
+  /*
+    §69's one structured-data guard. Registering artwork is the moment a food page
+    most looks like it wants a `Recipe` node — a photograph of a finished dish is
+    what that markup is built around — and this archive's cuisine pages are cultural
+    articles that carry no instructions a reader could cook from.
+  */
+  await page.goto(`/en/cuisine/${SPAS}`);
+  const graph = await readGraph(page);
+  const types = graph.map((entry) => entry["@type"]);
+
+  expect(types).toContain("Article");
+  for (const forbidden of [
+    "Recipe",
+    "HowTo",
+    "NutritionInformation",
+    "MenuItem",
+    "FoodEstablishment",
+  ]) {
+    expect(types, `${forbidden} must not appear`).not.toContain(forbidden);
+  }
+
+  const raw = (await page.locator('script[type="application/ld+json"]').first().textContent()) ?? "";
+  for (const key of ["recipeIngredient", "recipeInstructions", "cookTime", "nutrition"]) {
+    expect(raw, `${key} must not appear`).not.toContain(key);
+  }
+});
+
+test("the cuisine listing shows no placeholders at all", async ({ page }) => {
+  /*
+    Derived from the two lists rather than typed as a literal, so the next dish to
+    ship ahead of its picture needs no edit here. It evaluated to one for the only
+    time in this section's history, between §68 and §69; it is back to zero, and the
+    expression that says so is unchanged.
+  */
+  await page.goto("/en/cuisine");
+  await expect(cards(page)).toHaveCount(SLUGS.length);
+  await expect(page.locator("main svg[role='img']")).toHaveCount(
+    SLUGS.length - ILLUSTRATED.length,
+  );
+
+  for (const slug of ILLUSTRATED) {
+    await expect(
+      page.locator(`main img[src*="${slug}"]`),
+      `${slug} still has its own card artwork`,
+    ).not.toHaveCount(0);
+  }
+});
+
+test("spas cites what it rests on, and not the section's default book", async ({ page }) => {
+  /*
+    §67 recorded that Petrosian & Underwood appears in five of the six existing
+    Cuisine articles and asked for it not to be reused by reflex. This pins the
+    decision so a later edit has to argue with it rather than drift back.
+
+    The positive half matters more than the negative one: the two claims this
+    article actually turns on — the chemistry of heating acidic dairy, and the
+    sense-range of the word — must each have a source behind them.
+  */
+  const sources = getSources(SPAS);
+  expect(sources.length, "spas has a bibliography").toBeGreaterThanOrEqual(4);
+
+  const titles = sources.map((s) => s.title).join(" | ");
+  expect(titles, "the chemistry is sourced").toContain("On Food and Cooking");
+  expect(titles, "the lexicography is sourced").toContain("Nor baṛgirkʻ haykazean lezui");
+  expect(titles, "the regional context comes from outside Armenian scholarship").toContain(
+    "ĀŠPAZĪ",
+  );
+  expect(titles, "the section's default book is not reused here").not.toContain(
+    "Fact, Fiction & Folklore",
+  );
+
+  // Every entry carries an identifier, and no two entries share one.
+  const ids = sources.map((s) => `${s.identifier.kind}:${s.identifier.value}`);
+  expect(new Set(ids).size, "no identifier is repeated within the article").toBe(ids.length);
+
+  // The bibliography reaches the page.
+  await page.goto(`/en/cuisine/${SPAS}`);
+  const text = (await page.getByRole("main").textContent()) ?? "";
+  for (const source of sources) expect(text, source.title).toContain(source.title);
+});
+
+test("spas links only where the prose earns it", async ({ page }) => {
+  /*
+    Two authored relations, both carried by a `SectionLink` in the paragraph that
+    justifies them — and those are the first `SectionLink`s anywhere in this
+    section, which until §68 had none at all.
+
+    Two rather than three is deliberate. `getRelatedArticles` fills a short list
+    from the same category in registry order, so a third slot is filled for us; the
+    §67 audit asked for strong authored links over filler suppression, and what the
+    filler actually is gets recorded rather than papered over.
+  */
+  for (const locale of LOCALES) {
+    const article = bundle(locale).articles.find((a) => a.slug === SPAS)!;
+    expect(article.relatedSlugs, `${locale} relations`).toEqual(["harissa", "lavash"]);
+
+    const links = article.sections.flatMap((s) => (s.links ?? []).map((l) => l.slug));
+    expect(links.sort(), `${locale} prose links`).toEqual(["harissa", "lavash"]);
+
+    // Every link phrase is a real substring of a paragraph in its own section.
+    for (const section of article.sections) {
+      for (const link of section.links ?? []) {
+        expect(
+          section.paragraphs.some((p) => p.includes(link.phrase)),
+          `${locale}: "${link.phrase}" must appear in ${section.id}`,
+        ).toBe(true);
+      }
+    }
+  }
+
+  // And the rendered links go to this edition's own pages.
+  await page.goto(`/hy/cuisine/${SPAS}`);
+  for (const target of ["harissa", "lavash"]) {
+    await expect(
+      page.getByRole("main").locator(`a[href="/hy/cuisine/${target}"]`).first(),
+      target,
+    ).toBeVisible();
   }
 });
 

@@ -802,7 +802,7 @@ export const placeArticles: Article[] = [
         id: "how-the-water-moves",
         heading: "How the water moves",
         paragraphs: [
-          "Twenty-eight rivers and streams flow into Lake Sevan and exactly one flows out. The inflows are short mountain rivers draining the ranges around the basin — among them the Argichi, the Vardenis, the Martuni and the Astghadzor, each named for or shared with the settlement at its mouth — and none of them is large by the standards of a continental river. The single outflow is the Hrazdan, which leaves at the north-western corner, runs down past Yerevan and joins the Araxes.",
+          "Twenty-eight rivers and streams flow into Lake Sevan and exactly one flows out. The inflows are short mountain rivers draining the ranges around the basin — among them the Argichi, the Vardenis, the Martuni and the Astghadzor, each named for or shared with the settlement at its mouth — and none of them is large by the standards of a continental river. The single outflow is the Hrazdan, which leaves at the north-western corner, runs down past Yerevan and joins the Araks.",
           "The arithmetic of that arrangement is the key to the whole history of the lake, and it is counter-intuitive. Only about a tenth of the water arriving in Sevan leaves down the Hrazdan; the other nine tenths leave straight upwards, as evaporation from a very large surface in thin, dry, sunlit mountain air. Sevan is therefore not a river with a wide place in it. It is a basin whose losses are mostly atmospheric, and its level is set by the balance between what the mountains deliver and what the sky takes.",
           "That balance is also what made the lake look, to a certain kind of engineer, like waste. Water evaporating from a high surface does no work and irrigates nothing on its way. The entire twentieth-century programme described below follows from the observation that if the outlet were enlarged and the surface reduced, the same rainfall could be made to turn turbines and water fields instead of vanishing into the air — an argument that is arithmetically sound and that turned out to be about far more than arithmetic.",
         ],
@@ -952,7 +952,7 @@ export const placeArticles: Article[] = [
           "The engineer whose published proposal argued that Lake Sevan's water was being wasted by evaporation and should be drawn down to irrigate the Ararat plain and generate electricity. The scheme carried out under Soviet rule was a partial execution of his argument; his own dates are not securely recorded.",
       },
     ],
-    relatedSlugs: ["kingdom-of-urartu", "bagratid-armenia"],
+    relatedSlugs: ["kingdom-of-urartu", "bagratid-armenia", "jermuk"],
   },
   {
     slug: "garni-temple",
@@ -1685,5 +1685,1341 @@ export const placeArticles: Article[] = [
       },
     ],
     relatedSlugs: ["geghard-monastery", "matenadaran", "bagratid-armenia"],
+  },
+  {
+    slug: "dilijan-national-park",
+    href: "/places/dilijan-national-park",
+    category: "places",
+    categoryLabel: "Places",
+    title: "Dilijan National Park",
+    seoTitle: "Dilijan National Park: Armenia's Forested North",
+    placeTypeId: "nature",
+    featured: false,
+    imageSeed: "dilijan-national-park",
+    keywords: [
+      "Dilijan National Park",
+      "Դիլիջան ազգային պարկ",
+      "Dilijan",
+      "Tavush",
+      "Aghstev",
+      "Dilijan forests",
+      "Armenian national parks",
+    ],
+    excerpt:
+      "The forested protected area of north-eastern Armenia — oak, beech and hornbeam on the ridges above the Aghstev, a national park since 2002 built on a reserve of 1958, and the part of the country that looks least like the Armenia in the photographs.",
+    metaDescription:
+      "Dilijan National Park in Tavush: the oak, beech and hornbeam forests of north-eastern Armenia, the 1958 reserve behind the park, and what its area figures measure.",
+    summary:
+      "Dilijan National Park covers the forested mountains of Tavush province in north-eastern Armenia, in the basins of the Aghstev and Getik rivers. The protected area began in 1958 as the Dilijan state reserve, one of the first three specially protected areas in Soviet Armenia; the national park itself was created only in 2002, by government decree, on that reserve's ground. Its administration gives the park 33 765 hectares with a further 8 167 hectares of buffer zone. Roughly half the territory is forest, and almost all of that forest is broadleaved — oak, oriental beech and hornbeam, with conifers and a relict yew grove as small exceptions. The town of Dilijan and several villages lie inside the outline but outside the protected land.",
+    intro:
+      "Most photographs of Armenia show bare rock, dry grassland and a mountain on the horizon, and most of the country earns that picture. Dilijan does not. The national park in the north-east of Tavush province is closed broadleaf forest for kilometre after kilometre — oak, beech and hornbeam running up the slopes on both sides of the Aghstev river until the trees give out on the ridges — and it is the clearest place in the republic to see that the Armenian Highland is not one landscape but several. The park is also younger than it looks in the guidebooks: the ground has been protected since 1958, but it was a strict reserve for forty-four years and has been a national park only since 2002. Those are two different legal things on much the same map, and almost every confusing number published about Dilijan comes from treating them as one.",
+    author: "Armat Editorial Team",
+    updated: "2026-08-10",
+    keyFacts: [
+      { label: "Kind of place", value: "Mountain forest national park, and a working forest administration" },
+      {
+        label: "Where",
+        value: "Tavush province, north-eastern Armenia, with small parts in Lori and Gegharkunik",
+      },
+      {
+        label: "Protected since",
+        value: "1958 as a state reserve; a national park only from 2002",
+      },
+      {
+        label: "Area",
+        value: "33 765 hectares on the administration's own figure, with a further 8 167 hectares of buffer zone",
+      },
+      {
+        label: "Height",
+        value: "From about 1070 metres in the valleys upwards; published upper figures run from 2300 to 2900 metres",
+      },
+      {
+        label: "The forest",
+        value: "Oak, oriental beech and hornbeam; conifers are a small fraction, and the yew is a relict",
+      },
+    ],
+    sections: [
+      {
+        id: "where-it-is",
+        heading: "Where the park is",
+        paragraphs: [
+          "Dilijan National Park lies in the north-east of Armenia, in the province of Tavush, with small parts of its territory reaching into Lori to the west and Gegharkunik to the south. It occupies the mountain country drained by the Aghstev and the Getik, two rivers that run north-east out of the highland towards the Kura, and its administration describes it as lying on the slopes of the Pambak, Areguni, Miapor, Ijevan and Halab ranges. Everything about the place follows from that position: it is on the wet side of the mountains, facing the Caucasus rather than the Ararat plain.",
+          "The town of Dilijan sits in the middle of it, in the Aghstev valley, and the relationship between the two needs stating plainly because they are constantly confused. The town is not the park and the park is not the town. Dilijan is a settlement with its own history as a spa and, in the Soviet period, as a resort and a place where composers and writers were sent to work; the national park is the forested land around it, and the boundary is drawn around the inhabited ground rather than over it.",
+          "That distinction is not a technicality. It is the reason a visitor can stand on a street in Dilijan and be outside the protected area, and the reason lists of what the park contains do not always agree with maps of where it ends. A study of the park's forests published in 2021 worked from the cadastral maps of seven communities inside it, which is the scale of the human presence involved: this is a protected area with towns and villages in it, not a wilderness with a fence around it.",
+        ],
+      },
+      {
+        id: "ridges-and-rivers",
+        heading: "The ridges, the valleys and the height of it",
+        paragraphs: [
+          "The park is not a plateau but a set of valleys with high ground between them. The floor of the Aghstev valley is around 1070 metres above sea level, which is low by Armenian standards — Lake Sevan's surface, an hour away over the mountains, is some eight hundred metres higher — and the ground climbs from there onto ridges where the forest thins into meadow. The height range is the one basic figure about Dilijan that published sources do not agree on: the park administration gives 1070 to 2900 metres, while general reference works give 1070 to 2300, the difference being how much of the open high ground above the treeline is counted as part of the park.",
+          "Both ends of that range matter for what grows. The lower slopes carry the tallest and densest broadleaf stands; the upper ones carry the oak that tolerates altitude, then subalpine meadow. A single hillside in this park runs through more vegetation belts in a few hours' walk than most of southern Armenia does in a day, which is a consequence of relief rather than of latitude.",
+          "The southern edge of the park runs along the Areguni range, whose southern side falls towards Lake Sevan. That ridge is the divide between two of Armenia's best-known protected landscapes and between two entirely different ones: north of it the water drains to the Kura and the slopes are wooded, south of it the water collects in a closed high basin and the shores are treeless. The two national parks are neighbours across a watershed and have almost nothing in common ecologically.",
+        ],
+        links: [{ phrase: "the Areguni range, whose southern side falls towards Lake Sevan", slug: "lake-sevan" }],
+      },
+      {
+        id: "from-reserve-to-park",
+        heading: "From reserve to national park",
+        paragraphs: [
+          "Armenia's system of specially protected areas begins in 1958, and Dilijan is one of the three places it begins with: the Dilijan, Khosrov Forest and Shikahogh reserves were all established that year, and all three were created to protect forest. The Dilijan state reserve was set up by decree P-341 of the Council of Ministers of the Armenian SSR, on ground that had until then been worked as the Dilijan and Kuybishev forest enterprises. What changed in 1958 was the legal purpose of the land, not its ownership: timber ground became protected ground.",
+          "A state reserve in the Soviet system is a stricter thing than a national park. It exists to keep an ecosystem intact and to be studied, not to be visited, and the difference is why the second date in this article's chronology exists at all. The national park was created on 21 February 2002, by decree 165 of the Government of the Republic of Armenia, as a state non-commercial organisation established on the basis of the reserve. Forty-four years separate the two, and they are not the same designation.",
+          "The distinction is worth holding onto because almost everything written about Dilijan collapses it. A sentence that dates the park to 1958 is describing the reserve; a sentence that dates it to 2002 is describing the park. Both dates are real, they are dates of different legal acts, and a figure quoted from one period does not describe the other. The area figures in the next section are the clearest casualty of the confusion.",
+          "One further protected area is easy to fold into this story and should not be. The yew grove of Akhnabad — 25 hectares of relict Taxus baccata on a spur of the Miapor range near the village of Aghavnavank, at between 1400 and 1700 metres — was protected in its own right in 1958, and it is a sanctuary rather than part of the national park. The park's administration manages it, along with a juniper sparse-forest sanctuary of 1807 hectares over in Gegharkunik. Managed by is not the same as inside, and neither sanctuary's area belongs in the park's.",
+        ],
+      },
+      {
+        id: "what-the-area-measures",
+        heading: "How large it is, and what the figure measures",
+        paragraphs: [
+          "The park's own administration gives its territory as 33 765 hectares, with a separate buffer zone of 8 167 hectares around it. That figure is the one used here, and the reason is not that it is the largest but that it says what it measures: the land held by the national park as an organisation, in Tavush with small parts in Lori and Gegharkunik, with the buffer stated separately rather than folded in.",
+          "A second figure circulates far more widely. General reference works, and the structured database most of them draw on, give the park 240 square kilometres, which is about two thirds of the administration's number. Neither the encyclopaedia entries nor the database record says which boundary that measures or what date it was true on, which is precisely the problem with it. It is close to the order of magnitude usually quoted for the Soviet-era reserve, and the safest thing to say about it is that it is a different measurement of something, unattributed.",
+          "The rule this article applies is the one the discrepancy demands: name what the number counts. The park is not the reserve, the park is not the buffer zone, the park is not the forest enterprise it was made from, the park is not the Dilijan municipality, and the park is not the tourist region that shares its name. Any of those could be measured, each would give a different answer, and a figure with no boundary attached to it is not a fact about the place.",
+        ],
+      },
+      {
+        id: "the-forest",
+        heading: "The forest",
+        paragraphs: [
+          "Roughly half of the park is under trees, and the trees are overwhelmingly broadleaved. A satellite classification of the park for 2019 put the broadleaf share of the forested area at almost ninety-nine per cent, with conifers at little more than one — which means that describing Dilijan as a forest of oak, beech and hornbeam is not shorthand but very nearly a complete account of it.",
+          "The dominant species are three, and they are the standard mesophilous forest of the Caucasus rather than anything peculiar to Armenia. Oriental beech, Fagus orientalis, holds the moist and shaded slopes and makes the tall closed stands that give the park its reputation. Common hornbeam and oriental hornbeam, Carpinus betulus and Carpinus orientalis, fill the middle ground and the drier edges. Oak takes the harder positions: Quercus macranthera, the Caucasian oak, on the higher and colder ground, alongside a second oak of the eastern Caucasus that different sources name differently — Quercus iberica in the older Armenian literature, and the same tree as a subspecies of Quercus petraea in more recent treatments. That disagreement is a taxonomic revision rather than a dispute about which tree grows there.",
+          "The three form pure stands and every mixture of themselves, which is what a walk through the park actually looks like: beech in the hollow, hornbeam on the shoulder, oak on the ridge, and long stretches where all three stand together. Lime, ash and elm occur through the mixture. None of this is unusual for the southern Caucasus; what is unusual is finding it in Armenia, where forest of any kind covers a small fraction of the country.",
+          "The conifers are the exception that the park was partly created to keep. Pine and juniper occur in small quantity, and the yew — Taxus baccata, a relict of an older and wetter climate — survives in the grove at Akhnabad, protected separately since 1958 and, at a few centuries old, the reason the tree appears in almost every description of this forest despite occupying a tiny fraction of it.",
+        ],
+      },
+      {
+        id: "the-plants",
+        heading: "The plants, and what the counts are evidence of",
+        paragraphs: [
+          "The figure quoted everywhere for the park's flora is 902 species of vascular plants, of which 881 are flowering plants and the rest are ferns, gymnosperms, a horsetail and a clubmoss. About 40 of the 902 are described as rare, 29 are listed in the Red Book of the Republic of Armenia, and four are listed in the Red Data Book of the USSR.",
+          "That last clause is the useful part, and it is usually reprinted without anybody noticing what it says. A count whose rarity criteria include a Soviet red list is a count assembled before 1991. The number may still be broadly right — a flora does not turn over in a generation — but it is a survey result from a particular period, restated ever since as though it were a standing fact, and it is not evidence about the park's plants today. Nothing in this article treats it as one.",
+          "The same caution applies to the vertebrate figures that travel with it. Around 150 bird species and more than 40 mammal species are given in almost every description of Dilijan, always without a date, a surveyor or a method. Those are plausible orders of magnitude for a forested protected area of this size in the Caucasus, and they are worth exactly that much: an order of magnitude, not a measurement.",
+        ],
+      },
+      {
+        id: "the-animals",
+        heading: "The animals",
+        paragraphs: [
+          "The mammals recorded in the park are the forest fauna of the southern Caucasus: brown bear, lynx, wolf, wild boar, roe deer, wildcat, badger, fox and squirrel. Recorded presence is a statement about what lives in the territory, and it is a weaker claim than it is usually made to carry. A large carnivore in a forest is not a thing a visitor is likely to see; the animals are there because the habitat is continuous, which is the point of protecting it, and not because the park is a place to look at them.",
+          "The one species with a documented story rather than a list entry is the Caucasian red deer, Cervus elaphus maral. It was widespread in the forests of Armenia in the nineteenth century, became locally extinct in the 1950s, and is listed as critically endangered in the country's Red Book. A programme to return it was begun in 2013 by the environment ministry and WWF Armenia, with a fenced breeding enclosure of about 10 hectares of forest near Parz Lake inside the park; the first founder animals arrived from Iran in 2018, deer were born there in the same year, and animals bred in the enclosure have since been released into the park itself.",
+          "Among birds, the species named in the park's own descriptions are the ones a forested highland would be expected to hold — black grouse on the upper edges, raptors over the ridges — and the same caution applies to them as to the counts above. What can be said without reservation is that the park is continuous woodland habitat on a scale Armenia has very little of, which is a statement about the forest rather than about any bird in it.",
+          "The invertebrates are the part of this fauna still being written. A caddisfly new to science, Wormaldia dilijanica, was described in 2026 from specimens taken in a tributary of the Aghstev inside the park during a short survey in May 2025 — the authors noting that Armenia's caddisfly fauna is poorly known and that the country has been largely absent from recent work in the Caucasus. A protected area where a short visit to one stream yields an undescribed species is not a place whose species lists should be read as complete.",
+        ],
+      },
+      {
+        id: "water",
+        heading: "Rivers, lakes and springs",
+        paragraphs: [
+          "The park is defined by its rivers more than by its lakes. The Aghstev is the main one, rising in the highland and running north-east through Dilijan town and on out of the country's mountains; the Getik drains the southern part of the territory and joins it beyond the park. Between them they collect a set of short forest tributaries — the Haghartsin, the Bldan, the Hovajur and the Shtoghanajur among them — and it is those small streams, rather than any body of standing water, that carry most of the park's freshwater life.",
+          "The lakes are small and few. Parz Lake, in the forest north-east of Dilijan town, is the best known; Gosh Lake lies further east, and there are one or two smaller waters besides. They are landscape features and habitat, and they are worth naming for what they are — a handful of small lakes in a mountain forest — rather than for the recreation that has grown up around the largest of them. Parz Lake also matters to this article for an unrelated reason: the red deer enclosure stands in the forest beside it.",
+          "Mineral springs are the third kind of water here and the oldest reason outsiders came. The mineral waters of the Dilijan area gave the town its nineteenth- and twentieth-century character as a spa, and the springs themselves are a product of the same geology that shapes the valleys. They belong to the region's history more than to the park's ecology, and this article mentions them for completeness rather than as a feature of the protected area.",
+        ],
+      },
+      {
+        id: "the-monasteries",
+        heading: "The monastic landscape",
+        paragraphs: [
+          "This forest is not empty of building, and the monuments in it are among the best known in Armenia. Haghartsin stands in a side valley in the north of the park, well inside the forest and several kilometres from the nearest road out of the mountains. Jukhtak Vank and Matosavank stand on the slopes immediately above Dilijan town, in woodland and within the protected land. Aghavnavank lies in the east, near the village of the same name and the yew grove. All of these are inside the boundary as it is drawn.",
+          "Goshavank is the one that needs care, and it is the one most often listed as the park's own. It stands at the village of Gosh, on the south-eastern side of the territory, and the village is one of the inhabited enclaves the boundary is drawn around rather than over. On the protected area's mapped outline the monastery sits a few hundred metres outside the line, in the village, with park forest on every side of it. The park administration's own descriptions list Goshavank among the monuments of the park; the boundary as mapped puts it just beyond one. Both statements are defensible and they are answering different questions, which is why this article states the geography instead of choosing a side.",
+          "That pattern — protected forest wrapped around unprotected settlements — is the single most useful thing to understand about the human geography here, and it explains a good deal else. It is why the park's area figure does not include the town, why grazing and building pressure arrive from inside the outline rather than from beyond it, and why a monastery can be simultaneously in the middle of the park and outside it.",
+          "What this article deliberately does not do is tell these monasteries' histories. Haghartsin and Goshavank are major medieval foundations with chronologies, inscriptions and disputes of their own, and each deserves its own article rather than a paragraph borrowed from a park's. They appear here as what they are in this context: buildings in a forest, and evidence that the forest has been inhabited and worked for as long as anything else in Armenia.",
+        ],
+      },
+      {
+        id: "conservation",
+        heading: "What the forest has been through",
+        paragraphs: [
+          "The most precisely documented thing about this park is the damage done to it in the nineteen-nineties, and the documentation is unusually good because someone went back and measured it from orbit. A study published in 2021 mapped forest density and land cover across the park at eight dates between 1991 and 2019, using Landsat and Sentinel imagery calibrated against high-resolution photography, and it is the first remote-sensing assessment of any Armenian protected area.",
+          "What it found matches the political history. Illegal and unregulated logging began across Armenia's forests in 1992, when the transport and energy blockade left a country with no fuel and a great deal of standing timber. In the park, the period from 1991 to 1995 lost 253 hectares of forest outright and degraded a further 384; the following five years degraded 363 more. Then the curve breaks. Between 2002 and 2005 — the years immediately after the national park was created — the study recorded 22 hectares of degradation and no measured forest loss at all, which the authors attribute directly to the protective measures that came with the new status.",
+          "The story since is neither a recovery nor a collapse. Losses resumed at a lower level in the two periods after 2005, and by the last epoch, 2015 to 2019, the park was regenerating 104 hectares against 45 lost, with pressure coming from settlements, agriculture and tourism rather than from industrial logging. The authors are careful about their own numbers in a way worth repeating: they attributed every degraded patch to human causes unless they could prove otherwise, had no field data on storms or disease, and say plainly that their anthropogenic figure is therefore very likely an overestimate.",
+          "Visitor pressure has been measured too, and by an unusual method. A study published in the Journal of Ecotourism used terrestrial molluscs — land snails, which do not move far and respond quickly to trampling and disturbance — as indicators of tourism impact inside the park, comparing heavily visited plots against control plots. It found significantly lower species richness and abundance where visitor numbers were high, with the gap widest in autumn, and all five of the rare species it detected occurring only in the low-traffic plots. That is a narrow finding about one group of animals in one park, and it is the kind of specific, dated evidence that generalised warnings about tourism are not.",
+        ],
+      },
+      {
+        id: "not-the-armenia-in-the-photographs",
+        heading: "Why Dilijan does not look like the rest of Armenia",
+        paragraphs: [
+          "Armenia is a dry country. The Ararat plain is irrigated semi-desert, the Gegham and Vardenis uplands are treeless volcanic pasture, the Vorotan and Azat gorges cut through bare rock, and the shores of Lake Sevan carry grass rather than woodland. Against all of that, the north-east is an anomaly: it faces the moist air coming off the Caucasus, it catches the rainfall that the interior does not, and it grows the closed broadleaf forest that the rest of the country cannot support.",
+          "The scale of that anomaly is easy to understate. Forest covers a small share of Armenia's territory, most of what there is lies in the north-east and the far south, and a single protected area of this size therefore holds a meaningful fraction of the country's continuous woodland. Dilijan is not one scenic valley among many. It is a large part of a scarce habitat type, in a country where the scarcity is the whole point.",
+          "That is the honest reason to read about this park rather than only to walk in it. A visitor who sees Khor Virap, Garni and Sevan has seen the Armenia of the photographs and has seen one climate. A visitor who then stands under beech in the Aghstev valley has seen the other, and has learned something about the Armenian Highland that no amount of time on the plain would have taught: that it is a set of very different countries stacked against each other along a few hundred kilometres of mountain.",
+        ],
+      },
+    ],
+    importantDates: [
+      {
+        year: "1958",
+        event:
+          "Armenia's first specially protected areas are created — the Dilijan, Khosrov Forest and Shikahogh reserves, all of them for forest. The Dilijan state reserve is established by decree P-341 of the Council of Ministers of the Armenian SSR, on ground previously worked as the Dilijan and Kuybishev forest enterprises.",
+      },
+      {
+        year: "1958",
+        event:
+          "The yew grove of Akhnabad, 25 hectares of relict Taxus baccata on the Miapor range at between 1400 and 1700 metres, is protected as a sanctuary in its own right. It is administered by the Dilijan park organisation today and has never been part of the park's own area.",
+      },
+      {
+        year: "1992",
+        event:
+          "Illegal and unregulated logging begins across Armenia's forests with the transport and energy blockade of the country. The years that follow remove more forest from Dilijan than any period since.",
+      },
+      {
+        year: "2002",
+        event:
+          "Dilijan National Park is established on 21 February by decree 165 of the Government of the Republic of Armenia, as a state non-commercial organisation on the basis of the 1958 reserve.",
+      },
+      {
+        year: "2013",
+        event:
+          "The environment ministry and WWF Armenia begin a programme to return the Caucasian red deer, locally extinct since the 1950s, to Armenia — with Dilijan as the site.",
+      },
+      {
+        year: "2018",
+        event:
+          "The first founder red deer arrive from Iran into a fenced enclosure of about 10 hectares of forest near Parz Lake, and the first calf is born there in the same year.",
+      },
+      {
+        year: "2021",
+        event:
+          "A satellite study of the park's forest and land cover from 1991 to 2019 is published — the first remote-sensing assessment of any specially protected area in Armenia.",
+      },
+      {
+        year: "2026",
+        event:
+          "A caddisfly new to science, Wormaldia dilijanica, is described from a tributary of the Aghstev inside the park, from specimens collected during a short survey in May 2025.",
+      },
+    ],
+    significance: {
+      heading: "Why Dilijan National Park matters",
+      paragraphs: [
+        "Dilijan protects a habitat Armenia has very little of. Closed broadleaf mountain forest is the normal vegetation of the wetter southern Caucasus and the exception in this republic, so a single protected area of this size in the north-east holds a substantial share of the country's continuous woodland. What is being conserved here is not scenery but the last large piece of a forest type that the rest of the national territory is too dry to grow.",
+        "It is also the clearest worked example in Armenia of what protection actually does, because for once the before and the after were both measured. The forest was cut hard through the nineteen-nineties, the national park was declared in 2002, and satellite imagery shows clearance stopping almost immediately afterwards and regeneration outrunning loss by the end of the record. Very few protected areas anywhere can point to a legal act and a curve that turns at the same date; this one can, and that is worth more to a reader than any description of the view.",
+      ],
+    },
+    interestingFacts: [
+      "The town of Dilijan is not in the national park. The boundary is drawn around the inhabited ground, so a visitor standing in the town centre is outside the protected area with park forest on every side.",
+      "Almost all of Dilijan's forest is broadleaved: a satellite classification for 2019 put conifers at little more than one per cent of the forested area, in a park often described for its yews.",
+      "The much-quoted flora of 902 vascular plant species includes four listed in the Red Data Book of the USSR — a clause that dates the survey to before 1991, however often the figure is reprinted as current.",
+      "The yew grove of Akhnabad is 25 hectares and is not part of the national park. It is a separate sanctuary, protected in the same year as the reserve and managed by the park organisation ever since.",
+      "The park's invertebrates are still being described: a caddisfly unknown to science, Wormaldia dilijanica, was named in 2026 from a single stream inside the boundary.",
+    ],
+    relatedFigures: [],
+    relatedSlugs: ["lake-sevan"],
+  },
+  {
+    slug: "gyumri",
+    href: "/places/gyumri",
+    category: "places",
+    categoryLabel: "Places",
+    title: "Gyumri",
+    seoTitle: "Gyumri: How Armenia's Second City Was Made",
+    placeTypeId: "settlement",
+    featured: false,
+    imageSeed: "gyumri",
+    keywords: [
+      "Gyumri",
+      "Գյումրի",
+      "Alexandropol",
+      "Alexandrapol",
+      "Leninakan",
+      "Kumayri",
+      "Shirak",
+      "Gyumri history",
+      "Gyumri architecture",
+      "Gyumri blacksmithing",
+      "black tuff",
+    ],
+    excerpt:
+      "Armenia's second city, on the Shirak plain in the north-west: a settlement that became a Russian garrison town called Alexandropol, then Soviet Leninakan, and that still carries the largest surviving nineteenth-century urban fabric in the country.",
+    metaDescription:
+      "Gyumri in Shirak: how the city was made — Kumayri, Alexandropol, Leninakan — its tuff architecture, its blacksmiths, and the 1988 earthquake.",
+    summary:
+      "Gyumri is the second city of Armenia and the administrative centre of Shirak Province, on a high plain in the north-west of the country. The settlement is old, but the city is not: it grew after the Russian Empire annexed the region, took the name Alexandropol in 1837, was granted city status in 1840, and became the largest town of Russian-ruled Eastern Armenia. It was renamed Leninakan in 1924 and Gyumri in 1992. Its historic core, protected as the Kumayri reserve since 1980, is the country's largest surviving nineteenth-century urban fabric, built in local volcanic tuff by local masons. The earthquake of 1988 destroyed much of the modern city around that core, and the rebuilding of it took decades.",
+    intro:
+      "Gyumri is the one place in Armenia where the nineteenth century is still the ordinary building stock rather than a monument. Walk out of the centre in most directions and the streets are lined with one- and two-storey houses of dark volcanic stone, cut and carved by masons whose descendants are still working, laid out on a grid that a Russian imperial surveyor drew. That is unusual anywhere in the region, and it is the reason this article exists: Armat's other Places are single buildings, enclosures and landscapes, and this is a whole city, which has to be explained rather than listed. The city has also had four official names in under two centuries — Kumayri, Alexandropol, Leninakan, Gyumri — and each change was an act of a different state. Understanding how those names, that stone and the earthquake of 1988 fit together is most of what there is to understand about the place.",
+    author: "Armat Editorial Team",
+    updated: "2026-08-11",
+    keyFacts: [
+      {
+        label: "Kind of place",
+        value: "A city — the second of the Republic of Armenia, and the centre of Shirak Province",
+      },
+      {
+        label: "Where",
+        value: "The Shirak plain in the north-west, roughly 120 kilometres from Yerevan and close to the closed border with Turkey",
+      },
+      {
+        label: "Height",
+        value: "About 1500 metres above sea level; the figure usually printed is 1509 metres, and the city is large enough that a single number is an approximation",
+      },
+      {
+        label: "Names",
+        value: "Kumayri; Alexandropol from 1837; Leninakan from 1924; Kumayri again in 1990; Gyumri from 1992",
+      },
+      {
+        label: "Historic core",
+        value: "The Kumayri reserve, declared in 1980 and covering on the order of a fifth of the city's area",
+      },
+      {
+        label: "Population",
+        value: "112 301 recorded at the census of October 2022 — a dated count, not a standing fact",
+      },
+    ],
+    sections: [
+      {
+        id: "where-it-is",
+        heading: "Where Gyumri is, and which Gyumri is meant",
+        paragraphs: [
+          "Gyumri stands on the Shirak plain, in the north-west of the Republic of Armenia, about 120 kilometres from Yerevan by road and a short distance from the closed border with Turkey. The plain is high, open and treeless — the city sits at around 1500 metres, higher than most European capitals — and it is ringed at a distance by the Aragats massif to the south-east, the Shirak range to the north and the Akhuryan river valley to the west. The wind and the winters here are worse than in the Ararat plain, and both show in what the city is built of and how.",
+          "Four different things are called Gyumri or Shirak in the sources, and mixing them is the commonest way a statement about this city goes wrong. There is the city itself; there is the urban community, the municipal unit that administers it; there is Shirak Province, the marz of which the city is the centre and which reaches north to the border with Georgia; and there is the historic core, the old town inside the modern city, which has its own legal boundary and its own name. A population, an area or an elevation quoted for one of these is not a fact about the others, and this article names which one it means each time.",
+          "The province matters for locating the city and very little else here. Gyumri is the marz centre of Shirak, which is what makes it the seat of the regional administration and gives it the courts, hospitals and offices a provincial capital carries. Everything else in this article is about the city and its core.",
+        ],
+      },
+      {
+        id: "the-names",
+        heading: "Kumayri, Alexandropol, Leninakan, Gyumri",
+        paragraphs: [
+          "The name history is unusually well documented and unusually easy to get wrong, because the changes were made by four different authorities for four different reasons and are often strung into one tidy line as though they were the same kind of event.",
+          "The oldest of the names is Kumayri, and Gyumri is generally taken to be the same word worn down by use rather than a separate name. The settlement carried it into the nineteenth century, and it is the name under which the place enters the Russian Empire: the region was occupied by Russian forces in the war that began in 1804 and formally ceded by Persia in 1813.",
+          "Alexandropol is the first change made by a state. The Emperor Nicholas I visited in 1837, and the town was renamed after the Empress Alexandra Feodorovna; three years later, in 1840, it was granted the status of a city and made the centre of a district. Those are two separate acts and the article keeps them separate, because a great deal of writing about Gyumri treats 1837 as the year it became a city, which it is not. The spelling varies in English between Alexandropol and Alexandrapol; this archive uses Alexandropol throughout, and the other form is a transliteration difference rather than a different place.",
+          "Leninakan is the Soviet change. The city was renamed in 1924, the year Lenin died, and kept that name for most of the twentieth century — which means that when the earthquake struck in 1988 the city on every news bulletin in the world was called Leninakan, and readers who know the disaster by that name are looking at the same place.",
+          "The last two changes come with the end of the Soviet Union and belong to two different moments. The Soviet name was dropped in 1990 in favour of Kumayri, the older form, and the present name Gyumri was adopted in 1992, after independence. Four names, five changes of usage, and not one of them a matter of the inhabitants slowly deciding to call the place something else.",
+        ],
+      },
+      {
+        id: "before-the-city",
+        heading: "What stood here before the nineteenth century",
+        paragraphs: [
+          "Everything above concerns a city that is about two hundred years old. The ground under it is much older, and the honest account of that requires keeping four claims apart, because popular writing merges them constantly: archaeological occupation of the site, a textual reference to a place of this name, continuous settlement, and the existence of a city.",
+          "Archaeology on and around the site records occupation reaching back into prehistory, which is unremarkable for a well-watered plain in this highland — the same is true of most of Armenia. Kumayri is named in Armenian narrative sources from the early medieval period, in connection with the risings against Arab rule in the eighth century, which establishes a settlement of that name at that date and nothing more. Claims that tie the name to an Urartian royal inscription are inferences drawn from campaign accounts that name other places in this district, and they are not the same kind of evidence as a text that says Kumayri.",
+          "So the defensible statement is a modest one. There was a settlement here for a very long time; it was substantial enough to be named in medieval sources; and it was still a village-scale place in the early nineteenth century, when the events in the next section turned it into a city within two generations. What Gyumri is not is a continuously urban site of great antiquity, and the archive says so plainly rather than reaching for a round number of millennia.",
+        ],
+      },
+      {
+        id: "the-russian-century",
+        heading: "The Russian century, and how a village became a city",
+        paragraphs: [
+          "The transformation begins with a border. When the Russian Empire took this region from Persia, and then fought the Ottoman Empire immediately to the west, Kumayri stopped being an inland village and became a frontier town on the empire's edge — with a garrison, a customs position and a road to supply. Everything that follows is downstream of that.",
+          "The first change was demographic. The war of 1828 to 1829 ended with a large movement of Armenians from Ottoman territory into the Russian Caucasus, and Kumayri received a substantial share of it: families from Kars, Erzurum and the country around them settled in and beside the existing town. A place that had been counted in hundreds of households was suddenly counted in thousands, and it was those incomers, with the crafts and the trade connections they brought, who built most of what a visitor now sees.",
+          "The second was military. An imperial order of 1834 set in train the construction of a fortress above the town, finished over the following decade or so; the town was renamed Alexandropol in 1837 and given city status in 1840. Alexandropol was thereafter a garrison city, and the garrison is not incidental to its economy — an army in permanent residence is a market for bread, leather, iron, cloth, cartage and building work, and it is a large part of why the crafts described further down grew as they did.",
+          "The third was the street plan. A city laid out under Russian imperial administration in this period gets a surveyor's grid: straight streets crossing at right angles, rectangular blocks, and a central square. That grid is still the plan of the old town, and it is the frame everything else in the city hangs on — including, as the architecture section explains, a building tradition that filled it in a way no plan specified.",
+          "The fourth was the railway. The line from Tiflis reached Alexandropol in 1899, was continued west to Kars in the same year, and a branch ran south to Yerevan by 1902. That is what turned a garrison and market town into a junction: for the rest of the imperial period Alexandropol was the largest city of Russian-ruled Eastern Armenia, larger than Yerevan, and its workshops and warehouses served a region rather than a district.",
+          "The twentieth century arrived early and hard. Alexandropol was captured by Turkish nationalist forces in the autumn of 1920, and the treaty signed in the city as the first Republic of Armenia was collapsing carries its name; the state university, founded by decree in 1919, opened in Alexandropol at the beginning of 1920 before moving to Yerevan. The city that entered the Soviet period as Leninakan had already been the second city of Armenia for a lifetime, and it stayed one.",
+        ],
+        links: [
+          { phrase: "the first Republic of Armenia", slug: "first-republic-of-armenia" },
+        ],
+      },
+      {
+        id: "the-stone",
+        heading: "Black tuff, and what the city is actually built of",
+        paragraphs: [
+          "Gyumri is described everywhere as a city of black tuff, and the phrase is useful only if the geology behind it is stated. Tuff is a rock made of consolidated volcanic ash, and the Armenian highland is full of it because the highland is volcanic. It is light, workable with hand tools when freshly quarried, hardens on exposure, and comes in colours that depend on what was in the ash — so Armenian towns are built of pink tuff, orange tuff, grey tuff and, in the quarries of this district, a dark grey to black tuff. Gyumri looks the way it does because its masons had that stone at hand.",
+          "The generalisation should not be pushed further than it goes. Not every historic building in Gyumri is black: the local repertoire includes red and reddish tuff as well, sometimes in the same façade as the dark stone, and the deliberate contrast of the two is part of the local manner rather than an accident. A blanket description of the city as uniformly black is a photographer's impression rather than a description of the fabric.",
+          "What makes the old town coherent is not one colour but one method. The buildings are load-bearing cut stone, one or two storeys, set to the street line with a door and windows on the frontage and living space arranged around an interior court. The stone is dressed, and the doorways, window surrounds, cornices and balconies carry carved detail cut by hand — restrained on a modest house, elaborate on a merchant's. A study of the city's vernacular architecture describes the result as freedom within the grid: an imperial street layout filled in by local craftsmen working to their own repertoire, which is why the old town reads as one place rather than as a set of individual designs.",
+          "The last element is iron. The gates, the window grilles, the balcony railings, the door furniture and the brackets are forged, and they are the reason the blacksmiths' section below is about architecture as much as about a craft. Stone and iron were made by two trades in the same town for the same buildings, and the visual character of Gyumri is what the two produced together.",
+        ],
+      },
+      {
+        id: "the-historic-core",
+        heading: "The historic core, and what the monument counts actually count",
+        paragraphs: [
+          "The old town has a legal identity. In 1980, under the Armenian SSR, the historic core was declared a protected reserve under the older form of the city's name — the Kumayri historical and cultural museum-reserve — with the explicit purpose of stopping the demolition of low-rise historic streets for new construction. It covers on the order of a fifth of the city's area, which for a historic core is a very large share, and it was later transferred from the state to the city as municipal property, in 1998. So the body that administers it is the community, not the national museum-reserve service that runs Garni or Metsamor — a detail worth knowing because it explains why the reserve is often missing from national heritage listings.",
+          "Then there is the number of monuments, which is where care is needed. Published figures for the Kumayri reserve run from about a thousand to eighteen hundred, and they are printed without saying what is being counted, inside which boundary, or on what date. Those are three different questions and each of them changes the answer: a count of listed monuments is not a count of historic buildings, a count inside the reserve is not a count inside the city, and a count made in 1980 is not a count made now.",
+          "There is a defensible figure available, and it is a legal one rather than a promotional one. The Government of the Republic of Armenia approved the State List of immovable historical and cultural monuments of Shirak Province by a decision of 2004, and the section of that list covering the city of Gyumri runs to roughly a thousand numbered entries, some with sub-items. That is a real count with a real boundary and a real date attached — and it is the kind of figure this archive is willing to quote, precisely because the three questions above have answers.",
+          "The condition of the fabric is a separate matter from its legal status and is not uniformly good. The reserve survived the earthquake far better than the Soviet districts around it, for reasons the next sections give, but a protected historic quarter of low-rise stone houses in a city with a long housing shortage is under continuous pressure, and unregulated alteration of façades is a documented and continuing problem. Protection here is a live process rather than a completed act.",
+        ],
+      },
+      {
+        id: "blacksmithing",
+        heading: "Blacksmithing, and what UNESCO actually inscribed",
+        paragraphs: [
+          "Alexandropol was a city of trades. A frontier city with a garrison, a market and a railhead needed metal, stone, leather, wood and cloth worked locally, and it organised those trades into guilds; the wealth and the self-image of the nineteenth-century town came out of that craft economy rather than out of any single industry. Of all those trades, the one that survived into the present as a living urban practice is blacksmithing.",
+          "What the smiths of Gyumri make is architectural before it is anything else: window grilles, gates, railings, doors and door furniture, along with candlesticks and lamps. That is the direct link between this craft and the streets described above — the ironwork on a Gyumri house is not decoration applied to the architecture, it is part of it, and the two trades grew up serving the same buildings. Skills passed within families, and among today's practitioners are smiths who are the fifth or sixth generation of their own workshop; transmission now runs through the city's art academy and craft college as well as through households.",
+          "In 2023 UNESCO inscribed the tradition of blacksmithing in Gyumri on the Representative List of the Intangible Cultural Heritage of Humanity, on Armenia's nomination, as element number 01967. The precision of that sentence is the point of this paragraph. What was inscribed is a living practice — the knowledge, the skills and the transmission of them — and the list it went onto is the intangible heritage list, which is a different instrument from the World Heritage Convention with a different purpose and different legal effects.",
+          "So: Gyumri is not a World Heritage Site, and no part of it is inscribed as a World Heritage property. The city's blacksmithing tradition is an element on the Representative List of the Intangible Cultural Heritage of Humanity. Those two statements sound similar and mean entirely different things, and the conflation of them is common enough in material about the city that this article states the distinction rather than assuming a reader will make it.",
+          "One further UNESCO relationship exists and is worth naming for completeness, because it is real and is usually missed: Gyumri joined the UNESCO Global Network of Learning Cities in 2016. That is a municipal-cooperation network about lifelong learning, and it is neither a heritage designation nor a claim about the city's buildings. Gyumri is not a UNESCO Creative City; no city in Armenia is currently in that network.",
+        ],
+      },
+      {
+        id: "buildings",
+        heading: "Buildings that carry the story",
+        paragraphs: [
+          "Four buildings are worth naming, not as attractions but because each stands for one part of the account above. None of them gets its history told here; each has more of one than a paragraph can hold.",
+          "The Church of the Holy Saviour, Amenaprkich, is the nineteenth-century town's own monument. It was begun in 1858 and finished around 1872, consecrated in 1873, and it was built by the incoming population out of their own money in the boom years of Alexandropol — a large church raised by a town that had been a village within living memory. It was severely damaged in 1988 and its restoration ran for decades; it was reconsecrated in December 2024.",
+          "The Cathedral of the Holy Mother of God, known as Yot Verk, the Seven Wounds, is the other great church of the same period and the same milieu, and it stands on the central square. It was damaged in 1988 too, and repaired earlier; the two churches together are the reason that square looks the way it does.",
+          "The Black Fortress, Sev Berd, belongs to a different story and should be kept in it. It is a Russian imperial military work, ordered in 1834 and built over the following years, standing on high ground above the town — a fortification of the frontier, contemporary with the naming of Alexandropol and part of the same imperial moment. It is not a medieval Armenian castle, it is not the origin of the town, and this article makes no claim about what was fought over or from it, because the popular accounts of that are not supported by anything citable.",
+          "The last of the four is not a monument at all: the museum of urban life housed in a merchant family's town house of the 1870s. A city whose historic significance is domestic and commercial rather than monumental is properly represented by a house, and that is what it is there for.",
+        ],
+      },
+      {
+        id: "the-earthquake",
+        heading: "7 December 1988",
+        paragraphs: [
+          "On 7 December 1988 an earthquake struck northern Armenia, with its epicentre near the town of Spitak, some tens of kilometres east of the city then called Leninakan. The scientific literature places the main shock at a moment magnitude of about 6.8, on a reverse fault that broke the surface for something like 13 kilometres and generated an aftershock sequence confined to the upper crust. It is the defining event of the modern history of this city and of this province.",
+          "The damage in Leninakan was severe and was concentrated in a particular kind of building. Engineering studies published after the event found that the multi-storey precast-concrete residential blocks built in the Soviet period performed catastrophically, and that the failures were in the connections between prefabricated elements rather than in the elements themselves. A second finding is specific to this city: the ground under Leninakan is soft sediment, and the seismological work concluded that it amplified the shaking in the range of periods that matters most to buildings of that height. Two things therefore came together — a building type with no reserve of ductility, and a site that magnified exactly the motion it could not tolerate. That is why the same earthquake did far more damage here than in the other large city it struck.",
+          "The other half of that observation is the part this article draws attention to. The low-rise stone buildings of the historic core came through the earthquake very much better than the tall modern blocks around them, and the old town survives today largely because of it. That is a statement about construction — low, heavy, load-bearing masonry against tall precast frames on soft ground — rather than about the past being better built than the present, and it is the reason the Kumayri reserve exists as fabric and not only as a legal boundary.",
+          "The human scale of the event is stated here in one paragraph and no more. The earthquake killed tens of thousands of people across the affected region and left several hundred thousand without housing; the figures published for the region are estimates over a wide range, and figures attributed specifically to this city are frequently quoted without any statement of what they measure. This archive does not assign a precise death toll to Gyumri, because it has found no authoritative source that defines one, and because a number of that kind repeated without its basis is not evidence but a rhetorical device. What can be said, and matters for everything that follows, is that a city of well over two hundred thousand people lost a large part of its housing and a large part of its population in a single morning.",
+        ],
+      },
+      {
+        id: "reconstruction",
+        heading: "Reconstruction, and why it is written in the present tense",
+        paragraphs: [
+          "The Soviet authorities promised to rebuild the city within two years. In the three years that remained to the Soviet Union, several thousand apartments were completed, and then the state that had made the promise ceased to exist — into an independent Armenia in economic collapse, under blockade, with an energy crisis and a war. Reconstruction did not stop, but it changed from a centrally funded programme into a long sequence of state, diaspora and international projects.",
+          "The visible consequence was the domik: a temporary shelter, often a converted metal container, put up in the winter after the earthquake as accommodation for two or three years. Households were still living in them decades later, and the phased clearance of that temporary housing through state programmes and charitable construction continued well into the present century. The plain statement that Gyumri was rebuilt is true of the city as a whole and untrue of a great many individual households, and both halves belong in an honest account.",
+          "Heritage restoration ran on the same long clock. The Church of the Holy Saviour was under restoration for the better part of thirty years and was reconsecrated in December 2024 — a useful marker for a reader who wants to know when the earthquake stopped being an active condition of the city, because the answer is that in some respects it only recently did.",
+          "The population figures record the same story more coldly than any description. The census of 2001 counted 150 917 people in Gyumri, that of 2011 counted 121 976, and that of October 2022 counted 112 301 — against a pre-earthquake city of well over two hundred thousand. The city has not recovered its size, and the decline continued through the whole period of reconstruction.",
+        ],
+      },
+      {
+        id: "counting",
+        heading: "A note on counting a living city",
+        paragraphs: [
+          "The figure above needs its basis stated, because it is the kind of number that gets copied for a decade after it stops being true. Armenia's census reports two different populations: a permanent, or de jure, count of those who usually live in the country, and a current, or de facto, count of those actually present when the enumeration is made. Nationally the two differed by a quarter of a million people in 2022. A city figure quoted with neither its date nor its basis is therefore weaker evidence than it looks, and a reader who finds three different numbers for Gyumri in three sources is usually looking at three different measurements rather than at an error.",
+          "The same caution applies to the annual estimates published between censuses, which roll a previous census forward and are a different series from the census itself. This article gives census counts, with the census dates attached, and does not restate a population in its prose as though it were a permanent property of the place — because in a city whose defining modern experience is the loss of a third of its inhabitants, the trajectory is the fact and the single number is only a sample of it.",
+        ],
+      },
+      {
+        id: "what-it-is-called",
+        heading: "Cultural capital, city of crafts, city of humour",
+        paragraphs: [
+          "Three labels follow Gyumri everywhere and each is a different kind of claim, which is why they are treated here rather than repeated.",
+          "Cultural capital is the one with an official version and a popular version, and they are not the same. Gyumri holds no standing national designation as Armenia's cultural capital; it was named cultural capital of the Commonwealth of Independent States for the year 2013, which is a rotating annual honorific awarded to a different city each year and not a permanent status. The popular usage is much older than the award and rests on something real — a city with its own theatre, its own school of painters, a long musical life, and an unusually dense association with named writers and performers — but it is a reputation, and this archive describes it as one.",
+          "City of crafts is the most defensible of the three, because it is a description of an economy that can be documented: the guild trades of nineteenth-century Alexandropol, the surviving smiths, and the ironwork and stonework on the buildings themselves. It is a statement about the city's history rather than a slogan, and the two preceding sections are what it rests on.",
+          "City of humour is a genuine cultural convention and it is the one most easily mishandled. Gyumri has a long-standing reputation in Armenia for a particular kind of wit, carried by named local figures who are the subjects of a body of anecdotes, and that reputation is old, widely held and worth recording. What it is not is a description of the character of the people who live there. A reputation attaches to a place; personality traits do not attach to a population, and an article that presented them as though they did would be trading in stereotype rather than in cultural history.",
+          "Beneath the labels there is a plainer fact. This is the city where Avetik Isahakyan was born and raised, and where Armen Tigranian's opera Anush was first staged in 1912 — the first Armenian opera built on folk melody, premiered in a provincial city because that provincial city had the musicians and the audience for it. That is what a cultural capital looks like from the inside, and it needs no slogan.",
+        ],
+        links: [
+          { phrase: "Avetik Isahakyan", slug: "avetik-isahakyan" },
+          { phrase: "Armen Tigranian's opera Anush", slug: "anush" },
+        ],
+      },
+    ],
+    importantDates: [
+      {
+        year: "1804",
+        event:
+          "Russian forces occupy the Shirak district during the war with Persia; the region is formally ceded to the Russian Empire by the Treaty of Gulistan in 1813. Kumayri passes from one empire's frontier to another's.",
+      },
+      {
+        year: "1829",
+        event:
+          "In the settlement following the Russo-Turkish war, a large movement of Armenians from Ottoman territory — from Kars, Erzurum and the surrounding country — settles in and around Kumayri, multiplying the population of the town and bringing with it the crafts and trade connections that built the nineteenth-century city.",
+      },
+      {
+        year: "1834",
+        event:
+          "An imperial order sets in train the construction of a fortress on the high ground above the town, the work now known as the Black Fortress. It is a Russian frontier fortification, not a medieval Armenian one.",
+      },
+      {
+        year: "1837",
+        event:
+          "The Emperor Nicholas I visits, and the town is renamed Alexandropol after the Empress Alexandra Feodorovna. This is a renaming and nothing more; the grant of city status is a separate act three years later.",
+      },
+      {
+        year: "1840",
+        event: "Alexandropol is granted the status of a city and becomes the centre of a district.",
+      },
+      {
+        year: "1899",
+        event:
+          "The railway from Tiflis reaches Alexandropol and is continued west to Kars in the same year; a branch south to Yerevan follows by 1902. The city becomes a junction, and remains the largest in Russian-ruled Eastern Armenia.",
+      },
+      {
+        year: "1924",
+        event: "The city is renamed Leninakan, the name it will carry for most of the Soviet period.",
+      },
+      {
+        year: "1980",
+        event:
+          "The historic core is declared a protected reserve under the older name of the city — the Kumayri historical and cultural museum-reserve — to stop the demolition of the low-rise old town for new construction. It is transferred to municipal ownership in 1998.",
+      },
+      {
+        year: "1988",
+        event:
+          "The earthquake of 7 December, with its epicentre near Spitak and a moment magnitude of about 6.8, destroys much of the modern city. The multi-storey precast-concrete blocks fail; the low-rise stone fabric of the historic core largely stands.",
+      },
+      {
+        year: "1990",
+        event:
+          "The Soviet name is dropped in favour of Kumayri; the present name Gyumri is adopted in 1992, after independence.",
+      },
+      {
+        year: "2004",
+        event:
+          "The Government of the Republic of Armenia approves the State List of immovable historical and cultural monuments of Shirak Province, whose Gyumri section runs to roughly a thousand numbered entries — the one monument count for this city that comes with a boundary and a date.",
+      },
+      {
+        year: "2023",
+        event:
+          "UNESCO inscribes the tradition of blacksmithing in Gyumri on the Representative List of the Intangible Cultural Heritage of Humanity, element number 01967, on Armenia's nomination. A living practice is inscribed; the city is not a World Heritage property.",
+      },
+      {
+        year: "2024",
+        event:
+          "The Church of the Holy Saviour is reconsecrated in December, after a restoration that ran for the better part of thirty years — a marker for how long the recovery from 1988 actually took.",
+      },
+    ],
+    significance: {
+      heading: "Why Gyumri matters",
+      paragraphs: [
+        "Gyumri holds the largest surviving nineteenth-century urban fabric in Armenia, and it is the only place in the country where that fabric is the ordinary building stock of a working city rather than a preserved fragment. Everywhere else the Armenian past that survives above ground is ecclesiastical, military or archaeological: churches, monasteries, fortresses, mounds. Here it is houses, workshops and shopfronts on a grid — the domestic and commercial life of a nineteenth-century Armenian town, standing and inhabited. That is a category of heritage the rest of the country largely lost, and it is why a city belongs in a list of places otherwise made up of monuments.",
+        "It is also the clearest case in Armenia of how a city is made and unmade by decisions outside it. A frontier drawn by two empires brought the people, the garrison and the railway that built Alexandropol; a Soviet building programme raised the blocks that fell in 1988; the collapse of the state that promised to rebuild them left temporary shelters standing for a generation. The stone city underneath survived all of it and is still being worked in by masons and smiths whose trades are older than any of those decisions. Reading Gyumri as a single story of stone and iron misses that; reading it as a disaster misses the two centuries before it.",
+      ],
+    },
+    interestingFacts: [
+      "The city has had four official names in under two centuries — Kumayri, Alexandropol, Leninakan and Gyumri — and every change was the act of a state rather than a shift in local usage.",
+      "It became a city in 1840, three years after it was renamed Alexandropol. The two dates are constantly merged, and they are separate acts.",
+      "The historic core is protected under the city's older name: the reserve declared in 1980 is called Kumayri, not Gyumri.",
+      "What UNESCO inscribed in 2023 is the blacksmithing tradition, on the intangible heritage list. Gyumri itself is not a World Heritage property, and the distinction is the whole point of the wording.",
+      "The old low-rise stone quarter came through the earthquake of 1988 far better than the tall precast blocks built beside it, which is why there is a nineteenth-century city left to visit at all.",
+      "Published monument counts for the historic core range from about a thousand to eighteen hundred. The one figure with a boundary and a date attached is the State List approved by government decision in 2004.",
+    ],
+    relatedFigures: [],
+    relatedSlugs: ["avetik-isahakyan", "anush", "first-republic-of-armenia"],
+  },
+  {
+    slug: "amberd-fortress",
+    href: "/places/amberd-fortress",
+    category: "places",
+    categoryLabel: "Places",
+    title: "Amberd Fortress",
+    seoTitle: "Amberd Fortress: Medieval Castle on Mount Aragats",
+    placeTypeId: "historical",
+    featured: false,
+    imageSeed: "amberd-fortress",
+    keywords: [
+      "Amberd Fortress",
+      "Amberd Castle",
+      "Ամբերդ",
+      "Amberd",
+      "Vahramashen Church",
+      "Vahram Pahlavuni",
+      "Mount Aragats",
+      "Aragatsotn",
+      "medieval fortress Armenia",
+    ],
+    excerpt:
+      "A ruined medieval stronghold high on the southern side of Mount Aragats, on a spur between two gorges: a stone castle, a wall circuit, a bathhouse, a piped water supply — and a church of 1026 that is the only securely dated building on the site.",
+    metaDescription:
+      "Amberd Fortress in Aragatsotn: the castle and walls on Mount Aragats, the Vahramashen church of 1026, and what its early chronology actually rests on.",
+    summary:
+      "Amberd is a ruined medieval fortress in Aragatsotn province, on a promontory on the southern slopes of Mount Aragats between the gorges of the Amberd and Arkashen rivers. The complex holds a three-storey stone castle, a circuit of walls and towers, a bathhouse heated from below, cisterns and a piped water supply, and the church usually called Vahramashen, built for the Bagratid commander Vahram Pahlavuni and dated 1026 by an inscription. That church is the only securely dated building on the site. The fortress itself is dated by excavation and by architecture to the tenth to thirteenth centuries, while the seventh-century foundation credited to the Kamsarakan house is an attribution rather than a documented event. Amberd has been a state historical and cultural reserve since 2017.",
+    intro:
+      "Amberd stands high on the southern side of Mount Aragats, on a triangular spur with a gorge falling away on either side of it, and almost everything about the place follows from that position. What survives is a ruin: the shell of a three-storey stone castle, stretches of wall and the stumps of towers, a bathhouse below the castle, cisterns and the line of a water conduit, and one church still standing whole. The church carries a date, 1026, and the fortress does not — which is the single most useful thing to know before reading anything else about Amberd. Almost every confident sentence written about this site's early history is an attribution; the one building that can be dated is the one that was added last.",
+    author: "Armat Editorial Team",
+    updated: "2026-08-18",
+    keyFacts: [
+      {
+        label: "Kind of place",
+        value:
+          "Ruined medieval fortress complex: castle, walls and towers, church, bathhouse and water system",
+      },
+      {
+        label: "Where",
+        value:
+          "Aragatsotn province, on the southern slopes of Mount Aragats, north-west of the village of Byurakan",
+      },
+      {
+        label: "Height",
+        value: "About 2300 metres above sea level on the reserve's own figure; 2160 metres is also published",
+      },
+      {
+        label: "Dated",
+        value:
+          "The reserve dates the complex to the tenth to thirteenth centuries; the state monument list gives tenth to fourteenth",
+      },
+      {
+        label: "The church",
+        value:
+          "Surb Astvatsatsin, called Vahramashen, dated 1026 by an inscription — the only firmly dated building here",
+      },
+      {
+        label: "Protection",
+        value:
+          "On the state list of monuments of Aragatsotn since 2002; a historical and cultural reserve of 45.07 hectares since 2017",
+      },
+    ],
+    sections: [
+      {
+        id: "where-it-stands",
+        heading: "Where Amberd stands",
+        paragraphs: [
+          "Amberd sits on the southern flank of Mount Aragats, in Aragatsotn province, some distance north-west of the village of Byurakan and a long way above it. The ground it occupies is a spur: a triangular promontory with the gorge of the Amberd river on one side, the gorge of the Arkashen on the other, and the two closing towards each other below the point. The fortress takes up the whole of the spur, and the only level approach is from behind, where the ground runs back towards the mountain.",
+          "That is the whole of the site's defensive logic, and it is worth stating in terrain rather than in adjectives. Two sides of the enclosure never needed to be strong, because they end in a drop; the wall and the towers are concentrated where the spur joins the slope behind it, which is the only line an attacker could form up on. A fortress here is not inaccessible — a road reaches it now and a track always did — it is simply expensive to attack from any direction but one.",
+          "The height is the thing most often quoted about the place, and the figure varies with the source. The reserve that administers Amberd, and most reference works after it, give about 2300 metres above sea level; the heritage inventory maintained by the American University of Armenia gives 2160. Neither says whether the number describes the castle, the church a couple of hundred metres downhill from it, the plateau behind them or the ridge above, and the site spans enough vertical distance for all four to be different answers.",
+        ],
+      },
+      {
+        id: "the-mountain-and-the-province",
+        heading: "The mountain and the province",
+        paragraphs: [
+          "Mount Aragats is a volcano and the highest ground in the Republic of Armenia — a broad massif with four summits round a central crater rather than a single peak — and the province of Aragatsotn takes its name from it. Amberd is on the mountain's lower southern skirt: high enough to be in cloud for part of the year, well below the summer pastures and the snow.",
+          "The mountain supplies the site with two things it could not have done without. The first is stone. Aragats is built of lava and ash, and the dark stone the castle and the church are made of is the local rock rather than anything hauled up from the plain; the sources that name the material name basalt. The second is water, which the fortress had to bring to itself and which has a section of its own below: the snow that falls on the massif is why streams run in both gorges through the summer, and why a stronghold at this height was practical at all.",
+          "The position also explains why anyone bothered with it. Aragats stands over the northern edge of the Ararat plain, and the routes running from the plain up into Shirak and on towards Ani pass around its flanks. A fortress at this height does not close a road; the reading the site invites is that it holds the high ground above one, and that it is a place a garrison and a household can sit out a season when the plain below is not safe. Amberd is a highland stronghold behind a frontier rather than a gate on a highway.",
+        ],
+      },
+      {
+        id: "dating-the-site",
+        heading: "How the site is dated, and by what",
+        paragraphs: [
+          "Four different kinds of claim are made about Amberd's age and they are not equally firm. There is an inscription. There is excavation. There is architectural comparison. And there is attribution — a family known to have held this district being credited with the earliest work on it. Only the first of the four produces a year.",
+          "The inscription is on the church, not on the fortress. It is cut inside the north portal, it gives 1026 as the date of the building, and it names the man who paid for it. Nothing comparable survives on the castle or on the walls, and no text contemporary with the earliest phases of the fortress names Amberd at all.",
+          "Excavation and architectural study give the fortress a range rather than a date. The reserve's own summary says the complex is dated to the tenth to thirteenth centuries. The state list of immovable monuments of Aragatsotn, approved by government decision in 2002, enters Amberd as tenth to fourteenth. Those two ranges differ at the late end, which is a disagreement about when the site stopped mattering rather than about when it began.",
+          "That leaves the seventh century, which is where most published accounts of Amberd begin and where this article does not. The claim that the castle and part of the walls were raised in the seventh century under the Kamsarakan house is an attribution built on architectural comparison and on who held this ground at the time. It is a serious proposal made by the archaeologists and architectural historians who worked here, and it is not the same kind of statement as a date cut in a portal. The next section is about the difference.",
+        ],
+      },
+      {
+        id: "the-kamsarakan-question",
+        heading: "The Kamsarakan question",
+        paragraphs: [
+          "The Kamsarakans were one of the great Armenian noble houses of the late antique and early medieval centuries, holding Arsharunik and Shirak to the north and west of here, and they are the family the earliest phase of Amberd is credited to. The credit is old, the reserve repeats it, and it is what puts the phrase seventh-century fortress into almost every description of the place, including the file that carried Amberd to a European heritage jury.",
+          "What is missing is the kind of evidence that would settle it. No inscription at Amberd names a Kamsarakan. No surviving text of the period names the fortress. And the fabric that would have to be dated — the lowest courses of the castle and of some stretches of wall — is precisely the part of the site that has been rebuilt, refaced and consolidated most often. The proposal rests on masonry and plan compared with securely dated work elsewhere, which is a real argument and a defeasible one.",
+          "There is also an older layer beneath all of it. Survey of the promontory has reported material far earlier than anything medieval, which is unsurprising for a defensible spur beside running water and says nothing whatever about a castle. It is worth naming only so that it is not quietly folded into the seventh-century claim: a spur used in prehistory and a fortress built in the seventh century are two separate assertions, and neither is evidence for the other.",
+        ],
+      },
+      {
+        id: "pahlavuni-amberd",
+        heading: "Pahlavuni Amberd",
+        paragraphs: [
+          "By the eleventh century Amberd belonged to the Pahlavunis, a house that had risen with the Bagratid kingdom and held the hereditary office of sparapet, commander in chief, at the court of Ani. How they came by the fortress is known at second hand: the acquisition is referred to the letters of Grigor Magistros Pahlavuni, written about the middle of the eleventh century, rather than to any charter or inscription at the site itself.",
+          "The Pahlavuni attached to Amberd by name is Vahram, who commanded the Bagratid army in the kingdom's last decades and is the patron named on the church. What is securely his is that church. Beyond it, the works usually credited to him — thickened walls, towers along the gorge edge, the bathhouse — are credited on the strength of the church's date and the family's tenure, not on separate evidence, and a reader should hold them a little more loosely than the building with the inscription on it.",
+          "The distinction matters because it is the commonest way a fortress gets misdescribed. Ownership, construction, reconstruction, patronage of a church and later addition are five different things, and one named prince tends to absorb all five. Vahram Pahlavuni certainly built at Amberd. Whether every standing wall on the spur is his is a separate question, and the answer is almost certainly no.",
+        ],
+        links: [{ phrase: "the Bagratid kingdom", slug: "bagratid-armenia" }],
+      },
+      {
+        id: "vahramashen-church",
+        heading: "The church of 1026",
+        paragraphs: [
+          "The church stands a couple of hundred metres from the castle, out towards the lip of the Arkashen gorge, and it is the only building at Amberd that is complete. It is dedicated to Surb Astvatsatsin, the Holy Mother of God, and is generally called Vahramashen — built by Vahram — after the man who paid for it. The inscription inside the north portal gives the year.",
+          "The plan is a cross inscribed in a rectangle, standing on a stepped platform, with barrel-vaulted arms, a semicircular apse and small two-storey chambers in each of the four corners. Over the crossing sits a drum that is round inside and twelve-sided outside, its faces divided by paired half-columns, carrying an umbrella-shaped conical roof — a form it shares with Marmashen, the Pahlavuni monastery away in Shirak, which is one reason the two are often given the same architect. Ceramic vessels set into the mortar under the roof are reported here, a device used elsewhere in Armenian building for lightness and for sound.",
+          "The church is part of the complex and not the subject of it. That is worth saying because the temptation runs the other way: it is the photogenic building, it is the one with a date, and an article that let it take over would end up describing a small monastery on a mountainside instead of a fortress with its lord's church inside the walls. The relationship here is the ordinary one for a noble stronghold, and the church's date is the church's rather than the fortress's.",
+        ],
+      },
+      {
+        id: "how-the-fortress-worked",
+        heading: "How the fortress worked",
+        paragraphs: [
+          "The dominant building is the castle, set at the point of the spur: a block of mortared basalt of three storeys, floored in timber, with service rooms below and living rooms above, and published descriptions give it about 1500 square metres. It is a lord's residence that is also the last defensible position on the site — an arrangement common enough in medieval Armenia, and the reason English writing about Amberd slides between calling the place a castle and calling it a fortress.",
+          "Round it runs a circuit of walls following the edge of the spur, with towers where the ground is weakest. The reserve's description gives the walls heights of 15 to 16 metres and thicknesses of 2 to 3 metres; the towers are semicircular, with small chambers inside them, and the walls carry openings to shoot from. The heaviest building is on the landward side, where the terrain does none of the defending.",
+          "Everything else is fitted into the ground between the castle and the wall: the bathhouse below the castle on the Arkashen side, a chapel beside it, cisterns, storage, and the foundations of houses and workshops that excavation uncovered. This is not a castle standing in an empty ward. It is a small fortified settlement with a lord's tower at one end of it, and the household that supported the tower lived inside the walls.",
+          "English has no comfortable vocabulary for exactly this. The words a reader brings to a medieval fortress — keep, bailey, moat, drawbridge — describe a different building tradition, and none of them fits: there is no motte, no ditch and no gatehouse of the European kind. Amberd is dressed basalt and mortared rubble on a rock spur, built by people who had been fortifying rock spurs for a very long time, and it is better described in its own terms than by analogy with somewhere else.",
+        ],
+      },
+      {
+        id: "water-and-the-bathhouse",
+        heading: "Water and the bathhouse",
+        paragraphs: [
+          "A fortress on a spur between two gorges has water a hundred metres below it and none on top, so how Amberd was supplied is a real question rather than a decorative one. The answer excavation supports is unglamorous: cisterns inside the walls, and a conduit of fired clay pipes bringing water down from springs higher on the mountain.",
+          "Published accounts give that conduit a length of several kilometres and describe reservoirs feeding it. The pipeline itself is well attested and is one of the things the site is known for; the figures attached to it circulate without a survey behind them. This article therefore treats a piped supply from the higher slopes as established and its exact length as approximate, which is the most the evidence will carry.",
+          "The covered passages are the part of Amberd most exposed to embroidery. Two are entered in the state monument list, and passages running down towards the water were found in excavation; that much is documented. What is not documented is a network of secret tunnels through the mountain, which is how they are usually described. A steep covered stair from inside the walls down to the stream in the gorge is a normal piece of siege engineering and needs no mystery attached to it.",
+          "The bathhouse stands about 70 metres from the castle, near the Arkashen gate, and is among the site's more remarkable survivals. It has the standard three-part arrangement of undressing room, bathing rooms and boiler, and it was heated from underneath, with hot air and smoke drawn beneath the floor and up through the walls. It is often labelled a Roman bath, which is the wrong claim in the right direction: the heating principle is the one Roman builders used, and the building is an eleventh-century Armenian bathhouse in a lord's fortress, not a Roman institution transplanted to Aragats.",
+        ],
+      },
+      {
+        id: "conflict-and-control",
+        heading: "Amberd in medieval conflict",
+        paragraphs: [
+          "Amberd's military history is written almost entirely from later chronicles and modern summaries rather than from anything at the site, and it should be read that way. The kingdom the fortress belonged to ended in 1045, when Byzantium annexed Ani; Vahram Pahlavuni, who had led the resistance to the annexation, died at about the same time. What happened here in the decades that followed is given in modern accounts as a Byzantine and then a Seljuk occupation, with the Seljuk seizure usually placed in the 1070s.",
+          "That decade is worth flagging rather than repeating flatly. It is the period in which Seljuk power did take the country — Ani itself fell in 1064 — so the general picture is not in doubt. But the specific year offered for Amberd differs between accounts, and no contemporary source naming this fortress is cited for any of them. A range is the honest form here, and a change of ruler is in any case not evidence that a fortress was destroyed.",
+          "The firmer part of the story is the turn of the thirteenth century. Amberd was recovered by the Zakarid brothers Zakare and Ivane in 1196, or 1197 in some accounts, during the campaigns that returned much of northern Armenia to Armenian and Georgian rule; from 1215 it was held by the Vachutians, who made it the seat of their principality and afterwards styled themselves from it. In 1236 the Mongols took the fortress and damaged it. It was repaired — the Vachutians were still here — but that is the point after which Amberd is a lesser place.",
+        ],
+      },
+      {
+        id: "decline-and-ruin",
+        heading: "Decline and ruin",
+        paragraphs: [
+          "How Amberd ended is less clear than how it was built, and the neat version — destroyed by Timur in the late fourteenth century and never rebuilt — is a summary rather than a finding. Timur's campaigns did pass through Armenia in the 1380s and 1390s, the fortress does not appear as a place of consequence afterwards, and the state monument list's late bound in the fourteenth century is consistent with that. It is a plausible end and a thinly documented one.",
+          "Occupation on the spur did not stop dead in any case. Later material has been reported here from the sixteenth and seventeenth centuries, which is what a fortress usually looks like once it has stopped being a fortress: people go on living in the shelter of the walls without maintaining them. The abandonment of a stronghold is a process spread over generations rather than an event with a year attached to it.",
+          "Earthquakes are the other explanation reached for, and they are worth keeping separate from war. Armenia is seismically active, the site's own conservation file names seismic risk as a present danger to the standing walls, and six centuries of shaking will have done a great deal to mortared rubble on a cliff edge. What is absent is documentation of a particular earthquake damaging this particular place. A ruin is not evidence for any of the causes proposed for it, which is exactly why a ruin attracts so many.",
+        ],
+      },
+      {
+        id: "excavation-and-restoration",
+        heading: "Excavation, restoration and what is medieval",
+        paragraphs: [
+          "Amberd has been dug at scale twice. The first campaign ran from 1936 to 1940 under Hovsep Orbeli, the orientalist who directed the Hermitage and became the first president of the Armenian Academy of Sciences; it cleared the bathhouse and the ground around it, the main stair, a cistern and the chapel. The second ran from 1963 to 1972, by the Institute of Archaeology and Ethnography under Nikolai Tokarski and S. Harutyunyan, and it uncovered the upper part of the fortress, the foundations of houses and workshops, and further stretches of wall.",
+          "The finds are the ordinary furniture of a medieval household of rank rather than treasure: metalwork and weapons, silver ornaments, pottery, glass, coins, candlesticks in bronze. They are what dates the site to the tenth to thirteenth centuries, and they are why that range is stated here with more confidence than the century above it.",
+          "One detail of the excavation history is worth recording because it is reprinted without a second look. The reserve's own account names Toros Toramanyan alongside Orbeli for the seasons of 1936 to 1940. Toramanyan, who founded the study of Armenian architectural history and whose measured surveys underlie a great deal of the field, died in 1934. His work at Armenian monuments is real and belongs to the generation before those campaigns; the digging was Orbeli's.",
+          "Restoration has been continuous enough that a visitor should be told plainly what is old. Measured drawings and a restoration project were prepared from 1949 by a group of architects including Karo Ghafadaryan, work was carried out on the complex through to 1972, and there were further campaigns in the 1970s and again from 2005 to 2007. The castle, the church and the bathhouse have all been consolidated and partly rebuilt. Most of what stands is genuinely medieval; the tidy wall tops and the reinstated courses are not, and the line between the two is not everywhere marked on the ground.",
+        ],
+      },
+      {
+        id: "what-survives",
+        heading: "What survives, and what protects it",
+        paragraphs: [
+          "What a visitor meets is a ruin with one whole building in it. The castle stands to a considerable height on the gorge side and is open to the sky; the wall circuit survives in stretches, with the stumps of its towers; the bathhouse is a low shell with its underfloor structure visible; the church is intact. The reserve around all of it covers 45.07 hectares and was created by government decision in 2017, and the complex has been on the state list of monuments of Aragatsotn since that list was approved in 2002.",
+          "The protection is national, and it is worth being exact about that, because Amberd is often written about as though it carried an international designation. It does not. Armenia has three World Heritage properties and a tentative list of several more, and Amberd is on neither. What it does have is a recent international nomination: in January 2024 the Amberd reserve was one of eleven sites shortlisted by Europa Nostra and the European Investment Bank Institute for their 7 Most Endangered programme, on a nomination from Armenia's own culture ministry.",
+          "It was not selected. The seven chosen in April 2024 were in France, Greece, Italy, Serbia and Türkiye, and Amberd was not among them — a distinction a good deal of the coverage collapsed into the claim that Amberd is one of Europe's seven most endangered monuments. The nomination file remains the clearest public statement of the site's condition: wind and weather eroding the tops of the walls, roots opening the masonry, structures out of true, and seismic risk to a ruin that people walk through.",
+        ],
+      },
+    ],
+    importantDates: [
+      {
+        year: "Seventh century",
+        event:
+          "The date at which the first castle and part of the walls are traditionally placed, under the Kamsarakan house. It is an attribution from architecture and tenure: no inscription at Amberd names a Kamsarakan, and no text of the period names the fortress.",
+      },
+      {
+        year: "1026",
+        event:
+          "The church of Surb Astvatsatsin, called Vahramashen, is completed for Vahram Pahlavuni. The date is cut inside the north portal, and it is the only firm date on any building at Amberd.",
+      },
+      {
+        year: "1045",
+        event:
+          "Byzantium annexes Ani and the Bagratid kingdom ends. Vahram Pahlavuni, who had led the resistance to the annexation, dies at about this time.",
+      },
+      {
+        year: "1070s",
+        event:
+          "Modern accounts place the Seljuk seizure of Amberd in this decade. Ani itself had fallen in 1064; no contemporary source naming this fortress is cited for a specific year, and the accounts do not agree on one.",
+      },
+      {
+        year: "1196",
+        event:
+          "Zakare and Ivane Zakarian recover Amberd during the campaigns that return much of northern Armenia to Armenian and Georgian rule. Some accounts give 1197.",
+      },
+      {
+        year: "1215",
+        event:
+          "Amberd passes to the Vachutian house and becomes the seat of their principality; the family afterwards took its style from the fortress.",
+      },
+      {
+        year: "1236",
+        event:
+          "The Mongols take the fortress and damage it. It was repaired under the Vachutians, but Amberd is a lesser place from this point on.",
+      },
+      {
+        year: "1936",
+        event:
+          "The first large excavation begins under Hovsep Orbeli and runs to 1940, clearing the bathhouse and its surroundings, the main stair, a cistern and the chapel.",
+      },
+      {
+        year: "1963",
+        event:
+          "The Institute of Archaeology and Ethnography begins a second campaign under Nikolai Tokarski and S. Harutyunyan. It runs to 1972 and uncovers the upper fortress, houses, workshops and further wall.",
+      },
+      {
+        year: "2002",
+        event:
+          "The State List of Immovable Monuments of History and Culture of Aragatsotn Marz is approved by government decision N 628 of 29 May. Its Amberd entry dates the complex to the tenth to fourteenth centuries and lists the castle, the church of 1026, a palace, a chapel, the bath, a cemetery, the water system, the walls and two covered passages.",
+      },
+      {
+        year: "2017",
+        event:
+          "Amberd becomes a state historical and cultural reserve of 45.07 hectares, by government decision N 541-N of 18 May, administered by the service that runs Armenia's museum-reserves.",
+      },
+      {
+        year: "2024",
+        event:
+          "The reserve is one of eleven sites shortlisted in January for the 7 Most Endangered programme of Europa Nostra and the European Investment Bank Institute. It was not among the seven announced in April.",
+      },
+    ],
+    significance: {
+      heading: "Why Amberd Fortress matters",
+      paragraphs: [
+        "Amberd is the clearest surviving example in Armenia of a building type the country has very little of above ground: the secular stronghold of a medieval noble house. Almost everything standing from the Armenian Middle Ages is a church or a monastery, and the impression that leaves — of a society that built only for God — is an accident of what survives rather than a fact about the age. Here the church is one element among a castle, a wall circuit, a bathhouse, cisterns and workshops, and it is the smallest claim the site makes rather than the largest. A reader who has seen only monasteries has seen half of medieval Armenia.",
+        "It is also an unusually clean lesson in how a site gets dated. Amberd carries one inscription and it is on the last major building put up here; everything else is dated by excavation, by masonry compared with masonry, and by knowing which family held the ground. Those methods are legitimate and they produce different degrees of confidence, and the difference is flattened every time the place is called a seventh-century fortress without qualification. Standing on the spur, the honest sentence is that a stronghold was here for a long time, that one man's church is dated 1026, and that most of the rest is argued.",
+      ],
+    },
+    interestingFacts: [
+      "The only firmly dated building at Amberd is the church, and it was added late in the site's life: 1026, cut inside its north portal. The fortress itself carries no date at all.",
+      "Published elevations differ. The reserve and most reference works give about 2300 metres; the heritage inventory of the American University of Armenia gives 2160. Neither says what is being measured.",
+      "The bathhouse, about 70 metres from the castle, was heated from underneath, with hot air and smoke drawn beneath the floor and up through the walls — the Roman principle in an eleventh-century Armenian building, which is not the same thing as a Roman bath.",
+      "The name is generally read as the Armenian words for cloud and fortress, which is where the fortress in the clouds comes from. That is a reading of the name rather than a record of how it was given.",
+      "Amberd was shortlisted for Europa Nostra's 7 Most Endangered programme in 2024 and was not among the seven selected. A great deal of the reporting says otherwise.",
+      "The reserve's own account of the excavation of 1936 to 1940 names Toros Toramanyan among those who ran it. Toramanyan died in 1934.",
+    ],
+    relatedFigures: [
+      {
+        name: "Vahram Pahlavuni",
+        lifespan: "about 965 – 1045",
+        description:
+          "Sparapet, or commander in chief, of the Bagratid kingdom, head of the Pahlavuni house, and the patron named in the inscription on the church at Amberd. He organised the defence of Ani against Byzantine pressure in the last years of the kingdom and died at about the time it fell; published dates for his birth and death vary by a year or two. Works at the fortress beyond the church are credited to him on the strength of the church's date and his family's tenure rather than on evidence of their own.",
+      },
+      {
+        name: "Vache Vachutian",
+        lifespan: "thirteenth century",
+        description:
+          "The prince who held Amberd from the early thirteenth century and made it the seat of the Vachutian house, which afterwards took its style from the fortress. He and his family repaired the site after the Mongol capture. Dates for individual Vachutians are a floruit rather than life dates, which is normal for Armenian noble families of the period and worth saying rather than smoothing over.",
+      },
+    ],
+    relatedSlugs: ["bagratid-armenia"],
+  },
+  {
+    slug: "jermuk",
+    href: "/places/jermuk",
+    category: "places",
+    categoryLabel: "Places",
+    title: "Jermuk",
+    seoTitle: "Jermuk: How Mineral Springs Made a Town",
+    placeTypeId: "settlement",
+    featured: false,
+    imageSeed: "jermuk",
+    keywords: [
+      "Jermuk",
+      "Ջերմուկ",
+      "Jermuk Armenia",
+      "Jermuk mineral water",
+      "Jermuk mineral springs",
+      "Jermuk spa town",
+      "Vayots Dzor",
+      "Arpa river",
+      "Istisu",
+      "Armenian mineral water",
+    ],
+    excerpt:
+      "A spa settlement on a high plateau in Vayots Dzor, built in the twentieth century around thermal mineral springs in the gorge of the Arpa — and named after the ordinary Armenian word for a warm spring.",
+    metaDescription:
+      "Jermuk in Vayots Dzor: the thermal springs, the Arpa gorge, the Soviet spa settlement built around them, and what the name actually means.",
+    summary:
+      "Jermuk is a small town in Vayots Dzor Province, in the south of Armenia, standing at about 2100 metres on a plateau split by the gorge of the Arpa. Its name is the ordinary Armenian word for a warm spring, and the springs are the reason the settlement exists: thermal, carbonated, mineralised waters that were used locally long before anything was built around them. The modern town is dated by Armenian reference works to 1940, when the first sanatorium opened; it was granted town status in 1967 and all-Union resort status in 1970. Its plan, its architecture, its economy and its name all descend from the water. The census of October 2022 counted 3936 permanent residents.",
+    intro:
+      "Jermuk is the only place in this archive whose name is also a common noun. In Armenian a jermuk is a warm spring — water that comes out of the ground hot — and the town is called that in the same plain way an English village might be called Wells. That is worth saying first because almost everything written about the place runs the two together: the word is old, the springs are old, and the settlement is not. The town as it now stands is a twentieth-century creation, planned around a set of thermal springs in the gorge of the Arpa, built mostly between 1940 and the 1970s, and shaped by a Soviet institution that no longer exists. Understanding Jermuk means keeping the water, the word and the town apart long enough to see how they came together.",
+    author: "Armat Editorial Team",
+    updated: "2026-08-19",
+    keyFacts: [
+      {
+        label: "Kind of place",
+        value: "A town — a spa settlement in Vayots Dzor Province, and the centre of the Jermuk community",
+      },
+      {
+        label: "Where",
+        value: "On a plateau in the upper basin of the Arpa, in the south of Armenia, roughly fifty kilometres from the provincial centre Yeghegnadzor",
+      },
+      {
+        label: "Height",
+        value: "About 2100 metres above sea level; 2080 is also printed, and the built area covers enough ground that a single number is an approximation",
+      },
+      {
+        label: "The springs",
+        value: "Thermal and carbonated, given by the Institute of Geological Sciences as roughly 40 to 58 degrees Celsius, hydrocarbonate–sulphate sodium–calcium–magnesium waters mineralised at about 4 to 5 grams per litre",
+      },
+      {
+        label: "The modern town",
+        value: "Dated to 1940, when the first sanatorium was completed; town status in 1967; all-Union resort status in 1970",
+      },
+      {
+        label: "Population",
+        value: "3936 in the town at the census of October 2022 — a dated count for the settlement, and not the figure for the community around it",
+      },
+    ],
+    sections: [
+      {
+        id: "where-jermuk-is",
+        heading: "Where Jermuk is, and which Jermuk is meant",
+        paragraphs: [
+          "Jermuk stands in the south of Armenia, in Vayots Dzor Province, on a high plateau in the upper basin of the river Arpa. It is roughly fifty kilometres from Yeghegnadzor, the provincial centre, and something over a hundred and seventy by road from Yerevan. The plateau sits at about 2100 metres — 2080 is the other figure in circulation, and neither source says whether it is measuring the springs, the centre or the highest street — and the mountains around it rise to between 2500 and 3000 metres. The Arpa cuts through the plateau in a gorge, and the town is built on both sides of that cut, which is the single most important fact about its shape.",
+          "Several different things are called Jermuk, and mixing them is the commonest way a statement about this place goes wrong. There is the town itself. There is the Jermuk community, the municipal unit formed in 2016, which administers the town together with the villages of Kechut, Gndevaz, Karmrashen and Herher and covers a great deal of empty upland. There are the mineral springs. There is the bottled water sold under the name. And there is the waterfall. A population, an area, a temperature or a chemical analysis quoted for one of these is not a fact about the others, and this article says which one it means each time.",
+          "This article is about the settlement. The province is named to locate it and does very little else here: Vayots Dzor is a thinly populated marz of high valleys and gorges in the south-east of the country, and Jermuk is neither its centre nor its largest town. What makes the place worth an article is not its administrative weight but the fact that it is a settlement built for one reason, which can still be read in its plan.",
+        ],
+      },
+      {
+        id: "the-name",
+        heading: "The name, and what it does not prove",
+        paragraphs: [
+          "Jermuk — Ջերմուկ — is an ordinary Armenian noun before it is a place. It means warm water rising from the ground, or a spring of such water, and it is formed from jerm, warm, with a suffix that turns the adjective into a thing. Armenian uses the word generically: other thermal springs elsewhere in the country are jermuks too. The settlement is therefore named the way a place might be called Wells or Bath, by the plainest possible description of what is there.",
+          "That has a consequence most accounts skip past. A medieval Armenian text containing the word jermuk is not automatically a reference to this place, because the word had work to do that had nothing to do with Vayots Dzor. Armenian reference literature reports that the springs here are mentioned in the thirteenth-century history of Syunik by Stepanos Orbelian, the same historian whose transcriptions date the church at Tatev. That attribution is recorded here as an attribution: the passage has not been read for this article, and a common noun in a medieval chronicle is exactly the kind of evidence that needs reading rather than repeating.",
+          "The settlement carried a second name for part of its history. It appears as Istisu — Turkic for hot water, which is to say the same name in another language — and reverted to Jermuk in 1924. So three things have three different ages and are constantly collapsed into one: the word, which is old; the place-name, which is at least medieval if the attribution above holds; and the settlement now standing, which is not.",
+        ],
+      },
+      {
+        id: "water-in-a-volcanic-highland",
+        heading: "Why there is hot water here",
+        paragraphs: [
+          "Armenia sits on a tectonically active belt with young volcanic rocks over much of its surface, and mineral and thermal waters are common across it. The Institute of Geological Sciences records more than seven hundred mineral springs and boreholes in the country, with temperatures running from about 40 degrees at the coolest of the recognised thermal fields to over 80 at the hottest, and it names Jermuk first among the handful of deposits significant enough to have had resorts built on them.",
+          "The mechanism generally described for these waters is straightforward in outline and hard to pin down in detail. Rain and snowmelt sink into fractured rock, descend along faults deep enough to be warmed, take up carbon dioxide of deep origin, dissolve mineral matter out of the rock they pass through, and rise again where the structure lets them. That is the model the Armenian geological literature applies to Jermuk. It is a model rather than a local measurement: this article has not read an isotope or residence-time study of these particular springs, and it does not claim one.",
+          "What matters for the settlement is the consequence rather than the mechanism. Hot, gassy, strongly mineralised water arrives at the surface here in quantity, at an altitude where nothing else would have drawn a town. Every later phase of the place — the tracks to it, the buildings on it, the factory below it, the name on the bottle — is downstream of that one geological fact.",
+        ],
+      },
+      {
+        id: "before-the-resort",
+        heading: "What was here before the resort",
+        paragraphs: [
+          "There was habitation near the springs long before there was an institution. Armenian reference works report the remains of a cyclopean fortress and the ruins of an eighth-century basilica in the vicinity, and those are the kind of evidence that establishes people rather than bathing. A fortress wall and a church tell you the ground was occupied and defended; they do not tell you what anyone did with the water.",
+          "This is the point in Jermuk's history most damaged by repetition. The sentence that the healing waters have been famous for thousands of years is a marketing sentence, and it circulates in brochures, on labels and in tourism copy until it reads like a finding. It is worth separating what would actually count. Archaeological evidence would be a bath structure, a channel, a votive deposit. Written evidence would be a text describing use, not merely a place-name. Local tradition is real and is evidence of tradition. Twentieth-century spa literature, written by an institution to justify itself, is a fourth thing again, and modern advertising a fifth.",
+          "By those tests, the local use of the waters before the modern period is best described as attested in general terms and undocumented in particular ones. It is entirely likely that people living in and passing through this valley drank and bathed in springs that come out of the ground hot; that is what people do with such springs everywhere. What is missing is any surviving description of it here that this article has been able to verify, which is a different statement from saying it did not happen.",
+          "The first records that can be dated are nineteenth-century and Russian. Armenian reference literature describes an examination of the waters by a mining engineer in the Russian service, published in the 1830s and revisited in the 1850s, and a bathing pool put in order in the 1860s at the expense of a local official. That is the real beginning of an outside interest in the springs — a survey and a pool, not a resort — and it stands a full century before the town.",
+        ],
+      },
+      {
+        id: "becoming-a-resort-settlement",
+        heading: "How a spring became a settlement",
+        paragraphs: [
+          "Jermuk is a case where a founding date has to be handled carefully, because the thing founded was an institution rather than a town. Armenian reference works date the modern settlement to 1940, the year the first sanatorium was completed and opened. That is a defensible date for the resort. It is not a date on which a settlement came into being on empty ground, and it should not be written as though a town were established that year by decree.",
+          "What followed came in separate acts, and running them together is what produces the tidy and wrong sentence that Jermuk was founded in one year. Building went on through the 1950s, when the principal sanatoria and the mineral-water gallery went up. In 1967 the place was granted the status of a town of republican significance. In 1970 it was designated a resort of all-Union significance, which put it in a category with the great spas of the Caucasus and brought it visitors from across the Soviet Union. Those are three different decisions by two different authorities about two different things — what the settlement was administratively, and what the resort was institutionally.",
+          "The distinction matters beyond pedantry, because it explains the shape of the place. A town that grows around a market or a crossing grows outward from a centre. Jermuk was laid out around a facility, and the facility came first: the sanatoria, the gallery over the springs, the parkland between them, and then the housing for the people who worked in them. That order is still legible on the ground, and it is the reason the settlement reads less like a small town than like a campus that acquired a population.",
+        ],
+      },
+      {
+        id: "soviet-jermuk",
+        heading: "The Soviet town",
+        paragraphs: [
+          "The Soviet decades are the period in which almost everything physical about Jermuk was decided, and they are best read as a planning history rather than a political one. A first master plan was drawn in 1945, five years after the opening of the first sanatorium, and it was revised twice more — in the early 1950s and again around the turn of the 1960s — as the resort's ambitions grew. Planning a settlement on a plateau divided by a gorge is an unusual problem, and the successive plans are essentially answers to it: where to put the institutions, where to put the housing, and how much of the shelf above the river to leave as park.",
+          "The buildings that give the town its character came out of that programme. The sanatorium and the gallery over the mineral springs were designed by Gevorg Tamanyan and built between 1950 and 1956. He was the son of Alexander Tamanyan, whose plan governs central Yerevan, and he had a substantial career of his own — the Aram Khachaturian concert hall in Yerevan is his. A mineral-water gallery is a specific building type and an unfamiliar one outside spa towns: a long, roofed, colonnaded hall built over or beside the springs, in which the water is delivered at taps and drunk on the spot, at a prescribed temperature and in a prescribed quantity. It is the architectural expression of the whole system, and putting an architect of that standing on it says what the state thought the place was for.",
+          "The scale reached by the 1980s is the measure of what had been built. Accounts of the resort at its height describe capacity on the order of five thousand beds across its sanatoria and rest houses, in a settlement whose own population at the 1989 census was 9014 — so at full season the resort could hold something approaching another town alongside the one that ran it. There was an airfield, and flights brought visitors from far outside Armenia. Both figures come from Soviet-period and post-Soviet Armenian reference literature rather than from an audited register, and they are quoted here as orders of magnitude.",
+          "What the Soviet period did to Jermuk, then, was not to discover the springs, which were known, but to convert them into infrastructure. It built the buildings, laid the streets, planted the parks, ran the road and the air link, and created the referral system that filled the beds. It also tied the settlement's fortunes to a single institution, which is why the end of the Soviet Union hit this town harder than it hit places with more than one reason to exist.",
+        ],
+      },
+      {
+        id: "the-springs",
+        heading: "What the springs actually are",
+        paragraphs: [
+          "The figures that describe Jermuk's water vary more than most published accounts admit, and the variation is not all error. The Institute of Geological Sciences gives the Jermuk springs as running between about 40 and 58 degrees Celsius, with a hydrocarbonate–sulphate composition and sodium, calcium and magnesium among the cations, mineralised at roughly 4 to 5 grams per litre and charged with carbon dioxide. A peer-reviewed survey of Armenian geothermal springs sampled one Jermuk source and recorded it at over 53 degrees with a pH of 7.5, describing it as vigorously degassing. Those two are compatible.",
+          "Other figures in circulation are not so easily reconciled. Temperatures of 61 and 64 degrees are printed in several places, and ranges beginning as low as 30 appear in others. Some of that spread is real — a field of springs is not one spring, and outlets differ in temperature, in gas content and in mineral load — and some of it is the ordinary drift of a number copied from source to source without its measurement conditions. The honest statement is that the springs are thermal, that the published central range is roughly 40 to 58 degrees, and that a single analysis quoted as though it described the whole field is being over-read.",
+          "The same applies to counting them. Armenian reference literature has spoken of dozens of therapeutic outlets and the municipality's own account gives thirty-six; other accounts give twenty-odd thermal springs, others forty. No two of these counts are stated on the same basis, and none that this article has seen defines what it is counting — natural outlets, drilled boreholes, or taps in the gallery are three different things. A number of springs is therefore given here as a range rather than a fact, and the important characteristic is not the count but the variation between them.",
+          "The comparison most often made is to Karlovy Vary in Bohemia, and it appears on the Armenian Institute of Geological Sciences' own pages as well as in tourism copy. It is a claim about resemblance in temperature and composition, and it is a reasonable shorthand for readers who know one place and not the other. It is not a measurement, and it carries with it a good deal of nineteenth-century spa prestige that has nothing to do with the water. This article uses it once, as a comparison, and rests nothing on it.",
+        ],
+      },
+      {
+        id: "what-the-water-was-used-for",
+        heading: "What the water was used for, and what that does not mean",
+        paragraphs: [
+          "The historical practice at Jermuk was balneological, in the specific institutional sense that word carried in the Soviet system. Patients came on referral for a course of a fixed number of days, drank measured quantities of water at prescribed temperatures at prescribed times, and were given baths and other procedures alongside it. Sanatoria were not hotels; they were medical institutions inside a state health system, with doctors, admission criteria and a stay that was arranged rather than booked. The water was promoted, and prescribed, for digestive and metabolic conditions among others.",
+          "That sentence is a description of a historical practice and should be read as nothing else. This article makes no claim that Jermuk's water treats, cures or prevents anything, offers no health advice, and takes no position on the clinical evidence. Four things get confused here and are worth naming apart: what was done historically at the resort; what controlled clinical research shows, which is a separate literature this archive has not surveyed; what has been claimed in advertising for a bottled product, which is a commercial genre; and what any individual should do about their own health, which is a question for a doctor and not for an encyclopedia.",
+          "The restraint matters more at Jermuk than at any other place in this archive, because here the marketing and the history use the same vocabulary. A label describing water as healing and a Soviet balneological handbook prescribing a drinking course are not making the same kind of statement, even when the words overlap. Keeping them apart is not scepticism about the place; it is the only way to describe accurately what the institution actually was.",
+        ],
+      },
+      {
+        id: "the-built-town",
+        heading: "The built town",
+        paragraphs: [
+          "Jermuk's built environment is the physical record of the planning history above, and it is legible in a way few settlements are. The institutional buildings occupy the best ground — the shelf above the gorge, with the view down it — while housing sits behind them. Parkland runs between the sanatoria rather than around the edges, because in a resort plan the green space is part of the facility and not a leftover. Avenues follow the contour of the plateau instead of gridding across it, which is what the terrain allows. The gallery over the springs is the hinge of the whole arrangement, and the walk to it was designed as part of the treatment.",
+          "The architectural register is mid-century Soviet public building, in stone rather than bare concrete: monumental frontages, colonnades, broad stairs, long horizontal masses set into sloping ground. That is unsurprising for buildings begun around 1950 by an architect trained in his father's office, and it puts Jermuk in the same family as the sanatorium architecture of the Caucasus spas generally. It is worth saying plainly that this is the town's principal architectural interest. Jermuk has no medieval quarter and does not pretend to one.",
+          "It also has to be said that not everything standing belongs to one phase, and reading the town as a single period is the commonest error made about it. Some of the Soviet stock has been renovated, some of it has been abandoned and stands empty, and a good deal of hotel and apartment construction has gone up since the 2000s in registers that have nothing to do with the original plan. A visitor forms an impression of a Soviet resort town; a closer look shows three or four building campaigns in different states of repair, which is the ordinary condition of any settlement that has outlived the system that made it.",
+        ],
+      },
+      {
+        id: "the-arpa-the-gorge-and-the-waterfall",
+        heading: "The Arpa, the gorge and the waterfall",
+        paragraphs: [
+          "The Arpa rises in the high country north of Jermuk and runs south and west through Vayots Dzor before turning towards the Araks. At Jermuk it has cut a gorge into the plateau, and the gorge is the reason the town has the form it does: the two halves of the settlement face each other across it, the springs emerge in and around it, and the ground that would otherwise be the obvious centre of a town is a ravine. It is a working river here rather than scenery, and what has been done to it upstream and downstream of the town is part of the place.",
+          "Immediately below Jermuk, at the village of Kechut, the Arpa is dammed. The Kechut reservoir was completed at the start of the 1980s and holds something in the order of twenty-three million cubic metres, and it exists for a purpose that has nothing to do with Jermuk at all: it is the intake of the Arpa–Sevan tunnel, driven for roughly fifty kilometres under the Vardenis range to carry water north into Lake Sevan, and in operation since 1981. The most consequential piece of engineering in the upper Arpa basin was built to solve a problem in another watershed entirely.",
+          "That gives the landscape around Jermuk a double character worth stating plainly. It reads as highland wilderness — treeless slopes, alpine meadow, a river in a gorge — and it is in fact a managed water system, in which the flow past the town is regulated by a dam and a share of the river leaves the basin altogether through a tunnel. Neither description is wrong. A reader who takes the first without the second will misunderstand both the river and the reservoir.",
+          "The waterfall belongs to this landscape rather than to a list of attractions. It falls into the gorge below the town, and accounts differ on what feeds it: some describe it as spring-fed, others as a tributary stream, and all agree it lands in the Arpa. Its height is given as 68 metres in some sources, 70 in others and 72 in a few, which is a spread of the kind produced by estimates rather than surveys, and this article has found no published measurement behind any of the three. There is a folk story attached, in which the fall is the hair of a girl transformed; it is folklore of the ordinary kind that gathers around striking places, told about the waterfall rather than evidence about it.",
+        ],
+        links: [{ phrase: "into Lake Sevan", slug: "lake-sevan" }],
+      },
+      {
+        id: "the-bottle-and-the-town",
+        heading: "The bottle and the town",
+        paragraphs: [
+          "Bottling is the part of Jermuk's history that reaches furthest beyond it. A plant to bottle the mineral water was established here around the turn of the 1950s, and from there the name travelled: through the Soviet distribution system Jermuk became one of the recognised mineral waters of the Union, and it remains one of the best-known Armenian brand names anywhere. The founding year is given as 1949 in some Armenian reference accounts and 1951 in others, including the industry's own, and this article has found nothing that settles it; both are recorded rather than one chosen.",
+          "The brand and the settlement then have to be held apart, and the reasons are practical rather than fussy. Not every spring in the field feeds the bottled product; the water sold under the name is drawn from particular sources, which is a normal arrangement for any mineral water and an easy thing to over-generalise. The corporate history since 1991 is a matter of successive owners, disputes over the name and several companies bottling water from the area, which is a commercial story rather than a settlement's story and is deliberately left aside here. And a brand's global reach is not a town's prosperity: a name can be famous while the place it came from is losing population, which is roughly what has happened.",
+          "What the bottle did do for Jermuk, and it is not a small thing, is make the settlement's name known to millions of people who will never see it. That is an unusual position for a town of a few thousand. It also means most of what is written about Jermuk is written to sell something, which is the underlying reason this article has had to be careful about chronology, chemistry and claims at every stage.",
+        ],
+      },
+      {
+        id: "what-jermuk-is-now",
+        heading: "What Jermuk is now",
+        paragraphs: [
+          "The population figures are the clearest statement of what has happened since the Soviet system ended, and they need their labels. At the census of October 2022 the town of Jermuk had a permanent population of 3936 and a present population of 3569; the Jermuk community, which includes the four villages, had 5694 permanent residents against a provincial total of 47369. The town's own permanent figure was 5394 in 2001 and 4628 in 2011, so the decline is continuous rather than a single event, and the peak was earlier still: 9014 at the census of 1989. The municipality publishes a figure of its own for the community — 9276 — which is a registered count rather than an enumerated one and stands more than half again above the census total; the gap between a register and a headcount is itself part of what the numbers mean here. A settlement built around one institution lost most of its population when that institution's system disappeared.",
+          "The other question hanging over the place in recent years has been the protection of the springs themselves. A gold deposit at Amulsar, in the mountains near the town, has been the subject of a long and contested development process, and concern about possible effects on Jermuk's waters has been central to the opposition to it — which is what makes it relevant to an article about the settlement at all. In 2019 the Armenian government commissioned an independent technical assessment from an outside consultancy. Its findings were themselves disputed, its authors stated that the baseline data available to them were insufficient for a comprehensive environmental risk assessment, and no government decision followed from it. This article records that the dispute exists and that it is about the water; the technical question is not one an encyclopedia entry can settle, and nothing here should be read as settling it.",
+          "What defines Jermuk in the end is the singleness of the thing. Most settlements have several reasons to be where they are; this one has one, and it is legible everywhere — in the name, which is the word for the water; in the plan, which is arranged around the gallery; in the architecture, which was built for an institution; in the economy, which is the resort and the bottling plant; and in the population, which rose and fell with them. That is unusual enough to be worth an article, and it is why this is a place rather than a spa with a settlement attached.",
+        ],
+      },
+    ],
+    importantDates: [
+      {
+        year: "1831",
+        event:
+          "The earliest dated outside examination of the springs reported by Armenian reference literature: a survey by a mining engineer in Russian service, published in this year and revisited in the 1850s. A survey, not a resort.",
+      },
+      {
+        year: "1860",
+        event:
+          "A bathing pool at the springs is put in order at the expense of a local official — the first recorded construction here for the use of the water, and still eighty years before the town.",
+      },
+      {
+        year: "1924",
+        event:
+          "The settlement's name reverts to Jermuk, having also been known as Istisu, the same description in another language.",
+      },
+      {
+        year: "1940",
+        event:
+          "The first sanatorium is completed and opened. Armenian reference works date the modern settlement from this, which is a founding date for the resort rather than for a town on empty ground.",
+      },
+      {
+        year: "1945",
+        event: "The first master plan for the settlement is drawn; it is revised in the early 1950s and again around the turn of the 1960s.",
+      },
+      {
+        year: "1950",
+        event:
+          "Construction begins on the sanatorium and the gallery over the mineral springs, designed by Gevorg Tamanyan; the work is completed in 1956.",
+      },
+      {
+        year: "1951",
+        event:
+          "The mineral-water bottling plant is established, by the date the industry itself gives; some Armenian reference accounts date it to 1949 instead, and nothing this article has found settles the two.",
+      },
+      {
+        year: "1967",
+        event: "Jermuk is granted the status of a town of republican significance.",
+      },
+      {
+        year: "1970",
+        event:
+          "It is designated a resort of all-Union significance — a separate act from the grant of town status three years earlier, and the one that brought visitors from across the Soviet Union.",
+      },
+      {
+        year: "1981",
+        event:
+          "The Arpa–Sevan tunnel comes into operation, taking water from the Kechut reservoir on the Arpa immediately below Jermuk and carrying it under the Vardenis range into Lake Sevan.",
+      },
+      {
+        year: "1989",
+        event: "The census records 9014 inhabitants — the highest figure the settlement has reached.",
+      },
+      {
+        year: "2016",
+        event:
+          "The enlarged Jermuk community is formed, administering the town together with the villages of Kechut, Gndevaz, Karmrashen and Herher. From this point a figure for Jermuk means one thing or the other and has to say which.",
+      },
+      {
+        year: "2019",
+        event:
+          "An independent technical assessment commissioned by the Government of Armenia reports on the proposed gold mine at Amulsar, near the town. Its findings are disputed, its authors state that the baseline data available to them were insufficient for a comprehensive environmental risk assessment, and no government decision follows from it.",
+      },
+      {
+        year: "2022",
+        event:
+          "The census of October counts 3936 permanent residents in the town and 5694 in the community — against 5394 in the town in 2001 and 4628 in 2011.",
+      },
+    ],
+    significance: {
+      heading: "Why Jermuk matters",
+      paragraphs: [
+        "Jermuk is the clearest example in Armenia of a settlement made by a single natural resource and a single institution. Nothing about it is accidental: the springs decided where it would be, the resort decided what it would look like, and the Soviet health system decided how large it would grow. Places like that are unusual, and they are unusually easy to read — the plan of the town is a diagram of what it was for. Set against the rest of this archive, which is largely made up of monasteries, fortresses and landscapes, it also fills a real gap: the twentieth century is the period in which most Armenians actually came to live where they now live, and almost none of it is monumental.",
+        "It is also the place where the difference between evidence and promotion matters most. Jermuk's waters have been sold for three-quarters of a century, and the language of that selling — ancient, healing, famous for millennia — has been absorbed into what is written about the town's history, its chemistry and its past. Pulling those apart does not diminish the place. A settlement planned around a mineral field at two thousand metres, built by a named architect for a state health system, and left to work out what it is after that system vanished, is a more interesting subject than the brochure version, and a good deal easier to check.",
+      ],
+    },
+    interestingFacts: [
+      "The town's name is an ordinary Armenian noun. A jermuk is any warm spring, which means a medieval text containing the word is not automatically a reference to this place — a distinction most accounts of the town's antiquity pass over.",
+      "The census of October 2022 counted two different populations for the same town: 3936 people permanently resident and 3569 actually present on census night. Both are official, and they answer different questions.",
+      "The community is larger than the town it is named after — 5694 people against 3936 — because it also administers four villages. A figure quoted without saying which is meant can be wrong by nearly half.",
+      "The sanatorium and the gallery over the springs were designed by Gevorg Tamanyan, son of Alexander Tamanyan, whose plan governs central Yerevan. The same architect built the Aram Khachaturian concert hall.",
+      "The dam immediately below the town is not there for Jermuk. The Kechut reservoir is the intake of the Arpa–Sevan tunnel, which carries water out of this basin altogether and under a mountain range into Lake Sevan.",
+      "The waterfall's height is published as 68, 70 and 72 metres by different sources, and no measurement behind any of the three could be found — a good illustration of how a number becomes a fact by repetition.",
+    ],
+    relatedFigures: [
+      {
+        name: "Gevorg Tamanyan",
+        lifespan: "1910 – 1993",
+        description:
+          "The architect of Jermuk's sanatorium and of the gallery built over the mineral springs, constructed between 1950 and 1956. Son of Alexander Tamanyan, whose plan shaped central Yerevan, he trained in his father's workshop and had a long independent career, including the concert hall in Yerevan that now carries Aram Khachaturian's name. He was made an honoured architect of the Armenian SSR and twice took a state prize. His presence at Jermuk is the clearest indication of what the state took the resort to be: a mineral-water gallery is a modest building type, and it was given to a leading architect.",
+      },
+    ],
+    relatedSlugs: ["lake-sevan"],
+  },
+  {
+    slug: "haghpat-monastery",
+    href: "/places/haghpat-monastery",
+    category: "places",
+    categoryLabel: "Places",
+    title: "Haghpat Monastery",
+    seoTitle: "Haghpat Monastery: A Medieval Centre in Lori",
+    metaDescription:
+      "Haghpat Monastery in Lori, founded under the Bagratids in the tenth century, grew over three hundred years into a major centre of Armenian learning and building.",
+    summary:
+      "Haghpat Monastery stands on a shelf of high ground above the Debed gorge in Lori, in the north of the Republic of Armenia. It was founded in the tenth century under the Bagratid king Ashot III, and its principal church, Surb Nshan, was finished in 991 to designs attributed to the architect Trdat. What makes Haghpat unusual is not any single building but the fact that it kept growing: a library, a refectory, a bell tower, a gavit and a series of chapels were added across three centuries, and the resulting group shows what a large medieval Armenian monastery actually needed in order to work. With Sanahin, about four kilometres away, it forms one World Heritage property.",
+    placeTypeId: "monastery",
+    featured: false,
+    imageSeed: "haghpat-monastery",
+    keywords: [
+      "Haghpat",
+      "Haghpat Monastery",
+      "Surb Nshan",
+      "Lori",
+      "Debed",
+      "Bagratid",
+      "Kiurikian",
+      "Zakarian",
+      "gavit",
+      "khachkar",
+      "Armenian medieval architecture",
+      "World Heritage",
+    ],
+    excerpt:
+      "A Bagratid foundation above the Debed gorge that went on being built for three hundred years, and the buildings that show what it was for.",
+    intro:
+      "Haghpat is the kind of place that is easy to describe badly. Photographed from the right angle it is a picturesque group of grey stone volumes on a green shelf, and most accounts of it stop there, or reach for the word that a visitor already half expects: ancient, remote, timeless. None of those is much use. What is worth knowing about Haghpat is that it was a working institution for centuries, that almost everything standing there was built to do a job, and that the jobs changed. A church came first. Then somewhere to keep books, somewhere to eat, somewhere to gather and be buried, somewhere to ring a bell from. The complex is the record of those decisions, and it can be read.",
+    author: "Armat Editorial Team",
+    updated: "2026-08-20",
+    keyFacts: [
+      {
+        label: "Kind of place",
+        value: "Monastery of the Armenian Apostolic Church, and a medieval centre of learning",
+      },
+      {
+        label: "Where",
+        value: "Above the Debed gorge, by the village of Haghpat, Lori Province, northern Armenia",
+      },
+      {
+        label: "Principal church",
+        value: "Surb Nshan, the Holy Sign, completed in 991 — the design attributed to the architect Trdat",
+      },
+      {
+        label: "Founded by",
+        value: "Queen Khosrovanuysh, wife of the Bagratid king Ashot III, for her sons Smbat and Gurgen",
+      },
+      {
+        label: "Built over",
+        value: "Roughly three centuries, with most of the surviving buildings other than the church added in the thirteenth",
+      },
+      {
+        label: "World Heritage",
+        value: "Inscribed alone in 1996; Sanahin was added by extension in 2000 and the two now form one property",
+      },
+    ],
+    sections: [
+      {
+        id: "haghpat-in-lori",
+        heading: "Haghpat in Lori",
+        paragraphs: [
+          "Haghpat stands in Lori, the northern province of the Republic of Armenia, on a shelf of high ground on the eastern side of the Debed valley. This is the archive's first article about anywhere in Lori, so it is worth saying plainly where that is: north of Yerevan, close to the border with Georgia, in country that is greener, wetter and more wooded than the volcanic uplands most of Armenia's better-known monuments sit on. The Debed has cut a deep gorge through it, and much of Lori's history has happened along that cut.",
+          "The monastery is not on a peak and not in the bottom of the gorge. It occupies a broad terrace part way up the eastern side, high enough to see a long way down the valley and level enough to build a large group of buildings on. The village of Haghpat adjoins it directly, which matters: this was never an isolated hermitage but a landholding institution with a settlement attached, and the village is treated as part of the monument's setting in its heritage protection.",
+          "About four kilometres away, on the other side of the gorge, stands the monastery of Sanahin. The two are constantly named together, and since 2000 they have shared a single World Heritage inscription. They are not, however, one place, and this article is about Haghpat. Sanahin appears below only where the comparison actually explains something.",
+        ],
+        links: [],
+      },
+      {
+        id: "foundation-under-the-bagratids",
+        heading: "Foundation under the Bagratids",
+        paragraphs: [
+          "Haghpat belongs to a period of recovery. Armenian building had largely stopped during the Arab occupation that began at the end of the seventh century, and it resumed when Armenian kingship was re-established under the Bagratid house at the end of the ninth. Haghpat and Sanahin are products of that revival, and both are royal foundations rather than the work of a local community.",
+          "The founder named in the sources is Queen Khosrovanuysh, wife of the Bagratid king Ashot III, and the church was dedicated for her two sons, Smbat and Gurgen. That detail is not decoration: Smbat later took his father's throne at Ani, and Gurgen inherited the smaller kingdom in Lori whose line is known as the Kiurikian. Haghpat was built, in other words, by and for the family that ruled the region, and it stayed tied to them.",
+          "The foundation date is less settled than it looks. UNESCO's documentation gives 976 for the founding of the monastery by Khosrovanuysh. The specialist architectural survey of the site, and the advisory evaluation that drew on it, instead say that the church was begun in 966 or 967. Both dates are in print and each is repeated confidently by writers following one source or the other.",
+          "There is a way to test them, and it is internal to the earlier source. That survey states that the church was finished in 991 and that the work therefore lasted fifteen years — an arithmetic that fits a start in 976 and does not fit one in 966. The safest reading is that the 991 completion is firm, resting on an inscription on the north side of the church, and that the start date is not. This article treats the tenth century as the period of foundation and 991 as the one date the building itself supplies.",
+        ],
+        links: [
+          {
+            phrase: "Armenian kingship was re-established under the Bagratid house at the end of the ninth",
+            slug: "bagratid-armenia",
+          },
+        ],
+      },
+      {
+        id: "surb-nshan",
+        heading: "Surb Nshan",
+        paragraphs: [
+          "The principal church is Surb Nshan, the Holy Sign, and it is the oldest thing standing at Haghpat. It belongs to a type usually called the domed hall: a broadly rectangular building, slightly longer than it is wide, with a cross-shaped space inside and a central dome carried on four heavy piers built into the side walls. The outer walls are worked almost all over with the narrow triangular niches that are a signature of Armenian church building in this period.",
+          "The design is traditionally attributed to Trdat, the best-documented Armenian architect of the age. He worked for the Bagratids across the later tenth and early eleventh centuries, the cathedral at Ani is his, and he is the man called to Constantinople to rebuild the dome of Hagia Sophia after the earthquake of 986. The attribution at Haghpat rests on tradition rather than on a signed inscription, and is worth stating as such, but the resemblance between the piers here and those at Ani is close enough that the surveys take it seriously.",
+          "On the east front, set in a rectangular niche, is a carved panel showing two figures in court dress facing one another and holding a model of the church between them. These are the founder's sons. Here the sources part company over a name: the UNESCO statement calls them Smbat and Gurgen, while the earlier advisory evaluation calls them Smbat and Kiurike. The disagreement is smaller than it looks — Gurgen is also known as Kiurike, and the Kiurikian line is named after him — but a reader meeting the two accounts side by side would reasonably think they described different people.",
+          "The church is often described as surviving unchanged, and that is close to true but not exactly true. The survey records repairs in the eleventh century and again at the end of the twelfth, and suggests that a band of carved stone near the top of the dome belongs to the later of those. Inside, the apse keeps the earliest layer of its painting, with Christ enthroned as the main composition. A building that has stood for a thousand years in an earthquake zone has been worked on, and Haghpat is no exception.",
+        ],
+        links: [],
+      },
+      {
+        id: "a-monastery-built-over-centuries",
+        heading: "A monastery built over centuries",
+        paragraphs: [
+          "Almost everything at Haghpat other than Surb Nshan is later than the church, and most of it is very much later. The small church of Saint Gregory was built between 1005 and 1025, and it did not stay as designed: its dome was replaced by a barrel vault in the thirteenth century. Symmetrically placed to the north is a chapel of the Holy Virgin, raised in the thirteenth century on the grant of a princess named Khatun.",
+          "The thirteenth century is when the site takes the shape a visitor sees now. The bell tower went up in 1245 on the highest ground in the complex, three storeys with a cross-shaped plan below, an eight-sided storey above it and an open rotunda of columns carrying the bells at the top. A large hall known as the building of Abbot Hamazasp was added in the same century — UNESCO dates it to 1257, while the architectural survey gives only the century and the abbot's name. The refectory, standing apart from the main group, is also thirteenth century.",
+          "Two further additions are easy to overlook and say a great deal. The space between the church, the Hamazasp hall and the library was roofed over and turned into a burial vault, and a second corridor-shaped tomb chamber was formed along the eastern side of the church. Building over the gaps between existing structures is what an institution does when it has run out of room and will not move.",
+          "Set out together, the list stops being an inventory and becomes an argument. A church is for worship. A refectory means a community eating together on a fixed rule. A library and a scriptorium mean books being kept and made. A gavit means assembly, teaching and burial. A bell tower means a timetable audible across the valley. Walls and towers mean property worth defending. Haghpat is the physical record of a community that did all of those things at once, and kept needing more room for them.",
+        ],
+        links: [],
+      },
+      {
+        id: "the-gavit",
+        heading: "The gavit",
+        paragraphs: [
+          "The most distinctive building at Haghpat is its gavit. The word has no clean equivalent in English, and translating it as narthex, cloister or chapter house misleads more than it helps, because those name European things with different functions. A gavit is a large hall built against the west end of an Armenian church, and the surveys describe it as serving three purposes at once: it was where the community assembled, where novices were taught, and where the dead were buried. UNESCO's documentation does use the word narthex for it, which is worth knowing when comparing accounts.",
+          "The form is domestic in origin. The roof is carried on four columns standing free in the middle of the floor, an arrangement borrowed from the timber houses of the region, and pairs of arches spring across the space from opposite sides and cross one another, dividing the ceiling into nine compartments. The central compartment, the yerdik, is raised above the rest and open, so that it both lights the hall and lets smoke out. At Haghpat the system is doubled, a second set of arches lifting the lantern higher still.",
+          "Its date is the largest open question at the site. The architectural survey places the gavit in 1310 to 1320, on the site of an earlier Kiurikian funerary building of 1185 associated with Mariam, a daughter of King Kiurike. UNESCO's statement and the advisory evaluation both put the building itself in the second decade of the thirteenth century and attribute it to Princess Mariam. Those are a century apart, and the likeliest explanation is that one account has absorbed the patron of the earlier structure into the date of the later one. This article does not choose between them.",
+          "What is not in doubt is who lies under it. The floor of the gavit is paved with the gravestones of the Kiurikian family. Whatever century the hall was raised in, the family that founded the kingdom in Lori was still burying its dead at Haghpat, and the building exists partly to house them.",
+        ],
+        links: [],
+      },
+      {
+        id: "books-teaching-and-the-library",
+        heading: "Books, teaching and the library",
+        paragraphs: [
+          "Haghpat kept a book repository, and it survives. It is a compact square room, roofed by the same system of crossing arches used in the larger halls and lit from a central opening, with niches cut into the surrounding walls where the manuscripts were stored. What to call it and when it was built are both unsettled: the architectural survey calls it the library and dates the original structure to the twelfth century, while UNESCO calls it the scriptorium, puts it in the eleventh and adds that it was rebuilt substantially in the thirteenth. The distinction matters, because a room for keeping books and a room for copying them are not the same claim.",
+          "It is worth being careful about what a medieval Armenian monastic school was. Haghpat is often called a university, and that word imports an institution — faculties, degrees, a charter — that did not exist here. What the evidence supports is a monastic school teaching within a religious community, alongside the copying and keeping of manuscripts. That is a considerable thing without being a modern one, and the later school at Tatev, which did develop into something closer to a formal centre of higher study, shows how far the distinction can run inside Armenia itself.",
+          "One name is regularly attached to Haghpat: Hovhannes Sarkavag, called Imastaser, the Philosopher, a scholar of mathematics, calendar reckoning, theology and hymnody who lived from about 1045 to 1129. The biographical literature has him studying and later teaching at Haghpat, and his tomb is pointed out at the monastery. It is an association worth reporting and worth flagging: neither the architectural survey used here nor the UNESCO documentation names him, and this article has not been able to check the claim against a source that would settle it. The advisory evaluation does say the two monasteries together housed some five hundred monks, which is a figure from that document rather than a headcount anyone can now verify.",
+        ],
+        links: [
+          {
+            phrase: "the later school at Tatev",
+            slug: "tatev-monastery",
+          },
+        ],
+      },
+      {
+        id: "the-zakarian-century",
+        heading: "The Zakarian century",
+        paragraphs: [
+          "The thirteenth-century building campaign happened under a new political order. The Zakarian princes, governing northern Armenia within the Georgian kingdom after the Seljuk period, presided over a general revival in which monasteries acquired patrons, land and buildings at a rate not seen since the Bagratids. Haghpat's bell tower, its refectory, the Hamazasp hall, the burial vaults and most of its chapels all belong to this window.",
+          "It is tempting to hand the whole of that to the Zakarians as a family, and the evidence does not support it. The patrons who can actually be named are named individually and locally: an abbot, Hamazasp, whose hall carries his name; a princess, Khatun, whose grant paid for the chapel of the Virgin. Attribution at this site works best building by building, from inscriptions, and worst as a general statement about a dynasty.",
+          "The period also produced a fortress. Kayanberd was built in 1233 on high ground about a kilometre west of the monastery, and the advisory evaluation is explicit that it existed to watch the approaches to Haghpat and Sanahin. That a monastery was worth building a castle for is the clearest single measure of what these houses were by then: landholders, treasuries and centres of population, not only places of prayer.",
+        ],
+        links: [],
+      },
+      {
+        id: "khachkars-and-inscriptions",
+        heading: "Khachkars and inscriptions",
+        paragraphs: [
+          "A khachkar is an upright stone slab carved with a cross and, usually, with dense interlace around and beneath it. They were raised as memorials, as thanks, to mark a foundation or a gift, and they are among the most characteristic Armenian objects of the medieval centuries. Haghpat has a number of them, together with the tombs of several families.",
+          "The best known is the khachkar called Amenaprkich, the Redeemer, carved in 1273 and standing near the northern entrance of Surb Nshan. Both the architectural survey and the UNESCO documentation single it out; the survey calls it an outstanding example of Armenian medieval sculpture. This article leaves the ranking there rather than repeating the superlatives that circulate about it.",
+          "Inscriptions are the reason any of this can be dated at all. The completion of Surb Nshan in 991 is known from a text on the north side of the church, not from a chronicle; the khachkar carries its own year; the buildings that lack an inscription are precisely the ones the sources disagree about. When a monastery like this appears to have a confident chronology, it is usually because someone stood in front of the walls and read them.",
+        ],
+        links: [],
+      },
+      {
+        id: "changing-political-worlds",
+        heading: "Haghpat in changing political worlds",
+        paragraphs: [
+          "Haghpat outlived the kingdom that built it, and the sequence of powers that followed is easy to compress into a list of disasters. It is worth resisting that, because conquest, damage, abandonment and rebuilding are four different things and they did not always arrive together.",
+          "Damage there certainly was. The advisory evaluation records that the monastery was taken and burned in 1105 by a Seljuk commander it names as Amir-Ghzil, and that Kayanberd, built to protect the two houses, was itself stormed in 1241 during the Mongol campaigns. The site has also been shaken repeatedly: it stands in an active seismic zone, and earthquake damage appears in the record more than once.",
+          "What did not happen is the ending that the word sacked usually implies. Monastic life continued after 1105 and after 1241, and the great majority of the buildings standing today went up after the first of those dates and around or after the second. A change of overlord did not automatically empty an Armenian monastery, and at Haghpat the thirteenth century — politically the most turbulent — was also the most productive.",
+          "The later centuries are quieter in the record. Building activity fell away, and the next clearly documented phase is a series of repairs in the seventeenth century, dated to 1651, 1676 and 1677. Through the Persian and later Russian periods the monastery continued in use, and it remains a church of the Armenian Apostolic Church, which owns it, today.",
+        ],
+        links: [],
+      },
+      {
+        id: "the-monastery-and-the-debed",
+        heading: "The monastery and the Debed",
+        paragraphs: [
+          "The Debed gorge explains the siting. A monastery needed defensible ground, water, workable land and a position on a route, and the terraces along this valley offer all four. The gorge also explains the pairing with Sanahin: the two houses face each other across it, close enough to be spoken of together and separated enough to have been independent institutions with their own patrons and their own histories.",
+          "The valley below is now industrial. Alaverdi, the town at the foot of the gorge, has been a copper-mining and smelting centre since the nineteenth century, and the UNESCO assessment names the pollution of the surrounding environment, together with seismic activity and pressure from visitors, among the threats to the property. That is an unusual sentence to find in a description of a medieval monastery, and it is a fair description of where Haghpat actually sits.",
+          "The landscape is not merely a backdrop here. UNESCO's assessment of the property treats the setting as part of what is protected, and the surrounding village is subject to planning control for the same reason. The argument is that the buildings were composed in relation to the ground they stand on, and that separating them from it would leave something less than the thing that was inscribed.",
+        ],
+        links: [],
+      },
+      {
+        id: "conservation-and-world-heritage",
+        heading: "Conservation and World Heritage",
+        paragraphs: [
+          "The seventeenth-century repairs were the first documented campaign. The next came under Soviet Armenia: the republic's monument preservation committee began work in 1939 and 1940, and a much larger programme ran from 1960 to 1980. That programme is the reason the churches are in the condition they are, and it is also the reason a visitor should be careful about reading every course of masonry as medieval. Restored fabric is a statement about the twentieth century as well as the tenth, and where the record does not say exactly what was replaced, this article does not guess.",
+          "The World Heritage history is staged, and flattening it loses the most interesting part. In 1996 the property was inscribed under the name Haghpat Monastery, on its own, under criteria two and four. In 2000 a second nomination extended it, and the property was renamed Monasteries of Haghpat and Sanahin. The dossier number carries the trace of that: the original was 777 and the extension 777bis.",
+          "So the accurate statement is that Haghpat is part of a World Heritage property that also contains Sanahin — and, for four years between 1996 and 2000, that Haghpat was inscribed by itself. The criteria adopted describe the two monasteries as a blending of Byzantine church architecture with the vernacular building of the region, and as outstanding examples of the ecclesiastical architecture that developed in Armenia between the tenth and thirteenth centuries.",
+          "Armenia has three World Heritage properties. This is one; the monastery of Geghard and the upper Azat valley, inscribed in 2000, is another; the cathedral and churches of Etchmiadzin with the site of Zvartnots, inscribed in 2000, is the third. Haghpat and Sanahin were the first of the three onto the list.",
+        ],
+        links: [
+          {
+            phrase: "the monastery of Geghard and the upper Azat valley",
+            slug: "geghard-monastery",
+          },
+        ],
+      },
+      {
+        id: "what-haghpat-represents",
+        heading: "What Haghpat represents",
+        paragraphs: [
+          "The description that fits Haghpat best is the one UNESCO's own assessment reaches for: organic growth. This is not a designed ensemble but an accumulation, three centuries of additions each fitted to what was already there, and the surveys note that the result is asymmetrical and still balanced. Buildings were placed with regard to the ones beside them, and the gaps between them were eventually roofed and used.",
+          "It is not a fortress, and the walls should not be allowed to make it one. Haghpat has an enclosing rampart with towers, and a castle was built nearby to watch over it, but the vocabulary of keeps and baileys does not belong here. What the walls describe is a wealthy landholding community in a dangerous century, protecting itself and its property in the ordinary way of the time.",
+          "What the complex finally shows is an institution that thought in centuries. A community that builds a refectory, a library and a bell tower is not expecting to leave, and one that roofs over the alleys between its buildings has been there long enough to run out of space. That, rather than any single façade, is what makes Haghpat worth the attention it gets.",
+        ],
+        links: [],
+      },
+    ],
+    importantDates: [
+      {
+        year: "966 or 976",
+        event:
+          "The two dates given in the literature for the start of work on Surb Nshan. The earlier comes from the architectural survey and the advisory evaluation; the later from the UNESCO statement, which gives it as the founding of the monastery by Queen Khosrovanuysh.",
+      },
+      {
+        year: "986",
+        event:
+          "An earthquake brings down the dome of Hagia Sophia in Constantinople; Trdat, the architect to whom Surb Nshan is attributed, is called to rebuild it.",
+      },
+      {
+        year: "991",
+        event:
+          "Surb Nshan is completed. The date comes from an inscription on the north side of the church and is the firmest in the whole chronology.",
+      },
+      {
+        year: "1005–1025",
+        event: "The small church of Saint Gregory is built. Its dome is replaced by a barrel vault two centuries later.",
+      },
+      {
+        year: "1105",
+        event:
+          "The monastery is taken and burned by a Seljuk commander named in the advisory evaluation as Amir-Ghzil. Monastic life continues afterwards.",
+      },
+      {
+        year: "1185",
+        event:
+          "A Kiurikian funerary building associated with Mariam, daughter of King Kiurike, is raised on the ground the gavit later occupies.",
+      },
+      {
+        year: "1233",
+        event:
+          "The fortress of Kayanberd is built about a kilometre west, to watch the approaches to Haghpat and Sanahin.",
+      },
+      {
+        year: "1241",
+        event: "Kayanberd is taken by storm during the Mongol campaigns. The monastery itself continues in use.",
+      },
+      {
+        year: "1245",
+        event:
+          "The bell tower is built on the highest ground in the complex: a cross-shaped lower storey, an eight-sided second storey and an open rotunda carrying the bells.",
+      },
+      {
+        year: "1257",
+        event:
+          "The date UNESCO gives for the hall of Abbot Hamazasp. The architectural survey gives only the century and the abbot's name.",
+      },
+      {
+        year: "1273",
+        event: "The khachkar called Amenaprkich, the Redeemer, is carved. It stands near the northern entrance of Surb Nshan.",
+      },
+      {
+        year: "1651, 1676 and 1677",
+        event: "The documented seventeenth-century repairs, the first clear campaign of restoration after the medieval centuries.",
+      },
+      {
+        year: "1960–1980",
+        event:
+          "The major Soviet-era restoration programme, following smaller work begun in 1939 and 1940. Most of the present condition of the buildings dates from it.",
+      },
+      {
+        year: "1996 and 2000",
+        event:
+          "Haghpat Monastery is inscribed on the World Heritage List on its own in 1996; in 2000 the property is extended to include Sanahin and renamed Monasteries of Haghpat and Sanahin.",
+      },
+    ],
+    significance: {
+      heading: "Why Haghpat matters",
+      paragraphs: [
+        "Haghpat is the clearest surviving demonstration of what a major medieval Armenian monastery was for. Individually its buildings have parallels elsewhere; together they show a single community worshipping, eating, teaching, copying and keeping books, burying its patrons and defending its property, and doing all of it on one terrace for three hundred years. Very few sites let the functions be read off the plan this directly.",
+        "It also holds a particular place in how Armenia's heritage is presented to the world. It was the first Armenian property inscribed on the World Heritage List, four years before either of the other two, and it carried that status alone until Sanahin was joined to it. For readers outside Armenia, Haghpat is often the first medieval Armenian building they encounter by name.",
+      ],
+    },
+    interestingFacts: [
+      "The architect credited with Surb Nshan, Trdat, is the same man called to Constantinople to rebuild the dome of Hagia Sophia after the earthquake of 986.",
+      "Haghpat was a World Heritage Site by itself for four years: inscribed alone in 1996, it was joined to Sanahin only by the extension of 2000.",
+      "The two figures carved on the east front of the church are the founder's sons, and one of them appears in the sources under two different names — Gurgen in one, Kiurike in the other. They are the same man.",
+      "The floor of the gavit is paved with the gravestones of the Kiurikian royal family.",
+      "The bell tower's masonry includes a course of stones cut to interlock, a detail the architectural survey reads as a deliberate measure against earthquakes.",
+      "A castle, Kayanberd, was built in 1233 for the specific purpose of watching the approaches to Haghpat and Sanahin — and was stormed in 1241, while the monasteries it guarded carried on.",
+    ],
+    relatedFigures: [
+      {
+        name: "Queen Khosrovanuysh",
+        lifespan: "tenth century",
+        description:
+          "Wife of the Bagratid king Ashot III and the founder named in the sources for both Haghpat and Sanahin. The church at Haghpat was dedicated for her two sons, Smbat and Gurgen, who are the figures carved holding a model of it on the east front.",
+      },
+      {
+        name: "Trdat",
+        lifespan: "tenth to eleventh century",
+        description:
+          "The best-documented Armenian architect of the period, who worked for the Bagratids and built the cathedral at Ani. Surb Nshan is attributed to him by tradition rather than by a signed inscription. He was called to Constantinople to rebuild the dome of Hagia Sophia after the earthquake of 986.",
+      },
+      {
+        name: "Hovhannes Sarkavag",
+        lifespan: "about 1045 – 1129",
+        description:
+          "Scholar of mathematics, calendar reckoning, theology and hymnody, called Imastaser, the Philosopher. The biographical literature associates him with Haghpat as a student and later a teacher, and his tomb is shown there; neither the architectural survey nor the UNESCO documentation used for this article names him.",
+      },
+    ],
+    relatedSlugs: ["bagratid-armenia", "geghard-monastery", "tatev-monastery"],
   },
 ];

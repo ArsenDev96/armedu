@@ -1704,6 +1704,61 @@ function validateSources(report: Report): void {
       `identifies ${titles.size} different works: ${[...titles].map((t) => `"${t}"`).join(", ")}.`,
     );
   }
+
+  // And the inverse, which is the failure the check above is blind to: one work
+  // must not be registered under two different identifiers.
+  //
+  // Citing the same book from several articles is normal, and the convention here
+  // is that each article carries its own `Source` object with its own `note` and
+  // identical bibliographic fields. That convention silently breaks when two
+  // articles enter the same work independently: the copies drift in punctuation
+  // and one of them picks a different identifier, so the bibliography cites one
+  // book two ways and nothing notices. The §62 audit found exactly that —
+  // Sanjian's *Colophons of Armenian Manuscripts* under an ISBN in the
+  // Matenadaran and a DOI in Geghard, the titles differing only by an en dash
+  // against a hyphen.
+  //
+  // Deliberately narrow. Author and title are normalised for case, whitespace,
+  // dash variants and trailing punctuation only — the typography that differs
+  // when the same line is typed twice. No fuzzy matching, no semantic comparison
+  // and no external lookup: a check that guesses would be worse than none,
+  // because two genuinely different works with similar titles must stay separate.
+  const normalizeWork = (text: string): string =>
+    text
+      .toLowerCase()
+      .replace(/[\u2010-\u2015\u2212]/g, "-")
+      .replace(/[\u2018\u2019\u201c\u201d]/g, "'")
+      .replace(/[.,:;]+/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+
+  const identifiersByWork = new Map<string, Map<string, Set<string>>>();
+  for (const [slug, sources] of Object.entries(registry)) {
+    for (const source of sources) {
+      const work = `${normalizeWork(source.author ?? "")} | ${normalizeWork(source.title)}`;
+      const key = `${source.identifier.kind}:${source.identifier.value}`;
+      const ids = identifiersByWork.get(work) ?? new Map<string, Set<string>>();
+      const where = ids.get(key) ?? new Set<string>();
+      where.add(slug);
+      ids.set(key, where);
+      identifiersByWork.set(work, ids);
+    }
+  }
+
+  for (const [work, ids] of identifiersByWork) {
+    if (ids.size === 1) continue;
+    const detail = [...ids]
+      .map(([key, slugs]) => `${key} (${[...slugs].sort().join(", ")})`)
+      .join(" and ");
+    report.check(
+      false,
+      "global",
+      "source",
+      work.split(" | ")[1] || work,
+      `is registered under ${ids.size} different identifiers: ${detail}. One work takes one identifier; ` +
+        `cite it from as many articles as needed, but keep the bibliographic fields identical and vary only the note.`,
+    );
+  }
 }
 
 /**

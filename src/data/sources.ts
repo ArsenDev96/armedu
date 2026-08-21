@@ -603,6 +603,69 @@ const SOURCES: Record<string, Source[]> = {
     },
   ],
 
+  /*
+   * §68. Spas — and the first Cuisine bibliography assembled against a rule about
+   * what *not* to reuse.
+   *
+   * Irina Petrosian and David Underwood's `Armenian Food: Fact, Fiction & Folklore`
+   * is cited by five of the six existing Cuisine articles, and the §67 audit
+   * recorded that concentration as the section's one source weakness. It is
+   * deliberately **not** cited here. That is not a judgement on the book, which is
+   * a sensible choice for a section at folklore risk; it is that the two questions
+   * this article actually turns on are answered better elsewhere. Why fermented
+   * milk coagulates on a stove is food chemistry, and McGee is authoritative on it.
+   * Where the word `spas` came from is Armenian lexicography, and the classical
+   * dictionary is the primary record rather than a secondary report of it. Reusing a
+   * general popular-press survey for either would have been reaching for the
+   * familiar shelf.
+   *
+   * The Oxford Companion to Food was considered and left out for the opposite
+   * reason: it is already in this registry and would have been easy to add, but no
+   * claim in the article rests on it. A bibliography that lists what was consulted
+   * rather than what is load-bearing teaches a reader nothing about which sentence
+   * to check.
+   */
+  spas: [
+    {
+      author: "G. Awetikʻean, X. Siwrmēlean and M. Awgerean",
+      title: "Nor baṛgirkʻ haykazean lezui (New Dictionary of the Armenian Language)",
+      publisher: "Mkhitarist Congregation, San Lazzaro, Venice",
+      year: "1836–1837",
+      identifier: { kind: "archive", value: "NorBagirkHaykazeanLezui1836" },
+      note: "The standard dictionary of Classical Armenian, compiled from the classical corpus. Cited for the sense-range of the word spas — service, the vessels set out for a meal, and soup — and for the older sense of tan closer to broth than to a drink. It records what the words meant, not when the dish was first made, and the article is careful to keep those apart.",
+    },
+    {
+      author: "Harold McGee",
+      title: "On Food and Cooking: The Science and Lore of the Kitchen",
+      publisher: "Scribner, revised and updated edition",
+      year: "2004",
+      identifier: { kind: "isbn", value: "9780684800011" },
+      note: "The source for the whole of the curdling section: milk proteins are unusually heat-tolerant and do not set when cooked, but they do coagulate once the milk has turned acidic. That exception is the entire technical problem of heating matsun, and it is also what licenses the article to describe stirring direction as custom rather than mechanism.",
+    },
+    {
+      author: "Bert G. Fragner",
+      title: "ĀŠPAZĪ",
+      publisher: "Encyclopædia Iranica",
+      year: "1987",
+      identifier: { kind: "url", value: "https://www.iranicaonline.org/articles/spazi-cookery/" },
+      note: "Cited for the regional context and for nothing else: porridge-like soups of cereals, vegetables and herbs as ordinary town food by the fourteenth and fifteenth centuries, the use of milk products such as kashk in flavouring them, and the wide early spread of yogurt-making. Deliberately a source from outside Armenian scholarship, so that the shared-family point is not made by an interested party.",
+    },
+    {
+      title: "Armenia: Creating Home — Foodways",
+      publisher: "Smithsonian Folklife Festival, Center for Folklife and Cultural Heritage",
+      year: "2018",
+      identifier: { kind: "url", value: "https://festival.si.edu/2018/armenia/feasting/foodways" },
+      note: "Two claims rest on it: that the menu of a feast differs from daily meals in ingredients, techniques and serving etiquette — the distinction the article is built on — and that each region has its own favoured wild plants, which is why the herbs are described as varying rather than fixed.",
+    },
+    {
+      author: "Sonia Uvezian",
+      title: "The Cuisine of Armenia",
+      publisher: "Siamanto Press",
+      identifier: { kind: "isbn", value: "9780970971678" },
+      note: "The standard English-language account of the Armenian repertoire, cited here for the ordinary range of the dish — the grains and herbs that recur — rather than for any historical claim.",
+    },
+  ],
+
   /* ----------------------------------------------------------------- places */
 
   /*
@@ -841,7 +904,7 @@ const SOURCES: Record<string, Source[]> = {
       publisher: "Harvard University Press, Harvard Armenian Texts and Studies 2",
       year: "1969",
       identifier: { kind: "isbn", value: "9780674142855" },
-      note: "The work that established Armenian colophons as a historical source in their own right. Cited for what a hishatakaran records and for the claim that these manuscripts are read by historians who do not read Armenian.",
+      note: "The work that established Armenian colophons as a historical source in their own right. Cited for what a hishatakaran records and for the claim that these manuscripts are read by historians who do not read Armenian. Also registered for Geghard. Harvard's digital edition of the same volume carries DOI 10.4159/harvard.9780674432635, checked against Crossref and confirmed as this work; the ISBN above is kept as the identifier because the 1969 print volume is the edition cited.",
     },
     {
       author: "Christina Maranci",
@@ -1096,11 +1159,11 @@ const SOURCES: Record<string, Source[]> = {
     },
     {
       author: "Avedis K. Sanjian",
-      title: "Colophons of Armenian Manuscripts, 1301-1480: A Source for Middle Eastern History",
-      publisher: "Harvard Armenian Texts and Studies 2, Harvard University Press, Cambridge MA",
+      title: "Colophons of Armenian Manuscripts, 1301–1480: A Source for Middle Eastern History",
+      publisher: "Harvard University Press, Harvard Armenian Texts and Studies 2",
       year: "1969",
-      identifier: { kind: "doi", value: "10.4159/harvard.9780674432635" },
-      note: "The documentary evidence that manuscripts were actually copied at this monastery, as against the assertion that a scriptorium existed. Sanjian indexes Ayrivank at 1444, 1447, 1452, 1459 and 1476, with a scribe named Mateos working there across a dozen of those years. The volume begins at 1301, so it cannot speak to the thirteenth century, and this article does not make it do so.",
+      identifier: { kind: "isbn", value: "9780674142855" },
+      note: "The documentary evidence that manuscripts were actually copied at this monastery, as against the assertion that a scriptorium existed. Sanjian indexes Ayrivank at 1444, 1447, 1452, 1459 and 1476, with a scribe named Mateos working there across a dozen of those years. The volume begins at 1301, so it cannot speak to the thirteenth century, and this article does not make it do so. Also registered for the Matenadaran. Harvard's digital edition of the same volume carries DOI 10.4159/harvard.9780674432635, checked against Crossref and confirmed as this work; the ISBN above is kept as the identifier because the 1969 print volume is the edition cited.",
     },
     {
       author: "Robert W. Thomson",
@@ -1216,7 +1279,454 @@ const SOURCES: Record<string, Source[]> = {
       note: "The single citation for the cable car, kept to the one fact the article states: 5,752 metres between Halidzor and the monastery, achieved 16 October 2010. No fares, hours or booking information are recorded here or in the article.",
     },
   ],
+
+  /*
+   * Dilijan is the first Place whose bibliography has to do two jobs at once,
+   * and the split is deliberate.
+   *
+   * The first five entries carry claims. The last three carry the *circulating*
+   * figures the article examines — 240 square kilometres, 902 vascular plants,
+   * about 150 birds, more than 40 mammals — and are cited as the thing being
+   * described rather than as authorities for it. A reader who follows them
+   * should find exactly the unsourced numbers the article says are there.
+   * Removing them because they are not scholarly would leave three paragraphs
+   * arguing against sources that had been tidied out of the footnotes.
+   *
+   * Deliberately not used: the travel and resort pages that dominate a search
+   * for this subject. Every one of them reprints the 240 km² figure beside the
+   * 1958 date, which is the exact conflation of reserve and park that §10 of
+   * this article's brief exists to prevent, and several add a species count with
+   * no date attached to it at all.
+   */
+  "dilijan-national-park": [
+    {
+      /*
+       * Disambiguated in the same way the Lake Sevan entry names the SNCO that
+       * administers it, and for a reason that turned out to be mechanical as well
+       * as editorial: `ArticleLayout` keys the rendered bibliography by
+       * `source.title`, so this entry and the Wikipedia one below — both plainly
+       * titled "Dilijan National Park" — collided as React keys the first time
+       * this article rendered. Two identically titled citations one above the other
+       * are worth avoiding on their own account; the duplicate key is the second
+       * reason. The fragility of that key is recorded as debt rather than fixed in
+       * a content step.
+       */
+      title: "Dilijan National Park — \"Dilijan\" National Park SNCO",
+      publisher: "NABU Armenia (Naturschutzbund Deutschland), Yerevan",
+      identifier: {
+        kind: "url",
+        value: "https://nabu.am/en/eco-education/protected-areas/national-parks/dilijan-national-park",
+      },
+      note: "The park administration's own description of itself, republished by the conservation organisation that works with it — which is what it is cited as, since the ministry's own page for the national parks has moved and no longer resolves. It carries the whole of this article's chronology and its area: the reserve of 1958 established by decree P-341 of the Council of Ministers of the Armenian SSR on the ground of the former Dilijan and Kuybishev forest enterprises; the national park established on 21 February 2002 by decree 165 of the Government of the Republic of Armenia; 33,765 hectares with a separate buffer zone of 8,167; the provinces; the Pambak, Areguni, Miapor, Ijevan and Halab ranges; the Aghstev and Getik basins; the elevation range of 1,070 to 2,900 metres; and beech, yew and oak as the protected objects. It is the only source found that states what its area figure measures, which is why the article uses that figure and not the commoner one.",
+    },
+    {
+      title: "State sanctuaries of the Republic of Armenia",
+      publisher: "Ministry of Environment of the Republic of Armenia, Yerevan",
+      identifier: { kind: "url", value: "https://environment.gov.am/en/sanctuaries" },
+      note: "The official register of Armenia's sanctuaries, and the source for the distinction the article draws twice. The Akhnabad yew grove is 25 hectares, was protected on 13 September 1958, lies on the Tsaghkot spur of the Miapor range near Aghavnavank at 1,400 to 1,700 metres, and protects relict European yew — as a sanctuary in its own right, administered by the Dilijan national park organisation rather than included in the park. The same page lists a juniper sparse-forest sanctuary of 1,807 hectares in Gegharkunik under the same administration. Neither area belongs in the park's own.",
+    },
+    {
+      author:
+        "Nathalie Morin, Antoine Masse, Christophe Sannier, Martin Siklar, Norman Kiesslich, Hovik Sayadyan, Loic Faucqueur and Michaela Seewald",
+      title:
+        "Development and Application of Earth Observation Based Machine Learning Methods for Characterizing Forest and Land Cover Change in Dilijan National Park of Armenia between 1991 and 2019",
+      publisher: "Remote Sensing 13(15), 2942, MDPI",
+      year: "2021",
+      identifier: { kind: "doi", value: "10.3390/rs13152942" },
+      note: "The strongest source in this bibliography and the whole basis of the conservation section: the first remote-sensing assessment of any specially protected area in Armenia, produced for UNDP Armenia from Landsat and Sentinel-2 series at eight dates. Supports the forest composition (98.85 per cent broadleaved against 1.15 per cent coniferous in 2019), the land-cover breakdown (natural vegetation about 93.7 per cent of the area with more than half of that forest, agriculture 4.62, settlements and primary roads 1.19), the perturbation table quoted in the article (253 hectares of forest lost and 384 degraded in 1991-1995, 363 degraded in 1995-2000, 22 degraded and none lost in 2002-2005, 104 hectares regenerating against 45 lost in 2015-2019), the 1958 reserve as one of Armenia's first three, the start of illegal logging in 1992 with the blockade, the seven communities whose cadastral maps the study used, and the continuing pressure from settlements, agriculture and tourism. Cited also for the authors' own caveat, which the article repeats: degradation was attributed to human causes unless proven natural, and they say plainly that their anthropogenic figure is therefore very likely an overestimate.",
+    },
+    {
+      author: "M. Arzumanyan, A. Ghrmajyan, V. Muradyan, T. Tammaru and M. Arakelyan",
+      title: "Molluscs as bioindicators of tourism pressure on ecosystems of Dilijan National Park, Armenia",
+      publisher: "Journal of Ecotourism 22(4), 566-577, Taylor and Francis",
+      year: "2023",
+      identifier: { kind: "doi", value: "10.1080/14724049.2022.2100894" },
+      note: "The only measured evidence found for recreation pressure inside this park, and cited for exactly what it measured rather than as a general warning about tourism: terrestrial molluscs on visited plots against control plots, with significantly lower diversity, species richness and abundance where visitor intensity was high, the gap widest in autumn, and all five rare species among the thirty-one detected occurring only in the low-traffic plots. Published online in 2022 and issued in the 2023 volume.",
+    },
+    {
+      author: "Halil Ibrahimi, Astrit Bilalli, Milaim Musliu, Vardan Asatryan and Marine Dallakyan",
+      title:
+        "Wormaldia dilijanica sp. nov., a new caddisfly species (Trichoptera, Philopotamidae) from the Dilijan National Park in Armenia",
+      publisher: "Ecologica Montenegrina 94, 76-83, Institute for Biodiversity and Ecology",
+      year: "2026",
+      identifier: { kind: "doi", value: "10.37828/em.2026.94.2" },
+      note: "Cited for one point, which is the point: a short field survey of a single tributary of the Aghstev inside the park in May 2025 produced a species new to science, and the authors state that Armenia's caddisfly fauna is poorly known and that the country has been largely absent from recent Caucasus work. This is the evidence for the article's refusal to treat the park's circulating species counts as complete.",
+    },
+    {
+      title: "Reintroduction of the Caucasian Red Deer to Armenia",
+      publisher: "Caucasus Nature Fund, Tbilisi",
+      identifier: {
+        kind: "url",
+        value: "https://www.caucasus-naturefund.org/reintroduction-of-the-caucasian-red-deer-to-armenia/",
+      },
+      note: "A project page from one of the programme's funders, cited only for the programme's own facts and not for anything about the park's wider fauna: the red deer locally extinct in Armenia in the 1950s and listed as critically endangered nationally, the reintroduction begun in 2013 by the environment ministry with WWF Armenia, the breeding enclosure of ten hectares of forest near Parz Lake inside the park, three founder animals brought from Iran in April 2018, and the first calf born in June of that year. Later releases into the park itself are reported by the same programme's partners; the article states that they happened without giving a headcount, because the published numbers differ between accounts.",
+    },
+    {
+      title: "Dilijan National Park (relation 7594000)",
+      publisher: "OpenStreetMap",
+      identifier: { kind: "url", value: "https://www.openstreetmap.org/relation/7594000" },
+      note: "The protected-area outline as mapped, tagged boundary=protected_area with protect_class 2 and linked to the same Wikidata item as the encyclopaedia entries below. Cited as a community-maintained representation and explicitly not as the legal boundary — which is the distinction the article makes rather than hides. It is the source for the enclave pattern (the town of Dilijan and the village of Gosh lying inside the outline but outside the protected land, Goshavank a few hundred metres beyond the line while Haghartsin, Jukhtak Vank, Matosavank and Aghavnavank are well within it) and for the point recorded in geo.ts, whose provenance is set out there in full.",
+    },
+    {
+      title: "Dilijan National Park",
+      publisher: "Wikipedia, Wikimedia Foundation",
+      identifier: { kind: "url", value: "https://en.wikipedia.org/wiki/Dilijan_National_Park" },
+      note: "Cited as the widest carrier of the figures this article examines, not as an authority for them. It is where the 240 square kilometres, the 902 vascular plants with 29 in Armenia's Red Book, the roughly 150 bird species, the more than 40 mammal species and the 1,070 to 2,300 metre elevation range reach most readers, and none of them is attributed there to a dated survey. The article's point about the flora count is drawn from the figure's own wording, which includes four species listed in the Red Data Book of the USSR and therefore cannot postdate 1991.",
+    },
+    {
+      title: "Dilijan National Park (Q1984244)",
+      publisher: "Wikidata, Wikimedia Foundation",
+      identifier: { kind: "url", value: "https://www.wikidata.org/wiki/Q1984244" },
+      note: "The structured record behind most general reference surfaces, cited on the same terms as the entry above. It states the area as 240 square kilometres and the elevation as 1,070 to 2,300 metres with neither a boundary nor a date attached, and carries a coordinate at 40.65639, 45.02139 which does fall inside the park but lies some twelve kilometres from its centroid — which is why geo.ts records a computed centroid rather than adopting this point.",
+    },
+  ],
+
+  /*
+   * Gyumri. A deliberately short bibliography for a long article, and the shape of
+   * it follows the shape of the evidence: an architectural study for the fabric, a
+   * legal instrument for what is protected, two peer-reviewed papers for the
+   * earthquake, the national statistical office for the population, UNESCO for the
+   * craft, and two standing reference works already registered elsewhere for the
+   * imperial and historical-geographical frame.
+   *
+   * What is deliberately absent is the whole tier of tourism and municipal
+   * promotional material this subject generates. It was read — it is where the
+   * research questions came from — and it carries no claim in the article. The
+   * monument counts of "1,600" and "1,800 monuments" that circulate everywhere are
+   * discussed in the prose precisely because they have no such source behind them.
+   */
+  gyumri: [
+    {
+      author: "A. Ivanov",
+      title: "Armenian City of Gyumri as a Phenomenon of Living Vernacular Urban Environment",
+      publisher:
+        "The International Archives of the Photogrammetry, Remote Sensing and Spatial Information Sciences, XLIV-M-1-2020, 167–174",
+      year: "2020",
+      identifier: { kind: "doi", value: "10.5194/isprs-archives-XLIV-M-1-2020-167-2020" },
+      note: "Open access, and the article's source for the architecture section: the regular imperial grid filled with one- and two-storey stone vernacular buildings, the black tuff worked by local masons, the characterisation of the result as freedom within the grid, the city as a living rather than a museum core, and the survival of the historic fabric through the earthquakes of 1926 and 1988. Cited for the urban fabric only, not for chronology or statistics.",
+    },
+    {
+      author: "Government of the Republic of Armenia",
+      title:
+        "Decision N 1270-N approving the State List of Immovable Monuments of History and Culture of Shirak Marz",
+      publisher: "Armenian Legal Information System (ARLIS), Yerevan",
+      year: "2004",
+      identifier: { kind: "url", value: "https://www.arlis.am/hy/acts/105447" },
+      note: "The legal instrument behind the article's treatment of monument counts, and the reason it quotes this one rather than the figures in circulation. The list is dated, its boundary is administrative, and the section covering the city of Gyumri runs to roughly a thousand numbered entries. In Armenian. Cited for what is protected and how many entries there are, not for the history of any individual building.",
+    },
+    {
+      author:
+        "A. Cisternas, H. Philip, J. C. Bousquet, M. Cara, A. Deschamps, L. Dorbath, C. Dorbath and others",
+      title:
+        "The Spitak (Armenia) earthquake of 7 December 1988: field observations, seismology and tectonics",
+      publisher: "Nature, volume 339, pages 675–679",
+      year: "1989",
+      identifier: { kind: "doi", value: "10.1038/339675a0" },
+      note: "The field and seismological account, published within months of the event by a joint French-Soviet expedition. Cited for the character of the earthquake itself — the reverse faulting, the surface break of the order of thirteen kilometres, the shallow aftershock volume — and not for anything about buildings or casualties.",
+    },
+    {
+      author: "M. K. Yegian, V. G. Ghahraman and G. Gazetas",
+      title: "1988 Armenia Earthquake. I: Seismological, Geotechnical, and Structural Overview",
+      publisher: "Journal of Geotechnical Engineering, volume 120, issue 1, pages 1–20",
+      year: "1994",
+      identifier: { kind: "doi", value: "10.1061/(ASCE)0733-9410(1994)120:1(1)" },
+      note: "The engineering source for the section on why the damage in the city then called Leninakan was what it was: the failure of multi-storey precast-concrete residential construction at its connections rather than in its members, and the amplification of ground motion by the soft sediment under the city in the period range that mattered to buildings of that height. This is the paper behind the article's contrast between the tall modern blocks and the low-rise stone core; it is not cited for any casualty figure.",
+    },
+    {
+      author: "UNESCO",
+      title: "Tradition of blacksmithing in Gyumri",
+      publisher:
+        "Representative List of the Intangible Cultural Heritage of Humanity, element 01967, inscribed 2023",
+      year: "2023",
+      identifier: {
+        kind: "url",
+        value: "https://ich.unesco.org/en/RL/tradition-of-blacksmithing-in-gyumri-01967",
+      },
+      note: "The primary record of the inscription, and the source for every UNESCO statement in the article: the exact element name, the list, the year, the file number, Armenia as the submitting state, and what was actually inscribed — the making and repair of grilles, gates, doors, candlesticks and chandeliers, transmitted in families and through the city's art academy and craft college. It is cited equally for what it is not: an intangible heritage element is not a World Heritage property, and this file is the evidence for keeping the two apart.",
+    },
+    {
+      author: "Statistical Committee of the Republic of Armenia",
+      title: "The Main Results of RA Census 2022",
+      publisher: "Armstat, Yerevan",
+      year: "2023",
+      identifier: { kind: "url", value: "https://www.armstat.am/en/?nid=82&id=2623" },
+      note: "The source of every population figure in the article, and of the distinction the article draws between them. The census was enumerated from 13 to 22 October 2022 and reports a permanent (de jure) and a current (de facto) population separately; nationally the two differ by around a quarter of a million. The 112 301 quoted here is the census count for the city, and the 2001 and 2011 figures are the two preceding censuses on the same basis. Armstat's annual inter-census estimates are a different series and give different numbers, which is why the article dates the figure it uses.",
+    },
+    {
+      author: "UNESCO Institute for Lifelong Learning",
+      title: "Gyumri — UNESCO Global Network of Learning Cities",
+      publisher: "UNESCO Institute for Lifelong Learning, Hamburg",
+      identifier: { kind: "url", value: "https://www.uil.unesco.org/en/learning-cities/gyumri" },
+      note: "Cited only to establish that this, and not any heritage designation, is the other UNESCO relationship the city has: Gyumri joined the Global Network of Learning Cities in 2016. Recorded because it is the check the article ran rather than assumed — no Armenian city is currently in the UNESCO Creative Cities Network, so the widely repeated framing of Gyumri as a UNESCO city of crafts has no such basis. The membership profile's own population figure is not used here; it agrees with no census.",
+    },
+    {
+      author: "Richard G. Hovannisian (ed.)",
+      title:
+        "The Armenian People from Ancient to Modern Times, Volume II: Foreign Dominion to Statehood, the Fifteenth Century to the Twentieth Century",
+      publisher: "Palgrave Macmillan",
+      year: "2004",
+      identifier: { kind: "isbn", value: "9781403964229" },
+      note: "Already registered for other articles. Cited here for the imperial and early twentieth-century frame the city sits in — the Russian annexation of Eastern Armenia, the migration from Ottoman territory after the war of 1828 to 1829, and the collapse of the first Republic in 1920 — and not for the local chronology of Alexandropol itself.",
+    },
+    {
+      author: "Robert H. Hewsen",
+      title: "Armenia: A Historical Atlas",
+      publisher: "University of Chicago Press",
+      year: "2001",
+      identifier: { kind: "isbn", value: "9780226332284" },
+      note: "Already registered for five other articles. Cited here for the historical geography of Shirak and the position of the city on the plain, which is the one thing in this article that predates every other source in this list.",
+    },
+  ],
+  "amberd-fortress": [
+    {
+      author: "Nikolaj M. Tokarskij and Adriano Alpago-Novello",
+      title: "Amberd",
+      publisher:
+        "Documenti di architettura armena / Documents of Armenian Architecture 5, Edizioni Ares, Milan",
+      year: "1978",
+      identifier: { kind: "url", value: "https://ci.nii.ac.jp/ncid/BA57234763" },
+      note: "The site monograph: measured surveys, plans and photographs of the fortress and the church, published in the Italian documentation series on Armenian architecture. Second edition; first published 1972. The record linked here is the CiNii Books catalogue entry, which carries the authors, series, publisher, place, year, edition and extent — the identifier by which this volume can be found, since the series predates ISBNs on these titles. Registered here as the standard architectural documentation of Amberd and as the source behind the plan and fabric descriptions that later accounts, including the reserve's, repeat. It has not been read directly for this article; that is recorded rather than glossed, and no claim in the article rests on it alone.",
+    },
+    {
+      author:
+        "Service for the Protection of Historical Environment and Cultural Museum-Reservations, Ministry of Education, Science, Culture and Sport of the Republic of Armenia",
+      title: "Amberd Historical and Cultural Reserve",
+      publisher: "hushardzan.am, Yerevan",
+      identifier: {
+        kind: "url",
+        value: "https://hushardzan.am/en/preservations/amberd-historical-and-cultural-reserve",
+      },
+      note: "The administering institution's own record, and the source for most of the physical description in this article: the reserve's establishment by government decision N 541-N of 18 May 2017 and its area of 45.07 hectares; the position north-west of Byurakan on the southern slopes of Aragats at the confluence of the Arkashen and Amberd; the three-storey basalt castle with timber floors; wall heights of 15 to 16 metres and thicknesses of 2 to 3 metres; the bathhouse about 70 metres from the castle with its hypocaust heating; the chapel; the cross-domed church of 1026 with its twelve-faceted drum; the excavation seasons of 1936 to 1940 and 1963 to 1972 and the restoration campaigns of 1949 to 1972, 1970 to 1975 and 2005 to 2007. It is also the source of the two claims this article deliberately holds apart from the rest: that the complex is dated by excavation to the tenth to thirteenth centuries, and that construction began in the seventh century under the Kamsarakans — the first stated as a dating, the second as an attribution. Its excavation note naming Toros Toramanyan for 1936 to 1940 is the discrepancy discussed in the article.",
+    },
+    {
+      author: "Government of the Republic of Armenia",
+      title:
+        "Decision N 628 approving the State List of Immovable Monuments of History and Culture of Aragatsotn Marz",
+      publisher: "Armenian Legal Information System (ARLIS), Yerevan",
+      year: "2002",
+      identifier: { kind: "url", value: "https://www.arlis.am/hy/acts/36898" },
+      note: "The legal instrument behind this article's treatment of the site's dating and of what is protected. Approved 29 May 2002. The Amberd entry, filed under the village of Byurakan, dates the complex to the tenth to fourteenth centuries and enumerates its components: the fortress with two covered passages, the church of Surb Astvatsatsin of 1026, khachkars, a palace, a chapel, a bath, a cemetery, the water system and the walls. In Armenian. Cited for the official dating, the enumeration and the legal status, and not for the history of any individual building. It is also the source for treating the covered passages as documented rather than as folklore.",
+    },
+    {
+      author: "American University of Armenia",
+      title: "Amberd Fortress — Armenia Hidden Gems",
+      publisher: "AUA Acopian Center, with the Manoogian Simone Foundation, Yerevan",
+      identifier: { kind: "url", value: "https://armeniahiddengems.aua.am/monument/amberd-fortress/" },
+      note: "A university heritage inventory, cited for one thing only and named because of it: it gives the site's elevation as 2160 metres, against the roughly 2300 metres the reserve and most reference works give. Neither figure states what it measures, which is the point the article makes with the pair. Its own dating of the fortress to the tenth to fourteenth centuries agrees with the state list above.",
+    },
+    {
+      author: "Arpine Asryan",
+      title: "Amberd Fortress",
+      publisher:
+        "Crossing Frontiers: Christians and Muslims and their Art in Eastern Anatolia and the Caucasus, The Courtauld Institute of Art, London",
+      identifier: {
+        kind: "url",
+        value: "https://sites.courtauld.ac.uk/crossingfrontiers/crossing-frontiers/armenia/amberd-fortress/",
+      },
+      note: "An academic project entry, and the source for the article's phasing of the fortress: the castle built under the Bagratids of Ani in the tenth century on the ruins of a seventh-century castle, rather than surviving from the seventh century itself. Also cited for the irregular plan, the three semicircular towers with chambers inside them, the probable three storeys, and the sequence of Seljuk occupation in the 1070s, recovery in 1196, the Vachutians from 1215, the Mongol capture and the Timurid campaigns of the late fourteenth century. Cited for the built sequence and the political chronology, not for the elevation or the modern administration.",
+    },
+    {
+      author: "Arpine Asryan",
+      title: "Amberd Church",
+      publisher:
+        "Crossing Frontiers, The Courtauld Institute of Art, London — companion entry to the fortress",
+      identifier: {
+        kind: "url",
+        value: "https://sites.courtauld.ac.uk/crossingfrontiers/crossing-frontiers/armenia/amberd-church/",
+      },
+      note: "The source for everything this article says about the church: the date of 1026 from the inscription inside the tympanum of the north portal; the patron Vahram Pahlavuni, prince of princes and commander at the Bagratid court; the plan as a cross inscribed in a rectangle on a stepped platform with barrel-vaulted arms, a semicircular apse and two-storey corner chambers; the twelve-sided drum with paired engaged columns under an umbrella roof; local basalt and mortar as the material; the ceramic vessels set in the mortar under the roof; and the comparison with Marmashen that is the basis for the shared-architect suggestion. Registered as a separate entry from the fortress above because it is a separate page carrying separate claims, and its title differs accordingly.",
+    },
+    {
+      author: "Europa Nostra and the European Investment Bank Institute",
+      title: "Heritage sites in Europe shortlisted for the 7 Most Endangered Programme 2024",
+      publisher: "Europa Nostra, The Hague / Brussels",
+      year: "2024",
+      identifier: {
+        kind: "url",
+        value:
+          "https://www.europanostra.org/europa-nostra-and-eib-institute-announce-heritage-sites-in-europe-shortlisted-for-the-7-most-endangered-programme-2024/",
+      },
+      note: "Published 30 January 2024. The primary record of the shortlisting: eleven sites from nine countries, of which the Amberd Historical and Cultural Reserve is one, nominated by the Ministry of Education, Science, Culture and Sport of Armenia. It is also the source for the article's description of the site's condition — progressive deterioration of the castle, root damage from vegetation, and a heightened risk of structural collapse from seismic activity — and for the fact that the file itself describes Amberd as seventh-century, which the article notes rather than adopts.",
+    },
+    {
+      author: "Europa Nostra and the European Investment Bank Institute",
+      title: "Europe's 7 Most Endangered Heritage Sites 2024",
+      publisher: "Europa Nostra, The Hague / Brussels",
+      year: "2024",
+      identifier: {
+        kind: "url",
+        value:
+          "https://www.europanostra.org/europa-nostra-and-eib-institute-announce-europes-7-most-endangered-heritage-sites-2024/",
+      },
+      note: "Published 17 April 2024, and cited for an absence, which is why it is a separate entry from the shortlist above. The seven selected from the eleven shortlisted are in France, Greece, Italy (two), Serbia and Türkiye (two); Amberd is not among them. This is the evidence for the article's correction of the widely repeated claim that Amberd is one of Europe's seven most endangered monuments — it was shortlisted and not selected, and the two announcements are the record of both halves.",
+    },
+    {
+      title: "Toros Toramanian (1864-1934)",
+      publisher:
+        "Fundamental Armenology, All Armenian Foundation for Armenological Studies with the National Academy of Sciences of the Republic of Armenia, Yerevan (ISSN 1829-4618)",
+      identifier: {
+        kind: "url",
+        value: "https://fundamentalarmenology.am/Article/27/895/TOROS-TORAMANIAN-(1864-1934).html",
+      },
+      note: "Cited for one date and nothing else: Toramanian died in 1934, which is what makes the reserve's attribution of the 1936 to 1940 excavation seasons to him impossible as written. Entered in the journal's Classics of Armenology section, which publishes biographical notices of the founding figures of the field. No author is named on the notice, which is why the field is omitted here rather than guessed at.",
+    },
+    {
+      author: "Armen Kazaryan",
+      title:
+        "Architecture of Medieval Armenia as a Field of Research for Russian and Italian Scholars: Comparative Analyses of the Historiography",
+      publisher: "Arts, volume 12, issue 6, article 238",
+      year: "2023",
+      identifier: { kind: "doi", value: "10.3390/arts12060238" },
+      note: "Open access. Cited narrowly, for the historiographic frame the Amberd monograph belongs to: the Italian academic programmes of the universities of Rome and Venice and of Milan Polytechnic, running from 1966 into the 1980s, whose work on Armenian architecture was architectural and survey-based where the earlier Russian Ani expedition was archaeological. That is what produced the Documents of Armenian Architecture series and its Amberd volume. Not cited for anything about the site itself.",
+    },
+    {
+      author: "Richard G. Hovannisian (ed.)",
+      title:
+        "The Armenian People from Ancient to Modern Times, Volume I: The Dynastic Periods, from Antiquity to the Fourteenth Century",
+      publisher: "Palgrave Macmillan",
+      year: "2004",
+      identifier: { kind: "isbn", value: "9781403966360" },
+      note: "Already registered for other articles. Cited here for the political frame the fortress sits inside and for nothing local to it: the Bagratid kingdom and its noble houses, the Byzantine annexation of Ani in 1045, the Seljuk conquest and the fall of Ani in 1064, and the Zakarid recovery of northern Armenia at the turn of the thirteenth century under Georgian suzerainty. The chronology of Amberd itself is not drawn from it.",
+    },
+    {
+      author: "Robert H. Hewsen",
+      title: "Armenia: A Historical Atlas",
+      publisher: "University of Chicago Press",
+      year: "2001",
+      identifier: { kind: "isbn", value: "9780226332284" },
+      note: "Already registered for six other articles. Cited here for the historical geography behind the article's first two sections: the district of Aragatsotn and its relation to the Aragats massif, the position of the Ararat plain below it, and the holdings of the Kamsarakan house in Arsharunik and Shirak to the north and west — which is the tenure half of the seventh-century attribution the article declines to state as a fact.",
+    },
+  ],
+
+  jermuk: [
+    {
+      author: "Statistical Committee of the Republic of Armenia",
+      title:
+        "Results of the 2022 Population Census of the Republic of Armenia — Figures of the Marz of Vayots Dzor, Section 1: Distribution of the Population by Administrative-Territorial Division",
+      publisher: "Armstat, Yerevan",
+      year: "2024",
+      identifier: { kind: "url", value: "https://armstat.am/en/?nid=956" },
+      note: "The primary source for every population figure in this article, and the only one. Tables 1.1.1 and 1.1.2 of this release were downloaded from the page linked here, extracted and read directly rather than taken from a secondary account, which matters because they are the reason the article can separate four numbers that are routinely quoted as one. For the town of Jermuk they give a permanent (de jure) population of 3936 and a present (de facto) population of 3569 at the census of October 2022, against 5394 and 5146 in 2001 and 4628 and 4346 in 2011. For the Jermuk community — the town plus Kechut, Gndevaz, Karmrashen and Herher — they give 5694 permanent, and for Vayots Dzor marz 47369. The tables state that communities are presented as constituted under the law on administrative-territorial division as amended on 9 June 2022. Cited for the census figures and the settlement/community distinction, and for nothing else.",
+    },
+    {
+      author: "Jermuk Municipality",
+      title: "About the community (Համայնքի մասին)",
+      publisher: "Ջերմուկի համայնքապետարան, jermuk.am",
+      identifier: {
+        kind: "url",
+        value:
+          "https://www.jermuk.am/Pages/CustomPage/?CustomPageID=722b890c-cc0b-4c5d-bdf2-30fbebab4291",
+      },
+      note: "The administering authority's own account of the settlement, in Armenian, and the source that independently corroborates the resort chronology this article uses: the modern town dated to 1940 and the completion of its first sanatorium, the grant of town status in 1967, all-Union resort status in 1970, and the renaming from Istisu to Jermuk in 1924. Also the source for the community's composition and the distances the article gives — Kechut, Gndevaz, Herher and Karmrashen; roughly fifty kilometres from the provincial centre and a hundred and seventy-three from Yerevan — for its elevation figure of 2080 metres, for the count of thirty-six thermal springs, for the bottling plant's date of 1949, and for the waterfall at about seventy metres. It is also cited for a discrepancy rather than a fact: its own population figure of 9276 for the community is a registered count and stands more than half again above the census total above. Not cited for chemistry, for medical claims, or for anything the census answers.",
+    },
+    {
+      author: "Institute of Geological Sciences, National Academy of Sciences of the Republic of Armenia",
+      title: "Section of Mineral Waters",
+      publisher: "geology.am, Yerevan",
+      identifier: { kind: "url", value: "https://geology.am/en/museum-mineral-water/" },
+      note: "The institutional geological source, and the one that carries this article's chemistry. Cited for the country-wide context — more than seven hundred mineral springs and boreholes recorded in Armenia, temperatures from about 40 degrees at the coolest recognised thermal fields to over 80 at the hottest — and for Jermuk specifically: the springs in the Arpa gorge on the Jermuk plateau, a temperature range of roughly 40 to 58 degrees Celsius, a hydrocarbonate–sulphate composition with sodium, calcium and magnesium among the cations, mineralisation of about 4 to 5 grams per litre, and carbon dioxide in the gas. It is also the source of the comparison with Karlovy Vary that the article reports as a resemblance claim rather than a measurement.",
+    },
+    {
+      author: "Armine Saghatelyan, Armine Margaryan, Hovik Panosyan and Nils-Kåre Birkeland",
+      title:
+        "Microbial Diversity of Terrestrial Geothermal Springs in Armenia and Nagorno-Karabakh: A Review",
+      publisher: "Microorganisms 9(7), 1473, MDPI",
+      year: "2021",
+      identifier: { kind: "doi", value: "10.3390/microorganisms9071473" },
+      note: "The one peer-reviewed measurement this article rests on, and it is a measurement of a single spring rather than of the field. Cited for its Jermuk sample: a temperature above 53 degrees Celsius, a circumneutral pH of 7.5, an elevation of 2080 metres, and a description of the source as vigorously degassing and of carbon hydro-sulphate–sodium type — which is compatible with the institutional range above and is why the article can say the two agree. Its tabulated total mineralisation for the Armenian springs it surveys is not usable as stated and is deliberately not quoted here; the mineralisation figure in this article comes from the geological institute instead. The review's own subject is microbial ecology, and nothing in this article rests on that half of it.",
+    },
+    {
+      author: "T. Kh. Hakobyan, S. T. Melik-Bakhshyan and H. Kh. Barseghyan",
+      title: "Dictionary of Toponymy of Armenia and Adjacent Regions, volume 4 (Ն–Վ)",
+      publisher: "Yerevan State University Press, Yerevan",
+      year: "1986–2001",
+      identifier: {
+        kind: "archive",
+        value:
+          "Հակոբյան Թ. Խ., Մելիք-Բախշյան Ս. Տ., Բարսեղյան Հ. Խ., «Հայաստանի և հարակից շրջանների տեղանունների բառարան», հ. 4, ԵՊՀ հրատարակչություն, Երևան",
+      },
+      note: "The standard Armenian toponymic reference, and the work behind the place-name half of this article's second section — the older name Istisu and the reversion to Jermuk in 1924. Registered with an archival identifier rather than a URL or a page because neither could be verified: the volume is not online in a form this article could open, and a page number circulates in secondary citations that has not been checked against the book. It has not been read directly, that is recorded rather than glossed, and the two claims it supports are also carried by the municipality's own page above. The article's statement that jermuk is an ordinary Armenian common noun does not rest on it.",
+    },
+    {
+      title: "Armenian Soviet Encyclopedia, volume 9 — Jermuk",
+      publisher: "Armenian Encyclopedia Publishing House, Yerevan",
+      identifier: {
+        kind: "archive",
+        value: "«Հայկական սովետական հանրագիտարան», հ. 9, «Ջերմուկ» յօդուած, Երևան",
+      },
+      note: "The reference work behind the Soviet-period detail that the municipality's page does not carry: the master plan of 1945 and its revisions, and the attribution of the sanatorium and the mineral-water gallery to the architect Gevorg Tamanyan, built between 1950 and 1956. Like the toponymic dictionary above it is registered with an archival identifier and has not been read directly — the article's account of it comes from Armenian secondary literature citing it — and every claim in the article that depends on it is written as something Armenian reference works report rather than as an established fact. The bed-capacity and airfield figures for the resort at its height are attributed to this literature in the same way, and are given as orders of magnitude.",
+    },
+    {
+      title: "Lake Sevan — \"Sevan\" National Park SNCO",
+      publisher: "Ministry of Environment of the Republic of Armenia, Yerevan",
+      identifier: { kind: "url", value: "https://sevan-park.am/en/2019/03/29/lake-sevan/" },
+      note: "Already registered for the Lake Sevan article, and cited here for one thing: the Arpa–Sevan diversion, which begins at the Kechut reservoir on the Arpa immediately below Jermuk and has carried water under the Vardenis range into the lake since 1981. That is the fact that makes the upper Arpa a managed water system rather than a wilderness, and it is the relationship this article's only authored link points at. Not cited for anything about Jermuk itself.",
+    },
+    {
+      author: "CEE Bankwatch Network",
+      title: "Amulsar gold mine, Armenia",
+      publisher: "Bankwatch, Prague",
+      identifier: { kind: "url", value: "https://bankwatch.org/project/amulsar-gold-mine-armenia" },
+      note: "Cited for the existence and course of the dispute over the Amulsar deposit and for nothing else: that the Armenian government commissioned an independent technical assessment in 2019, that its authors reported the data available to them were insufficient for a comprehensive environmental risk assessment, and that no government decision followed from it. Registered with its position stated rather than hidden — Bankwatch is a network of environmental organisations that has campaigned against this project — which is precisely why it is used only for the process and never for a technical conclusion. The assessment report itself was not obtained, the article therefore adjudicates nothing about the springs, and the one paragraph that mentions Amulsar says so.",
+    },
+  ],
+  "haghpat-monastery": [
+    {
+      title: "Monasteries of Haghpat and Sanahin",
+      publisher: "UNESCO World Heritage List, no. 777",
+      year: "inscribed 1996, extended 2000",
+      identifier: { kind: "url", value: "https://whc.unesco.org/en/list/777/" },
+      note: "The primary designation record, and the source for the whole of this article's World Heritage section. It carries the four facts that matter and that secondary accounts routinely flatten: the date of inscription is 1996, the significant modification to the boundaries is 2000, the criteria are (ii) and (iv), and the dossier is numbered 777bis — the 'bis' being the trace of the extension. Its Statement of Outstanding Universal Value is also the source for the 976 foundation by Queen Khosrovanuysh, for Surb Nshan as built between 976 and 991 to designs by Trdat, for the bas-relief of Smbat and Gurgen, for the belfry of 1245, the Hamazasp building of 1257, the eleventh-century scriptorium and the Amenaprkich khachkar of 1273. Where it disagrees with the sources below — on the start of the church, on the century of the gavit, on the date and the name of the book room — this article records the disagreement rather than choosing.",
+    },
+    {
+      title: "Advisory Body Evaluation (ICOMOS), Haghpat Monastery, no. 777",
+      publisher: "ICOMOS for the UNESCO World Heritage Committee",
+      year: "1996",
+      identifier: { kind: "url", value: "https://whc.unesco.org/document/154246" },
+      note: "The evaluation of the original nomination, and the document that proves the designation was staged: it is headed 'Haghpat Monastery' and evaluates Haghpat alone, on a nomination dated 16 October 1995. It is the source for the political chronology this article uses — the monastery taken and burned in 1105 by the Seljuk commander it names as Amir-Ghzil, the fortress of Kaian built in 1233 to protect Haghpat and Sanahin and stormed in 1241 — and for the conservation history: repairs in 1651, 1676 and 1677, work by the Armenian SSR's monument committee in 1939 and 1940, and major campaigns between 1960 and 1980. It gives 966-67 for the start of Surb Nshan, against the 976 of the statement above. Its figure of some five hundred monks is for the two monasteries together and is an assertion of the document, not a count this article can verify. The canonical archive path for this file redirects; the document URL above is the one that resolves.",
+    },
+    {
+      title: "Advisory Body Evaluation (ICOMOS), Monasteries of Haghpat and Sanahin (extension), no. 777bis",
+      publisher: "ICOMOS for the UNESCO World Heritage Committee",
+      year: "2000",
+      identifier: { kind: "url", value: "https://whc.unesco.org/document/154248" },
+      note: "The evaluation of the 1999 extension nomination, and the other half of the proof that the property grew in two stages. It is headed as an extension, its subject is Sanahin, and it states in its own words that 'the inscription of the Haghpat Monastery in 1996 was on the basis of criteria ii and iv'. Cited here only for the designation history and for the shared context of the two houses; nothing in this article about Haghpat's buildings rests on it, because its architectural description is of Sanahin.",
+    },
+    {
+      author: "S. Kh. Mnatsakanyan and Adriano Alpago-Novello",
+      title: "Hakhpat",
+      publisher: "Documents of Armenian Architecture / Documenti di Architettura Armena 1, Faculty of Architecture of the Politecnico di Milano with the Academy of Sciences of Yerevan, Milan",
+      year: "1967",
+      identifier: { kind: "url", value: "https://archive.org/details/daa-01-hakhpat-1967" },
+      note: "The specialist architectural survey of the complex, and the first volume of the series whose Geghard volume is already registered for that article. It carries most of this article's building chronology: Surb Nshan begun in 966-67 and finished in 991 on the evidence of an inscription on the north side, the church attributed to Trdat, the bas-relief of Smbat and Gurgen holding a model of the church, Saint Gregory of 1005-1025 with its dome replaced by a barrel vault, the chapel of the Virgin raised on Princess Khatun's grant, the belfry of 1245 with its interlocking course of stones read as an anti-seismic measure, the thirteenth-century refectory and hall of Abbot Hamazasp, and the Amenaprkich khachkar of 1273. Two things make it more useful than a later summary. It describes the gavit's function directly — assembly, the teaching of novices, and burial — which is what allows this article to explain the word rather than mistranslate it. And it dates the gavit to 1310-1320, on the site of a Kiurikian funerary building of 1185 associated with Mariam, a century later than the UNESCO documentation, which is the largest open disagreement about the site. Its own internal arithmetic is also what tests the foundation date: it states that the work on the church lasted fifteen years, which fits a start in 976 and not the 966-67 it gives.",
+    },
+    {
+      author: "Robert H. Hewsen",
+      title: "Armenia: A Historical Atlas",
+      publisher: "University of Chicago Press",
+      year: "2001",
+      identifier: { kind: "isbn", value: "9780226332284" },
+      note: "Already registered for seven other articles. Cited here for the historical geography of Lori — the position of the district in the north of the Armenian lands, the Debed and its valley, and the Kiurikian kingdom that Gurgen inherited and that buried its dead at Haghpat. This is the archive's first article about anywhere in Lori, so the frame it supplies is doing more work than usual.",
+    },
+    {
+      author: "Richard G. Hovannisian (ed.)",
+      title: "The Armenian People from Ancient to Modern Times, Volume I: The Dynastic Periods, from Antiquity to the Fourteenth Century",
+      publisher: "Palgrave Macmillan",
+      year: "2004",
+      identifier: { kind: "isbn", value: "9781403966360" },
+      note: "Already registered for five other articles. Cited here for the political frame rather than the buildings: the Bagratid restoration of Armenian kingship at the end of the ninth century, the branch kingdoms that followed it, the Seljuk period, and the Zakarian ascendancy in northern Armenia under Georgian overlordship that the thirteenth-century building campaign at Haghpat belongs to.",
+    },
+    {
+      author: "Christina Maranci",
+      title: "The Art of Armenia: An Introduction",
+      publisher: "Oxford University Press",
+      year: "2018",
+      identifier: { kind: "isbn", value: "9780190269005" },
+      note: "Already registered for four other articles. Cited here for the architectural vocabulary this article has to use in English without distorting it — the domed hall, the triangular niche, the khachkar, and above all the gavit as a building type rather than as a mistranslated narthex — and for Trdat's place in the period, including the cathedral at Ani and the rebuilding of the dome of Hagia Sophia after the earthquake of 986.",
+    },
+  ],
 };
+
 
 /** The bibliography for one article. Empty only if the slug is unknown. */
 export function getSources(slug: string): Source[] {

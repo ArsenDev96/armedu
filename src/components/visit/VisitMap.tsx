@@ -1,16 +1,23 @@
 "use client";
 
 import "leaflet/dist/leaflet.css";
-import type { Map as LeafletMap, Marker } from "leaflet";
+import type { LeafletKeyboardEvent, Map as LeafletMap, Marker } from "leaflet";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { ALL_FILTER_ID, type Filter } from "@/data/types";
 import { ArrowLink, Card } from "@/components/ui/primitives";
 import { cn } from "@/lib/cn";
+import {
+  clusterByScreenDistance,
+  MARKER_HALF_HEIGHT,
+  spreadOffsets,
+} from "@/lib/map-cluster";
 import { MAP_TILES } from "@/lib/map-tiles";
 import { IMAGE_SIZES } from "@/lib/media";
 import type { VisitMapPoint } from "@/lib/visit-map";
+
+type LeafletModule = typeof import("leaflet");
 
 /**
  * The Visit hub's geographic index.
@@ -71,7 +78,10 @@ import type { VisitMapPoint } from "@/lib/visit-map";
  *
  * Keyed by the existing `placeTypeId`. A type with no glyph falls back to the
  * bare pin rather than to a wrong one, which is what should happen the day a
- * sixth type is added: a plain marker, not a museum book on a settlement.
+ * type ships without one: a plain marker, not a museum book on a settlement.
+ * That fallback held for `settlement` until the taxonomy gained its first
+ * member; `settlement` now has a glyph like every other type, and the fallback
+ * remains for whatever comes next.
  */
 const TYPE_GLYPH: Record<string, string> = {
   // A domed church: semicircle on a base.
@@ -82,6 +92,17 @@ const TYPE_GLYPH: Record<string, string> = {
   museum: "M8 5.5v6M8 5.5C7 4.6 5.8 4.6 4.5 5v6c1.3-.4 2.5-.4 3.5.5M8 5.5c1-.9 2.2-.9 3.5-.5v6c-1.3-.4-2.5-.4-3.5.5",
   // Water: two waves.
   nature: "M4.5 7.5c1.2-1 2.3-1 3.5 0s2.3 1 3.5 0M4.5 10c1.2-1 2.3-1 3.5 0s2.3 1 3.5 0",
+  /*
+    Two blocks on a ground line — the generic mark for a built-up place.
+
+    Deliberately the smallest thing that reads as a settlement rather than as any
+    particular one. It is not a skyline, not a coat of arms, not a tower, and not
+    a picture of Gyumri: the same rule that keeps `monastery` a domed shape rather
+    than Khor Virap applies here, and it has to hold before a second town ships.
+    Shape, not colour, and the accessible name still carries the localized type in
+    words — see `decorate` below.
+  */
+  settlement: "M4.5 11h7M5.5 11V7.5h3V11M8.5 11V6h2v5",
 };
 
 function pinSvg(placeTypeId: string, selected: boolean): string {
@@ -93,6 +114,29 @@ function pinSvg(placeTypeId: string, selected: boolean): string {
     glyph
       ? `<path d="${glyph}" fill="none" stroke="#fff" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>`
       : "",
+    `</svg>`,
+  ].join("");
+}
+
+/**
+ * The glyph for a group of places that cannot be drawn apart at this zoom.
+ *
+ * A circle, not a pin, and that is the whole design: a reader has to be able to
+ * tell at a glance that this is not one place with a number on it. Same
+ * burgundy, same white keyline, one size, no shadow, no pulse, no halo and no
+ * per-type variation — a group of four monasteries and a group of two mixed
+ * types look identical, because what a group means is *spatial*, not editorial.
+ *
+ * The count is drawn as text rather than implied by size. Size would be a second
+ * encoding of the same fact, unreadable at the small end and misleading at the
+ * large one, and it would leave the number available only to people who can see
+ * the map — the accessible name below carries it in words for everyone else.
+ */
+function clusterSvg(count: number): string {
+  return [
+    `<svg viewBox="0 0 34 34" width="34" height="34" aria-hidden="true" focusable="false">`,
+    `<circle cx="17" cy="17" r="15" fill="var(--color-burgundy)" stroke="#fff" stroke-width="2"/>`,
+    `<text x="17" y="17.5" text-anchor="middle" dominant-baseline="middle" fill="#fff" font-size="13" font-weight="700" font-family="system-ui, sans-serif">${count}</text>`,
     `</svg>`,
   ].join("");
 }
@@ -110,6 +154,15 @@ export interface VisitMapCopy {
   filterLabel: string;
   /** Shown when no basemap is configured, or when its tiles do not arrive. */
   unavailable: string;
+  /**
+   * Accessible name for a group marker, with a `{count}` placeholder.
+   *
+   * A template rather than a finished string because the number is only known
+   * at the zoom the reader is looking at. It never renders for one place — a
+   * group of one is drawn as the place itself — so there is no singular form to
+   * carry, and no dead branch pretending there is.
+   */
+  clusterLabel: string;
 }
 
 export function VisitMap({
@@ -124,12 +177,31 @@ export function VisitMap({
 }) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<LeafletMap | null>(null);
+  const leafletRef = useRef<LeafletModule | null>(null);
   // Leaflet's `Map` is imported under an alias, so this `Map` is the global one.
   const markersRef = useRef<Map<string, Marker>>(new Map());
+  /** Group markers, keyed by membership — see `ClusterGroup.key`. */
+  const clustersRef = useRef<Map<string, Marker>>(new Map());
+  /**
+   * The icon last actually applied to each marker.
+   *
+   * `setIcon` destroys and rebuilds the marker's element, which throws away
+   * focus. Panning re-runs the draw below on every frame's `moveend`, so
+   * re-applying an identical icon would make a keyboard reader lose the marker
+   * they were on the moment the map settled. Only a real change — type,
+   * selection, or an expansion offset — is allowed through.
+   */
+  const iconRef = useRef<Map<string, string>>(new Map());
+  /** Where focus must land once the draw that follows an expansion has run. */
+  const focusRef = useRef<string | null>(null);
+  /** Reassigned on every React render, so Leaflet's view events never go stale. */
+  const drawRef = useRef<() => void>(() => {});
 
   const [ready, setReady] = useState(false);
   const [selected, setSelected] = useState<string | null>(null);
   const [filter, setFilter] = useState<string>(ALL_FILTER_ID);
+  /** The one group a reader has expanded in place, by `ClusterGroup.key`. */
+  const [expanded, setExpanded] = useState<string | null>(null);
   const [tilesFailed, setTilesFailed] = useState(false);
 
   /*
@@ -147,10 +219,241 @@ export function VisitMap({
   const labelFor = (placeTypeId: string) =>
     types.find((type) => type.id === placeTypeId)?.label ?? placeTypeId;
 
+  /*
+    The one thing `t()` does, done here.
+
+    `lib/i18n` is where `{token}` substitution lives and this is the only place
+    on the client that needs it — but importing that module pulls the locale
+    bundles, and therefore every article in all three editions, into the map's
+    lazily-loaded chunk. A map that shipped the corpus to draw a number on a
+    circle would undo the reason the chunk is lazy at all. One `replace` is the
+    smaller wrong.
+  */
+  const clusterLabel = (count: number) => copy.clusterLabel.replace("{count}", String(count));
+
   const visible = points.filter(
     (point) => filter === ALL_FILTER_ID || point.placeTypeId === filter,
   );
   const active = points.find((point) => point.slug === selected);
+
+  /**
+   * Make a pin a control.
+   *
+   * Leaflet gives the icon `tabindex="0"` for us; this is the rest — the part
+   * that makes it a button with a name rather than a decorative div. The place
+   * type is in the accessible name, so the glyph and its colour are never the
+   * only carriers of what kind of place a marker is.
+   *
+   * Re-applied on every draw rather than once at creation, because both
+   * filtering and `setIcon` build a *fresh* element: set once, these attributes
+   * would survive until the first filter click and then quietly disappear.
+   */
+  const decorate = (marker: Marker, point: VisitMapPoint, isActive: boolean) => {
+    const element = marker.getElement();
+    if (!element) return;
+    element.setAttribute("role", "button");
+    element.setAttribute("aria-label", `${point.title} — ${labelFor(point.placeTypeId)}`);
+    element.setAttribute("aria-pressed", String(isActive));
+    element.setAttribute("data-slug", point.slug);
+    element.setAttribute("data-place-type", point.placeTypeId);
+    element.style.zIndex = isActive ? "1000" : "";
+  };
+
+  /**
+   * Open a group: zoom into it if that would separate it, otherwise spread it.
+   *
+   * Zoom first, because a group that comes apart on the ground should come apart
+   * on the map — that is the honest picture, and it needs no special rendering
+   * afterwards. `getBoundsZoom` answers the only question that matters here:
+   * *is there a zoom at which these fit further apart than they do now?* If yes,
+   * fit to them. If no — which for real coordinates means the basemap has run
+   * out of zoom, and for two Places at one coordinate means there was never an
+   * answer — the members are spread around the group's centre instead, so a
+   * reader is never left clicking a group that cannot open.
+   *
+   * Focus is handed to the first member either way. Expanding removes the group
+   * marker from the document, and a focused element that disappears drops focus
+   * to `<body>`; moving it deliberately is what keeps a keyboard reader where
+   * they were.
+   */
+  const expand = (slugs: string[]) => {
+    const map = mapRef.current;
+    const L = leafletRef.current;
+    if (!map || !L) return;
+
+    const members = points.filter((point) => slugs.includes(point.slug));
+    if (members.length === 0) return;
+
+    focusRef.current = slugs[0];
+
+    const bounds = L.latLngBounds(
+      members.map((point) => [point.lat, point.lon] as [number, number]),
+    );
+
+    if (map.getBoundsZoom(bounds, false, L.point(48, 48)) > map.getZoom()) {
+      setExpanded(null);
+      // No `maxZoom` here on purpose: the ceiling is the tile layer's, which is
+      // provider configuration, and repeating it in component logic is how the
+      // two drift apart.
+      map.fitBounds(bounds, { padding: [48, 48] });
+      return;
+    }
+
+    setExpanded([...slugs].sort().join(" "));
+  };
+
+  /**
+   * Put the current view on the map: every visible place, grouped by pixels.
+   *
+   * One function rather than three effects. The old component had separate
+   * passes for filtering, for selection styling and for creation, each reaching
+   * into the same marker elements from a different closure; adding a fourth
+   * concern that can *replace* a marker with something else made that
+   * untenable. This runs whenever anything the picture depends on changes —
+   * the filter, the selection, an expansion, or the view itself — and is
+   * idempotent, so running it twice costs nothing.
+   *
+   * Positions come from Leaflet's own projection at the current view, never from
+   * latitude arithmetic: what overlaps is pixels, and only the map knows where
+   * those are.
+   */
+  const draw = () => {
+    const map = mapRef.current;
+    const L = leafletRef.current;
+    if (!map || !L) return;
+
+    const shown = points.filter(
+      (point) => filter === ALL_FILTER_ID || point.placeTypeId === filter,
+    );
+
+    /*
+      Grouped on the pin's visual *centre*, not on its anchor. The anchor is the
+      tip on the ground; the box a reader points at sits 19 px above it. Coverage
+      is a fact about boxes, so the arithmetic has to be about boxes too.
+    */
+    const groups = clusterByScreenDistance(
+      shown.map((point) => {
+        const projected = map.latLngToContainerPoint([point.lat, point.lon]);
+        return { slug: point.slug, x: projected.x, y: projected.y - MARKER_HALF_HEIGHT };
+      }),
+    );
+
+    const drawnMarkers = new Set<string>();
+    const drawnClusters = new Set<string>();
+
+    for (const group of groups) {
+      /* A group of one is a place. A group the reader opened is its members. */
+      if (group.slugs.length === 1 || group.key === expanded) {
+        const offsets = spreadOffsets(group.slugs.length);
+
+        group.slugs.forEach((slug, index) => {
+          const point = points.find((entry) => entry.slug === slug);
+          const marker = markersRef.current.get(slug);
+          if (!point || !marker) return;
+
+          const offset = offsets[index];
+          const isActive = slug === selected;
+          const signature = `${point.placeTypeId}|${isActive}|${offset.dx}|${offset.dy}`;
+
+          if (!map.hasLayer(marker)) marker.addTo(map);
+
+          if (iconRef.current.get(slug) !== signature) {
+            marker.setIcon(
+              L.divIcon({
+                className: "armat-pin",
+                html: pinSvg(point.placeTypeId, isActive),
+                iconSize: [28, 38],
+                // The offset moves the *drawing*, never the coordinate:
+                // `getLatLng()` still answers with the ground the pin marks.
+                iconAnchor: [14 - offset.dx, 38 - offset.dy],
+              }),
+            );
+            iconRef.current.set(slug, signature);
+          }
+
+          decorate(marker, point, isActive);
+          drawnMarkers.add(slug);
+        });
+
+        continue;
+      }
+
+      const anchor = map.containerPointToLatLng([group.x, group.y + MARKER_HALF_HEIGHT]);
+      let cluster = clustersRef.current.get(group.key);
+
+      if (!cluster) {
+        // Membership is the key, so a marker is only ever reused for the same
+        // places — which is what lets a pan move it instead of rebuilding it.
+        const slugs = [...group.slugs];
+        cluster = L.marker(anchor, {
+          keyboard: true,
+          title: clusterLabel(slugs.length),
+          zIndexOffset: 400,
+          icon: L.divIcon({
+            className: "armat-cluster",
+            html: clusterSvg(slugs.length),
+            iconSize: [34, 34],
+            iconAnchor: [17, 17 + MARKER_HALF_HEIGHT],
+          }),
+        });
+        cluster.on("click", () => expand(slugs));
+        cluster.on("keypress", (event: LeafletKeyboardEvent) => {
+          const key = event.originalEvent.key;
+          if (key === "Enter" || key === " " || key === "Spacebar") expand(slugs);
+        });
+        clustersRef.current.set(group.key, cluster);
+      } else {
+        cluster.setLatLng(anchor);
+      }
+
+      if (!map.hasLayer(cluster)) cluster.addTo(map);
+
+      const element = cluster.getElement();
+      if (element) {
+        element.setAttribute("role", "button");
+        // "4 places", localized. Never the bare number, which a screen reader
+        // would announce as a quantity of nothing, and never the four names,
+        // which would be read out again on every pass of the map.
+        element.setAttribute("aria-label", clusterLabel(group.slugs.length));
+        element.setAttribute("aria-expanded", "false");
+        element.setAttribute("data-cluster", group.key);
+        element.setAttribute("data-cluster-count", String(group.slugs.length));
+      }
+
+      drawnClusters.add(group.key);
+    }
+
+    /* Anything this pass did not draw is not on the map. */
+    for (const [slug, marker] of markersRef.current) {
+      if (!drawnMarkers.has(slug)) marker.remove();
+    }
+    for (const [key, cluster] of clustersRef.current) {
+      if (drawnClusters.has(key)) continue;
+      cluster.remove();
+      clustersRef.current.delete(key);
+    }
+
+    /*
+      The focus handoff, after the picture is settled.
+
+      The wanted place is normally drawn by now. When it is not — because one
+      zoom step split a group of five into a pair and a three, and it is in the
+      three — focus goes to the group that holds it, so the next Enter carries on
+      from there. Either way focus lands on something, which is the guarantee.
+    */
+    const wanted = focusRef.current;
+    if (!wanted) return;
+
+    const own = drawnMarkers.has(wanted) ? markersRef.current.get(wanted)?.getElement() : null;
+    const host = groups.find(
+      (group) => drawnClusters.has(group.key) && group.slugs.includes(wanted),
+    );
+    const target = own ?? (host ? clustersRef.current.get(host.key)?.getElement() : null);
+    if (!target) return;
+
+    focusRef.current = null;
+    target.focus();
+  };
 
   /* Mount Leaflet once, when the section is close to view. */
   useEffect(() => {
@@ -203,47 +506,36 @@ export function VisitMap({
       tiles.addTo(map);
 
       /*
-        Set the view *before* adding markers.
+        Set the view *before* anything is drawn.
 
         `Map.addLayer` defers `onAdd` through `whenReady` until the map has a
         centre and a zoom. A map created with no view is not ready, so markers
         added first have no `_icon` yet and `getElement()` returns `null` — which
-        silently skipped every accessible attribute below and left seven pins
-        that were visible, unnamed and unreachable. Ordering is the fix.
+        silently skipped every accessible attribute and left seven pins that were
+        visible, unnamed and unreachable. Ordering is the fix, and it matters
+        more now: the draw below reads projected positions, and an unprojected
+        map has none.
 
         Marker-derived bounds rather than a hardcoded Armenia box: the viewport
         is a presentation concern, and a fixed national extent would quietly make
         an editorial decision — how the archive frames culturally Armenian sites
         beyond the present border — here, in a component, the day the first such
-        place ships.
+        place ships. §65 keeps that decision and absorbs its cost in the grouping
+        instead: the frame may move wherever the registry sends it, and what
+        collides at the resulting scale is handled at the resulting scale.
       */
       map.fitBounds(
         L.latLngBounds(points.map((point) => [point.lat, point.lon] as [number, number])),
         { padding: [32, 32], maxZoom: 11 },
       );
 
-      /**
-       * Make a pin a control.
-       *
-       * Leaflet gives the icon `tabindex="0"` for us; this is the rest — the
-       * part that makes it a button with a name rather than a decorative div.
-       * The place type is in the accessible name, so the glyph and its colour
-       * are never the only carriers of what kind of place a marker is.
-       *
-       * Re-run on every `add`, not once at creation: filtering removes and
-       * re-adds markers, and `_initIcon` builds a *fresh* element each time. Set
-       * once, these attributes would survive until the first filter click and
-       * then quietly disappear.
-       */
-      const decorate = (marker: Marker, point: VisitMapPoint) => {
-        const element = marker.getElement();
-        if (!element) return;
-        element.setAttribute("role", "button");
-        element.setAttribute("aria-label", `${point.title} — ${labelFor(point.placeTypeId)}`);
-        element.setAttribute("data-slug", point.slug);
-        element.setAttribute("data-place-type", point.placeTypeId);
-      };
+      /*
+        Markers are built here and placed by the draw, not added here.
 
+        Creating them without a map is deliberate: which of them are on it at any
+        moment is a question about the current view, and the answer changes on
+        every zoom. One place decides that, below.
+      */
       for (const point of points) {
         const marker = L.marker([point.lat, point.lon], {
           keyboard: true,
@@ -258,15 +550,17 @@ export function VisitMap({
 
         marker.on("click", () => setSelected(point.slug));
         marker.on("keypress", () => setSelected(point.slug));
-        marker.on("add", () => decorate(marker, point));
-
-        marker.addTo(map);
-        decorate(marker, point);
 
         markersRef.current.set(point.slug, marker);
       }
 
+      // Every view change re-groups. `moveend` and `zoomend` fire after the
+      // animation, so nothing is measured mid-flight; `resize` is what makes a
+      // rotated phone regroup rather than keep a portrait picture.
+      map.on("moveend zoomend resize", () => drawRef.current());
+
       mapRef.current = map;
+      leafletRef.current = L;
       setReady(true);
     };
 
@@ -284,8 +578,12 @@ export function VisitMap({
       cancelled = true;
       observer.disconnect();
       markersRef.current.clear();
+      clustersRef.current.clear();
+      iconRef.current.clear();
+      focusRef.current = null;
       mapRef.current?.remove();
       mapRef.current = null;
+      leafletRef.current = null;
       setReady(false);
       setTilesFailed(false);
     };
@@ -293,40 +591,34 @@ export function VisitMap({
     // `config` is inlined at build time, so neither ever changes at runtime.
   }, [points, config]);
 
-  /* Filtering hides markers; it never rebuilds the map. */
+  /*
+    Keep the view function current, then run it.
+
+    Two effects, in this order, because the first has no dependency list and the
+    second does: React runs them in declaration order after every commit, so the
+    version of `draw` that runs is always the one built from this render's state.
+    Leaflet's own listeners reach it through the same ref.
+  */
   useEffect(() => {
-    const map = mapRef.current;
-    if (!map || !ready) return;
+    drawRef.current = draw;
+  });
 
-    for (const point of points) {
-      const marker = markersRef.current.get(point.slug);
-      if (!marker) continue;
-      const shown = filter === ALL_FILTER_ID || point.placeTypeId === filter;
-      if (shown) marker.addTo(map);
-      else marker.remove();
-    }
-  }, [filter, points, ready]);
-
-  /* Selection: restyle the pins and bring the chosen one into view. */
   useEffect(() => {
     if (!ready) return;
+    drawRef.current();
+  }, [ready, filter, selected, expanded, points]);
 
-    for (const point of points) {
-      const marker = markersRef.current.get(point.slug);
-      const element = marker?.getElement();
-      if (!element) continue;
-      const isActive = point.slug === selected;
-      element.innerHTML = pinSvg(point.placeTypeId, isActive);
-      element.setAttribute("aria-pressed", String(isActive));
-      element.style.zIndex = isActive ? "1000" : "";
-    }
-
+  /* Selection brings the chosen place into view; the draw restyles its pin. */
+  useEffect(() => {
+    if (!ready) return;
     const point = points.find((entry) => entry.slug === selected);
     if (point) mapRef.current?.panTo([point.lat, point.lon], { animate: true });
-    // `filter` is a dependency because filtering re-adds markers with fresh
-    // elements and default pins — without it, the selected pin silently loses
-    // its active styling the first time a reader narrows and widens the map.
-  }, [selected, points, ready, filter]);
+  }, [selected, points, ready]);
+
+  /* A narrowed map is a different picture; an expansion of the old one is not. */
+  useEffect(() => {
+    setExpanded(null);
+  }, [filter]);
 
   /* A selection that the current filter hides would leave a stale card. */
   useEffect(() => {
@@ -334,7 +626,6 @@ export function VisitMap({
     const point = points.find((entry) => entry.slug === selected);
     if (point && filter !== ALL_FILTER_ID && point.placeTypeId !== filter) setSelected(null);
   }, [filter, selected, points]);
-
   if (points.length === 0) return null;
 
   return (

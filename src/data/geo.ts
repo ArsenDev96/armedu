@@ -186,6 +186,234 @@ export const PLACE_COORDINATES: Record<string, PlacePoint> = {
   // the enclosure is the subject, and a reader following this point arrives at the
   // buildings rather than at the middle of a landscape.
   "tatev-monastery": { lat: 39.3794, lon: 46.2501, precision: "site" },
+
+  // The second `area` entry, and the first point in this registry that had to be
+  // *computed* rather than looked up. Dilijan National Park is a protected
+  // landscape of some 33,765 hectares in Tavush, and no gazetteer holds a point
+  // that is both defensible and near the middle of it.
+  //
+  // OpenStreetMap relation 7594000 (`Դիլիջան ազգային պարկ`, name:en=Dilijan
+  // National Park, boundary=protected_area, protect_class=2, leisure=nature_reserve,
+  // wikidata=Q1984244) is the outline used. Its four outer rings were stitched and
+  // the area-weighted polygon centroid computed on an equirectangular projection
+  // about the polygon's own mean latitude: 40.741695, 44.931181, rounded to four
+  // places here. The rounded value was then tested back against the polygon by
+  // ray casting and falls *inside* it — checked rather than assumed, as it was for
+  // Garni and Geghard.
+  //
+  // Two independent cross-checks, both consistent:
+  //   - the bounding-box centre of the same outline is 40.73670, 44.94545, about
+  //     1.3 km away and also inside the park;
+  //   - Wikidata Q1984244 (P625) gives 40.65639, 45.02139, which is inside the park
+  //     too but about 12 km south-east of the centroid, in the Getik ground rather
+  //     than near the middle. It corroborates the region and is a fair illustration
+  //     of why this entry is `area` and why the gazetteer point was not adopted.
+  //
+  // The same computation puts the outline at about 352 km², which is the order of
+  // the administration's 33,765 ha and not of the 240 km² that reference works and
+  // Wikidata still carry. That disagreement is discussed in the article; it is
+  // recorded here because it is the reason a mapped boundary was preferred to a
+  // gazetteer point in the first place.
+  //
+  // **The latitude coincidence is not a copy.** OSM's own label point for the town
+  // of Dilijan is 40.7417126, 44.8722210, which rounds to the same 40.7417 as the
+  // centroid stored here. The longitudes differ by 0.059°, about 5.0 km, and the
+  // town is *outside* the park polygon — the boundary is drawn around the inhabited
+  // ground rather than over it. Anyone auditing this file will notice the matching
+  // latitude before anything else, so it is written down: the two points were
+  // derived independently and are five kilometres apart.
+  //
+  // Deliberately not any of these, and the first is the one every search returns:
+  // Dilijan town centre, above; the park administration's office in the town;
+  // Haghartsin, 7.5 km north-west of this point; Goshavank, 5.7 km south-east and
+  // in fact just outside the mapped boundary at the village of Gosh; Parz Lake,
+  // 2.6 km north-east, which is the park's most photographed feature and sits in
+  // the same forest as the red deer enclosure; the Akhnabad yew grove, which is a
+  // separate 25 ha sanctuary and not part of the park at all; any trailhead, hotel
+  // or road junction on the Dilijan approach.
+  "dilijan-national-park": { lat: 40.7417, lon: 44.9312, precision: "area" },
+
+  // The first `settlement` entry, and the reason that value has been in the union
+  // since the file was written. Gyumri is a living city of some hundred thousand
+  // people spread over tens of square kilometres, so this point is neither a
+  // building nor a centroid of a natural feature: it is the conventional position
+  // a gazetteer holds for the city, and a map that drops a pin on it is marking
+  // *the city*, not a place a visitor stands.
+  //
+  // OpenStreetMap node 130037434 (`Գյումրի`, place=city, capital=4,
+  // wikidata=Q199500) is at 40.7852085, 43.8416095; rounded to four places here.
+  // That node is OSM's settlement point for Gyumri — the label node the boundary
+  // relation is built around — rather than any structure inside it.
+  //
+  // Two independent geographic representations were checked and both corroborate
+  // at city scale, which is the only scale this point claims:
+  //   - GeoNames 616635 (`Gyumri`, feature class P, Shirak) gives 40.7930545,
+  //     43.8463497, about 1.0 km north-north-east and well inside the built-up
+  //     area;
+  //   - Wikidata Q199500 (P625) gives 40°47′N 43°50′E — 40.78333, 43.83333 — some
+  //     0.7 km west-south-west, and carried only to whole arc-minutes, which is
+  //     coarser than this registry's rounding and is why the OSM node was
+  //     preferred rather than adjudicated against.
+  // Three points inside a kilometre of each other, in a city roughly seven
+  // kilometres across, is agreement rather than a disagreement to resolve.
+  //
+  // Deliberately not any of these, and the first three are what a search for
+  // "Gyumri" tends to surface ahead of the settlement point itself: the Black
+  // Fortress on the high ground, which is a Russian imperial military work and not
+  // the city; Vartanants Square, which is visually central and is a square rather
+  // than a city; the railway station, and Shirak airport some 5 km south-east,
+  // both of which are transport infrastructure and would look entirely plausible
+  // on a map. Also excluded: the municipality building, the cathedral of Yot Verk,
+  // any tourist information point, and the Kumayri reserve — the last of which is
+  // a real legal boundary but is the *historic core*, roughly a fifth of the city,
+  // and pinning it would answer a different question from the one this registry
+  // asks.
+  //
+  // `settlement` rather than `site` or `area`, and the distinction is the whole
+  // reason the union has three members: a monastery enclosure has a point, a lake
+  // has only a centroid, and a city has a conventional centre that is neither.
+  gyumri: { lat: 40.7852, lon: 43.8416, precision: "settlement" },
+
+  // The castle at the point of the spur, on the southern slopes of Mount Aragats
+  // in Aragatsotn — the fortress itself, not the ensemble's outer edge and not
+  // the church two hundred metres away.
+  //
+  // OpenStreetMap relation 15757106 (`Ամբերդ (Amberd Fortress)`, name:en=Amberd
+  // Fortress, historic=castle, castle_type=fortress, building=castle, ruins=yes,
+  // wikidata=Q457057) is a multipolygon of the castle walls whose Nominatim label
+  // point is 40.3884555, 44.2262728; rounded to four places here. The rounded
+  // value was tested back against the relation's own outer ring by ray casting
+  // and falls *inside* it — checked rather than assumed, as it was for Garni,
+  // Geghard and Dilijan. The ring is about 62 by 52 metres, so four decimal
+  // places is comfortably inside the building.
+  //
+  // Cross-checked against Wikidata Q457057 (P625), which gives 40.3887278,
+  // 44.226526 — about 32 m from the value stored here and also on the castle.
+  // Two independent representations agreeing to a third of the building's width
+  // is corroboration rather than a disagreement to adjudicate, and the OSM
+  // element was preferred because it is a mapped footprint rather than a point.
+  //
+  // Deliberately not any of these, and the first two are the traps a gazetteer
+  // lookup for the bare word "Amberd" actually returns:
+  //   - the **Amberd river** (OSM relation 16475076), whose label point is 0.21 km
+  //     from the castle — close enough to look right on a map and a watercourse
+  //     rather than a monument;
+  //   - **Amberd village** in Vagharshapat community, Armavir (OSM way 894495861),
+  //     17 km south-east on the plain, which is a different settlement entirely;
+  //   - the **peak named Amberd** on the Aragats massif (OSM node 2479027163),
+  //     8.2 km north-west, which is a summit and not a monument;
+  //   - **Vahramashen church** (OSM way 498609239, wikidata=Q2507423) at
+  //     40.3877490, 44.2285125, 205 m east-south-east. It is the photographed
+  //     building, it is the one with a date on it, and it is a component of the
+  //     complex rather than the complex — the single likeliest wrong answer here;
+  //   - the visitor infrastructure clustered 110–140 m north-west of the castle:
+  //     the car park, the café, the toilets, the information boards and the
+  //     viewpoints. All are outside the walls where this point sits inside them;
+  //   - **Byurakan**, the village 6.6 km south-east that every description gives
+  //     the fortress a bearing from, and **Mount Aragats** itself, which is a
+  //     massif and would be an `area` point for a different subject.
+  //
+  // `site` rather than `area` despite the reserve around it covering 45.07
+  // hectares: the reserve is the protection, the fortress is the subject, and a
+  // reader following this point arrives at the castle rather than at the middle
+  // of a protected boundary.
+  "amberd-fortress": { lat: 40.3885, lon: 44.2263, precision: "site" },
+
+  // The second `settlement` entry, and the first place in this registry set in
+  // Vayots Dzor. Jermuk is a small town of a few thousand people on a plateau
+  // split by the gorge of the Arpa, so — like Gyumri and unlike every `site` above
+  // — this point is not a structure. It is the conventional position a gazetteer
+  // holds for the settlement, and a map that drops a pin on it is marking *the
+  // town*, not a place a visitor stands.
+  //
+  // OpenStreetMap node 210212587 (`Ջերմուկ`, place=town) is at 39.8388185,
+  // 45.6712635; rounded to four places here, which moves it 3.7 m. That node is
+  // OSM's settlement point for Jermuk — the label node Nominatim returns for the
+  // town — rather than any building inside it, which is the same rule §51 applied
+  // to Gyumri.
+  //
+  // Three independent geographic representations were checked, and the agreement
+  // is unusually tight for a settlement:
+  //   - GeoNames 174884 (`Jermuk`, feature class P, code PPLA2, Vayots Dzor) gives
+  //     39.83948, 45.67112 — **75 m** from the value stored here, and inside the
+  //     built-up area. Its ASTER GDEM elevation of 2090 m also sits between the
+  //     two figures the article reports for the town, 2080 and about 2100, without
+  //     settling either, since a DEM sample at a point is not a settlement's
+  //     height;
+  //   - the OSM `place=town` polygon, way 177199402, has its centre 0.73 km
+  //     south-south-east. That polygon reaches well past the built area — its
+  //     bounding box is about 5 km north to south — so its centroid is a centre of
+  //     *administered ground* rather than of a town, which is why the node was
+  //     preferred;
+  //   - Wikidata Q39556 (P625) gives 39.85, 45.683333 — 1.6 km north-east, and
+  //     carried at a coarseness (two decimal places of latitude) below this
+  //     registry's own rounding. As with Gyumri, that is why the OSM node was
+  //     preferred rather than adjudicated against.
+  // Two points 75 m apart in a town roughly two kilometres across is agreement,
+  // not a disagreement to resolve.
+  //
+  // Deliberately not any of these, and the first is what a search for "Jermuk"
+  // surfaces ahead of the settlement point itself:
+  //   - the **Jermuk waterfall** (OSM node 1970452502) 353 m south-west, and a
+  //     second mapped fall 487 m east. A waterfall is the photographed thing here
+  //     and is a feature of the gorge, not the town;
+  //   - the **town hall** (OSM node 10875092608) 453 m west, which is a municipal
+  //     office and would pin the administration rather than the settlement;
+  //   - the mapped **hot spring** north-west of Kechut (OSM node 925967306) 3.8 km
+  //     away — one spring, and the registry's question is not where a spring is;
+  //   - **Kechut** village (OSM node 925967382) 3.8 km south and the **Kechut
+  //     reservoir** (OSM way 79289845) 4.3 km south-south-west. Both are inside the
+  //     Jermuk community, which is exactly the confusion this article spends its
+  //     first section separating: the community is not the town;
+  //   - the stairway down to the waterfall (OSM node 8773342818) 744 m away, and
+  //     the rest of the visitor infrastructure with it. Also excluded in advance:
+  //     the mineral-water gallery, any single sanatorium or hotel, the bottling
+  //     plant, the ski area and any viewpoint.
+  //
+  // `settlement` rather than `site` or `area`, on the distinction §51 wrote into
+  // this file: a monastery enclosure has a point, a lake has only a centroid, and
+  // a town has a conventional centre that is neither.
+  //
+  // Jermuk is at no extreme of this registry — Tatev is still the southernmost and
+  // easternmost, Gyumri still the northernmost and westernmost — so the
+  // marker-derived bounds are unchanged by it. Its nearest neighbour here is Lake
+  // Sevan, 67.5 km away.
+  jermuk: { lat: 39.8388, lon: 45.6713, precision: "settlement" },
+
+  // The monastic complex at Haghpat, from OSM way 186536991 — §64.
+  //
+  // The way is tagged `amenity=monastery`, is named Haghpat Monastery, and sits in
+  // Lori marz; its computed centre is 41.093720 / 44.711774. Wikidata Q2423898
+  // gives 41.093716 / 44.712073 for the same subject, **25 m away**, which is close
+  // agreement between two independent registers and is what makes this point safe
+  // to store. Rounding the OSM centre to four decimals moves it about 3 m.
+  //
+  // `site`, not `area`: the thing named is one walled complex a couple of hundred
+  // metres across, not a district. It is also emphatically not the property that
+  // UNESCO inscribed, which is serial and contains Sanahin as well — a coordinate
+  // cannot represent two monasteries four kilometres apart, and this registry
+  // stores the subject of the article rather than the subject of the designation.
+  //
+  // Rejected, with distances from the stored point, because every one of them is a
+  // plausible mistake rather than a far-fetched one:
+  //
+  //   Haghpat village node 406352141              101 m   the sharpest miss. The
+  //     village adjoins the monastery and carries the same name, so a gazetteer
+  //     lookup for "Haghpat" returns the settlement, not the monument.
+  //   Kusanats Anapat church node 3279181429      443 m   a church of the same
+  //     village, outside the walls, and not part of the complex.
+  //   Kayan church node 4229665964               1.08 km
+  //   Kayanberd fortress node 4208774633         1.10 km  built in 1233 to watch
+  //     the approaches to Haghpat, discussed in the article, and not the monastery.
+  //   Zarni-Parni caves node 5670322129           0.69 km
+  //   Koshaberd fortress node 10586355925        3.99 km
+  //   Sanahin monastery way 549479405            3.88 km  the other half of the
+  //     World Heritage property and the substitution this note exists to refuse.
+  //
+  // Haghpat is the northernmost marker in the registry — the first to move the
+  // derived bounds since §51 — and its nearest neighbour is Dilijan National Park,
+  // about 74 km south.
+  "haghpat-monastery": { lat: 41.0937, lon: 44.7118, precision: "site" },
 };
 
 /** The recorded position for a place slug, or `undefined` when none is held. */
