@@ -603,6 +603,69 @@ const SOURCES: Record<string, Source[]> = {
     },
   ],
 
+  /*
+   * §68. Spas — and the first Cuisine bibliography assembled against a rule about
+   * what *not* to reuse.
+   *
+   * Irina Petrosian and David Underwood's `Armenian Food: Fact, Fiction & Folklore`
+   * is cited by five of the six existing Cuisine articles, and the §67 audit
+   * recorded that concentration as the section's one source weakness. It is
+   * deliberately **not** cited here. That is not a judgement on the book, which is
+   * a sensible choice for a section at folklore risk; it is that the two questions
+   * this article actually turns on are answered better elsewhere. Why fermented
+   * milk coagulates on a stove is food chemistry, and McGee is authoritative on it.
+   * Where the word `spas` came from is Armenian lexicography, and the classical
+   * dictionary is the primary record rather than a secondary report of it. Reusing a
+   * general popular-press survey for either would have been reaching for the
+   * familiar shelf.
+   *
+   * The Oxford Companion to Food was considered and left out for the opposite
+   * reason: it is already in this registry and would have been easy to add, but no
+   * claim in the article rests on it. A bibliography that lists what was consulted
+   * rather than what is load-bearing teaches a reader nothing about which sentence
+   * to check.
+   */
+  spas: [
+    {
+      author: "G. Awetikʻean, X. Siwrmēlean and M. Awgerean",
+      title: "Nor baṛgirkʻ haykazean lezui (New Dictionary of the Armenian Language)",
+      publisher: "Mkhitarist Congregation, San Lazzaro, Venice",
+      year: "1836–1837",
+      identifier: { kind: "archive", value: "NorBagirkHaykazeanLezui1836" },
+      note: "The standard dictionary of Classical Armenian, compiled from the classical corpus. Cited for the sense-range of the word spas — service, the vessels set out for a meal, and soup — and for the older sense of tan closer to broth than to a drink. It records what the words meant, not when the dish was first made, and the article is careful to keep those apart.",
+    },
+    {
+      author: "Harold McGee",
+      title: "On Food and Cooking: The Science and Lore of the Kitchen",
+      publisher: "Scribner, revised and updated edition",
+      year: "2004",
+      identifier: { kind: "isbn", value: "9780684800011" },
+      note: "The source for the whole of the curdling section: milk proteins are unusually heat-tolerant and do not set when cooked, but they do coagulate once the milk has turned acidic. That exception is the entire technical problem of heating matsun, and it is also what licenses the article to describe stirring direction as custom rather than mechanism.",
+    },
+    {
+      author: "Bert G. Fragner",
+      title: "ĀŠPAZĪ",
+      publisher: "Encyclopædia Iranica",
+      year: "1987",
+      identifier: { kind: "url", value: "https://www.iranicaonline.org/articles/spazi-cookery/" },
+      note: "Cited for the regional context and for nothing else: porridge-like soups of cereals, vegetables and herbs as ordinary town food by the fourteenth and fifteenth centuries, the use of milk products such as kashk in flavouring them, and the wide early spread of yogurt-making. Deliberately a source from outside Armenian scholarship, so that the shared-family point is not made by an interested party.",
+    },
+    {
+      title: "Armenia: Creating Home — Foodways",
+      publisher: "Smithsonian Folklife Festival, Center for Folklife and Cultural Heritage",
+      year: "2018",
+      identifier: { kind: "url", value: "https://festival.si.edu/2018/armenia/feasting/foodways" },
+      note: "Two claims rest on it: that the menu of a feast differs from daily meals in ingredients, techniques and serving etiquette — the distinction the article is built on — and that each region has its own favoured wild plants, which is why the herbs are described as varying rather than fixed.",
+    },
+    {
+      author: "Sonia Uvezian",
+      title: "The Cuisine of Armenia",
+      publisher: "Siamanto Press",
+      identifier: { kind: "isbn", value: "9780970971678" },
+      note: "The standard English-language account of the Armenian repertoire, cited here for the ordinary range of the dish — the grains and herbs that recur — rather than for any historical claim.",
+    },
+  ],
+
   /* ----------------------------------------------------------------- places */
 
   /*

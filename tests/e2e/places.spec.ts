@@ -3015,7 +3015,20 @@ test("no place is waiting for artwork, and all thirteen resolve", () => {
     the expected array on its own, empty or not, and §60 is the eighth time it has
     been right without being edited.
   */
-  expect([...PENDING_ARTWORK].sort()).toEqual(
+  /*
+    Scoped to Places from §67, and the rescoping is a correction rather than a
+    relaxation.
+
+    `PENDING_ARTWORK` is archive-wide, not per-section. While every pending slug
+    happened to be a Place the distinction cost nothing, so this compared the whole
+    list against this section's shortfall — and §67 put `spas` on it, at which point
+    the comparison started asserting something about Cuisine that this file has no
+    business asserting. The claim that was always meant is the one below: no *Place*
+    is waiting for a picture.
+  */
+  expect(
+    [...PENDING_ARTWORK].filter((slug) => PLACES.includes(slug as never)).sort(),
+  ).toEqual(
     PLACES.filter((slug) => !ILLUSTRATED.includes(slug as never))
       .map(String)
       .sort(),
@@ -3056,6 +3069,16 @@ test("the registry and the pending list are mutually exclusive", () => {
 
   The registry is one flat map, and the edit that added a key is exactly the kind
   that quietly retypes a neighbouring value. This pins every other entry.
+
+  §69 is the first time this test has failed, and it failed correctly. Registering
+  `spas.webp` — a Cuisine cover, added by a step that touched no Place at all — is
+  precisely the "something outside this section moved" event the snapshot exists to
+  report. The expected object below gains one line and nothing else changes: every
+  other value is byte-identical, which is the actual claim being carried forward.
+
+  Updating the literal is the maintenance this shape asks for, not a relaxation of
+  it. Deriving it from the registry instead would make it agree by construction and
+  it would never fail again — including on the day a path is genuinely retyped.
 */
 test("no unrelated article artwork changed", () => {
   const registry = getImageRegistry();
@@ -3097,6 +3120,7 @@ test("no unrelated article artwork changed", () => {
     harissa: "/images/cuisine/harissa.webp",
     gata: "/images/cuisine/gata.webp",
     ghapama: "/images/cuisine/ghapama.webp",
+    spas: "/images/cuisine/spas.webp",
   });
 
   // Every other entry is still a WebP in one of the category directories, and
@@ -3842,7 +3866,10 @@ test("Haghpat renders its own artwork and says it is generated, in every edition
 
   expect(getImageSrc(HAGHPAT), "Haghpat has a registered file").toBe(ARTWORK[HAGHPAT]);
   expect(PENDING_ARTWORK, "and is no longer pending").not.toContain(HAGHPAT);
-  expect(PENDING_ARTWORK, "nothing in this section is pending any more").toEqual([]);
+  expect(
+    PENDING_ARTWORK.filter((slug) => PLACES.includes(slug as never)),
+    "no place in this section is pending any more",
+  ).toEqual([]);
 });
 
 test("Haghpat borrows no other monastery's artwork, on the page or in its metadata", async ({
@@ -4717,7 +4744,9 @@ test("the four existing category listings still load and still count what they d
     ["history", 7, dict.listing.history.title],
     ["writers", 6, dict.listing.writers.title],
     ["works", 4, dict.listing.works.title],
-    ["cuisine", 6, dict.listing.cuisine.title],
+    // §67 moves Cuisine 6 → 7 with Spas. Edited rather than derived on purpose:
+    // this test's whole job is to notice when another section's count changes.
+    ["cuisine", 7, dict.listing.cuisine.title],
   ];
 
   for (const [path, count, heading] of expected) {

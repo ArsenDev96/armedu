@@ -173,7 +173,7 @@ const MONASTERY_PLACES = [
 ] as const;
 
 const NOT_MAPPED = {
-  cuisine: ["lavash", "dolma", "khorovats", "gata", "harissa", "ghapama"],
+  cuisine: ["lavash", "dolma", "khorovats", "gata", "harissa", "ghapama", "spas"],
   history: ["tigran-the-great", "mesrop-mashtots-armenian-alphabet", "adoption-of-christianity"],
   writers: ["hovhannes-tumanyan", "yeghishe-charents"],
   works: ["anush", "david-of-sassoun"],

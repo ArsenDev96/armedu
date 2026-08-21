@@ -58,6 +58,47 @@ const IMAGES: Record<string, string> = {
   ghapama: "/images/cuisine/ghapama.webp",
 
   /*
+   * §69. Spas — the first Cuisine cover this archive has put through the artwork
+   * gate, because it is the first Cuisine article that ever shipped without one.
+   *
+   * 1586×992, 198 KB (203,194 bytes), a single lossy `VP8 ` chunk with no VP8X
+   * extension, and therefore no alpha, no ICC profile, no EXIF and no XMP. Verified
+   * twice, by a hand-written RIFF chunk walk and by `sharp`, which agree on every
+   * field. Registered exactly as delivered: unaltered, uncropped, unoptimised,
+   * unrenamed. The geometry is `lavash.webp`'s exactly and is the archive's dominant
+   * one; the other five cuisine covers are 1448×1086 or 1536×1024, so this adds no
+   * new ratio.
+   *
+   * **What is in the frame, and it is the dish.** A wide shallow stoneware bowl,
+   * unglazed pale grey with a hand-painted band of blue leaf motifs low on the wall,
+   * standing on a striped linen cloth on a bare wood table. The bowl holds a white,
+   * faintly green-flecked soup, thin enough that the level and the meniscus against
+   * the bowl wall are both visible, with plump cooked whole grains suspended through
+   * it rather than settled under it, chopped dill worked through, and cut scallion
+   * greens. A carved wooden spoon lies on the cloth at the left, a small plate of
+   * fresh dill and spring onions sits behind, and a torn wheat loaf lies to the
+   * right. Daylight, cool, from the left.
+   *
+   * **The harissa test, which is the one that mattered.** The §68 note beside this
+   * slug's pending entry predicted the failure precisely — a pale grain-and-liquid
+   * dish, photographed from above, in a bowl on a rustic table, is what both dishes
+   * are — and the file avoids it on every axis the note named. Harissa is opaque,
+   * stiff, beige, glossed with butter, threaded with chicken, and lit by an open
+   * hearth. This is fluid, white, cool-lit, herbed, and has no fire in it. Held side
+   * by side at the 16:9 card width and again at the 160px search thumbnail, the two
+   * do not resemble each other at all: the harissa card reads dark amber, this one
+   * reads white and green. The distinction survives the smallest crop the site
+   * renders, which is the condition §69 set.
+   *
+   * One thing the file does not carry: the bread beside the bowl is a crusty wheat
+   * loaf, not lavash. The article links to `lavash` as what spas is eaten with, so
+   * the cover and the prose point at slightly different breads. It is background at
+   * every crop and no claim rests on it — recorded as minor debt rather than treated
+   * as a subject error.
+   */
+  spas: "/images/cuisine/spas.webp",
+
+  /*
    * Places
    *
    * `khor-virap.png` is byte-for-byte the same file as `public/hero-ararat.png`,
@@ -1071,6 +1112,53 @@ export const PENDING_ARTWORK: readonly string[] = [
    * other monastery covers use and what landed is photographic; it was registered
    * anyway, for the reason given beside its entry in `IMAGES` above. This list is
    * empty for the thirteenth time, and every Place in the archive now has a cover.
+   */
+
+  /*
+   * §68. Spas — Cuisine #7, and the first entry on this list from outside Places.
+   *
+   * All six existing cuisine files were opened rather than read off their names, and
+   * none of them is this dish — but the nearest one is nearer than expected, which is
+   * why it is described here in detail rather than merely listed.
+   *
+   * `harissa.webp` is a pale cream-coloured grain dish in a clay bowl, with torn
+   * lavash lying beside it and a lit hearth behind. Almost every element of that
+   * sentence is also true of a plausible spas photograph, and the colour is not the
+   * separator a first glance assumes: harissa is not meat-coloured. What actually
+   * separates them is consistency and finish. Harissa is opaque and stiff enough to
+   * hold the mark of a spoon, glossed with melted butter and threaded with shredded
+   * chicken; spas is thin, white, sour, and its grain is suspended in liquid rather
+   * than bound into a mass, with fresh green herbs on top that harissa has none of.
+   * A borrowed harissa cover would not look absurd here, and that is exactly the kind
+   * of substitution that survives review.
+   *
+   * `dolma`, `khorovats`, `lavash`, `gata` and `ghapama` are plainly other dishes.
+   * Nothing outside `public/images/cuisine/` was considered: a Place cover under a
+   * soup would be a category error before it was a subject one.
+   *
+   * What a commission would have to carry, written down now so it is not
+   * reconstructed later: a bowl of white, faintly sour soup, thin enough to pour and
+   * only slightly thickened, with cracked wheat visible suspended in it rather than
+   * settled at the bottom; fresh green herbs strewn on top and not arranged; a plain
+   * bowl on a plain surface. Bread may appear but must not be staged the way the
+   * harissa cover stages it, and no hearth, fire or tonir may appear at all —
+   * borrowing that setting is precisely how this file would end up looking like the
+   * one next to it. Domestic and unstaged — this is the
+   * one article in the section about ordinary weekday food, and the picture has to
+   * say so. Explicitly refused in advance: restaurant styling, a swirl of cream, a
+   * mint-sprig garnish placed for a photograph, the pale-and-wholesome lighting of
+   * health-food photography, any tonir or hearth staging borrowed from `lavash`, and
+   * lettering of any kind.
+   *
+   * §69 **Resolved.** The file that landed carries the commission: white fluid soup,
+   * grain suspended rather than settled, herbs strewn rather than arranged, a plain
+   * bowl on a plain table, no hearth and no lettering. It is registered above, with
+   * the harissa comparison recorded there. Two things the commission did not ask for
+   * arrived anyway and were kept: a side plate of raw dill and scallions, and a loaf
+   * of wheat bread rather than lavash. Neither is staged as a recipe step.
+   *
+   * The list is empty again, and for the first time that sentence covers the whole
+   * archive rather than only Places: every article in every section now has a cover.
    */
 ];
 

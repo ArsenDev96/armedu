@@ -1,6 +1,6 @@
 # Armat — Project State Report
 
-**Last updated:** 2026-08-20 (Haghpat artwork registered — every Place illustrated)
+**Last updated:** 2026-08-21 (Spas artwork registered — every article in the archive is now illustrated)
 **Repo:** `d:\armedu` · branch `seo`
 **Status:** Armenian-first multilingual site, complete in three editions and **live in
 production at [armat.site](https://armat.site)** (Vercel). Crawlable and indexable today.
@@ -13635,3 +13635,601 @@ whose other covers are painted, and it is the strongest argument yet that the sp
 decision rather than another accretion.
 
 ### No deployment
+
+---
+
+## §67. Cuisine expansion planning — audit before Article #7 (August 2026)
+
+Places pauses at thirteen. This is a **repository inspection only**: no article, no artwork, no taxonomy
+and no code changed, and `PROJECT_STATE.md` is the single file this step writes.
+
+### Current state
+
+**Six articles**, identical in all three editions: `lavash`, `dolma`, `khorovats`, `harissa`, `gata`,
+`ghapama`. Full locale parity — same slugs in the same order, same section counts, same paragraph
+counts, same `relatedSlugs`, same dates and facts. All six illustrated; `PENDING_ARTWORK` empty.
+Complete SEO fields throughout (`seoTitle` 38–49, `metaDescription` 129–156). All six last updated
+2026-07-31; none is `featured`.
+
+`cuisineTypes` holds five ids plus `all`, and the distribution is almost flat:
+
+```
+bread 1 · main 1 · meat 1 · ceremonial 2 · dessert 1
+```
+
+### Coverage, and the gap that matters
+
+| group | covered |
+| --- | --- |
+| bread / grain | lavash |
+| festive / ceremonial | harissa, ghapama, dolma |
+| meat | khorovats |
+| desserts / pastries | gata |
+| **soups** | **none** |
+| **dairy / fermentation** | **none** |
+| **preserved foods** | **none** |
+| **drinks** | **none** |
+| **vegetable dishes** | none (dolma is meat-stuffed in its main form) |
+| **regional foods** | **none** |
+| techniques | only inside lavash (the tonir) |
+
+The single most important finding is not a missing dish. **Every one of the six is festive, ceremonial
+or iconic.** There is no ordinary weekday food in the section at all — nothing a household actually eats
+on a Tuesday — which makes the category read as a list of national symbols rather than as a cuisine.
+
+Three structural findings, from reading the corpus rather than the record:
+
+1. **Cuisine is a sealed island.** Zero inbound links from the other 129 articles, zero outbound links
+   to them. The six link only to each other. Places, by contrast, link into History.
+2. **Zero `SectionLinks` in all six.** Places author prose links; Cuisine has none anywhere.
+3. **A uniform template.** All six carry the identical six section ids and headings — `what-it-is`,
+   `cultural-role`, `history`, `ingredients-and-preparation`, `occasions`, `variations` — at 17–18
+   paragraphs. Haghpat, for comparison, has twelve bespoke sections and 42 paragraphs. No article has
+   `relatedFigures`.
+
+### Content quality — **A on evidence, B on depth**
+
+The prose is better than the template suggests and materially better than feared. Lavash sets out
+*both* UNESCO inscriptions and states plainly that neither awards ownership of a bread. Harissa leads
+with a tenth-century Baghdadi cookbook, marks the Gregory the Illuminator story as folklore in the
+article itself, presents the Musaler link as community memory rather than archive, and corrects
+Werfel's "forty days". No article claims invention, antiquity or primacy. **No C or D items.**
+
+All six are **B**, for the same reason: depth and structure, not accuracy. Uniform sectioning, roughly
+half the paragraph count of a current Place, no prose links, no figures. One source-concentration note:
+Petrosian & Underwood's *Armenian Food: Fact, Fiction & Folklore* appears in five of the six. It is an
+apt choice for a section at folklore risk, but it is popular press, and the next article should not make
+it six of seven by default.
+
+### Ranked next five
+
+```
+#1  spas               main        soup · fermented dairy · everyday food
+#2  jingalov-hats      bread       Artsakh · regional · herb bread
+#3  khash              meat        winter ritual · social institution
+#4  matsun             (no type)   foundational ingredient · fermentation
+#5  basturma           meat        preservation · diaspora
+```
+
+**Harissa and ghapama were on the brief's candidate list and already exist**; `tolma` variations are
+covered inside `dolma`, and tonir technique is substantially covered inside `lavash`. All three are
+excluded as duplicates rather than ranked.
+
+A constraint that shapes the list: `matsun`, `tan`, Armenian coffee and Armenian cheeses have **no
+home in the current five dish types**, so each would force a taxonomy decision before it could ship.
+Every one of #1, #2, #3 and #5 fits an existing id.
+
+### Recommendation — **`spas` is Cuisine article #7**
+
+It is the only candidate that closes three gaps at once — first soup, first fermented dairy, first
+ordinary weekday food — while fitting the existing `main` type, carrying essentially no origin-claim
+risk, and needing no article that does not yet exist. Its technique is genuinely explicable: matsun
+must be stabilised with egg or flour and stirred in one direction or it splits, which is a real piece
+of knowledge rather than a recipe step. It also seeds the ingredient hub that `matsun` would later
+become, which is how the section stops being an island.
+
+`jingalov-hats` is the stronger article in the abstract and should follow — but **the archive contains
+no Artsakh article of any kind**, in any category. Writing it now would force a Cuisine page to carry
+the whole regional and political context alone, which is the wrong place for it. That ordering is the
+recommendation, not a downgrade.
+
+### Recorded for later, not acted on
+
+- Cuisine ↔ History and Cuisine ↔ Places links exist nowhere; harissa ↔ Musaler/Armavir and lavash ↔
+  tonir/Places are the obvious first candidates. No restaurant or travel linking.
+- The uniform six-section template should be relaxed for #7 rather than copied a seventh time.
+- A dairy or drinks dish type will be needed before `matsun`, `tan` or cheeses can ship.
+- Cuisine artwork is uniformly light (114–155 KB against Places' 120–1437 KB) and is **not** part of
+  the artwork-weight debt.
+
+### Scope
+
+No article added. No artwork created or registered. No taxonomy, Places, Visit, map or code change.
+`PROJECT_STATE.md` is the only file changed. No deployment.
+
+---
+
+## §68. Spas — Cuisine #7, and the section's first everyday dish (August 2026)
+
+Places pauses at thirteen. Cuisine goes 6 → 7, and the addition is chosen to change what the section
+*is* rather than to lengthen it: the first soup, the first article built on fermented dairy, and the
+first dish in the section that nobody puts on a table to mark anything.
+
+### Why this one
+
+The §67 audit found that all six existing articles were festive, ceremonial or iconic — lavash, dolma,
+khorovats, harissa, gata, ghapama. There was no ordinary weekday food in the section at all, which
+made Cuisine read as a list of national symbols rather than as a cuisine. Spas closes three gaps at
+once (soup, fermented dairy, everyday food) while fitting the existing `main` type, carrying almost no
+origin-claim risk, and needing no article that does not yet exist.
+
+```
+bread 1 · main 2 · meat 1 · ceremonial 2 · dessert 1
+```
+
+No dish type was added. `matsun`, `tan`, coffee and cheeses still have no home in the five ids, and
+that decision is still deferred.
+
+### Structure — the template broken on purpose
+
+The six existing articles share an identical six-section shell at 17–18 paragraphs. Spas does not use
+it. **Eight bespoke sections, 24 section paragraphs plus 2 in `significance`**: `what-spas-is`,
+`matsun-as-the-base`, `grain-and-herbs`, `keeping-it-from-curdling`, `two-names`,
+`hot-cold-and-the-season`, `everyday-cooking`, `a-wider-family`. Six key facts, five interesting facts,
+**one** important date, no related figures.
+
+One date rather than three is deliberate. The §67 brief allowed few or none where the evidence does not
+support dated chronology, and manufacturing a timeline for a dish with no documented chronology is
+precisely the failure this article is written to avoid.
+
+### The evidence model
+
+**Terminology is the strongest finding, and it is not the one expected.** The two names arrive from
+opposite directions:
+
+- **spas** is a borrowing from Middle Iranian, where it meant *service*. In Classical Armenian its
+  range runs from service, through the vessels and dishes set out for a meal, to what was served in
+  them. The `Nor baṛgirkʻ haykazean lezui` (Venice, 1836–1837) lists soup among its senses.
+- **tanapur** is a transparent compound — *tan*, the diluted matsun, plus *apur*, soup. The same
+  dictionary records an older sense of *tan* itself closer to broth than to a drink.
+
+So the article does **not** write "spas, also called tanapur". Whether the two ever named different
+things, or divided regionally, is not something the sources settle, and it says so. It also states the
+thing the etymology tempts a writer to elide: **the age of the words does not establish the age of the
+dish.** No documentary record places this soup in the classical period, and the article says that
+outright rather than letting an old word imply an old recipe.
+
+**The technique is the article's best educational material, and it is sourced rather than asserted.**
+Harold McGee's account gives the mechanism: milk proteins are unusually heat-tolerant and do *not* set
+when cooked — but they coagulate once the milk has turned acidic. Matsun is acidic by definition, so
+heating it does exactly what heating milk does not. That single exception explains the whole method:
+the beaten egg or flour, the starch from the grain, the slow warming, the unbroken stirring.
+
+**The stirring-direction claim is handled as §39 asked.** "Stir in one direction" travels with every
+recipe. The article states its status precisely: the accounts that explain the chemistry deal in
+temperature, acidity, agitation and added stabilisers, and none of them makes direction a variable;
+what the instruction reliably produces is steady continuous stirring, which does matter. It is recorded
+as **kitchen custom rather than mechanism** — and the article earns the right to say so by explaining
+what does matter first.
+
+**Matsun is established without being exhausted.** It is defined (milk fermented by bacteria that turn
+its sugars into lactic acid), its role is given (the body of the dish, nearly always thinned, sometimes
+via tan), and the article says in its own words that the wider account "belongs to an article of its
+own". No claim that Armenians invented yogurt. **No health, probiotic, digestion or nutrition claim
+anywhere** — a test enforces their absence in all three editions.
+
+**Grain and herbs are presented as ranges, not canon.** Dzavar — hulled, cracked wheat — is the
+characteristic grain, with rice, whole wheat berries and barley named as real alternatives and the
+explicit note that presenting one as correct would describe a household rather than a dish. Herbs
+(cilantro, mint often dried, parsley, dill) vary by season, region and what is growing; the Smithsonian
+programme's record that each region has its own favoured wild plants is what licenses that.
+
+**Hot and cold are described, not legislated.** "Commonly described as", "in many contemporary
+accounts", "better read as a range than as a rule" — never *Armenians always*.
+
+**The regional family is handled from outside.** Bert Fragner's Encyclopædia Iranica survey supplies
+the context: porridge-like soups of cereals, vegetables and herbs as ordinary town food by the
+fourteenth and fifteenth centuries, milk products such as kashk used to flavour them, and yogurt-making
+spreading widely and early. The article's closing line on the subject is that which cuisine first made
+a soup of fermented milk "is not a question the evidence can answer, and not one worth asking." A
+source from outside Armenian scholarship was chosen deliberately so the shared-family point is not made
+by an interested party.
+
+### Sources — five, and one refusal
+
+New: the **1836–1837 Classical Armenian dictionary** (`archive`), **McGee, On Food and Cooking**
+(2004, isbn), **Fragner, "ĀŠPAZĪ", Encyclopædia Iranica** (1987, url). Reused: the **Smithsonian
+Foodways** page and **Uvezian, The Cuisine of Armenia**. Every one is load-bearing.
+
+**Petrosian & Underwood is refused, and the refusal is recorded in `sources.ts` beside the block.** The
+§67 audit found it in five of the six existing articles. That is not a judgement on the book — it is a
+sensible choice for a section at folklore risk — but the two questions this article turns on are
+answered better elsewhere: the chemistry by McGee, the lexicography by the primary dictionary rather
+than a secondary report of it. **The Oxford Companion to Food was also left out**, for the opposite
+reason: already in the registry and easy to add, but no claim here rests on it.
+
+Source validation passes: one work → one identifier, one identifier → one work, no normalized
+duplicate.
+
+### Related content, and the cross-category decision
+
+**Two authored relations, both carried by a `SectionLink` in the paragraph that justifies them** —
+`harissa` (the contrast the article is built on: the same grain, cooked to a mass for a commemoration
+feeding hundreds, against a household soup on an ordinary evening) and `lavash` (what it is eaten
+with). These are the **first `SectionLink`s anywhere in Cuisine**, which until now had none.
+
+Two rather than three is deliberate, per §39's preference for strong authored links over filler
+suppression. The consequence was measured rather than assumed: `getRelatedArticles` fills the third
+slot with **`dolma`, identically in all three editions**, because it is first in registry order among
+the unclaimed. Spas is currently the only Cuisine article that renders any filler — the other six
+author three each.
+
+**No cross-category link was added, and the reason is specific.** The corpus was searched for articles
+whose prose genuinely discusses food, dairy or grain. Four turned up. `anush` treats flocks as literary
+imagery, not food culture. `erebuni-fortress` and `dilijan-national-park` mention grain and pasture in
+passing. The one real candidate, `kingdom-of-urartu`, discusses storerooms of grain and a livestock
+economy — and linking to it would have quietly implied for this dish exactly the antiquity the article
+spends a paragraph refusing. **The link that was available was the one that would have undone the
+article's central caution**, so none was made. Cuisine remains a sealed island; that repair stays
+scheduled.
+
+### Artwork — pending
+
+No dedicated asset exists; `public/images/cuisine/` holds exactly six files, all registered. `spas`
+added to `PENDING_ARTWORK` — **the first entry on that list from outside Places.**
+
+The refusal note is longer than usual because the nearest file is nearer than expected.
+`harissa.webp` was opened, and the first draft of the note described it from memory as
+"meat-coloured", which is wrong: it is a **pale cream grain dish in a clay bowl with torn lavash beside
+it and a lit hearth behind**. Almost every element of that is also true of a plausible spas photograph.
+The note was corrected to say what actually separates them — harissa is opaque and stiff, glossed with
+butter and threaded with chicken; spas is thin, white, sour, with grain suspended in liquid and fresh
+green herbs on top — and the commission now explicitly forbids hearth, fire or tonir staging, because
+borrowing that setting is how this file would end up looking like the one beside it.
+
+### Localization and parity
+
+Three complete editions. The `hyw` edition is written in Western Armenian orthography and register
+rather than converted — `ձաւար`, `մածուն`, `թանապուր`, `կանաչեղէն`, `արուեստագիտական`, `կերակուր` — and
+is **unreviewed machine output**, joining the standing backlog. The parity harness reports **0 differing
+rows across 3 editions over 20 checks**: section ids, paragraph counts, `SectionLink` slugs, key-fact
+and fact counts, related slugs, dish type, and the numeral multiset in every validator field group
+(1836, 1837, 2018 identical throughout).
+
+### Tests
+
+`cuisine.spec.ts` 33 → **43**, and the section gained its first `ILLUSTRATED` list. Cuisine shipped all
+six of its originals with artwork already in place, so `SLUGS` and "the illustrated ones" were the same
+set and no split existed; Spas is the first Cuisine article to ship ahead of its picture, which is the
+situation `places.spec.ts` has been in twelve times.
+
+Ten new tests: corpus and type integrity (including that no dish type was invented and that `main` now
+holds two); three-edition rendering with canonical and hreflang; search; **the claim-class test**, which
+checks the absence of antiquity, invention, health and recipe framing in all three editions; the
+two-names and stirring-custom pins; matsun-established-but-deferred; pending artwork with no borrowing;
+the one-placeholder listing count; the bibliography test that pins the Petrosian & Underwood refusal;
+and the earned-links test that verifies every `SectionLink` phrase is a real substring of a paragraph
+in its own section.
+
+Three counts updated elsewhere: `places.spec.ts` category listing 6 → 7, `visit.spec.ts` route count,
+`visit-map.spec.ts` non-mapped cuisine list.
+
+### Results, and every failure
+
+```
+parity harness                                  OK — 0 differing rows, 20 checks
+npm run typecheck                               PASS
+npm run validate:content                        PASS — 141 entries; 1 pending-artwork note (spas)
+npx playwright test tests/e2e/cuisine.spec.ts   43 passed, first run
+npx playwright test (full)                      307 passed, 5 skipped (9.3m), exit 0
+npm run build                                   PASS — 150 pages (147 → 150)
+```
+
+**Two real test failures, both mine from §66, both correct catches.** `PENDING_ARTWORK` is archive-wide,
+not per-section. While every pending slug happened to be a Place the distinction cost nothing, and two
+assertions in `places.spec.ts` compared the *whole list* against the Places shortfall — one of them the
+`toEqual([])` written in §66. Adding a Cuisine slug made them assert something about Cuisine that the
+Places file has no business asserting. **Both were rescoped to Places rather than relaxed**, and the
+comment records that this is a correction, not a weakening.
+
+**Two infrastructure incidents, both self-inflicted and both worth recording.** The first full-suite
+attempt was piped through `tail`, which buffers: the output file sat at zero bytes while ninety-four
+node processes worked, giving a blind nine-minute run — the exact failure mode the user had asked to
+avoid. It was killed and re-run unpiped. Killing it mid-suite then left the Turbopack cache damaged,
+and the next run produced scattered failures and timeouts across specs that had passed minutes earlier.
+That is the §66 signature: **not memory** — 6.1 GB of 15.9 GB was free — but cache corruption.
+`rm -rf .next`, orphaned processes cleared, port confirmed, re-run.
+
+### Scope
+
+Cuisine taxonomy unchanged. No Places, Visit, map, coordinate, cluster or artwork-registry change. The
+six existing Cuisine articles are untouched. No new category. `.claude/settings.json` untouched. **No
+deployment.**
+
+### Debt
+
+Carried forward unchanged, and one item now has a first data point: the **Cuisine link island** (still
+zero inbound, still zero outbound, with the reason a cross-category link was refused here recorded
+above), the **uniform six-section template** in the older six, **Petrosian & Underwood's concentration**
+at five of seven, the `hyw` review backlog now fourteen articles, and the deferred **dairy/drinks dish
+type** that `matsun`, `tan` and cheeses all need. New: spas is the only Cuisine article rendering
+filler, and the filler is deterministic — `dolma`, in every edition.
+
+---
+
+## §69. Spas artwork — verified, registered, and the archive fully illustrated (August 2026)
+
+No content step. `public/images/cuisine/spas.webp` arrived, was inspected before anything was
+written, and is now registered. With it, `PENDING_ARTWORK` is empty in a sense it has never been
+before: not "no Place is waiting" but **no article anywhere in the archive is waiting**.
+
+### Pre-registration state, read from source
+
+Seven Cuisine articles, six illustrated, `PENDING_ARTWORK = ["spas"]` and nothing else.
+`public/images/cuisine/` held six registered files plus the new untracked one. Spas had no `IMAGES`
+key, no `Article.image`, the fallback `/og-default.png` on both social cards, and no `image:loc` in
+the sitemap. Every expectation §69 stated was already true; nothing had to be corrected first.
+
+### The asset
+
+```
+public/images/cuisine/spas.webp
+1586 × 992          (1.599:1, the preferred geometry exactly)
+203,194 bytes       (198.4 KB)
+sha256              f2e35f27cdb1ab6276591514adc7e62395613c143fa46ddedce1b546fcf7f1ed
+RIFF                203,186 declared, 203,186 actual — consistent
+chunks              WEBP → "VP8 " (203,174 bytes), single chunk, sync 9d012a
+no VP8X             therefore no alpha, no ICC, no EXIF, no XMP, no orientation flag
+```
+
+Verified twice, by a hand-written RIFF chunk walk and by `sharp`, which agree on every field:
+`webp`, 1586×992, `srgb`, 3 channels, 8-bit, `hasAlpha: false`, `hasProfile: false`, not palette,
+not progressive. Simple lossy — a single `VP8 ` chunk with no extension header, so the metadata
+absence is structural rather than merely empty.
+
+The geometry is `lavash.webp`'s exactly; the other five cuisine covers are 1448×1086 or 1536×1024.
+No new ratio enters the section.
+
+### The visual gate
+
+Opened at full resolution and at 3× on six regions before any file was edited.
+
+A wide shallow stoneware bowl, unglazed pale grey with a hand-painted band of blue leaf motifs low
+on the wall, on a striped linen cloth on bare wood. The bowl holds a white, green-flecked soup with
+plump cooked grains suspended through it, dill worked through and cut scallion greens on top. A
+carved wooden spoon lies on the cloth at the left, a small plate of fresh dill and spring onions
+behind, a torn wheat loaf to the right. Cool daylight from the left.
+
+It reads as **spas** — fermented-dairy soup with grain and herbs — and not as any of the failure
+reads §69 named. It is not a generic cream soup (the grain and herbs are the subject, not a
+garnish), not a yogurt bowl (it is clearly a cooked, served soup), not porridge (the liquid level
+and the meniscus against the bowl wall are both visible), not rice soup, not a restaurant
+appetizer.
+
+### Spas against Harissa — the check that mattered
+
+The §68 refusal note predicted this failure precisely: a pale grain-and-liquid dish, seen from
+above, in a bowl on a rustic table, is what **both** dishes are. The file avoids it on every axis
+the note named.
+
+|            | harissa.webp                      | spas.webp                          |
+| ---------- | --------------------------------- | ---------------------------------- |
+| colour     | beige, warm amber                 | white, cool                        |
+| light      | open hearth burning behind        | daylight, no fire in frame         |
+| consistency| opaque, holds a spoon mark        | fluid, level and meniscus visible  |
+| finish     | butter pool, shredded chicken     | herbs, grain suspended             |
+| vessel     | dark red clay                     | pale grey stoneware                |
+
+Compared at full resolution, at a 380px 16:9 card, and at a 160px search thumbnail. **The
+distinction survives the smallest crop the site renders** — the harissa card reads dark amber, the
+spas card reads white and green, and at thumbnail size that difference is the first thing visible
+rather than the last. The condition §69 set is met.
+
+All six existing covers were opened, not inferred from paths. Lavash (flatbreads on a board),
+dolma (grape-leaf rolls), khorovats (skewers), gata (golden pastry) and ghapama (stuffed pumpkin)
+are plainly other dishes; none shares a vessel, a palette or a composition with this one.
+
+### Texture, grain, herbs
+
+**Soup.** Pourable and spoonable, slightly creamy, irregular. The level sits below the rim
+everywhere and nothing crosses it. No plastic gloss, no impossible surface tension, no unnatural
+foam, no repeated texture tiling, no floating artifact. In a few places the white pools smoothly
+over the grain in a way that reads slightly thicker than a poured spoonful would — painterly rather
+than wrong, and recorded rather than penalised.
+
+**Grain.** Present, plentiful, integrated, and secondary to the liquid rather than covering it.
+Rounded, plump, pearly, partly coated — cooked whole or hulled wheat, plausibly dzavar or a wheat
+berry. It is not long and slender (rice), not flaked and mushy (oatmeal), not fine and uniform
+(couscous), not coloured (lentil). Culinary readability, which is what §69 asked for, rather than
+botanical identification.
+
+**Herbs.** Restrained and integrated. Fine dill fronds through the soup, chopped scallion greens,
+in muted natural greens rather than neon. No duplicated leaf, no herb floating above the surface,
+no garnish pile, no flowers, no microgreens, no fine-dining plating. The side plate of raw dill and
+spring onions is an ingredient at rest on a table, not a styled garnish set.
+
+### Everyday character, and the audits
+
+Simple home meal: one bowl, one spoon, one cloth, bread, herbs. No wedding table, no festival
+spread, no fine dining, no advertisement styling. This is the section's article about ordinary
+weekday food and the picture says so — which is the one editorial thing it had to do that no
+technical check could confirm.
+
+**Health and product audit.** Clean. No packaging, no dairy container, no probiotic or health
+iconography, no diet styling, no wellness framing, and none of the pale-and-wholesome lighting the
+§68 commission refused in advance. The fermented-dairy character comes from the soup itself.
+
+**Recipe restraint.** No ingredient lineup, no measuring spoons, no recipe card, no numbered steps,
+no labels, no instructional staging. The dill plate is the only thing in frame that could be read
+as a component, and it is placed as a table object rather than as step one.
+
+**Tableware and artifact audit.** The bowl rim is continuous and correctly elliptical; the double
+lip is consistent all the way round. The wooden spoon is well-formed — bowl and handle continuous,
+grain direction consistent, no impossible junction. One bowl, one spoon, one plate, one loaf;
+nothing duplicated, nothing merged, nothing floating. The linen folds and the wood grain behave.
+No significant artifact found.
+
+**Text and signage audit.** No readable text anywhere. The blue band on the bowl was examined at 3×
+specifically for pseudo-glyphs: it resolves into leaf and rosette motifs between two banding lines,
+with a small diamond-and-dot separator. Decorative, hand-painted, and at no magnification does it
+become lettering. No logo, watermark, signature or textile writing.
+
+**Armenian context.** Carried by the dish and by plain materials — stoneware, linen, wood — with no
+flag, no Ararat, no monastery, no khachkar, no carpet motif and no souvenir. One mismatch worth
+recording: the bread is a crusty wheat loaf, not lavash, while the article links to `lavash` as
+what spas is eaten with. It is background at every crop and no claim rests on it. **Minor debt, not
+a subject error.**
+
+### Visual register
+
+**Photographic**, and correctly so. All six existing Cuisine covers are photographic, warm-lit,
+rustic-styled food photography; spas is the same treatment, differing only in being the brightest
+and coolest of the seven — which is precisely what makes it separable from harissa. The section is
+internally consistent.
+
+This is the opposite of §66's finding, and worth stating plainly: Haghpat missed its register
+because Places is painterly and the file was photographic. Cuisine's register *is* photographic, so
+the same treatment is a match here rather than a miss. The register is per-section.
+
+### Crops
+
+| crop  | dimensions | trim        | bowl | white soup | grain | herbs | ≠ harissa |
+| ----- | ---------- | ----------- | ---- | ---------- | ----- | ----- | --------- |
+| 4:3   | 1323×992   | 132 px l/r  | full | yes        | yes   | yes   | yes       |
+| 3:2   | 1488×992   | 49 px l/r   | full | yes        | yes   | yes   | yes       |
+| 16:9  | 1586×892   | 50 px t/b   | full | yes        | yes   | yes   | yes       |
+| 16:10 | 1586×991   | 1 px        | full | yes        | yes   | yes   | yes       |
+| 1:1   | 992×992    | 297 px l/r  | full | yes        | yes   | yes   | yes       |
+| 4:5   | 794×992    | 396 px l/r  | full | yes        | yes   | yes   | yes       |
+
+The subject is centred and large, so every crop the project renders keeps the whole bowl. The
+narrow portrait crop — the search thumbnail's shape, and the one §69 warned could degrade into a
+rim, a garnish or a white circle — is arguably the **best** crop of the set: the bowl fills it and
+the grain and dill are more legible than at full width. No `object-position` was added; none is
+needed.
+
+### Registration
+
+`spas: "/images/cuisine/spas.webp"` added to `IMAGES` through the generic pipeline — no
+Cuisine-specific media logic, no Spas-specific component logic, no new image field, no new
+provenance infrastructure. `ARTWORK_PROVENANCE` untouched.
+
+`spas` removed from `PENDING_ARTWORK`, whose commission note is kept and marked **Resolved** in the
+convention §66 established. The list is empty, and for the first time that sentence covers the
+whole archive rather than only Places.
+
+```
+Cuisine articles      7
+Cuisine illustrated   7
+Cuisine placeholders  0
+PENDING_ARTWORK       []
+```
+
+### Provenance, read rather than assumed
+
+`isGeneratedArtwork` is `!article.image && getImageSrc(article.slug) !== undefined` — it means
+"this archive generated it", and it is true exactly when a slug resolves through the registry
+without the article carrying its own `image` object. Spas has no `Article.image` literal, so
+registering the file flipped it to generated. In all three editions the raster renders, the
+AI-illustration disclosure appears in that edition's own words, the placeholder caption disappears
+and the inline placeholder SVG disappears.
+
+### Every surface
+
+- **Listing.** Seven cards, seven distinct covers, zero placeholder SVGs. Spas resolves through
+  `/_next/image?url=%2Fimages%2Fcuisine%2Fspas.webp`; no existing cover changed.
+- **Hero.** `/en`, `/hy` and `/hyw` `/cuisine/spas` each render exactly `spas.webp`, with the AI
+  illustration caption and no placeholder line. Scoped to the hero — related links legitimately
+  render harissa's and lavash's covers further down.
+- **Search.** The spas row, scoped by canonical href rather than title, carries its own thumbnail
+  and not harissa's. `spas`, `tanapur`, `dzavar`, `Սպաս` and `Թանապուր` all reach the article.
+- **Metadata.** `og:image` and `twitter:image` are the absolute `spas.webp` in every edition and no
+  longer the `/og-default.png` fallback; `og:image:alt` localizes (`Spas` / `Սպաս`).
+- **JSON-LD.** `Article.image` is `{"@type": "ImageObject", "url": ".../images/cuisine/spas.webp"}`,
+  five citations, and the graph is `Organization · WebSite · Article · BreadcrumbList`. No `Recipe`,
+  `HowTo`, `NutritionInformation`, `MenuItem` or `FoodEstablishment`, and no `recipeIngredient`,
+  `recipeInstructions`, `cookTime` or `nutrition` key anywhere in the block.
+- **Sitemap.** Checked route by route rather than by global filename count: the `<url>` block for
+  `/en`, `/hy` and `/hyw` `/cuisine/spas` each carries exactly one `image:loc`, its own, and no
+  other dish's file.
+
+### Content, relations and taxonomy — unchanged
+
+No Spas editorial content was touched. `relatedSlugs` remain `["harissa", "lavash"]`, the two
+`SectionLink`s remain, `getRelatedArticles` is untouched, and the filler is still `dolma` in all
+three editions. Cuisine stays at seven with `bread 1 · main 2 · meat 1 · ceremonial 2 · dessert 1`,
+no new dish type, nothing featured.
+
+### Asset performance
+
+Cuisine was 114,582–155,340 bytes (112–152 KB) across six files. Spas at **203,194 bytes (198 KB)**
+sits **31% above the previous heaviest** (`khorovats.webp`, 152 KB) and forms a small heavy tail
+rather than joining the band. Archive-wide it is unremarkable — Places runs to Erebuni's 742 KB —
+and at 1586×992 the byte count is proportionate to a photographic frame with fine herb and grain
+detail, which is expensive to encode. Not optimised, per §69. Recorded so that "Cuisine files are
+around 120 KB" is not repeated as if it were still true.
+
+### Test runtime
+
+`cuisine.spec.ts` 43 → **46 tests, 1.5m** on a cold Turbopack cache (`.next` cleared first, so the
+figure includes first-compile cost). Locale × illustrated coverage rose from 6×3 = 18 to 7×3 = 21
+as predicted. No partition, no retries, no timeout changes.
+
+### Tests
+
+`cuisine.spec.ts` 43 → 46. The §68 pending test was **inverted rather than deleted**, so the
+transition is pinned in both directions: raster where the placeholder was, AI caption where the
+placeholder caption was, out of `PENDING_ARTWORK` where it was in, real file where the fallback OG
+image was. The sitemap test moved from a global filename check to a per-route ownership check. The
+listing placeholder count returned to zero without its expression changing — it is still
+`SLUGS.length - ILLUSTRATED.length`.
+
+Three new: whole-section artwork ownership across all seven heroes; the search thumbnail scoped by
+href; and a structured-data guard against `Recipe`, `HowTo`, `NutritionInformation`, `MenuItem` and
+`FoodEstablishment` plus the four recipe property keys. `ARTWORK` was added as a literal map beside
+`ILLUSTRATED`, kept as a literal for the same reason: a derived expectation agrees with the registry
+by construction, including on the day the registry is wrong.
+
+### Results, and every failure
+
+```
+port 3002 clear, 0 node processes, .next cleared before starting
+npm run typecheck                                PASS
+npm run validate:content                         PASS — 141 entries, no pending-artwork note
+npx playwright test tests/e2e/cuisine.spec.ts    46 passed (1.5m)
+npx playwright test tests/e2e/places.spec.ts     83 passed, 1 failed → fixed → 84 passed
+npx playwright test visit + visit-map            65 passed (2.4m)
+npx playwright test (full)                       310 passed, 5 skipped (8.9m), exit 0
+npm run build                                    PASS — 150/150 static pages, 0 errors
+```
+
+307 -> 310 across the suite, which is the three new cuisine tests and nothing else. The build
+generates the same 150 pages as before: registering artwork mints no route.
+
+**One real failure, and it was the right one.** `no unrelated article artwork changed` in
+`places.spec.ts` pins the entire non-Places half of `IMAGES` as a literal object. Registering a
+Cuisine cover — from a step that touched no Place at all — made it fail, which is exactly the event
+that snapshot exists to report. The expected object gained one line; every other value is
+byte-identical. Updating the literal is the maintenance this shape asks for. Deriving it from the
+registry would have made it agree by construction and it would never fail again, including on the
+day a path is genuinely retyped.
+
+No Turbopack instability this time. `.next` was cleared **before** the run rather than in response
+to one, with the port confirmed clear and no node process alive, and the whole sequence ran without
+an internal error or an OOM-shaped failure.
+
+### Scope
+
+Spas content, Cuisine taxonomy, `ARTWORK_PROVENANCE`, `PLACE_COORDINATES`, `VisitMap`,
+`map-cluster.ts`, `visit-map.ts`, `map-tiles.ts`, Visit curation, Places content and Places artwork
+are all untouched. The map is unchanged: 13 Places, 2 groups, 7 individual markers at the opening
+fitted state, 0 covered visible centres. No Cuisine #8. `.claude/settings.json` untouched. **No
+deployment.**
+
+### Debt
+
+Carried forward: the **Cuisine link island** (still sealed, with §68's refusal reasoning recorded),
+the **uniform six-section template** in the older six, **Petrosian & Underwood** at five of seven,
+the `hyw` review backlog at fourteen, the deferred **dairy/drinks dish type**, and spas as the only
+Cuisine article rendering filler. New and small: **`spas.webp` is Cuisine's heavy tail at 198 KB**,
+and **its bread is a wheat loaf where the article links to lavash**.
