@@ -309,6 +309,7 @@ const ILLUSTRATED = [
   GYUMRI,
   AMBERD,
   JERMUK,
+  HAGHPAT,
 ] as const;
 
 /**
@@ -321,13 +322,18 @@ const ILLUSTRATED = [
  * from being updated to match a regression.
  *
  * The extensions differ on purpose and are not a typo: Khor Virap's cover is a
- * PNG copied from the homepage hero (§30), while the other eleven are WebPs — and
- * the map is twelve entries against twelve places again, for the eleventh time
- * (§32, §34, §36, §38, §40, §42, §48, §50, §52, §58, §60). Their dimensions are not
- * uniform either — `garni-temple.webp` is 1448×1086 and `gyumri.webp` is 1584×993
- * against the 1586×992 of the nine others, which changes what the shared centre
- * crops trim but not what this map holds. `jermuk.webp` is 1586×992 and adds no new
- * drift, but at 823 KB it is the heaviest file here.
+ * PNG copied from the homepage hero (§30), while the other twelve are WebPs — and
+ * the map is thirteen entries against thirteen places, for the twelfth time
+ * (§32, §34, §36, §38, §40, §42, §48, §50, §52, §58, §60, §66). Their dimensions are
+ * not uniform either — `garni-temple.webp` is 1448×1086 and `gyumri.webp` is
+ * 1584×993 against the 1586×992 of the ten others, which changes what the shared
+ * centre crops trim but not what this map holds. `haghpat-monastery.webp` is
+ * 1586×992 and adds no new drift.
+ *
+ * §66 is the first time this map has covered every Place at once. That is precisely
+ * when it becomes tempting to derive it from `getImageSrc` instead of writing it
+ * out, and precisely when doing so would destroy its only purpose: a derived map
+ * agrees with the registry by construction, including when the registry is wrong.
  *
  * The `satisfies` clause is the part that earns its keep: it is what makes the two
  * lists above disagree at compile time rather than at runtime. Add a slug to
@@ -347,6 +353,7 @@ const ARTWORK = {
   [GYUMRI]: "/images/places/gyumri.webp",
   [AMBERD]: "/images/places/amberd-fortress.webp",
   [JERMUK]: "/images/places/jermuk.webp",
+  [HAGHPAT]: "/images/places/haghpat-monastery.webp",
 } as const satisfies Record<(typeof ILLUSTRATED)[number], string>;
 
 /**
@@ -1786,16 +1793,21 @@ test("the listing renders each registered place's own artwork, and no placeholde
   }
 
   /*
-    One placeholder, which is what §64 inverted again.
+    Zero placeholders, which is what §66 inverted again.
 
-    This assertion has now inverted fifteen times (§37 one, §38 zero, §39 one, §40
+    This assertion has now inverted seventeen times (§37 one, §38 zero, §39 one, §40
     zero, §41 one, §42 zero, §47 one, §48 zero, §49 one, §50 zero, §51 one, §52
-    zero, §57 one, §58 zero, §59 one, §60 zero, §64 one), which is the whole argument for pinning the count
-    rather than asserting "at least one" or "none by inspection". The exact number is
-    the only thing that distinguishes the intended state from a place that had
-    quietly lost its registration, because neither shows on the rendered page. A
-    placeholder card looks perfectly finished, and so does a listing with one missing
-    cover among twelve.
+    zero, §57 one, §58 zero, §59 one, §60 zero, §64 one, §66 zero), which is the
+    whole argument for pinning the count rather than asserting "at least one" or
+    "none by inspection". The exact number is the only thing that distinguishes the
+    intended state from a place that had quietly lost its registration, because
+    neither shows on the rendered page. A placeholder card looks perfectly finished,
+    and so does a listing with one missing cover among thirteen.
+
+    §66 is the first time every Place has had a cover at once, so the expression
+    below evaluates to zero for the first time in the section's history. It is left
+    derived rather than replaced with a literal `0`: the derivation is what will make
+    Place #14 correct on the day it ships without its picture.
 
     Derived from the two lists rather than typed as a literal, so the next place to
     ship ahead of its artwork does not need this number edited by hand.
@@ -2985,7 +2997,7 @@ test("the sitemap carries every place's illustration for image search", async ({
   section currently contains neither: the list is empty and all twelve places
   resolve, which is the state §60 restored.
 */
-test("exactly one place is waiting for artwork, and the other twelve resolve", () => {
+test("no place is waiting for artwork, and all thirteen resolve", () => {
   /*
     One slug — the state §64 restores for the twelfth time, and the exact inversion
     of what §60 asserted here when the list was empty.
@@ -3012,7 +3024,7 @@ test("exactly one place is waiting for artwork, and the other twelve resolve", (
   expect(getImageSrc(GYUMRI), "Gyumri's artwork must still resolve").toBe(ARTWORK[GYUMRI]);
   expect(getImageSrc(AMBERD), "Amberd's artwork must still resolve").toBe(ARTWORK[AMBERD]);
   expect(getImageSrc(JERMUK), "Jermuk's artwork must now resolve").toBe(ARTWORK[JERMUK]);
-  expect(getImageSrc(HAGHPAT), "Haghpat has none to resolve").toBeUndefined();
+  expect(getImageSrc(HAGHPAT), "Haghpat's artwork must now resolve").toBe(ARTWORK[HAGHPAT]);
 
   for (const slug of ILLUSTRATED) {
     expect(getImageSrc(slug), `${slug} should resolve through the registry`).toBe(ARTWORK[slug]);
@@ -3786,31 +3798,51 @@ test("the thirteenth place is findable, and Lori is on the map at last", async (
   }
 });
 
-test("Haghpat renders the generated placeholder and says so, in every edition", async ({ page }) => {
+test("Haghpat renders its own artwork and says it is generated, in every edition", async ({
+  page,
+}) => {
   /*
-    §64, and the exact inversion of the four assertions §60 wrote for Jermuk.
+    §66 inverts every assertion §64 wrote here, for the thirteenth time in this
+    section — and this registration carries a risk none of the previous twelve did.
 
-    The twelfth time this section has been in the split state. A place written ahead
-    of its picture must render the inline generated `<svg>` **and** be captioned as a
-    placeholder; a page that rendered the placeholder while claiming AI-illustration
-    provenance would assert a picture that was never made, and one that borrowed a
-    neighbour's file would look completely finished.
+    The file is photographic. A reader skimming a page whose hero looks like a drone
+    photograph of a real monastery is being shown something that makes a stronger
+    claim than a painting does, and it is not a photograph: it is generated. So the
+    caption assertion below matters more here than anywhere else in this file, and it
+    is the AI-generated wording that is required — not merely "not a placeholder".
+
+    All four states have to flip together: the inline `<svg>` gone, a raster present,
+    the caption switched from placeholder wording to the AI disclosure, and the slug
+    out of `PENDING_ARTWORK`. A registration that flipped three of the four would
+    look finished on the page and lie in one of them.
   */
   for (const locale of LOCALES) {
     const dict = ui(locale);
     await page.goto(`/${locale}/places/${HAGHPAT}`);
 
     const figure = page.locator("header figure");
-    await expect(figure.locator("svg[role='img']"), `${locale} ${HAGHPAT}`).toHaveCount(1);
-    await expect(figure.locator("img"), `${locale} ${HAGHPAT}`).toHaveCount(0);
+    await expect(figure.locator("svg[role='img']"), `${locale} ${HAGHPAT}`).toHaveCount(0);
 
+    const hero = figure.locator("img");
+    await expect(hero, `${locale} ${HAGHPAT}`).toHaveCount(1);
+    await expect(hero, `${locale} ${HAGHPAT}`).toHaveAttribute("src", fileIn(ARTWORK[HAGHPAT]));
+    await expect(hero, `${locale} ${HAGHPAT} alt`).toHaveAttribute(
+      "alt",
+      dict.article.imageAlt.replace("{title}", articleTitle(locale, HAGHPAT)),
+    );
+
+    // The AI disclosure, in this edition's own words — never the placeholder line.
     await expect(figure.locator("figcaption"), `${locale} ${HAGHPAT}`).toHaveText(
+      dict.article.imageAiIllustrationCaption.replace("{title}", articleTitle(locale, HAGHPAT)),
+    );
+    await expect(figure.locator("figcaption"), `${locale} ${HAGHPAT}`).not.toHaveText(
       dict.article.imagePlaceholderCaption.replace("{title}", articleTitle(locale, HAGHPAT)),
     );
   }
 
-  expect(getImageSrc(HAGHPAT), "Haghpat has no registered file").toBeUndefined();
-  expect(PENDING_ARTWORK, "and is declared pending rather than silently bare").toContain(HAGHPAT);
+  expect(getImageSrc(HAGHPAT), "Haghpat has a registered file").toBe(ARTWORK[HAGHPAT]);
+  expect(PENDING_ARTWORK, "and is no longer pending").not.toContain(HAGHPAT);
+  expect(PENDING_ARTWORK, "nothing in this section is pending any more").toEqual([]);
 });
 
 test("Haghpat borrows no other monastery's artwork, on the page or in its metadata", async ({
@@ -3831,8 +3863,8 @@ test("Haghpat borrows no other monastery's artwork, on the page or in its metada
   */
   await page.goto(`/en/places/${HAGHPAT}`);
 
-  await expect(page.locator("header figure img"), "no hero raster").toHaveCount(0);
-  await expect(page.locator("header figure svg[role='img']"), "the placeholder").toHaveCount(1);
+  await expect(page.locator("header figure img"), "its own hero raster").toHaveCount(1);
+  await expect(page.locator("header figure svg[role='img']"), "no placeholder").toHaveCount(0);
 
   const heroSources = (
     await page
@@ -3840,12 +3872,30 @@ test("Haghpat borrows no other monastery's artwork, on the page or in its metada
       .evaluateAll((nodes) => nodes.map((node) => node.getAttribute("src") ?? ""))
   ).map(decodeURIComponent);
 
-  for (const borrowed of [...Object.values(ARTWORK), "/hero-ararat.png"]) {
+  /*
+    §66 keeps this exhaustive rather than replacing it with "the hero is Haghpat's
+    file". Both claims are needed and they fail differently: the positive one
+    catches an empty hero, and this one catches a hero that carries *two* files, or
+    the right file beside a neighbour's. `monastery` holds five articles and four of
+    the other covers are walled stone complexes seen from above, which is exactly
+    the substitution a positive-only assertion would pass.
+  */
+  expect(
+    heroSources.some((src) => src.includes("haghpat-monastery.webp")),
+    "the hero is Haghpat's own file",
+  ).toBe(true);
+
+  for (const [slug, borrowed] of Object.entries(ARTWORK)) {
+    if (slug === HAGHPAT) continue;
     expect(
       heroSources.some((src) => src.includes(borrowed)),
       `${borrowed} must not illustrate ${HAGHPAT}`,
     ).toBe(false);
   }
+  expect(
+    heroSources.some((src) => src.includes("/hero-ararat.png")),
+    `the homepage hero must not illustrate ${HAGHPAT}`,
+  ).toBe(false);
 
   const raw = await page.locator('script[type="application/ld+json"]').first().textContent();
   const graph = (JSON.parse(raw ?? "") as { "@graph": { "@type"?: string; image?: unknown }[] })[
@@ -3853,7 +3903,10 @@ test("Haghpat borrows no other monastery's artwork, on the page or in its metada
   ];
   const article = graph.find((entry) => entry["@type"] === "Article");
   expect(article, "an Article node").toBeDefined();
-  expect(article!.image, "no Article.image while the artwork is pending").toBeUndefined();
+  expect(
+    JSON.stringify(article!.image),
+    "Article.image is Haghpat's own file, not absent and not a neighbour's",
+  ).toContain("haghpat-monastery.webp");
 
   // No schema type was invented for a World Heritage monastery, which is the §64
   // version of a temptation this file has resisted since §41.
@@ -3871,9 +3924,16 @@ test("Haghpat borrows no other monastery's artwork, on the page or in its metada
     expect(raw, `${speculative} must not be introduced`).not.toContain(`"${speculative}"`);
   }
 
+  /*
+    The transition §64 recorded as pending: both social tags fall back to
+    `/og-default.png` while a slug has no artwork, and must carry the registered
+    file once it does. Asserted as *not* the default as well as *is* the file,
+    because a tag that carried both would satisfy a `toContain` alone.
+  */
   for (const property of ['meta[property="og:image"]', 'meta[name="twitter:image"]']) {
     const content = await page.locator(property).first().getAttribute("content");
-    expect(content, property).toContain("/og-default.png");
+    expect(content, property).toContain("haghpat-monastery.webp");
+    expect(content, `${property} no longer falls back`).not.toContain("/og-default.png");
   }
 });
 

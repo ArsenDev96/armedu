@@ -1,6 +1,6 @@
 # Armat — Project State Report
 
-**Last updated:** 2026-08-20 (map marker density — the §64 regression fixed)
+**Last updated:** 2026-08-20 (Haghpat artwork registered — every Place illustrated)
 **Repo:** `d:\armedu` · branch `seo`
 **Status:** Armenian-first multilingual site, complete in three editions and **live in
 production at [armat.site](https://armat.site)** (Vercel). Crawlable and indexable today.
@@ -13363,3 +13363,275 @@ New and small: `spreadOffsets` is unreachable with the current registry and is c
 static test. It becomes live the first time two Places share a coordinate closely enough that no zoom
 separates them — a chapel inside a monastery, a museum inside a fortress — and that is the day to
 look at it in a browser.
+
+---
+
+## §66. Haghpat artwork — registered, and the first cover checked against a photograph (August 2026)
+
+The thirteenth Place gets its picture, `PENDING_ARTWORK` empties for the thirteenth time, and for the
+first time in this project's history **every Place in the archive has a cover**.
+
+### The asset
+
+```
+public/images/places/haghpat-monastery.webp
+1586 × 992   ratio 1.5988 (16:10, the house standard)
+685,282 bytes  (669 KB)
+sha256  95874d2616e0d3b5c9caba749ae461adf7f0ac77567e8e2b39c97386daf7fdeb
+```
+
+Verified twice, independently. A hand-written RIFF walk reports `RIFF`/`WEBP`, a declared size field of
+685,274 that equals the file length minus eight, and **one chunk**: a bare `VP8 ` of 685,262 bytes with
+a lossy keyframe measuring 1586 × 992. No `VP8X`, therefore no ICC, no alpha, no EXIF, no XMP and no
+animation — the flags cannot exist without the extended header. `sharp` agrees on every count:
+`format: webp`, 1586 × 992, 3 channels, `hasAlpha: false`, and `icc`/`exif`/`xmp`/`iptc` all absent,
+with no EXIF orientation to rotate anything. **No dimension drift**: it is exactly the geometry ten of
+the twelve existing Place covers use.
+
+### Visual acceptance — passed
+
+Opened at full resolution and then at 2× and 4× on six regions rather than judged from the whole frame.
+
+**It is Haghpat, not a monastery.** The identifying features are all present and all in the right
+relationship to each other:
+
+- the **bell tower** standing free of everything else on higher ground to the left — square masonry
+  below, opening into an arcaded belfry of slender colonnettes under a gabled conical roof. Armenian
+  medieval geometry, emphatically not a Western campanile, and it does not dominate the frame;
+- **Surb Nshan**'s short, heavy, many-sided drum under a stone-tiled umbrella roof, centre-right —
+  the proportion the commission asked for, with no exaggerated dome height;
+- the broad low **gavit** across the foreground, wider than the church it adjoins, with a small
+  conical lantern on its ridge;
+- a **refectory range**, an arcaded gallery, two smaller domed chapels, and a rubble **enclosure wall**
+  with an arched gate;
+- a courtyard of flat grave slabs, authentic to the site and correctly plain.
+
+**Eight distinct volumes, none of them dominant.** That is precisely the argument the article makes in
+prose — a complex accumulated across three centuries rather than one building — and it is the
+requirement §64 recorded as non-negotiable. No single façade fills the frame; no isolated church.
+
+### Told apart from the four it had to be told apart from
+
+| | why it is not that |
+| --- | --- |
+| **Geghard** | no cliff face, nothing rock-cut, the complex stands open on a terrace |
+| **Tatev** | no canyon; the gorge is absent from frame, the viewpoint is across the plateau rather than a high aerial, and no single tall drum dominates |
+| **Khor Virap** | no Ararat, no plain, no single walled enclosure |
+| **Etchmiadzin** | rural and monastic, no town, no cathedral campus |
+
+The Tatev comparison was the one to watch, since §64 named that file the sharpest refusal. Set side by
+side the two are not confusable: Tatev's cover is a high aerial of a promontory above a canyon with one
+tall drum; this is a mountainside view of a dense low group under wooded ridges.
+
+### Sanahin — excluded, and checked rather than assumed
+
+The one substitution no reader could have caught. The only other buildings in the frame are on the far
+hillside at mid-left, and they were examined at magnification: **village houses** with pitched pale
+roofs and white walls among trees, hedgerows and cleared pasture. No dome, no drum, no cross, no
+ecclesiastical silhouette. There is no second monastery and no composite.
+
+### Lori landscape
+
+Wooded slopes with cleared pasture patches, hedgerows, deciduous forest and mist on the ridge — cool
+northern Armenian highland. Distinct from the dry Ararat plain, from Vayots Dzor, from the Syunik
+canyon and from Dilijan's closed forest; not alpine. The monastery stays primary; no gorge overwhelms
+it. Late-summer green, no snow, no autumn orange.
+
+### Architecture, material and artefacts
+
+Dark grey-blue basalt ashlar with lighter blocks and lichen on the stone-tiled roofs — the correct
+material register, and none of the failure modes the brief listed (no orange sandstone, no pink tuff,
+no polished white, no monochrome black). Masonry courses are regular, arches are structurally
+plausible, the courtyard slabs recede consistently, and there is no melted masonry, no duplicated
+structure and no repeated-window artefact.
+
+Two mild painterly softnesses, recorded and not retouched: the colonnettes of the right-hand arcade
+blur where they meet the ground, and small dark protrusions recur on some wall faces which read as
+weathered putlog holes. Neither damages the editorial read.
+
+**No people appear.** Permitted rather than required, and their absence removes a whole class of risk.
+No modern elements at all — no scaffolding, crane, visitor centre, parking, bus, sign or power line.
+
+### Text and signage — clean
+
+Inspected at 4× on the drum band and the gavit portal, the two surfaces where generated pseudo-text
+appears if it appears anywhere. The drum carries scattered pale marks and the portal surround carries
+shallow relief; **neither resolves into writing** — there is no baseline, no repeated glyph form and
+nothing legible. The grave slabs are plain. No Armenian, Russian or English lettering, no plaque, no
+UNESCO emblem, no watermark, no signature.
+
+### Visual register — photographic, and that is the debt this widens
+
+**Classified photographic.** The §64 commission and the Step 36 brief both asked for the painterly
+register `tatev-monastery.webp` and `geghard-monastery.webp` use, and what landed reads as a drone
+photograph. It was registered anyway: subject accuracy is what a cover is for, and this one is *exact*
+where the four monastery covers it had to be distinguished from are merely plausible.
+
+The consequence is recorded in `media.ts` beside the entry, because it is not only a style note. **The
+file is AI-generated and looks like documentary evidence of a real building**, which is a stronger
+claim to a skimming reader than a painting makes. `ARTWORK_PROVENANCE` and the AI caption therefore do
+more work for this slug than for any other, and the rewritten hero test requires the *AI-generated
+wording specifically* rather than merely "not the placeholder".
+
+### Crops
+
+Centre crops, since no `object-position` was added and none was needed.
+
+| surface | crop | trim | verdict |
+| --- | --- | --- | --- |
+| 16:10 source | 1586 × 991 | 0.1 % height | native |
+| 16:9 listing / hero / map card | 1586 × 892 | 10.1 % height | **best crop** — everything survives |
+| 3:2 tablet | 1488 × 992 | 6.2 % width | all features survive |
+| 4:3 mobile hero | 1323 × 992 | 16.6 % width | all features survive |
+| search thumbnail (0.8) | 794 × 992 | **49.9 % width** | complex still reads |
+
+Even at the thumbnail's fifty-percent trim the drum, the gavit, three further volumes, the courtyard
+wall and the wooded hillside all remain — it never degrades into one dome, one wall or grass. It does
+lose the free-standing bell tower, which is one of the two strongest identifiers; recorded as minor
+artwork debt rather than a defect, since the complex still reads without it.
+
+### Registration
+
+```
+IMAGES            "haghpat-monastery": "/images/places/haghpat-monastery.webp"   (13 places)
+PENDING_ARTWORK   []                                                             (empty)
+ILLUSTRATED       13
+ARTWORK           13, written out per slug
+```
+
+Nothing else changed: no monastery-specific image logic, no Haghpat-specific component code, no new
+image field, no new provenance infrastructure. `ARTWORK_PROVENANCE` untouched. `validate:content` no
+longer prints the pending-artwork note — the first time it has been silent on that line.
+
+The `§64` commission block is kept unstruck and marked **§66 Resolved**, in the same style as §61: it
+is the description the file was measured against, and it is what a replacement would be measured
+against.
+
+### Every surface
+
+| surface | result |
+| --- | --- |
+| hero, en/hy/hyw | own file, correct `alt`, AI-illustration caption, placeholder `<svg>` gone |
+| listing | 13 cards, **0 placeholders** — the derived count evaluates to zero for the first time |
+| search | own thumbnail, scoped by canonical href |
+| map selected card | transitions from no image to Haghpat's own file; the four monastery covers still refused by name |
+| `Article.image` | Haghpat's file (was absent) |
+| `og:image` / `twitter:image` | Haghpat's file, and asserted **not** to be `/og-default.png` any more |
+| JSON-LD | generic `Article` only; no `Place`, `TouristAttraction`, `Church`, `GeoCoordinates` or the six other speculative types |
+
+**Sitemap, verified route by route** rather than by a global filename count — `sitemap()` was called
+directly and its output inspected:
+
+```
+/hy/places/haghpat-monastery    images: [.../haghpat-monastery.webp]
+/hyw/places/haghpat-monastery   images: [.../haghpat-monastery.webp]
+/en/places/haghpat-monastery    images: [.../haghpat-monastery.webp]
+```
+
+Exactly one image per block, Haghpat's own, no neighbouring monastery's file anywhere in the three.
+
+### Map cluster regression — none
+
+Registration touched no map code, and the measurements are identical to §65 at every width:
+
+```
+13 places · 7 individual markers · 2 groups (2 and 4) · largest 4 · 0 covered centres
+```
+
+Garni, Geghard, Erebuni and the Matenadaran remain independently pointer-selectable; all thirteen
+remain pointer- and keyboard-selectable. Coordinates, bounds and grouping rules untouched.
+
+### Everything held unchanged
+
+Taxonomy `All 13 · Monastery 5 · Historical 3 · Museum 1 · Nature 2 · Settlement 2`, Khor Virap still
+sole `featured`. Lori still represented by exactly `haghpat-monastery`; no coordinate touched. Visit
+curation the same six in §53 order — **Haghpat not promoted because it now has a picture**, curated row
+6, map 13, listing 13. `relatedSlugs`, `SectionLinks` and `getRelatedArticles` untouched; Lake
+Sevan → Jermuk present, → Dilijan still intentionally absent. No editorial field, source or translation
+altered: the 976/966-67 disagreement, the firm 991, the Gurgen/Kiurike explanation, the gavit century
+gap, the refusal of "university", the 500-monks attribution, the 1273 khachkar and the staged 1996/2000
+UNESCO chronology all stand exactly as §64 wrote them. Source validation green, one work → one
+identifier.
+
+### Artwork performance
+
+**Haghpat enters the top five heaviest Places assets, fourth at 669 KB.**
+
+```
+1  khor-virap.png              1437 KB     5  amberd-fortress.webp   660 KB
+2  erebuni-fortress.webp        742 KB     …
+3  matenadaran.webp             701 KB    13  garni-temple.webp      120 KB
+4  haghpat-monastery.webp       669 KB    total 6667 KB / 13 files
+```
+
+Not optimized, and Khor Virap not converted — artwork optimization remains a before-20-Places task. The
+tail is now five files over 600 KB against four, which strengthens the case rather than changing it.
+
+### Test-runtime observation
+
+The artwork loops went **36 → 39 navigations**. `places.spec.ts` moved from 4.9 min to **5.7 min** at
+84 tests — a real increase, proportional to the three added navigations, and stable rather than flaky.
+Nothing was partitioned, no retry was added and no timeout was raised. **The planned pre-Place-16
+partition stands where it was**; this step gives no reason to bring it forward, but Place #14 will add
+three more navigations to the same loops and should be watched.
+
+### Results, and every failure
+
+```
+npm run typecheck                                 PASS
+npm run validate:content                          PASS — 138 entries, no pending-artwork note
+npx playwright test tests/e2e/places.spec.ts      84 passed (5.7m)
+npx playwright test tests/e2e/visit-map.spec.ts   41 passed (1.8m)
+npx playwright test tests/e2e/visit.spec.ts       24 passed (1.5m)
+npx playwright test (full)                        297 passed, 5 skipped (8.8m) — clean first run
+npm run build                                     PASS — 147 pages
+```
+
+**Three failures, and the diagnosis of the third corrects a standing debt entry.**
+
+1. A **Turbopack internal panic** during the `places.spec.ts` dev-server start —
+   `thread 'tokio-runtime-worker' panicked … Every task must have a task type` in
+   `turbo-tasks-backend`. No test failed; the suite ran green. Turbopack then deleted its own
+   filesystem cache and said so on the next start.
+2. `visit.spec.ts` then **died twice on startup**, both times with V8 and Rust allocation failures —
+   `FATAL ERROR: Committing semi space failed`, `Fatal process out of memory: Zone`,
+   `memory allocation of 278544 bytes failed`, and once `UNKNOWN: unknown error, write` from the
+   reporter.
+3. Which looked exactly like the standing **host-memory-pressure** debt from §60 — and, measured,
+   was not. At the moment of failure the machine had **9.98 GB of 15.94 GB physical RAM free**, node's
+   heap limit was a normal **4144 MB**, `NODE_OPTIONS` was empty at every scope, and the failing heaps
+   were **6–13 MB**. A process cannot be out of memory at 10 MB with 10 GB free.
+
+   The common factor is the panic in (1): every dev-server start after Turbopack discarded its cache
+   was a full cold compile off freshly-wiped state, and that is where it died. Removing `.next` and
+   re-running gave 24 passed with no other change.
+
+   **This reframes the §60/§64/§65 debt.** Those OOMs carried the same signature — tiny heaps,
+   `Committing semi space failed`, the runner and dev server dying together — and were recorded as host
+   memory pressure without the free-memory figure ever being taken. On this evidence the more likely
+   cause is **corrupted Turbopack cache state**, and the remedy is `rm -rf .next` rather than closing
+   applications. Stated as the better hypothesis, not as settled: it has been diagnosed once.
+
+No test was weakened, no retry added, no timeout raised, and no assertion was changed to match a
+regression.
+
+### Debt after this step
+
+Closed: the pending-artwork slot, empty for the first time with every Place illustrated.
+
+Reframed: **host-memory pressure → probable Turbopack cache corruption**, with `rm -rf .next` as the
+first response rather than the last.
+
+Carried forward unchanged: artwork optimization before 20 Places, now with five files over 600 KB;
+the Khor Virap PNG at 1437 KB; the thumbnail crop debt, which Haghpat joins in the mild form of losing
+its bell tower at the narrowest crop; the Matenadaran colour discrepancy; the weak same-category filler
+and the one-directional relationship graph; the four B-depth early Places; the twelve non-Place
+articles lacking SEO fields; the thirteen-article `hyw` native-review backlog; the raster basemap's
+label-language limitation and the Stadia operational debt; and the `places.spec.ts` partition before
+Place #16.
+
+Widened: **the visual-register split.** Haghpat is now the clearest photographic member of a corpus
+whose other covers are painted, and it is the strongest argument yet that the split needs an editorial
+decision rather than another accretion.
+
+### No deployment

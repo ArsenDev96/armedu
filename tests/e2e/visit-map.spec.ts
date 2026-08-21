@@ -1022,7 +1022,15 @@ test("the five monastery markers share one glyph, and Haghpat took no new one", 
   await expect(panel).toContainText(
     bundle("en").articles.find((a) => a.slug === "haghpat-monastery")!.title,
   );
-  await expect(panel.locator("img"), "no artwork while pending").toHaveCount(0);
+  /*
+    §66 inverts the §64 assertion here. The panel showed no image while Haghpat was
+    pending; it now shows Haghpat's own file, and the four refusals stay exactly as
+    they were — this is a map card, and the four covers listed below are the ones a
+    borrowed file would most plausibly come from, because every one of them is a
+    walled stone complex seen from above.
+  */
+  await expect(panel.locator("img"), "its own artwork").toHaveCount(1);
+  await expect(panel.locator("img")).toHaveAttribute("src", /haghpat-monastery\.webp/);
   for (const borrowed of [
     "tatev-monastery",
     "geghard-monastery",

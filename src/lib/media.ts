@@ -550,6 +550,35 @@ const IMAGES: Record<string, string> = {
   gyumri: "/images/places/gyumri.webp",
   "amberd-fortress": "/images/places/amberd-fortress.webp",
   jermuk: "/images/places/jermuk.webp",
+  /*
+   * §66. Haghpat, and the first cover in this registry that had to be checked
+   * against a photograph rather than against a description.
+   *
+   * The file answers the §64 commission closely enough to be recognisable as the
+   * place rather than as the type: a free-standing bell tower square below and
+   * opening into an arcaded belfry above, standing apart on higher ground; the
+   * short heavy polygonal drum of Surb Nshan under an umbrella roof; the broad low
+   * gavit joined to it with a lantern on its ridge; a refectory range, smaller
+   * chapels and a rubble enclosure around a courtyard of flat grave slabs; dark
+   * grey-blue basalt with lichen on stone-tiled roofs; and wooded Lori ridges with
+   * cleared pasture behind. Eight distinct volumes, none of them dominant, which is
+   * the argument the article makes in prose.
+   *
+   * What must be recorded rather than admired: **this file is photographic**, and
+   * the §64 brief and the commission both asked for the painterly register that
+   * `tatev-monastery.webp` and `geghard-monastery.webp` use. It was accepted
+   * anyway, because subject accuracy is what a cover is for and this one is exact
+   * where the four monastery covers it had to be told apart from are merely
+   * plausible. The register split the §62 audit recorded therefore widens here, and
+   * Haghpat is now the clearest member of the photographic side.
+   *
+   * That has one consequence worth stating in this file rather than only in
+   * PROJECT_STATE: it is AI-generated and it looks like a documentary photograph of
+   * a real monastery, which is a stronger claim than a painting makes to a reader
+   * skimming. `ARTWORK_PROVENANCE` and the AI caption are doing more work for this
+   * slug than for any other, and neither may be weakened for it.
+   */
+  "haghpat-monastery": "/images/places/haghpat-monastery.webp",
 };
 
 /**
@@ -1028,8 +1057,21 @@ export const PENDING_ARTWORK: readonly string[] = [
    * behind, not treeless volcanic slope and not a snow peak; the complex larger in
    * the frame than any single building in it; and no rock-cut chambers, no second
    * monastery on the far side of the gorge, no figures, and no lettering anywhere.
+   *
+   * §66. **Resolved.** The file that arrived answers this description item by item —
+   * the free-standing bell tower on higher ground, the short heavy drum, the broad
+   * gavit, the ranged lower halls, the rubble enclosure, the wooded Lori ridges, and
+   * eight volumes with no single one dominant. Sanahin is absent: the only other
+   * buildings in the frame are village houses with pitched roofs on the far
+   * hillside, checked at magnification because that was the substitution no reader
+   * could have caught. There is no lettering anywhere, and the carved surfaces stay
+   * texture rather than resolving into writing.
+   *
+   * It missed the register. The commission asked for the painterly treatment the
+   * other monastery covers use and what landed is photographic; it was registered
+   * anyway, for the reason given beside its entry in `IMAGES` above. This list is
+   * empty for the thirteenth time, and every Place in the archive now has a cover.
    */
-  "haghpat-monastery",
 ];
 
 /**
