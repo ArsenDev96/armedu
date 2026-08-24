@@ -3070,11 +3070,12 @@ test("the registry and the pending list are mutually exclusive", () => {
   The registry is one flat map, and the edit that added a key is exactly the kind
   that quietly retypes a neighbouring value. This pins every other entry.
 
-  §69 is the first time this test has failed, and it failed correctly. Registering
+  §69 is the first time this test failed, and it failed correctly. Registering
   `spas.webp` — a Cuisine cover, added by a step that touched no Place at all — is
   precisely the "something outside this section moved" event the snapshot exists to
-  report. The expected object below gains one line and nothing else changes: every
-  other value is byte-identical, which is the actual claim being carried forward.
+  report. §71 did the same thing again with `jingalov-hats.webp`. Each time the
+  expected object below gains one line and nothing else changes: every other value
+  is byte-identical, which is the actual claim being carried forward.
 
   Updating the literal is the maintenance this shape asks for, not a relaxation of
   it. Deriving it from the registry instead would make it agree by construction and
@@ -3121,6 +3122,7 @@ test("no unrelated article artwork changed", () => {
     gata: "/images/cuisine/gata.webp",
     ghapama: "/images/cuisine/ghapama.webp",
     spas: "/images/cuisine/spas.webp",
+    "jingalov-hats": "/images/cuisine/jingalov-hats.webp",
   });
 
   // Every other entry is still a WebP in one of the category directories, and
@@ -4744,9 +4746,10 @@ test("the four existing category listings still load and still count what they d
     ["history", 7, dict.listing.history.title],
     ["writers", 6, dict.listing.writers.title],
     ["works", 4, dict.listing.works.title],
-    // §67 moves Cuisine 6 → 7 with Spas. Edited rather than derived on purpose:
-    // this test's whole job is to notice when another section's count changes.
-    ["cuisine", 7, dict.listing.cuisine.title],
+    // §67 moves Cuisine 6 → 7 with Spas, and §70 moves it 7 → 8 with jingalov
+    // hats. Edited rather than derived on purpose: this test's whole job is to
+    // notice when another section's count changes, and it has now done so twice.
+    ["cuisine", 8, dict.listing.cuisine.title],
   ];
 
   for (const [path, count, heading] of expected) {

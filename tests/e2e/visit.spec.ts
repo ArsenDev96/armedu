@@ -953,14 +953,15 @@ test("every canonical route the journey links into still works", async ({ page }
     The listings themselves, and their counts, which a curation must not touch.
 
     Places moves 7 → 8 in §47, 8 → 9 in §49, 9 → 10 in §51, 10 → 11 in §57,
-    11 → 12 in §59 and 12 → 13 in §64. The number is edited rather than derived on purpose: the point of this assertion is
-    that adding a *curated row* to `/visit` does not change what the section
+    11 → 12 in §59 and 12 → 13 in §64; Cuisine moves 6 → 7 in §68 and 7 → 8 in §70.
+    The number is edited rather than derived on purpose: the point of this assertion
+    is that adding a *curated row* to `/visit` does not change what the section
     listings contain, so it has to be a figure someone updates deliberately when the
     section genuinely grows.
   */
   for (const [path, count] of [
     ["/en/places", 13],
-    ["/en/cuisine", 7],
+    ["/en/cuisine", 8],
     ["/en/history", 7],
   ] as const) {
     const response = await page.goto(path);

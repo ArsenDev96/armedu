@@ -666,6 +666,91 @@ const SOURCES: Record<string, Source[]> = {
     },
   ],
 
+  /*
+   * §70. Jingalov hats — the section's first bibliography for a dish whose
+   * subject is a place, and the first that had to weigh a source's provenance
+   * rather than only its quality.
+   *
+   * Two decisions are recorded here because neither is visible from the list.
+   *
+   * **Petrosian and Underwood is again not cited, and this time for a different
+   * reason than §68's.** There the objection was concentration — five of six
+   * existing Cuisine articles rest on it. Here the objection is fit: a general
+   * survey of Armenian food and folklore is not where the load-bearing claims of
+   * this article live. What this article rests on is one named ethnographer's
+   * statements about a specific regional dish, one cultural institution's
+   * reporting on a displaced community, and one dated heritage listing. A popular
+   * survey adds nothing to any of those, and adding it would take the book to six
+   * of eight for no gain.
+   *
+   * **A genuinely relevant scholarly work was found and deliberately not cited.**
+   * V. A. Petrov's `Etnobotanika Nagornogo Karabakha` (Baku, 1940) reports a field
+   * expedition of 1934–1937 that recorded about a hundred plant species used in
+   * the economy and daily life of Nagorno-Karabakh, indexed under their Russian,
+   * Latin, Azerbaijani and Armenian names. It is exactly the kind of source the
+   * greens sections would want. It is absent because it could not be consulted —
+   * the monograph is not available in any full text reachable from here, and the
+   * only descriptions of its contents are catalogue records. Citing a work from a
+   * catalogue entry is how a bibliography acquires a source nobody has read, and
+   * that is the failure this archive was audited for. Recorded here so the next
+   * person to work on Artsakh food knows the source exists and what it would
+   * support.
+   *
+   * On the journalism below: RFE/RL is not carrying the ethnographic claims on its
+   * own authority. It names Ruzanna Tsaturian of the Institute of Archaeology and
+   * Ethnography, and the article attributes those claims to her by name rather than
+   * stating them flatly, which is the correct handling of expertise that reaches
+   * print through a reporter.
+   */
+  "jingalov-hats": [
+    {
+      author: "Amos Chapple",
+      title: "Jingalov Hats: The Flatbread Creating A Lifeline For Armenia's Karabakh Refugees",
+      publisher: "RFE/RL",
+      year: "5 March 2024",
+      identifier: {
+        kind: "url",
+        value: "https://www.rferl.org/a/jingalov-hats-traditional-karabakh-food-armenia-refugees/32848698.html",
+      },
+      note: "The single richest source here, and the one that carries the ethnography. It quotes Ruzanna Tsaturian of the Institute of Archaeology and Ethnography of Armenia's National Academy of Sciences on the first textual mentions being about two hundred years old, on the early-spring and autumn seasonality, on the twentieth-century drift towards entertainment food, on the return to it during the shortages of the 1990s, and for the phrase forest bread. It separately reports Ara Zada's figures of twenty-six greens in the original recipe and around seventeen today, the named greens including nettle, and the street-stall economy that grew after 2020 and 2023.",
+    },
+    {
+      author: "Aline Keledjian",
+      title:
+        "\"Who Are We?\" Maintaining Artsakhtsi Identity After Forced Displacement from Nagorno-Karabakh",
+      publisher: "Smithsonian Center for Folklife and Cultural Heritage",
+      year: "17 February 2025",
+      identifier: {
+        kind: "url",
+        value: "https://folklife.si.edu/magazine/artsakhtsi-identity-nagorno-karabakh",
+      },
+      note: "The source for the displacement context and for the article's central observation, which came from it rather than being imposed on it: a woman from Stepanakert saying the same herbs cannot be found in Armenia because they grow in the mountains of Artsakh. Also the source for the ten-to-twenty range, for the unleavened dough rolled flat, and for the continuation of the dish by displaced households in Yerevan. Chosen over general news reporting of the same events because it is a cultural-heritage institution writing about cultural continuity, which is the only aspect of 2023 this article discusses.",
+    },
+    {
+      title: "Zhengyalov Hats Festival in Tsaghkashat on April 29",
+      publisher: "Hetq",
+      year: "April 2015",
+      identifier: { kind: "url", value: "https://hetq.am/en/article/59884" },
+      note: "Two dated institutional facts rest on this and nothing else does: that the authorities in Artsakh entered the dish on their register of intangible cultural heritage in 2013, and that the first festival devoted to it was held at Tsaghkashat in the Askeran district in April 2015 under a heritage-preservation programme. It also states independently of Tsaturian that the first mention is in written manuscripts of the nineteenth century, when Artsakh folklore was being collected — two sources converging on the same century is what licenses the article to state it.",
+    },
+    {
+      title:
+        "Lavash, the preparation, meaning and appearance of traditional bread as an expression of culture in Armenia",
+      publisher:
+        "UNESCO Representative List of the Intangible Cultural Heritage of Humanity, no. 00985",
+      year: "inscribed 2014",
+      identifier: { kind: "url", value: "https://ich.unesco.org/en/RL/00985" },
+      note: "Reused from the lavash bibliography, deliberately, for one claim: that lavash is baked by slapping the sheet against the inner wall of a tonir. That is the contrast the griddle section turns on, and it should come from the same record the lavash article uses rather than from a paraphrase of it.",
+    },
+    {
+      title: "Armenia: Creating Home — Foodways",
+      publisher: "Smithsonian Folklife Festival, Center for Folklife and Cultural Heritage",
+      year: "2018",
+      identifier: { kind: "url", value: "https://festival.si.edu/2018/armenia/feasting/foodways" },
+      note: "Reused from the spas bibliography for the same claim it supports there: each region has its own favoured wild plants. In spas that explains why the herbs vary; here it is the general statement of which this dish is the strongest single instance.",
+    },
+  ],
+
   /* ----------------------------------------------------------------- places */
 
   /*

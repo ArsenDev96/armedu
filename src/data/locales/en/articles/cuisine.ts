@@ -982,4 +982,198 @@ export const cuisineArticles: Article[] = [
     },
     relatedSlugs: ["harissa", "lavash"],
   },
+  {
+    slug: "jingalov-hats",
+    href: "/cuisine/jingalov-hats",
+    category: "cuisine",
+    categoryLabel: "Armenian Cuisine",
+    title: "Jingalov Hats",
+    seoTitle: "Jingalov Hats: Artsakh's Herb-Filled Bread",
+    dishType: "Bread",
+    dishTypeId: "bread",
+    imageSeed: "jingalov-hats",
+    keywords: [
+      "jingalov hats",
+      "zhingyalov hats",
+      "zhengyalov hats",
+      "ժենգյալով հաց",
+      "Artsakh",
+      "Nagorno-Karabakh",
+      "Syunik",
+      "Armenian herb bread",
+      "herb-filled flatbread",
+      "saj",
+    ],
+    excerpt:
+      "A thin round of unleavened dough closed over a filling of chopped greens and cooked on a griddle: the bread of Artsakh, and the one dish in this section whose defining ingredient is a hillside rather than a shopping list.",
+    metaDescription:
+      "Jingalov hats, the herb-filled flatbread of Artsakh and Syunik: the greens that define it, why the number of them is never fixed, and what the record can say.",
+    summary:
+      "Jingalov hats is a flatbread of Artsakh and Syunik: unleavened dough rolled thin, heaped with a large mixture of finely chopped greens, closed over the filling and cooked on a flat metal plate over a fire. What defines it is the filling rather than the bread, and the filling is a working system rather than a recipe — mild leaf greens for bulk, aromatic ones for scent, sour and bitter ones in small amounts for balance. Accounts of how many kinds go in disagree, and the disagreement is the point, because the mixture follows the season and the hillside. It enters the written record only in the nineteenth century, and since 2023 it has been made mostly away from the place whose plants define it.",
+    intro:
+      "Jingalov hats is bread used as a container. A round of unleavened dough is rolled until it is nearly transparent, a large quantity of finely chopped greens is spread over it, the dough is drawn up and sealed, and the parcel is flattened again and cooked on a hot metal plate until it blisters. It belongs to Artsakh and to neighbouring Syunik rather than to the Armenian world as a whole, which makes it the first strongly regional dish in this section, and its filling is the reason it resists being written down as a recipe: what goes into it is what the season and the hillside are offering.",
+    author: "Armat Editorial Team",
+    updated: "2026-08-24",
+    keyFacts: [
+      { label: "Kind of dish", value: "Unleavened flatbread filled with chopped greens" },
+      {
+        label: "Where from",
+        value: "Artsakh — Nagorno-Karabakh — and Syunik, rather than the Armenian world as a whole",
+      },
+      {
+        label: "The filling",
+        value: "Many greens at once: mild leaves for bulk, aromatics, and small amounts of sour and bitter",
+      },
+      {
+        label: "How many greens",
+        value: "Accounts range from about ten to twenty-six; the mixture follows the season, not a count",
+      },
+      {
+        label: "Cooked on",
+        value: "A saj — a metal plate over a fire — in minutes, rather than against the wall of a tonir",
+      },
+      { label: "Season", value: "Early spring and autumn, when the wild greens are up" },
+    ],
+    sections: [
+      {
+        id: "what-jingalov-hats-is",
+        heading: "What jingalov hats is",
+        paragraphs: [
+          "The dish is one object made of two opposite things. The bread is as plain as bread gets: wheat flour, water and salt, unleavened, rolled thin. The filling is the opposite of plain — a dense mixture of many different greens, chopped fine and dressed with oil and salt, in a quantity that looks impossible until the dough closes over it.",
+          "It is cooked flat and dry. The sealed parcel is pressed out until the greens show dark through the dough, then laid on a hot surface and turned once, so that both faces scorch in places while the filling steams inside. The whole thing takes minutes.",
+          "It is eaten warm, in the hand, on its own. It is not a course, not an accompaniment and not a pastry: the dough is a skin thin enough to be part of the mouthful rather than the substance of it, and what a person tastes is the greens.",
+        ],
+      },
+      {
+        id: "a-food-of-artsakh",
+        heading: "A food of Artsakh",
+        paragraphs: [
+          "Jingalov hats belongs to Artsakh — the upland region between Armenia and Azerbaijan that Armenians call Artsakh and that international usage more often calls Nagorno-Karabakh — and to Syunik, the Armenian province along its western side. Both names appear in the sources used here, and they are kept apart rather than merged: they are not interchangeable, and which one a given source reaches for is itself information.",
+          "The regional attachment is the first thing to state, because it is unusual in this section. Lavash, dolma, harissa and the rest are made wherever Armenians are. This one is not. It is the dish of a particular upland, and the reason is agricultural rather than sentimental: the filling depends on what grows there.",
+          "The region's Armenians speak their own dialect, and the name of the dish belongs to it. Nothing in this article requires a position on the region's status. What it does require is that the dish be described as coming from a specific place with a specific flora, because otherwise the most interesting thing about it disappears.",
+        ],
+      },
+      {
+        id: "the-language-of-greens",
+        heading: "The language of greens",
+        paragraphs: [
+          "The filling is a system rather than a list. Descriptions of it — from cooks in Stepanakert, from displaced households in Yerevan, from a bakery in California — set out the same architecture: a bulk of mild leaf greens, a smaller quantity of strongly aromatic herbs, a sour element, and a little bitterness, balanced against each other.",
+          "The mild greens do the work of volume: spinach, chard, beet greens, lettuce and their wild equivalents. The aromatics are the ones most readers will know — cilantro, dill, parsley, mint, green onion, green garlic. Sorrel supplies acidity. Dandelion and its relatives supply a bitter edge, and they go in sparingly, because a filling that is mostly bitter is a mistake rather than a variant.",
+          "Nettle turns up in many accounts and deserves a note of its own: it stings raw and stops stinging once it is cooked, which is why a plant nobody would eat from the hand is ordinary inside this bread. Some cooks sharpen the mixture at the end with lemon, or with the purple powder of dried barberries.",
+        ],
+      },
+      {
+        id: "how-many-greens",
+        heading: "How many greens",
+        paragraphs: [
+          "Almost every account of jingalov hats reaches for a number, and the numbers do not agree. Ara Zada, co-author of a book on Armenian cooking, told RFE/RL in 2024 that the original recipe called for twenty-six herbs and greens and that around seventeen are usual today. The Smithsonian's account of displaced Artsakh families gives ten to twenty. Other totals circulate, some of them rounder than the sources that carry them.",
+          "The disagreement is not a failure of the sources. It follows from what the dish is. A mixture assembled from what is growing, in a particular week, on a particular slope, cannot have a fixed count — and the same cook will not arrive at the same number twice in one season.",
+          "So the honest statement is about abundance rather than arithmetic. Many kinds go in, more than into any other dish in this section, and a specific total should be read as a description of one recipe or one household rather than as a rule. Where a round number is offered as the authentic count, it is a claim about authenticity and not a measurement.",
+        ],
+      },
+      {
+        id: "knowing-what-to-pick",
+        heading: "Knowing what to pick",
+        paragraphs: [
+          "Ruzanna Tsaturian, a researcher at the Institute of Archaeology and Ethnography of Armenia's National Academy of Sciences, has described the dish as traditionally made in early spring and in autumn, when the necessary wild herbs grow. That is the constraint the whole tradition sits inside: the bread is available when the hillside is.",
+          "It also indicates where the dish came from. In the countryside of Nagorno-Karabakh, someone who knew which greens to pick could make a meal out of flour, water and what could be gathered, in seasons when there was little else. Tsaturian describes households returning to it during the shortages of the war of the 1990s, and calls it in that context the forest bread of their ancestors.",
+          "The knowledge involved is specific — which plants, which weeks, which parts of them, and which ones must be cooked before they can be eaten at all — and it is held in households rather than written down. This article describes that knowledge. It does not try to convey it: which wild plants are safe to eat is not something to learn from a page about food.",
+        ],
+      },
+      {
+        id: "dough-and-enclosure",
+        heading: "Dough and enclosure",
+        paragraphs: [
+          "The dough is the plainest element of the dish: wheat flour, water and salt, unleavened, rested and rolled out until it is very thin. Nothing enriches it, and nothing is meant to.",
+          "The enclosure is what makes the object. The greens are spread over the round, the edge is drawn up over them and pinched shut, and the sealed parcel is rolled or pressed flat again — so that the filling ends up as a thin layer between two thin layers of dough rather than sitting in a pocket. Getting a very wet filling to stay inside a very thin wrapper through that flattening is the actual skill of the dish.",
+          "The proportions run the opposite way from most filled breads. There is far more filling than dough by volume, and the dough is present as a skin. That is why the finished bread reads green through its surface, and why it is a different kind of thing from a pie.",
+        ],
+      },
+      {
+        id: "the-griddle-and-the-tonir",
+        heading: "The griddle, not the tonir",
+        paragraphs: [
+          "It is cooked on a saj, a metal plate set over a fire, and it is done in minutes. Some accounts allow a tonir, the clay pit oven, as an alternative. The plate is the characteristic method, and the two should not be run together simply because both are Armenian and both involve fire.",
+          "The distinction matters because of the obvious comparison. Lavash is the other thin Armenian wheat bread, and it is made in a quite different way: the sheet is slapped against the inner wall of a tonir and lifted off seconds later, which is how the UNESCO inscription of 2014 describes it. Lavash is thin bread presented as bread. Jingalov hats uses a similarly thin sheet of wheat dough as a wrapper for something else.",
+          "The comparison is worth making and worth limiting. Both are unleavened wheat breads rolled thin by hand, and both belong to a wide regional family of such breads. Neither is a version of the other, and the cooking surface is the plainest evidence of that.",
+        ],
+        links: [{ phrase: "Lavash", slug: "lavash" }],
+      },
+      {
+        id: "what-the-record-can-say",
+        heading: "What the record can say",
+        paragraphs: [
+          "The written record is short, and saying so is more useful than filling it in. Tsaturian places the first textual mentions of the dish at around two hundred years ago. An account published when it was listed as heritage puts the same thing differently: it was first mentioned in written manuscripts of the nineteenth century, at the period when Artsakh folklore was being collected.",
+          "Both statements point at the same moment, and it is a moment of recording rather than of invention. Nineteenth-century collectors wrote down what people were already doing, so the dish is certainly older than its first mention — but how much older is not something the available evidence establishes. No source consulted here places it in antiquity, and neither does this article. A living regional tradition does not need an ancient origin to be worth describing.",
+          "What can be dated is its recent institutional life. In 2013 the authorities in Artsakh added the dish to their register of intangible cultural heritage, and in April 2015 the first festival devoted to it was held at Tsaghkashat, in the Askeran district, as part of a heritage-preservation programme. Tsaturian observes that across the twentieth century it had drifted towards being, in her phrase, entertainment food rather than a daily staple — so the listing and the festival were recognising something that had already changed.",
+        ],
+      },
+      {
+        id: "a-food-away-from-its-place",
+        heading: "A food away from its place",
+        paragraphs: [
+          "In September 2023, following an Azerbaijani military offensive, almost the entire Armenian population of Nagorno-Karabakh — more than a hundred thousand people — left for Armenia. The dish went with them. Stalls and small businesses run by displaced families appeared in Yerevan and in towns across the country, and by 2024 RFE/RL was describing jingalov hats as a street food of pizza-like popularity.",
+          "One thing did not travel. Writing in the Smithsonian's folklife magazine in February 2025, Aline Keledjian quotes a woman from Stepanakert on exactly the problem: the same herbs cannot be found in Armenia, because they grow in the mountains of Artsakh. A recipe can be carried in a suitcase; a hillside cannot. A dish defined by a local flora is altered by being moved in a way that a dish defined by a technique is not.",
+          "The tradition continues in that altered form. Families displaced in the earlier war of 2020 opened restaurants in Yerevan to keep making it, and a bakery in Glendale, California that serves nothing else became in 2023 the first Armenian restaurant in the United States to be listed in the Michelin guide. None of that replaces the place. Describing it as continuity rather than as recovery is the accurate reading, and it is the reading this article takes.",
+        ],
+      },
+    ],
+    importantDates: [
+      {
+        year: "2013",
+        event:
+          "The dish is entered on the register of intangible cultural heritage maintained by the authorities in Artsakh.",
+      },
+      {
+        year: "2015",
+        event:
+          "The first festival devoted to jingalov hats is held at Tsaghkashat, in the Askeran district of Artsakh, under a heritage-preservation programme.",
+      },
+      {
+        year: "2023",
+        event:
+          "Almost the whole Armenian population of Nagorno-Karabakh is displaced to Armenia in September; the dish is afterwards made mainly outside the region whose plants define it.",
+      },
+    ],
+    significance: {
+      heading: "Why jingalov hats matters",
+      paragraphs: [
+        "This is the first article in the section about a dish that is not made everywhere Armenians live, and that is the point of adding it. A national cuisine described only through its pan-national dishes is a cuisine with its regions edited out, and the regions are where most of the cooking actually happened.",
+        "It is also the clearest case in this archive of a dish inseparable from a landscape. The technique can be taught anywhere and the dough can be made anywhere; the filling is a set of plants that grow on particular mountains in particular weeks. That is what makes it an unusually good article to write and, since 2023, an unusually difficult one.",
+      ],
+    },
+    interestingFacts: [
+      "The filling has no fixed list: accounts of how many kinds of green belong in it range from about ten to twenty-six, because the mixture follows what is growing.",
+      "Nettle is an ordinary ingredient. It stings raw and stops stinging once cooked, which is why a plant nobody would eat from the hand belongs inside this bread.",
+      "There is more filling than dough by volume, and the wrapper is thin enough that the greens read dark green through it before it goes near the heat.",
+      "It is cooked on a metal plate over a fire rather than against the wall of a tonir, which is the plainest thing separating it from lavash.",
+      "Its first written mentions belong to the nineteenth century, when Artsakh folklore was being collected — a date of recording rather than of invention.",
+    ],
+    relatedFigures: [],
+    cuisine: {
+      ingredients: [
+        "Wheat flour, water and salt — unleavened dough",
+        "Mild leaf greens: spinach, chard, beet greens, lettuce and wild equivalents",
+        "Aromatics: cilantro, dill, parsley, mint, green onion, green garlic",
+        "Sorrel and other sour greens",
+        "Nettle and other wild greens, in smaller quantities",
+        "Oil and salt",
+      ],
+      preparation:
+        "Unleavened dough is rolled very thin and heaped with a large quantity of finely chopped greens dressed with oil and salt; the edge is drawn up, sealed, and the parcel pressed flat again so the filling lies in a thin layer inside. It is cooked dry on a hot metal plate over a fire and turned once, until both faces are marked.",
+      occasions: [
+        "Everyday eating, in the seasons when the greens are up",
+        "Made communally, with several people chopping and shaping at once",
+        "Festivals devoted to the dish",
+      ],
+      regions: [
+        "Artsakh — Nagorno-Karabakh — where it is the best-known dish of the region",
+        "Syunik, the neighbouring Armenian province",
+        "Since 2023, made mainly in Armenia, by displaced households",
+      ],
+      serving:
+        "Eaten warm and in the hand, on its own, soon after it comes off the heat rather than kept.",
+    },
+    relatedSlugs: ["lavash"],
+  },
 ];

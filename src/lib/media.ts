@@ -99,6 +99,54 @@ const IMAGES: Record<string, string> = {
   spas: "/images/cuisine/spas.webp",
 
   /*
+   * §71. Jingalov hats — and the first cover in this archive whose acceptance
+   * turned on a single compositional decision rather than on subject accuracy.
+   *
+   * 1586×992, 190 KB (194,240 bytes), a single lossy `VP8 ` chunk with no VP8X
+   * extension, and therefore no alpha, no ICC profile, no EXIF and no XMP. Verified
+   * twice, by a hand-written RIFF chunk walk and by `sharp`, which agree on every
+   * field. Registered exactly as delivered: unaltered, uncropped, unoptimised,
+   * unrenamed. The geometry is `lavash.webp`'s and `spas.webp`'s exactly.
+   *
+   * **What is in the frame.** A round flatbread on a wooden board, cut across the
+   * middle, with the two halves separated and the upper one pulled back — so both
+   * cut faces are open to the camera. Between two very thin sheets of pale dough,
+   * blistered gold and scorched in places, sits a thick dense layer of chopped
+   * greens. A loose bundle of fresh herbs lies at the left, a sprig of purple-leaved
+   * basil below it, a few loose leaves scattered on undyed linen, and the whole
+   * thing stands on a weathered plank table in cool daylight.
+   *
+   * **The commission's one non-negotiable element is present.** The §70 note said
+   * it in terms: at least one round torn or folded open so the layer of greens is
+   * visible rather than implied, because a whole unbroken flatbread photographed
+   * from above is a picture of a different dish. This file does better than the
+   * minimum — it cuts the bread and opens both halves, and the exposed filling is
+   * the largest saturated shape in the frame.
+   *
+   * **The lavash test, which is the one that mattered.** Held side by side at the
+   * 380px listing card, at the 160px search thumbnail and at the 128px one, the two
+   * separate instantly and on two independent axes: this reads cool and pale with a
+   * broad dark-green band through the middle; `lavash.webp` reads warm amber, plain,
+   * with no green anywhere in the frame. The green survives the smallest crop the
+   * site renders, which is the condition §71 set and the reason a closed flatbread
+   * would have been refused.
+   *
+   * The filling is legibly a *mixture* rather than one green: broad serrated leaves,
+   * narrow strap-like ones, pale stem and scallion cross-sections, and a range from
+   * dark to bright. That matters editorially, because the article refuses a fixed
+   * canonical herb count and the picture had to show abundance rather than a
+   * countable botanical display.
+   *
+   * One ambiguity was inspected rather than assumed away. The dough surface carries
+   * a pale greenish mottling that could read as a thin layer of cheese under the
+   * bread. At 3× it is plainly the filling seen through translucent dough, with
+   * flour patches over it — no gloss, no stretch, no separate boundary, and
+   * continuous with the green at the cut. There is no cheese, meat or cream in the
+   * frame.
+   */
+  "jingalov-hats": "/images/cuisine/jingalov-hats.webp",
+
+  /*
    * Places
    *
    * `khor-virap.png` is byte-for-byte the same file as `public/hero-ararat.png`,
@@ -1159,6 +1207,59 @@ export const PENDING_ARTWORK: readonly string[] = [
    *
    * The list is empty again, and for the first time that sentence covers the whole
    * archive rather than only Places: every article in every section now has a cover.
+   */
+
+  /*
+   * §70. Jingalov hats — Cuisine #8, and the second entry on this list from outside
+   * Places. It arrives one step after the list was emptied, which is the normal
+   * rhythm of this archive rather than a regression.
+   *
+   * All seven cuisine files were opened rather than read off their names. None of
+   * them is this dish, and the refusals divide into two kinds.
+   *
+   * The near miss is `lavash.webp`: folded pale sheets of thin wheat bread on
+   * linen, with the mouth of a tonir open in the background, a clay jug, ears of
+   * wheat and a bowl of flour. Jingalov hats is also a thin sheet of wheat bread,
+   * and a careless substitution would be defensible at a glance. It is refused
+   * twice over. The whole subject of the new article is what is *inside* the bread,
+   * and that cover shows bread with nothing in it; and the oven in the background
+   * is the one method the new article exists partly to distinguish itself from.
+   *
+   * `spas.webp` is the second refusal and a subtler one: it is white, herbed and photographed cool, so it
+   * shares this dish's palette without sharing anything else about it. A green-
+   * flecked white bowl is not a green-filled bread. `dolma`, `khorovats`, `harissa`,
+   * `gata` and `ghapama` are plainly other dishes.
+   *
+   * What a commission would have to carry, written down now so it is not
+   * reconstructed later. One or two rounds of thin flatbread, cooked and blistered,
+   * with dark scorch marks where the metal touched — and the filling legible: dense
+   * chopped greens showing dark through the wrapper, and at least one round torn or
+   * folded open so the layer of greens inside is visible rather than implied. That
+   * torn round is the single non-negotiable element. A whole unbroken flatbread
+   * photographed from above is a picture of a different dish.
+   *
+   * The setting should be domestic and regional: a plain board or cloth, daylight,
+   * maybe a bowl of uncut greens beside it. Explicitly refused in advance: a tonir
+   * or any oven-wall staging, which belongs to lavash and is the exact wrong method
+   * for this bread; laminated or buttery pastry of any kind; a wedge cut from a pie;
+   * anything that reads as a spinach turnover or a griddled cheese wrap; restaurant
+   * plating, garnish arranged for a photograph, and the pale wholesome lighting of
+   * health-food photography. No lettering, no flag, no landscape backdrop standing
+   * in for the region — the greens are the regional content, and they are enough.
+   *
+   * Preferred geometry 1586×992, the archive's dominant one.
+   *
+   * §71 **Resolved.** The file that landed carries the commission, including the one
+   * element it called non-negotiable: the bread is cut and both halves opened, so
+   * the greens are visible rather than implied. It is registered above, with the
+   * lavash comparison recorded there. Everything refused in advance stayed out —
+   * no tonir or oven-wall staging, no laminated pastry, no cheese, no restaurant
+   * plating, no arranged garnish, no lettering and no flag. The one thing the
+   * commission did not ask for and got anyway is a bundle of raw herbs beside the
+   * board, which reads as a table object rather than as a recipe step.
+   *
+   * The list is empty again, and for the second time that sentence covers the whole
+   * archive rather than only Places: every article in every section has a cover.
    */
 ];
 

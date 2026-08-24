@@ -1,6 +1,6 @@
 # Armat — Project State Report
 
-**Last updated:** 2026-08-21 (Spas artwork registered — every article in the archive is now illustrated)
+**Last updated:** 2026-08-24 (Jingalov hats artwork registered — every article in the archive illustrated again)
 **Repo:** `d:\armedu` · branch `seo`
 **Status:** Armenian-first multilingual site, complete in three editions and **live in
 production at [armat.site](https://armat.site)** (Vercel). Crawlable and indexable today.
@@ -14233,3 +14233,591 @@ the **uniform six-section template** in the older six, **Petrosian & Underwood**
 the `hyw` review backlog at fourteen, the deferred **dairy/drinks dish type**, and spas as the only
 Cuisine article rendering filler. New and small: **`spas.webp` is Cuisine's heavy tail at 198 KB**,
 and **its bread is a wheat loaf where the article links to lavash**.
+
+---
+
+## §70. Jingalov hats — Cuisine #8, and the first article about a region (August 2026)
+
+Cuisine goes 7 → 8, and the addition changes the section's geography rather than its length.
+Every dish here so far has been pan-Armenian: made wherever Armenians are, and therefore
+describable without reference to any particular hillside. Jingalov hats is not. It is the food
+of Artsakh and neighbouring Syunik, and what makes it worth writing is exactly what makes it
+hard to write — the dish is defined by a local flora.
+
+```
+bread 2 · main 2 · meat 1 · ceremonial 2 · dessert 1
+```
+
+No dish type was added. `matsun`, `tan`, coffee and cheeses still have no home in the five ids,
+and that decision is still deferred.
+
+### What it adds
+
+Three firsts at once: the first strongly **regional** article, the first **herb-centred** dish,
+and the first **filled flatbread**. It also breaks the section's remaining habit of iconicity —
+`lavash` was the only other `bread`, and it is a national symbol with a UNESCO inscription;
+this one is a regional weekday food that most Armenians outside two provinces met for the first
+time in a Yerevan street stall.
+
+### Structure
+
+**Nine bespoke sections, 27 paragraphs plus 2 in `significance`** — the shape Spas established at
+§68, continued rather than copied: `what-jingalov-hats-is`, `a-food-of-artsakh`,
+`the-language-of-greens`, `how-many-greens`, `knowing-what-to-pick`, `dough-and-enclosure`,
+`the-griddle-and-the-tonir`, `what-the-record-can-say`, `a-food-away-from-its-place`. Six key
+facts, five interesting facts, three important dates, no related figures.
+
+Three dates rather than one, and unlike §68 they are real: 2013, 2015, 2023. All three are
+institutional or documented events, not a manufactured chronology for the dish itself.
+
+### Artsakh framing
+
+The rule the article follows is that the geography is **named and bounded**. Two sections carry
+the regional and displacement material and they are **under a third of the article by word
+count** — a test measures this rather than trusting the reading, because the failure here runs
+in two directions and only one of them is obvious.
+
+Terminology is handled by distinguishing rather than choosing. The article writes "Artsakh — the
+upland region between Armenia and Azerbaijan that Armenians call Artsakh and that international
+usage more often calls Nagorno-Karabakh", says the two are **not interchangeable**, and adds that
+which name a given source reaches for is itself information. Both names then appear where the
+sources use them. It states plainly that nothing in it requires a position on the region's
+status, and no edition contains a territorial or legal claim; a test pins the absence of five
+such formulations in all three.
+
+### The current context
+
+Included, because it explains something about the food that nothing else does. In September 2023,
+after an Azerbaijani military offensive, almost the entire Armenian population of Nagorno-Karabakh
+— more than a hundred thousand people — left for Armenia; the dish went with them and became a
+street food across the country.
+
+The paragraph that earns its place is the next one, and it came **from the source rather than
+being imposed on it**. Writing for the Smithsonian's folklife magazine in February 2025, Aline
+Keledjian quotes a woman from Stepanakert saying the same herbs cannot be found in Armenia,
+because they grow in the mountains of Artsakh. That is a statement about a dish, not about a
+conflict: **a recipe can be carried in a suitcase and a hillside cannot**, so a food defined by a
+local flora is altered by displacement in a way that a food defined by a technique is not. Every
+present-tense statement carries a year, and the closing judgement — continuity rather than
+recovery — is stated as the article's reading rather than as a fact.
+
+The article does not suggest the dish stopped existing in Artsakh historically; the displacement
+section is the last of nine, and the eight before it are in the present tense about the dish.
+
+### The evidence model
+
+**The written record is short, and the article says so.** Two independent sources converge on the
+same century: Ruzanna Tsaturian, of the Institute of Archaeology and Ethnography of Armenia's
+National Academy of Sciences, places the first textual mentions at around two hundred years ago;
+the 2015 heritage-listing coverage says it was first mentioned in written manuscripts of the
+nineteenth century, when Artsakh folklore was being collected. Both point at a moment of
+**recording rather than invention**, and the article separates those explicitly: the dish is
+certainly older than its first mention, how much older the evidence does not establish, and no
+source consulted places it in antiquity. A living regional tradition does not need an ancient
+origin to be worth describing, and the article says that too.
+
+**No origin competition anywhere.** Filled flatbreads are not claimed for anyone; the subject is
+one particular combination — very thin dough, a very large mixture of greens, a griddle — and the
+article never asks who invented the concept.
+
+### Herbs — the article's core, and its biggest trap
+
+The filling is presented as **a system rather than a list**: a bulk of mild leaf greens, a smaller
+quantity of aromatics, a sour element, and a little bitterness, balanced against each other. The
+functional roles are the content; the species are examples of them. Nettle gets its own note
+because it explains something real — it stings raw and stops stinging once cooked, which is why a
+plant nobody would eat from the hand belongs inside this bread.
+
+**The herb count is treated as the folklore trap §70 predicted.** The numbers genuinely disagree
+and the article prints the disagreement with attributions: Ara Zada told RFE/RL in 2024 that the
+original recipe called for twenty-six and that around seventeen are usual now; the Smithsonian
+gives ten to twenty; other totals circulate, "some of them rounder than the sources that carry
+them". Then the explanation: a mixture assembled from what is growing, in a particular week, on a
+particular slope, **cannot have a fixed count**. The closing line is the one that matters — where
+a round number is offered as the authentic count, it is a claim about authenticity and not a
+measurement.
+
+**Gathering knowledge is described and explicitly not taught.** Tsaturian's seasonality (early
+spring and autumn, when the necessary wild herbs grow) frames the whole tradition, and her account
+of households returning to the "forest bread" during the shortages of the 1990s war explains where
+the dish came from without romanticising it. The article then refuses the obvious next step in its
+own words: it describes the knowledge, does not try to convey it, and states that which wild
+plants are safe to eat is not something to learn from a page about food.
+
+### Dough, enclosure, griddle
+
+Unleavened wheat flour, water and salt, rolled very thin — and the enclosure is what makes the
+object: the filling ends as a thin layer *between* two thin layers rather than sitting in a
+pocket, and keeping a very wet filling inside a very thin wrapper through the flattening is the
+actual skill. The proportions run the opposite way from most filled breads, which is why the
+finished bread reads green through its surface.
+
+**The cooking surface is the section's sharpest small finding.** It is griddled on a saj, in
+minutes — *not* baked against the wall of a tonir, which is what lavash uses and what an
+assumption would have supplied. The article states the lavash technique from the UNESCO record
+rather than paraphrasing it, and refuses the false continuity outright: the two should not be run
+together simply because both are Armenian and both involve fire.
+
+### Everyday and communal
+
+Both, and the article keeps both. It is weekday food in the seasons when the greens are up, made
+by several people working together, and it has festivals — the §67 audit's complaint was festive
+framing applied to everything, not the existence of festivals.
+
+### Naming
+
+**Jingalov Hats** is the English display title, with `ժենգյալով հաց` in `hy` and `ժենգեալով հաց`
+in `hyw`. The name is **retained rather than translated**; "herb-filled flatbread" appears as a
+gloss in prose, never as the title. No separate article was created for any transliteration
+variant, and `zhingyalov`, `zhengyalov` and the Armenian spellings all reach the article through
+keywords — verified as queries rather than asserted as array contents.
+
+The Western form is a transcription decision and is flagged as such: `ժենգեալով` is the
+orthographically regular Western rendering of an Eastern regional dialect word, not an attested
+Western Armenian usage this archive could verify.
+
+**One thing the article deliberately does not claim.** The derivation of `ժենգյալ` is not settled
+by anything consulted. Popular accounts connect it to a Persian word for forest — which would
+chime neatly with Tsaturian's "forest bread" — and an alternative regional name built on another
+word for greens also circulates. No lexicographic source was found for either, so the article
+says the first element names the greens and stops there. This is the §68 spas/tanapur discipline
+applied to a case where the answer did not turn up.
+
+### Sources — five, and two refusals recorded
+
+New: **RFE/RL, Amos Chapple, 5 March 2024** (url) — the ethnographic spine, carrying Tsaturian by
+name; **Smithsonian Center for Folklife and Cultural Heritage, Aline Keledjian, 17 February 2025**
+(url) — displacement and cultural continuity; **Hetq, April 2015** (url) — the 2013 heritage
+listing, the 2015 festival, and the independent nineteenth-century statement. Reused:
+**UNESCO RL/00985** from the lavash bibliography, for the tonir-wall technique; **Smithsonian
+Armenia Foodways 2018** from the spas bibliography, for regional wild-plant variation.
+
+**Petrosian and Underwood refused again, and for a different reason than §68's.** There the
+objection was concentration; here it is fit. The claims this article turns on are one named
+ethnographer's statements about one regional dish, one institution's reporting on a displaced
+community, and one dated heritage listing. A general popular survey adds nothing to any of them,
+and adding it would take the book to six of eight for no gain.
+
+**A relevant scholarly work was found and deliberately not cited.** V. A. Petrov's
+*Etnobotanika Nagornogo Karabakha* (Baku, 1940) reports a 1934–1937 field expedition recording
+about a hundred plant species used in the daily life of Nagorno-Karabakh, indexed under Russian,
+Latin, Azerbaijani and Armenian names. It is exactly what the greens sections would want. It is
+absent because **it could not be consulted** — no full text was reachable, and the only accounts
+of its contents are catalogue records. Citing a work from a catalogue entry is how a bibliography
+acquires a source nobody has read. The find is recorded in `sources.ts` so the next person to work
+on Artsakh food knows it exists.
+
+No recipe blog, travel site or restaurant page carries anything here; a test enforces that against
+the identifier URLs.
+
+### Related content, and the cross-category gap
+
+**One authored relation: `lavash`**, carried by a `SectionLink` in the paragraph that compares the
+two techniques. Nothing else in the article does comparable work. A relation to `spas` was
+considered and refused for the reason §70 named in advance — both being everyday foods is not a
+relationship — and manufacturing one to suppress filler would have been the worse error.
+
+The consequence was measured, not assumed: `getRelatedArticles` fills the remaining two slots with
+**`dolma` and `khorovats`, identically in all three editions**. So the section now has two articles
+rendering filler, spas with one slot and this one with two.
+
+**No cross-category link, and the gap is the finding.** The corpus has no Artsakh article in any
+other section. The only article that mentions Karabakh at all is `first-republic-of-armenia`, and
+it does so in a paragraph about the territorial conflicts of 1919 and 1920 — linking a food article
+there would have imported exactly the political framing the article spends a section avoiding.
+`tatev-monastery` shares the province of Syunik and nothing else. **Recorded as a knowledge-graph
+opportunity: the archive needs an Artsakh article in Places or History, and that is what closes
+this gap — not a link.**
+
+### Restraint
+
+No quantities, timings, servings or shopping framing. **No nutrition, wellness or medicinal claim
+anywhere** — the strongest temptation in the section, since the dish is almost entirely greens,
+and a test enforces the absence of twelve such terms across all three editions. Generic `Article`
+schema only: no `Recipe`, `HowTo`, `NutritionInformation`, `MenuItem` or `FoodEstablishment`, and
+none of the four recipe property keys.
+
+### Artwork — pending
+
+`public/images/cuisine/` holds seven files, all registered; `jingalov-hats` is added to
+`PENDING_ARTWORK`, the second entry on that list from outside Places. All seven existing covers
+were opened rather than read off their names.
+
+The near miss is **`lavash.webp`**, and it is refused twice over: it shows folded pale sheets of
+thin wheat bread — bread with nothing in it, when the whole subject of this article is what is
+inside — and it stages the mouth of a tonir in the background, which is the one method this
+article exists partly to distinguish itself from. `spas.webp` is the subtler refusal: white,
+herbed, cool-lit, sharing the palette without sharing anything else.
+
+The commission's single non-negotiable element is recorded: **at least one round torn or folded
+open so the layer of greens inside is visible rather than implied.** A whole unbroken flatbread
+seen from above is a picture of a different dish.
+
+### Localization and parity
+
+Three complete editions. The `hyw` edition is written in Western Armenian orthography and register
+rather than converted — `կերակուր`, `լեցոն`, `ալիւր`, `եղինճ`, `սաճ`, `բանահիւսութիւն` — and is
+**unreviewed machine output** with unusually high terminology risk: a regional dialect dish name,
+Artsakh place names, plant names and ethnographic vocabulary all at once. It joins the standing
+backlog, now fifteen articles.
+
+Plant names were adapted rather than forced into lexical parity, per §70: where a source says
+greens, no edition upgrades it to a species. The parity harness reports **0 differing rows across
+3 editions over 20 checks** — section ids, paragraph counts, `SectionLink` slugs, counts, related
+slugs, dish type, and the numeral multiset in every validator field group, including 1990, 2013,
+2014, 2015, 2020, 2023, 2024 and 2025.
+
+### Tests
+
+`cuisine.spec.ts` 46 → 59. `SLUGS` is eight; `ILLUSTRATED` stays seven; a new `PENDING` list
+states the gap rather than deriving it. The listing placeholder count is still the same
+expression — `SLUGS.length - ILLUSTRATED.length` — now producing its fourth different value
+without an edit.
+
+Thirteen new tests: corpus and the full type distribution as an object rather than a bread count;
+three-edition rendering with canonical and hreflang; search across four English forms and one
+Armenian; the claim-class test covering invention, antiquity, nutrition and recipe framing in all
+three editions; the herb-count test, which requires the figures to be attributed and the
+disagreement stated; the Artsakh test, which measures the regional sections as a fraction of the
+article and pins the absence of territorial adjudication; the recorded-versus-inferred test; the
+wild-plant test, which requires the refusal to be explicit; the griddle test; links and the
+cross-category absence; pending artwork with no borrowing; structured data; and the bibliography
+test.
+
+### Results, and every failure
+
+```
+port 3002 clear, 0 node processes, .next cleared before starting
+parity harness                                   OK — 0 differing rows, 20 checks
+npm run typecheck                                PASS
+npm run validate:content                         PASS — 144 entries; 1 pending note (jingalov-hats)
+npx playwright test tests/e2e/cuisine.spec.ts    58 passed, 1 failed → fixed → 59 passed
+npx playwright test (full, first)                319 passed, 4 failed, 5 skipped (10.4m)
+npx playwright test (full, after fixes)          323 passed, 5 skipped (8.2m), exit 0
+npm run build                                    PASS — 153/153 static pages
+```
+
+315 → 328 tests, and 150 → 153 static pages: thirteen new tests and the article's three routes.
+
+**Three real failures, all correct catches, all count assertions that the section genuinely
+outgrew.**
+
+`a cuisine query parameter restores the listing state` asserted that `?type=bread` returns exactly
+one card, Lavash. It had returned one card since the section was written, and jingalov hats made
+it two — the same thing that happened to `main` at §68 when spas joined dolma. The count was
+updated and the assertion **strengthened rather than relaxed**: it now checks both titles
+individually, because a filter returning the right number of wrong cards would have passed the old
+version.
+
+The other two live outside this section and are the ones worth noting. `places.spec.ts` →
+`the four existing category listings still load and still count what they did` and `visit.spec.ts`
+→ `every canonical route the journey links into still works` both pin the Cuisine card count as a
+literal, precisely so that another section growing does not go unnoticed. Both fired. Both were
+updated to 8 with the move recorded in the comment. **Two tests in two other files noticed an
+eighth cuisine article on their own, which is what they were written to do.**
+
+**Two cold-route timeouts, and they were environmental.** The first full run also reported
+`[hy]` and `[hyw] the places listing and the article both load in this edition` as 30-second
+`page.goto` timeouts. `.next` had been cleared immediately before, so the whole Places route family
+was compiling from scratch under two workers; the `[en]` variant of the same test passed
+immediately afterwards, on warm routes. Rerunning the three focused took 39 seconds for all of
+them, and the second full run passed all three. Recorded as the §65 cold-route flake rather than
+as a content failure — no memory pressure, no internal error, nothing cleared in response.
+
+The suite was run twice in full: once before the count fixes, once after, and the reported figure
+is the second.
+
+### Scope
+
+No Places, Visit, map, coordinate, cluster or Places-artwork change. The seven existing Cuisine
+articles are untouched — spas keeps its nine sections, its two `SectionLink`s, its sources, its
+artwork and its everyday framing. No new category, no new dish type, nothing featured.
+`.claude/settings.json` untouched. **No deployment.**
+
+### Debt
+
+Carried forward: the **Cuisine link island**, now with a second recorded refusal and a named
+remedy — an Artsakh article in Places or History; the **uniform six-section template** in the
+older six, unchanged by this step; **Petrosian and Underwood** at five of eight, improving only by
+dilution; the `hyw` review backlog at **fifteen**; and the deferred **dairy/drinks dish type**.
+New: **two Cuisine articles now render filler** — spas one slot, jingalov hats two — and
+`jingalov-hats` is the only article in the archive without a cover.
+
+---
+
+## §71. Jingalov hats artwork — verified, registered, and the archive illustrated again (August 2026)
+
+No content step. `public/images/cuisine/jingalov-hats.webp` arrived, was inspected before anything
+was written, and is registered. `PENDING_ARTWORK` is empty archive-wide for the second time.
+
+### Pre-registration state, read from source
+
+Eight Cuisine articles, seven illustrated, `PENDING_ARTWORK = ["jingalov-hats"]` and nothing else.
+`public/images/cuisine/` held seven registered files plus the new untracked one. The dish had no
+`IMAGES` key, no `Article.image`, the `/og-default.png` fallback on both social cards, and no
+`image:loc` in the sitemap. Every expectation §71 stated was already true; nothing had to be
+corrected first.
+
+### The asset
+
+```
+public/images/cuisine/jingalov-hats.webp
+1586 × 992          (1.599:1, the preferred geometry exactly)
+194,240 bytes       (190 KB)
+sha256              89c9e176e27f55eaf3da6869fc601ae3b98d3dbe81000eb8267352523c3ab5c4
+RIFF                194,232 declared, 194,232 actual — consistent
+chunks              WEBP → "VP8 " (194,220 bytes), single chunk, sync 9d012a
+no VP8X             therefore no alpha, no ICC, no EXIF, no XMP, no orientation flag
+```
+
+Verified twice, by a hand-written RIFF chunk walk and by `sharp`, which agree on every field:
+`webp`, 1586×992, `srgb`, 3 channels, 8-bit, `hasAlpha: false`, `hasProfile: false`, not palette,
+not progressive. Simple lossy, so the metadata absence is structural rather than merely empty.
+Registered exactly as delivered: unaltered, uncropped, unoptimised, unrenamed. Same geometry as
+`lavash.webp` and `spas.webp`; no new ratio enters the section.
+
+### The visual gate, and the one thing it turned on
+
+A round flatbread on a wooden board, cut across the middle, the two halves separated and the upper
+one pulled back so **both cut faces are open to the camera**. Between two very thin sheets of pale
+dough, blistered gold and scorched in places, sits a thick dense layer of chopped greens. A loose
+bundle of fresh herbs at the left, a sprig of purple-leaved basil below it, loose leaves on undyed
+linen, a weathered plank table, cool daylight.
+
+**The §70 commission named one non-negotiable element and the file delivers more than the
+minimum.** The note said it in terms: at least one round torn or folded open so the layer of greens
+is visible rather than implied, because a whole unbroken flatbread photographed from above is a
+picture of a different dish. This one cuts the bread and opens both halves, and **the exposed
+filling is the largest saturated shape in the frame**. That is the whole acceptance decision; a
+closed flatbread would have been refused however well photographed.
+
+### Jingalov hats against Lavash — the check that mattered
+
+Compared at full resolution, at the 380px listing card, at the 160px search thumbnail and at the
+128px one. They separate instantly, on two independent axes:
+
+|            | lavash.webp                     | jingalov-hats.webp                    |
+| ---------- | ------------------------------- | ------------------------------------- |
+| colour     | warm amber, firelit             | cool pale, daylight                   |
+| green      | none anywhere in frame          | broad dark-green band through middle  |
+| subject    | plain folded sheets             | filled bread, cut open                |
+| setting    | tonir mouth, jug, flour, wheat  | board, linen, fresh herbs             |
+
+**The green survives the smallest crop the site renders.** At 128px the band is still the first
+thing visible, and lavash has nothing of the kind. §71's strongest acceptance question — can a user
+immediately see that one is plain bread and the other is herb-filled — answers yes at every size
+the site uses.
+
+All eight covers were compared. The only other cover with prominent green is `dolma` (whole
+vine-leaf rolls, dark and glossy, on a clay plate), which shares no shape or composition with a
+flat cut bread. `spas` sits nearest in palette — pale, green-flecked, wood and linen — and nowhere
+near in subject: a bowl of soup against a flatbread on a board.
+
+### Not the other filled breads
+
+Not a **spinach pie**: the casing is a thin sheet rather than a pastry shell, and the filling is
+legibly mixed rather than the homogeneous dark mass of cooked spinach. Not a **quesadilla**: no
+tortilla-wedge staging, no cheese, no salsa, no restaurant plating. Not a **borek**: no lamination
+and no flaky layers anywhere. Not a **pita or calzone**: the body is flat and thin, with no pocket
+and no inflation.
+
+### Bread, filling, herbs
+
+**Bread structure** is physically plausible: thin, handmade, irregular, with a wavy pinched sealed
+rim and blistering that varies naturally from gold to scorched. No impossible layers, no fused
+folds, no duplicate edges, no puff-pastry texture, and nothing floating free of the filling.
+
+**The filling reads as a mixture, which is the editorially important part.** Broad serrated
+leaves, narrow strap-like ones, pale stem and scallion cross-sections, and a range from dark to
+bright green. That matters because the article refuses a fixed canonical herb count: the picture
+had to communicate abundance and variety rather than a countable botanical display, and it does.
+The filling sits inside the dough at both cut faces rather than being laid on top.
+
+**Herb realism** holds up at 3×: no repeated identical leaves, no impossible stems, no greenery
+emerging through unbroken dough, no cloned textures, no neon, no microgreens and no edible flowers.
+The purple-leaved sprig reads as purple basil, a real herb of the region, with leaves that differ
+properly in size, shape and colour.
+
+**No meat, cheese or cream.** One ambiguity was inspected rather than assumed away: the dough
+carries a pale greenish mottling that could read as a thin cheese layer. At 3× it is plainly the
+filling seen through translucent dough with flour patches over it — no gloss, no stretch, no
+separate boundary, continuous with the green at the cut. Recorded because it is the one place a
+viewer might pause.
+
+### Character and the audits
+
+**Everyday and regional**: one board, one cloth, one table, herbs. No fine dining, no banquet, no
+advertisement styling.
+
+**Political-symbol audit — clean.** No map, flag, territorial outline, military imagery, slogan or
+monument. The regional identity is carried entirely by the food, which is what the article's own
+bounded treatment of Artsakh requires of its cover.
+
+**Cooking-method consistency**: there is no cooking context in the frame at all, which §71 allows
+explicitly, and therefore no tonir to contradict the article's saj distinction. Nothing in the
+image argues with the prose.
+
+**Recipe framing — none.** No ingredient lineup, no measuring spoons, no numbered steps, no recipe
+card, no labelled herbs, no bowls of flour or water arranged as instructions. The herb bundle is a
+table object beside a finished dish, the same judgement made about the dill plate on `spas.webp`.
+
+**Health framing — none.** No detox or superfood styling, no wellness packaging, no medicinal-herb
+framing, no diet imagery, no nutritional icons. A cover made almost entirely of greens is where
+that failure would have appeared, and it did not.
+
+**Object artifacts**: the board rim is continuous and correctly elliptical with consistent grain
+and tool marks; linen folds behave; shadows are coherent; nothing is duplicated, fused or floating.
+No significant defect found.
+
+**Text and signage — none.** The linen was examined at 3× specifically for pseudo-writing and is
+plain weave; no label, packaging, logo, watermark, signature or pseudo-Armenian anywhere.
+
+### Visual register
+
+**Photographic**, matching the section. All eight Cuisine covers are photographic rustic food
+photography, and this one differs only in being cool-lit rather than warm — which is precisely what
+separates it from lavash. Consistent with the section; no register miss.
+
+### Crops
+
+| crop  | dimensions | trim  | bread exterior | open edge | green filling | ≠ lavash |
+| ----- | ---------- | ----- | -------------- | --------- | ------------- | -------- |
+| 16:10 | 1586×991   | 0.1%  | full           | both      | yes           | yes      |
+| 3:2   | 1488×992   | 6.2%  | full           | both      | yes           | yes      |
+| 16:9  | 1586×892   | 10.1% | full           | both      | yes           | yes      |
+| 4:3   | 1323×992   | 16.6% | full           | both      | yes           | yes      |
+| 160px | 1058×992   | 33.3% | full           | both      | yes           | yes      |
+| 128px | 847×992    | 46.6% | full           | both      | yes           | yes      |
+| 4:5   | 794×992    | 49.9% | full           | both      | yes           | yes      |
+
+The cut runs diagonally through the centre, so every centre-anchored crop keeps both open faces.
+The tightest crop is arguably the **best**: at 4:5 the two cut faces fill the frame and the greens
+dominate. No crop degrades into plain brown bread, only herbs, only a plate or generic pastry. No
+`object-position` was added; none is needed.
+
+### Registration
+
+`"jingalov-hats": "/images/cuisine/jingalov-hats.webp"` added to `IMAGES` through the generic
+pipeline — no Cuisine-specific media logic, no dish-specific component logic, no new image field,
+no new provenance infrastructure. `ARTWORK_PROVENANCE` untouched. The slug was removed from
+`PENDING_ARTWORK`, whose commission note is kept and marked **Resolved** in the §66 convention.
+
+```
+Cuisine articles      8
+Cuisine illustrated   8
+Cuisine placeholders  0
+PENDING_ARTWORK       []
+```
+
+### Provenance, read rather than assumed
+
+`isGeneratedArtwork` is `!article.image && getImageSrc(article.slug) !== undefined` — true exactly
+when a slug resolves through the registry without the article carrying its own `image` object. This
+dish has no `Article.image` literal, so registering the file flipped it to generated. In all three
+editions the raster renders, the AI-illustration disclosure appears in that edition's own words,
+the placeholder caption disappears and the inline placeholder SVG disappears.
+
+### Every surface
+
+- **Listing.** Eight cards, eight distinct covers, **zero** placeholder SVGs.
+- **Hero.** `/en`, `/hy` and `/hyw` each render exactly `jingalov-hats.webp` with the AI caption and
+  no placeholder line. Scoped to the hero; related links legitimately render lavash's cover below.
+- **Search.** The row, scoped by canonical href, carries its own thumbnail and not lavash's.
+  `jingalov hats`, `zhingyalov`, `zhengyalov`, `Artsakh` and `ժենգյալով` all reach the article.
+- **Metadata.** `og:image` and `twitter:image` are the absolute file in every edition and no longer
+  the fallback; `og:image:alt` localises to `Jingalov Hats` / `Ժենգյալով հաց` / `Ժենգեալով հաց`.
+- **JSON-LD.** `Article.image` is the `ImageObject` for this file, five citations, graph is
+  `Organization · WebSite · Article · BreadcrumbList`. No `Recipe`, `HowTo`, `NutritionInformation`,
+  `MenuItem` or `FoodEstablishment`, and none of the four recipe property keys.
+- **Sitemap.** Checked route by route: each of the three locale routes carries exactly one
+  `image:loc`, its own, and no lavash image anywhere in the block.
+
+### Content, relations and taxonomy — unchanged
+
+No editorial content was touched: the Artsakh framing, the under-a-third bound, the
+nineteenth-century evidence treatment, the refused etymology, the herb-count disagreement, the
+saj/tonir distinction, the dated 2023 context, the Petrosian & Underwood refusal and the unread
+Petrov caveat all stand as written at §70. Relations measured, not assumed: `jingalov-hats` keeps
+`["lavash"]` with filler `dolma, khorovats`, and `spas` keeps `["harissa", "lavash"]` with filler
+`dolma` — identical in all three editions. Cuisine stays at eight with
+`bread 2 · main 2 · meat 1 · ceremonial 2 · dessert 1`, no new dish type, nothing featured.
+
+### Asset performance
+
+```
+spas           198 KB      khorovats  152 KB      lavash    120 KB
+jingalov-hats  190 KB      gata       146 KB      harissa   119 KB
+                           ghapama    142 KB      dolma     112 KB
+```
+
+Cuisine now totals **1,178 KB across eight files, mean 147 KB**. Jingalov hats does **not** become
+the heaviest — `spas.webp` keeps that at 198 KB — and it does not create a new tail either: it
+joins the one spas opened, so the section is now two files near 190–200 KB and six between 112 and
+152 KB. Archive-wide it is unremarkable, Places running to Erebuni's 742 KB. Not optimised.
+
+### Test runtime
+
+`cuisine.spec.ts` 59 → **60 tests, 2.0m** on a cold Turbopack cache. Locale × illustrated coverage
+rose from 7×3 = 21 to 8×3 = 24 navigations as §71 predicted. No partition, no retries, no timeout
+changes.
+
+### Tests
+
+`cuisine.spec.ts` 59 → 60. The §70 pending test was **inverted rather than deleted**, the way §69
+inverted §68's, so the transition is pinned in both directions. `ILLUSTRATED` gains the slug,
+`ARTWORK` gains its path, and `PENDING` becomes an empty list rather than being removed — it is
+still declared because the ninth dish will open the gap a third time. The listing placeholder count
+is still the same expression and has now produced four different values without an edit. One new
+test: the search thumbnail scoped by href.
+
+Two names were corrected rather than left misleading: the whole-section ownership test was called
+`registering spas turned no dish's cover into another dish's` and is now
+`no dish's cover is another dish's, across the whole section`, because it iterates `ILLUSTRATED`
+and has covered every registration since §69 without an edit.
+
+### Results, and every failure
+
+```
+port 3002 clear, 0 node processes, .next cleared before starting
+npm run typecheck                                PASS
+npm run validate:content                         PASS — 144 entries, pending note gone
+npx playwright test tests/e2e/cuisine.spec.ts    59 passed, 1 failed → flake → 60 passed
+npx playwright test places + visit + visit-map   149 passed (5.3m)
+npx playwright test (full)                       324 passed, 5 skipped (8.2m), exit 0
+npm run build                                    PASS — 153/153 static pages
+```
+
+328 -> 329 tests: one new test and nothing else. The build generates the same 153 pages as
+before — registering artwork mints no route.
+
+**No test failed on a content claim.** One would have: `no unrelated article artwork changed` in
+`places.spec.ts` pins the entire non-Places half of `IMAGES` as a literal, and registering a Cuisine
+cover trips it by design — it did exactly that at §69. This time it was updated in the same commit
+as the registration, before the spec was run, so it never went red. Recorded plainly because
+"the snapshot passed" and "the snapshot was updated first" are different facts, and only the second
+one is true. The expected object gained one line; every other value is byte-identical.
+
+**One cold-compile flake, diagnosed rather than assumed.** `the cuisine dropdown only offers pages
+inside this edition` failed on the freshly-cleared cache: the test clicks a submenu button on the
+`hyw` homepage, and on first compile the click landed before hydration, so the menu never opened.
+It passed in isolation in 8.7 seconds, and the route was then verified directly — the
+all-cuisine-articles link is present in the server-rendered markup, and nothing in this step touched
+navigation, locale bundles or components. Recorded as the §65 cold-route flake, not a content
+regression.
+
+### Scope
+
+Article content, Cuisine taxonomy, `ARTWORK_PROVENANCE`, `PLACE_COORDINATES`, `VisitMap`,
+`map-cluster.ts`, `visit-map.ts`, `map-tiles.ts`, Visit curation, Places content and Places artwork
+are all untouched. The map is unchanged: 13 Places, 2 groups, 7 individual markers at the opening
+fitted state, 0 covered visible centres. No Cuisine #9. `.claude/settings.json` untouched.
+**No deployment.**
+
+### Debt
+
+Carried forward: the **Cuisine link island** with its named remedy — an Artsakh article in Places
+or History; the **uniform six-section template** in the older six; **Petrosian and Underwood** at
+five of eight; the `hyw` review backlog at **fifteen**; the deferred **dairy/drinks dish type**; and
+**two Cuisine articles rendering filler** (spas one slot, jingalov hats two). Closed by this step:
+`jingalov-hats` is no longer the archive's only article without a cover. New and small: Cuisine now
+carries two ~190 KB files rather than one, so the section's weight band has genuinely widened.
