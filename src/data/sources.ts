@@ -751,6 +751,135 @@ const SOURCES: Record<string, Source[]> = {
     },
   ],
 
+  /*
+   * §72. Khash — the first Cuisine bibliography assembled after a live search
+   * pass, and the first where the search results were treated as a list of
+   * questions rather than as a list of sources.
+   *
+   * That distinction did most of the work. Almost every page ranking for this
+   * dish repeats the same four claims: an eleventh-to-twelfth-century origin, a
+   * poor-man's-food class history, a rule about months containing the letter r,
+   * and a hangover cure. Each became a research question. Three of the four
+   * survive in some form and none of them survives in the form the search
+   * results state it, which is the whole reason this article exists.
+   *
+   * **What the load-bearing claims rest on.** Named scholars, in every case.
+   * Nahapetyan for the ritual grouping and for the observation that khash is
+   * still not eaten without guests; Tsaturyan, through the Smithsonian, for the
+   * absence of evidence that today's ritual predates the Soviet period and for
+   * the wedding association; Bayadyan, through Hetq, for the Soviet-era reading;
+   * Mamulyan and Antinyan, also through Hetq, for the technique, the toasts and
+   * for their disagreement about the class story. Where expertise reaches print
+   * through a reporter, the article attributes it to the person by name rather
+   * than stating it flatly — the handling settled at §70.
+   *
+   * **Three refusals, recorded because none of them is visible from the list.**
+   *
+   * 1. **Mkhitar Heratsi's `Relief of Fevers` is discussed and not cited.** The
+   *    claim that it describes khash is in nearly every popular account, and the
+   *    work is real, printed since the nineteenth century and translated into
+   *    German. But no edition of it was reachable from here, and the attribution
+   *    travels from one popular page to the next without a passage attached. The
+   *    article therefore reports the claim as a claim and says so in the prose.
+   *    Citing the text would assert that it had been read.
+   *
+   * 2. **No etymological dictionary is cited, and the etymology is short as a
+   *    result.** Ačaṙyan's `Հայերեն արմատական բառարան` is the work that would
+   *    settle when the noun `խաշ` separates from the verb `խաշել`, and it is
+   *    exactly the source §27 of the specification asks for. Nayiri, the archive
+   *    that holds it, refused the connection here — the same failure recorded at
+   *    §70. Martirosyan's Brill dictionary could not be checked for the entry
+   *    either. So the article states the relation between the noun and the verb,
+   *    which is uncontroversial and attested in the Armenian sources below, and
+   *    explicitly declines to date the word. A dated etymology assembled from
+   *    Wiktionary's citation of a dictionary nobody here opened would be the
+   *    catalogue-entry failure under a different name.
+   *
+   * 3. **Petrosian and Underwood is again not cited, for the third consecutive
+   *    Cuisine article.** It stands at five of eight and the specification asks
+   *    that it not become six of nine by default. It would add nothing here: the
+   *    one thing it is quoted for online — that khash is an Armenian institution
+   *    with songs written about it — is colour rather than evidence, and Hetq
+   *    records the existence of a khash song independently. Every historical,
+   *    ethnographic and linguistic claim in this article is carried by a named
+   *    scholar or an institutional record.
+   *
+   * **One entry is scoped rather than refused.** Fertaly's article is the only
+   * peer-reviewed study devoted to khash that could be identified, and its
+   * bibliographic record is fully verified through Crossref. The full text is
+   * paywalled and was not read. It is therefore cited for what its published
+   * abstract and title establish — that khash has been analysed as a male
+   * gathering and a national narrative — and nothing in the prose is attributed
+   * to it beyond that. The distinction from the Petrov refusal at §70 is that
+   * there the only description of the work was a catalogue record; here there is
+   * a published abstract. It is a narrower claim, and it is marked as one.
+   */
+  khash: [
+    {
+      author: "Ռաֆիկ Նահապետյան",
+      title: "Հայոց ավանդական ուտեստի էթնոմշակութային բնութագրության շուրջ",
+      publisher: "Պատմա-բանասիրական հանդես, Երևան",
+      year: "2019",
+      identifier: {
+        kind: "url",
+        value: "https://artsakhlib.am/wp-content/uploads/2020/05/Ռաֆիկ-Նահապետյան-–-Հայոց-ավանդական-ուտեստի-էթնոմշակութային.pdf",
+      },
+      note: "The strongest source here and the one that answers the question the popular accounts cannot: why khash is never eaten alone. Nahapetyan, an ethnographer at Yerevan State University, groups khash with harissa, milk soup and matagh as ritual dishes dedicated to the powers over farming and livestock — harissa to grain, khash to the success of animal husbandry — and observes that khash and matagh are, in his words, still almost never enjoyed without guests. He also lists khash and khashlama separately among the respected meat dishes, which is the scholarly warrant for keeping the two apart. Read directly, pages 175–199; the ritual passage is on page 191. His antiquity statement is a reconstruction argued from later practice rather than a dated attestation, and the article marks it as one.",
+    },
+    {
+      author: "Kaitlin Fertaly",
+      title:
+        "Khash, history and Armenian national identity: reconsidering post-socialist gender, food practices and the domestic",
+      publisher: "Identities: Global Studies in Culture and Power, 19(1), 81–102",
+      year: "2012",
+      identifier: { kind: "doi", value: "10.1080/1070289X.2012.672835" },
+      note: "The only peer-reviewed study devoted to khash that could be identified. Cited for one thing only, which its published abstract carries: that khash is analysed in the scholarship as a male gathering and as a vehicle for national narratives of resourcefulness, rather than as a recipe. The full text is behind a paywall and was not consulted; the bibliographic record was verified through Crossref. Nothing in the article's prose is attributed to it beyond the scope of that abstract.",
+    },
+    {
+      title: "Խաշ. պատրաստվում է հեթանոսության ժամանակներից",
+      publisher: "Հետք",
+      year: "22 November 2010",
+      identifier: { kind: "url", value: "https://hetq.am/hy/article/48744" },
+      note: "The richest single source for practice, and unusual in that it prints a disagreement rather than a consensus. It carries: the letter-ր rule with the reason offered for it; that the cook adds no salt because it darkens the broth; the three toasts in order and one chef's objection that fixing a number misses the point; the Gyumri attachment and the custom of khash on the morning after a wedding; and the alcohol custom. It is also the source for the article's class-history section, because it records Sedrak Mamulyan rejecting the poor-man's-food account outright and Grisha Antinyan comparing it to the story told about pizza. Hrach Bayadyan, a scholar of culture, supplies the Soviet-era reading and — against Mamulyan's claim of unchanged pagan-era continuity — the argument that the rites around the dish change even where the dish does not.",
+    },
+    {
+      author: "Benjamin Kemper",
+      title: "How to Cure a Hangover in Armenia? With Cow-Foot Soup",
+      publisher: "Smithsonian Center for Folklife and Cultural Heritage",
+      year: "21 March 2018",
+      identifier: {
+        kind: "url",
+        value: "https://festival.si.edu/blog/how-to-cure-a-hangover-in-armenia-cow-foot-soup-khash",
+      },
+      note: "Quotes Ruzanna Tsaturyan of the Institute of Archaeology and Ethnography of Armenia's National Academy of Sciences on the two claims the article leans on hardest: that no evidence has been found for today's khash ritual being widespread before the Soviet period, and that the few historical references that exist characterise khash as wedding food. Also the source for the gendered history and its recent change, for the two kinds of lavash at the table, for the garlic quantity, and for the observation that a nine o'clock gathering obliges the cook to start overnight. Chosen over the same author's magazine piece because this is the institution's own folklife programme.",
+    },
+    {
+      author: "Etrat Elahi",
+      title: "KALLA-PĀČA",
+      publisher: "Encyclopaedia Iranica",
+      year: "15 December 2010",
+      identifier: { kind: "doi", value: "10.1163/2330-4804_EIRO_COM_611" },
+      note: "The regional comparison rests entirely on this, and it is a scholarly reference work rather than a food page, which is why the comparison could be made at all. It supplies: head and trotters cooked over low heat, usually overnight; reserved for the colder days of the year; served in the morning; salted only at the end because salt blackens the meat; made in specialist shops with their own guild rather than at home; and served with vinegar, onion or crushed garlic in a nineteenth-century account. The salt detail arriving independently here and in Hetq is what let the article treat the shared features as consequences of the food rather than as borrowing in either direction.",
+    },
+    {
+      title: "Intangible Cultural Heritage",
+      publisher:
+        "Ministry of Education, Science, Culture and Sport of the Republic of Armenia",
+      year: "consulted 2026",
+      identifier: { kind: "url", value: "https://escs.am/en/static/intangible-cultural-heritage" },
+      note: "Carries one claim, and it is a claim about an absence: khash does not appear on Armenia's national inventory of intangible cultural heritage, although lavash, gata, matsun, tolma, winemaking and fruit-spirit distilling do. Checked twice and in two languages, against the ministry's own page and against the published enumeration of the inventory, because an absence stated from a single reading of a single list is not a checked fact.",
+    },
+    {
+      title:
+        "Lavash, the preparation, meaning and appearance of traditional bread as an expression of culture in Armenia",
+      publisher:
+        "UNESCO Representative List of the Intangible Cultural Heritage of Humanity, no. 00985",
+      year: "inscribed 2014",
+      identifier: { kind: "url", value: "https://ich.unesco.org/en/RL/00985" },
+      note: "Reused from the lavash bibliography for one claim, as at §70: that lavash is dried, keeps for months and is brought back with water. That property is why dried lavash can be crumbled into a bowl of khash as though it were an ingredient, which is the link between the two articles and the reason the relation is authored rather than filled in.",
+    },
+  ],
+
   /* ----------------------------------------------------------------- places */
 
   /*

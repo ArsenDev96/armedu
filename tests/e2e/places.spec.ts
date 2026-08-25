@@ -3123,6 +3123,10 @@ test("no unrelated article artwork changed", () => {
     ghapama: "/images/cuisine/ghapama.webp",
     spas: "/images/cuisine/spas.webp",
     "jingalov-hats": "/images/cuisine/jingalov-hats.webp",
+    // §73 adds khash. This snapshot went red on the registration, which is what it
+    // is for — a Cuisine cover landing is exactly the kind of change that should
+    // not reach the Places half of the registry unnoticed. Added, not relaxed.
+    khash: "/images/cuisine/khash.webp",
   });
 
   // Every other entry is still a WebP in one of the category directories, and
@@ -4746,10 +4750,11 @@ test("the four existing category listings still load and still count what they d
     ["history", 7, dict.listing.history.title],
     ["writers", 6, dict.listing.writers.title],
     ["works", 4, dict.listing.works.title],
-    // §67 moves Cuisine 6 → 7 with Spas, and §70 moves it 7 → 8 with jingalov
-    // hats. Edited rather than derived on purpose: this test's whole job is to
-    // notice when another section's count changes, and it has now done so twice.
-    ["cuisine", 8, dict.listing.cuisine.title],
+    // §67 moves Cuisine 6 → 7 with Spas, §70 moves it 7 → 8 with jingalov hats,
+    // and §72 moves it 8 → 9 with khash. Edited rather than derived on purpose:
+    // this test's whole job is to notice when another section's count changes,
+    // and it has now done so three times, going red first on each of them.
+    ["cuisine", 9, dict.listing.cuisine.title],
   ];
 
   for (const [path, count, heading] of expected) {

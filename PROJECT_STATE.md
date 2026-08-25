@@ -1,6 +1,6 @@
 # Armat — Project State Report
 
-**Last updated:** 2026-08-24 (Jingalov hats artwork registered — every article in the archive illustrated again)
+**Last updated:** 2026-08-24 (Khash artwork registered — every article in the archive illustrated again)
 **Repo:** `d:\armedu` · branch `seo`
 **Status:** Armenian-first multilingual site, complete in three editions and **live in
 production at [armat.site](https://armat.site)** (Vercel). Crawlable and indexable today.
@@ -14821,3 +14821,565 @@ five of eight; the `hyw` review backlog at **fifteen**; the deferred **dairy/dri
 **two Cuisine articles rendering filler** (spas one slot, jingalov hats two). Closed by this step:
 `jingalov-hats` is no longer the archive's only article without a cover. New and small: Cuisine now
 carries two ~190 KB files rather than one, so the section's weight band has genuinely widened.
+
+---
+
+## §72 — Khash, Cuisine #9, with a live SEO pass first (2026-08-24)
+
+**Status:** green. Cuisine 8 → 9. Artwork pending.
+
+### What this step did differently
+
+Every previous Cuisine article began with sources. This one began with a live
+search pass, and the difference turned out to matter more than expected: the
+search results were not used as a source list but as a **list of questions**.
+
+Four claims dominate the results for this dish. All four became research
+questions, and none of them survived in the form the results state it:
+
+| claim on the SERP | what the research found |
+|---|---|
+| 11th–12th-century origin, unchanged | a list of medieval authorities passed between popular pages with no passage attached; the one work that is real and datable (Heratsi, 1184) could not be consulted |
+| food of the poor, made from discards | no documentary evidence in anything consulted; **rejected outright** by the head of Armenia's culinary-traditions association, and likened to the pizza-origin story by his colleague |
+| eaten only in months containing "r" | genuinely documented as custom — but the rule depends on borrowed month names, so it cannot be old, and it is not followed strictly now |
+| hangover cure | a social association and a piece of food writing; no medical basis in anything consulted |
+
+That table is the article.
+
+### SEO research (live, August 2026)
+
+**Volume unavailable.** No keyword-volume tool was available and none was
+invented — no monthly searches, no difficulty, no CPC, no traffic estimates
+appear anywhere in this step. The findings below are qualitative SERP evidence.
+
+**Queries run:** khash · Armenian khash · what is khash · what is Armenian
+khash · khash Armenia · Armenian khash tradition · Armenian winter food · khash
+soup · khash recipe · plus Armenian-language forms (խաշ, խաշի ավանդույթ,
+խաշ ինչ է, ր տառ ամիսներ) and targeted evidence queries.
+
+**Primary intent: informational-cultural, not recipe.** The definitional and
+explanatory forms dominate; recipe intent is real but secondary and sits on a
+separate set of pages.
+
+**A SERP fact that drove the title decision.** The bare entity `khash` is
+*ambiguous* and largely not about the dish: the first page is dominated by
+Khash in Iran, Khash County, Khash in Nimruz, Khash Darreh and Khash Rud. The
+dish only reliably owns the SERP once "Armenian" or "Armenia" is present. So the
+SEO title had to carry the country, and the visible title stays `Khash`.
+
+**SERP composition** — roughly, across the queries above:
+
+- encyclopedic: Wikipedia (dish + several places), Wiktionary
+- official tourism: armenia.travel, gyumri.am, visityerevan.am
+- institutional/press: Smithsonian Magazine, Smithsonian Folklife, Caspian Post
+- recipe: PBS Food, Travel Food Atlas, The Armenian Kitchen, DesiDakaar, khash.org
+- travel blog / commercial: absolutearmenia, willflyforfood, restaurant blogs
+- user-generated: forums, personal blogs
+- academic: **almost absent** — one paywalled article, not surfaced by any
+  ordinary query
+
+**Content gap.** Tourism pages explain the experience; recipe pages explain the
+preparation. Nothing on the first pages separates *documented evidence* from
+*tradition* from *storytelling*, and every page repeats the same four claims
+with no attribution. Specifically weak or missing everywhere: what the medieval
+attributions actually rest on; etymology beyond "it means to boil"; why the
+morning; the R-month rule's own age; the class-history claim's evidence; the
+regional relatives treated as anything other than a rival claim; and the
+hangover claim's status.
+
+**Armat differentiation.** Armat explains khash as a *practice* — season, hour,
+table, company — with each claim carried as the kind of claim it is, and with
+the named scholars who actually said it. Three things in the article appear on
+no competing page: the R-month rule's dependence on borrowed month names, the
+salt convergence with Iran, and khash's absence from Armenia's ICH inventory.
+
+**Decisions:**
+
+- **SEO title:** `What Is Khash? Armenia's Winter Morning Meal` (44 chars).
+  Question form because the definitional query is the strongest; "Armenia's"
+  because the bare entity is ambiguous; "Winter Morning Meal" because those are
+  the two facts a searcher wants and the two the article is about.
+- **Meta description:** explains rather than advertises; no "must try", "best",
+  "ultimate", "authentic".
+- **Recipe intent: explicitly refused as a target.** No recipe structure, no
+  recipe schema, no quantities. A test bounds the prose to two numerals.
+- **Armenian SEO:** the Armenian editions were written as Armenian, not as
+  translated English SEO. Both Armenian titles are `Խաշ`; the searchable
+  terminology (խաշ, խաշի ավանդույթ, խաշլամա, տավարի տոտիկներ, սխտոր, բողկ)
+  arises from the prose rather than being inserted into it.
+- **Anti-stuffing measured, not asserted:** a test counts "armenian khash" in the
+  prose (not the rendered chrome, which includes the keyword chips) and caps it.
+
+### The evidence model
+
+**Definition.** Cattle feet, boiled in plain water. Head and stomach appear in
+some accounts; Armenian cooks describe older practice as more often lamb. The
+article distinguishes core / common variation / household variation instead of
+merging them, and keeps the description of the parts brief and unsensational.
+
+**Slow cooking** is explained as technique, not instruction: connective tissue
+is collagen, collagen breaks down to gelatin in long moist heat, and that is
+where the broth's body comes from. Soaking times are given as a *range in words*
+(ten to forty-eight hours) with the disagreement named, because the sources
+genuinely disagree.
+
+**The salt detail became the article's spine.** The cook does not salt the pot,
+because salt darkens the broth (Mamulyan, via Hetq). Encyclopaedia Iranica gives
+the same instruction for the same reason for kalla-pāča. Two unconnected
+traditions, one technical reason — and it explains why the table is
+participatory: the dish *arrives unfinished*, so each person completes it. That
+is the article's central observation, and it came from the sources rather than
+being imposed on them.
+
+**Seasonality — the strongest original finding.** The R-month rule is real and
+documented in Armenian. It also works exactly: September–April all carry ր, and
+մայիս, հունիս, հուլիս, օգոստոս do not. But it *can only be as old as the month
+names it depends on*, which are Latin borrowings; the older Armenian calendar's
+names (Նավասարդ, Հոռի, Սահմի, Տրե …) do not sort by any letter, and that
+calendar drifted through the seasons anyway at 365 days with no correction. So:
+good mnemonic, real practice, no evidence of age — and not followed strictly
+today. No competing page makes this point.
+
+**Morning practice: custom certain, reason not.** The most concrete explanation
+is mechanical (a night's cooking is ready at dawn), and Iran arrives at the same
+morning custom for the same overnight preparation. The article says outright
+that no source consulted establishes a cause.
+
+**Social ritual.** Nahapetyan's ethnographic statement — khash is still almost
+never enjoyed without guests — is the scholarly warrant for the one thing every
+popular page asserts. Toasts are recorded with attribution and with the
+disagreement about whether the number is fixed. Gender history included as
+documented ethnography (Tsaturyan). Bayadyan's Soviet-era reading — khash as a
+morning deliberately spent not working, outside the state's calendar of
+organised occasions — converges with Tsaturyan's finding that the modern ritual
+is not evidenced before the Soviet period. Two scholars, different arguments,
+same period.
+
+**Alcohol:** two sentences, attributed, with an explicit statement that it is
+neither required by the dish nor recommended by the page. No quantities, no
+pairing, no authenticity framing. A test bounds the mentions.
+
+**Hangover claim:** classified as popular belief and modern food writing, a
+social association rather than a medical conclusion, with the article stating
+that it makes no claim about a therapeutic effect.
+
+**Class history:** audited and not adopted. Its mirror image (the king who tries
+the villagers' dish) circulates alongside it, which is the tell. What survives is
+nose-to-tail practicality, which needs no class explanation; what does not
+survive is "food of the poor" as documented social history. The earliest
+association the ethnographic record offers is a **wedding** — Tsaturyan on the
+historical references, Mamulyan independently on the Gyumri custom of khash the
+morning after a wedding.
+
+**Regional family:** khashi, xaş, pacha, kalla-pāča, kelle paça. Handled as spas
+handled the yogurt soups. The convergence is read as evidence about the *food*,
+not about influence. The one genuinely interesting difference is naming: Persian
+names the parts, Armenian names the method.
+
+**Khash vs khashlama:** distinguished. Nahapetyan lists them separately among the
+meat dishes, which is the scholarly warrant. No khashlama article created; noted
+as a future opportunity.
+
+**A checkable institutional fact no competitor states:** khash is **not** on
+Armenia's national inventory of intangible cultural heritage, though lavash,
+gata, matsun, tolma, winemaking and fruit-spirit distilling are. Verified twice,
+in two languages, against the ministry page and the published enumeration.
+
+### Sources
+
+Seven entries, all with identifiers, all consulted except where marked:
+
+1. **Rafik Nahapetyan**, *Պատմա-բանասիրական հանդես* 2019, 175–199 — read
+   directly; the ritual grouping and the "never without guests" observation.
+2. **Kaitlin Fertaly**, *Identities* 19(1) 2012, 81–102, DOI — **scoped**: cited
+   only for what its published abstract carries; full text paywalled and not read,
+   and that is recorded in the file.
+3. **Hetq**, 22 November 2010 — Mamulyan, Antinyan, Bayadyan.
+4. **Benjamin Kemper**, Smithsonian Folklife, 21 March 2018 — Tsaturyan.
+5. **Etrat Elahi**, "KALLA-PĀČA", Encyclopaedia Iranica, DOI — the regional
+   comparison rests entirely on this.
+6. **Ministry of ESCS**, ICH inventory — carries one claim, and it is an absence.
+7. **UNESCO RL/00985 Lavash** — reused, for the keeping property that makes dried
+   lavash usable as an ingredient.
+
+**Three refusals recorded in `sources.ts`:**
+
+- **Mkhitar Heratsi's *Relief of Fevers* is discussed and not cited.** No edition
+  was reachable. The article reports the attribution as an attribution and says so
+  in the prose. Citing the text would assert it had been read.
+- **No etymological dictionary is cited.** Nayiri refused the connection again —
+  the same failure as §70 — so Ačaṙyan could not be opened, and Martirosyan could
+  not be checked for the entry. The article therefore states the noun/verb
+  relation and **explicitly declines to date the word**. A dated etymology built
+  from Wiktionary's citation of a dictionary nobody here opened would be the
+  §70 catalogue-entry failure wearing a different hat.
+- **Petrosian & Underwood again not cited** — third consecutive Cuisine article.
+  Stays at five of nine rather than becoming six of nine. Every historical,
+  ethnographic and linguistic claim here is carried by a named scholar or an
+  institutional record.
+
+### Structure and relations
+
+Ten sections, thirty paragraphs, in all three editions:
+`what-khash-is` · `a-dish-made-by-time` · `the-months-with-an-r` ·
+`the-morning-table` · `the-bowl-you-finish-yourself` · `never-eaten-alone` ·
+`what-the-record-can-say` · `the-story-about-poor-peoples-food` ·
+`a-dish-with-relatives` · `the-hangover-reputation`.
+
+`relatedSlugs: ["lavash", "harissa"]` — both earned. Lavash because dried lavash
+is crumbled into the bowl as an ingredient; harissa because Nahapetyan groups the
+two as ritual dishes tied to grain and to livestock respectively.
+
+**The Cuisine link island is closed.** §70 recorded that the section had no
+genuine link out of it and that the remedy was not to manufacture one. Khash
+supplies the first that a source actually provides: **Gyumri**, where Mamulyan
+reports the wedding-morning custom surviving. Cuisine → Places, earned by prose.
+
+Filler measured after the authored relations were set: khash takes `dolma`;
+**spas keeps `dolma` unchanged** and jingalov hats keeps `dolma, khorovats`
+unchanged. Appending to the registry was invisible to the eight existing
+articles, and a test now asserts that rather than assuming it.
+
+### Artwork
+
+`khash` added to `PENDING_ARTWORK` with a commission note. Nothing borrowed —
+the note names `harissa.webp` and `spas.webp` as the two real substitution risks
+at card size. The brief makes the **bowl and the things that finish it** the
+subject together, because the article's argument is that the accompaniments are
+half the dish; and it forbids graphic animal-part close-ups, restaurant
+advertising, alcohol-centred staging, hangover jokes and recipe staging.
+Preferred geometry 1586×992.
+
+### Verification
+
+```
+typecheck                                   PASS
+validate:content                            PASS — 147 entries, pending note = khash
+parity harness (khash)                      OK — 0 differing rows, 3 editions, 20 checks
+cuisine.spec.ts (focused)                   73 passed (2.4m)   [60 → 73]
+```
+
+**Three real failures, all correct.**
+
+1. `places.spec.ts` → the four existing category listings: cuisine 8 → 9. Went
+   red first, then updated.
+2. `visit.spec.ts` → every canonical route the journey links into: `/en/cuisine`
+   8 → 9. Went red first, then updated.
+3. `cuisine.spec.ts` → the eighth-dish distribution assertion: `meat: 1 → 2`.
+   Written out in full rather than checking only the type that moved, which is why
+   adding khash had to come through it rather than past it.
+
+The listing-placeholder expression `SLUGS.length - ILLUSTRATED.length` was **not**
+edited and has now produced its fifth value without an edit — 0, 1, 0, 1, 0, 1.
+Only the test's name has ever changed.
+
+**Four failures in my own new tests, fixed in the tests and not in the content:**
+three were Armenian-script assertions run against the English edition (`Հերաց`,
+`Մամուլ`/`Անտին`, `խաշլամա`), and one counted the anti-stuffing phrase in the
+rendered `main`, which includes the keyword chips and so measured the keyword list
+rather than the writing. Recorded because a test that fails for the wrong reason
+is not evidence of anything.
+
+### Western Armenian
+
+Written as a Western Armenian edition rather than converted: `եւ`/`ութիւն`
+throughout, Western verb forms, Western vocabulary (`կերակուր`, `ճաշարան`,
+`այրեր`), and Western proper names (`Կիւմրի`, `Ռաֆիք Նահապետեան`, `Ցատուրեան`).
+The eastern-orthography marker check finds nothing. **Flagged for native review**,
+as every hyw edition in this archive is — the backlog is now sixteen.
+
+### Technical debt carried forward
+
+- **Closed:** the Cuisine link island, via Gyumri.
+- **Open:** Petrosian & Underwood at five of nine; the uniform template in the
+  older six Cuisine articles; the `hyw` native-review backlog, now sixteen; no
+  dairy/drinks type, so `matsun` and `tan` still have no home; three Cuisine
+  articles now render filler (spas, jingalov hats, khash).
+- **New:** Ačaṙyan is unreachable from here, which is now the second article whose
+  etymology had to be kept short for that reason. Worth solving once rather than
+  working around a third time.
+- **New:** khashlama is a genuine future Cuisine opportunity, and the article
+  already distinguishes it.
+
+### Not touched
+
+Places, Visit, map clustering, coordinates and Visit curation are unmodified —
+13 Places, 2 groups, 7 initial individual markers, 0 covered visible centres, no
+Place #14. `geo.ts`, `map-cluster.ts`, `visit-map.ts`, `map-tiles.ts` and
+`src/components/visit/` are clean in git. No Armat category added. No Cuisine type
+added. `ARTWORK_PROVENANCE` unmodified. `getRelatedArticles` unmodified.
+`.claude/settings.json` unmodified. Steps 38–42 not rewritten.
+
+**No deployment occurred.**
+
+---
+
+## §73 — Khash artwork verified and registered (2026-08-24)
+
+**Status:** green. Cuisine 9/9 illustrated. `PENDING_ARTWORK` empty archive-wide
+for the third time.
+
+### The asset
+
+```
+path       public/images/cuisine/khash.webp
+size       1585 × 992 · ratio 1.5978
+bytes      135,762 (132.6 KB)
+sha256     71c5845b4d3a3c33e4ddce52d1275dd3d835d36dce86fdb9d3111a0462910e78
+RIFF       135,754 declared / 135,754 actual — match
+chunks     one: "VP8 " (135,742). No VP8X.
+format     simple lossy · keyframe · start code 9d012a
+alpha      none (no ALPH, sharp channels = 3, hasAlpha false)
+ICC        absent      EXIF absent      XMP absent
+orientation none possible — no VP8X and no EXIF to carry one
+```
+
+Verified twice and independently: a hand-written RIFF chunk walk and `sharp`
+agree on every field. Because there is no VP8X extension, the absence of ICC,
+EXIF, XMP and orientation is **structural** rather than merely empty — the
+container has no place to put them.
+
+**One pixel of geometry drift, reported rather than corrected.** The §72
+commission asked for 1586×992; the file is 1585×992. That is 0.06% of one
+dimension, it changes no crop outcome, and it is invisible at every rendered
+size. Resizing to hit the round number would have meant resampling the entire
+image to fix nothing, and §44 forbids resizing anyway. Recorded and accepted.
+
+### Visual acceptance — pass
+
+A deep speckled stoneware bowl, banded in dark blue, holding **clear pale-golden
+broth** with pieces of slow-cooked meat and pale gelatinous trotter meat partly
+submerged. Behind and left, a stack of folded lavash on a board. Front left, a
+small dish of crushed garlic with a bulb and two loose cloves. Right, radishes,
+fresh greens, and a squat ceramic cup of tea. A second bowl and spoon at the
+lower right. Beyond it all, a **frosted window** in cool daylight.
+
+It reads first as a traditional hot broth dish, which is the gate §3 set.
+
+### The three comparisons
+
+Built as side-by-side composites at the real rendered sizes — 380px listing card,
+160px and 128px search thumbnails — rather than asserted.
+
+| | reads as | separates from khash on |
+|---|---|---|
+| **spas** | white, opaque, green-flecked | colour *and* opacity — nothing in common |
+| **harissa** | pale homogeneous mound, butter pool, terracotta, firelit | physical state (mound vs liquid), bowl colour, warm vs cool light |
+| **khorovats** | dark browned skewered meat, red accents | subject entirely |
+
+**Khash is the only clear golden liquid in the section**, and that holds at 128px,
+the narrowest crop the site renders. The closest pair is khash/harissa, since both
+are warm-toned bowls; they separate on two independent axes even so.
+
+Checked against all eight, not only the three: lavash, dolma, gata, ghapama and
+jingalov hats are different subjects entirely. The one element khash shares with
+another cover is **stacked lavash** — but there it is the subject and here it is
+background, out of focus, behind the bowl, and the bowl is unmistakably what the
+picture is of.
+
+### The audits
+
+**Broth.** Genuinely transparent: submerged pieces show through softened rather
+than hidden. Irregular lace of fat droplets on the surface — sizes and clustering
+vary, density falls off toward the calmer centre-right, no tiling and no repeated
+motif. Visible meniscus against the ceramic; visible wall above the waterline, so
+liquid depth reads. Nothing crosses the rim. Not creamy, not gelatin-solid, not
+gravy-like, not separated, not glossy.
+
+**Food components — the non-graphic requirement is met by an absence.** There is
+**no bone in the frame at all**: no hoof, no split joint, no cross-section, no
+anatomy of any kind. Pieces are partially submerged; the meat is cooked
+grey-pink-brown with visible fibre, not raw and not seared. The pale gelatinous
+pieces are deliberately ambiguous between skin, tendon and fat — and that is the
+right outcome, because the article describes the parts briefly and without
+emphasis, so a cover that made them unmistakable would have contradicted it.
+
+**Lavash** present, secondary, roughly a sixth of the frame, out of focus. It does
+not turn the file into a second lavash cover.
+
+**Garlic / radish / accompaniments** restrained and scattered as table objects, not
+arranged: a small bowl of crushed garlic (explicitly permitted by §10), a bulb, two
+cloves, three radishes, a bunch of greens. No lineup, no mise-en-place, no labelled
+bowls, no restaurant garnish, no microgreens.
+
+**Winter-morning character** — carried by the frosted window, which is the single
+best cue in the file and one the commission did not ask for. Cool light from the
+left, warm wood, a restrained table. No snow required and none needed.
+
+**Steam** subtle, narrow, drifting right, physically plausible, obscuring nothing.
+No symmetry, no clouds, no fog effect.
+
+**Communal character** without people: a second bowl with a spoon, extra lavash, a
+shared table. No hands, so no hand anatomy to check.
+
+**Alcohol — clean, and inspected rather than assumed.** The ceramic cup at top
+right holds a brown liquid and could be misread in a thumbnail. At 3× it is an
+opaque hand-painted stoneware tumbler filled nearly to the rim: not glass, not
+stemware, not a shot glass. No bottle anywhere in the frame, no drinking gesture,
+no hangover imagery.
+
+**Health / hangover framing** — none. No pills, medical props, wellness styling or
+symbols.
+
+**Recipe framing** — none. No raw lineup, measuring spoons, numbered steps, recipe
+card, timer or labels. The finished dish only.
+
+**AI artifacts** — bowl rim a continuous correctly-oriented ellipse of consistent
+thickness, with a rust wear-line following the curve; second bowl and spoon
+coherent, the spoon a single ellipse with a continuous handle; cloth folds behave;
+shadows coherent; nothing duplicated, fused or floating.
+
+**Text / signage** — none. The bowl's blue band is a repeating chevron-and-dot
+motif between two rules, and the cup's is wavy lines and dots; inspected at 3×,
+neither resolves into lettering in any script. The out-of-focus streaks on the
+second bowl are glaze and shadow. No watermark, no signature, no branding.
+
+**Armenian context** carried by the food and the ceramics. No flag, no Ararat, no
+monastery, no khachkar, no carpet, no symbol collage.
+
+**Visual register: photographic**, matching all eight existing Cuisine covers.
+Cuisine remains the section with one coherent register.
+
+### Crops
+
+| crop | geometry | trims | outcome |
+|---|---|---|---|
+| 16:10 | 1585×991 | 0.1% | everything |
+| 3:2 | 1488×992 | 6.1% | everything |
+| 16:9 | 1585×892 | 10.1% | bowl, broth, lavash, window |
+| 4:3 | 1323×992 | 16.5% | bowl, broth, lavash, garlic |
+| 4:5 thumb | 794×992 | 49.9% | bowl centred, broth legible, lavash, window, cup, bowl band |
+
+**The tightest crop is arguably the best framing in the set.** The bowl is centred
+and dominant, the golden broth and its pieces stay legible, and both the lavash and
+the frosted window survive. It never degrades into a generic beige bowl, only
+bread, only a spoon or only table. No `object-position` added.
+
+### Registration
+
+`khash: "/images/cuisine/khash.webp"` added to `IMAGES` through the generic
+pipeline — no Cuisine-specific media logic, no khash-specific component logic, no
+new image field, no new provenance infrastructure. `ARTWORK_PROVENANCE`
+untouched. Removed from `PENDING_ARTWORK`; the commission note is retained and
+marked **§73 Resolved**.
+
+```
+Cuisine 9 · illustrated 9 · placeholders 0 · PENDING_ARTWORK []
+```
+
+### Provenance
+
+`isGeneratedArtwork` was read, not assumed:
+`!article.image && getImageSrc(slug) !== undefined`. No cuisine article declares an
+`image` field at all (grep count: 0), so registering flipped khash to generated in
+all three editions — raster renders, AI disclosure appears in each edition's own
+words, placeholder caption and placeholder SVG both gone.
+
+### Surfaces
+
+- **Listing:** 9 cards, 9 distinct covers, zero placeholders.
+- **Heroes:** all three locales render exactly `khash.webp`, with localized alt.
+- **Search:** the row scoped by canonical href carries its own thumbnail and not
+  spas's, harissa's or khorovats's; `khash`, `armenian khash`, `winter morning`,
+  `khashlama` and `խաշ` in both Armenian editions all reach it.
+- **OG / Twitter:** the registered file in every edition; the `/og-default.png`
+  fallback is gone.
+- **JSON-LD:** `Article.image` is the registered file; graph is still
+  `Organization · WebSite · Article · BreadcrumbList` — no Recipe, HowTo,
+  NutritionInformation, MenuItem or FoodEstablishment, and none of the four recipe
+  keys.
+- **Sitemap:** checked **route by route**, not by a global filename count. Each
+  locale carries exactly one `image:loc`, its own, and none of the other eight
+  covers appears in khash's block.
+
+### Regressions
+
+**SEO unchanged.** Titles, SEO titles, meta descriptions, canonicals, hreflang,
+search terms, headings and structured-data type are all exactly as §72 left them.
+Nothing was rewritten because a picture now exists.
+
+**Content unmodified.** No locale article file was touched in this step; the only
+source changes are the media registry and tests.
+
+**Relations measured, not assumed.** `khash` keeps `["lavash","harissa"]` with
+filler `dolma`; **`spas` keeps `dolma` unchanged** and `jingalov-hats` keeps
+`dolma, khorovats` unchanged — identical in all three editions.
+`getRelatedArticles` untouched, and no Cuisine filler was "fixed" here.
+
+**Cuisine unchanged otherwise:** 9 articles, `bread 2 · main 2 · meat 2 ·
+ceremonial 2 · dessert 1`, nothing featured, no new type. The eight existing
+covers are byte-for-byte where they were.
+
+**Places / Visit / map untouched:** 13 Places, 2 groups, 7 initial individual
+markers, 0 covered visible centres, no Place #14. `geo.ts`, `map-cluster.ts`,
+`visit-map.ts`, `map-tiles.ts` and `src/components/visit/` clean in git. The
+archive-wide pending change did not break the Places-scoped assertions — the
+§68 rescoping still holds, with both sides of it now empty.
+
+### Performance
+
+```
+spas 198.4 · jingalov-hats 189.7 · khorovats 151.7 · gata 146.1 · ghapama 141.5
+khash 132.6 · lavash 119.7 · harissa 119.0 · dolma 111.9   (KB)
+```
+
+Cuisine totals **1,310.6 KB across 9 files, mean 145.6 KB**. Khash is **sixth of
+nine** — it does **not** become the heaviest and it does **not** extend the heavy
+tail spas opened at §69. It lands in the main body of the distribution and pulls
+the section mean down slightly, from 147 KB to 145.6 KB. Not optimised.
+
+### Runtime
+
+`cuisine.spec.ts` 74 tests, **2.0m** — the same wall-clock as §72's 73 tests, and
+illustrated × locale coverage rose 24 → 27 navigations as §39 predicted. No
+partition, no retries, no timeout changes, no instability.
+
+### Tests
+
+The §72 pending test was **inverted, not deleted**, the way §69 inverted §68's and
+§71 inverted §70's: every assertion that pinned the pending state has a mirror.
+One new test (search thumbnail). Two tests renamed for accuracy. The sitemap
+assertion was **strengthened** while being inverted — it now requires exactly one
+`image:loc` per locale route and checks the other eight covers are absent, rather
+than only checking that an image exists.
+
+```
+typecheck                              PASS
+validate:content                       PASS — 147 entries, pending note gone
+places (snapshot + pending scope)      2 passed
+cuisine.spec.ts (focused)              74 passed (2.0m)
+full Playwright suite                  338 passed, 5 skipped (9.2m), exit 0
+npm run build                          PASS — 156/156 static pages
+```
+
+**A process error of mine, recorded because it nearly became a false report.** The
+first full-suite run was piped through `tail -20`, which §41 forbids. The tail I
+read showed `239 passed` against 343 tests in the suite, and I came within one step
+of reporting a green run on a number that did not add up. Re-run with the complete
+output captured to a file instead: **338 passed, 5 skipped, zero failures**, which
+is exactly 343. The rule against hiding test output is not about failures alone —
+it is also about not being able to tell whether the run was whole.
+
+**One real failure, and it is the one that should fail.** `places.spec.ts` → `no
+unrelated article artwork changed` pins the entire non-Places half of `IMAGES` as a
+literal. It went red on exactly one added line, `khash: "/images/cuisine/khash.webp"`.
+Run first, failed, then updated — not updated pre-emptively. That is the correction
+recorded at §71 being applied rather than only noted.
+
+The listing-placeholder expression `SLUGS.length - ILLUSTRATED.length` was not
+edited and has now produced its **sixth** value without an edit: 0, 1, 0, 1, 0, 1,
+0. Only the test's name has ever changed.
+
+### Technical debt carried forward
+
+- **Closed:** khash is illustrated; the archive has no article without a cover.
+- **Open:** Petrosian & Underwood at five of nine; the uniform template in the
+  older six Cuisine articles; the `hyw` native-review backlog at sixteen; no
+  dairy/drinks type, so `matsun` and `tan` still have no home; three Cuisine
+  articles render filler; Ačaṙyan still unreachable, which has now shortened two
+  articles' etymology sections.
+- **New and small:** the Cuisine weight band is now bimodal — two files near
+  190–200 KB and seven between 112 and 152 KB. Khash did not widen it, but it makes
+  the shape clearer.
+
+**No deployment occurred.**

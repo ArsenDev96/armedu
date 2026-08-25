@@ -147,6 +147,61 @@ const IMAGES: Record<string, string> = {
   "jingalov-hats": "/images/cuisine/jingalov-hats.webp",
 
   /*
+   * §73. Khash — and the first cover in this section whose hardest job was to
+   * avoid two things at once: looking like another dish, and looking like the
+   * thing the dish is actually made of.
+   *
+   * 1585×992, 133 KB (135,762 bytes), a single lossy `VP8 ` chunk with no VP8X
+   * extension, and therefore no alpha, no ICC profile, no EXIF and no XMP.
+   * Verified twice, by a hand-written RIFF chunk walk and by `sharp`, which agree
+   * on every field. Registered exactly as delivered: unaltered, uncropped,
+   * unoptimised, unrenamed.
+   *
+   * **One pixel of geometry drift, recorded rather than corrected.** The
+   * commission asked for 1586×992 and the file is 1585×992 — ratio 1.5978 against
+   * the archive's 1.5988. That is a third of a percent of one dimension, invisible
+   * at every rendered size, and it changes no crop outcome. Resizing to hit the
+   * round number would have meant resampling the whole image to fix nothing.
+   *
+   * **What is in the frame.** A deep speckled stoneware bowl, banded in dark blue,
+   * holding clear pale-golden broth with pieces of slow-cooked meat and pale
+   * gelatinous trotter meat partly submerged in it. Behind and to the left, a
+   * stack of folded lavash on a board; to the front left, a small dish of crushed
+   * garlic with a whole bulb and two loose cloves; to the right, radishes, fresh
+   * greens, and a squat ceramic cup of tea. A second bowl and a spoon sit at the
+   * lower right. Beyond it all, a **frosted window** in cool daylight.
+   *
+   * **The gate this file had to pass is the broth, and it passes at every size.**
+   * The liquid is genuinely transparent — pieces below the surface show through it
+   * softened rather than hidden — with an irregular lace of fat droplets on top
+   * and a visible meniscus against the ceramic. Nothing about it is creamy,
+   * gelatin-solid or gravy-like, which is what separates it from `spas.webp`
+   * (white, opaque, green-flecked) and from `harissa.webp` (a pale homogeneous
+   * mound with a butter pool). Compared side by side at the 380px card and at
+   * 160px and 128px thumbnails, the three separate on two independent axes each:
+   * colour and physical state.
+   *
+   * **The non-graphic requirement is met by an absence.** There is no bone in the
+   * frame — no hoof, no split joint, no cross-section, no anatomy of any kind. The
+   * parts read as cooked meat and soft collagen in a broth, which is exactly the
+   * register the article's prose uses when it describes them briefly and without
+   * emphasis. A cover that made the parts unmistakable would have contradicted the
+   * article rather than illustrated it.
+   *
+   * **The winter-morning brief is carried by one element**: the frost on the
+   * window. It survives every project crop including the tightest, which is why no
+   * `object-position` was needed. Cool light from the left, warm wood, a narrow
+   * drift of steam, and a restrained table do the rest.
+   *
+   * One object was inspected rather than assumed. The ceramic cup at the top right
+   * holds a brown liquid and could, in a thumbnail, be read as something else. At
+   * 3× it is an opaque hand-painted stoneware tumbler filled nearly to the rim —
+   * not glass, not stemware, not a shot glass — and there is no bottle anywhere in
+   * the frame. The alcohol audit §14 asked for is clean.
+   */
+  khash: "/images/cuisine/khash.webp",
+
+  /*
    * Places
    *
    * `khor-virap.png` is byte-for-byte the same file as `public/hero-ararat.png`,
@@ -1259,6 +1314,55 @@ export const PENDING_ARTWORK: readonly string[] = [
    * board, which reads as a table object rather than as a recipe step.
    *
    * The list is empty again, and for the second time that sentence covers the whole
+   * archive rather than only Places: every article in every section has a cover.
+   *
+   * §72 reopened it, in the same place and for the same reason as §68 and §70: a
+   * Cuisine article shipped ahead of its picture.
+   */
+  /*
+   * §72. Khash, Cuisine #9, written ahead of its picture. Nothing in the archive
+   * may be borrowed for it: `harissa.webp` is the wrong dish in a similar bowl,
+   * `khorovats.webp` is the section's other meat cover, and `spas.webp` is a pale
+   * broth photographed from above, which is the single most dangerous
+   * substitution here because at card size it would pass.
+   *
+   * **The subject is the bowl.** A deep bowl of clear, hot, pale broth on a
+   * winter morning table, steam visible, with the things that finish it beside
+   * it: crushed garlic in a small dish, dried lavash for crumbling, salt, radish,
+   * fresh greens. The article's whole argument is that the dish arrives
+   * unfinished and the table completes it, so the accompaniments are not garnish
+   * — they are half the subject, and a cover showing only a bowl would illustrate
+   * a different article.
+   *
+   * **What must not be in the frame.** No graphic close-up of feet, hooves, head
+   * or tripe: the article deliberately keeps the description of the parts brief
+   * and unsensational, and a cover that does the opposite would contradict it.
+   * No restaurant advertising — no branded plate, no menu card, no styled
+   * hero-shot lighting. No bottle staged as the point of the picture; the alcohol
+   * custom occupies two sentences of the article and must not occupy the cover.
+   * No hangover joke, in any form. No recipe staging: no pot on a stove, no
+   * ingredients laid out in a row, no step sequence, no measuring anything.
+   *
+   * **Atmosphere over drama.** Cold early light, a plain table, an ordinary
+   * domestic or small-restaurant setting. Company may be implied — a second bowl,
+   * a second pair of hands — but the frame belongs to the food, and a picture of
+   * people at a party would be a picture of a party.
+   *
+   * Preferred geometry 1586×992, the archive's dominant one. Photographic
+   * register, matching all eight existing Cuisine covers.
+   *
+   * §73 **Resolved.** The delivered file carries the commission, including the two
+   * parts of it that were hardest to satisfy together: the bowl and the things
+   * that finish it share the subject — lavash, crushed garlic, radish, greens are
+   * all present and all secondary — and the animal parts stay non-graphic, with no
+   * bone in the frame at all. Everything refused in advance stayed out: no hoof or
+   * head close-up, no restaurant branding, no bottle or shot glass, no hangover
+   * or wellness framing, no ingredient lineup, no measuring, no lettering, no flag
+   * and no Ararat. The one element the commission did not ask for and got anyway
+   * is the frosted window, which turned out to be the single best winter cue in
+   * the file. It is registered above.
+   *
+   * The list is empty again, and for the third time that sentence covers the whole
    * archive rather than only Places: every article in every section has a cover.
    */
 ];

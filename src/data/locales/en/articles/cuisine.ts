@@ -1176,4 +1176,210 @@ export const cuisineArticles: Article[] = [
     },
     relatedSlugs: ["lavash"],
   },
+  {
+    slug: "khash",
+    href: "/cuisine/khash",
+    category: "cuisine",
+    categoryLabel: "Armenian Cuisine",
+    title: "Khash",
+    seoTitle: "What Is Khash? Armenia's Winter Morning Meal",
+    dishType: "Meat dishes",
+    dishTypeId: "meat",
+    imageSeed: "khash",
+    keywords: [
+      "khash",
+      "Armenian khash",
+      "խաշ",
+      "khash soup",
+      "Armenian winter food",
+      "winter morning meal",
+      "cattle feet broth",
+      "garlic and lavash",
+      "Gyumri",
+      "khashlama",
+    ],
+    excerpt:
+      "A broth of cattle feet boiled through most of a night and eaten at first light in the cold months: the Armenian dish that arrives unfinished, and that nobody eats alone.",
+    metaDescription:
+      "Khash, the Armenian broth of long-boiled cattle feet eaten on winter mornings: why it is cold-season food, how its table works, and what the record supports.",
+    summary:
+      "Khash is a broth made by boiling cattle feet in plain water for most of a night, then served scalding and unsalted on winter mornings. Each person finishes their own bowl with garlic, salt and crumbled dried lavash, which is why the dish is a table rather than a plate. Custom attaches it to the cold months and to the early hours, and every account of it agrees on one thing before it agrees on anything else: it is not eaten alone. The two claims repeated most often about khash in English, that it is ancient and unchanged and that it cures hangovers, are the two the evidence supports least.",
+    intro:
+      "Khash is what happens when the toughest parts of an animal are given enough time. Cattle feet are cleaned, soaked in cold water for many hours, and then simmered in nothing but water until the broth is thick with what has come out of them and the meat falls off the bone. That is most of a night's work for something eaten at dawn. It reaches the table boiling and unseasoned, and each person at the table finishes their own bowl with garlic, salt and crumbled dried bread. The food is that simple. The season, the hour, the toasts and the company are the practice built around it, and the practice is what this article is mainly about.",
+    author: "Armat Editorial Team",
+    updated: "2026-08-24",
+    keyFacts: [
+      { label: "Kind of dish", value: "A broth of long-boiled cattle feet, served scalding" },
+      {
+        label: "Season",
+        value:
+          "The cold half of the year — customarily the months whose Armenian names carry the letter ր",
+      },
+      {
+        label: "Time of day",
+        value: "Early morning, before ordinary breakfast rather than alongside it",
+      },
+      {
+        label: "In the pot",
+        value: "Feet and water, and nothing else; the cook adds no salt, because salt darkens the broth",
+      },
+      {
+        label: "At the table",
+        value: "Garlic, salt, dried and fresh lavash, radish, fresh greens and pickles, added by each person",
+      },
+      { label: "Eaten", value: "In company — the one thing every account of the dish agrees on" },
+    ],
+    sections: [
+      {
+        id: "what-khash-is",
+        heading: "What khash is",
+        paragraphs: [
+          "Khash is a broth and the parts of the animal that made it. In present-day Armenia those parts are the feet of cattle, boiled until the liquid is dense with what has dissolved out of them. Some accounts include the head and the stomach as well, and Armenian cooks describe older practice as using lamb more often than beef. What every version has in common is the choice of the parts that are useless quickly and good slowly.",
+          "It is not a soup in the sense the English word suggests, and calling it one is the first thing that misleads a reader. Nothing goes into the pot except the feet and water: no vegetables, no stock, no aromatics, not even salt. The body of the finished broth is not the result of anything added to thicken it, which is why the dish sits in this section as a meat dish rather than among the soups.",
+          "The last thing to say about it is the strangest, and everything later in this article follows from it. What arrives at the table is deliberately unfinished. It is scalding, it is plain, and it is not yet seasoned, and the person who is going to eat it is the person who completes it.",
+        ],
+      },
+      {
+        id: "a-dish-made-by-time",
+        heading: "A dish made by time",
+        paragraphs: [
+          "The length of the cooking is not tradition for its own sake; it is what the ingredient requires. Feet and shanks are mostly connective tissue, and connective tissue is collagen, which is tough and does not soften in a short cooking. Held long enough in water below a rolling boil, collagen breaks down into gelatin, which dissolves and thickens the liquid. The parts that resist a quick fire are exactly the parts that give a broth its body when they are given a night.",
+          "The laborious half comes before the pot. The feet are cleaned of hair and soaked in cold water that is changed repeatedly, for a stretch of hours that the sources put anywhere from ten to forty-eight. The disagreement there is real rather than apparent: it depends on the animal, on the water and on the household, and no source consulted here presents a single correct figure.",
+          "One detail of technique matters more than any timing, and it shapes the whole table. The cook does not salt the broth. Sedrak Mamulyan, who heads an Armenian association for the preservation of culinary traditions, gives the reason plainly: salt darkens it. The same instruction, for the same reason, appears in the Encyclopaedia Iranica's account of a related Persian dish, which is a piece of evidence worth holding onto for a later section.",
+        ],
+      },
+      {
+        id: "the-months-with-an-r",
+        heading: "The months with an R",
+        paragraphs: [
+          "Khash is cold-weather food, and the customary way of saying so is a rule about spelling: it is eaten in the months whose names contain the letter ր. In Armenian that works out exactly. September through April all carry it, and the four months of the warm half of the year — մայիս, հունիս, հուլիս, օգոստոս — do not.",
+          "The explanation usually offered is straightforwardly practical. Khash is heavy and rich, and the cold half of the year is when a body is thought to want that; Armenian cooks interviewed by the investigative outlet Hetq add that livestock-keeping was concentrated in the mountain districts, where those particular months are genuinely cold. Whether or not one accepts the reasoning, the seasonal practice it describes is well attested.",
+          "The rule itself, though, cannot be old, and noticing why is more useful than repeating it. It depends entirely on the modern Armenian month names, which are borrowings of the Latin ones and brought the r along with them. The older Armenian calendar used quite different names — Նավասարդ, Հոռի, Սահմի, Տրե and the rest — which do not sort into a cold set and a warm set by any letter at all, and which drifted through the seasons anyway, because that calendar ran three hundred and sixty-five days with nothing added to correct it. The saying is a good mnemonic for a real practice. It is not evidence of the practice's age, and it is not followed strictly now either: restaurants serve khash outside those months.",
+        ],
+      },
+      {
+        id: "the-morning-table",
+        heading: "The morning table",
+        paragraphs: [
+          "That khash is a morning food is not in doubt. Armenian sources describe it eaten early, in place of breakfast rather than alongside it, and often on a weekend; visitor-facing accounts describe gatherings beginning at eight or nine. The custom is consistent across every kind of source consulted for this article.",
+          "The reason for it is another matter, and it is worth saying plainly that no source consulted establishes one. The most concrete explanation is simply mechanical: a dish that needs most of a night is ready in the morning, and the writer Benjamin Kemper, describing khash for the Smithsonian's folklife programme, notes that a gathering at nine obliges the cook to have started overnight. The same logic surfaces independently in Iran, where the related dish is likewise a morning food and likewise cooked overnight.",
+          "Other explanations circulate — that the dish is too heavy for later in the day, that it warms a cold start, that it belongs to the morning after an evening of eating and drinking. Each is plausible and none is documented as the cause. The honest position is that the custom is certain and its origin is not, and an article that supplied a confident reason here would be inventing one.",
+        ],
+      },
+      {
+        id: "the-bowl-you-finish-yourself",
+        heading: "The bowl you finish yourself",
+        paragraphs: [
+          "Because the pot cannot be seasoned, the table must be. What comes round is garlic — crushed, often worked with salt or slaked with a little of the hot broth — along with salt itself, radish, fresh greens and pickles. Each person seasons their own bowl to their own taste, and the quantities are theirs to decide. This is the structural fact about khash that photographs never quite convey: the dish is a table rather than a plate, and eating it is something each person does to it rather than merely with it.",
+          "Lavash does two jobs at that table, which is why it belongs here rather than in a list of side dishes. Dried lavash is crumbled into the broth until the liquid thickens towards a porridge, and soft lavash is used to scoop and to wrap; some accounts also describe a sheet laid over the bowl to hold the heat in. The dried form exists at all because lavash keeps for months and is brought back with a sprinkle of water, the property the UNESCO record of the bread describes — which is precisely why a winter dish has bread available to it in a form that behaves like an ingredient.",
+          "The garlic is not modest. One account puts it at up to eight cloves a portion, which should be read as an observation rather than a rule. It is worth separating the widely attested from the singular here: garlic, salt, lavash, radish, greens and pickles recur across Armenian-language reporting and institutional writing alike, whereas lemon and vinegar belong to a particular modern recipe. One restaurant table is not a national custom, and the difference between the two is the kind of thing this article exists to mark.",
+        ],
+        links: [{ phrase: "Lavash", slug: "lavash" }],
+      },
+      {
+        id: "never-eaten-alone",
+        heading: "Never eaten alone",
+        paragraphs: [
+          "Every source consulted for this article agrees on one thing before it agrees on anything else. Rafik Nahapetyan, surveying the Armenian food system for the Historical-Philological Journal in 2019, states it as a plain ethnographic fact: khash, in our own day as before, is almost never enjoyed without guests. One of the chefs interviewed by Hetq puts the same point in ordinary words — nobody gathers for khash in order to stop being hungry, since a bowl of sorrel soup would do that; they gather in order to sit down together.",
+          "The gathering has customary shape. Hetq records three toasts in order — a greeting, then one to whoever cooked it, then a wish that the khash be a good one — while Kemper records the sequence as the day, the cooks and the guests, and one of the Hetq chefs objects that fixing a number at all misses the point. Some modern accounts describe vodka or fruit spirit as part of these adult gatherings; this article records that as documented custom and nothing more, and it is neither required by the dish nor recommended here. The gathering has also been strongly gendered: it was historically a male occasion, and the ethnographer Ruzanna Tsaturyan has described women's khash parties as something that would have been hard to imagine a decade before she spoke and is now unremarkable.",
+          "What the table has meant has changed with what surrounded it. The cultural scholar Hrach Bayadyan, also speaking to Hetq, describes khash acquiring a quiet edge among the Soviet-era intelligentsia: an occasion outside the state's calendar of organised public ones, a morning spent deliberately not working, and in that sense a mild form of refusal. The city most attached to the dish makes the same point from another direction. Gyumri claims to like khash more than anywhere else in Armenia, and Mamulyan reports that the custom of eating it on the morning after a wedding has survived there in particular.",
+        ],
+        links: [{ phrase: "Gyumri", slug: "gyumri" }],
+      },
+      {
+        id: "what-the-record-can-say",
+        heading: "What the record can say",
+        paragraphs: [
+          "The word says less than it appears to. Khash is the Armenian verb meaning to boil, pressed into service as a noun, and the same root produces khashlama, which is a different dish altogether. That tells us the thing is named after its method, which is a fact about naming rather than about age. This article does not attempt to date the word, because the Armenian lexicographic works that could do so properly were not available to consult.",
+          "A list of medieval authorities travels through nearly every English-language account: Grigor Magistros in the eleventh century, Mkhitar Heratsi in the twelfth, Yesayi Nchetsi in the thirteenth, with the dish under an older form of the name. Heratsi's medical encyclopedia of 1184 is a real and much-studied work, and secondary writing reports that it describes khash as having healing properties. None of those texts was consulted here, the attributions pass from one popular account to the next without a passage attached, and — even taken at face value — a medieval physician recommending a boiled preparation is not evidence that today's dish and today's table descend from it. The claim is reported here as a claim, which is the most this article can honestly do with it.",
+          "What the ethnographic record does offer points somewhere less expected. Tsaturyan reports that the few historical references that exist characterise khash as a wedding food, which is the same association that survives in Gyumri. Nahapetyan places it among a small group of ritual dishes — Harissa dedicated to the grain harvest, milk soup to the abundance of dairy, khash to the success of livestock-keeping — though that is a reconstruction argued from later practice rather than a dated attestation, and it should be read as one. And there is a plain institutional fact worth stating: khash does not appear on Armenia's national inventory of intangible cultural heritage, though lavash, gata, matsun, tolma, winemaking and fruit-spirit distilling all do.",
+        ],
+        links: [{ phrase: "Harissa", slug: "harissa" }],
+      },
+      {
+        id: "the-story-about-poor-peoples-food",
+        heading: "The story about poor people's food",
+        paragraphs: [
+          "One account of khash's origin is repeated more than any other. It holds that khash was the food of the poor: that the good cuts went to the wealthy, that the feet and the offal were thrown out or handed down, and that the people who received them made something remarkable out of what nobody else wanted.",
+          "It is worth noticing that its mirror image circulates alongside it — a king tastes the villagers' dish, likes it, and makes it fashionable — and that two stories explaining the same thing in opposite directions are usually both stories. Mamulyan rejects the class account outright, arguing that foods in the past did not carry a marked belonging to one social group. His colleague Grisha Antinyan does not rule it out, but compares it to what people say about the origins of pizza, which amounts to recognising the shape of a folk narrative rather than a documented history.",
+          "Something does survive the audit, and it is smaller and duller than the story. Using the whole animal is ordinary practice in a household that has slaughtered one, and it requires no explanation in terms of class at all. That much is economic practicality, and it is well attested. Khash as documented social history of the poor is not established by anything consulted for this article, and the earliest association the ethnographic record actually offers — a wedding — is not an ordinary weekday in a poor household.",
+        ],
+      },
+      {
+        id: "a-dish-with-relatives",
+        heading: "A dish with relatives",
+        paragraphs: [
+          "Boiled head-and-trotter dishes are made across a wide region, under names that are sometimes the same word and sometimes not: khashi in Georgia, xaş in Azerbaijan, pacha and kalla-pāča in Iran, kelle paça in Turkey, and relatives further afield in the Balkans and Central Asia. Armenian khash belongs to that family, and describing it does not require deciding who had it first.",
+          "The comparison is more useful than any ownership claim, because of how closely the practices match. The Encyclopaedia Iranica's entry on kalla-pāča describes a sheep's head and trotters cooked over low heat, usually overnight; reserved for the colder days of the year; served in the morning; salted only at the end, because salt blackens the meat; prepared in specialist shops with their own guild rather than at home; and, in a nineteenth-century account, served with vinegar, onion or crushed garlic. Almost every structural feature of the Armenian practice appears there, in a tradition that arrived at it separately.",
+          "That convergence is best read as evidence about the food rather than about influence. A preparation that takes a night is ready in the morning; a heavy gelatinous broth suits cold weather; a pot that cannot be salted forces the table to season itself; a dish that is hard to make at home becomes a reason to gather. The most interesting difference is in the naming. Persian names the parts — head and trotter — and Armenian names the method. Two traditions describing the same dish by different halves of it, and neither this article nor its sources needs to turn that into a competition.",
+        ],
+      },
+      {
+        id: "the-hangover-reputation",
+        heading: "The hangover reputation",
+        paragraphs: [
+          "In English, khash usually arrives attached to a single claim. Headlines call it a hangover cure, and a reader who searches for the dish will meet that description before they meet the dish. It is the most widely repeated thing said about khash outside Armenia.",
+          "Where it comes from is not mysterious. Khash is eaten in the morning, in company, and Armenian descriptions note that it often follows a festive evening the night before. A food eaten the morning after acquires the reputation of a remedy for the morning after, and once the association exists, food writing repeats it because it makes a good line.",
+          "What matters is what kind of claim it is. It is a popular belief and a piece of modern food writing — a social association rather than a medical conclusion. Nothing consulted for this article establishes a therapeutic effect, and this article makes no claim about one. It is set out here because it is what most English-language pages lead with, and a reader arriving from them is owed the distinction.",
+        ],
+      },
+    ],
+    importantDates: [
+      {
+        year: "1184",
+        event:
+          "Mkhitar Heratsi completes his medical encyclopedia, the work later accounts most often name when they date khash to the Middle Ages; the text itself was not consulted for this article.",
+      },
+      {
+        year: "2012",
+        event:
+          "Khash becomes the subject of peer-reviewed anthropology, analysed as a male gathering and a national narrative rather than as a recipe.",
+      },
+      {
+        year: "2019",
+        event:
+          "Rafik Nahapetyan's survey of the Armenian food system places khash among the ritual dishes tied to livestock-keeping, and records that it is still almost never eaten without guests.",
+      },
+    ],
+    significance: {
+      heading: "Why khash matters",
+      paragraphs: [
+        "Khash is the second meat dish in this section and the first that is far more interesting as a practice than as a preparation. The recipe is two lines long and contains one ingredient. Everything else worth knowing about it is the season, the hour, the table and the company — which makes it an unusually good subject for an archive that treats food as culture rather than as instruction.",
+        "It is also the clearest case so far of a dish whose popular history and documented history do not match. The two things said about it most often in English are the two the evidence supports least, and telling them apart from what named scholars actually say is most of the work this article does.",
+      ],
+    },
+    interestingFacts: [
+      "The rule that khash belongs to the months with an r in them works in Armenian only because Armenian borrowed its month names from Latin and the r came with them; with the older Armenian month names it would not work at all.",
+      "The cook never salts the broth, because salt darkens it — and the same instruction, for the same reason, is given in Iran for a related dish by an entirely separate tradition.",
+      "Dried lavash is crumbled into the bowl until the broth thickens, a use for bread that depends on lavash keeping for months and reviving with water.",
+      "The word is the verb to boil doing duty as a noun; the same root gives khashlama, which is a different dish and should not be confused with this one.",
+      "Khash is absent from Armenia's national inventory of intangible cultural heritage, although lavash, gata, matsun, tolma and fruit-spirit distilling are all on it.",
+    ],
+    relatedFigures: [],
+    cuisine: {
+      ingredients: [
+        "Cattle feet — trotters — as the characteristic part",
+        "The head and the stomach in some accounts and some households",
+        "Water, and nothing else in the pot",
+        "Garlic, crushed and often worked with salt, added at the table",
+        "Dried and soft lavash, radish, fresh greens and pickles",
+        "Salt, which each person adds to their own bowl",
+      ],
+      preparation:
+        "The feet are cleaned and soaked in cold water that is changed repeatedly over many hours, then simmered in plain unsalted water for most of a night, until the collagen has broken down and the broth has body. It is served scalding and unseasoned, and finished by each person at the table.",
+      occasions: [
+        "Winter mornings, and weekend mornings in particular",
+        "Gatherings of family, friends and neighbours, with customary toasts",
+        "In Gyumri, the morning after a wedding",
+      ],
+      regions: [
+        "Throughout Armenia, as a cold-season practice rather than a regional dish",
+        "Gyumri and Shirak, where the attachment to it is strongest",
+        "Part of a wider regional family of boiled head-and-trotter dishes",
+      ],
+      serving:
+        "Served boiling and unsalted in a deep bowl, with garlic, salt and the accompaniments passed round so that each person seasons and thickens their own portion.",
+    },
+    relatedSlugs: ["lavash", "harissa"],
+  },
 ];

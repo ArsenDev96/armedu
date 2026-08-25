@@ -19,8 +19,9 @@ import { LOCALES, articleTitle, bundle, cards, ui } from "./helpers";
 
 const SPAS = "spas";
 const JINGALOV = "jingalov-hats";
+const KHASH = "khash";
 
-/** Every dish in the section, as of §70. */
+/** Every dish in the section, as of §72. */
 const SLUGS = [
   "lavash",
   "dolma",
@@ -30,6 +31,7 @@ const SLUGS = [
   "ghapama",
   SPAS,
   JINGALOV,
+  KHASH,
 ] as const;
 
 /**
@@ -45,11 +47,13 @@ const SLUGS = [
  *
  * §69 closed the gap: `spas.webp` was registered and the two lists named the same
  * seven slugs again. §70 opened it again in the same place with `jingalov-hats`,
- * and §71 closed it again — which is why the declaration was kept separate rather
- * than collapsed back into `SLUGS`. Every assertion below that says "each
- * illustrated dish" went on meaning that across all four moves, and none of them
- * needed an edit for any of them. `PENDING` is empty for the same reason it is
- * still declared: the ninth dish will open the gap a third time.
+ * §71 closed it again, §72 opened it a third time with `khash`, and §73 has
+ * closed it again — which is why the declaration was kept separate rather than
+ * collapsed back into `SLUGS`. Every assertion below that says "each illustrated
+ * dish" has gone on meaning that across all six moves, and not one of them has
+ * needed an edit for any of them. `PENDING` is empty and still declared, for the
+ * reason it was still declared at §71: the tenth dish will open the gap a fourth
+ * time, and a list that has to be reintroduced is a list that gets forgotten.
  *
  * Kept as its own literal rather than derived from `getImageSrc`, for the reason
  * the Places file gives: a derived list agrees with the registry by construction,
@@ -64,6 +68,7 @@ const ILLUSTRATED = [
   "ghapama",
   SPAS,
   JINGALOV,
+  KHASH,
 ] as const;
 
 /** The dishes still waiting for one. Derived from nothing — stated. */
@@ -79,6 +84,7 @@ const ARTWORK: Record<string, string> = {
   ghapama: "/images/cuisine/ghapama.webp",
   spas: "/images/cuisine/spas.webp",
   "jingalov-hats": "/images/cuisine/jingalov-hats.webp",
+  khash: "/images/cuisine/khash.webp",
 };
 
 const dishTypeLabel = (locale: "hy" | "hyw" | "en", id: string) => {
@@ -86,6 +92,8 @@ const dishTypeLabel = (locale: "hy" | "hyw" | "en", id: string) => {
   if (!filter) throw new Error(`No "${id}" cuisine type in "${locale}".`);
   return filter.label;
 };
+
+const escapeRe = (value: string) => value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
 type LdNode = { "@type"?: string; [key: string]: unknown };
 
@@ -655,11 +663,13 @@ test("spas gained a picture and no recipe markup with it", async ({ page }) => {
 
 test("the cuisine listing shows no placeholders at all", async ({ page }) => {
   /*
-    Derived from the two lists rather than typed as a literal, and this is the fourth
+    Derived from the two lists rather than typed as a literal, and this is the sixth
     value the same expression has produced without being edited: zero for the
     section's first six articles, one while spas waited between §68 and §69, zero
-    again once it was registered, one while jingalov hats waited between §70 and §71,
-    and zero again now. A literal would have been wrong four times over.
+    again once it was registered, one while jingalov hats waited between §70 and
+    §71, zero again, one while khash waited between §72 and §73, and zero again now.
+    A literal would have been wrong six times over, and the test name is the only
+    part that has ever changed.
   */
   await page.goto("/en/cuisine");
   await expect(cards(page)).toHaveCount(SLUGS.length);
@@ -779,10 +789,13 @@ test("the eighth dish exists in every edition and is the section's second bread"
       acc[a.dishTypeId!] = (acc[a.dishTypeId!] ?? 0) + 1;
       return acc;
     }, {});
+    // §72 moves meat from one to two. Written out in full rather than asserting
+    // only the type that moved, which is why adding khash had to come through
+    // here rather than past it.
     expect(byType, `${locale} distribution`).toEqual({
       bread: 2,
       main: 2,
-      meat: 1,
+      meat: 2,
       ceremonial: 2,
       dessert: 1,
     });
@@ -1576,4 +1589,653 @@ test("the sitemap carries every cuisine page in every edition", async ({ request
   // And each entry advertises the translations that exist.
   expect(xml).toContain('hreflang="hyw" href="https://armat.site/hyw/cuisine/lavash"');
   expect(xml).toContain('hreflang="x-default" href="https://armat.site/hy/cuisine/lavash"');
+});
+
+/* -------------------------------------------------------------------------- */
+/*  §72 — Khash, the ninth dish                                                */
+/* -------------------------------------------------------------------------- */
+
+test("the ninth dish exists in every edition and is the section's second meat dish", async ({
+  page,
+}) => {
+  for (const locale of LOCALES) {
+    const dishes = bundle(locale).articles.filter((a) => a.category === "cuisine");
+    expect(dishes.length, `${locale} dish count`).toBe(SLUGS.length);
+    expect(
+      dishes.map((a) => a.slug),
+      `${locale} keeps the section in one order`,
+    ).toEqual([...SLUGS]);
+
+    const dish = dishes.find((a) => a.slug === KHASH);
+    expect(dish, `${locale} has khash`).toBeDefined();
+    expect(dish!.dishTypeId, `${locale} type`).toBe("meat");
+    expect(dish!.featured ?? false, `${locale}: no cuisine article is featured`).toBe(false);
+    expect(dish!.title, `${locale} title is the dish, not a description`).not.toContain(" ");
+
+    // No new type was invented to hold a broth, which is the easiest constraint
+    // in §72 to break by accident: khash is not obviously a "meat dish" in the
+    // way khorovats is, and inventing "soup" or "broth" would have been the
+    // natural mistake.
+    expect(
+      bundle(locale).cuisineTypes.map((t) => t.id),
+      `${locale} taxonomy unchanged`,
+    ).toEqual(["all", "bread", "main", "meat", "ceremonial", "dessert"]);
+  }
+
+  // And the filter genuinely returns two meat dishes now, each named.
+  await page.goto("/en/cuisine?type=meat");
+  await expect(cards(page)).toHaveCount(2);
+  for (const slug of ["khorovats", KHASH]) {
+    await expect(
+      page.getByRole("link", { name: articleTitle("en", slug), exact: true }).first(),
+    ).toBeVisible();
+  }
+});
+
+test("khash renders in every edition and carries its own SEO fields", async ({ page }) => {
+  /*
+    §72 is the first article in this archive written after a live search pass, so
+    the metadata is checked as metadata rather than only as text: a title that
+    survives truncation, a description inside the window a results page shows, a
+    canonical that points at the edition being read, and hreflang covering all
+    three.
+  */
+  for (const locale of LOCALES) {
+    const response = await page.goto(`/${locale}/cuisine/${KHASH}`);
+    expect(response?.status(), `${locale} status`).toBe(200);
+
+    const article = bundle(locale).articles.find((a) => a.slug === KHASH)!;
+
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText(article.title);
+
+    // The visible title stays the entity. The SEO title is allowed to explain.
+    expect(article.seoTitle, `${locale} has an seoTitle`).toBeTruthy();
+    expect(article.seoTitle, `${locale} seoTitle differs from the title`).not.toBe(article.title);
+    expect(
+      article.seoTitle!.length,
+      `${locale} seoTitle fits the budget with " | Armat" appended`,
+    ).toBeLessThanOrEqual(52);
+    await expect(page).toHaveTitle(new RegExp(`^${escapeRe(article.seoTitle!)}`));
+
+    expect(article.metaDescription, `${locale} has a metaDescription`).toBeTruthy();
+    expect(article.metaDescription!.length, `${locale} description length`).toBeGreaterThanOrEqual(
+      70,
+    );
+    expect(article.metaDescription!.length, `${locale} description length`).toBeLessThanOrEqual(165);
+    await expect(page.locator('meta[name="description"]')).toHaveAttribute(
+      "content",
+      article.metaDescription!,
+    );
+
+    await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+      "href",
+      new RegExp(`/${locale}/cuisine/${KHASH}$`),
+    );
+    for (const alternate of LOCALES) {
+      await expect(
+        page.locator(`link[rel="alternate"][hreflang="${alternate}"]`),
+        `${locale} declares ${alternate}`,
+      ).toHaveCount(1);
+    }
+  }
+});
+
+test("khash is reachable by the queries people actually type", async ({ page }) => {
+  /*
+    The search half of §72. Each of these is a query group the SERP research
+    identified, and each is checked against the running search rather than against
+    the keyword array — a keyword nobody's query reaches is decoration.
+  */
+  const queries: [string, string][] = [
+    ["en", "khash"],
+    ["en", "armenian khash"],
+    ["en", "winter morning"],
+    ["en", "khashlama"],
+    ["hy", "խաշ"],
+    ["hyw", "խաշ"],
+  ];
+
+  for (const [locale, query] of queries) {
+    await page.goto(`/${locale}/search?q=${encodeURIComponent(query)}`);
+    await expect(
+      page.locator(`a[href="/${locale}/cuisine/${KHASH}"]`).first(),
+      `${locale} "${query}" reaches khash`,
+    ).toBeVisible();
+  }
+
+  // And it is grouped as cuisine rather than loose in the results.
+  await page.goto("/en/search?q=khash");
+  await expect(
+    page.getByRole("main").getByRole("heading", { name: ui("en").search.groupCuisine, level: 2 }),
+  ).toBeVisible();
+});
+
+test("khash targets explanatory intent without keyword stuffing", async ({ page }) => {
+  /*
+    The other half of the SEO decision, and the one that is easy to fail while
+    passing everything above: metadata can target "what is khash" honestly, or it
+    can repeat "Armenian khash" until the prose stops reading like prose. This
+    test bounds the repetition rather than trusting it.
+  */
+  const written = bundle("en").articles.find((a) => a.slug === KHASH)!;
+  const prose = [
+    written.excerpt,
+    written.summary ?? "",
+    written.intro,
+    ...written.sections.flatMap((section) => section.paragraphs),
+  ]
+    .join(" ")
+    .toLowerCase();
+
+  /*
+    Measured on the prose rather than on the rendered `main`, deliberately. The
+    page also renders the keyword chips, and counting those would measure the
+    keyword list — which is allowed to name the disambiguated form once — instead
+    of measuring whether the writing repeats it.
+  */
+  expect(
+    prose.split("armenian khash").length - 1,
+    "no stuffing of the disambiguated form",
+  ).toBeLessThanOrEqual(2);
+
+  await page.goto(`/en/cuisine/${KHASH}`);
+  const text = ((await page.getByRole("main").textContent()) ?? "").toLowerCase();
+  for (const forbidden of [
+    "best armenian khash",
+    "authentic armenian khash",
+    "traditional armenian khash",
+    "ultimate",
+    "must try",
+    "you won't believe",
+  ]) {
+    expect(text, `must not advertise: ${forbidden}`).not.toContain(forbidden);
+  }
+
+  // The visible title is the entity in every edition, never the SEO sentence.
+  for (const locale of LOCALES) {
+    const article = bundle(locale).articles.find((a) => a.slug === KHASH)!;
+    expect(article.title.split(/\s+/).length, `${locale} title is one word`).toBe(1);
+  }
+});
+
+test("khash separates popular claims from what the sources support", async ({ page }) => {
+  /*
+    §72's central editorial requirement, and the reason the article exists. The
+    search results repeat four claims — medieval origin, poor-man's food, the
+    letter-r rule, hangover cure — and the article is required to carry each one as
+    the kind of claim it actually is. Checked per edition, because the Armenian
+    ones are where an English review would not catch a slip.
+  */
+  for (const locale of LOCALES) {
+    const article = bundle(locale).articles.find((a) => a.slug === KHASH)!;
+    const section = (id: string) => article.sections.find((s) => s.id === id)!.paragraphs.join(" ");
+
+    // The medieval attribution is reported and marked as unverified, in the same
+    // section, rather than stated.
+    const record = section("what-the-record-can-say");
+    expect(record, `${locale} names the medieval authorities`).toContain(
+      { en: "Heratsi", hy: "Հերաց", hyw: "Հերաց" }[locale],
+    );
+    for (const marker of {
+      en: ["reported here as a claim", "None of those texts was consulted"],
+      hy: ["որպես պնդում", "ոչ մեկն այստեղ չի ուսումնասիրվել"],
+      hyw: ["իբրեւ պնդում", "ոչ մէկը հոս ուսումնասիրուած է"],
+    }[locale]) {
+      expect(record, `${locale} marks the medieval claim: ${marker}`).toContain(marker);
+    }
+
+    // The class history is attributed to the people who disagree about it,
+    // rather than told as history.
+    const klass = section("the-story-about-poor-peoples-food");
+    for (const name of { en: ["Mamulyan", "Antinyan"], hy: ["Մամուլ", "Անտին"], hyw: ["Մամուլ", "Անտին"] }[
+      locale
+    ]) {
+      expect(klass, `${locale} attributes the class account`).toContain(name);
+    }
+
+    // The letter-r rule is contextualized, not adopted.
+    const months = section("the-months-with-an-r");
+    for (const marker of {
+      en: ["cannot be old", "not followed strictly"],
+      hy: ["հին լինել չի կարող", "խստորեն չի պահպանվում"],
+      hyw: ["հին ըլլալ չի կրնար", "խստօրէն չի պահպանուիր"],
+    }[locale]) {
+      expect(months, `${locale} contextualizes the rule: ${marker}`).toContain(marker);
+    }
+
+    // The hangover reputation is classified rather than repeated.
+    const hangover = section("the-hangover-reputation");
+    for (const marker of {
+      en: ["popular belief", "rather than a medical conclusion", "makes no claim"],
+      hy: ["ժողովրդական հավատալիք", "ոչ թե բժշկական եզրակացություն", "պնդում չի անում"],
+      hyw: ["ժողովրդական հաւատալիք", "ոչ թէ բժշկական եզրակացութիւն", "պնդում չ՚ըներ"],
+    }[locale]) {
+      expect(hangover, `${locale} classifies the hangover claim: ${marker}`).toContain(marker);
+    }
+  }
+
+  // And nothing anywhere states the claims flatly.
+  for (const locale of LOCALES) {
+    await page.goto(`/${locale}/cuisine/${KHASH}`);
+    const text = ((await page.getByRole("main").textContent()) ?? "").toLowerCase();
+    for (const forbidden of [
+      "invented",
+      "the oldest armenian dish",
+      "since antiquity",
+      "thousands of years",
+      "unchanged since",
+      "cures a hangover",
+      "khash cures",
+      "khash treats",
+      "detox",
+      "superfood",
+      "antioxidant",
+      "boosts",
+      "good for the joints",
+      "հնագույն ուտեստ",
+      "հազարավոր տարի",
+      "հազարաւոր տարի",
+      "խաշը բուժում է",
+      "խաշը կը բուժէ",
+    ]) {
+      expect(text, `${locale} must not state: ${forbidden}`).not.toContain(forbidden);
+    }
+  }
+});
+
+test("khash mentions alcohol as custom and never as advice", async ({ page }) => {
+  /*
+    §22 allows one thing and forbids a list. The allowance is a brief record of a
+    documented adult custom; the forbidden list is recommendation, quantity,
+    pairing, and the framing that makes drinking a condition of authenticity. The
+    bound on mentions is the part that matters: a food article can pass every
+    forbidden-phrase check and still be about vodka.
+  */
+  for (const locale of LOCALES) {
+    const article = bundle(locale).articles.find((a) => a.slug === KHASH)!;
+    const body = article.sections.flatMap((s) => s.paragraphs).join(" ").toLowerCase();
+
+    const words = { en: ["vodka", "spirit", "alcohol"], hy: ["օղի"], hyw: ["օղի"] }[locale];
+    const mentions = words.reduce((total, w) => total + (body.split(w).length - 1), 0);
+    expect(mentions, `${locale} keeps alcohol brief`).toBeGreaterThan(0);
+    expect(mentions, `${locale} keeps alcohol brief`).toBeLessThanOrEqual(3);
+
+    // And where it is mentioned, it is disclaimed in the same breath.
+    for (const marker of {
+      en: ["neither required by the dish nor recommended here"],
+      hy: ["ո՛չ ուտեստի կողմից է պահանջվում"],
+      hyw: ["ո՛չ կերակուրին կողմէ կը պահանջուի"],
+    }[locale]) {
+      expect(body.includes(marker.toLowerCase()), `${locale} disclaims: ${marker}`).toBe(true);
+    }
+
+    await page.goto(`/${locale}/cuisine/${KHASH}`);
+    const text = ((await page.getByRole("main").textContent()) ?? "").toLowerCase();
+    for (const forbidden of [
+      "should drink",
+      "pairs well",
+      "goes well with",
+      "shots of",
+      "a glass of vodka with",
+      "must be drunk",
+      "hair of the dog",
+      "պետք է խմել",
+      "պէտք է խմել",
+    ]) {
+      expect(text, `${locale} must not advise: ${forbidden}`).not.toContain(forbidden);
+    }
+  }
+});
+
+test("khash explains preparation without becoming a recipe", async ({ page }) => {
+  for (const locale of LOCALES) {
+    await page.goto(`/${locale}/cuisine/${KHASH}`);
+    const text = ((await page.getByRole("main").textContent()) ?? "").toLowerCase();
+    for (const forbidden of [
+      "tablespoon",
+      "teaspoon",
+      "servings",
+      "prep time",
+      "cook time",
+      "easy recipe",
+      "step 1",
+      "degrees",
+      "°c",
+      "ճաշի գդալ",
+      "թեյի գդալ",
+      "բաժին՝",
+    ]) {
+      expect(text, `${locale} must not read as a recipe: ${forbidden}`).not.toContain(forbidden);
+    }
+
+    // No numeric quantity or duration anywhere in the prose. The article states
+    // ranges in words on purpose, so a digit here means a recipe crept in.
+    const article = bundle(locale).articles.find((a) => a.slug === KHASH)!;
+    const prose = article.sections.flatMap((s) => s.paragraphs).join(" ");
+    const digits = prose.match(/\d+/g) ?? [];
+    expect(digits.sort(), `${locale} prose carries only the two dates`).toEqual(["1184", "2019"]);
+  }
+
+  // And the structure is not recipe-first: the article opens on what the thing
+  // is, and no section is a set of instructions.
+  const article = bundle("en").articles.find((a) => a.slug === KHASH)!;
+  expect(article.sections[0].id).toBe("what-khash-is");
+  for (const section of article.sections) {
+    expect(section.id, "no how-to section").not.toContain("how-to");
+    expect(section.id, "no recipe section").not.toContain("recipe");
+  }
+});
+
+test("khash keeps its regional relatives without competing over them", async ({ page }) => {
+  /*
+    Handled the way spas handled the yogurt soups: name the family, refuse the
+    ownership question. The positive assertion matters as much as the negative
+    one — an article that simply omitted the neighbours would also pass a list of
+    forbidden phrases.
+  */
+  const article = bundle("en").articles.find((a) => a.slug === KHASH)!;
+  const relatives = article.sections.find((s) => s.id === "a-dish-with-relatives")!.paragraphs.join(" ");
+
+  for (const neighbour of ["Georgia", "Azerbaijan", "Iran", "Turkey"]) {
+    expect(relatives, `names ${neighbour}`).toContain(neighbour);
+  }
+  expect(relatives).toContain("does not require deciding who had it first");
+  expect(relatives).toContain("evidence about the food rather than about influence");
+
+  // Khashlama is distinguished rather than merged, in every edition.
+  for (const locale of LOCALES) {
+    await page.goto(`/${locale}/cuisine/${KHASH}`);
+    const text = ((await page.getByRole("main").textContent()) ?? "").toLowerCase();
+    expect(text, `${locale} names khashlama`).toContain(
+      { en: "khashlama", hy: "խաշլամա", hyw: "խաշլամա" }[locale],
+    );
+    for (const forbidden of [
+      "armenians invented",
+      "stole",
+      "copied from",
+      "the original khash belongs",
+      "is really an armenian",
+    ]) {
+      expect(text, `${locale} must not compete: ${forbidden}`).not.toContain(forbidden);
+    }
+  }
+});
+
+test("khash rests on scholarship, and no tourism page carries its history", async ({ page }) => {
+  /*
+    §33 and §34 in one test. The SERP research surfaced a great deal, and almost
+    all of it was tourism copy repeating the same four claims; the rule is that
+    such a page may describe today's visible practice and may not carry chronology,
+    origin, etymology or medical claims. The cleanest way to enforce that is to
+    keep those pages out of the bibliography entirely, and then check it.
+  */
+  const sources = getSources(KHASH);
+  expect(sources.length, "khash has a bibliography").toBeGreaterThanOrEqual(5);
+  for (const source of sources) {
+    expect(source.identifier?.value, `${source.title} carries an identifier`).toBeTruthy();
+  }
+
+  const values = sources.map((s) => String(s.identifier?.value ?? "").toLowerCase()).join(" ");
+  for (const host of [
+    "armenia.travel",
+    "tasteatlas",
+    "travelfoodatlas",
+    "thearmeniankitchen",
+    "armeniatraveltips",
+    "gyumri.am",
+    "khash.org",
+    "allthatcooking",
+    "desidakaar",
+    "phoenixtour",
+    "gatapandok",
+    "willflyforfood",
+    "absolutearmenia",
+  ]) {
+    expect(values, `no tourism or recipe source: ${host}`).not.toContain(host);
+  }
+
+  // Two peer-reviewed identifiers, which is what lets the article make the
+  // comparative and the gendered claims at all.
+  const dois = sources.filter((s) => s.identifier?.kind === "doi");
+  expect(dois.length, "at least two DOI-identified works").toBeGreaterThanOrEqual(2);
+
+  // And the section's default book did not become six of nine by default.
+  expect(
+    sources.some((s) => (s.author ?? "").includes("Petrosian")),
+    "Petrosian & Underwood stays out, as §35 asks",
+  ).toBe(false);
+
+  // The bibliography renders.
+  await page.goto(`/en/cuisine/${KHASH}`);
+  await expect(page.getByText("Identities", { exact: false }).first()).toBeVisible();
+});
+
+test("khash links only where the prose earns it", async ({ page }) => {
+  /*
+    Three authored links, each in a different section, each earned by a sentence
+    that would be worse without it. The cross-category one is the point: §70
+    recorded that Cuisine had no genuine link out of the section, and Gyumri is
+    the first that a source actually supplies rather than one manufactured to
+    close the gap.
+  */
+  for (const locale of LOCALES) {
+    const article = bundle(locale).articles.find((a) => a.slug === KHASH)!;
+    expect(article.relatedSlugs, `${locale} authored relations`).toEqual(["lavash", "harissa"]);
+
+    const links = article.sections.flatMap((s) => (s.links ?? []).map((l) => [s.id, l.slug]));
+    expect(links, `${locale} link placement`).toEqual([
+      ["the-bowl-you-finish-yourself", "lavash"],
+      ["never-eaten-alone", "gyumri"],
+      ["what-the-record-can-say", "harissa"],
+    ]);
+
+    // Every phrase is a real substring of its own section, which is what the
+    // renderer needs and what a translated edition breaks first.
+    for (const section of article.sections) {
+      for (const link of section.links ?? []) {
+        expect(
+          section.paragraphs.some((p) => p.includes(link.phrase)),
+          `${locale} "${link.phrase}" appears in ${section.id}`,
+        ).toBe(true);
+      }
+    }
+  }
+
+  // The cross-category link renders and leaves the section without leaving the
+  // edition.
+  for (const locale of LOCALES) {
+    await page.goto(`/${locale}/cuisine/${KHASH}`);
+    await expect(
+      page.locator(`main a[href="/${locale}/places/gyumri"]`).first(),
+      `${locale} reaches Gyumri`,
+    ).toBeVisible();
+    await expect(page.locator(`main a[href="/${locale}/cuisine/lavash"]`).first()).toBeVisible();
+  }
+});
+
+test("khash owns its artwork in every edition, and borrows nobody else's", async ({ page }) => {
+  /*
+    §73 inverts the §72 test rather than deleting it, the way §69 inverted §68's and
+    §71 inverted §70's. Every assertion that pinned the pending state has a mirror
+    here, so the transition is checked in both directions: the raster where the
+    placeholder was, the AI caption where the placeholder caption was, out of
+    `PENDING_ARTWORK` where it was in, and the real file where the fallback OG image
+    was.
+  */
+  for (const locale of LOCALES) {
+    const dict = ui(locale);
+    await page.goto(`/${locale}/cuisine/${KHASH}`);
+
+    const figure = page.locator("header figure");
+    await expect(figure.locator("svg[role='img']"), `${locale} no placeholder`).toHaveCount(0);
+    await expect(figure.locator("img"), `${locale} raster`).toHaveCount(1);
+    await expect(figure.locator("img"), `${locale} exact file`).toHaveAttribute(
+      "src",
+      /khash\.webp/,
+    );
+    await expect(figure.locator("img"), `${locale} localized alt`).toHaveAttribute(
+      "alt",
+      new RegExp(articleTitle(locale, KHASH)),
+    );
+
+    await expect(figure.locator("figcaption"), locale).toHaveText(
+      dict.article.imageAiIllustrationCaption.replace("{title}", articleTitle(locale, KHASH)),
+    );
+    await expect(figure.locator("figcaption"), `${locale} not the placeholder line`).not.toHaveText(
+      dict.article.imagePlaceholderCaption.replace("{title}", articleTitle(locale, KHASH)),
+    );
+  }
+
+  expect(getImageSrc(KHASH), "registered file").toBe(ARTWORK[KHASH]);
+  expect(PENDING_ARTWORK, "no longer pending").not.toContain(KHASH);
+  expect([...PENDING_ARTWORK], "and the archive-wide list is empty again").toEqual([]);
+
+  /*
+    And it still borrows nothing. Spas, harissa and khorovats are the three §44
+    named as the real risks — the other pale bowl, the other slow-cooked bowl, and
+    the other meat dish — but the loop covers all eight, because the substitution
+    that actually happens is never the one that was anticipated. Scoped to the hero
+    and the metadata, since the related block legitimately renders lavash's and
+    harissa's covers further down the page.
+  */
+  await page.goto(`/en/cuisine/${KHASH}`);
+  const heroSources = await page
+    .locator("header img")
+    .evaluateAll((nodes) => nodes.map((el) => decodeURIComponent(el.getAttribute("src") ?? "")));
+  expect(
+    heroSources.some((src) => src.includes(ARTWORK[KHASH])),
+    "the hero is its own file",
+  ).toBe(true);
+  for (const other of ILLUSTRATED) {
+    if (other === KHASH) continue;
+    expect(
+      heroSources.some((src) => src.includes(`/cuisine/${other}.webp`)),
+      `${other} must not illustrate khash`,
+    ).toBe(false);
+  }
+
+  for (const property of ['meta[property="og:image"]', 'meta[name="twitter:image"]']) {
+    const content = await page.locator(property).first().getAttribute("content");
+    expect(content, property).toContain(ARTWORK[KHASH]);
+    expect(content, `${property} is no longer the fallback`).not.toContain("/og-default.png");
+  }
+});
+
+test("the khash search result carries its own thumbnail", async ({ page }) => {
+  /*
+    Scoped by canonical href rather than by title, because a search page renders
+    many covers and the failure worth catching is this row showing a neighbour's.
+    The neighbours that matter are spas and harissa: at thumbnail size those are the
+    two a careless substitution would survive.
+  */
+  await page.goto("/en/search?q=khash");
+
+  const row = page.locator("li").filter({ has: page.locator(`a[href="/en/cuisine/${KHASH}"]`) });
+  await expect(row).toHaveCount(1);
+
+  const sources = await row
+    .locator("img")
+    .evaluateAll((nodes) => nodes.map((el) => decodeURIComponent(el.getAttribute("src") ?? "")));
+  expect(sources.some((src) => src.includes(ARTWORK[KHASH])), "own thumbnail").toBe(true);
+  for (const other of ["spas", "harissa", "khorovats"]) {
+    expect(sources.some((src) => src.includes(`/cuisine/${other}.webp`)), `not ${other}'s`).toBe(
+      false,
+    );
+  }
+});
+
+test("khash gained a picture and no recipe markup with it", async ({ page, request }) => {
+  await page.goto(`/en/cuisine/${KHASH}`);
+  const graph = await readGraph(page);
+
+  expect(
+    graph.map((entry) => entry["@type"]),
+    "the graph is the archive's usual four",
+  ).toEqual(["Organization", "WebSite", "Article", "BreadcrumbList"]);
+
+  const article = node(graph, "Article");
+  expect(JSON.stringify(article.image), "Article.image is the registered file").toContain(
+    ARTWORK[KHASH],
+  );
+
+  const serialized = JSON.stringify(graph);
+  for (const forbidden of [
+    "Recipe",
+    "HowTo",
+    "NutritionInformation",
+    "MenuItem",
+    "FoodEstablishment",
+    "recipeIngredient",
+    "recipeInstructions",
+    "cookTime",
+    "prepTime",
+  ]) {
+    expect(serialized, `no ${forbidden} in the graph`).not.toContain(forbidden);
+  }
+
+  /*
+    The sitemap, checked route by route rather than by a global filename count. A
+    count passes while three locales all point at one edition's image; this fails
+    unless each edition's own entry carries khash's own file and nobody else's.
+  */
+  const xml = await (await request.get("/sitemap.xml")).text();
+  for (const locale of LOCALES) {
+    const url = `/${locale}/cuisine/${KHASH}<`;
+    const start = xml.indexOf(url);
+    expect(start, `${locale} khash is in the sitemap`).toBeGreaterThan(-1);
+    const block = xml.slice(start, xml.indexOf("</url>", start));
+
+    const images = [...block.matchAll(/<image:loc>([^<]+)<\/image:loc>/g)].map((m) => m[1]);
+    expect(images.length, `${locale} khash has exactly one image`).toBe(1);
+    expect(images[0], `${locale} khash image`).toContain(ARTWORK[KHASH]);
+    for (const other of ILLUSTRATED) {
+      if (other === KHASH) continue;
+      expect(images[0], `${locale} must not carry ${other}`).not.toContain(
+        `/cuisine/${other}.webp`,
+      );
+    }
+  }
+});
+
+test("adding khash changed no existing dish's relations or artwork", async ({ page }) => {
+  /*
+    §72 appends to the registry, and the registry order is what `getRelatedArticles`
+    walks when it fills a short `relatedSlugs`. Appending should be invisible to the
+    eight articles already there, and "should be" is not a check.
+  */
+  for (const locale of LOCALES) {
+    const dishes = bundle(locale).articles.filter((a) => a.category === "cuisine");
+    const authored = Object.fromEntries(dishes.map((a) => [a.slug, a.relatedSlugs]));
+    expect(authored[SPAS], `${locale} spas relations untouched`).toEqual(["harissa", "lavash"]);
+    expect(authored[JINGALOV], `${locale} jingalov relations untouched`).toEqual(["lavash"]);
+    expect(authored.lavash, `${locale} lavash relations untouched`).toEqual([
+      "khorovats",
+      "dolma",
+      "harissa",
+    ]);
+  }
+
+  // Spas keeps the dolma filler §71 was told not to alter, and jingalov keeps
+  // both of its own. Read off the rendered page, not off the function.
+  for (const [slug, expected] of [
+    [SPAS, ["harissa", "lavash", "dolma"]],
+    [JINGALOV, ["lavash", "dolma", "khorovats"]],
+    [KHASH, ["lavash", "harissa", "dolma"]],
+  ] as const) {
+    await page.goto(`/en/cuisine/${slug}`);
+    const hrefs = await page
+      .locator('main a[href^="/en/cuisine/"]')
+      .evaluateAll((nodes) => nodes.map((el) => el.getAttribute("href") ?? ""));
+    for (const related of expected) {
+      expect(
+        hrefs.some((href) => href.endsWith(`/cuisine/${related}`)),
+        `${slug} still offers ${related}`,
+      ).toBe(true);
+    }
+  }
+
+  // And the eight existing covers are exactly where they were.
+  for (const slug of ILLUSTRATED) {
+    expect(getImageSrc(slug), `${slug} artwork unchanged`).toBe(ARTWORK[slug]);
+  }
 });

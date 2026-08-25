@@ -961,7 +961,7 @@ test("every canonical route the journey links into still works", async ({ page }
   */
   for (const [path, count] of [
     ["/en/places", 13],
-    ["/en/cuisine", 8],
+    ["/en/cuisine", 9],
     ["/en/history", 7],
   ] as const) {
     const response = await page.goto(path);
