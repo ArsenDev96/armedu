@@ -880,6 +880,119 @@ const SOURCES: Record<string, Source[]> = {
     },
   ],
 
+  /*
+   * §74. Matsun — and the first Cuisine bibliography in which the strongest
+   * source is a dictionary this archive had twice recorded as unreachable.
+   *
+   * **The Ačaṙyan debt is closed.** §70 and §72 both had to shorten an etymology
+   * section because `Հայերեն արմատական բառարան` could not be consulted: nayiri,
+   * the archive that hosts it, refused the connection on both occasions, and both
+   * steps recorded the gap rather than reconstructing the word history from
+   * secondary discussion. The dictionary turns out to be on the Internet Archive,
+   * scanned and OCR'd, and volume three carries `մած-`. It was read directly for
+   * this article, and it is the source of the etymology section — including the
+   * observation the section turns on, which is Ačaṙyan's own and not this
+   * archive's: that Persian, Turkish and French each named their fermented milk
+   * after the verb for curdling, exactly as Armenian did. That is a scholar of
+   * the language pre-emptively dismantling the ownership argument, and it is
+   * worth more than any amount of editorial even-handedness.
+   *
+   * **Two refusals and one scoping decision.**
+   *
+   * 1. **Grigor Magistros is discussed and not cited.** Every popular page says
+   *    matsun is mentioned by Armenian writers from the eleventh century. What is
+   *    actually at the end of that chain is Magistros's grammatical treatise
+   *    giving an *etymology* of the word, reported through a philological study of
+   *    1915 that could not be consulted here. The article therefore reports the
+   *    claim at one remove and says so in the prose, and no entry below pretends
+   *    the underlying works were read. Note that Magistros was the same name
+   *    recycled through the khash claim at §72 — a grammarian is being used as a
+   *    culinary witness twice over, in two different food literatures.
+   *
+   * 2. **No commercial dairy source is cited at all.** The SERP for this topic is
+   *    unusually contaminated with product pages, and several of them carry
+   *    origin, antiquity and health claims. They are useful only for establishing
+   *    that matsun is a normal retail product today, which is not a fact that
+   *    needs a citation. None appears here.
+   *
+   * 3. **Slow Food is cited and scoped.** It is a food-heritage organisation, not
+   *    a scholarly one, and its entry opens with the claim that matsun "is
+   *    mentioned in many tales by Armenian writers since the 11th century" — the
+   *    sentence the article exists partly to take apart. It is cited for what it
+   *    is good for: a specific description of a specific regional practice in
+   *    Lori, the meran starter, and the two keeping forms. It carries no
+   *    chronology and no origin claim in this article, and the prose attributes
+   *    its process description to it by name rather than stating it flatly.
+   *
+   * **Petrosian and Underwood is again not cited** — the fourth consecutive
+   * Cuisine article. It stays at five of ten rather than becoming six of ten. It
+   * would add nothing: the etymology is Ačaṙyan's, the microbiology is
+   * peer-reviewed, the heritage status is the ministry's own, and the regional
+   * practice is Slow Food's. A general survey of Armenian food and folklore has no
+   * load to carry here.
+   *
+   * **No health claim rests on anything below, because the article makes none.**
+   * The microbiology entry is cited for what lives in matsun and for how the
+   * community varies by region. It is not cited, and must not later be used, for
+   * any statement about what eating it does to a person.
+   */
+  matsun: [
+    {
+      author: "Հրաչյա Աճառյան",
+      title: "Հայերեն արմատական բառարան, հատոր Գ",
+      publisher: "Երևանի համալսարանի հրատարակչություն",
+      year: "1926–1935; reprinted 1971–1979",
+      identifier: { kind: "url", value: "https://archive.org/details/Hrarm3" },
+      note: "Read directly, in the Internet Archive's scan, after two earlier steps recorded this work as unreachable. The entry for the root մած- gives the sense — to stick, to cling, to thicken, and of milk to curdle — classes մածուն as a native Armenian word from an Indo-European root meaning to knead or work into a sticky mass, lists the Slavic, Greek and Germanic cognates, and records the classical texts in which մածուն is attested. It is also the source of the article's central linguistic observation: Ačaṙyan himself sets Persian māsīdan/māst, Turkish yoğurmak/yoghurt and French cailler/lait caillé beside the Armenian pair, showing the naming pattern to be a widespread independent parallel rather than evidence of priority.",
+    },
+    {
+      author:
+        "Nicholas A. Bokulich, Lia Amiranashvili, Karine Chitchyan, Narine Ghazanchyan, Karen Darbinyan, Nino Gagelidze et al.",
+      title: "Microbial biogeography of the transnational fermented milk matsoni",
+      publisher: "Food Microbiology, 50, 12–19",
+      year: "2015",
+      identifier: { kind: "doi", value: "10.1016/j.fm.2015.01.018" },
+      note: "The scientific spine of the article, and the reason its regional section could be written as evidence rather than as diplomacy. Marker-gene sequencing of matsun and matsoni from across Armenia and Georgia: bacteria dominated by Lactobacillus and Streptococcus, yeasts including Kluyveromyces marxianus, Candida famata and Saccharomyces cerevisiae varying sharply by place, and both production region and milk type shaping the community. Its conclusion — that traditional production preserves the transfer of a distinctive regional population from batch to batch — is what turns the back-slopped starter from a nice story into a measured finding. Its title calls the food transnational and its author list contains researchers from both countries, which is the strongest available answer to the ownership question and was not manufactured by this archive.",
+    },
+    {
+      title: "Intangible Cultural Heritage",
+      publisher: "Ministry of Education, Science, Culture and Sport of the Republic of Armenia",
+      year: "consulted 2026",
+      identifier: { kind: "url", value: "https://escs.am/en/static/intangible-cultural-heritage" },
+      note: "Reused from the khash bibliography, where it carried an absence; here it carries a presence. Matsun appears on Armenia's national inventory of intangible cultural heritage as Մածունի պատրաստման ու կիրառման ավանդույթը — the tradition of the preparation and use of matsun — filed under national cuisine. Checked in both languages against the ministry's page and the published enumeration of the inventory, because the article's whole heritage section turns on this being a national listing and not an international one.",
+    },
+    {
+      title:
+        "Lavash, the preparation, meaning and appearance of traditional bread as an expression of culture in Armenia",
+      publisher:
+        "UNESCO Representative List of the Intangible Cultural Heritage of Humanity, no. 00985",
+      year: "inscribed 2014",
+      identifier: { kind: "url", value: "https://ich.unesco.org/en/RL/00985" },
+      note: "Cited for the negative claim rather than the positive one, which is unusual and deliberate: lavash is the only Armenian food on the UNESCO Representative List, and matsun is not on it. The article's heritage section distinguishes the national inventory from the international list, and the cleanest way to make that concrete is to name the one food that is on both kinds of list and observe that matsun is on only one.",
+    },
+    {
+      title: "Matsun",
+      publisher: "Slow Food Foundation for Biodiversity, Ark of Taste",
+      year: "consulted 2026",
+      identifier: {
+        kind: "url",
+        value: "https://www.fondazioneslowfood.com/en/ark-of-taste-slow-food/matsun/",
+      },
+      note: "Scoped, as the comment above sets out. Cited for the association with Lori, for matsun as part of the daily diet, for the meran starter of dried cornelian cherries with wheat and rye, and for the two keeping forms — kamats matsun, drained and stored in clay, and the dried balls that keep for years. Explicitly NOT cited for its opening chronology, which repeats the eleventh-century claim the article takes apart. A heritage organisation describing a living regional practice is doing what it is good at; the same page dating the food is not.",
+    },
+    {
+      title: "Colombo Yogurt: A Massachusetts Success Story",
+      publisher: "Massachusetts Historical Society, Object of the Month",
+      year: "June 2004",
+      identifier: {
+        kind: "url",
+        value:
+          "https://www.masshist.org/object-of-the-month/objects/colombo-yogurt-a-massachusetts-success-story-2004-06-01",
+      },
+      note: "The source for the 1929 date and for the detail the article ends on: that Sarkis and Rose Colombosian sold their household matsun in Andover under the Armenian word, and that the name on the container later became yogurt because that was the word the American market knew. Chosen over the several diaspora and tourism retellings of the same story because it is a historical society writing from an object in its own collection. The food crossing intact while the word did not is the article's argument about terminology, made as an event rather than as an assertion.",
+    },
+  ],
+
   /* ----------------------------------------------------------------- places */
 
   /*

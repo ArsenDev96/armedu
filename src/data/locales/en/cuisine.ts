@@ -8,4 +8,5 @@ export const cuisineTypes: Filter[] = [
   { id: "meat", label: "Meat dishes" },
   { id: "ceremonial", label: "Ceremonial dishes" },
   { id: "dessert", label: "Desserts" },
+  { id: "dairy", label: "Dairy" },
 ];

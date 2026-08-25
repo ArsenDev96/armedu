@@ -8,4 +8,5 @@ export const cuisineTypes: Filter[] = [
   { id: "meat", label: "Մսեղէն կերակուրներ" },
   { id: "ceremonial", label: "Ծիսական կերակուրներ" },
   { id: "dessert", label: "Անուշեղէն" },
+  { id: "dairy", label: "Կաթնեղէն" },
 ];

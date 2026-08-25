@@ -1382,4 +1382,205 @@ export const cuisineArticles: Article[] = [
     },
     relatedSlugs: ["lavash", "harissa"],
   },
+  {
+    slug: "matsun",
+    href: "/cuisine/matsun",
+    category: "cuisine",
+    categoryLabel: "Armenian Cuisine",
+    title: "Matsun",
+    seoTitle: "What Is Matsun? Armenia's Fermented Milk",
+    dishType: "Dairy",
+    dishTypeId: "dairy",
+    imageSeed: "matsun",
+    keywords: [
+      "matsun",
+      "matzoon",
+      "մածուն",
+      "Armenian matsun",
+      "Armenian yogurt",
+      "fermented milk",
+      "matsoni",
+      "chortan",
+      "kamats matsun",
+      "starter culture",
+    ],
+    excerpt:
+      "Milk set thick by its own bacteria, eaten every day and turned into half the rest of the cooking: the first Armat Cuisine article about an ingredient rather than a dish.",
+    metaDescription:
+      "Matsun, the Armenian fermented milk: how bacteria set it, how a starter carries from batch to batch, what it becomes, and what the record actually supports.",
+    summary:
+      "Matsun is milk fermented by lactic-acid bacteria until it sets into a thick, sour, spoonable food. It is eaten plain and with bread, and it is also the base the cooking is built on: thinned into a drink, cooked into soup, drained and salted for keeping, or dried into hard sour balls that last years. A portion of one batch starts the next, which is why traditional matsun carries a local microbial population rather than a bought culture. The Armenian and Georgian traditions are one food under two names, and microbiologists from both countries have studied them together. The word is native Armenian and old; how far back the food in its present form goes is a separate question the evidence does not settle.",
+    intro:
+      "Matsun is what milk becomes when the right bacteria are allowed to work on it. They turn its sugar into acid, the acid destabilises the protein, and the whole vessel sets into something thick, sour and spoonable that keeps far longer than the milk did. That is the entire transformation, and Armenian households have been running it continuously for a very long time by the simplest possible method: keeping back a spoonful of yesterday's to start tomorrow's. This is the first article in this section about a foundational food rather than a finished dish. Matsun is eaten on its own, and it is also the thing a great deal of other Armenian cooking is made out of.",
+    author: "Armat Editorial Team",
+    updated: "2026-08-25",
+    keyFacts: [
+      { label: "Kind of food", value: "Fermented milk, set thick — a dairy food rather than a prepared dish" },
+      { label: "Made from", value: "Cow's milk usually; also sheep, goat, buffalo, or mixtures" },
+      {
+        label: "What sets it",
+        value: "Lactic-acid bacteria — Lactobacillus and Streptococcus dominate, with yeasts also present",
+      },
+      {
+        label: "Started by",
+        value: "A portion of the previous batch, which carries a local microbial population forward",
+      },
+      {
+        label: "Kept as",
+        value: "Fresh; drained and salted as kamats matsun; or dried into chortan, which lasts years",
+      },
+      {
+        label: "Recognised by",
+        value: "Armenia's national inventory of intangible cultural heritage — not a UNESCO list",
+      },
+    ],
+    sections: [
+      {
+        id: "what-matsun-is",
+        heading: "What matsun is",
+        paragraphs: [
+          "Matsun is milk that has been fermented until it sets. The result is thick enough to hold the shape of a spoon, distinctly sour, and white; it is eaten cold, on its own or with bread, and it is used as an ingredient in a great many other things. Cow's milk is the usual base in Armenia today, but sheep, goat and buffalo milk are all used, and so are mixtures of them.",
+          "The English word that comes nearest is yogurt, and this article uses the comparison rather than the equation. Matsun is a fermented milk in the same family, and readers looking for it under the word yogurt should find it — but the two are not interchangeable terms for one standardised product. Industrial yogurt is made with a defined pair of bacteria at a controlled temperature; traditional matsun is made with whatever population the household's own starter carries, at whatever temperature a warm corner provides.",
+          "That difference is why this is the first article in the section about a foundational food rather than a prepared dish. Everything else here is something a cook makes and serves. Matsun is something a cook keeps, and then makes other things out of.",
+        ],
+      },
+      {
+        id: "milk-turned-by-bacteria",
+        heading: "Milk turned by bacteria",
+        paragraphs: [
+          "The chemistry is straightforward and worth stating properly rather than waving at. Milk contains lactose, a sugar. Lactic-acid bacteria consume it and excrete lactic acid, and as the acid accumulates the liquid's pH falls. Milk protein — casein, which normally floats in stable clusters — loses that stability as the acidity rises, and the clusters link into a continuous network that traps the water. The milk has not thickened because anything was added to it. It has set, in place, into a gel.",
+          "The acid does a second job at the same time. It makes the food inhospitable to most of the organisms that would otherwise spoil milk, which is why a fermented milk keeps for days where fresh milk keeps for hours. In a household without refrigeration that is not a pleasant side effect; it is the point.",
+          "What is actually living in it has been measured. A survey published in 2015 in the journal Food Microbiology sequenced bacterial and fungal communities in matsun and matsoni from across Armenia and Georgia, and found the bacteria dominated by Lactobacillus and Streptococcus species. It also found yeasts — among them Kluyveromyces marxianus, Candida famata and Saccharomyces cerevisiae — varying sharply from place to place. A traditional fermented milk is a small ecosystem rather than a two-strain recipe, and this article makes no claim at all about what that ecosystem does to a person who eats it.",
+        ],
+      },
+      {
+        id: "the-starter-and-the-chain",
+        heading: "The starter and the chain",
+        paragraphs: [
+          "The ordinary way to make matsun is to add a little of the last batch to fresh milk. That is all a starter is: a living population, moved from a finished vessel into a new one, where it does the same thing again. Nothing is bought and nothing is measured out, and the chain can run for as long as somebody remembers to hold a portion back.",
+          "The same survey supplies the evidence that this really is what happens, rather than a pleasing story about continuity. It found that both the production region and the milk type shaped the microbial community, and concluded that traditional production preserves the transfer of a distinctive regional population from batch to batch. A starter that had been bought would erase that pattern; a starter carried forward in kitchens is what produces it.",
+          "Other starting methods are documented, and one should be attributed rather than generalised. The Slow Food Foundation's description of the practice in Lori records a preparation called meran, made from dried cornelian cherries with wheat and rye, along with a rennet step. That is a specific account of a specific local practice, and it is reported here as one. Taking any single description of a household process as the timeless national method is the standard error with foods like this one, and the honest position is that the back-slopped starter is the widely attested constant and the elaborations around it vary.",
+        ],
+      },
+      {
+        id: "the-word-and-the-food",
+        heading: "The word and the food",
+        paragraphs: [
+          "Hrachia Acharian's Armenian etymological dictionary treats մածուն under the root մած-, whose sense is to stick, to cling, to thicken — and, of milk, to curdle. The same root gives the verbs for curdling milk and setting cheese, and the adjective for anything viscous. Acharian classes it as a native Armenian word, from an Indo-European root meaning to knead or to work into a sticky mass, with relatives across Slavic, Greek and Germanic; the English word make belongs to the same family.",
+          "He then makes an observation this article borrows, because it settles a question that otherwise attracts a great deal of noise. Beside matsun he sets Persian māsīdan, to curdle, alongside māst; Turkish yoğurmak, to knead, alongside yoghurt; and French cailler, to curdle, alongside lait caillé. Several unrelated languages independently named their fermented milk after the verb for what happens to it. The pattern is a fact about how people name foods, not evidence about who made one first.",
+          "That is the distinction to hold on to. The word is old and it is Armenian. Acharian records մածուն in the classical texts he cites, which establishes the term in written Armenian. What it does not establish is that the food behind the word in those texts was identical to what a shop in Yerevan sells now, and no source consulted for this article closes that gap.",
+        ],
+      },
+      {
+        id: "what-the-record-actually-says",
+        heading: "What the record actually says",
+        paragraphs: [
+          "One sentence travels through nearly every English page about matsun: that it is mentioned in many tales by Armenian writers from the eleventh century onward. It is worth following that back, because what is at the end of it is not what the sentence describes.",
+          "The eleventh-century figure involved is Grigor Magistros, and the work is his treatise on grammar. What he supplies there is an etymology — a scholar's note about where the word comes from — reported into modern discussion through a philological study published early in the twentieth century. A grammarian explaining a word is genuine evidence that the word existed and was familiar enough to explain. It is not a tale, it is not a description of the food, and it will not support a claim about how matsun was made or eaten.",
+          "So the accurate statement is narrower than the popular one and more useful. Matsun is named in Armenian writing from the medieval period, and its name is native and older still. Beyond that the evidence available here does not reach, and this article does not pretend otherwise. Statements that matsun is thousands of years old, or the oldest cultured milk anywhere, are not supported by anything consulted for this page, and the confident ones tend to appear on pages that are selling something.",
+        ],
+      },
+      {
+        id: "matsun-and-matsoni",
+        heading: "Matsun and matsoni",
+        paragraphs: [
+          "Armenians call it matsun and Georgians call it matsoni, and the food is the same food. Both names come from the same root, both traditions set milk with a carried-forward starter, and the products differ in the way that two households' bread differs rather than in the way that two dishes differ.",
+          "Science has treated it that way. The 2015 survey described above was carried out on samples from both countries by a team including Armenian and Georgian researchers, and its title calls matsoni a transnational fermented milk. Its finding — that the microbial community tracks region and milk rather than border — is the most concrete thing anyone can say about the relationship, and it was arrived at by people from both traditions working on the question together.",
+          "There is also a dispute, and it belongs in a different paragraph from the history. Georgia registered matsoni as a protected geographical indication in 2012, and a disagreement over the naming and transit of Armenian matsun followed. That is a modern argument about trade names and markets. It is not evidence about who fermented milk first, it should not be read as any, and this article takes no position on the question of origin because the sources consulted do not answer it and nothing about the food requires it answered.",
+        ],
+      },
+      {
+        id: "an-everyday-food",
+        heading: "An everyday food",
+        paragraphs: [
+          "Matsun is not festival food. The Slow Food Foundation, describing the tradition as it survives particularly in the northern province of Lori, calls it part of the daily diet, and that phrase does more work than it looks like it does: this is a food that appears at ordinary meals, repeatedly, rather than being brought out for an occasion.",
+          "It is eaten plain, with or without bread, and it goes beside salads and soups. It is also a component rather than an accompaniment in a whole family of dishes — the Armenian repertoire includes preparations built on it, and it turns up in fillings and in mixtures where its sourness is doing the seasoning.",
+          "That is the argument for giving it an article of its own. A section that described only finished dishes would keep meeting matsun as a line in other people's ingredient lists and never explain it. Most of Armenian home cooking assumes it is in the house, in the way that a great deal of cooking elsewhere assumes there is butter.",
+        ],
+      },
+      {
+        id: "what-matsun-becomes",
+        heading: "What matsun becomes",
+        paragraphs: [
+          "Thinned with water and salted, it becomes a cold drink — the everyday summer counterpart to the way it is eaten in winter. That drink has its own name and deserves its own article eventually; it does not have one here yet, and this article stops at describing the relationship rather than pretending to cover it.",
+          "Cooked, it becomes soup. Spas is the clearest case in this section: a soup whose body and sourness are both supplied by fermented milk, stabilised so that it can be heated without splitting. That article deliberately left the larger matsun story to be told somewhere else, and this is the somewhere else. Reading the two together is the point of having both.",
+          "Drained and salted, it keeps. The strained form is known as kamats matsun and was stored in clay or in leather for months. Dried further, into hard balls, it becomes chortan, which lasts years and is reconstituted with water when it is wanted. A pastoral household with no cold store could carry the summer's milk into the winter in that form, and the preservation chain — fresh, drained, dried — is the practical reason a fermented milk sits at the centre of the food system rather than at the edge of it.",
+        ],
+        links: [{ phrase: "Spas is the clearest case", slug: "spas" }],
+      },
+      {
+        id: "households-and-factories",
+        heading: "Households and factories",
+        paragraphs: [
+          "Matsun is made in both places now. It is an ordinary supermarket product in Armenia, made industrially with defined cultures and sold in tubs, and it is also still made at home from a starter that came from a previous batch, which came from the batch before that.",
+          "The difference between the two is exactly the difference the microbiology found. An industrial culture is chosen, consistent and reproducible, which is what a product sold at scale requires. A household chain is none of those things, and that is why it carries a regional signature at all. Neither is a corruption of the other; they are two answers to the question of how to make the same food reliably, and they optimise for different kinds of reliability.",
+          "The tradition has also travelled. In 1929 Sarkis and Rose Colombosian, Armenian immigrants in Andover, Massachusetts, began selling their household matsun locally, and the wagon carried the Armenian word. The business grew, and along the way the name on the container was changed to yogurt, because that was the word an American market recognised. It became one of the first commercially sold yogurts in the United States. The food crossed an ocean intact and the word did not survive the trip, which is as neat an illustration as this article could ask for of why it declines to treat the two words as equivalents.",
+        ],
+      },
+      {
+        id: "named-on-a-national-list",
+        heading: "Named on a national list",
+        paragraphs: [
+          "Armenia keeps a national inventory of intangible cultural heritage, and matsun is on it: the entry is the tradition of the preparation and use of matsun, filed under national cuisine. That is a real, dated, institutional recognition by the state of the practice rather than of the product.",
+          "It is worth being precise about what that is not. The national inventory is not the UNESCO Representative List, and the two are separate instruments with separate procedures. Of Armenia's inscriptions on the UNESCO list, the only food is lavash. Matsun does not appear there, and any page that says it is UNESCO heritage has collapsed a national listing into an international one.",
+          "The distinction matters more than pedantry usually does, because this is precisely the kind of claim that gets upgraded as it is repeated. A national inventory entry is worth stating plainly and worth stating accurately, and it is a stronger fact when it is not inflated: a state has formally recognised that making and using matsun is part of its living culture, which is a different and more interesting claim than a badge.",
+        ],
+      },
+    ],
+    importantDates: [
+      {
+        year: "1929",
+        event:
+          "Sarkis and Rose Colombosian begin selling matsun in Andover, Massachusetts; the name on the container is later changed to yogurt for the American market.",
+      },
+      {
+        year: "2012",
+        event:
+          "Georgia registers matsoni as a protected geographical indication, the beginning of a modern dispute over naming rather than over history.",
+      },
+      {
+        year: "2015",
+        event:
+          "A survey in Food Microbiology sequences matsun and matsoni across Armenia and Georgia, and finds the microbial community tracking region and milk type rather than border.",
+      },
+    ],
+    significance: {
+      heading: "Why matsun matters",
+      paragraphs: [
+        "This is the first article in the section about something that is not a dish, and it is the reason the section needed a dairy category rather than a place to file an awkward entry. Matsun is a food, an ingredient, a preservation method and a drink base at once, and describing Armenian cooking without it means describing a great many dishes by their surfaces.",
+        "It is also an unusually clean case of evidence doing better than assertion. The claims that circulate about matsun are about antiquity and ownership; the things that can actually be established are a native word with a documented root, a measured microbial community that ignores the border, and a state inventory entry that is not the international one it is often mistaken for. Each of those is more interesting than the claim it replaces.",
+      ],
+    },
+    interestingFacts: [
+      "Nothing is added to thicken matsun: the acid the bacteria produce destabilises the milk protein, and the whole vessel sets in place into a gel.",
+      "Acharian sets matsun beside Persian māst, Turkish yoghurt and French lait caillé — several unrelated languages each named their fermented milk after the verb for curdling, which is a fact about naming rather than about origin.",
+      "Sequencing found the microbial community of matsun and matsoni tracking region and milk type rather than the Armenian-Georgian border, in a study written by researchers from both countries.",
+      "Dried into hard balls as chortan, matsun keeps for years and is brought back with water — which is how a pastoral household carried summer milk into winter.",
+      "The Armenian-run creamery that introduced yogurt to the United States began by selling matsun under its Armenian name, and changed the word rather than the food.",
+    ],
+    relatedFigures: [],
+    cuisine: {
+      ingredients: [
+        "Milk — cow's usually, also sheep, goat, buffalo or mixtures",
+        "A portion of the previous batch, as the starter",
+        "Lactic-acid bacteria, chiefly Lactobacillus and Streptococcus, with yeasts present",
+        "Salt, for the drained and dried keeping forms",
+      ],
+      preparation:
+        "Milk is warmed, a little of the previous batch is stirred in, and the vessel is left covered and warm until the bacteria have acidified it enough for the protein to coagulate and the whole to set. It is then cooled. No quantities or timings are given here: this article explains what matsun is rather than teaching unsupervised fermentation.",
+      occasions: [
+        "Everyday meals rather than festivals",
+        "Eaten plain or with bread, beside salads and soups",
+        "As the base of soups, drinks, fillings and mixtures",
+      ],
+      regions: [
+        "Throughout Armenia, as an ordinary household and commercial product",
+        "Lori, where the traditional practice is particularly documented",
+        "Shared with Georgia, where the same food is called matsoni",
+      ],
+      serving:
+        "Served cold and plain, or thinned and salted as a drink, or cooked into soup; the drained and dried keeping forms are reconstituted before use.",
+    },
+    relatedSlugs: ["spas"],
+  },
 ];

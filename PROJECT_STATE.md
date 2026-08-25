@@ -1,6 +1,6 @@
 # Armat — Project State Report
 
-**Last updated:** 2026-08-24 (Khash artwork registered — every article in the archive illustrated again)
+**Last updated:** 2026-08-25 (Matsun added as Cuisine #10 with a new Dairy type — artwork pending)
 **Repo:** `d:\armedu` · branch `seo`
 **Status:** Armenian-first multilingual site, complete in three editions and **live in
 production at [armat.site](https://armat.site)** (Vercel). Crawlable and indexable today.
@@ -15381,5 +15381,305 @@ edited and has now produced its **sixth** value without an edit: 0, 1, 0, 1, 0, 
 - **New and small:** the Cuisine weight band is now bimodal — two files near
   190–200 KB and seven between 112 and 152 KB. Khash did not widen it, but it makes
   the shape clearer.
+
+**No deployment occurred.**
+
+---
+
+## §74 — Matsun, Cuisine #10, and the Dairy type (2026-08-25)
+
+**Status:** green. Cuisine 9 → 10. First new dish type since the section was
+built. Artwork pending. **The Ačaṙyan debt, open since §70, is closed.**
+
+### Phase A — taxonomy audit
+
+Every place a Cuisine type is defined or consumed was read before anything was
+added. The finding: **`dairy` needed no architecture at all.**
+
+| surface | what it does | change needed |
+|---|---|---|
+| `src/data/types.ts` | `dishTypeId?: string` — no union, no enum | none |
+| `src/data/locales/*/cuisine.ts` | `cuisineTypes: Filter[]`, ids shared, labels translated | one line each |
+| `CuisineListing.tsx` | reads the vocabulary from a prop, filters generically on `dishTypeId`, URL key `type` | none |
+| `src/lib/search.ts` | passes `dishType`/`dishTypeId` through | none |
+| `scripts/validate-content.ts` | two rules: label must match the filter, and **every filter must match ≥1 article** | none |
+| tests | vocabulary spelled out in several places | four literals |
+
+A grep for hardcoded ids (`"bread"`, `"meat"`, …) across `src/app`, `src/components`,
+`src/lib` and `scripts` returns **nothing**. The taxonomy is data, and adding to it
+is a data change.
+
+**The gate was tested rather than assumed.** The `dairy` filter was added first,
+with no article under it, and `validate:content` failed in all three editions —
+"filter matches no content, so selecting it always shows the empty state". That
+is §4's requirement enforced by the repo itself: the archive cannot grow an empty
+type, which is why there is no `drink` id sitting ready for tan.
+
+**Scope decision recorded in the file:** `dairy` means dairy foods in their own
+right — matsun, the cheeses, chortan — not everything containing milk. Spas
+contains matsun and stays `main`, because spas is a soup. Filing matsun under
+`main` to avoid touching the list would have encoded a classification the article
+itself contradicts, which is why §5 forbade it and why it was not done.
+
+### Phase B — live SEO/SERP research
+
+**Volume unavailable.** No keyword tool was reachable; no monthly searches,
+difficulty, CPC or traffic figures appear anywhere in this step.
+
+**The SERP is the most contaminated this archive has researched.** For khash the
+mix was tourism plus recipes. Here it is four-way:
+
+- encyclopedic — Wikipedia (Matzoon), Wiktionary
+- food heritage — Slow Food Ark of Taste
+- **commercial dairy** — retailer and producer pages, starter-culture shops
+- recipe/fermentation blogs — several making very strong historical claims
+- **news** — the Georgia/Armenia naming dispute, in general-interest outlets
+- forums — including a thread titled "Yogurt is an Armenian Invention. Period."
+- academic — present but invisible to ordinary queries
+
+**Primary intent:** informational-cultural with heavy commercial contamination.
+The explanatory entity query — *what is matsun* — is the gap, and it is a wider
+gap than khash's because product pages outrank explanation.
+
+**Primary entity:** Matsun, with `matzoon` as a live transliteration and
+`Armenian yogurt` as the highest-volume-looking English approach. The article is
+**not** renamed to Armenian Yogurt: it explains the relationship instead, and the
+Colombo paragraph turns that editorial choice into a documented event.
+
+**Content gap.** Nothing on the first pages separates what is documented from what
+is repeated. Four claims recur with no attribution: an eleventh-century
+chronology, a UNESCO upgrade, an invention claim, and probiotic health benefits.
+
+**Armat differentiation:** entity + food science + evidence + language, with each
+claim carried as the kind of claim it is. Three things here appear on no competing
+page: Ačaṙyan's own cross-linguistic naming argument, the peer-reviewed
+transnational microbiology, and the national-inventory/UNESCO distinction stated
+precisely.
+
+**SEO title:** `What Is Matsun? Armenia's Fermented Milk` (40 chars). Question form
+because the definitional query is the gap; "Armenia's" because `matsun` alone
+returns product pages; "Fermented Milk" because it is accurate where "yogurt"
+would not be.
+
+### Phase C — the evidence model
+
+**Fermentation** explained as chemistry, not instruction: lactose → lactic acid →
+pH falls → casein destabilises → the vessel sets in place. Nothing is added to
+thicken it, and the acid's second job — making the food inhospitable to spoilage
+organisms — is the reason a household without refrigeration keeps milk this way.
+
+**The starter is evidenced, not asserted.** Bokulich et al. (2015) found that
+production region and milk type both shape the microbial community, and concluded
+that traditional production preserves the transfer of a distinctive regional
+population **from batch to batch**. That turns back-slopping from a pleasing story
+about continuity into a measured finding. Slow Food's `meran` starter — dried
+cornelian cherries with wheat and rye, plus a rennet step — is reported as one
+documented local practice in Lori and explicitly not generalised.
+
+**Etymology — and the closed debt.** §70 and §72 each had to shorten an etymology
+section because nayiri would not serve Ačaṙyan's `Հայերեն արմատական բառարան`. The
+dictionary is on the Internet Archive, scanned and OCR'd; volume three carries
+`մած-` and was read directly. It gives: the root sense (to stick, cling, thicken;
+of milk, to curdle), `մածուն` as a **native** Armenian word from a PIE root meaning
+to knead, cognates across Slavic, Greek and Germanic (English *make* among them),
+and the classical texts in which the word is attested.
+
+**Ačaṙyan also settles the ownership question himself**, which no competing page
+notices. Beside matsun he sets Persian *māsīdan*/*māst*, Turkish
+*yoğurmak*/*yoghurt* and French *cailler*/*lait caillé*: several unrelated
+languages each named their fermented milk after the verb for curdling. The naming
+pattern is a fact about how people name foods, not evidence of priority.
+
+**The eleventh-century claim, followed to its source.** Every popular page says
+matsun is "mentioned in many tales by Armenian writers since the 11th century".
+What is actually at the end of that chain is **Grigor Magistros's treatise on
+grammar, giving an etymology of the word**, reaching modern discussion through a
+philological study of 1915. A grammarian explaining a word proves the word
+existed. It is not a tale, not a description of the food, and cannot support a
+claim about how matsun was made or eaten.
+
+Worth recording: **Magistros is the same name §72 found at the end of the khash
+chronology.** An eleventh-century grammarian is being used as a culinary witness
+in two different food literatures.
+
+**Matsun and matsoni — settled with evidence rather than diplomacy.** Bokulich et
+al. is titled *Microbial biogeography of the transnational fermented milk matsoni*,
+was written by a team including both Armenian and Georgian researchers, and found
+the microbial community tracking region and milk type rather than the border. The
+2012 Georgian geographical-indication registration and the naming dispute that
+followed are placed in a separate paragraph and described as a modern argument
+about trade names — not evidence about who fermented milk first. The article takes
+no position on origin.
+
+**Heritage status, stated precisely.** Matsun is on **Armenia's national inventory**
+of intangible cultural heritage as *Մածունի պատրաստման ու կիրառման ավանդույթը*.
+It is **not** on the UNESCO Representative List, where lavash is Armenia's only
+food. The article makes the distinction explicitly and argues that the national
+entry is a *stronger* fact when it is not inflated.
+
+**Health: refused entirely.** The microbiology is cited for what lives in matsun
+and how it varies by region, and the article says in terms that it makes no claim
+about what that ecosystem does to a person who eats it.
+
+**The Colombo paragraph** is the article's best single find and it does editorial
+work: in 1929 Sarkis and Rose Colombosian sold their household matsun in Andover,
+Massachusetts under the Armenian word `madzoon`, and the name on the container
+later became `yogurt` because that was the word the American market knew. The food
+crossed intact; the word did not survive the trip. That is the terminology
+argument made as an event.
+
+### Structure and relations
+
+Ten sections, thirty paragraphs, identical across editions: `what-matsun-is` ·
+`milk-turned-by-bacteria` · `the-starter-and-the-chain` · `the-word-and-the-food` ·
+`what-the-record-actually-says` · `matsun-and-matsoni` · `an-everyday-food` ·
+`what-matsun-becomes` · `households-and-factories` · `named-on-a-national-list`.
+
+**`relatedSlugs: ["spas"]` — one authored relation, deliberately.** §16 predicted
+it and the prose earns it. §39 offered lavash as a second; it was **refused**,
+because matsun-with-bread rests on one clause in one source and a link built on
+that is manufactured. Recorded rather than padded.
+
+**Spas was not modified.** §16 permitted reciprocity only if the existing content
+had a natural place and the task's scope supported it; it does not, and §55/§56
+forbid touching the existing nine. The relation is one-directional and that is
+recorded here rather than quietly fixed.
+
+**Tan is described and deliberately not linked** — no article exists, and a
+`relatedSlug` pointing at nothing is the failure being avoided. Recorded as a
+knowledge-graph opportunity, and a test asserts `relatedSlugs` does not contain
+`tan`.
+
+**No cross-category link.** §26 anticipated Lori and forbade reaching for
+`haghpat-monastery` on geography alone — a monastery is not a dairy-culture
+article. No Lori food or regional article exists yet. "No earned cross-category
+link" is the honest outcome, and §40 allows it.
+
+Filler measured after the authored relation was set: matsun takes `lavash, dolma`.
+**Spas keeps `dolma`, jingalov hats keeps `dolma, khorovats`, khash keeps `dolma`**
+— all unchanged, and asserted rather than assumed.
+
+### Sources
+
+Six entries, all identified. **Ačaṙyan HAB vol. 3** (Internet Archive, read
+directly) · **Bokulich et al., *Food Microbiology* 50:12–19, DOI** · **Ministry of
+ESCS ICH inventory** (reused from khash, where it carried an absence; here a
+presence) · **UNESCO RL/00985 lavash** (cited for the negative claim) · **Slow Food
+Ark of Taste** (scoped) · **Massachusetts Historical Society** (Colombo).
+
+**Slow Food is cited and scoped.** It is used for Lori, the daily-diet framing, the
+`meran` starter and the two keeping forms. It is explicitly **not** used for its
+opening chronology, which is the sentence the article takes apart.
+
+**Grigor Magistros is discussed and not cited** — the 1915 philological study could
+not be consulted, so the claim is reported at one remove and the prose says so.
+Same handling as Heratsi at §72.
+
+**No commercial dairy source is cited at all.** They carry origin, antiquity and
+health claims, and the only fact they establish — that matsun is a normal retail
+product — needs no citation.
+
+**Petrosian & Underwood again not cited** — fourth consecutive Cuisine article.
+Stays at five of ten rather than six of ten.
+
+### Verification
+
+```
+typecheck                                   PASS
+validate:content                            PASS — 150 entries, pending note = matsun
+parity harness (matsun)                     OK — 0 differing rows, 3 editions, 20 checks
+cuisine.spec.ts (focused)                   84 passed (3.1m)   [74 → 84]
+full Playwright suite                       348 passed, 5 skipped (11.0m), exit 0
+npm run build                               PASS — 159/159 static pages
+```
+
+**One more transient failure, re-run rather than explained away.** The first full
+suite returned 345 passed and **3 failed**: the desktop-navigation test in all
+three editions, each landing on the previous section's URL after clicking the
+cuisine link. Navigation is untouched by this step, and the spec passed 10/10 in
+isolation — but three consecutive failures are worth more than one isolated pass,
+so the whole suite was run again rather than reasoned about. It came back **348
+passed, 0 failed**, with those three tests taking 4.6s, 5.9s and 4.6s against the
+13.9s, 14.7s and 14.5s they took when they failed. A cold window, evidenced by
+the timings rather than asserted.
+
+**Three real content-growth failures, all correct, all run before being fixed:**
+
+1. `places.spec.ts` → category listings: cuisine 9 → 10.
+2. `visit.spec.ts` → canonical routes: `/en/cuisine` 9 → 10.
+3. `cuisine.spec.ts` → **three** separate literals: the seventh- and eighth-dish
+   tests each pin the full type vocabulary, and the eighth-dish test pins the whole
+   distribution. A new type could not enter the section without every test that
+   describes the section noticing. Widened, never loosened.
+
+The registry snapshot in `places.spec.ts` correctly **passed**, because matsun has
+no artwork yet and `IMAGES` is unchanged.
+
+**A Turbopack cache failure, diagnosed rather than guessed.** One full-spec run
+produced **48 failures**, including 404s (`Այս էջը չգտնվեց`) on `/hy/cuisine/lavash`
+— a route untouched by this step. Following §41: system memory was measured first
+(**4.9 GB free of 15.9 GB**, so not host exhaustion), the server was confirmed
+stopped and the port clear, and `.next` was cleared. The next run returned to 2
+failures. Cache corruption, evidenced, not asserted.
+
+**One measured timeout, not a blind raise.** `every dish's metadata comes from its
+own SEO fields` navigates every dish in every edition — eighteen page loads at six
+dishes, **thirty at ten**. Alone against a warm server it takes ~16s inside a 30s
+budget; under two workers on a cold cache it exceeded it twice. Marked
+`test.slow()` with the measurement recorded in the file. No retries, no partition,
+and not one assertion weakened.
+
+**Three bugs in my own new tests, fixed in the tests and not the content** — and
+two of them are the same mistake in different clothes:
+
+1. An Armenian-script assertion (`Մագիստրոս`) run against the English edition.
+   The identical error class as §72's three.
+2. The forbidden-claim sweep read the whole rendered `main`, which includes the
+   related-articles block — and **lavash's own excerpt reads "inscribed by UNESCO
+   in 2014"**. The test was about to accuse matsun of a neighbour's card. Scoped to
+   matsun's own fields.
+3. A flat ban on "thousands of years" went red on the article's own sentence
+   *refuting* that claim. **A substring sweep cannot distinguish an assertion from
+   a refutation**, so the test was restructured into two scopes: antiquity and
+   invention banned in the headline text, where nothing has room to qualify
+   anything; health and marketing banned everywhere, including in refutation,
+   because the article's position is that the question is out of scope.
+
+That third one is the useful lesson of this step: an archive whose editorial method
+is *name the bad claim and take it apart* cannot test for bad claims by searching
+for their words.
+
+### Western Armenian
+
+Written as Western Armenian, not converted: `եւ`/`ութիւն` throughout, Western verb
+forms and vocabulary (`կերակուր`, `գաղթականներ`, `ամաններ`), Western renderings of
+names (`Գոլոմպոսեան`, `Անտովըր`, `Աճառեան`), and `ԻՒՆԵՍՔՕ` against Eastern
+`ՅՈՒՆԵՍԿՕ`. Eastern-orthography check finds nothing. **Flagged for native review** —
+backlog now seventeen.
+
+### Technical debt carried forward
+
+- **Closed:** the Ačaṙyan gap, open since §70 and shortening two earlier etymology
+  sections. The Internet Archive copy is now cited and the path is recorded for
+  the next article that needs it.
+- **Closed:** Cuisine had no home for dairy. `matsun` and `tan` were both named as
+  homeless at §72 and §73; half of that is now fixed.
+- **Open:** Petrosian & Underwood at five of ten; the uniform template in the older
+  six; the `hyw` backlog at seventeen; **four** Cuisine articles now render filler;
+  no `drink` type, so tan still has no home, deliberately.
+- **New:** spas → matsun is not reciprocal, by decision rather than by oversight.
+- **New:** `cuisine.spec.ts` has tests whose cost grows linearly with the section.
+  One is marked slow; a twelfth or thirteenth dish will need this looked at
+  properly rather than marked again.
+
+### Not touched
+
+Places, Visit, map clustering, coordinates and Visit curation unmodified — 13
+Places, 2 groups, 7 initial individual markers, 0 covered visible centres, no Place
+#14. `geo.ts`, `map-cluster.ts`, `visit-map.ts`, `map-tiles.ts` and
+`src/components/visit/` clean in git. **Khash untouched** — content, SEO, relations,
+artwork, metadata, type and safeguards all exactly as §73 left them. No Armat
+category added. `getRelatedArticles` unmodified. `ARTWORK_PROVENANCE` unmodified.
+`.claude/settings.json` unmodified. Steps 43 and 44 not rewritten.
 
 **No deployment occurred.**

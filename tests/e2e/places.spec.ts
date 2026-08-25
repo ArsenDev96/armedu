@@ -4751,10 +4751,11 @@ test("the four existing category listings still load and still count what they d
     ["writers", 6, dict.listing.writers.title],
     ["works", 4, dict.listing.works.title],
     // §67 moves Cuisine 6 → 7 with Spas, §70 moves it 7 → 8 with jingalov hats,
-    // and §72 moves it 8 → 9 with khash. Edited rather than derived on purpose:
-    // this test's whole job is to notice when another section's count changes,
-    // and it has now done so three times, going red first on each of them.
-    ["cuisine", 9, dict.listing.cuisine.title],
+    // §72 moves it 8 → 9 with khash, and §74 moves it 9 → 10 with matsun. Edited
+    // rather than derived on purpose: this test's whole job is to notice when
+    // another section's count changes, and it has now done so four times, going
+    // red first on every one of them.
+    ["cuisine", 10, dict.listing.cuisine.title],
   ];
 
   for (const [path, count, heading] of expected) {

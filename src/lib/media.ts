@@ -1364,7 +1364,39 @@ export const PENDING_ARTWORK: readonly string[] = [
    *
    * The list is empty again, and for the third time that sentence covers the whole
    * archive rather than only Places: every article in every section has a cover.
+   *
+   * §74 reopened it a fourth time, in the same place and for the same reason.
    */
+  /*
+   * §74. Matsun, Cuisine #10, written ahead of its picture — and the first
+   * pending entry in this section for something that is not a dish.
+   *
+   * **Nothing may be borrowed, and `spas.webp` is the specific danger.** Spas is
+   * made of matsun, so the two are genuinely related and a substitution would
+   * feel almost right — which is exactly why it must not happen. Spas is a fluid
+   * soup with grain and green herbs suspended in it. Matsun is a set, plain,
+   * white mass with no inclusions at all. A cover that showed anything floating
+   * in it would be illustrating the wrong article.
+   *
+   * **The subject is the set curd itself.** A plain ceramic bowl of thick white
+   * fermented milk, its surface showing the characteristic broken, slightly
+   * uneven set of something that gelled in place rather than being stirred
+   * smooth — ideally with a spoon-mark or a cut edge holding its shape, because
+   * that texture is the whole visual argument for what fermentation did. Cool
+   * even daylight, an ordinary table, bread nearby if anything at all is.
+   *
+   * **What must not be in the frame.** No commercial yogurt packaging of any
+   * kind: no printed tub, no foil lid, no label, no branded pot. No fruit, no
+   * honey drizzle, no granola, no berry garnish — that is a Western breakfast
+   * product and this is not one. No wellness or probiotic styling: no supplement
+   * imagery, no clinical white staging, no measuring. No recipe staging, no
+   * ingredient lineup, no thermometer. No herbs or grain floating in it, for the
+   * reason above.
+   *
+   * Preferred geometry 1586×992. Photographic register, matching all nine
+   * existing Cuisine covers.
+   */
+  "matsun",
 ];
 
 /**

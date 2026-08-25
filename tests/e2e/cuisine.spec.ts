@@ -20,8 +20,9 @@ import { LOCALES, articleTitle, bundle, cards, ui } from "./helpers";
 const SPAS = "spas";
 const JINGALOV = "jingalov-hats";
 const KHASH = "khash";
+const MATSUN = "matsun";
 
-/** Every dish in the section, as of §72. */
+/** Every dish in the section, as of §74. */
 const SLUGS = [
   "lavash",
   "dolma",
@@ -32,6 +33,7 @@ const SLUGS = [
   SPAS,
   JINGALOV,
   KHASH,
+  MATSUN,
 ] as const;
 
 /**
@@ -45,15 +47,14 @@ const SLUGS = [
  * must *render a raster* stop being the same question, and a single list can only
  * answer one of them.
  *
- * §69 closed the gap: `spas.webp` was registered and the two lists named the same
- * seven slugs again. §70 opened it again in the same place with `jingalov-hats`,
- * §71 closed it again, §72 opened it a third time with `khash`, and §73 has
- * closed it again — which is why the declaration was kept separate rather than
- * collapsed back into `SLUGS`. Every assertion below that says "each illustrated
- * dish" has gone on meaning that across all six moves, and not one of them has
- * needed an edit for any of them. `PENDING` is empty and still declared, for the
- * reason it was still declared at §71: the tenth dish will open the gap a fourth
- * time, and a list that has to be reintroduced is a list that gets forgotten.
+ * §69 closed the gap, §70 opened it with `jingalov-hats`, §71 closed it, §72
+ * opened it with `khash`, §73 closed it, and §74 has opened it a fourth time with
+ * `matsun` — which is why the declaration was kept separate rather than collapsed
+ * back into `SLUGS`. Every assertion below that says "each illustrated dish" has
+ * gone on meaning that across all seven moves, and not one of them has needed an
+ * edit for any of them. The note left at §73 said the tenth dish would reopen it.
+ * It did, which is the second time that prediction has been written down and then
+ * come true, and the reason the empty declaration is never deleted.
  *
  * Kept as its own literal rather than derived from `getImageSrc`, for the reason
  * the Places file gives: a derived list agrees with the registry by construction,
@@ -72,7 +73,7 @@ const ILLUSTRATED = [
 ] as const;
 
 /** The dishes still waiting for one. Derived from nothing — stated. */
-const PENDING: readonly string[] = [];
+const PENDING: readonly string[] = [MATSUN];
 
 /** Where each dish's cover must live, spelled out rather than templated. */
 const ARTWORK: Record<string, string> = {
@@ -361,8 +362,11 @@ test("the seventh dish exists in every edition and is a main dish", async ({ pag
   for (const locale of LOCALES) {
     expect(
       bundle(locale).cuisineTypes.map((t) => t.id),
-      `${locale} taxonomy unchanged`,
-    ).toEqual(["all", "bread", "main", "meat", "ceremonial", "dessert"]);
+      // §74 appends `dairy`. Both of these went red on it, which is what a
+      // spelled-out vocabulary is for: a new type cannot enter the section
+      // without every test that describes the section noticing.
+      `${locale} taxonomy`,
+    ).toEqual(["all", "bread", "main", "meat", "ceremonial", "dessert", "dairy"]);
   }
 
   // And the type genuinely holds two dishes now, which is the visible half.
@@ -661,15 +665,12 @@ test("spas gained a picture and no recipe markup with it", async ({ page }) => {
   }
 });
 
-test("the cuisine listing shows no placeholders at all", async ({ page }) => {
+test("the cuisine listing shows exactly one placeholder", async ({ page }) => {
   /*
-    Derived from the two lists rather than typed as a literal, and this is the sixth
-    value the same expression has produced without being edited: zero for the
-    section's first six articles, one while spas waited between §68 and §69, zero
-    again once it was registered, one while jingalov hats waited between §70 and
-    §71, zero again, one while khash waited between §72 and §73, and zero again now.
-    A literal would have been wrong six times over, and the test name is the only
-    part that has ever changed.
+    Derived from the two lists rather than typed as a literal, and this is the
+    seventh value the same expression has produced without being edited: 0, 1, 0, 1,
+    0, 1, 0, and 1 again now that matsun is waiting. A literal would have been wrong
+    seven times over, and the test name is the only part that has ever changed.
   */
   await page.goto("/en/cuisine");
   await expect(cards(page)).toHaveCount(SLUGS.length);
@@ -781,23 +782,27 @@ test("the eighth dish exists in every edition and is the section's second bread"
     // constraint §70 set and the easiest one to break by accident.
     expect(
       bundle(locale).cuisineTypes.map((t) => t.id),
-      `${locale} taxonomy unchanged`,
-    ).toEqual(["all", "bread", "main", "meat", "ceremonial", "dessert"]);
+      // §74 appends `dairy`. Both of these went red on it, which is what a
+      // spelled-out vocabulary is for: a new type cannot enter the section
+      // without every test that describes the section noticing.
+      `${locale} taxonomy`,
+    ).toEqual(["all", "bread", "main", "meat", "ceremonial", "dessert", "dairy"]);
 
     // The whole type distribution, not only the type that moved.
     const byType = dishes.reduce<Record<string, number>>((acc, a) => {
       acc[a.dishTypeId!] = (acc[a.dishTypeId!] ?? 0) + 1;
       return acc;
     }, {});
-    // §72 moves meat from one to two. Written out in full rather than asserting
-    // only the type that moved, which is why adding khash had to come through
-    // here rather than past it.
+    // §72 moved meat from one to two; §74 adds the dairy type with matsun in it.
+    // Written out in full rather than asserting only the type that moved, which is
+    // why each addition has had to come through here rather than past it.
     expect(byType, `${locale} distribution`).toEqual({
       bread: 2,
       main: 2,
       meat: 2,
       ceremonial: 2,
       dessert: 1,
+      dairy: 1,
     });
   }
 
@@ -1476,6 +1481,18 @@ test("the empty search page offers cuisine as a place to start", async ({ page }
 
 test("every dish's metadata comes from its own SEO fields, in every edition", async ({ page }) => {
   /*
+    §74 marks this slow rather than retrying or loosening it. The test navigates
+    every dish in every edition, so its cost grows linearly with the section: at
+    six dishes that was eighteen page loads, at ten it is thirty. Measured alone
+    against a warm server it takes about sixteen seconds, inside the thirty-second
+    budget; under two workers on a cold Turbopack cache it exceeded it twice. The
+    budget is tripled and not one assertion is weakened, because this is not a
+    flaky test — it is a genuinely long one that got longer because the archive
+    grew.
+  */
+  test.slow();
+
+  /*
     Cuisine was the one category the August 2026 SEO batch skipped, so all six
     dishes fell back to `title` and `excerpt` for their `<title>` and their
     description. Nothing else in the suite asserts that `seoTitle` and
@@ -1618,8 +1635,8 @@ test("the ninth dish exists in every edition and is the section's second meat di
     // natural mistake.
     expect(
       bundle(locale).cuisineTypes.map((t) => t.id),
-      `${locale} taxonomy unchanged`,
-    ).toEqual(["all", "bread", "main", "meat", "ceremonial", "dessert"]);
+      `${locale} taxonomy`,
+    ).toEqual(["all", "bread", "main", "meat", "ceremonial", "dessert", "dairy"]);
   }
 
   // And the filter genuinely returns two meat dishes now, each named.
@@ -2088,7 +2105,13 @@ test("khash owns its artwork in every edition, and borrows nobody else's", async
 
   expect(getImageSrc(KHASH), "registered file").toBe(ARTWORK[KHASH]);
   expect(PENDING_ARTWORK, "no longer pending").not.toContain(KHASH);
-  expect([...PENDING_ARTWORK], "and the archive-wide list is empty again").toEqual([]);
+  /*
+    §73 also asserted here that the archive-wide pending list was empty. §74 made
+    that false by adding matsun, and the assertion has moved rather than been
+    dropped: the pending test for whichever dish is currently waiting owns the
+    archive-wide state, because that is the test that has to change anyway. Khash's
+    test keeps the half that is about khash.
+  */
 
   /*
     And it still borrows nothing. Spas, harissa and khorovats are the three §44
@@ -2235,6 +2258,554 @@ test("adding khash changed no existing dish's relations or artwork", async ({ pa
   }
 
   // And the eight existing covers are exactly where they were.
+  for (const slug of ILLUSTRATED) {
+    expect(getImageSrc(slug), `${slug} artwork unchanged`).toBe(ARTWORK[slug]);
+  }
+});
+
+/* -------------------------------------------------------------------------- */
+/*  §74 — Matsun, the tenth dish, and the dairy type                           */
+/* -------------------------------------------------------------------------- */
+
+test("the dairy type is an ordinary cuisine filter, with exactly one article", async ({ page }) => {
+  /*
+    §74 adds the first new dish type since the section was built, and the thing
+    worth checking is that it is *ordinary* — that it went in through the same
+    door as the other five and needed no special case anywhere. Hence the shape of
+    this test: the vocabulary, then the label in every edition, then the URL, then
+    the rendered result.
+  */
+  for (const locale of LOCALES) {
+    const types = bundle(locale).cuisineTypes;
+
+    // Appended, not inserted: no existing id moved, and none was renamed.
+    expect(
+      types.map((t) => t.id),
+      `${locale} filter ids`,
+    ).toEqual(["all", "bread", "main", "meat", "ceremonial", "dessert", "dairy"]);
+
+    // The label is translated rather than left in English, which is the failure
+    // that would otherwise reach a reader unnoticed in two of three editions.
+    const dairy = types.find((t) => t.id === "dairy")!;
+    expect(dairy.label.trim().length, `${locale} dairy label is filled`).toBeGreaterThan(0);
+    if (locale !== "en") {
+      expect(dairy.label, `${locale} dairy label is not the English one`).not.toBe("Dairy");
+    }
+
+    // Exactly one article carries it, and it is matsun. An empty filter would
+    // render a permanently blank listing state, which is what `validate:content`
+    // forbids and what this asserts from the other side.
+    const dairyArticles = bundle(locale)
+      .articles.filter((a) => a.category === "cuisine" && a.dishTypeId === "dairy")
+      .map((a) => a.slug);
+    expect(dairyArticles, `${locale} dairy membership`).toEqual([MATSUN]);
+  }
+
+  // The URL behaves like every other type filter — same key, same round trip.
+  await page.goto("/en/cuisine?type=dairy");
+  await expect(cards(page)).toHaveCount(1);
+  await expect(
+    page.getByRole("link", { name: articleTitle("en", MATSUN), exact: true }).first(),
+  ).toBeVisible();
+
+  // And selecting it did not disturb the others: each existing filter still
+  // returns exactly what it returned before matsun existed.
+  for (const [type, count] of [
+    ["bread", 2],
+    ["main", 2],
+    ["meat", 2],
+    ["ceremonial", 2],
+    ["dessert", 1],
+  ] as const) {
+    await page.goto(`/en/cuisine?type=${type}`);
+    await expect(cards(page), `${type} count`).toHaveCount(count);
+  }
+});
+
+test("the tenth dish exists in every edition and is the section's only dairy food", async ({
+  page,
+}) => {
+  for (const locale of LOCALES) {
+    const dishes = bundle(locale).articles.filter((a) => a.category === "cuisine");
+    expect(dishes.length, `${locale} dish count`).toBe(SLUGS.length);
+    expect(
+      dishes.map((a) => a.slug),
+      `${locale} keeps the section in one order`,
+    ).toEqual([...SLUGS]);
+
+    const dish = dishes.find((a) => a.slug === MATSUN);
+    expect(dish, `${locale} has matsun`).toBeDefined();
+    expect(dish!.dishTypeId, `${locale} type`).toBe("dairy");
+    expect(dish!.featured ?? false, `${locale}: no cuisine article is featured`).toBe(false);
+
+    // Not filed under an existing type to avoid touching the taxonomy, which is
+    // the shortcut §74 exists to refuse: spas contains matsun and stays `main`,
+    // because spas is a soup and matsun is not.
+    expect(
+      dishes.find((a) => a.slug === SPAS)!.dishTypeId,
+      `${locale} spas is untouched`,
+    ).toBe("main");
+  }
+
+  // No dish changed type when the vocabulary grew.
+  for (const [slug, type] of [
+    ["lavash", "bread"],
+    ["dolma", "main"],
+    ["khorovats", "meat"],
+    ["harissa", "ceremonial"],
+    ["gata", "dessert"],
+    ["ghapama", "ceremonial"],
+    [SPAS, "main"],
+    [JINGALOV, "bread"],
+    [KHASH, "meat"],
+    [MATSUN, "dairy"],
+  ] as const) {
+    expect(
+      bundle("en").articles.find((a) => a.slug === slug)!.dishTypeId,
+      `${slug} type`,
+    ).toBe(type);
+  }
+
+  await page.goto("/en/cuisine");
+  await expect(cards(page)).toHaveCount(10);
+});
+
+test("matsun renders in every edition and carries its own SEO fields", async ({ page }) => {
+  for (const locale of LOCALES) {
+    const response = await page.goto(`/${locale}/cuisine/${MATSUN}`);
+    expect(response?.status(), `${locale} status`).toBe(200);
+
+    const article = bundle(locale).articles.find((a) => a.slug === MATSUN)!;
+
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText(article.title);
+    expect(article.title.split(/\s+/).length, `${locale} title is one word`).toBe(1);
+
+    expect(article.seoTitle, `${locale} has an seoTitle`).toBeTruthy();
+    expect(article.seoTitle, `${locale} seoTitle differs from the title`).not.toBe(article.title);
+    expect(article.seoTitle!.length, `${locale} seoTitle budget`).toBeLessThanOrEqual(52);
+    await expect(page).toHaveTitle(new RegExp(`^${escapeRe(article.seoTitle!)}`));
+
+    expect(article.metaDescription!.length, `${locale} description`).toBeGreaterThanOrEqual(70);
+    expect(article.metaDescription!.length, `${locale} description`).toBeLessThanOrEqual(165);
+    await expect(page.locator('meta[name="description"]')).toHaveAttribute(
+      "content",
+      article.metaDescription!,
+    );
+
+    await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+      "href",
+      new RegExp(`/${locale}/cuisine/${MATSUN}$`),
+    );
+    for (const alternate of LOCALES) {
+      await expect(
+        page.locator(`link[rel="alternate"][hreflang="${alternate}"]`),
+        `${locale} declares ${alternate}`,
+      ).toHaveCount(1);
+    }
+  }
+});
+
+test("matsun is reachable by the queries people actually type", async ({ page }) => {
+  const queries: [string, string][] = [
+    ["en", "matsun"],
+    ["en", "matzoon"],
+    ["en", "armenian yogurt"],
+    ["en", "fermented milk"],
+    ["en", "chortan"],
+    ["hy", "մածուն"],
+    ["hyw", "մածուն"],
+  ];
+
+  for (const [locale, query] of queries) {
+    await page.goto(`/${locale}/search?q=${encodeURIComponent(query)}`);
+    await expect(
+      page.locator(`a[href="/${locale}/cuisine/${MATSUN}"]`).first(),
+      `${locale} "${query}" reaches matsun`,
+    ).toBeVisible();
+  }
+
+  await page.goto("/en/search?q=matsun");
+  await expect(
+    page.getByRole("main").getByRole("heading", { name: ui("en").search.groupCuisine, level: 2 }),
+  ).toBeVisible();
+});
+
+test("matsun separates the record from the claims made about it", async ({ page }) => {
+  /*
+    §74's central editorial requirement. The SERP for this topic carries an
+    eleventh-century chronology, an invention claim, a UNESCO upgrade and a wall of
+    probiotic marketing. The article is required to carry each as the kind of claim
+    it actually is, and the negative half of this test is the important half.
+  */
+  for (const locale of LOCALES) {
+    const article = bundle(locale).articles.find((a) => a.slug === MATSUN)!;
+    const section = (id: string) => article.sections.find((s) => s.id === id)!.paragraphs.join(" ");
+
+    // The eleventh-century claim is followed to its source and scoped, in the
+    // same section, rather than repeated or silently dropped.
+    const record = section("what-the-record-actually-says");
+    expect(record, `${locale} names the figure`).toContain(
+      { en: "Grigor Magistros", hy: "Մագիստրոս", hyw: "Մագիստրոս" }[locale],
+    );
+    for (const marker of {
+      en: ["is an etymology", "It is not a tale"],
+      hy: ["տալիս է ստուգաբանություն", "Դա պատմություն չէ"],
+      hyw: ["կու տայ ստուգաբանութիւն", "Ատիկա պատմութիւն չէ"],
+    }[locale]) {
+      expect(record, `${locale} scopes the medieval claim: ${marker}`).toContain(marker);
+    }
+
+    // The heritage listing is national, and the article says which one it is not.
+    const heritage = section("named-on-a-national-list");
+    for (const marker of {
+      en: ["not the UNESCO Representative List", "the only food is lavash"],
+      hy: ["ՅՈՒՆԵՍԿՕ-ի ներկայացուցչական ցանկը չէ", "միակ ուտելիքը լավաշն է"],
+      hyw: ["ԻՒՆԵՍՔՕ-ի ներկայացուցչական ցանկը չէ", "միակ ուտելիքը լաւաշն է"],
+    }[locale]) {
+      expect(heritage, `${locale} distinguishes the lists: ${marker}`).toContain(marker);
+    }
+
+    // Matsoni is handled as one food under two names, not as a contest.
+    const matsoni = section("matsun-and-matsoni");
+    for (const marker of {
+      en: ["the food is the same food", "takes no position"],
+      hy: ["մթերքը նույն մթերքն է", "դիրքորոշում չի ընդունում"],
+      hyw: ["մթերքը նոյն մթերքն է", "դիրքորոշում չ՚որդեգրեր"],
+    }[locale]) {
+      expect(matsoni, `${locale} refuses the contest: ${marker}`).toContain(marker);
+    }
+  }
+
+  /*
+    Two scopes, because one substring sweep cannot tell an assertion from a
+    refutation. The article's body has to *name* the claims it takes apart — it
+    says in terms that statements about matsun being thousands of years old are
+    unsupported — so a flat ban on that phrase goes red on the sentence doing the
+    work. The distinction drawn here is where an unqualified claim could actually
+    reach a reader as a claim.
+
+    `headline` is the SERP- and card-facing text: excerpt, summary, intro, key
+    facts, interesting facts, dates. Nothing there has room to qualify anything,
+    so an antiquity or invention claim appearing there is always a claim.
+
+    `everything` adds the sections and the significance block, and carries only the
+    health and marketing vocabulary — which has no legitimate use anywhere on this
+    page, refutation included, because the article's position is that the question
+    is out of scope rather than that the answer is no.
+  */
+  for (const locale of LOCALES) {
+    const article = bundle(locale).articles.find((a) => a.slug === MATSUN)!;
+
+    const headline = [
+      article.excerpt,
+      article.summary ?? "",
+      article.intro,
+      ...article.keyFacts.map((f) => `${f.label} ${f.value}`),
+      ...article.interestingFacts,
+      ...article.importantDates.map((d) => d.event),
+    ]
+      .join(" ")
+      .toLowerCase();
+
+    const everything = [
+      headline,
+      ...article.sections.flatMap((sec) => sec.paragraphs),
+      ...article.significance.paragraphs,
+    ]
+      .join(" ")
+      .toLowerCase();
+
+    // The page must address the listing at all — an article that simply avoided
+    // the word would pass every negative assertion below while telling the reader
+    // nothing.
+    expect(
+      everything.includes("unesco") ||
+        everything.includes("յունեսկօ") ||
+        everything.includes("իւնեսքօ"),
+      `${locale} addresses the UNESCO distinction`,
+    ).toBe(true);
+
+    /*
+      Phrased as claims that can only ever be false, not as a ban on the word. An
+      earlier draft forbade "on the unesco list" outright and went red on the
+      article's own correct sentence — that of Armenia's inscriptions on the UNESCO
+      list, the only food is lavash. An article that draws the distinction properly
+      has to name the list it is distinguishing itself from, so the assertion has to
+      be about what is predicated of matsun.
+    */
+    for (const forbidden of [
+      "matsun is unesco",
+      "matsun is a unesco",
+      "matsun is on the unesco",
+      "unesco inscribed matsun",
+      "matsun was inscribed",
+      "matsun is inscribed",
+      "մածունը յունեսկօ",
+      "մածունը իւնեսքօ",
+    ]) {
+      expect(everything, `${locale} must not upgrade the listing: ${forbidden}`).not.toContain(
+        forbidden,
+      );
+    }
+
+    // Antiquity and invention: banned where they could only be assertions.
+    for (const forbidden of [
+      "invented",
+      "the world's oldest",
+      "oldest fermented",
+      "oldest cultured",
+      "thousands of years",
+      "since antiquity",
+      "հազարավոր տարի",
+      "հազարաւոր տարի",
+      "հնագույն",
+      "հնագոյն",
+    ]) {
+      expect(headline, `${locale} must not claim in its headline text: ${forbidden}`).not.toContain(
+        forbidden,
+      );
+    }
+
+    // Health and marketing: banned everywhere, including in refutation, because
+    // the article's position is that the question is out of scope.
+    for (const forbidden of [
+      "probiotic benefit",
+      "boosts immunity",
+      "improves digestion",
+      "gut health",
+      "detox",
+      "superfood",
+      "weight loss",
+      "strains of probiotics",
+      "good for you",
+      "իմունիտետ",
+      "մարսողությունը բարելավում",
+    ]) {
+      expect(everything, `${locale} must not claim: ${forbidden}`).not.toContain(forbidden);
+    }
+  }
+});
+
+test("matsun explains fermentation without teaching it", async ({ page }) => {
+  for (const locale of LOCALES) {
+    const article = bundle(locale).articles.find((a) => a.slug === MATSUN)!;
+    const prose = article.sections.flatMap((s) => s.paragraphs).join(" ");
+
+    // The science is present and named.
+    const science = article.sections.find((s) => s.id === "milk-turned-by-bacteria")!.paragraphs.join(" ");
+    expect(science, `${locale} names the bacteria`).toContain("Lactobacillus");
+    expect(science, `${locale} names the protein`).toMatch(/casein|կազեին|քազէին/);
+
+    // No numeric quantity, duration or temperature anywhere in the prose. The
+    // article states process without schedule on purpose, so a stray digit here
+    // means a recipe crept in.
+    /*
+      The three dates, with 2015 twice: the microbiology survey is introduced in the
+      fermentation section and referred back to in the matsoni section. Asserted as
+      the exact multiset rather than as a set, because that is also what
+      `validateCrossLocaleNumbers` compares — a numeral appearing twice in one
+      edition and once in another is precisely the translation defect worth catching.
+    */
+    const digits = (prose.match(/\d+/g) ?? []).sort();
+    expect(digits, `${locale} prose carries only the dates`).toEqual([
+      "1929",
+      "2012",
+      "2015",
+      "2015",
+    ]);
+
+    await page.goto(`/${locale}/cuisine/${MATSUN}`);
+    const text = ((await page.getByRole("main").textContent()) ?? "").toLowerCase();
+    for (const forbidden of [
+      "tablespoon",
+      "teaspoon",
+      "servings",
+      "prep time",
+      "incubate for",
+      "degrees",
+      "°c",
+      "litres",
+      "ferment for",
+      "ճաշի գդալ",
+      "թեյի գդալ",
+    ]) {
+      expect(text, `${locale} must not read as a recipe: ${forbidden}`).not.toContain(forbidden);
+    }
+  }
+
+  // Not recipe-first: the article opens on what the thing is, and no section is a
+  // set of instructions.
+  const article = bundle("en").articles.find((a) => a.slug === MATSUN)!;
+  expect(article.sections[0].id).toBe("what-matsun-is");
+  for (const section of article.sections) {
+    expect(section.id, "no how-to section").not.toContain("how-to");
+    expect(section.id, "no recipe section").not.toContain("recipe");
+  }
+});
+
+test("matsun earns its link to spas and manufactures nothing else", async ({ page }) => {
+  /*
+    §16 predicted the spas relation and §39 warned against padding it out. One
+    authored relation it is: the bread relationship is real but thin, and a second
+    link resting on a single clause in a single source would be manufactured.
+  */
+  for (const locale of LOCALES) {
+    const article = bundle(locale).articles.find((a) => a.slug === MATSUN)!;
+    expect(article.relatedSlugs, `${locale} authored relations`).toEqual(["spas"]);
+
+    const links = article.sections.flatMap((s) => (s.links ?? []).map((l) => [s.id, l.slug]));
+    expect(links, `${locale} link placement`).toEqual([["what-matsun-becomes", "spas"]]);
+
+    for (const section of article.sections) {
+      for (const link of section.links ?? []) {
+        expect(
+          section.paragraphs.some((para) => para.includes(link.phrase)),
+          `${locale} "${link.phrase}" appears in ${section.id}`,
+        ).toBe(true);
+      }
+    }
+
+    // Tan is described and deliberately not linked, because no such article
+    // exists. A relatedSlug pointing at nothing is the failure being prevented.
+    expect(article.relatedSlugs, `${locale} no phantom tan relation`).not.toContain("tan");
+  }
+
+  for (const locale of LOCALES) {
+    await page.goto(`/${locale}/cuisine/${MATSUN}`);
+    await expect(page.locator(`main a[href="/${locale}/cuisine/spas"]`).first()).toBeVisible();
+  }
+});
+
+test("matsun rests on scholarship, and no product page carries its history", async ({ page }) => {
+  const sources = getSources(MATSUN);
+  expect(sources.length, "matsun has a bibliography").toBeGreaterThanOrEqual(5);
+  for (const source of sources) {
+    expect(source.identifier?.value, `${source.title} carries an identifier`).toBeTruthy();
+  }
+
+  const values = sources.map((s) => String(s.identifier?.value ?? "").toLowerCase()).join(" ");
+  for (const host of [
+    "gatapandok",
+    "mynarum",
+    "tnakan",
+    "yogurtathome",
+    "beetsandbones",
+    "figaroshakes",
+    "nourishedkitchen",
+    "advantour",
+    "willflyforfood",
+    "phoenixtour",
+  ]) {
+    expect(values, `no commercial or recipe source: ${host}`).not.toContain(host);
+  }
+
+  // The peer-reviewed microbiology is present by DOI, and Ačaṙyan is present at
+  // last — the work two earlier steps had to record as unreachable.
+  expect(
+    sources.some((s) => s.identifier?.kind === "doi"),
+    "a DOI-identified study",
+  ).toBe(true);
+  expect(
+    sources.some((s) => String(s.identifier?.value).includes("archive.org/details/Hrarm")),
+    "Acharian's dictionary, consulted directly",
+  ).toBe(true);
+
+  expect(
+    sources.some((s) => (s.author ?? "").includes("Petrosian")),
+    "Petrosian & Underwood stays out, as §38 asks",
+  ).toBe(false);
+
+  await page.goto(`/en/cuisine/${MATSUN}`);
+  await expect(page.getByText("Food Microbiology", { exact: false }).first()).toBeVisible();
+});
+
+test("matsun has no artwork, says so, and borrows nobody else's", async ({ page }) => {
+  /*
+    The pending-artwork state, in the shape this section has now needed four
+    times. Spas is named in the borrowing check first because it is the real risk
+    here: spas is *made of* matsun, so a substitution would feel nearly right.
+  */
+  for (const locale of LOCALES) {
+    const dict = ui(locale);
+    await page.goto(`/${locale}/cuisine/${MATSUN}`);
+
+    const figure = page.locator("header figure");
+    await expect(figure.locator("svg[role='img']"), `${locale} placeholder`).toHaveCount(1);
+    await expect(figure.locator("img"), `${locale} no raster`).toHaveCount(0);
+    await expect(figure.locator("figcaption"), locale).toHaveText(
+      dict.article.imagePlaceholderCaption.replace("{title}", articleTitle(locale, MATSUN)),
+    );
+    await expect(figure.locator("figcaption"), `${locale} not the AI caption`).not.toHaveText(
+      dict.article.imageAiIllustrationCaption.replace("{title}", articleTitle(locale, MATSUN)),
+    );
+  }
+
+  expect(getImageSrc(MATSUN), "no registered file").toBeUndefined();
+  expect(PENDING_ARTWORK, "declared pending rather than silently bare").toContain(MATSUN);
+  expect([...PENDING_ARTWORK], "and it is the only one").toEqual([MATSUN]);
+
+  await page.goto(`/en/cuisine/${MATSUN}`);
+  const heroSources = await page
+    .locator("header img")
+    .evaluateAll((nodes) => nodes.map((el) => decodeURIComponent(el.getAttribute("src") ?? "")));
+  for (const other of ILLUSTRATED) {
+    expect(
+      heroSources.some((src) => src.includes(`/cuisine/${other}.webp`)),
+      `${other} must not illustrate matsun`,
+    ).toBe(false);
+  }
+
+  for (const property of ['meta[property="og:image"]', 'meta[name="twitter:image"]']) {
+    const content = await page.locator(property).first().getAttribute("content");
+    expect(content, property).toContain("/og-default.png");
+  }
+
+  const graph = await readGraph(page);
+  expect(node(graph, "Article").image, "no Article.image while pending").toBeUndefined();
+  const serialized = JSON.stringify(graph);
+  for (const forbidden of [
+    "Recipe",
+    "HowTo",
+    "NutritionInformation",
+    "MenuItem",
+    "FoodEstablishment",
+    "recipeIngredient",
+    "recipeInstructions",
+  ]) {
+    expect(serialized, `no ${forbidden} in the graph`).not.toContain(forbidden);
+  }
+});
+
+test("adding matsun changed no existing dish's relations, type or artwork", async ({ page }) => {
+  for (const locale of LOCALES) {
+    const dishes = bundle(locale).articles.filter((a) => a.category === "cuisine");
+    const authored = Object.fromEntries(dishes.map((a) => [a.slug, a.relatedSlugs]));
+    expect(authored[SPAS], `${locale} spas relations untouched`).toEqual(["harissa", "lavash"]);
+    expect(authored[KHASH], `${locale} khash relations untouched`).toEqual(["lavash", "harissa"]);
+    expect(authored[JINGALOV], `${locale} jingalov relations untouched`).toEqual(["lavash"]);
+  }
+
+  // Spas keeps the dolma filler §71 and §73 were each told not to alter, khash
+  // keeps its own, and matsun takes what the registry order gives it. Read off
+  // the rendered page rather than off the function.
+  for (const [slug, expected] of [
+    [SPAS, ["harissa", "lavash", "dolma"]],
+    [KHASH, ["lavash", "harissa", "dolma"]],
+    [MATSUN, ["spas", "lavash", "dolma"]],
+  ] as const) {
+    await page.goto(`/en/cuisine/${slug}`);
+    const hrefs = await page
+      .locator('main a[href^="/en/cuisine/"]')
+      .evaluateAll((nodes) => nodes.map((el) => el.getAttribute("href") ?? ""));
+    for (const related of expected) {
+      expect(
+        hrefs.some((href) => href.endsWith(`/cuisine/${related}`)),
+        `${slug} still offers ${related}`,
+      ).toBe(true);
+    }
+  }
+
+  // And the nine existing covers are exactly where they were.
   for (const slug of ILLUSTRATED) {
     expect(getImageSrc(slug), `${slug} artwork unchanged`).toBe(ARTWORK[slug]);
   }
