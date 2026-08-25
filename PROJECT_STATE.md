@@ -15683,3 +15683,564 @@ category added. `getRelatedArticles` unmodified. `ARTWORK_PROVENANCE` unmodified
 `.claude/settings.json` unmodified. Steps 43 and 44 not rewritten.
 
 **No deployment occurred.**
+
+---
+
+## §75 — Matsun artwork verified and registered (2026-08-25)
+
+Artwork only. No article content, no taxonomy, no `dairy` type change, no `drink`,
+no Spas edit, no Places/Visit/map change, no Cuisine #11, and no change to the
+supplied file.
+
+### Pre-registration state, read from source before anything moved
+
+Ten Cuisine articles, nine illustrated, `PENDING_ARTWORK = ["matsun"]`. Type
+distribution `bread 2 / main 2 / meat 2 / ceremonial 2 / dessert 1 / dairy 1`,
+`cuisineTypes` ending `…dessert, dairy` in all three editions. `matsun` absent from
+`IMAGES`, rendering the generated placeholder SVG with the placeholder caption, no
+`Article.image`, fallback `og:image` and `twitter:image` (`/og-default.png`), and no
+`image:loc` in any of its three sitemap entries. **No discrepancy against the
+expected state.**
+
+### Asset
+
+`public/images/cuisine/matsun.webp`, registered exactly as delivered — unaltered,
+uncropped, unoptimised, unrenamed, unreplaced.
+
+| | |
+|---|---|
+| Dimensions | **1584 × 993** (ratio 1.5952) |
+| Bytes | **397,682** (388.4 KB) |
+| SHA-256 | `d8fc17ea6196c0bf74409be41d190e1aad98d5f3638c2b98127ebe8e2fbaec7f` |
+| Container | `RIFF`/`WEBP` → `VP8X` (10 B) + `ICCP` (456 B) + `VP8 ` (397,180 B) |
+| RIFF size field | 397,674 = filesize − 8, and the walk ends **exactly at EOF** |
+| `VP8X` flags | `0x20` — ICC set; alpha, EXIF, XMP, animation all clear |
+| Compression | lossy VP8, one keyframe, sync `9D 01 2A` |
+| Colour | sRGB, 3 channels, 8 bit, `isOpaque`, 456-byte ICC profile |
+| Alpha / EXIF / XMP / orientation | none / none / none / none |
+
+Verified twice — a hand-written RIFF chunk walker and `sharp` — which agree on
+every field.
+
+**Geometry drift, reported rather than corrected.** The commission asked for
+1586×992 and the file is 1584×993: two pixels narrower, one taller, ratio 1.5952
+against 1.5988, a 0.2 per cent difference. It is the `gyumri.webp` geometry
+exactly, so it introduces no new size to the archive, and it changes no crop
+outcome at any rendered surface. Resampling the whole image to hit a round number
+would have been a real edit to fix nothing — the same call §73 made for khash's
+1585×992.
+
+**First ICC-bearing Cuisine file.** The other nine covers are plain `RIFF/VP8` with
+no `VP8X`. This one carries an extended container with a 456-byte sRGB profile, like
+`erebuni-fortress.webp`, `matenadaran.webp`, `gyumri.webp` and
+`amberd-fortress.webp` on the Places side. Not a fault, not touched.
+
+### Visual acceptance — PASS
+
+A wide hand-thrown stoneware bowl, pale grey with a brushed blue rim band and a
+painted geometric arcade low on the wall, on striped linen on a bare wood table. It
+holds a plain white mass with no inclusions of any kind, its surface broken into
+folds and scoop ridges standing proud of a thin ring of pale whey against the bowl
+wall. A metal spoon lifts a lump clear of the surface. Behind: a blue-painted
+ceramic jug and a bright window with foliage. Right: folded flatbread and a small
+ceramic cup. Left: a torn wheat loaf with crumbs on the wood. Daylight from the
+left.
+
+It reads as **plain white fermented dairy, thick and set, spoonable, on an ordinary
+table** at full resolution and at every crop the site renders. It does not read as
+white soup, milk, cream, sauce, whipped cream, pudding, ice cream, or a commercial
+yogurt advertisement.
+
+### Matsun vs Spas — the decisive comparison
+
+The §74 note named this as the specific danger: spas is *made of* matsun, so a
+substitution would feel nearly right. The two separate on **two independent axes**,
+and one of them was measured rather than judged.
+
+**Inclusions.** A numeric sweep of 262,400 pixels of the Matsun bowl interior found
+**zero** green-biased pixels (`G > R+6 ∧ G > B+18`). The identical measurement over
+`spas.webp`'s bowl returns **1.37 per cent**. There is no grain, no dzavar, no rice,
+no grain-like solid and no herb anywhere in the Matsun bowl.
+
+**Physical state.** Spas has a flat liquid level with grain suspended through it and
+a wooden spoon lying beside the bowl. Matsun has a broken solid standing above its
+own whey with a metal spoon lifting part of it out.
+
+Compared side by side at full resolution, at the 380px listing card, at the 160px
+search thumbnail and at the 128px one. At every size spas reads *speckled
+green-and-grain liquid* and matsun reads *plain white solid with a scoop taken out*.
+There is no crop at which it becomes "spas without herbs" or a generic white soup.
+
+### Set texture — the core requirement, PASS
+
+Present: spoon marks and drag furrows across the surface; soft folds; a ragged,
+broken standing edge where a scoop was taken; natural irregularity throughout;
+visible density; **a thin ring of translucent whey** against the bowl wall with a
+real meniscus and one specular highlight; a matte soft sheen.
+
+Absent: pouring behaviour, a flat cream-like level, stiff whipped peaks, gelatinous
+wobble, cottage-cheese graininess, artificial gloss.
+
+The mass **stands above its own whey**, which is the single strongest set cue in the
+file — a soup cannot do that.
+
+### Spoon — PASS
+
+One spoon, a plain tapered metal one with an embossed leaf finial. The handle is
+continuous from bowl to finial, crosses the bowl rim once and rests on the flatbread
+and cloth. No duplicated utensil, no impossible reflection, no floating contact.
+
+The lifted portion **sits on the spoon and overhangs it on both sides**, shows flat
+fracture planes with a torn edge, and slumps softly. It does not stream like soup
+and does not form sculpted advertising peaks. This is the file's clearest statement
+of *spoonable rather than pourable*.
+
+### Grain / soup-herb audit — clean
+
+Zero green-biased pixels in the bowl (above). No dzavar, wheat, rice or grain-like
+solid. No herbs through the bowl and none on the table. Nothing floats in it, which
+is what §74 said a wrong cover would show.
+
+### Generic-yogurt comparison — passes as a cultural food article
+
+The identity cues are the subtle ones §8 asked for and no more: a simple handmade
+hand-thrown ceramic bowl with hand-painted decoration, a matching blue-painted jug
+and cup, coarse striped linen, a bare weathered wood table, restrained bread context
+(a torn wheat loaf and folded flatbread), natural set texture, daylight. No Armenian
+symbol is required and none appears. The food is central — the bowl occupies the
+frame's middle third and is the brightest thing in it.
+
+### Commercial-yogurt audit — clean
+
+No plastic cup, no foil lid, no packaging, no branded jar, no dairy logo, no
+supermarket styling, no milk splash, no fruit explosion, no sculpted advertising
+spoonful, no high-key studio composition. The lighting is low-key with a dark
+surround (whole-frame luma median 91 of 255), which is the opposite register from a
+product campaign. This is editorial food imagery.
+
+### Fruit / breakfast-bowl audit — clean
+
+No berries, granola, honey drizzle, tropical fruit, chocolate, staged nuts or
+parfait layers. Nothing shifts it toward a Western yogurt breakfast.
+
+### Everyday-food character — PASS
+
+Ordinary, homemade, foundational, quiet. Bread crumbs lie scattered on the bare wood
+at the lower left — an unstaged detail that does more for the everyday register than
+any prop. Simple bread, linen, wood, ceramic, a modest spoon; no dessert styling, no
+luxury breakfast, no fine dining, no ceremonial table.
+
+### Fermentation / health / recipe visual audit — clean
+
+Fermentation is implied only by the set texture and the whey, exactly as §12 asked.
+No bacteria graphics, no bubbles-as-science, no microscope imagery, no
+starter-culture label, no diagram, no icon.
+
+No gut-health, probiotic, immunity, weight-loss, detox, fitness or medical framing.
+No health icons, no green wellness branding, no supplement, no pill, no exercise
+prop, no clinical staging.
+
+No recipe framing: no milk, no starter bowl, no thermometer, no saucepan, no
+measuring cup, no timer, no recipe card, no numbered step, no ingredient label. The
+image depicts **finished matsun**.
+
+### Household / context — PASS
+
+Wood, linen, simple ceramic, neutral daylight through a window. No hay, no giant
+clay storage jar dominating the frame, no costume, no deliberately primitive
+environment. It reads as a contemporary kitchen table.
+
+### Armenian-context audit — clean
+
+No flag, no Ararat, no monastery, no khachkar, no map, no oversized carpet, no
+souvenir object. Identity comes from the dish and the material context.
+
+### Bowl / ceramic — PASS
+
+The rim is a continuous, coherent ellipse of even thickness with an unbroken brushed
+glaze band; the bowl has plausible depth, a coherent foot and a consistent contact
+shadow on the cloth. No warped rim, no fusion between bowl and cloth, no impossible
+base, no repeated-motif artifact. The decorative band is a repeating leaf arcade with
+dots, inspected at magnification.
+
+### AI artifact audit
+
+**One artifact, recorded and not retouched.** The top face of the lifted spoonful
+carries a faint regular diamond cross-hatch — a texture-generation artifact. It is
+visible only above roughly 4× magnification and at no size the site renders.
+
+Everything else inspected at 3–6×: spoon geometry and handle continuity, the far rim
+ellipse, the ceramic bands, the jug's floral repeat, the cup motif, the linen weave
+and the bread. Nothing else is defective.
+
+### Text / signage audit — clean
+
+No readable text anywhere. Inspected at magnification: the bowl band is a repeating
+leaf arcade; the jug carries a blue floral repeat of rosettes and sprigs; the cup
+carries an incised radial star; the spoon finial is an embossed leaf; the linen
+stripe is a broken warp that dissolves into thread-level noise with no baseline, no
+repeated glyph shapes and no word spacing. A contrast-boosted pass over all four
+corners found no watermark and no signature. No dairy label, logo, restaurant name,
+pseudo-Armenian lettering or textile pseudo-writing.
+
+### Colour and exposure — measured, PASS
+
+| Measurement | Value |
+|---|---|
+| Bowl interior clipped at 255 | **0.005 %** |
+| Bowl interior ≥ 250 | 0.030 % |
+| Bowl interior luma p50 / p99 | 197 / **240** |
+| Bowl interior greyscale σ | **40.4** |
+| Brightest 10 % of the dairy | `#eae7e2` (R−B = 8.7) |
+| Brightest 1 % of the dairy | `#f5f3f0` (R−B = 5.3) |
+| Bowl-interior region mean | 193 / 183 / 161 (R−B = 32.5) |
+| Whole frame mean | 115 / 101 / 83 (R−B = 31.6) |
+
+The whites keep their headroom — the 99th percentile stops at 240 — and the surface
+detail survives, with σ = 40.4 of local variation across the dairy. The lit faces are
+near-neutral white rather than blank digital white. The warmer region mean comes from
+shadowed folds picking up bounce off the wood and ceramic, a bias the **whole frame
+shares** (R−B 31.6 against the dairy's 32.5), so it is the scene's white balance and
+not a yellow cast on the product. No blue-grey cast. The bowl and the dark surround
+give ample contrast.
+
+### Lighting — PASS
+
+Soft daylight from the left through a window. It reveals the folds, the spoon marks
+and the thickness rather than erasing them; there is no high-key advertising wash, no
+dramatic darkness hiding the dairy, and no orange restaurant cast. **No steam** — the
+dish is not hot, and the file does not pretend otherwise. The window itself is blown
+(0.8 per cent of that corner ≥ 250), which is the light source and not the subject.
+
+### Visual register
+
+**Photographic** — realistic food photography, matching all nine existing Cuisine
+covers. The section's register stays coherent. Not compared against Places, which
+carries its own unresolved painterly/photographic split.
+
+### Crops — every live surface holds, no `object-position` added
+
+| Crop | Geometry | Trim | Result |
+|---|---|---|---|
+| 16:10 (category card, featured) | 1584×990 | 0.3 % vertical | whole frame, effectively uncropped |
+| 16:9 (listing card, desktop hero, map card) | 1584×891 | 10.3 % vertical | bowl, spoon, whey, loaf, flatbread, jug, cup all kept |
+| 3:2 (tablet hero) | 1490×993 | 5.9 % horizontal | everything kept |
+| 4:3 (compact card, mobile hero) | 1324×993 | 16.4 % horizontal | loses the cup; bowl, spoon, texture, loaf, jug kept |
+| narrow search thumbnail (0.801) | 795×993 | 49.8 % horizontal | **the strongest crop of the set** — whole bowl, spoon with the lifted curd, whey ring, ceramic band, jug and flatbread edge |
+| portrait 3:4 | 745×993 | 53.0 % horizontal | bowl, spoon, set texture and ceramic band all intact |
+
+The narrow crop degrades into none of the failures §22 named: not an empty white
+bowl, not a plain white circle, not only the spoon, not only bread, not generic
+cream. The bowl survives every crop, enough matsun surface survives every crop, the
+set texture is visible in every crop, the spoon cue survives every crop, and matsun
+stays distinct from spas in every crop. Generic centre-crop behaviour is not merely
+adequate here — it is good, so no custom `object-position` was added.
+
+### Search-thumbnail comparison
+
+At 160px and at 128px, against the three §23 named:
+
+- **Spas** — fluid white with dense green flecks and suspended grain, flat level
+- **Matsun** — plain thick white set dairy, broken surface, a scoop taken out
+- **Khash** — clear pale-golden broth with meat, wholly different hue
+- **Harissa** — beige/amber thick grain in a red clay bowl with a butter pool
+
+All four separate instantly. The Matsun-vs-Spas pair, which is the decisive one,
+separates on colour *and* on physical state, so no single failure collapses it.
+
+### All ten Cuisine covers compared
+
+`lavash`, `dolma`, `khorovats`, `harissa`, `gata`, `ghapama`, `spas`,
+`jingalov-hats`, `khash`, `matsun` were opened side by side at the 300px listing
+width. Ten distinct images, ten distinct subjects, no reuse and no duplication.
+Matsun does not become spas, does not borrow gata's dessert styling, and is not a
+generic breakfast product.
+
+### Files changed
+
+- `src/lib/media.ts` — one `IMAGES` entry added, `matsun` removed from
+  `PENDING_ARTWORK`, and the §75 verification note recorded beside each.
+- `tests/e2e/cuisine.spec.ts` — `ILLUSTRATED` gains `matsun`, `PENDING` empties,
+  `ARTWORK` gains the path, the §74 pending test is **inverted** rather than
+  deleted, and three new tests are added.
+- `tests/e2e/places.spec.ts` — the cross-section registry snapshot gains one line.
+- `PROJECT_STATE.md` — this section.
+
+Nothing else. No Matsun-specific image logic, no Dairy-specific image logic, no new
+field, no new provenance infrastructure — the generic media pipeline only.
+
+### Registry update
+
+```ts
+matsun: "/images/cuisine/matsun.webp",
+```
+
+Appended to the Cuisine block after `khash`, in the section's existing order and
+comment style.
+
+### Pending artwork
+
+```ts
+export const PENDING_ARTWORK: readonly string[] = [];
+```
+
+**Empty for the fourth time archive-wide**, and every article in every section has a
+cover again. The §74 commission note is kept and closed with a `§75 Resolved`
+paragraph rather than deleted, on the same principle as §69, §71 and §73: the
+rejected-substitute reasoning outlives the file landing.
+
+Final Cuisine state: **10 articles, 10 illustrated, 0 placeholders.**
+
+### Provenance
+
+`isGeneratedArtwork` was read rather than assumed. Its implementation is
+`!article.image && getImageSrc(article.slug) !== undefined` — so registering the file
+flips Matsun to generated in all three editions at once, because nothing in it is
+locale-dependent. Matsun declares no content-level `image`, so it inherits
+`ARTWORK_PROVENANCE` (`source: "ai-generated"`, `documentary: false`) exactly like
+the other nine.
+
+Verified live in `en`, `hy` and `hyw`: raster present (one `<img>` in the hero
+figure, `src` matching `/matsun\.webp/`), the AI-illustration disclosure rendered
+from each locale's own dictionary, the placeholder caption absent, and zero
+`svg[role='img']` placeholders in the hero figure.
+
+`ARTWORK_PROVENANCE` unmodified.
+
+### Dairy filter regression
+
+`?type=dairy` still returns **exactly Matsun** in all three editions. The type
+distribution is unchanged and now asserted as a whole object per locale rather than
+per-type: `bread 2 / main 2 / meat 2 / ceremonial 2 / dessert 1 / dairy 1`, ten
+articles. `cuisineTypes` still ends `["all", "bread", "main", "meat", "ceremonial",
+"dessert", "dairy"]` in every edition. No article was reclassified, no type renamed,
+nothing featured, and **no `drink` type exists**.
+
+### Listing, article heroes, search
+
+**Listing.** 10 cards, 10 distinct covers, 0 placeholders. Matsun uses exactly
+`/images/cuisine/matsun.webp` and does not borrow `/images/cuisine/spas.webp`.
+
+**Heroes.** `/en/cuisine/matsun`, `/hy/cuisine/matsun` and `/hyw/cuisine/matsun` each
+render exactly `/images/cuisine/matsun.webp` with localized alt text, the AI
+disclosure, and no placeholder disclosure. Assertions are scoped to `header figure`,
+so the related block rendering spas's cover further down the page cannot satisfy
+them — and a separate assertion proves spas's file is *not* in the hero.
+
+**Search.** Checked for all four §45 terms — `matsun`, `matzoon`, `Armenian matsun`
+and `մածուն` — each scoped by canonical href `a[href="/en/cuisine/matsun"]` rather
+than by title, and each verified to carry matsun's own thumbnail and neither spas's,
+harissa's nor khash's. Search semantics were not touched.
+
+### Metadata transition
+
+| | Before §75 | After §75 |
+|---|---|---|
+| `Article.image` | absent | `/images/cuisine/matsun.webp` |
+| `og:image` | `/og-default.png` | `/images/cuisine/matsun.webp` |
+| `twitter:image` | `/og-default.png` | `/images/cuisine/matsun.webp` |
+| sitemap `image:loc` | absent | `/images/cuisine/matsun.webp` |
+
+The JSON-LD graph is still the archive's usual four nodes — `Organization`,
+`WebSite`, `Article`, `BreadcrumbList`. **No `Product` schema**, and none of
+`Recipe`, `HowTo`, `NutritionInformation`, `MenuItem`, `FoodEstablishment`,
+`recipeIngredient`, `recipeInstructions`, `cookTime` or `prepTime`. Matsun being a
+food product does not make this a Product page, and `Product` is now named
+explicitly in the forbidden list because this is the one Cuisine article where it
+would have looked defensible.
+
+### Sitemap
+
+Checked **route by route**, not by a global filename count: `/en/cuisine/matsun`,
+`/hy/cuisine/matsun` and `/hyw/cuisine/matsun` each carry exactly one `<image:loc>`,
+each is matsun's own file, and each is asserted not to contain any of the other nine
+Cuisine paths — spas's included.
+
+### SEO regression
+
+Unchanged by this step and re-verified: visible title, SEO title (`What Is Matsun?
+Armenia's Fermented Milk`), meta description, canonical, hreflang across all three
+editions plus x-default, the `keywords` array, the section headings, and the
+`Article` schema type. Nothing was rewritten because artwork now exists.
+
+### Heritage / evidence regression
+
+Matsun's evidence model is untouched. All of it still holds: Armenian national ICH
+inventory status with the explicit distinction from UNESCO, the Ačaṙyan etymology,
+the Grigor Magistros chronology treatment, the fermentation science, the
+starter-culture evidence, the Matsun/Matsoni framing, the Georgia/Armenia
+naming-dispute separation kept separate, no invention claim, no probiotic or health
+claim, no recipe instructions, the scoped Slow Food use, no commercial-source
+citation, and the Petrosian & Underwood refusal.
+
+### Related-content regression
+
+`relatedSlugs: ["spas"]` unchanged. Spas unmodified — its own
+`relatedSlugs: ["harissa", "lavash"]` and its artwork path are both pinned. The
+decision not to add reciprocal linking in this task is preserved, and `tan` remains a
+future knowledge-graph opportunity only.
+
+Matsun's filler measured after registration off the rendered page: **`spas`, then
+`lavash`, `dolma`** — exactly what §45 recorded, so registering artwork did not
+disturb the registry walk. `getRelatedArticles` unmodified.
+
+### Existing Cuisine regression
+
+All nine existing artwork paths verified exact and unchanged, `spas.webp` asserted
+first and separately because it is the easiest accidental substitute for matsun. A
+new assertion checks that the ten registered paths are ten **distinct** values, so no
+two dishes can ever share a file.
+
+### Places / Visit / map regression
+
+`PLACE_COORDINATES`, `VisitMap`, `map-cluster.ts`, `visit-map.ts`, `map-tiles.ts`,
+Places content, Places artwork and Visit curation are all unmodified. The map state
+is unchanged and was re-verified by the full suite: **13 Places, 2 groups, 7
+individual opening markers, 0 covered visible centres**, at 360/390/768/1440 px. No
+Place #14.
+
+The archive-wide pending assertion in `places.spec.ts` needed no change and was not
+weakened: §67 already rescoped it to filter `PENDING_ARTWORK` down to Place slugs, so
+matsun leaving the list is correctly invisible to it. The one Places edit is the
+cross-section registry snapshot, which went red on the registration — **which is what
+it is for** — and gained one line rather than being relaxed.
+
+### Artwork performance — measured, nothing optimised
+
+| File | Bytes | KB |
+|---|---|---|
+| **matsun** | **397,682** | **388.4** |
+| spas | 203,194 | 198.4 |
+| jingalov-hats | 194,240 | 189.7 |
+| khorovats | 155,340 | 151.7 |
+| gata | 149,570 | 146.1 |
+| ghapama | 144,904 | 141.5 |
+| khash | 135,762 | 132.6 |
+| lavash | 122,540 | 119.7 |
+| harissa | 121,874 | 119.0 |
+| dolma | 114,582 | 111.9 |
+
+Ten files, **1,739,688 bytes (1.66 MB)**, mean 169.9 KB, median 143.8 KB.
+
+Matsun becomes **the heaviest Cuisine asset by a wide margin** — 1.96× spas, which
+held the title, and 2.29× the median. It does not merely extend the ~190–200 KB heavy
+tail that spas and jingalov-hats formed; it opens a new tier roughly twice as high,
+and it alone is 22.9 per cent of the section's bytes. Archive-wide it is still well
+under the Places outliers (`jermuk.webp` 636 KB, `amberd-fortress.webp` 660 KB,
+`erebuni-fortress.webp` 742 KB). Measured and recorded only — nothing was optimised,
+resized or recompressed, and the standing media-optimisation debt is unchanged
+except that this file is now its largest Cuisine member.
+
+### Test-runtime observation
+
+Focused `cuisine.spec.ts`: **87 tests, 1.4 min, 6 workers, all green.** Cuisine now
+drives 10 illustrated articles × 3 locales = 30 artwork navigations.
+
+The slowest test is still the one §45 marked: *"every dish's metadata comes from its
+own SEO fields, in every edition"* at **27.6 s** against a 30 s timeout. That is the
+number worth watching — it is the only test in the file within striking distance of
+the limit, and it grows linearly with the dish count. §45 already carried
+`test.slow()` on it, which is what kept it green here.
+
+Nothing was done about it in this step, deliberately: no second `test.slow()`, no
+blind timeout raise, no partitioning. Runtime has not materially worsened — this
+step added three focused tests and inverted one — so it is **carried forward as debt
+for the next structural test-maintenance step** rather than patched inside an artwork
+step. Cuisine #11 is the point at which the 27.6 s test should be split or the file
+partitioned.
+
+### Commands run, and results
+
+| Command | Result |
+|---|---|
+| custom RIFF chunk walker | green — container internally consistent, walk ends at EOF |
+| `sharp` metadata + stats | green — agrees with the walker on every field |
+| numeric exposure / colour / green-fleck sweeps | green — reported above |
+| `npm run typecheck` | **green**, no output |
+| `npm run validate:content` | **green** — 150 entries across 3 locales |
+| `npx playwright test tests/e2e/cuisine.spec.ts --project=desktop` | **87 passed** (1.4 m) |
+| `npx playwright test` (full suite) | **351 passed, 5 skipped, 0 failed** (4.0 m) |
+| `npm run build` | **green** — compiled in 5.6 s, 159 static pages |
+
+**No failures of any kind.** The five skips are pre-existing conditional skips
+(`test.skip(hasArticle("hyw", slug), "every edition is fully translated; no
+untranslated page exists")`) in `locale.spec.ts`, `mobile.spec.ts` and
+`seo.spec.ts`, unrelated to this step.
+
+**Process discipline.** Port 3002 confirmed to have no listener and no stale dev
+server before browser testing; two node processes present, neither a server (12 MB
+resident, no command line — the editor's own helpers). 6.07 GB of 15.75 GB physical
+memory free. `.next` was **not** cleared — there was no failure to justify it.
+Playwright and `build` were run strictly in sequence, with the listener re-checked
+between them (only TIME_WAIT sockets draining). No output was hidden behind `tail` or
+`grep` in the verification path.
+
+### Tests changed
+
+Nine of the twenty-six required checks were already covered by tests §69–§74 left in
+place and needed no edit. The rest:
+
+- `ILLUSTRATED` gains `matsun` (10 entries), `PENDING` empties to `[]`, `ARTWORK`
+  gains the path. Both lists stay **explicit literals**, not derived from
+  `getImageSrc` — a derived list agrees with the registry by construction, including
+  on the day the registry is wrong.
+- *"the cuisine listing shows exactly one placeholder"* → *"shows no placeholders"*.
+  Only the **name** changed; the expression `SLUGS.length - ILLUSTRATED.length` has
+  now produced the right answer eight times without being edited.
+- *"matsun has no artwork, says so, and borrows nobody else's"* → **inverted** into
+  *"matsun owns its artwork in every edition, and borrows nobody else's"*, the way
+  §69, §71 and §73 inverted theirs. Every assertion that pinned the pending state has
+  a mirror, so the transition is checked in both directions. It also reclaims the
+  archive-wide `PENDING_ARTWORK === []` assertion that §74 had handed forward.
+- **New:** *"the matsun search result carries its own thumbnail"* — four §45 query
+  terms, scoped by canonical href.
+- **New:** *"matsun gained a picture and no product or recipe markup with it"* —
+  graph shape, `Article.image`, the forbidden-schema list with `Product` added, and
+  route-by-route sitemap `image:loc`.
+- **New:** *"registering matsun changed no other dish's artwork, type or relations"*
+  — spas pinned first and separately, ten distinct covers, the full type distribution
+  as one object per locale, authored relations, and the rendered filler.
+- `places.spec.ts` cross-section registry snapshot gains `matsun`.
+
+**No existing assertion was weakened, relaxed or deleted.**
+
+### Claim-test discipline
+
+§45's lesson holds and was not regressed. No naive whole-page substring ban was added
+for `thousands of years`, `UNESCO`, `probiotic` or `invention` — a page may name a
+bad claim precisely to refute it, and Matsun's does. The claim tests §45 wrote remain
+scoped to article-owned text, distinguish assertion from refutation, and do not sweep
+related cards as if their excerpts belonged to Matsun. Everything added in this step
+is structural — image paths, schema shapes, sitemap blocks, registry values — and
+none of it touches page prose.
+
+### Technical debt carried forward
+
+1. **Matsun is the heaviest Cuisine asset at 388 KB**, roughly double the previous
+   tier and 22.9 per cent of the section's bytes. Not optimised. Feeds the standing
+   media-optimisation debt.
+2. **First ICC-bearing Cuisine file** — the section is no longer container-uniform.
+   Harmless, recorded so it is not rediscovered.
+3. **1584×993 geometry drift** from the 1586×992 house size; the section now has
+   three sizes (1586×992, 1585×992, 1584×993). No crop consequence.
+4. **The diamond cross-hatch artifact** on the lifted spoonful, invisible at every
+   rendered size. Not retouched.
+5. **The mixed-bread note**, inherited from spas: a crusty wheat loaf sits beside the
+   flatbread. Background at every crop, no claim rests on it.
+6. **The 27.6 s metadata test** in `cuisine.spec.ts`, growing linearly with the dish
+   count against a 30 s timeout. Owed to the next structural test-maintenance step,
+   not to an artwork step.
+7. **The photographic/painterly register split** in Places is untouched and still
+   open; Cuisine remains internally coherent, and this file does not change that.
+
+### What was not done
+
+Matsun article content unmodified. Cuisine taxonomy unmodified. The `dairy` type
+unchanged. No `drink` type added. **Spas unmodified** — no reciprocal linking, and
+its artwork path pinned. Places, Visit, map clustering, coordinates and Visit
+curation all unmodified. No Cuisine #11. The supplied image was not optimised,
+resized, cropped, recoloured, renamed, regenerated or replaced.
+`ARTWORK_PROVENANCE` unmodified. `getRelatedArticles` unmodified.
+`.claude/settings.json` unmodified. Step 45 not rewritten.
+
+**No deployment occurred.**

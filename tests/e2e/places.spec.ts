@@ -3127,6 +3127,8 @@ test("no unrelated article artwork changed", () => {
     // is for — a Cuisine cover landing is exactly the kind of change that should
     // not reach the Places half of the registry unnoticed. Added, not relaxed.
     khash: "/images/cuisine/khash.webp",
+    // §75 adds matsun, on the same terms and for the fourth time in this section.
+    matsun: "/images/cuisine/matsun.webp",
   });
 
   // Every other entry is still a WebP in one of the category directories, and

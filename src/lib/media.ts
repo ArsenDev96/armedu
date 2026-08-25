@@ -202,6 +202,87 @@ const IMAGES: Record<string, string> = {
   khash: "/images/cuisine/khash.webp",
 
   /*
+   * §75. Matsun — the first Cuisine cover in this registry whose subject is not a
+   * dish but a material, and the only one whose whole job is a texture.
+   *
+   * 1584×993, 388 KB (397,682 bytes) — the Gyumri geometry rather than the house
+   * 1586×992, so this section now has a second size alongside `khash.webp`'s
+   * 1585×992. Ratio 1.5952 against the archive's 1.5988: two pixels narrower and
+   * one taller than the commission asked for, a 0.2 per cent difference that
+   * changes no crop outcome and was recorded rather than resampled away, on the
+   * same reasoning as §73. `RIFF/WEBP` with `VP8X` + `ICCP` + `VP8 ` — an extended
+   * container carrying a 456-byte sRGB profile, which makes it the **first
+   * ICC-bearing file under `/images/cuisine/`**; the other nine are plain
+   * `RIFF/VP8`. The `VP8X` flag byte is `0x20`: ICC set, alpha, EXIF, XMP and
+   * animation all clear, and a full chunk walk ends exactly at EOF with the RIFF
+   * size field agreeing with the file length. One lossy VP8 keyframe, sync
+   * `9D 01 2A`, three channels, eight bits, opaque, no orientation tag. SHA-256
+   * d8fc17ea6196c0bf74409be41d190e1aad98d5f3638c2b98127ebe8e2fbaec7f. Verified
+   * twice, by a hand-written RIFF chunk walk and by `sharp`, which agree on every
+   * field. Registered exactly as delivered: unaltered, uncropped, unoptimised,
+   * unrenamed.
+   *
+   * At 388 KB it is **the heaviest file in this section by a wide margin** — nearly
+   * double `spas.webp`'s 198 KB, which held the title before it — and it takes the
+   * ten Cuisine covers to 1.60 MB. That is measured and recorded, not corrected;
+   * the standing media-optimisation debt is unchanged.
+   *
+   * **What is in the frame, and it is the set curd.** A wide hand-thrown stoneware
+   * bowl, pale grey with a brushed blue rim band and a painted geometric arcade low
+   * on the wall, standing on striped linen on a bare wood table. It holds a plain
+   * white mass with no inclusions of any kind, its surface broken into folds and
+   * scoop ridges that stand proud of a thin ring of pale whey against the bowl
+   * wall. A metal spoon lifts a lump clear of the surface: it sits on the spoon,
+   * overhangs it on both sides, slumps softly, and shows flat fracture planes with
+   * a torn edge. Behind, a blue-painted ceramic jug and a bright window with
+   * foliage; to the right, folded flatbread and a small ceramic cup; to the left, a
+   * torn wheat loaf with crumbs on the wood. Daylight from the left.
+   *
+   * **The spas test, which is the one that mattered, and it is decided by an
+   * absence.** The §74 note beside this slug's pending entry named the danger
+   * exactly — spas is *made of* matsun, so a substitution would feel almost right —
+   * and the two separate on two independent axes at every size the site renders.
+   * Inclusions: a numeric sweep of 262,400 pixels of this bowl's interior found
+   * **zero** green-biased pixels, against 1.37 per cent for the same measurement on
+   * `spas.webp`. Physical state: spas has a flat liquid level with grain suspended
+   * through it, this has a broken solid standing above its own whey. Held side by
+   * side at the 380px listing card and at the 160px and 128px search thumbnails,
+   * spas reads speckled green-and-grain and this reads plain white with a scoop
+   * taken out. There is no crop at which it becomes spas without herbs.
+   *
+   * **Spoonable rather than pourable is carried by three things**, and all three
+   * survive the tightest crop: the lifted spoonful with its cut faces, the ragged
+   * standing edge of the mass, and the whey ring it stands above. Nothing in the
+   * frame pours, sits flat like cream, peaks like whipped dairy, wobbles like
+   * gelatin or breaks into cottage-cheese curd.
+   *
+   * **Exposure, measured rather than judged**, because a white subject is where a
+   * cover fails silently: 0.005 per cent of the bowl interior clips at 255 and the
+   * 99th percentile of its luminance is 240, so the whites keep their headroom and
+   * the surface detail survives (greyscale σ = 40.4 across the dairy). The lit
+   * faces measure #eae7e2 and #f5f3f0 — R−B of 5 to 9, natural white rather than
+   * blank digital white. The region mean is warmer (R−B 32) because the shadowed
+   * folds pick up bounce off the wood and ceramic, which the whole frame shares
+   * (R−B 31.6); it is not a cast on the product.
+   *
+   * Everything the §74 note refused in advance stayed out: no tub, foil lid, label
+   * or branded pot; no fruit, honey, granola or parfait layer; no wellness,
+   * probiotic or clinical staging; no thermometer, saucepan, measuring cup or
+   * ingredient lineup; no grain and no herb. Nothing in the frame is a symbol —
+   * no flag, no Ararat, no khachkar, no carpet — and there is no lettering
+   * anywhere: the bowl band is a repeating leaf arcade, the jug a blue floral
+   * repeat, the spoon finial an embossed leaf, the linen stripe a broken warp, and
+   * a contrast-boosted pass over all four corners found no watermark or signature.
+   *
+   * Two things to know rather than rediscover. The lifted spoonful carries a faint
+   * regular diamond cross-hatch on its top face, visible only above about 4× and at
+   * no rendered size — an AI texture artifact, recorded and not retouched. And the
+   * bread beside the bowl is a crusty wheat loaf as well as flatbread, the same
+   * mixed-bread note `spas.webp` carries; it is background at every crop.
+   */
+  matsun: "/images/cuisine/matsun.webp",
+
+  /*
    * Places
    *
    * `khor-virap.png` is byte-for-byte the same file as `public/hero-ararat.png`,
@@ -1395,8 +1476,22 @@ export const PENDING_ARTWORK: readonly string[] = [
    *
    * Preferred geometry 1586×992. Photographic register, matching all nine
    * existing Cuisine covers.
+   *
+   * §75 **Resolved.** The file that landed carries the commission on its one hard
+   * point: the set curd itself is the subject, with a spoon lifting a lump that
+   * holds its shape and a thin ring of whey around a mass that stands above it.
+   * Nothing floats in it — a numeric sweep of the bowl interior found zero
+   * green-biased pixels — so the spas substitution this note existed to prevent is
+   * refused by the picture as well as by the registry. Everything refused in
+   * advance stayed out: no tub, lid, label or branded pot, no fruit, honey or
+   * granola, no wellness or clinical staging, no thermometer or ingredient lineup,
+   * no grain and no herb. It is registered above, with the spas comparison and the
+   * exposure measurements recorded there. The geometry came in at 1584×993 rather
+   * than the 1586×992 asked for, which is recorded rather than corrected.
+   *
+   * The list is empty again, and for the fourth time that sentence covers the whole
+   * archive rather than only Places: every article in every section has a cover.
    */
-  "matsun",
 ];
 
 /**

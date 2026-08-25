@@ -48,13 +48,15 @@ const SLUGS = [
  * answer one of them.
  *
  * §69 closed the gap, §70 opened it with `jingalov-hats`, §71 closed it, §72
- * opened it with `khash`, §73 closed it, and §74 has opened it a fourth time with
- * `matsun` — which is why the declaration was kept separate rather than collapsed
- * back into `SLUGS`. Every assertion below that says "each illustrated dish" has
- * gone on meaning that across all seven moves, and not one of them has needed an
- * edit for any of them. The note left at §73 said the tenth dish would reopen it.
- * It did, which is the second time that prediction has been written down and then
- * come true, and the reason the empty declaration is never deleted.
+ * opened it with `khash`, §73 closed it, §74 opened it a fourth time with
+ * `matsun` and §75 has closed it again — which is why the declaration was kept
+ * separate rather than collapsed back into `SLUGS`. Every assertion below that
+ * says "each illustrated dish" has gone on meaning that across all eight moves,
+ * and not one of them has needed an edit for any of them. The note left at §73
+ * said the tenth dish would reopen it. It did, which is the second time that
+ * prediction has been written down and then come true, and the reason the empty
+ * declaration is never deleted: with §75 the two lists name the same set for the
+ * fourth time, and `PENDING` is empty rather than gone.
  *
  * Kept as its own literal rather than derived from `getImageSrc`, for the reason
  * the Places file gives: a derived list agrees with the registry by construction,
@@ -70,10 +72,11 @@ const ILLUSTRATED = [
   SPAS,
   JINGALOV,
   KHASH,
+  MATSUN,
 ] as const;
 
 /** The dishes still waiting for one. Derived from nothing — stated. */
-const PENDING: readonly string[] = [MATSUN];
+const PENDING: readonly string[] = [];
 
 /** Where each dish's cover must live, spelled out rather than templated. */
 const ARTWORK: Record<string, string> = {
@@ -86,6 +89,7 @@ const ARTWORK: Record<string, string> = {
   spas: "/images/cuisine/spas.webp",
   "jingalov-hats": "/images/cuisine/jingalov-hats.webp",
   khash: "/images/cuisine/khash.webp",
+  matsun: "/images/cuisine/matsun.webp",
 };
 
 const dishTypeLabel = (locale: "hy" | "hyw" | "en", id: string) => {
@@ -665,12 +669,13 @@ test("spas gained a picture and no recipe markup with it", async ({ page }) => {
   }
 });
 
-test("the cuisine listing shows exactly one placeholder", async ({ page }) => {
+test("the cuisine listing shows no placeholders", async ({ page }) => {
   /*
     Derived from the two lists rather than typed as a literal, and this is the
-    seventh value the same expression has produced without being edited: 0, 1, 0, 1,
-    0, 1, 0, and 1 again now that matsun is waiting. A literal would have been wrong
-    seven times over, and the test name is the only part that has ever changed.
+    eighth value the same expression has produced without being edited: 0, 1, 0, 1,
+    0, 1, 0, 1, and 0 again now that matsun is registered. A literal would have been
+    wrong eight times over, and the test name is the only part that has ever
+    changed.
   */
   await page.goto("/en/cuisine");
   await expect(cards(page)).toHaveCount(SLUGS.length);
@@ -2719,36 +2724,70 @@ test("matsun rests on scholarship, and no product page carries its history", asy
   await expect(page.getByText("Food Microbiology", { exact: false }).first()).toBeVisible();
 });
 
-test("matsun has no artwork, says so, and borrows nobody else's", async ({ page }) => {
+test("matsun owns its artwork in every edition, and borrows nobody else's", async ({ page }) => {
   /*
-    The pending-artwork state, in the shape this section has now needed four
-    times. Spas is named in the borrowing check first because it is the real risk
-    here: spas is *made of* matsun, so a substitution would feel nearly right.
+    §75 inverts the §74 test rather than deleting it, the way §69 inverted §68's,
+    §71 inverted §70's and §73 inverted §72's. Every assertion that pinned the
+    pending state has a mirror here, so the transition is checked in both
+    directions: the raster where the placeholder was, the AI caption where the
+    placeholder caption was, out of `PENDING_ARTWORK` where it was in, and the real
+    file where the fallback OG image was.
   */
   for (const locale of LOCALES) {
     const dict = ui(locale);
     await page.goto(`/${locale}/cuisine/${MATSUN}`);
 
     const figure = page.locator("header figure");
-    await expect(figure.locator("svg[role='img']"), `${locale} placeholder`).toHaveCount(1);
-    await expect(figure.locator("img"), `${locale} no raster`).toHaveCount(0);
-    await expect(figure.locator("figcaption"), locale).toHaveText(
-      dict.article.imagePlaceholderCaption.replace("{title}", articleTitle(locale, MATSUN)),
+    await expect(figure.locator("svg[role='img']"), `${locale} no placeholder`).toHaveCount(0);
+    await expect(figure.locator("img"), `${locale} raster`).toHaveCount(1);
+    await expect(figure.locator("img"), `${locale} exact file`).toHaveAttribute(
+      "src",
+      /matsun\.webp/,
     );
-    await expect(figure.locator("figcaption"), `${locale} not the AI caption`).not.toHaveText(
+    await expect(figure.locator("img"), `${locale} localized alt`).toHaveAttribute(
+      "alt",
+      new RegExp(articleTitle(locale, MATSUN)),
+    );
+
+    await expect(figure.locator("figcaption"), locale).toHaveText(
       dict.article.imageAiIllustrationCaption.replace("{title}", articleTitle(locale, MATSUN)),
+    );
+    await expect(figure.locator("figcaption"), `${locale} not the placeholder line`).not.toHaveText(
+      dict.article.imagePlaceholderCaption.replace("{title}", articleTitle(locale, MATSUN)),
     );
   }
 
-  expect(getImageSrc(MATSUN), "no registered file").toBeUndefined();
-  expect(PENDING_ARTWORK, "declared pending rather than silently bare").toContain(MATSUN);
-  expect([...PENDING_ARTWORK], "and it is the only one").toEqual([MATSUN]);
+  expect(getImageSrc(MATSUN), "registered file").toBe(ARTWORK[MATSUN]);
+  expect(PENDING_ARTWORK, "no longer pending").not.toContain(MATSUN);
+  /*
+    Matsun was the last pending slug archive-wide, so the assertion §73 handed to
+    §74 comes back here rather than moving on: the list is empty for the fourth
+    time, and this is the test that owns that claim until the next article ships
+    ahead of its picture.
+  */
+  expect([...PENDING_ARTWORK], "and the archive is fully illustrated again").toEqual([]);
 
+  /*
+    And it borrows nothing. Spas is named first because it is the real risk in this
+    section — spas is *made of* matsun, so a substitution would feel nearly right —
+    but the loop covers all nine, because the substitution that actually happens is
+    never the one that was anticipated. Scoped to the hero and the metadata, since
+    the related block legitimately renders spas's cover further down the page.
+  */
   await page.goto(`/en/cuisine/${MATSUN}`);
   const heroSources = await page
     .locator("header img")
     .evaluateAll((nodes) => nodes.map((el) => decodeURIComponent(el.getAttribute("src") ?? "")));
+  expect(
+    heroSources.some((src) => src.includes(ARTWORK[MATSUN])),
+    "the hero is its own file",
+  ).toBe(true);
+  expect(
+    heroSources.some((src) => src.includes(ARTWORK[SPAS])),
+    "spas must not illustrate matsun",
+  ).toBe(false);
   for (const other of ILLUSTRATED) {
+    if (other === MATSUN) continue;
     expect(
       heroSources.some((src) => src.includes(`/cuisine/${other}.webp`)),
       `${other} must not illustrate matsun`,
@@ -2757,11 +2796,64 @@ test("matsun has no artwork, says so, and borrows nobody else's", async ({ page 
 
   for (const property of ['meta[property="og:image"]', 'meta[name="twitter:image"]']) {
     const content = await page.locator(property).first().getAttribute("content");
-    expect(content, property).toContain("/og-default.png");
+    expect(content, property).toContain(ARTWORK[MATSUN]);
+    expect(content, `${property} is no longer the fallback`).not.toContain("/og-default.png");
   }
+});
 
+test("the matsun search result carries its own thumbnail", async ({ page }) => {
+  /*
+    Scoped by canonical href rather than by title, because a search page renders
+    many covers and the failure worth catching is this row showing a neighbour's.
+    Spas is the neighbour that matters: at 160px and 128px it is the one a careless
+    substitution would survive, which is why §74 named it before the file existed.
+
+    The query terms are §45's, unchanged here — this step registers artwork and does
+    not touch search semantics.
+  */
+  for (const query of ["matsun", "matzoon", "Armenian matsun", "մածուն"]) {
+    await page.goto(`/en/search?q=${encodeURIComponent(query)}`);
+
+    const row = page.locator("li").filter({ has: page.locator(`a[href="/en/cuisine/${MATSUN}"]`) });
+    await expect(row, `"${query}" finds matsun`).toHaveCount(1);
+
+    const sources = await row
+      .locator("img")
+      .evaluateAll((nodes) => nodes.map((el) => decodeURIComponent(el.getAttribute("src") ?? "")));
+    expect(sources.some((src) => src.includes(ARTWORK[MATSUN])), `"${query}" own thumbnail`).toBe(
+      true,
+    );
+    for (const other of ["spas", "harissa", "khash"]) {
+      expect(sources.some((src) => src.includes(`/cuisine/${other}.webp`)), `not ${other}'s`).toBe(
+        false,
+      );
+    }
+  }
+});
+
+test("matsun gained a picture and no product or recipe markup with it", async ({
+  page,
+  request,
+}) => {
+  /*
+    Matsun being a food *product* is exactly the reason this test is here rather
+    than assumed from the khash one: a dairy article is where `Product` would look
+    defensible. It stays a generic `Article`.
+  */
+  await page.goto(`/en/cuisine/${MATSUN}`);
   const graph = await readGraph(page);
-  expect(node(graph, "Article").image, "no Article.image while pending").toBeUndefined();
+
+  expect(
+    graph.map((entry) => entry["@type"]),
+    "the graph is the archive's usual four",
+  ).toEqual(["Organization", "WebSite", "Article", "BreadcrumbList"]);
+
+  const article = node(graph, "Article");
+  expect(JSON.stringify(article.image), "Article.image is the registered file").toContain(
+    ARTWORK[MATSUN],
+  );
+  expect(JSON.stringify(article.image), "and not spas's").not.toContain(ARTWORK[SPAS]);
+
   const serialized = JSON.stringify(graph);
   for (const forbidden of [
     "Recipe",
@@ -2769,10 +2861,85 @@ test("matsun has no artwork, says so, and borrows nobody else's", async ({ page 
     "NutritionInformation",
     "MenuItem",
     "FoodEstablishment",
+    "Product",
     "recipeIngredient",
     "recipeInstructions",
+    "cookTime",
+    "prepTime",
   ]) {
     expect(serialized, `no ${forbidden} in the graph`).not.toContain(forbidden);
+  }
+
+  /*
+    The sitemap, checked route by route rather than by a global filename count. A
+    count passes while three locales all point at one edition's image; this fails
+    unless each edition's own entry carries matsun's own file and nobody else's.
+  */
+  const xml = await (await request.get("/sitemap.xml")).text();
+  for (const locale of LOCALES) {
+    const url = `/${locale}/cuisine/${MATSUN}<`;
+    const start = xml.indexOf(url);
+    expect(start, `${locale} matsun is in the sitemap`).toBeGreaterThan(-1);
+    const block = xml.slice(start, xml.indexOf("</url>", start));
+
+    const images = [...block.matchAll(/<image:loc>([^<]+)<\/image:loc>/g)].map((m) => m[1]);
+    expect(images.length, `${locale} matsun has exactly one image`).toBe(1);
+    expect(images[0], `${locale} matsun image`).toContain(ARTWORK[MATSUN]);
+    for (const other of ILLUSTRATED) {
+      if (other === MATSUN) continue;
+      expect(images[0], `${locale} must not carry ${other}`).not.toContain(
+        `/cuisine/${other}.webp`,
+      );
+    }
+  }
+});
+
+test("registering matsun changed no other dish's artwork, type or relations", async ({ page }) => {
+  /*
+    §75 adds one line to `IMAGES` and removes one from `PENDING_ARTWORK`. Neither
+    should be visible anywhere else, and "should be" is not a check. The nine
+    existing covers are pinned by exact path, `spas.webp` first because it is the
+    file this registration was most likely to displace.
+  */
+  expect(getImageSrc(SPAS), "spas artwork unchanged").toBe(ARTWORK[SPAS]);
+  for (const slug of ILLUSTRATED) {
+    expect(getImageSrc(slug), `${slug} artwork unchanged`).toBe(ARTWORK[slug]);
+  }
+
+  // Exact ownership across all ten: no two dishes share a file.
+  const paths = ILLUSTRATED.map((slug) => getImageSrc(slug));
+  expect(new Set(paths).size, "ten distinct covers").toBe(ILLUSTRATED.length);
+
+  for (const locale of LOCALES) {
+    const dishes = bundle(locale).articles.filter((a) => a.category === "cuisine");
+    expect(dishes.length, `${locale} still ten dishes`).toBe(SLUGS.length);
+
+    // The §74 type distribution, unchanged by artwork registration.
+    const counts: Record<string, number> = {};
+    for (const dish of dishes) counts[dish.dishTypeId ?? ""] = (counts[dish.dishTypeId ?? ""] ?? 0) + 1;
+    expect(counts, `${locale} type distribution`).toEqual({
+      bread: 2,
+      main: 2,
+      meat: 2,
+      ceremonial: 2,
+      dessert: 1,
+      dairy: 1,
+    });
+
+    const authored = Object.fromEntries(dishes.map((a) => [a.slug, a.relatedSlugs]));
+    expect(authored[MATSUN], `${locale} matsun relations untouched`).toEqual(["spas"]);
+    expect(authored[SPAS], `${locale} spas relations untouched`).toEqual(["harissa", "lavash"]);
+    expect(authored[KHASH], `${locale} khash relations untouched`).toEqual(["lavash", "harissa"]);
+  }
+
+  // And the filler §45 measured is still what the registry order gives matsun.
+  await page.goto(`/en/cuisine/${MATSUN}`);
+  const hrefs = await page
+    .locator('main a[href^="/en/cuisine/"]')
+    .evaluateAll((nodes) => nodes.map((el) => el.getAttribute("href") ?? ""));
+  for (const related of ["spas", "lavash", "dolma"]) {
+    expect(hrefs.some((href) => href.endsWith(`/cuisine/${related}`)), `still offers ${related}`)
+      .toBe(true);
   }
 });
 
