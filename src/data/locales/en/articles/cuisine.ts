@@ -1583,4 +1583,218 @@ export const cuisineArticles: Article[] = [
     },
     relatedSlugs: ["spas"],
   },
+  {
+    slug: "basturma",
+    href: "/cuisine/basturma",
+    category: "cuisine",
+    categoryLabel: "Armenian Cuisine",
+    title: "Basturma",
+    seoTitle: "What Is Basturma? Armenia's Air-Dried Cured Beef",
+    dishType: "Meat dishes",
+    dishTypeId: "meat",
+    imageSeed: "basturma",
+    keywords: [
+      "basturma",
+      "Armenian basturma",
+      "բաստուրմա",
+      "ապուխտ",
+      "apukht",
+      "basterma",
+      "bastourma",
+      "pastirma",
+      "Armenian cured meat",
+      "cured beef",
+      "chaman",
+      "fenugreek",
+    ],
+    excerpt:
+      "Beef salted, pressed, air-dried and sealed under a paste of fenugreek and garlic: the first article in this section about preserving meat rather than cooking it.",
+    metaDescription:
+      "Basturma, the Armenian air-dried cured beef under its fenugreek coating: how curing works, what chaman is, where the names come from, and what the record supports.",
+    summary:
+      "Basturma is a whole cut of beef preserved by salt, pressure and moving air, then sealed under a thick paste of fenugreek, garlic and pepper called chaman and sliced almost transparently thin. It is eaten as a cold appetiser, with bread, and with eggs, and it belongs to both ordinary breakfasts and festive tables. Armenians also have an older native word for salted dried meat, apukht, which is not the same thing as the modern coated product and should not be read as its birth certificate. The food belongs to a wide regional family of cured meats; what the record supports about the Armenian share of it is a documented craft specialism and an unbroken diaspora transmission, not an invention claim.",
+    intro:
+      "Basturma is what happens to beef when it is given salt, weight, air and time instead of heat. A whole muscle is packed in salt until it gives up much of its water, pressed under weight until it gives up more, hung in moving air until it is firm all the way through, and then coated in a wet paste of ground fenugreek, garlic and red pepper that dries to a dark crust around it. Nothing is cooked and nothing is smoked. What comes out is dense, deep red, intensely savoury, and cut so thin that the light comes through it. This is the first article in this section about preservation rather than cooking — about the problem of keeping meat in a country with hot summers and cold winters and no refrigeration, and about the particular Armenian answer to it.",
+    author: "Armat Editorial Team",
+    updated: "2026-08-26",
+    keyFacts: [
+      { label: "Kind of food", value: "A whole cut of beef, cured and air-dried — not a sausage and not cooked" },
+      { label: "Made from", value: "Lean whole muscle, beef in the modern product; older practice also used sheep" },
+      { label: "Preserved by", value: "Salt, pressing and moving air — no heat, no smoke" },
+      {
+        label: "Coated with",
+        value: "Chaman, a wet paste built on ground fenugreek with garlic and red pepper",
+      },
+      { label: "Served", value: "Sliced almost transparently thin, cold, as meze — and with eggs and bread" },
+      {
+        label: "Also called",
+        value: "Apukht (ապուխտ), the older native Armenian word for salted dried meat",
+      },
+    ],
+    sections: [
+      {
+        id: "what-basturma-is",
+        heading: "What basturma is",
+        paragraphs: [
+          "Basturma is a single piece of lean meat that has been preserved whole. That distinguishes it immediately from most of what English speakers file under cured meat: it is not ground, not stuffed into a casing, not fermented into a sausage. One muscle goes in and one muscle comes out, smaller, darker and much firmer than it started. The modern product is beef, usually cut from the loin or the leg, and it is sold either as a whole dried piece or ready-sliced.",
+          "Four things happen to it, and the order matters more than the quantities. It is salted until a large part of its water has been drawn out. It is pressed under weight, which forces out more and compacts the meat into the flattened shape the finished piece keeps. It is hung in moving air until it has dried through rather than only at the surface. And it is coated in chaman, a wet spice paste that dries into a crust and stays on the meat as part of the food.",
+          "Which of those is essential and which varies is worth separating at the start, because regional versions are not identical and the differences are usually presented as errors by whoever does it differently. The salting, the drying and the fenugreek-based coating are constant wherever this food is made. The cut, the exact composition of the paste, the length of drying and the degree of pressing all vary by producer, household and country, and no single version is the authentic one against which the others fail.",
+        ],
+      },
+      {
+        id: "salt-pressure-and-air",
+        heading: "Meat kept by salt, pressure and air",
+        paragraphs: [
+          "The principle is the same one behind every dried food, and it is about water rather than about salt as such. Bacteria, moulds and the meat's own enzymes all need liquid water to work. Food scientists measure not how much water a food contains but how much of it is available for that work — water activity — and the useful fact is that the organisms which spoil meat and the ones which make people ill are progressively shut down as it falls. Most spoilage bacteria stop well before a food is dry to the touch; the more dangerous ones stop lower still.",
+          "Salt and drying attack the same variable from two directions. Salt on the surface of the meat creates a steep concentration difference across the cell membranes, and water moves outward to equalise it, so the meat sheds liquid before any air has done anything. Pressing removes more of that freed liquid mechanically. Then the hanging does the slow part: air moving across a large flat surface carries moisture away steadily enough that the inside dries before the outside spoils. The pressed shape is not decorative — it is what gives the piece enough surface for its thickness to dry evenly.",
+          "This article explains that process; it does not teach it. Curing whole meat without refrigeration is exactly the kind of preparation where the difference between a good result and a dangerous one lies in conditions that cannot be judged by eye, and no salt proportions, drying times, temperatures or humidity figures appear anywhere on this page. Traditional curing does not sterilise meat, and the sentence sometimes offered — that salt kills everything — is not what the science says. What salt and drying do is make conditions progressively hostile to growth, which is a different and more conditional claim.",
+        ],
+      },
+      {
+        id: "chaman-and-the-coating",
+        heading: "Chaman, and what the word covers",
+        paragraphs: [
+          "The dark red-brown crust is the thing most people picture when they picture basturma, and its Armenian name is chaman (չաման), which appears in English as chemen or chaiman and corresponds to Turkish çemen. The word needs handling carefully, because it does two jobs. In Armenian usage it names the ground fenugreek itself, and it also names the wet paste built on it — a page headed chaman may be about the spice or about the coating, and the two senses are not always signalled.",
+          "The paste is fenugreek-led and garlic-heavy, with red pepper — paprika, or something hotter — supplying most of the colour. Beyond that, published compositions differ: cumin appears in many accounts and not in others, and the proportions vary widely enough that no single mixture can be presented as the standard one. What is consistent is the dominance of fenugreek, which is why the smell of basturma is unmistakable and why it carries: the aroma is powerful, faintly bitter, and it stays on the hands and in a room.",
+          "The coating is not only flavour. Sealing a dried muscle under a dense paste protects the surface while the piece finishes drying and afterwards, and fenugreek in particular is described in Armenian kitchen practice as discouraging insects from a food hung in open air. The thinned form of the same paste, chamanichur, is used as a sauce in its own right, which is a small piece of evidence that Armenian cooking treats chaman as an ingredient rather than only as a wrapper.",
+        ],
+      },
+      {
+        id: "the-names-basturma-and-pastirma",
+        heading: "Basturma, pastirma, and what a name proves",
+        paragraphs: [
+          "The word arrives in Armenian from outside it. Western Armenian basturma and Eastern Armenian bastoorma are loanwords from Turkish pastırma, which is a verbal noun of the verb bastırmak, to press — a name taken from the weight on the meat rather than from the spice on it. Turkish transmitted it widely: the same word underlies Greek pastourmas, Bulgarian and Balkan pastarma, Arabic basterma and the spellings bastourma, basterma and pasturma that English has never settled between.",
+          "There is an older layer beneath the Turkish one, and it is genuinely disputed. The Oxford Encyclopedia of Food and Drink records that the Ottomans applied the word to a Byzantine cured beef called paston, and the Oxford Companion to Food describes a Byzantine dried-meat delicacy as a forerunner of modern pastirma. That much is a real position held in real reference works. But the Byzantinists do not agree on what the Greek terms meant: Johannes Koder reads paston as salted meat or salted fish and akropaston as salted meat, Andrew Dalby reads paston as salted fish, and Gregory Nagy reads akropaston as smoked. Three specialists, three readings of the same words.",
+          "The important thing is what none of this establishes. A name can travel without the technique it names, and a technique can travel without its name; peoples who trade with each other borrow both, in either order, and repeatedly. That Armenians today mostly use a Turkish loanword for this food is a fact about language contact in Anatolia, not evidence about who first hung salted beef in the wind. The argument that spelling settles ownership is made in both directions online and is worth no more in either.",
+        ],
+      },
+      {
+        id: "apukht-and-the-older-word",
+        heading: "Apukht, the older Armenian word",
+        paragraphs: [
+          "Armenian has its own word for this kind of food and it is much older than the loanword. Apukht (ապուխտ) is Classical Armenian, and the philologist Vartan Matiossian, following the standard etymological scholarship, derives it from Pahlavi apuxt, meaning uncooked — from a-, un-, and puxta, cooked. It is an Iranian borrowing, not a Turkic one, and it entered Armenian long before Turkish was spoken in Anatolia. It appears in the fifth-century Armenian translation of the Bible, where it means salted and dried meat.",
+          "The word was productive and it travelled outward rather than inward. Armenian lent it to Georgian as apukhti and, through the dialect of the Armenians of Poland, to Polish as abucht. Inside Armenian it formed compounds — khozapukht, literally pig-apukht, for ham. Armenian dictionaries define apukht as flat strips of meat from cattle or sheep, salted, beaten and dried in open air without cooking, and eaten raw; the apukht of Erzurum is singled out as particularly well known. In modern Armenian the word is still current and is used alongside բաստուրմա, often in the same sentence.",
+          "Now the distinction this article most needs to make. The dictionary sense of apukht is salted, beaten, air-dried raw meat — a category, taking in sheep as readily as cattle, with no spice crust in the definition at all. Modern basturma is one member of that category, distinguished precisely by the thing the definition does not mention. So the fifth-century attestation is real and worth having, and it establishes that Armenians had a word for salted dried meat in late antiquity. It does not establish the fenugreek-coated product, and pages that report the fifth-century date under the heading basturma have quietly swapped a category for one of its members.",
+        ],
+      },
+      {
+        id: "what-the-early-evidence-establishes",
+        heading: "What the early evidence can and cannot establish",
+        paragraphs: [
+          "One dating claim travels further than any other: that basturma is first recorded between 95 and 45 BC, under Tigranes the Great, and that the technique was developed to preserve meat traded from Armenia to China and India. It is repeated across tourism pages and food sites, and it does not survive being followed back. No source is ever named for it. The reign it invokes is misstated — Tigranes II ruled from 95 to 55 BC — and the trail leads to recipe blogs rather than to any text, inscription or scholarly study. There is no first-century-BC record of this food, and the confident date should be treated as an artefact of repetition.",
+          "The second story is about saddles: horsemen who packed salted meat under the saddle, where the horse's weight pressed it and the ride dried it, arriving with the food made. It is a good story and it has an instructive property — it is told about Armenian traders and horsemen on Armenian pages and about Turkic warriors and nomads on Turkish ones, with the same details and the same absence of a source. A legend that changes owner according to who is telling it is folklore about the food rather than evidence about it, and this article records it as the first while declining to present it as the second.",
+          "Set the three lines of evidence beside each other and the honest result is plural. There is an old Iranian-derived Armenian word for salted dried meat; there is a Byzantine vocabulary for salted meat or fish whose meaning specialists dispute; and there is an Ottoman Turkish word for pressing that spread across the whole region and is now what almost everyone says. Those are three real things. They do not line up into a chain in which one becomes the next and arrives at the modern product, and the sources consulted for this article do not support drawing one.",
+        ],
+      },
+      {
+        id: "kayseri-and-the-craft",
+        heading: "Kayseri, and a craft rather than an origin",
+        paragraphs: [
+          "One place is attached to this food more firmly than any other. Kayseri — Caesarea in Cappadocia — was the recognised centre of pastirma production, and the recognition is old enough to be quoted rather than merely asserted. The seventeenth-century Ottoman traveller Evliya Çelebi, in his Seyahatname, records the town's cumin-flavoured beef pastirma as something found nowhere else and sent as a gift to Istanbul. That is a dated external observation from a named writer, which is a better class of evidence than most of what surrounds this subject.",
+          "Who was making it there is also documented. The trade in Kayseri was overwhelmingly in Armenian hands, to the point where accounts describe an effective Armenian dominance of its manufacture and sale by the nineteenth century, while Greeks and Turks in the town made and ate it domestically; the historian Philip Mansel notes Armenians selling pastirma in Istanbul from the seventeenth century onward. The best-known survival of that world is a business rather than a legend: Krikor Apikoğlu founded a pastirma house in Kayseri in 1910 and moved production to Istanbul in 1920, and the firm went on to become the first nationwide meat company of the Turkish republic.",
+          "What that evidence supports is a specialism, and the difference from an origin claim is the whole point. Being the acknowledged masters of a craft in the town most famous for it, over a long enough period for a foreign consulate to note it in passing, is a strong and documentable historical fact. It is not the same as having invented the food, it does not require that anyone did, and the phrasing to prefer is that Kayseri became particularly renowned for basturma and that Armenians were particularly renowned for making it there.",
+        ],
+      },
+      {
+        id: "after-1915-the-craft-travels",
+        heading: "A craft carried out of Anatolia",
+        paragraphs: [
+          "The Armenian population of Kayseri and the surrounding provinces was destroyed or driven out during the genocide of 1915 and the years around it. Among the many things that displacement moved was this trade: survivors who reached Aleppo, Beirut, Cairo, Athens and Thessaloniki brought the craft with them, and basturma became a fixture of Armenian quarters in each of those cities. The people were displaced; the knowledge was portable, and it was carried by families who had practised it commercially.",
+          "That is why basturma is not only a food of the Republic of Armenia. It is a diaspora food in the strict sense — one whose modern geography was set by where Armenians ended up. Later migrations extended the same line westward, to France and to the United States, and the shops that resulted are recognisably descended from the Anatolian trade rather than independently invented. The Smithsonian Center for Folklife and Cultural Heritage has documented one of them, a basturma shop in the Little Armenia neighbourhood of Los Angeles, whose proprietor learned the work from family makers in Armenia and Lebanon — a two-step route that is itself the history in miniature.",
+          "This is the part of the subject where Armat can be most precise and least speculative, because the transmission is recent, documented and still visible. A cured meat that requires weeks of attention and a tolerance for the smell of fenugreek in the building is not a thing communities keep by accident. It was kept deliberately, in kitchens and shops, by people for whom it was both a livelihood and a piece of the place they had lost, and that continuity is better evidence of what basturma means to Armenians than any claim about the first century BC.",
+        ],
+      },
+      {
+        id: "how-basturma-is-eaten",
+        heading: "How basturma is eaten",
+        paragraphs: [
+          "It is cut thin — thin enough to be translucent — and eaten cold. That is the default and it is not a garnish convention: the meat is dense, salty and strongly spiced, and a thick slice is unpleasant in a way a thin one is not. Sliced this way it goes on a meze table among other cold dishes, it is folded into bread, and it is the filling of a sandwich in every diaspora city where it is sold.",
+          "The best-known cooked use is with eggs. Slices are warmed in a pan and eggs are broken over them, and the fat and spice from the crust flavour the whole dish; it is a standard Armenian breakfast and one of the few preparations in which basturma is heated at all. It is worth naming this as one common use rather than as the definition of the product, which is a trap the English-language pages fall into regularly.",
+          "The bread it is eaten with is normally lavash, which is the pairing this section has already described from the other side: a thin, foldable bread does for a strongly flavoured meat exactly what it does for cheese and greens. And the contrast with the section's other beef article is worth stating, because the two are opposite solutions to the same animal. Khorovats applies fire, quickly, and is eaten the day it is made; basturma applies salt, weight and air, slowly, and is eaten for months afterwards. One is a method of cooking and the other is a method of keeping.",
+        ],
+        links: [
+          { phrase: "normally lavash", slug: "lavash" },
+          { phrase: "Khorovats applies fire", slug: "khorovats" },
+        ],
+      },
+      {
+        id: "everyday-and-festive",
+        heading: "Everyday food and holiday food at once",
+        paragraphs: [
+          "Basturma does not sit cleanly on either side of the ordinary-versus-special line, and forcing it onto one is a mistake. Armenian breakfast descriptions place cured meats among the standing components of the meal, alongside lavash, cheeses, eggs and fresh vegetables, which is as everyday as food gets. Armenian-language accounts equally describe it as a fixture of the festive table, where it appears among the cold dishes at the start.",
+          "Both can be true because the constraint is cost and keeping rather than occasion. This is an expensive product — a large piece of lean beef reduced substantially in weight, then held for weeks before it can be sold — and it is bought in small quantities and cut thin. A food that is sliced sparingly can be an ordinary breakfast in small amounts and a generous gesture in larger ones without changing what it is.",
+          "Its official standing in Armenia today is a live question rather than a settled one. In March 2025 the deputy minister of economy told a parliamentary committee that discussions were under way to protect Armenian basturma, alongside Armenian matsun, as national geographical indications under the law that came into force in 2022. That is a stated intention at an early stage, not a completed registration, and the distinction is worth keeping: it says the state considers the product worth protecting, and nothing yet about whether protection was granted.",
+        ],
+      },
+      {
+        id: "a-regional-food-without-one-owner",
+        heading: "A regional food without a single owner",
+        paragraphs: [
+          "Basturma in some form belongs to Armenian, Turkish, Greek, Arab, Kurdish, Bulgarian, Egyptian and Azerbaijani cooking, and versions of it are made across all of them. The internet's preferred question about it — who invented it — has no answer that the evidence will carry, and the arguments conducted under that heading are almost always about something other than food. This article does not take a position on it, because taking one would require sources that do not exist.",
+          "The questions that can be answered are narrower and better. Armenians have a native word for salted dried meat attested in the fifth century and lent onward to two other languages. Armenians were the documented specialists in the trade in the town most renowned for it. Armenians carried the craft out of Anatolia after 1915 and kept it in half a dozen countries, which is why a Los Angeles shop can trace its practice through Lebanon to Armenia. That is a distinctive and well-evidenced Armenian tradition inside a shared regional history, and it does not need an invention claim to be substantial.",
+          "Two neighbouring foods are worth naming to close the boundaries of this one. Sujuk, the dry spiced sausage that sits beside basturma in every account of an Armenian breakfast, is a different technique — meat ground and cased rather than kept whole — and it has no article here yet. And pastrami is a linguistic relative rather than a descendant: the Turkish word passed into Romanian as pastramă and travelled to New York with Romanian Jewish immigrants in the late nineteenth century, where the food itself was rebuilt around brisket, brine and smoke. Basturma did not become pastrami. The two share an ancestor in a word for pressing, and then went separate ways.",
+        ],
+      },
+    ],
+    importantDates: [
+      {
+        year: "5th century",
+        event:
+          "Apukht (ապուխտ), from Pahlavi apuxt meaning uncooked, appears in the Armenian translation of the Bible in the sense of salted and dried meat.",
+      },
+      {
+        year: "17th century",
+        event:
+          "Evliya Çelebi's Seyahatname records Kayseri's cumin-flavoured beef pastirma as found nowhere else and sent as a gift to Istanbul.",
+      },
+      {
+        year: "1910",
+        event:
+          "Krikor Apikoğlu founds a pastirma house in Kayseri; production moves to Istanbul in 1920 and the firm becomes a national meat company.",
+      },
+      {
+        year: "2025",
+        event:
+          "Armenia's deputy minister of economy tells a parliamentary committee that geographical-indication protection for Armenian basturma and Armenian matsun is under discussion.",
+      },
+    ],
+    significance: {
+      heading: "Why basturma matters",
+      paragraphs: [
+        "This is the first article in the section about keeping food rather than making it. The other ten describe what Armenian cooks do with ingredients on the day; this one describes the problem that comes before all of them, which is how a household in a country of hot summers and hard winters holds meat through the months when there is none. Bread, dairy and meat each had an answer, and this is the meat one.",
+        "It is also the clearest case in the section of a subject where the popular claims and the demonstrable ones point in different directions. What circulates is a first-century-BC date and a story about saddles. What can actually be shown is an Iranian-derived word in a fifth-century translation, an Ottoman traveller praising one Cappadocian town's pastirma in the seventeenth century, a family firm founded in 1910, and a shop in Los Angeles whose owner learned the work in Lebanon from people who learned it in Armenia. The documented version is less ancient and considerably more interesting.",
+      ],
+    },
+    interestingFacts: [
+      "Armenian chaman does double duty: the word names ground fenugreek and also the wet paste built on it, so a reference to chaman may mean the spice or the coating.",
+      "Apukht is an Iranian loanword — from Pahlavi apuxt, uncooked — and Armenian lent it onward to Georgian as apukhti and, through the Armenians of Poland, to Polish as abucht.",
+      "The saddle legend is told about Armenian horsemen on Armenian pages and about Turkic warriors on Turkish ones, with the same details and no source on either side.",
+      "Three Byzantinists give three readings of the Greek terms behind pastirma: salted meat, salted fish, and smoked — which is why no clean origin chain can be drawn from them.",
+      "Basturma did not become pastrami. The Turkish word passed into Romanian and reached New York with Romanian Jewish immigrants, where the food was rebuilt around brisket, brine and smoke.",
+    ],
+    relatedFigures: [],
+    cuisine: {
+      ingredients: [
+        "A lean whole cut of beef, usually from the loin or leg",
+        "Salt, in quantity, for drawing out water",
+        "Fenugreek, ground — the base of the coating and its dominant aroma",
+        "Garlic and red pepper, with cumin in many but not all versions",
+      ],
+      preparation:
+        "A whole muscle is packed in salt until much of its water has been drawn out, pressed under weight to remove more and to flatten it, and hung in moving air until it has dried through. It is then coated in chaman, a wet fenugreek paste, and left until the crust has set. No quantities, timings, temperatures or humidities are given here: this article explains what basturma is and how curing works, and it is not a method for curing meat at home.",
+      occasions: [
+        "Everyday breakfasts, among the standing cold components of the meal",
+        "Festive tables, among the cold dishes served at the start",
+        "Meze tables, sliced thin and served cold",
+      ],
+      regions: [
+        "Throughout Armenia, as both a household purchase and a commercial product",
+        "Kayseri in Cappadocia, the historic centre of the trade, where Armenians were the documented specialists",
+        "The Armenian diaspora — Aleppo, Beirut, Cairo, Greece, France and the United States",
+      ],
+      serving:
+        "Cut almost transparently thin and eaten cold, on a meze table or folded into lavash; warmed in a pan with eggs broken over it for breakfast.",
+    },
+    relatedSlugs: ["lavash", "khorovats"],
+  },
 ];

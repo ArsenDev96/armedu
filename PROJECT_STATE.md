@@ -16403,3 +16403,495 @@ Sevan) — a real structural win — but it is an endangered endemic species, an
 needs an editorial position decided before drafting, not during it. Recorded as open.
 
 **No deployment occurred.**
+
+---
+
+## §77 — Cuisine #11: Basturma, written after a live SERP audit (2026-08-26)
+
+The eleventh Cuisine article, and the section's first about **preserving** food rather
+than cooking it. Written ahead of its picture, so `PENDING_ARTWORK` is non-empty for
+the seventh time.
+
+### Pre-change state, read from source
+
+Ten articles, ten illustrated, `PENDING_ARTWORK = []`, distribution `bread 2, main 2,
+meat 2, ceremonial 2, dessert 1, dairy 1`, nothing featured — verified by executing the
+bundles rather than by reading PROJECT_STATE. After: **eleven articles, ten
+illustrated, one pending**, distribution `bread 2, main 2, meat 3, ceremonial 2,
+dessert 1, dairy 1`. No new type; `drink` and `preserved` both refused and both pinned
+by test.
+
+### Phase A — what the live SERP actually showed
+
+Searched across `basturma`, `what is basturma`, `Armenian cured meat`, `basturma vs
+pastirma`, `apukht`, `բաստուրմա` and the transliteration variants. No keyword-volume
+tool was available, so **volume unavailable** — no monthly searches, CPC, difficulty or
+traffic figures are estimated anywhere below.
+
+Composition of the English results: **recipe and DIY-curing pages dominate**
+(Instructables, UMAi Dry, 2 Guys & A Cooler, Saveur's "make your own", PopSci's DIY),
+followed by sellers, then food blogs, with one encyclopedic result and one genuine
+cultural source (Smithsonian Folklife). Two structural findings:
+
+1. **Wikipedia's article is titled `Pastirma`, not `Basturma`.** The entity a reader
+   searching the Armenian spelling lands on is filed under the Turkish one.
+2. **The definitional query is under-served.** Almost everything ranking is either "how
+   to make it" or "buy it". Nothing explains what the food *is*, how curing works, or
+   what the historical record supports.
+
+That is the gap, and it set the SEO title: `What Is Basturma? Armenia's Air-Dried Cured
+Beef` — the house pattern already used by khash and matsun, aimed at entity plus
+definition plus culture, not recipe or commercial intent. Visible H1 stays `Basturma`.
+
+### SERP misinformation found, and refused
+
+* **"First recorded between 95–45 BC under Tigranes the Great."** Repeated across
+  tourism and food pages. It names no source, the trail ends at recipe blogs, and it
+  **misstates the reign it invokes** — Tigranes II ruled 95–55 BC. Refused in prose.
+* **The saddle legend.** Told of *Armenian* horsemen on Armenian pages and of *Turkic*
+  warriors on Turkish ones, with the same details and no source on either side. Recorded
+  as folklore, with that symmetry stated — it is the article's sharpest evidentiary
+  observation and appears in `interestingFacts`.
+* **`apukht` = ancient basturma.** Wikipedia asserts "Basturma existed in ancient
+  Armenian cuisine, where it was known as aboukh". Refused; see below.
+* **GI status.** Several pages report Armenia's geographical-indication protection as
+  registered or applied-for. The source says **discussions are under way** (deputy
+  economy minister Narek Hovakimyan, parliamentary committee, 24 March 2025). The
+  article says discussions.
+
+### The apukht finding — the article's central evidentiary move
+
+`ապուխտ` is Classical Armenian, from **Pahlavi `apuxt`, "uncooked"** (`a-` + `puxta`,
+cooked) — an *Iranian* loan, not a Turkic one, in Armenian long before Turkish was
+spoken in Anatolia. Attested in the **fifth-century Armenian Bible translation** meaning
+salted and dried meat. Armenian lent it outward: Georgian `apukhti`, Polish `abucht`
+through the Armenians of Poland; internally it forms `խոզապուխտ`, ham.
+
+The dictionary sense is **flat strips of cattle *or sheep* meat, salted, beaten and
+air-dried without cooking, eaten raw** — a category, with **no spice crust in the
+definition at all**. Modern basturma is one member of that category, distinguished
+precisely by what the definition omits. So the fifth-century attestation is real and
+establishes that Armenians had a word for salted dried meat in late antiquity; it does
+**not** establish the fenugreek-coated product. Pages reporting the fifth-century date
+under the heading "basturma" have swapped a category for one of its members.
+
+### The Byzantine question, left plural
+
+Three Byzantinists read the same Greek words three ways: **Koder** — `paston` as salted
+meat *or* salted fish, `akropaston` as salted meat; **Dalby** — `paston` as salted fish;
+**Nagy** — `akropaston` as smoked. The Oxford Companion to Food and the Oxford
+Encyclopedia of Food and Drink both record a Byzantine forerunner, and that position is
+reported *as a position*. No `A → B → modern basturma` chain is drawn, because the
+specialists do not agree on what A meant.
+
+Etymology of the name itself is strong and stated: Ottoman Turkish `pastırma`, verbal
+noun of `bastırmak`, to press — named for the weight, not the spice. The article states
+the principle that governs the whole section: **a name can travel without its technique,
+and a technique without its name.**
+
+### Kayseri — specialism, not origin
+
+Rewritten once its sources were actually read. The anchor is **Evliya Çelebi's
+seventeenth-century Seyahatname**, recording Kayseri's cumin-flavoured beef pastirma as
+found nowhere else and sent to Istanbul as a gift — a dated observation from a named
+writer, quoted at one remove and attributed as such. Armenians dominated the trade there
+by the nineteenth century; Philip Mansel records Armenians selling pastirma in Istanbul
+from the seventeenth century. **Krikor Apikoğlu** founded a pastirma house in Kayseri in
+**1910**, moved production to Istanbul in **1920**, and the firm became the republic's
+first nationwide meat company. An earlier draft rested on a British Foreign Office
+report of 1893 taken from an encyclopedia paraphrase; it was replaced rather than kept.
+
+### Diaspora, and the food-safety boundary
+
+The post-1915 dispersal carried the craft to Aleppo, Beirut, Cairo, Athens and
+Thessaloniki, later to France and the United States. The Smithsonian Center for Folklife
+documents a shop in Little Armenia, Los Angeles whose proprietor learned the work from
+family makers in Armenia and Lebanon — a two-step route that is the history in
+miniature. Displacement is treated as movement of communities and continuation of
+practice; no graphic detail.
+
+Preservation is explained conceptually — water activity rather than water content, salt
+drawing water osmotically, pressing removing more mechanically, air doing the slow part
+— and **no parameter appears anywhere**: no salt proportion, drying time, temperature or
+humidity. The article states its own boundary, and refuses the "salt kills everything"
+line explicitly, saying traditional curing does not sterilise meat. Tests enforce all of
+this against the rendered page.
+
+### Decisions recorded
+
+* **Chaman** does double duty in Armenian — the ground fenugreek *and* the paste built
+  on it. Stated rather than silently merged. Composition presented as varying; no single
+  mixture given as standard. Fenugreek's insect-deterrent role is noted as kitchen
+  practice, not as a health claim.
+* **Pastrami** is a linguistic cousin, not a descendant: Turkish → Romanian `pastramă` →
+  New York with Romanian Jewish immigrants, where the food was rebuilt around brisket,
+  brine and smoke. One paragraph, not a thesis.
+* **Sujuk** is named in prose to bound the subject (whole muscle vs. sausage) and
+  deliberately **not** added to `relatedSlugs` — a test pins that a nonexistent slug is
+  never linked. Recorded as a future *Armenian preserved meats* cluster with basturma.
+* **Everyday and festive both**, because the constraint is cost and keeping rather than
+  occasion — an expensive product bought in small amounts and cut thin.
+* **Petrosian & Underwood not cited**, for the fifth consecutive article: concentration
+  holds at **5 of 11** rather than 6 of 11. It supplies nothing here unavailable from
+  stronger evidence.
+* **Ačaṙyan listed with a qualification.** `nayiri.com` refused connection throughout
+  this step, so the `ապուխտ` entry was **not** read page-by-page the way `մածուն` was in
+  §75. The volume is listed as the underlying authority; the etymology the article states
+  is Matiossian's, corroborated by the Armenian Wiktionary entry and the explanatory
+  dictionary sense. Recorded so a later step can close the gap rather than inherit an
+  unearned claim.
+* **No cross-category link.** The Tigranes claim is refuted in prose, but a relation to
+  the Tigran the Great article would rest on a *false* claim, which is not a historical
+  relationship. "No cross-category link" was the honest answer.
+
+### Relations and filler
+
+Authored: `["lavash", "khorovats"]`, each carried by a `SectionLink` in the paragraph
+that earns it — lavash because the article describes what basturma is eaten with,
+khorovats because the closing paragraph turns on fire versus salt-and-air as two
+opposite answers to the same animal. Filler measured identically in all three editions:
+**`dolma`**. `getRelatedArticles` unmodified.
+
+### Artwork — pending, with the commission recorded
+
+No dedicated file exists, so `basturma` is in `PENDING_ARTWORK` and absent from `IMAGES`.
+The commission is written beside the entry in `media.ts`: thin slices of dark red cured
+beef with a visible reddish-brown chaman crust, beside a whole or part-sliced piece, on a
+simple board; preferred 1586×992. Two refusals matter more than the brief — **it must
+not read as khorovats** (nothing grilled, no skewer, no char) and **it must not read as
+raw meat** (dried and matte, not the wet sheen of a fresh steak). `khorovats.webp` and
+`khash.webp` are named as the files a careless registration would reach for, and a test
+pins that neither is borrowed.
+
+### §63 — the Cuisine test-scaling debt, resolved rather than deferred
+
+§75 measured the metadata test at **29.6 s against a tripled 30 s budget** — 0.4 s of
+headroom with the eleventh dish already written. Raising the budget a fourth time was
+refused: growth is linear in section size and another multiplier only moves the cliff.
+
+Split along the line between what needs a browser and what never did, taking nothing
+away — every assertion survives over the same three editions and now eleven dishes:
+
+| | Before | After |
+|---|---|---|
+| field-level checks | 33 navigations | **0** — pure data test, **152 ms** |
+| rendered checks | 1 test, 33 loads in series | 3 per-locale tests, 11 loads each, concurrent |
+| measured | 29.6 s / 30 s, `test.slow()` | **9.4 / 10.3 / 9.7 s**, `test.slow()` dropped |
+
+Focused `cuisine.spec.ts` went from 87 tests in 3.0 min at ten articles to **100 tests in
+2.6 min at eleven** — the split more than absorbed the new article. Slowest test in the
+file is now 11.5 s. This is the same fix already applied a few tests above for the same
+reason, so it matches existing convention rather than inventing one.
+
+### Tests
+
+Added eleven basturma tests covering: the eleventh-dish corpus and full type
+distribution; no new type and no `drink`/`preserved`; dairy still matsun alone; no
+reclassification; SEO fields, canonical and hreflang in three editions; ten search
+queries including Armenian and the transliteration variants; the claim tests (Tigranes,
+saddle, invention in both directions, apukht, Byzantine plurality, Kayseri); the
+food-safety and health tests; plain `Article` with no Recipe/HowTo/Nutrition/Product/
+FoodEstablishment/Offer; pending-artwork in the mirror-image of the §75 registration
+test; earned relations with no `sujuk`; the bibliography; and the regression that nothing
+else moved.
+
+Existing counts updated where a deliberate addition made them untrue — meat 2→3 in three
+places, the meat filter 2→3, listing counts to `SLUGS.length`, `places.spec.ts` cuisine
+11 and `visit.spec.ts` cuisine 11. Each of those is a hand-maintained figure whose stated
+job is to go red when a section grows; none was weakened or derived away. The
+`visit.spec.ts` comment log had fallen two steps behind its own number (§72 and §74 moved
+the figure silently); §77 brings both current.
+
+### Commands and results
+
+`npm run typecheck` clean. `npm run validate:content` clean — **153 entries** across
+three locales, up from 150. Focused `cuisine.spec.ts` **100/100 in 2.6 min**. Full
+Playwright suite **362 passed, 5 skipped, 2 failed in 14.7 min**. `npm run build` exit 0,
+**162 static pages**, up from 159.
+
+**Both failures, reported rather than smoothed over**, are
+`places.spec.ts:379` `[hy]` and `[hyw]` — `page.goto` timeouts on
+`/hy|hyw/places/dilijan-national-park`. Evidence gathered before classifying, per the
+process rule: free memory 4.7 GB of 15.9 GB (not exhaustion); the page snapshot shows the
+route rendering correctly; `[en]` passed; `places.spec.ts` passed **83/83 in isolation**
+on this exact code; and on re-run all three pass — but `[hy]` and `[hyw]` take **20.5 s
+and 20.6 s of a 30 s budget** against `[en]`'s 7.6 s. Cold-compile cost on Places routes
+under two workers, unrelated to this change, which touched no Places file.
+
+One earlier full run produced ~77 broad failures across untouched files (article, brand,
+locale, places) with routes returning **404**. That was diagnosed, not assumed: memory was
+measured and was fine, untouched routes were failing, and clearing `.next` with the server
+stopped resolved it completely. It was stale dev-server state, not Turbopack memory
+exhaustion and not the content change.
+
+### Technical debt carried forward
+
+1. **`places.spec.ts:379` is the next scaling cliff** — 20.5 s of 30 s on a cold cache,
+   and it is what actually failed the full run. It is the Places analogue of the Cuisine
+   test just fixed, and it should get the same per-locale split.
+2. **`places.spec.ts:3203` is now the suite's slowest test at 1.1 m** — the Places
+   analogue of the metadata test, same linear growth, same fix available.
+3. **Basturma artwork is owed** and is the next step.
+4. **`nayiri.com` was unreachable**, so the Ačaṙyan `ապուխտ` entry is cited but unread;
+   a later step should read the scan and close the note.
+5. **`hyw` still needs native review** — the backlog is unchanged, and this article adds
+   to it.
+6. Standing: media-optimisation debt, the Places photographic/painterly register split.
+
+### What was not done
+
+No artwork created. No Sujuk, no Matnakash, no Cuisine #12. Dairy untouched and `drink`
+not added. Matsun content, artwork, SEO, ICH distinction, relations and metadata all
+unmodified. `PLACE_COORDINATES`, `VisitMap`, `map-cluster.ts`, `visit-map.ts`,
+`map-tiles.ts`, Places content, Places artwork and Visit curation all unmodified — the
+map still reports 13 Places, 2 groups, 7 individual markers, 0 covered centres.
+`getRelatedArticles` and `ARTWORK_PROVENANCE` unmodified. `.claude/settings.json`
+unmodified. Previous steps not rewritten. The five source files carry **zero deletions**;
+only the test files were edited in place.
+
+**No deployment occurred.**
+
+---
+
+## §78 — Basturma artwork verified and registered (2026-08-26)
+
+Cuisine is fully illustrated again: eleven articles, eleven covers, no placeholder.
+`PENDING_ARTWORK` is empty for the seventh time.
+
+### Pre-registration state, read from source
+
+Eleven articles, ten illustrated, `PENDING_ARTWORK = ["basturma"]`, distribution
+`bread 2, main 2, meat 3, ceremonial 2, dessert 1, dairy 1`, nothing featured;
+`getImageSrc("basturma")` undefined and `isGeneratedArtwork` false. Verified by
+executing the bundles rather than by reading this file. **No discrepancy** — the
+expected state and the actual state agreed on every point.
+
+### Asset
+
+`public/images/cuisine/basturma.webp`, registered exactly as delivered — unaltered,
+uncropped, unoptimised, unrenamed.
+
+* **1586 × 992**, ratio 1.5988 — the house geometry with **zero drift**, the first
+  time in four Cuisine registrations that has been true (§73 khash 1585×992, §75
+  matsun 1584×993).
+* **243,844 bytes** (238.1 KB).
+* SHA-256 `e88f33e270f580550e96adc26644fac98e282d94c26502b3d339ff9150890cb5`.
+* `RIFF/WEBP` → `VP8 ` only. **No `VP8X`**, so no ICC, alpha, EXIF, XMP or animation
+  chunk, and no orientation tag. One lossy VP8 keyframe, sync `9D 01 2A`, three
+  channels, eight bits, opaque. The chunk walk ends at byte 243,844, exactly EOF,
+  with the RIFF size field agreeing with the file length.
+* This returns the section to the plain container the other nine use and leaves
+  `matsun.webp` the only ICC-bearing file under `/images/cuisine/`.
+
+Verified twice — a hand-written RIFF chunk walker and `sharp` — which agree on every
+field.
+
+### Visual acceptance — passed
+
+A whole part-sliced loin on a dark grained board under a thick, dry, granular
+rust-brown chaman crust, with loose crumbs of it shed onto the board; its cut face and
+five thin fanned slices show a deep burgundy interior webbed with fine pale connective
+tissue, each slice ringed by the same crust. Behind: folded lavash, a small bowl of
+ground red spice, a bowl of garlic bulbs, a brown jug with a dark lattice band. Right:
+linen with a woven red stripe and a sprig of thyme. Soft neutral daylight from the
+right.
+
+| Audit | Result |
+|---|---|
+| vs **Khorovats** | Decisive at every size. Khorovats is skewers, char, coals and firelight; this is a board, a crust and cool daylight — no flame, skewer, grill mark or smoke. |
+| vs **raw meat** | Matte burgundy, not fresh-steak red; dry, no wet sheen, no blood, no translucency, no pooling. |
+| vs **Sujuk / sausage** | One whole muscle, oval section, no casing, no tied end, no mince, no cylinder. |
+| whole/slice correspondence | Same interior colour, crust thickness and webbing character; cut faces plausibly come off the exposed end; thickness consistent. Five slices individually distinct, not cloned; each with its own contact shadow. |
+| chaman | Dry, matte, granular, rust-brown, adhered — not glaze, sauce or curry. Survives every crop including the narrowest. |
+| cured texture | Compact fibre, dry slice edges, natural variation. No plastic smoothness, no fake marbling, no cloned patterns. |
+| slice thickness | Thin, hand-cut variation, clearly slices — not steaks, cubes or chunks. |
+| serving context | Board, linen, ceramic, lavash. Simple and specialty rather than luxury charcuterie. |
+| bread / lavash | Present, secondary, never dominant; the meat reads without it. |
+| charcuterie board | No cheese, grapes, olives, nuts, crackers or elaborate pickles. One thyme sprig, secondary. |
+| alcohol | None — no bottle, glass or pairing staging. |
+| recipe / curing | No raw meat, curing rack, thermometer, timer, scale or labelled ingredients; no raw-to-finished progression. |
+| food-safety neutrality | Nothing reads as DIY curing guidance. |
+| health marketing | None — no fitness, protein, keto or nutrition styling. |
+| Armenian context | No flag, Ararat, khachkar, monastery, map or carpet. Identity comes from the food and the table. |
+| knife / utensils | None in frame. |
+| board / tableware | Coherent perspective, contact shadows correct, no warping, fusing, floating or repeated props. |
+| text / branding | None. Jug band is an abstract diamond lattice, linen a plain woven stripe; a contrast-boosted pass over the corners found no watermark or signature. |
+| colour / exposure | Interior dark ruby, crust rust-brown, no neon, no orange cast, no crushed blacks, coating detail intact. |
+| lighting | Soft neutral daylight; reveals density, crust texture and slice edges. No commercial gloss, no spotlight, no firelight glow, no steam. |
+| visual register | Realistic food photography — fits the Cuisine family exactly. |
+
+**One item assessed rather than waved through.** The bowl of ground spice and the bowl
+of garlic are the closest this frame comes to the §15 ban on recipe staging. Both are
+defocused background props; there is no raw meat, no salt bowl, no scale, thermometer,
+timer, curing rack or measured lineup, and nothing implies a sequence. They read as
+flavour context beside a finished product. The accept is deliberate and recorded so a
+later reader can disagree with it knowingly.
+
+### Crops — all six survive
+
+| Crop | Geometry | Trim | Result |
+|---|---|---|---|
+| 16:10 | 1586×991 | 0.1% | whole frame |
+| 3:2 | 1488×992 | 6.2% | intact |
+| 16:9 | 1586×892 | 10.1% | intact |
+| 4:3 | 1323×992 | 16.6% | intact |
+| narrow search | 1586×634 | 36.1% | loin, cut face, four slices, crust — intact |
+| portrait / mobile | 744×992 | 53.1% | **strongest framing of all** — crust dominant, cut face and slices full height |
+
+Nothing degrades into generic red meat, only bread, only board or only coating. No
+`object-position` needed.
+
+Thumbnail comparison against khorovats, khash and harissa at 380 / 160 / 128 px: at
+128 px basturma reads as dark red slices beside a brown log, khorovats as browned chunks
+over coals, khash as pale-golden broth, harissa as beige-amber grain. It does not read
+as raw steak at any size. Checked against all ten other covers on one contact sheet — no
+reuse, no subject duplication.
+
+### Registration
+
+`basturma: "/images/cuisine/basturma.webp"` added to `IMAGES` after matsun, in section
+order, through the generic pipeline — no basturma-specific or meat-specific media logic,
+no new fields, no new provenance infrastructure. Removed from `PENDING_ARTWORK`, which
+is now **empty for the seventh time**.
+
+`isGeneratedArtwork` was read rather than assumed — `!article.image && getImageSrc(slug)
+!== undefined` — and basturma declares no own `image`, so registration alone flips it to
+generated Armat artwork in all three editions. `ARTWORK_PROVENANCE` untouched.
+
+### Surfaces verified live, per edition
+
+Hero `src` is `/images/cuisine/basturma.webp` with localized alt (`Illustration for
+Basturma` / `Նկարազարդում «Բաստուրմա» հոդվածի համար` / `Պատկերազարդում՝ Բաստուրմա`),
+AI caption rendered and localized, **zero placeholder SVGs**, and no other dish's cover
+in the hero. `og:image` and `twitter:image` both absolute `basturma.webp`.
+`Article.image` → `ImageObject` → `basturma.webp`. JSON-LD types are exactly `Article`,
+`BreadcrumbList`, `Organization`, `WebSite` — no `Product`, `Recipe`, `HowTo`,
+`NutritionInformation` or `FoodEstablishment`.
+
+Sitemap parsed route by route: each of `/{en,hy,hyw}/cuisine/basturma` carries exactly
+one `image:loc`, its own; khorovats routes still carry khorovats; three occurrences
+total, one per edition. Listing renders **11 cards, 11 distinct covers, 0 placeholders**.
+Search returns basturma with its own thumbnail for `basturma`, `bastourma`, `pastirma`,
+`Armenian basturma`, `apukht`, `բաստուրմա` and `ապուխտ`.
+
+### Regressions
+
+SEO, evidence model, translations and relations all unchanged — registration touched no
+article field. Relations remain `["lavash", "khorovats"]` with SectionLinks on the same
+two, and rendered filler is still `dolma` in all three editions; `getRelatedArticles`
+unmodified. Cuisine total 11 with the §77 distribution intact; `dairy` still Matsun
+alone; no `drink`; nothing featured; nothing reclassified. Matsun's article, artwork,
+SEO, ICH handling, relations and metadata all untouched. The ten pre-existing covers
+resolve to their exact paths and all eleven are distinct. Places, Visit and the map are
+absent from the diff entirely — the map still reports 13 Places, 2 groups, 7 individual
+markers, 0 covered centres.
+
+### Artwork performance
+
+| File | Bytes | KB |
+|---|---|---|
+| matsun | 397,682 | 388.4 |
+| **basturma** | **243,844** | **238.1** |
+| spas | 203,194 | 198.4 |
+| jingalov-hats | 194,240 | 189.7 |
+| khorovats | 155,340 | 151.7 |
+| gata | 149,570 | 146.1 |
+| ghapama | 144,904 | 141.5 |
+| khash | 135,762 | 132.6 |
+| lavash | 122,540 | 119.7 |
+| harissa | 121,874 | 119.0 |
+| dolma | 114,582 | 111.9 |
+
+Eleven files, **1,983,532 bytes (1.89 MB)**, mean 176.1 KB, median 146.1 KB. Basturma is
+the **second-heaviest** Cuisine asset, past spas and well behind matsun, which stays the
+outlier at 1.63× it. It joins the existing heavy tier rather than opening a new one.
+Measured and recorded only; nothing was optimised.
+
+### §44 — Cuisine test-scaling, checked not assumed
+
+Step 47 split the metadata test in two. Inspected before running anything broad: **no
+`test.slow()` anywhere in `cuisine.spec.ts`** (the phrase survives only in a comment
+explaining its removal) and **no per-test timeout overrides**. Coverage is intact — every
+assertion still runs over three editions and eleven dishes.
+
+Measured with eleven illustrated articles: the data half **132 ms**, the three rendered
+halves **11.1 / 11.3 / 13.8 s** against the plain 30 s budget — roughly 16 s of headroom.
+Registration added image loading and moved them from ~9–10 s to ~11–14 s, which the
+split absorbs comfortably. Focused `cuisine.spec.ts` ran **103 tests in 3.3 min**. No
+timeout was raised and none is needed.
+
+### Tests
+
+The §77 pending test was **inverted rather than deleted**, the way §69, §71, §73 and §75
+each inverted the one before: `basturma owns its artwork in every edition, and borrows
+nobody else's` now asserts the raster where the placeholder was, the AI caption where
+the placeholder caption was, out of `PENDING_ARTWORK` where it was in, and the archive
+empty again. Added alongside it: `basturma gained a picture and no product or recipe
+markup with it` (schema plus `Article.image`, OG, Twitter and per-route sitemap), `the
+basturma search result carries its own thumbnail`, and `registering basturma changed no
+other dish's artwork, type or relations`.
+
+`ILLUSTRATED` gained basturma, `ARTWORK` gained its path, `PENDING` returned to empty.
+Three assertions elsewhere had to move because registration inverted them, each updated
+rather than weakened: the matsun test's archive-wide pending claim (empty → `[basturma]`
+→ empty, a line that has now moved three times and is kept precisely because it does),
+the §77 `Article.image`-absent assertion, and `places.spec.ts`'s registry snapshot, which
+has now gone red on **every** Cuisine registration and been extended each time.
+
+### Commands and results
+
+`npm run typecheck` clean. `npm run validate:content` clean, 153 entries across three
+locales, and the "1 slug has no artwork" note is gone. Focused `cuisine.spec.ts`
+**103/103 in 3.3 min**. Focused `places.spec.ts` **84/84**. Full Playwright suite
+**367 passed, 5 skipped, 0 failed in 14.0 min**. `npm run build` exit 0, 162 static pages.
+Playwright and build never overlapped; port 3002 confirmed clear before each run.
+
+### The root cause of the broad failures, finally identified
+
+Two full-suite runs in this step (and the comparable incident in §77) produced dozens of
+failures across untouched files, with valid routes returning 404 or 500. Memory was
+measured each time and was never the problem — 3.6–4.7 GB free of 15.9 GB.
+
+The cause is now known exactly, and it was **self-inflicted tooling, not the content**:
+saving rendered page HTML into `scratchpad/` poisons Tailwind's content scan. A dump of a
+Next.js page contains class names split across `</script><script>self.__next_f.push([1,"`
+boundaries; Tailwind reads the fragment as a utility class and emits invalid CSS, so
+`globals.css` fails to parse and **every route 500s**.
+
+It was proved rather than guessed: with the dumps present, `hy` and `hyw` returned 500
+with a PostCSS parse error naming the mangled selector; deleting them and restarting gave
+`en` 200; writing a single new dump immediately re-broke `hy`/`hyw`; writing the dumps
+outside the repo instead gave all three 200. `scratchpad/` is tracked, not gitignored, so
+Tailwind scans it.
+
+This retroactively explains the §77 incident and the earlier ones in this step, and it
+means "clear `.next`" worked only because the poisoning artifacts happened to be gone by
+then. The real rule is narrower and permanent: **never write rendered HTML inside the
+repo.**
+
+### Technical debt carried forward
+
+1. **`scratchpad/` is inside Tailwind's content scan and is not gitignored.** Any future
+   session that saves a page dump there breaks every route until it is removed. Worth
+   either gitignoring the directory or excluding it from the Tailwind content globs —
+   deliberately not changed here, because this step is artwork registration only.
+2. **`places.spec.ts:379`** remains the next scaling cliff (~20 s of a 30 s budget on a
+   cold cache) and **`places.spec.ts:3203`** the slowest test in the suite; both are the
+   Places analogues of the Cuisine test §77 fixed, and both should get the same
+   per-locale split.
+3. **`nayiri.com` was unreachable in §77**, so the Ačaṙyan `ապուխտ` entry is cited but
+   unread; a later step should read the scan and close the note.
+4. **`hyw` still needs native review.**
+5. Standing: media-optimisation debt (now 1.89 MB across eleven Cuisine covers), and the
+   Places photographic/painterly register split.
+
+### What was not done
+
+Basturma article content unmodified. Cuisine taxonomy unmodified. `dairy` unchanged and
+no `drink` added. No Sujuk. No Cuisine #12. Places, Visit, map clustering, coordinates
+and Visit curation all unmodified. The supplied image was not optimised, resized,
+cropped, recoloured, renamed, regenerated or replaced. `ARTWORK_PROVENANCE` and
+`getRelatedArticles` unmodified. `.claude/settings.json` unmodified. Step 47 not
+rewritten.
+
+**No deployment occurred.**

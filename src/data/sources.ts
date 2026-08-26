@@ -993,6 +993,104 @@ const SOURCES: Record<string, Source[]> = {
     },
   ],
 
+  /*
+   * §77. Basturma. The bibliography of a subject whose loudest claims have no
+   * sources at all, which changed what this list had to be built to do.
+   *
+   * The two dominant assertions in English — a first-century-BC date under
+   * Tigranes the Great, and the saddle legend — are not cited below because
+   * nothing citable stands behind either. They were followed back and they end
+   * at recipe blogs and tourism pages. The article says so in prose; the honest
+   * bibliography is the one that does not manufacture a reference for a claim it
+   * is refusing.
+   *
+   * Petrosian and Underwood is **again not cited** — the fifth consecutive
+   * Cuisine article to leave it out, holding the concentration at five of eleven
+   * rather than six. §41 of the commission asked for a decision rather than a
+   * habit, and the decision is that it supplies nothing here unavailable from
+   * stronger evidence: the lexicography is Matiossian's and Ačaṙyan's, the
+   * Byzantine reading is Davidson's, the Kayseri material is Çelebi's through a
+   * reported source, and the diaspora material is the Smithsonian's.
+   *
+   * One absence to record rather than hide. `nayiri.com`, which hosts the
+   * Armenian dictionary corpus, refused connection throughout this step, so the
+   * Ačaṙyan entry for ապուխտ was **not** read page-by-page in the scan the way
+   * the մածուն entry was in §75. The volume is listed below because it is the
+   * underlying authority and it is publicly readable, and the note says exactly
+   * what was and was not checked. The Pahlavi derivation the article states is
+   * Matiossian's, who is a philologist reporting the standard etymology, and it
+   * is corroborated independently by the Armenian Wiktionary entry's Iranian
+   * derivation and by the sense given in the Armenian explanatory dictionary
+   * tradition. That is three agreeing witnesses and one unread original, which
+   * is worth stating plainly rather than implying a reading that did not happen.
+   */
+  basturma: [
+    {
+      author: "Vartan Matiossian",
+      title: "How Do You Say Basturma in Armenian?",
+      publisher: "Armenian Language Corner",
+      year: "2016",
+      identifier: {
+        kind: "url",
+        value: "https://armenianlanguagecorner.blogspot.com/2016/07/how-do-you-say-basturma-in-armenian.html",
+      },
+      note: "The linguistic spine of the article, and the reason its central distinction could be drawn at all. Matiossian, a philologist rather than a food writer, separates the two Armenian words: apukht (ապուխտ) is Classical Armenian from Pahlavi apuxt, uncooked — a- plus puxta, cooked — attested in the fifth-century Bible translation meaning salted and dried meat, and lent onward to Georgian and, through the Armenians of Poland, to Polish abucht; while basturma and bastoorma are modern loanwords from Turkish pastırma. He also supplies the compound khozapukht for ham and notes cured meat documented in Byzantine Asia Minor as apokti. Cited for the terminology and for the chronology of the words, and explicitly NOT for any claim that the fifth-century word denotes the modern coated product — a distinction the article makes against the grain of nearly every page on the subject.",
+    },
+    {
+      author: "Հրաչյա Աճառյան",
+      title: "Հայերեն արմատական բառարան, հատոր Ա",
+      publisher: "Երևանի համալսարանի հրատարակչություն",
+      year: "1926–1935; reprinted 1971–1979",
+      identifier: { kind: "url", value: "https://archive.org/details/Hrarm1" },
+      note: "The underlying authority for ապուխտ, which falls in the first volume. Listed with a qualification the reader is entitled to: unlike the մածուն entry in §75, this one was NOT read directly in the scan, because nayiri.com refused connection throughout this step and a page-level reading of the Internet Archive volume was not completed. The etymology the article states is taken from Matiossian above, who reports the standard derivation, and is corroborated by the Armenian Wiktionary entry's Iranian derivation and by the explanatory-dictionary sense — flat strips of cattle or sheep meat, salted, beaten and air-dried without cooking. Recorded this way so that a later step can close the gap rather than inherit an unearned claim.",
+    },
+    {
+      author: "Alan Davidson, ed. Tom Jaine",
+      title: "The Oxford Companion to Food",
+      publisher: "Oxford University Press, 3rd edition",
+      year: "2014",
+      identifier: { kind: "isbn", value: "9780199677337" },
+      note: "Reused from the dolma and ghapama bibliographies. Carries the Byzantine end of the terminology section: a Byzantine dried-meat delicacy described as a forerunner of modern pastirma, alongside the Oxford Encyclopedia of Food and Drink's report that the Ottomans applied the word to a Byzantine cured beef called paston. Cited for that position as a position, not as a settled fact — the article sets it beside the disagreement among Koder, Dalby and Nagy over what the Greek terms meant, which is the point of the section.",
+    },
+    {
+      author: "Fidel Toldrá, Iciar Astiasarán, Joseph Sebranek and Régine Talon, eds.",
+      title: "Handbook of Fermented Meat and Poultry",
+      publisher: "Wiley-Blackwell, 2nd edition",
+      year: "2015",
+      identifier: { kind: "isbn", value: "9781118522691" },
+      note: "The food science behind the preservation section: water activity as the variable that matters rather than water content, the osmotic action of salt at the surface, the mechanical role of pressing, and the progressive rather than absolute suppression of microbial and enzymatic activity as a meat dries. Cited deliberately for concepts and never for parameters — no salt proportion, drying time, temperature or humidity from this or any other source appears on the page, because the article explains curing and does not teach it.",
+    },
+    {
+      author: "Joshua Bruce Allen",
+      title: "In Search of Pastırma",
+      publisher: "Roads & Kingdoms",
+      year: "12 June 2017",
+      identifier: { kind: "url", value: "https://roadsandkingdoms.com/2017/in-search-of-pastirma/" },
+      note: "The Kayseri section rests on this rather than on encyclopedia paraphrase, which is why that section was rewritten once its contents were read. It reports Evliya Çelebi's seventeenth-century Seyahatname on Kayseri pastirma being found nowhere else and sent to Istanbul as a gift; the historian Philip Mansel on Armenians selling pastirma in Istanbul from the seventeenth century onward; Armenian dominance of the Kayseri trade by the nineteenth century; and the Apikoğlu house founded in Kayseri in 1910, moved to Istanbul in 1920, becoming the first nationwide meat company of the Turkish republic. Çelebi is quoted here at one remove and the article attributes it as such.",
+    },
+    {
+      author: "Arianna Sikorski and Hannah Luc",
+      title: "The Lure of Basturma in Little Armenia",
+      publisher: "Smithsonian Center for Folklife and Cultural Heritage",
+      year: "19 July 2018",
+      identifier: {
+        kind: "url",
+        value: "https://festival.si.edu/blog/the-lure-of-basturma-in-little-armenia",
+      },
+      note: "Carries the diaspora section, which is where this subject is best evidenced and least speculative. A basturma shop in the Little Armenia neighbourhood of Los Angeles, thirty years in operation, whose proprietor's practice descends from family makers in Armenia and Lebanon — a two-step route that is the post-1915 dispersal in miniature. Chosen over the several diaspora-restaurant write-ups of the same shop because it is a national cultural institution documenting a foodway, not a review.",
+    },
+    {
+      title: "Armenia to protect 'basturma' and 'matsun' as national brands",
+      publisher: "ARKA News Agency",
+      year: "24 March 2025",
+      identifier: {
+        kind: "url",
+        value: "https://arka.am/en/news/business/armenia-to-protect-basturma-and-atsun-as-national-brands/",
+      },
+      note: "Cited for a status and for its limits. Armenia's deputy minister of economy, Narek Hovakimyan, told a parliamentary committee on 24 March 2025 that discussions were under way to protect Armenian basturma and Armenian matsun as geographical indications under the law in force since November 2022. That is a stated intention at an early stage. Several pages report it as a completed registration or as an application filed; this article says discussions, because that is what the source says, and the difference is exactly the kind of upgrade-by-repetition the rest of the page is about.",
+    },
+  ],
+
   /* ----------------------------------------------------------------- places */
 
   /*

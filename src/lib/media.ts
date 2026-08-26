@@ -284,6 +284,83 @@ const IMAGES: Record<string, string> = {
   matsun: "/images/cuisine/matsun.webp",
 
   /*
+   * §78. Basturma — the eleventh Cuisine cover, and the one whose whole job is to
+   * say *cured* rather than *cooked*.
+   *
+   * 1586×992, 238 KB (243,844 bytes), ratio 1.5988 — the house geometry exactly,
+   * with **zero drift**, which is the first time in four Cuisine registrations
+   * that has been true (§73 khash was 1585×992, §75 matsun 1584×993). Plain
+   * `RIFF/WEBP` → `VP8 `, one lossy keyframe, sync `9D 01 2A`, three channels,
+   * eight bits, opaque. No `VP8X`, so no ICC, alpha, EXIF, XMP or animation
+   * chunk, and no orientation tag; the chunk walk ends at byte 243,844, exactly
+   * EOF, with the RIFF size field agreeing with the file length. That returns
+   * this section to the plain container the other nine use and leaves
+   * `matsun.webp` still the only ICC-bearing file under `/images/cuisine/`.
+   * SHA-256 e88f33e270f580550e96adc26644fac98e282d94c26502b3d339ff9150890cb5.
+   * Verified twice, by a hand-written RIFF chunk walk and by `sharp`, which agree
+   * on every field. Registered exactly as delivered: unaltered, uncropped,
+   * unoptimised, unrenamed.
+   *
+   * At 238 KB it is the **second-heaviest** Cuisine asset, past `spas.webp`'s
+   * 198 KB and well behind `matsun.webp`'s 388 KB, which stays the outlier. So it
+   * joins the heavy tier rather than opening a new one — matsun is still 1.63× it
+   * — and takes the eleven covers to 1,983,532 bytes (1.89 MB), mean 176.1 KB,
+   * median 146.1 KB. Measured and recorded, not corrected; the standing
+   * media-optimisation debt is unchanged.
+   *
+   * **What is in the frame, and it is unmistakably a cure.** A whole part-sliced
+   * loin lies on a dark, heavily grained wooden board under a thick, dry,
+   * rust-brown chaman crust that is granular rather than glazed, with loose crumbs
+   * of it shed onto the board. Its cut face and five thin slices fanned in front
+   * of it show a deep burgundy interior webbed with fine pale connective tissue,
+   * every slice ringed by the same crust. Behind: folded lavash, a small bowl of
+   * ground red spice, a bowl of whole garlic bulbs, and a brown jug with a dark
+   * lattice band. To the right, linen with a woven red stripe and a sprig of
+   * thyme. Soft neutral daylight from the right.
+   *
+   * **The khorovats test, which is the one that mattered, is decided by
+   * everything at once.** The §77 pending note named the danger exactly — the
+   * section's other beef article is fire and this one is salt and air — and the
+   * two never come close. Khorovats is skewers, char, glowing coals in a stone
+   * hearth and warm firelight; this is a board, a crust and cool daylight, with no
+   * flame, skewer, grill mark or smoke anywhere in it. Held side by side at the
+   * 380px card and the 160px and 128px thumbnails, khorovats reads as browned
+   * chunks over coals and this reads as dark red slices beside a brown log. There
+   * is no size at which they blur.
+   *
+   * **Not raw** is carried by colour and finish together: the interior is matte
+   * burgundy, not bright fresh-steak red, and it is dry — no wet sheen, no blood,
+   * no translucency, no pooling on the board. **Not sausage** is carried by
+   * geometry: one whole muscle with an oval cross-section and no casing, no tied
+   * end, no mince, no uniform cylinder. **Not charcuterie** is carried by absence:
+   * no cheese, grapes, olives, nuts, crackers or elaborate pickles, and no wine,
+   * glass or bottle of any kind.
+   *
+   * The whole piece and the slices correspond, which is where an image like this
+   * usually fails: same interior colour, same crust thickness, same webbing
+   * character, cut faces that plausibly come off the exposed end, and slice
+   * thickness consistent between the board and the loin. The five slices are
+   * individually distinct rather than cloned — different outlines, different
+   * marbling — and each sits with its own contact shadow.
+   *
+   * Two things to record rather than rediscover. The bowl of ground spice and the
+   * bowl of garlic are the **closest this frame comes to the §77 ban on recipe
+   * staging**, and they were assessed rather than waved through: both are
+   * defocused background props, there is no raw meat, no salt bowl, no scale,
+   * thermometer, timer, curing rack or measured lineup, and nothing implies a
+   * sequence. They read as flavour context beside a finished product, and the
+   * accept is deliberate. And the thyme sprig on the linen is the one decorative
+   * herb in the frame; it is secondary at every crop and does not make this a
+   * grazing board.
+   *
+   * Nothing in the frame is a national symbol — no flag, no Ararat, no khachkar,
+   * no carpet — and there is no lettering anywhere: the jug band is an abstract
+   * diamond lattice, the linen a plain woven stripe, and a contrast-boosted pass
+   * over the corners found no watermark or signature.
+   */
+  basturma: "/images/cuisine/basturma.webp",
+
+  /*
    * Places
    *
    * `khor-virap.png` is byte-for-byte the same file as `public/hero-ararat.png`,
@@ -823,6 +900,20 @@ const IMAGES: Record<string, string> = {
  * overrides both the file here and the AI caption.
  */
 export const PENDING_ARTWORK: readonly string[] = [
+  /*
+   * §78. Emptied again, and this is the seventh time it has filled and the seventh
+   * time it has been emptied. §77 put `basturma` here because the article was
+   * written ahead of its picture; §78 registered the file and took it back out.
+   *
+   * The §77 commission is kept in the note beside the registry entry above rather
+   * than repeated here, because what it asked for is now a fact about a file
+   * rather than a request. Two things from it are worth carrying forward as
+   * standing warnings, since both are one careless substitution away and neither
+   * is protected by anything except a test: this section's meat covers are now
+   * three, and `khorovats.webp` is fire where `basturma.webp` is salt and air.
+   * A cover swap between those two would read as plausible to anyone not looking
+   * closely, and it would undo the distinction the Basturma article is built on.
+   */
   /*
    * Empty, for the sixth time. Emptied after each of the six times it has filled:
    * §31→§32 (Etchmiadzin), §33→§34 (Erebuni), §35→§36 (Matenadaran), §37→§38 (Lake

@@ -3129,6 +3129,11 @@ test("no unrelated article artwork changed", () => {
     khash: "/images/cuisine/khash.webp",
     // §75 adds matsun, on the same terms and for the fourth time in this section.
     matsun: "/images/cuisine/matsun.webp",
+    // §78 adds basturma, the fifth. This snapshot has now gone red on every single
+    // Cuisine registration and been extended rather than loosened each time, which
+    // is the whole argument for spelling the registry out here instead of deriving
+    // it: a derived list would agree with `IMAGES` on the day `IMAGES` is wrong.
+    basturma: "/images/cuisine/basturma.webp",
   });
 
   // Every other entry is still a WebP in one of the category directories, and
@@ -4753,11 +4758,11 @@ test("the four existing category listings still load and still count what they d
     ["writers", 6, dict.listing.writers.title],
     ["works", 4, dict.listing.works.title],
     // §67 moves Cuisine 6 → 7 with Spas, §70 moves it 7 → 8 with jingalov hats,
-    // §72 moves it 8 → 9 with khash, and §74 moves it 9 → 10 with matsun. Edited
-    // rather than derived on purpose: this test's whole job is to notice when
-    // another section's count changes, and it has now done so four times, going
-    // red first on every one of them.
-    ["cuisine", 10, dict.listing.cuisine.title],
+    // §72 moves it 8 → 9 with khash, §74 moves it 9 → 10 with matsun, and §77
+    // moves it 10 → 11 with basturma. Edited rather than derived on purpose: this
+    // test's whole job is to notice when another section's count changes, and it
+    // has now done so five times, going red first on every one of them.
+    ["cuisine", 11, dict.listing.cuisine.title],
   ];
 
   for (const [path, count, heading] of expected) {
