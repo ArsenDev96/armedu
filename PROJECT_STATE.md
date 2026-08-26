@@ -16244,3 +16244,162 @@ resized, cropped, recoloured, renamed, regenerated or replaced.
 `.claude/settings.json` unmodified. Step 45 not rewritten.
 
 **No deployment occurred.**
+
+---
+
+## §75a — Matsun artwork: independent re-verification (2026-08-26)
+
+Step 46 was re-run against a repository where §75 was **already committed** (`00ce9cd
+macun`, working tree clean). Nothing was re-registered. This pass re-derived every §75
+claim from the source and the file rather than reading them back, and records one
+correction.
+
+### State found, not created
+
+`IMAGES.matsun` present, `PENDING_ARTWORK = []`, ten Cuisine articles, ten illustrated,
+zero placeholders — verified by executing `src/lib/media.ts` and the locale bundles,
+not by reading them. Type distribution re-derived from `dishTypeId` in all three
+editions: `bread 2, main 2, meat 2, ceremonial 2, dessert 1, dairy 1`; `dairy` resolves
+to `["matsun"]` alone; no `drink` filter; nothing featured. Registry holds exactly ten
+`/images/cuisine/` entries, each path distinct and self-owned.
+
+### Asset re-verified twice
+
+A hand-written RIFF chunk walker and `sharp` were run independently and agree on every
+field: 397,682 bytes, SHA-256 `d8fc17ea6196c0bf74409be41d190e1aad98d5f3638c2b98127ebe8e2fbaec7f`,
+`RIFF/WEBP` → `VP8X` (flags `0x20`: ICC set; alpha, EXIF, XMP, animation clear) →
+`ICCP` (456 bytes) → `VP8 `, one lossy keyframe, sync `9D 01 2A`, 1584×993, ratio
+1.5952, three channels, eight bits, opaque, no orientation. The chunk walk ends at
+byte 397,682, exactly EOF, and the RIFF size field agrees with the file length. Still
+the only ICC-bearing file under `/images/cuisine/`.
+
+### Visual gate re-run
+
+The image was opened at full resolution and at 2× on the bowl. It reads as plain white
+set fermented dairy: no inclusions, a broken folded surface, a whey ring against the
+bowl wall, and a spoon lifting a lump that sits on the spoon with flat fracture faces
+and overhangs both sides. Spoonable, not pourable. No grain, no herbs, no fruit,
+granola, honey or parfait layer; no tub, lid, label or branded pot; no wellness,
+probiotic or clinical staging; no thermometer, pan or measuring cup; no flag, Ararat,
+khachkar or carpet; no steam. A contrast-boosted pass over the lower-left corner found
+linen weave, broken warp stripe and bread crumbs — no watermark, signature or lettering.
+
+Fresh 380 / 160 / 128 px strips were built against **spas, khash and harissa**. At
+128 px all four remain distinct: matsun plain white with a scoop taken out, spas
+green-speckled with grain, khash pale-golden broth, harissa beige-amber grain. The
+matsun/spas separation holds at every rendered size.
+
+Crops re-measured on the delivered 1584×993 rather than the commissioned geometry:
+16:10 trim 0.3 %, 3:2 5.9 %, 16:9 10.3 %, 4:3 16.4 %, narrow search 36.2 %, portrait
+mobile 53.0 %. Bowl, spoonful, set texture and whey ring survive all six; nothing
+degrades into an empty white bowl. No `object-position` needed.
+
+### Surfaces re-verified live
+
+Against a dev server on 3002, per locale: hero `src` is `/images/cuisine/matsun.webp`
+with localized alt (`Illustration for Matsun` / `Նկարազարդում «Մածուն» հոդվածի համար`),
+AI caption rendered, no placeholder caption. `og:image` and `twitter:image` both
+absolute `matsun.webp`; canonical unchanged. JSON-LD carries `Article` with
+`image: ImageObject → matsun.webp` and **no** `Product`, `Recipe`, `HowTo`,
+`NutritionInformation` or `FoodEstablishment` node. Sitemap parsed route by route:
+`/{en,hy,hyw}/cuisine/matsun` each carry exactly one `image:loc`, their own; spas
+routes still carry spas. Search returns matsun with its own thumbnail for `matsun`,
+`matzoon`, `Armenian matsun`, `matsoni` and `մածուն`. Listing renders ten cards and ten
+distinct covers. Related block is **spas + lavash + dolma** — the explicit link plus the
+Step 45 filler, unchanged.
+
+`isGeneratedArtwork` was read rather than assumed: `!article.image && getImageSrc(slug)
+!== undefined`. Matsun declares no own `image`, so registration alone flips it to
+generated Armat artwork in all three editions. `ARTWORK_PROVENANCE` untouched.
+
+### One correction made
+
+`src/lib/media.ts` recorded the ten Cuisine covers as totalling **1.60 MB**. The
+measured total is **1,739,688 bytes (1.66 MB)**, which is what the §75 table in this
+file already said. The comment figure was wrong and is now corrected to the measured
+bytes plus mean 169.9 KB and median 143.8 KB. Comment only — no behaviour, no asset,
+no registry change.
+
+### Results
+
+`npm run typecheck` clean. `npm run validate:content` clean, 150 entries across three
+locales. Focused `cuisine.spec.ts` **87/87 passed in 3.0 min**; the measured metadata
+test ran 29.6 s against the 30 s timeout — up from the 27.6 s recorded in §75 and now
+within 0.4 s of failing. **This is the one item that has materially worsened**, and it
+is owed to the next structural test-maintenance step; no timeout was raised and no
+`test.slow()` was added here. Full Playwright suite **351 passed, 5 skipped, 0 failed
+in 9.3 min**; the five skips are the pre-existing untranslated-article conditionals.
+`npm run build` exit 0, 159 static pages. Playwright and build were run separately,
+never overlapped; port 3002 was confirmed clear before and between runs.
+
+**No deployment occurred.**
+
+---
+
+## §76 — Cuisine #11 selected: Basturma (2026-08-26)
+
+Decision only. No article written, no taxonomy touched, no artwork commissioned.
+
+### How the candidate was chosen
+
+Two gap classes were measured against the ten-article section rather than guessed.
+
+**Internal demand** — terms named in existing cuisine prose that have no article of
+their own, counted with word boundaries per article:
+
+| Term | Mentions | Where |
+|---|---|---|
+| tan | 6 | spas only |
+| chortan | 4 | matsun only |
+| khashlama | 3 | khash only |
+
+Everything else that surfaced (wheat 38, yogurt 10, honey 8, dzavar 6, cheese 4) is an
+ingredient, not an article candidate.
+
+**One finding worth pinning, because it settles a standing question.** Tan is **never
+mentioned in the Matsun article** — all six mentions are in Spas. The §74/§75 note kept
+Tan as a future knowledge-graph opportunity on the reasoning that the Dairy cluster
+would pull it in. The prose does not support that: Tan's internal demand comes from a
+soup article, not from the dairy one. Adding Tan because Dairy exists would have been a
+taxonomy argument, not a content one. Tan stays deferred.
+
+**External demand** — never named anywhere in the section: basturma, sujukh, kufta,
+manti, lahmajun, choreg, pakhlava, ishkhan, topik, eech, aveluk, anoushabour,
+matnakash, tarhana.
+
+### The choice
+
+**Basturma.** Highest external search demand of any uncovered candidate, zero current
+coverage, and one of the few Armenian foods with global name recognition through the
+diaspora and the delicatessen trade. It has a concrete technical fact to build on — the
+chaman crust — rather than resting on atmosphere, and it opens a cured-and-preserved
+cluster that `chortan` (already named in matsun) can later join on earned prose rather
+than on category symmetry.
+
+Type impact: `meat` 2 → 3, section total 10 → 11. No new type. No `drink`.
+
+### Constraints carried into the writing step
+
+1. The Armenian/Turkish naming question is the same shape as Matsun/Matsoni and must be
+   handled the same way: names and records separated, **no invention claim in either
+   direction**, dispute described rather than adjudicated.
+2. Source vetting is stricter here than for most dishes, because much of what is
+   written about basturma online is commercial or nationalist. The standing rule holds:
+   no denialist or hostile material, and a valid ISBN does not make a source
+   acceptable.
+3. Curing is food-safety-adjacent. Explain the process; **do not publish a method**
+   readers could follow — the same line khash and matsun hold between explanation and
+   recipe.
+4. No health/probiotic-style framing, no `Recipe`/`HowTo`/`Product` schema.
+
+### Alternatives considered and why they lost
+
+**Manti** was the strongest structural candidate — served with matsun and broth, so it
+would earn reciprocal links to both Matsun and Spas from prose rather than taxonomy.
+Held as the leading #12 candidate. **Choreg** overlaps the lavash/gata baked-goods
+territory. **Anoushabour** would balance the thin `dessert` type but has the weakest
+external demand. **Ishkhan** is the only candidate that cross-links into Places (Lake
+Sevan) — a real structural win — but it is an endangered endemic species, and that
+needs an editorial position decided before drafting, not during it. Recorded as open.
+
+**No deployment occurred.**

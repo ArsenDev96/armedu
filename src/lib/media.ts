@@ -224,7 +224,8 @@ const IMAGES: Record<string, string> = {
    *
    * At 388 KB it is **the heaviest file in this section by a wide margin** — nearly
    * double `spas.webp`'s 198 KB, which held the title before it — and it takes the
-   * ten Cuisine covers to 1.60 MB. That is measured and recorded, not corrected;
+   * ten Cuisine covers to 1,739,688 bytes (1.66 MB), mean 169.9 KB, median
+   * 143.8 KB. That is measured and recorded, not corrected;
    * the standing media-optimisation debt is unchanged.
    *
    * **What is in the frame, and it is the set curd.** A wide hand-thrown stoneware
