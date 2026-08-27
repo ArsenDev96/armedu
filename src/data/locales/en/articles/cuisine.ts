@@ -1797,4 +1797,211 @@ export const cuisineArticles: Article[] = [
     },
     relatedSlugs: ["lavash", "khorovats"],
   },
+  {
+    slug: "manti",
+    href: "/cuisine/manti",
+    category: "cuisine",
+    categoryLabel: "Armenian Cuisine",
+    title: "Manti",
+    seoTitle: "What Is Armenian Manti? The Baked Open Dumpling",
+    dishType: "Main dishes",
+    dishTypeId: "main",
+    imageSeed: "manti",
+    keywords: [
+      "manti",
+      "Armenian manti",
+      "մանթի",
+      "sini manti",
+      "Armenian dumplings",
+      "Armenian baked dumplings",
+      "mante",
+      "monta",
+      "sulu manti",
+      "Western Armenian food",
+      "manti and matsun",
+      "boat-shaped dumplings",
+    ],
+    excerpt:
+      "Tiny open boats of dough with meat in them, baked until the edges go hard, then drowned in broth and garlic matsun: the Armenian form of a dumpling the whole region makes.",
+    metaDescription:
+      "Armenian manti, the small open dumplings baked crisp and served with broth and garlic matsun: what makes the form distinctive and what the origin stories rest on.",
+    summary:
+      "Manti are small meat-filled dumplings, and the Armenian form is recognisable at a glance: pinched into open boats rather than sealed, arranged upright on a tray, and baked until the exposed dough goes brown and hard before broth and garlic matsun are poured over them. That form belongs above all to Western Armenian cooking — to Aintab, Marash and Cilicia, and to the diaspora communities that descend from them. Manti also exist far beyond Armenians, in a family running from Chinese mantou through Central Asia to Turkish mantı, and the popular story that Armenians received them from the Mongols in thirteenth-century Cilicia traces to a single modern book. What the record supports is a particular Armenian treatment of a shared food, and a well-documented account of how it left Anatolia and was kept.",
+    intro:
+      "Almost every dumpling in the world is closed. The dough is folded over the filling and sealed, and whatever happens next — boiling, steaming, frying — happens to a parcel. Armenian manti are the ones left open. Two sides of a small square of dough are pinched up around a little meat, the ends are left standing apart, and what goes into the oven is a tray of tiny open boats rather than a pot of sealed ones. Dry heat does to them what water never could: the raised edges brown and go brittle while the filling cooks down inside. Then hot broth is poured straight over the tray and garlic-whipped matsun goes on top, and the dish arrives as three textures at once — hard, soft and cold. This article is about that form: what it is, where it belongs, and how much of the history usually attached to it will actually bear weight.",
+    author: "Armat Editorial Team",
+    updated: "2026-08-26",
+    keyFacts: [
+      { label: "Kind of food", value: "Small meat-filled dumplings, served as a main dish" },
+      { label: "Characteristic Armenian form", value: "Open boat shapes, baked on a tray until the edges crisp — sini manti" },
+      { label: "Filled with", value: "Ground lamb or beef with onion and spices" },
+      { label: "Served with", value: "Hot broth poured over the baked tray, and matsun beaten with garlic" },
+      { label: "Belongs to", value: "Western Armenian cooking above all — Aintab, Marash, Cilicia and their diaspora" },
+      { label: "Also spelled", value: "Mante, monta; մանթի in Armenian" },
+    ],
+    sections: [
+      {
+        id: "what-armenian-manti-is",
+        heading: "What Armenian manti is",
+        paragraphs: [
+          "Manti are small dumplings of wheat dough filled with ground meat, and they are made under that name across a very wide stretch of Asia. What makes the Armenian ones a recognisable thing rather than a local spelling is the handling: they are shaped open, cooked in dry heat on a tray, and finished at the table with two wet things poured over them. English has settled on Armenian dumplings as the gloss, which is accurate and tells you almost nothing, because the interest is entirely in what is done to them.",
+          "The form is small. These are not the fist-sized steamed manti of Central Asia and they are not a plate of six; a tray holds many dozens, and the making of them is measured in hours rather than minutes. The size is not a flourish. It is what produces the ratio the dish depends on — a great deal of edge for very little filling — and it is the reason the dish is almost never made for one household on an ordinary evening.",
+          "A second name is worth having at the start. Sini manti, tray manti, is the term used for the baked form specifically, from the tray it is arranged on; sini is a Persian word for a large round tray that reached Armenian through the same Ottoman-era contact that supplied a good deal of Western Armenian kitchen vocabulary. When a recipe says sini manti it is signalling the baked open version rather than any of the others, and that distinction is more useful than it looks.",
+        ],
+      },
+      {
+        id: "the-open-baked-form",
+        heading: "The open baked form, and the word always",
+        paragraphs: [
+          "The baked open boat is the characteristic Armenian form and the one worth explaining. Squares of thin dough are given a little filling, the two opposite sides are pinched together over it and the two ends are left open, so the finished shape is a canoe with the meat visible along the top. They are packed upright and close together on an oiled tray, often in a pattern, and put into a hot oven until the standing dough has coloured and hardened and the meat has browned in its trough. Nothing about that sequence resembles what most dumpling traditions do.",
+          "It is also the point where the English-language sources overreach, and the overreach is worth naming because it is repeated everywhere. The claim in circulation is that Armenian manti is always baked and never boiled or steamed, unlike every other regional variety. That is a stronger statement than the evidence carries, and Armenian practice itself contradicts it. Sulu manti — soup manti, from the word for water — is Armenian, and its dumplings are closed rather than open and simmered in broth rather than baked. Armenian-language recipe sites in the Republic routinely give manti steamed in a stacked steamer, in the larger Central Asian manner.",
+          "The honest formulation is narrower and survives contact with the evidence: the baked open form is a characteristic and widely documented Armenian style, strongly associated with Western Armenian cooking, and it is what most people mean when they say Armenian manti without qualification. It is not a rule that every Armenian kitchen follows, and the versions that depart from it are not mistakes. This article describes a form, not a border.",
+        ],
+      },
+      {
+        id: "dough-filling-and-the-crisp-edge",
+        heading: "Dough, filling, and why the edge matters",
+        paragraphs: [
+          "The dough is plain: wheat flour worked with water, usually with egg, rolled very thin and cut into small squares. It is unleavened, which matters more here than it would elsewhere, because a risen dough would puff and soften rather than harden. What the recipe wants from it is not tenderness but the capacity to dry out and hold a shape, and thinness is what makes that possible in the time the filling takes to cook.",
+          "The filling is ground meat with onion and seasoning, and the meat varies by household more than by rule. Lamb is usual in the older Western Armenian accounts and remains standard in the Levantine diaspora; beef is at least as common in American and Armenian kitchens today, and mixtures of the two are ordinary. Onion is near-universal, and the seasoning runs to salt, pepper, parsley and often a warming spice such as allspice or cumin. Vegetarian versions filled with lentils or chickpeas exist and are made by people who make the meat kind too.",
+          "The baking is where the identity of the dish is made, and the reason is a piece of ordinary food science. Dry heat drives water off the exposed dough and lets its surface rise well past the temperature of boiling, so the sugars and proteins in it brown and the structure sets hard; a dumpling cooked in water or steam cannot do either, because its surface stays wet and stays at the temperature of the water. That is why the open shape and the oven belong together. Leaving the top open exposes the maximum amount of dough to the dry air, and the result is a food that is genuinely crisp before anything is poured on it.",
+        ],
+      },
+      {
+        id: "broth-and-matsun-at-the-table",
+        heading: "Broth and matsun at the table",
+        paragraphs: [
+          "Having made the dough hard, the cook then wets it again, and the timing of that reversal is the whole trick. Hot broth — meat stock, in many versions given body and colour with tomato — is poured directly over the baked tray shortly before it is eaten, and the crisped edges take up just enough of it to soften without collapsing. Some households serve the broth alongside in bowls instead, and some skip it entirely and finish with the dairy alone. Which of these is correct is a question that families answer for themselves and answer confidently.",
+          "The dairy is not optional in the same way. Matsun beaten smooth with crushed garlic goes over the top, and the combination of hot baked dough, hot broth and cold sour dairy is what the dish is for. Matsun is the Armenian fermented milk described in its own article here, and naming it precisely is worth the trouble: recipes written for English-speaking kitchens routinely call for Greek yogurt or labneh, which are reasonable substitutes and are not the same product. The dish belongs to a cuisine that had matsun in it long before it had manti.",
+          "Sumac finishes it in most Western Armenian versions, sometimes with dried mint or Aleppo pepper, and the choice is not decorative. Sumac is sour and dry, and it is doing the same job as the matsun from another direction on a dish that is otherwise rich, salty and soft. This is the layered, sour-topped style of the eastern Mediterranean rather than of the Armenian highland, and its presence on the plate is one more piece of evidence about where this form of manti comes from.",
+        ],
+        links: [{ phrase: "Matsun is the Armenian fermented milk", slug: "matsun" }],
+      },
+      {
+        id: "a-dish-made-by-many-hands",
+        heading: "A dish made by many hands",
+        paragraphs: [
+          "Filling and pinching several hundred dumplings the size of a thumb-joint is not an evening's work for one person, and the practice that grew up around that fact is documented rather than merely asserted. Diaspora accounts describe the making of manti as a gathering: the women of a family meeting at one house, often at a weekend, working through trays of them together and freezing what was not needed immediately. The food writer Andrew Janjigian describes exactly that arrangement at his Aunt Esther's house, with the frozen trays kept for Christmas Eve.",
+          "The consequence is that manti tends to appear at the far end of the ordinary-to-special scale without being a ceremonial food. It is served at Christmas and Easter, at family gatherings and at church and community events, because those are the occasions that justify the labour and gather the labourers. It is not liturgical, it carries no ritual role, and it belongs in this section among main dishes rather than beside harissa and ghapama.",
+          "It is worth saying what this does not amount to. Communal manti-making is a documented practice in particular families and communities, recorded by the people it belongs to; it is not a description of how all Armenians live, and freezers, food processors and bought dough have changed it substantially within living memory. A dish made by many hands is a real tradition and also a tradition with a history, including a recent one.",
+        ],
+      },
+      {
+        id: "a-western-armenian-food",
+        heading: "A Western Armenian food",
+        paragraphs: [
+          "Armenian food is not one cuisine, and manti is among the clearest illustrations of that. The dish belongs above all to Western Armenian cooking — the food of the Armenian communities of Ottoman Anatolia and Cilicia, and of the diaspora that descends from them — rather than to the cooking of the eastern highlands that became the Republic of Armenia. Writing for the Smithsonian Folklife Festival, Liana Aghajanian put the general case bluntly: what is eaten in Armenia is very different from what constitutes Armenian cuisine outside it, down to the names and pronunciations of the foods, and she names manti among the Western Armenian dishes that diaspora restaurants keep.",
+          "Precision about the term matters here, because Western Armenian is a geographical and historical description and not a synonym for abroad. It refers to the Armenians of the western, Ottoman half of the historic Armenian lands and to the cities and provinces of Anatolia and Cilicia where they lived — Aintab, Marash, Kilis, Adana, Kharberd, Sebastia — and to their language, which is a distinct standard of Armenian rather than an accent. An Armenian family in Moscow or Rostov is not Western Armenian, and its cooking is generally not manti cooking.",
+          "The regional trail is visible in the sources. The Armenian-American cookbook tradition of the mid-twentieth century was overwhelmingly an Aintab tradition, compiled in Massachusetts by women born in Anatolia; the Hetq archive's account of Aintab cooking records tray-baked and yogurt-served filled foods among the town's characteristic dishes, including one served after the New Year liturgy. Manti sits inside that world, and it is not an accident that the modern recipe pages carrying it so often begin with a grandmother from Aintab or Marash who left for Aleppo.",
+        ],
+      },
+      {
+        id: "the-cilician-claim",
+        heading: "The Cilician claim and where it comes from",
+        paragraphs: [
+          "One historical sentence accompanies almost every English page about Armenian manti: that manti reached Cilician Armenia through contact between Armenians and Mongols during their thirteenth-century alliance, and that Turkic peoples then learned it from the Armenians and carried it into Anatolia. It appears on food-media explainers, on diaspora community pages and on recipe blogs, usually with no source at all and occasionally attributed to an unnamed Armenian researcher.",
+          "It can be traced. The claim goes back to Irina Petrosian and David Underwood's Armenian Food: Fact, Fiction and Folklore of 2006, a popular history of Armenian cuisine, and it circulated from there through an encyclopedia entry into general use. Knowing that changes how much weight it can carry. The Armenian-Mongol alliance is real, well documented and interesting in its own right, and it is entirely plausible that food moved along it. But a plausible inference published in a modern popular book is a hypothesis about the thirteenth century, not a record of it, and the second half — that Turkic peoples got manti from Armenians — is a larger claim still and rests on the same single foundation.",
+          "So this article does not say that manti originated in Cilician Armenia, and it does not say the opposite either. There is no medieval Armenian text, inscription or cookbook establishing when dumplings under this name entered Armenian cooking, and the earliest hard evidence for the word anywhere in Anatolia is Ottoman rather than Cilician. The strong association between manti and Cilicia in modern Armenian memory is real and worth recording as what it is: a fact about where the dish flourished and who carried it, not a dated account of how it arrived.",
+        ],
+      },
+      {
+        id: "manti-across-a-wider-region",
+        heading: "Manti across a wider region",
+        paragraphs: [
+          "Armenian manti sits inside a family that is much larger than Armenia. Dumplings called manti, mantı, mantu or manta are made from Xinjiang and Uzbekistan through Afghanistan and the Caucasus to Anatolia and the Balkans, and Korean mandu and Chinese mantou belong to the same tangle of names. The Turkish mantı best known outside Turkey is Kayseri mantısı — very small, closed, boiled, and served under garlic yogurt with melted butter and pepper poured over. The dumplings of Central Asia are usually much larger and steamed. The Armenian form is the baked open one.",
+          "The chronology available is thin and comes from outside Armenian sources. The earliest well-known written record of a manti-like dish is in Yinshan Zhengyao, the dietary manual compiled in 1330 by Hu Sihui at the Mongol Yuan court, which contains recipes plainly related to the later Anatolian ones; the earliest Ottoman manti recipe appears in the fifteenth-century cookbook of Muhammed bin Mahmud Şirvani. Between those two points sits the Mongol expansion, which is why so many accounts reach for it — the westward spread of these dumplings across Eurasia is a genuine scholarly subject, treated by Aylin Öney Tan in the Oxford Symposium's volume on wrapped and stuffed foods.",
+          "The honest summary is that the wider manti family has a long transregional history that no single people invented, and that the Armenian baked form is one distinct development within it. Both halves of that sentence are needed. Dropping the first produces the invention claims that circulate in several languages at once; dropping the second reduces a specific and well-attested culinary practice to a borrowing, which is not what it is.",
+        ],
+      },
+      {
+        id: "the-word-and-what-it-proves",
+        heading: "The word, and what a word proves",
+        paragraphs: [
+          "Armenian writes the dish մանթի, and English transcribes it as manti, mante and — in some diaspora communities, notably around Los Angeles and Detroit — monta. The variants are pronunciation caught in different spellings rather than different foods; a Glendale shop selling monta and a Boston kitchen making manti are making the same thing. Related terms travel with it: mantapour for the broth version, sini manti for the baked one, sulu manti for the soup one.",
+          "The etymology of the root is genuinely unsettled. Most etymological references derive manti from Chinese mantou, and Turkish etymological dictionaries also point toward a Mongol link; the reverse direction, mantou as a borrowing into Chinese from a Turkic source, has been argued and questioned. What is not in doubt is that the word is not Armenian in origin and arrived from the east along with the food.",
+          "That fact settles nothing about ownership, and it is worth saying plainly because the argument is made in both directions online. Loanwords are the normal condition of cooking vocabulary across this whole region — Armenian took basturma from Turkish, sini from Persian, and lent its own words outward in turn — and a borrowed name is evidence of contact rather than of who is entitled to the dish. What a people does with a food after it arrives is the thing worth describing, and in this case what Armenians did with it was distinctive enough to have its own name.",
+        ],
+      },
+      {
+        id: "carried-and-kept",
+        heading: "Carried out of Anatolia and kept",
+        paragraphs: [
+          "The best-documented part of this subject is the most recent. The Armenian communities of Aintab, Marash and the Cilician towns were destroyed or driven out during the genocide of 1915 and the years around it, and their survivors reached Aleppo and Beirut first and then, in later migrations, France, the United States and Canada. Manti went with them. The same trays are set in Aleppo, Beirut, Boston, Los Angeles and Toronto, made from recipes that trace back through one or two named women to a town that no longer has Armenians in it.",
+          "This is a different kind of transmission from the one described in the section's other Anatolian survival. Basturma was carried by families who had made it commercially, and it re-established itself as a trade with shops and producers. Manti was carried in households, by people who made it for their own families and taught daughters and daughters-in-law to pinch it, and it re-established itself as a domestic practice that only later acquired restaurants. Both routes worked; the household one leaves fewer records, which is why the family accounts collected in community publications are the evidence here rather than an ornament on it.",
+          "It also means the dish has been changing continuously while remaining recognisable. Diaspora versions differ by country — more tomato in the Levantine broth, more sumac in some kitchens than others, beef where the grandmother used lamb — and some cooks now build them from bought wrappers. The people making those adjustments are the tradition, not a departure from it, and the constant across all of them is the shape and the oven.",
+        ],
+        links: [{ phrase: "the section's other Anatolian survival", slug: "basturma" }],
+      },
+      {
+        id: "manti-in-armenia-today",
+        heading: "Manti in Armenia today",
+        paragraphs: [
+          "In the Republic of Armenia the picture is different and specific. Manti is available and known, but it is not a standard dish of the Armenian highland kitchen in the way dolma or khash are, and where it is served in Yerevan it is served overwhelmingly by restaurants that are explicitly Western Armenian or Middle Eastern Armenian — houses founded by families from Beirut and Aleppo, or named for Aintab. The dish has arrived in Armenia in large part by returning with the diaspora rather than by descending within it.",
+          "That gives manti an unusual position among the twelve dishes in this section, and a useful one. Most of them are foods of the country that also travelled; this is a food of the exile that has been travelling back. It is also, alongside the word manti in Armenian-language recipe collections, an illustration of how the same name covers two different foods in the two halves of Armenian life — the baked open tray in the diaspora, and the larger steamed dumpling of the post-Soviet repertoire in kitchens inside Armenia.",
+          "None of this makes it less Armenian, and the question of whether it counts is not one this article thinks is worth asking. A food that a people has made under its own name for centuries, shaped in a way nobody else shapes it, served with its own dairy and carried through a catastrophe by the households that survived it, is that people's food. What the record supports is not an invention story but something more particular: a shared regional dumpling that Armenians handled differently from everyone around them, and kept.",
+        ],
+      },
+    ],
+    importantDates: [
+      {
+        year: "1330",
+        event:
+          "Yinshan Zhengyao, compiled by Hu Sihui at the Mongol Yuan court, records dumpling recipes plainly related to the later Anatolian manti.",
+      },
+      {
+        year: "15th century",
+        event:
+          "The earliest known Ottoman manti recipe appears in the cookbook of Muhammed bin Mahmud Şirvani.",
+      },
+      {
+        year: "1915",
+        event:
+          "The Armenian communities of Aintab, Marash and Cilicia are destroyed or expelled; survivors carry manti to Aleppo, Beirut and, later, the Americas and Europe.",
+      },
+      {
+        year: "2006",
+        event:
+          "Irina Petrosian and David Underwood publish the Cilician-Mongol account of manti's arrival that later circulates, unattributed, across the English-language web.",
+      },
+    ],
+    significance: {
+      heading: "Why manti matters",
+      paragraphs: [
+        "Manti is where this section stops being a cuisine of one country. Ten of the dishes here can be described from inside Armenia; this one cannot, because its home is the western half of the historic Armenian world and its living centre is a diaspora that was made by force. To write about manti at all is to write about Aintab and Aleppo and Beirut and Glendale, and about a form of Armenian cooking that survived its own geography.",
+        "It is also the section's clearest case of a shared food made distinctive by treatment rather than by ingredients. Nothing in a manti is Armenian in itself: the dough is wheat and water, the filling is minced lamb, the name came from the east. What is Armenian is the decision to leave the parcel open and put it in an oven, and then to pour broth and garlic matsun over what came out. That is a small technical difference that produces a completely different food, and it is worth defending as carefully as any origin claim — more carefully, because unlike the origin claims it can actually be shown.",
+      ],
+    },
+    interestingFacts: [
+      "Sini manti means tray manti; sini is a Persian word for a large round tray, and it names the baked form after the thing it is baked on.",
+      "The widely repeated claim that Armenian manti is never boiled or steamed is contradicted by Armenian practice: sulu manti is closed and simmered, and Armenian-language recipe sites give steamed versions.",
+      "The Cilician-Mongol origin story that appears on nearly every English page about Armenian manti traces to a single popular book published in 2006.",
+      "In parts of the American diaspora the dish is called monta, and a Glendale shop sells it under that name — the same food, a different vowel.",
+      "In Yerevan manti is mostly found in restaurants founded by Western Armenian families from Beirut and Aleppo: a diaspora food that has been travelling home.",
+    ],
+    relatedFigures: [],
+    cuisine: {
+      ingredients: [
+        "Thin unleavened wheat dough, usually made with egg",
+        "Ground lamb or beef with onion, salt, pepper and parsley",
+        "Meat broth, in many versions coloured and given body with tomato",
+        "Matsun beaten with crushed garlic, and sumac to finish",
+      ],
+      preparation:
+        "Thin dough is cut into small squares, each given a little filling, and pinched along two sides so the ends stay open. The boats are packed upright on an oiled tray and baked in dry heat until the standing edges brown and harden and the meat browns inside. Hot broth is poured over the tray shortly before serving. No quantities, oven temperatures or baking times appear here: this article describes what manti is and why the form works, and it is not a recipe.",
+      occasions: [
+        "Family gatherings, where the shaping is shared out among several people",
+        "Christmas and Easter tables, and church and community events",
+        "Everyday meals in households that keep trays of shaped manti in the freezer",
+      ],
+      regions: [
+        "Western Armenian Anatolia and Cilicia — Aintab, Marash and the towns around them",
+        "The Levantine diaspora, above all Aleppo and Beirut",
+        "Armenian communities in the United States, France and Canada",
+        "Yerevan, chiefly in restaurants founded by Western Armenian families",
+      ],
+      serving:
+        "Baked until the open edges are hard, then flooded with hot broth and topped with garlic-beaten matsun and sumac, so that hot, soft and cold arrive together.",
+    },
+    relatedSlugs: ["matsun", "basturma"],
+  },
 ];

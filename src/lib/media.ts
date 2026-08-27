@@ -901,6 +901,43 @@ const IMAGES: Record<string, string> = {
  */
 export const PENDING_ARTWORK: readonly string[] = [
   /*
+   * §79. Filled for the eighth time, by `manti` — Cuisine #12, written ahead of its
+   * picture. There is no manti asset in `public/images/cuisine/`, which holds
+   * eleven files and eleven registered slugs, so the article ships on the generated
+   * placeholder and this line is the record that the gap is a decision.
+   *
+   * The commission. Small open boat-shaped dumplings — several dozen of them,
+   * packed upright and close together on a tray or in a shallow dish — with the
+   * meat filling visible along the open top of each one and the standing dough
+   * edges baked to a hard golden brown. A simple serving vessel. Garlic-white
+   * matsun present as a secondary element rather than as the subject, and broth
+   * either poured or absent; either reads correctly, and neither should dominate.
+   *
+   * What would make it wrong is narrower here than in any previous Cuisine
+   * commission, because this subject's whole identity is a shape. If the dumplings
+   * are CLOSED, the picture is not manti — it is ravioli, pelmeni, khinkali or
+   * Turkish mantı, and the article's central distinction is destroyed by its own
+   * illustration. The same applies to a bowl of dumplings floating in soup: that is
+   * the boiled form the article explicitly declines to treat as the characteristic
+   * one, and putting it on top of eleven paragraphs about dry heat would be worse
+   * than a placeholder. The dumplings must also be small — a plate of six large
+   * steamed parcels is the Central Asian form, which the article names precisely to
+   * distinguish it.
+   *
+   * The near misses in this section are `dolma.webp` and `jingalov-hats.webp`, and
+   * both are filled-dough-or-leaf subjects that would pass a careless glance at
+   * thumbnail size; `basturma.webp` is excluded on principle rather than
+   * resemblance, since it is the most recent registration and the most tempting
+   * thing to reach for. None of them may be borrowed, and a `cuisine.spec.ts` test
+   * names all three for the same reason the Lake Sevan three are named below.
+   *
+   * Standing bans carried over: no recipe staging, no raw meat, no ingredient
+   * spread, no restaurant-luxury styling, no national-symbol collage. Preferred
+   * geometry 1586 × 992, the house ratio that `basturma.webp` hit with zero drift.
+   */
+  "manti",
+
+  /*
    * §78. Emptied again, and this is the seventh time it has filled and the seventh
    * time it has been emptied. §77 put `basturma` here because the article was
    * written ahead of its picture; §78 registered the file and took it back out.

@@ -954,18 +954,19 @@ test("every canonical route the journey links into still works", async ({ page }
 
     Places moves 7 → 8 in §47, 8 → 9 in §49, 9 → 10 in §51, 10 → 11 in §57,
     11 → 12 in §59 and 12 → 13 in §64; Cuisine moves 6 → 7 in §68, 7 → 8 in §70,
-    8 → 9 in §72, 9 → 10 in §74 and 10 → 11 in §77. The number is edited rather than
-    derived on purpose: the point of this assertion is that adding a *curated row*
-    to `/visit` does not change what the section listings contain, so it has to be a
-    figure someone updates deliberately when the section genuinely grows.
+    8 → 9 in §72, 9 → 10 in §74, 10 → 11 in §77 and 11 → 12 in §79. The number is
+    edited rather than derived on purpose: the point of this assertion is that
+    adding a *curated row* to `/visit` does not change what the section listings
+    contain, so it has to be a figure someone updates deliberately when the section
+    genuinely grows.
 
     The Cuisine half of that log had fallen two steps behind the figure beside it —
-    §72 and §74 moved the number without extending the note — and §77 brings both
-    current rather than adding a third silent increment.
+    §72 and §74 moved the number without extending the note — and §77 brought both
+    current rather than adding a third silent increment. §79 keeps them in step.
   */
   for (const [path, count] of [
     ["/en/places", 13],
-    ["/en/cuisine", 11],
+    ["/en/cuisine", 12],
     ["/en/history", 7],
   ] as const) {
     const response = await page.goto(path);

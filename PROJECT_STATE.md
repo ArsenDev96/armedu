@@ -16895,3 +16895,437 @@ cropped, recoloured, renamed, regenerated or replaced. `ARTWORK_PROVENANCE` and
 rewritten.
 
 **No deployment occurred.**
+
+---
+
+## §79 — Cuisine #12: Manti, written after a live SERP audit (2026-08-27)
+
+Cuisine reaches twelve articles. Manti is the third `main` dish, the first article
+in the section whose home is outside the Republic of Armenia, and the first whose
+loudest origin claim could be traced to a specific book rather than only dismissed
+for lacking a source.
+
+`PENDING_ARTWORK` reopens for the sixth time in this section: the article ships on
+the generated placeholder.
+
+### Pre-change state, read from source
+
+Eleven articles in all three editions — lavash, dolma, khorovats, harissa, gata,
+ghapama, spas, jingalov-hats, khash, matsun, basturma — eleven registered covers,
+`PENDING_ARTWORK` empty, distribution `bread 2, main 2, meat 3, ceremonial 2,
+dessert 1, dairy 1`, nothing featured. Verified against the bundles and the
+registry, not against this file. **No discrepancy.**
+
+### Phase A — live SEO/SERP research
+
+Fourteen live searches plus nine page fetches, in English, Armenian and Western
+Armenian, covering `manti`, `Armenian manti`, `what is Armenian manti`, `Armenian
+dumplings`, `Armenian baked dumplings`, `sini manti`, `sulu manti`, `boraki`,
+`մանթի`, the Smithsonian material, the etymology literature, the Ottoman
+chronology, and the `mante`/`monta` variants. Three fetches failed and are
+recorded as failures rather than paraphrased: `folklife.si.edu` returned HTTP 403,
+`hy.wikipedia.org/wiki/Մանթի` returned 404 (no Armenian Wikipedia article exists),
+and `cbc.ca` returned 403.
+
+**Search volume: unavailable.** No monthly volume, CPC, keyword difficulty or
+traffic figure appears anywhere in this step.
+
+**Dominant intent: recipe, overwhelmingly.** Of roughly thirty distinct result URLs
+observed, about twenty were recipes or family food blogs (mission-food, osharak,
+cupofyum, noregrettispaghetti, thestuffedgrapeleaf, armeniandish, erinobrien,
+momsdinnerbell, larahadi, heghineh, elenskitchen, cooks.am, wordloaf, aish). The
+non-recipe remainder was small: one encyclopedia entry, two food-media explainers
+(Tasting Table, Pantry Pursuits), two Smithsonian pages, one diaspora community
+publication (Armenian Mirror-Spectator), one travel guide, one Turkish food-history
+column, video results, and commercial restaurant listings. **No page found answers
+the entity question directly.**
+
+**Primary entity: Armenian Manti**, with `What is Armenian manti?` as the secondary
+explanatory intent. Visible H1 stays `Manti`. `Armenian dumplings` is used as a
+descriptive gloss inside the article and as a search variant, never as the title.
+
+**Content gap.** Every strong result explains how to make manti. None explains what
+distinguishes the Armenian form, none traces the origin story that all of them
+repeat, and none acknowledges that Armenian practice itself contradicts the
+"always baked" universal they carry. Those three are Armat's differentiation, along
+with the Western Armenian/diaspora framing and the matsun relationship.
+
+**SEO title chosen:** `What Is Armenian Manti? The Baked Open Dumpling` (en),
+`Ի՞նչ է հայկական մանթին. բաց ու թխած խմորագունդը` (hy),
+`Ի՞նչ է հայկական մանթին. բաց ու թխուած խմորագունդը` (hyw). The candidate
+directions offered in §8 were all discarded for leading with "Baked Dumplings,
+History and Culture", which reads as a listicle; the chosen form asks the question
+the SERP does not answer and names the distinguishing feature.
+
+**Armenian SEO.** Armenian-language results are recipe pages and video, and the
+spelling is settled: **մանթի** in both standards. `մենթի` and `մանթը` returned
+nothing usable and are not in the keyword sets. One finding shaped the article:
+Armenian-language recipe sites inside Armenia routinely describe **steamed** manti
+in the larger post-Soviet manner, which is not the diaspora dish under the same
+name.
+
+### Cuisine after the change
+
+Twelve articles. `bread 2, main 3, meat 3, ceremonial 2, dessert 1, dairy 1`.
+No new taxonomy value — `dumpling`, `filled-dough`, `pastry` and `drink` all
+refused. Dairy is still matsun alone. Nothing featured.
+
+### Article
+
+Eleven sections, thirty-three body paragraphs, in all three editions with identical
+structure. Section ids in order: `what-armenian-manti-is`, `the-open-baked-form`,
+`dough-filling-and-the-crisp-edge`, `broth-and-matsun-at-the-table`,
+`a-dish-made-by-many-hands`, `a-western-armenian-food`, `the-cilician-claim`,
+`manti-across-a-wider-region`, `the-word-and-what-it-proves`, `carried-and-kept`,
+`manti-in-armenia-today`.
+
+**Definition.** Small wheat-dough dumplings with a ground-meat filling, pinched
+open along two sides into boat shapes, packed upright on a tray, baked in dry heat
+until the standing edges brown and harden, then flooded with hot broth and topped
+with garlic-beaten matsun and sumac.
+
+**The open baked form — and the refusal of "always".** This is the article's
+central move. The claim circulating in English, including in the encyclopedia
+entry, is that Armenian manti is *always* baked and *never* boiled or steamed,
+unlike every other regional variety. The article carries that sentence only inside
+the frame that examines it, and refuses it on Armenian evidence: **sulu manti** is
+Armenian, closed rather than open, and simmered in broth; and Armenian-language
+recipe sites in the Republic give steamed manti. The formulation adopted is
+"a characteristic and widely documented Armenian style", and the article says
+outright that it "describes a form, not a border".
+
+**Dough, filling, baking.** Thin unleavened wheat dough, usually with egg, stated
+conceptually with no ratios. Filling is ground lamb or beef with onion and
+seasoning; lamb usual in older Western Armenian accounts and the Levantine
+diaspora, beef at least as common now, mixtures ordinary, vegetarian lentil and
+chickpea versions noted as real rather than as substitutes. Baking is explained by
+mechanism — dry heat drives water off the exposed dough so its surface passes the
+boiling point and browns and sets, which water and steam cannot do — with no
+temperature and no time anywhere on the page.
+
+**Broth.** Treated as variable and said to be variable: poured over the tray in
+many versions, served alongside in others, omitted in others, with tomato common
+in the Levantine form. No preparation instructions.
+
+**Matsun.** Garlic-beaten matsun is described as the constant that broth is not,
+and the article refuses the "Greek yogurt" gloss explicitly while acknowledging
+that diaspora recipes written for English-speaking kitchens use yogurt or labneh as
+reasonable substitutes. This earns the `manti → matsun` relation and a real
+SectionLink in the paragraph that carries it.
+
+**Communal preparation.** Documented rather than romanticised: the practice is
+attributed to named diaspora accounts, including Andrew Janjigian's description of
+his family's women gathering at Aunt Esther's house to shape and freeze trays for
+Christmas Eve. The article states in the same section that this is not a
+description of how all Armenians live and that freezers, food processors and bought
+dough have changed it within living memory.
+
+**Western Armenian context.** Defined geographically and historically — the
+Armenians of the western, Ottoman half of the historic lands, and the towns of
+Anatolia and Cilicia — and explicitly *not* as a synonym for Armenians abroad, with
+"an Armenian family in Moscow or Rostov is not Western Armenian" as the stated
+counter-example. Anchored to Liana Aghajanian's Smithsonian Folklife Festival piece
+and to the Aintab material.
+
+**Cilician claim — result.** Not asserted, and not merely omitted: **traced**. The
+sentence that manti reached Cilician Armenia through Armenian-Mongol contact in the
+thirteenth century, and that Turkic peoples then learned it from Armenians, appears
+on nearly every English page about Armenian manti, almost always unsourced and
+occasionally credited to an unnamed "Armenian researcher". It goes back to Irina
+Petrosian and David Underwood's *Armenian Food: Fact, Fiction & Folklore* (2006)
+and travelled from there through an encyclopedia entry into general circulation.
+The article names the book, calls the claim a hypothesis about the thirteenth
+century rather than a record of it, and then declines both it and its opposite.
+
+**Wider family.** Manti, mantı, mantu, manta from Xinjiang and Uzbekistan through
+Afghanistan and the Caucasus to Anatolia and the Balkans, with Korean mandu and
+Chinese mantou in the same tangle of names. Kayseri mantısı (small, closed, boiled,
+under garlic yogurt) and the large steamed Central Asian form are both named to
+make the Armenian form distinguishable rather than to build a catalogue.
+
+**Origin history — result.** No invention claim in any direction. The two dated
+points available are non-Armenian: *Yinshan Zhengyao*, compiled 1330 by Hu Sihui at
+the Yuan court, and the fifteenth-century Ottoman cookbook of Muhammed bin Mahmud
+Şirvani. The stated conclusion is that the wider family has a transregional history
+no single people invented and that the Armenian baked form is a distinct
+development within it, with both halves of that sentence said to be necessary.
+
+**Mongol/nomadic story — result.** Identified as a popular origin narrative and
+attributed to Holly Chase, who wrote that horsemen "are supposed to have" carried
+frozen or dried manti. What circulates online is that sentence with the hedge
+removed. The article does not repeat the hardened form.
+
+**Ottoman context.** Present as chronology (Şirvani) and not as ownership. The
+article states that a food documented in Ottoman culinary sources can also have
+developed distinctive Armenian forms.
+
+**Terminology.** `մանթի` in both Armenian standards; Latin `manti`, `mante`,
+`monta`, the last current in Los Angeles and Detroit diaspora usage and attached to
+a Glendale shop. Related terms recorded: `sini manti` (tray manti; *sini* is
+Persian for a large round tray), `sulu manti` (soup manti), `mantapour` (the broth
+version).
+
+**Etymology.** Most references derive manti from Chinese *mantou*; Turkish
+etymological dictionaries also point to a Mongol link; the reverse direction has
+been argued and questioned. Stated as unsettled, and separated from ownership in
+the same paragraph — Armenian took *basturma* from Turkish and *sini* from Persian,
+and a borrowed name is evidence of contact.
+
+**Diaspora.** The best-evidenced part of the subject. Aintab, Marash and the
+Cilician towns destroyed or emptied in 1915; survivors to Aleppo and Beirut, then
+France, the United States and Canada. The transmission is explicitly contrasted
+with basturma's: a commercial craft carried by producers versus a household
+practice carried by families, which is why the family accounts collected in
+community publications are the evidence here rather than decoration on it. This
+earns the `manti → basturma` relation and its SectionLink.
+
+**Contemporary Armenia.** Manti is present and known but is not a standard dish of
+the highland kitchen, and in Yerevan it is served overwhelmingly by houses founded
+by Western Armenian families from Beirut and Aleppo, or named for Aintab. The
+article calls it a diaspora-returned food and notes that the same word covers the
+larger steamed dumpling inside Armenia — a conclusion drawn from a restaurant guide
+used strictly for presence, never for chronology.
+
+**Everyday/celebratory.** Both, and said to be both: served at Christmas and Easter
+and at church and community events because those occasions justify and gather the
+labour, while also being an ordinary meal in households that keep shaped trays
+frozen. Explicitly **not** ceremonial — "it is not liturgical, it carries no ritual
+role" — and the type stays `main`.
+
+**Recipe restraint.** No ingredient quantities, no oven temperature, no baking
+time, no dough or meat ratios, no folding tutorial, no servings. The `cuisine`
+block's `preparation` field ends by saying the article is not a recipe. Generic
+`Article` schema only.
+
+**Food-safety restraint.** No internal temperature, no storage instruction, no
+make-ahead handling guidance, no raw-meat tutorial. The subject did not need a
+safety statement and does not get one.
+
+**Health restraint.** No protein, gut-health, probiotic, immune or wellness framing
+anywhere. The one occurrence of "proteins" is the Maillard explanation in the
+baking paragraph.
+
+### Sources
+
+Eight entries, none reused from another article's bibliography:
+
+1. Aylin Öney Tan, *Manti and Mantou: Dumplings across the Silk Road from Central
+   Asia to Turkey*, in McWilliams (ed.), *Wrapped & Stuffed Foods* (Oxford
+   Symposium 2012), Prospect Books 2013 — isbn 9781903018996. The §40
+   cross-community academic source.
+2. Priscilla Mary Işın, *Bountiful Empire: A History of Ottoman Cuisine*, Reaktion
+   2018 — isbn 9781780239040. Ottoman chronology.
+3. Irina Petrosian and David Underwood, *Armenian Food: Fact, Fiction & Folklore*,
+   2006 — isbn 9781411698659.
+4. Holly Chase, *The Meyhane or McDonald's?…*, in Zubaida and Tapper (eds.),
+   *A Taste of Thyme*, Tauris Parke 2000 — isbn 9781860646034.
+5. Liana Aghajanian, *What Is Armenian Food? Depends Who You Ask*, Smithsonian
+   Folklife Festival, 28 June 2018.
+6. Christine Vartanian Datian, *Recipe Corner: Manti Made Easy*, The Armenian
+   Mirror-Spectator, 20 July 2023.
+7. Սոնիա Թաշճեան, *Այնթապ — Խոհանոց*, Hetq, 20 May 2017.
+8. Mikayel Boyajian, *5 Delicious Spots to Enjoy Manti in Yerevan*, Absolute
+   Armenia, 3 April 2022 (updated 9 July 2025).
+
+**Smithsonian decision.** The festival blog is cited; the folklife magazine's
+Armenian-diaspora piece is **not**, because it returned HTTP 403 on every attempt
+and was never read. Used for contemporary form and framing only, never for
+chronology.
+
+**Petrosian & Underwood decision — §41.** Sixth use in twelve articles, and the
+concentration rule was weighed rather than waived. It is cited for a job none of
+the other five shares: it is the **origin** of a claim the article refuses, not
+support for a claim the article makes. Naming it converts an anonymous internet
+fact into a datable modern attribution, and no other source performs that function.
+The entry's note says so, and a test pins the pairing.
+
+**Deliberately not cited.** Rose Baboian's *Armenian-American Cook Book*
+(Watertown, 1964) is the obvious historical Western Armenian cookbook for this
+subject — its recipes are overwhelmingly from Aintab, exactly the trail the article
+follows — but no copy was read, so whether it contains manti and in what form is
+unverified. Recorded here as an open gap rather than converted into a citation.
+
+### Related content
+
+Authored: `["matsun", "basturma"]`, each with a real SectionLink in the paragraph
+that earns it — matsun in `broth-and-matsun-at-the-table`, basturma in
+`carried-and-kept`. Lavash, khash and dolma were evaluated and refused: none is
+carried by substantive prose, and "both use dough" is not a reason.
+
+**Matsun was not edited for reciprocity.** Its `relatedSlugs` are still `["spas"]`
+and a test asserts it.
+
+**Cross-category: none earned.** No Place link was forced. The strongest future
+cross-category connection for this article is a Culture, People or Diaspora article
+that does not exist yet.
+
+**Future graph opportunities, recorded without slugs:** manti ↔ future Western
+Armenian cuisine content; manti ↔ future diaspora/culture content; manti ↔ a future
+boraki or dumpling article. No placeholder relationships were created, and a test
+asserts that `boraki`, `matnakash`, `sujuk` and `tan` are absent from
+`relatedSlugs`.
+
+**Filler.** Measured, not assumed: the related block renders **three** articles in
+every edition — matsun and basturma authored, plus **one** filler, lavash, from
+registry order. Identical across hy, hyw and en. `getRelatedArticles` unchanged.
+
+### Artwork
+
+No dedicated asset exists. `public/images/cuisine/` holds eleven files against
+twelve slugs, `PENDING_ARTWORK = ["manti"]`, and the §79 note beside it carries the
+commission: small open boat-shaped dumplings, visible filling, baked golden crisp
+edges, simple serving dish, matsun as a secondary element. The distinction the
+commission is built on is that **closed dumplings would destroy the article's
+central claim** — a picture of ravioli, pelmeni, khinkali or Turkish mantı, or a
+bowl of dumpling soup, would contradict eleven paragraphs about dry heat. Near
+misses named and forbidden: `dolma.webp`, `jingalov-hats.webp`, `basturma.webp`.
+Preferred geometry 1586 × 992.
+
+Nothing was generated, borrowed or optimised in this step.
+
+### Localization
+
+Genuine editions rather than conversions. Eastern Armenian uses modern orthography;
+Western Armenian uses classical orthography throughout (`եւ`, `-ութիւն`, `կը`/`կ՚`
+verb particles, `Հալէպ`, `Պէյրութ`, `Կլենտէյլ`). Structure is identical across the
+three: same eleven section ids, same SectionLink placement, same four
+`importantDates`, same five `interestingFacts`.
+
+**`hyw` is flagged for native review**, as every previous Western Armenian edition
+has been.
+
+Four content-validator failures were fixed rather than suppressed: an
+`importantDates` number-parity break (en `15th century` against hy `XV դար` and hyw
+`ԺԵ. դար`, all three now `15-րդ դար`/`15th century`), three over-long
+`metaDescription`s, two over-long `summary`s and one over-long `hyw` `seoTitle`.
+
+### Tests
+
+`tests/e2e/cuisine.spec.ts`: `MANTI` added, appended to `SLUGS`, **not** added to
+`ILLUSTRATED`, `PENDING` reopened to `[MANTI]`. Eleven new tests covering the
+corpus, the open-form claim discipline, the origin audit, the Western Armenian and
+communal-practice scoping, the etymology treatment, the matsun relation, recipe and
+food-safety restraint, health restraint, SEO, pending artwork, the bibliography and
+the no-regression sweep.
+
+Hand-maintained figures updated because their stated job is to go red: `main` 2 → 3
+in four distribution assertions and one filter-count array; `places.spec.ts`
+`["cuisine", 11]` → `12`; `visit.spec.ts` `["/en/cuisine", 11]` → `12`, with both
+comment logs extended rather than left behind.
+
+Two stale assertions from §78 were **moved, not weakened**:
+`expect([...PENDING_ARTWORK]).toEqual([])` became `.toEqual([MANTI])` in both places
+that held it, and the §78 listing assertion `toHaveCount(0)` for placeholders became
+the derived `SLUGS.length - ILLUSTRATED.length` the rest of the file uses. One test
+name was corrected — "the cuisine listing shows no placeholders" became "…shows
+exactly the placeholders it owes" — because the name stopped being true and the name
+was the wrong thing to defend.
+
+**Claim-test discipline.** Three of the new tests could not use substring bans,
+because the strings they are about appear on the page inside their own refutations.
+Those assert the *frame* instead: `"always baked"` must appear exactly once and be
+immediately preceded by "The claim in circulation is that Armenian manti is";
+`"originated in Cilician Armenia"` must appear exactly once and be inside "does not
+say that manti originated in Cilician Armenia". A naive full-page ban would have
+failed on the refusal itself, and an unframed ban would pass on the day the
+attribution is deleted and the story kept.
+
+### Test scaling — §65
+
+Measured again after the twelfth article rather than assumed. No `test.slow()` was
+added, no timeout was raised, and nothing in `cuisine.spec.ts` is near its budget:
+
+* the data-only half, `every dish declares its own SEO fields in every edition`:
+  **136 ms**
+* the three rendered halves the §77 split created: **11.1 s / 11.0 s / 10.1 s**
+  against a 30 s budget — roughly 19 s of headroom
+* `every dish is published in this edition`: **10.6 / 10.4 / 12.4 s**
+* the focused `cuisine.spec.ts` run: **115 tests in 3.4 minutes**, against 103 in
+  3.3 minutes at eleven articles — the §77 split is still absorbing the growth
+
+### Results
+
+| Check | Result |
+| --- | --- |
+| `npm run typecheck` | exit 0 |
+| `npm run validate:content` | clean — 156 entries across 3 locales, and the "no artwork" note names `manti` |
+| focused `cuisine.spec.ts` | **115/115** in the full warm run; see the two genuine failures below |
+| focused `places.spec.ts` | **84/84** in 3.0 min |
+| full Playwright suite (cold) | 249 passed, 5 skipped, **130 failed** in 22.4 min — diagnosed below |
+| full Playwright suite (warm) | **377 passed, 5 skipped, 2 failed** in 12.6 min |
+| `npm run build` | exit 0, **165 static pages** (162 at eleven articles; +3 is manti in three editions) |
+
+**Two genuine failures were found and fixed**, both hand-maintained literals doing
+exactly the job they exist for:
+
+1. `?type=main` expected 2 cards. Manti makes it 3. Updated, and the named-slug
+   list beside it gained `MANTI` so the count cannot be satisfied by the wrong
+   three articles.
+2. `cuisine listing search narrows on an occasion` probed the listing haystack
+   with "Christmas" and expected exactly one card, ghapama. Manti's occasions name
+   Christmas and Easter tables, so there are now two legitimate matches. The test
+   was **widened, not re-aimed**: the expected set is stated as a literal pair, both
+   cards are asserted to match, and both are asserted not to show the word. Moving
+   to a rarer probe would have made the test weaker; the invariant it exists for is
+   now demonstrated twice.
+
+**One flake, not a regression.** `the cuisine dropdown only offers pages inside
+this edition` failed once at 11.5 s in a focused run and passed in isolation in
+1.2 s and in every other run. It clicks the submenu button immediately after
+`goto` with no wait for hydration; under two-worker contention the handler is not
+yet attached. Pre-existing, unrelated to manti, and recorded rather than patched.
+
+### The 130-failure run, diagnosed rather than assumed
+
+The first full-suite run failed 130 tests across files this step never touched.
+That is the §77/§78 shape, and §64 forbids assuming a cause, so three hypotheses
+were tested against evidence instead:
+
+* **Scratchpad/Tailwind poisoning — ruled out.** No rendered HTML exists anywhere
+  under `d:\armedu`; `git status --porcelain --untracked-files=all` showed no
+  untracked files at all and `scratchpad/` held only its three tracked files.
+* **Memory exhaustion — ruled out by measurement.** 6.38 GB free of 16.72 GB.
+* **`PROJECT_STATE.md` being scanned by Tailwind — plausible, and disproved.**
+  `globals.css` is a bare `@import "tailwindcss"` with no `@source`, so Tailwind v4
+  auto-detection scans the whole repo minus `.gitignore`, and this file is tracked
+  and now contains §78's forensic quotation of a mangled selector. The hypothesis
+  was tested directly: the dev server was started and `/en/places/khor-virap`,
+  `/en/cuisine/manti` and `/hy/cuisine` were requested. All three returned **200**,
+  with no PostCSS error in the log. The hypothesis is wrong and is recorded as
+  wrong.
+
+What the evidence does support is cold compilation under contention. Every failure
+was a `page.goto`/locator timeout or a symptom of one — an empty `<title>`, an
+`<html>` with no `lang`, a 404 on a route that serves 200 on request — and every
+failing test passes when its file is run alone: `cuisine.spec.ts` 115/115,
+`places.spec.ts` 84/84. Re-running the identical tree against a warmed server gave
+377 passed / 2 failed. Nothing in the tree changed between the two runs.
+
+The two survivors are `places.spec.ts:3208` and `:3257`, both `page.goto` timeouts
+on Places article routes, and both are the debt §66 named and told this step not to
+fix.
+
+### Scratchpad/Tailwind hazard — §64
+
+Complied with and re-verified: no rendered HTML, sitemap XML or page dump was
+written anywhere under `d:\armedu` at any point in this step. All working files —
+three article drafts, the sources block, the pending note, the test block and three
+edit scripts — were written to the session scratchpad under
+`C:\Users\user\AppData\Local\Temp\claude\…`. Tailwind config and `.gitignore` were
+not touched. The hazard was not encountered.
+
+### Technical debt carried forward
+
+* `scratchpad/` sits inside Tailwind's content scan and is not gitignored — a
+  latent hazard, deliberately not fixed in a content step.
+* `places.spec.ts` around line 379 and around line 3203: cold-compile runtime,
+  untouched here by design.
+* Rose Baboian's 1964 cookbook unread; the Aintab manti question is open.
+* `hyw` native review outstanding across the whole archive.
+* No Armenian Wikipedia article on մանթի exists, so there is no Armenian-language
+  encyclopedic source to check the terminology against; the spelling rests on
+  Armenian recipe collections and diaspora publications.
+
+### No deployment
+
+Nothing was deployed.

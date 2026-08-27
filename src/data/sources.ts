@@ -1091,6 +1091,97 @@ const SOURCES: Record<string, Source[]> = {
     },
   ],
 
+  /*
+   * §79. Manti is the first Cuisine subject where the loudest claim in circulation
+   * could actually be traced to a book rather than merely dismissed for having no
+   * source, and the bibliography is shaped by that. Two entries below exist to
+   * attribute claims the article declines to adopt — Petrosian & Underwood for the
+   * Cilician-Mongol story and Chase for the frozen-under-the-saddle one — and both
+   * notes say so, because a reader who sees them listed is entitled to know they
+   * are cited as the origin of a claim rather than as support for it.
+   *
+   * One source was deliberately not used. Rose Baboian's `Armenian-American Cook
+   * Book` (Watertown, 1964) is the obvious historical Western Armenian cookbook
+   * for this subject and its recipes are overwhelmingly from Aintab, which is
+   * exactly the regional trail the article follows. It is absent because no copy
+   * was read: whether it contains manti, and in what form, was not verified, and
+   * §38 discipline forbids converting a strong prior about a book into a citation.
+   * A later step with access to the text can close that gap.
+   *
+   * The Smithsonian is represented by the festival blog rather than by the
+   * folklife magazine's Armenian-diaspora piece, which returned HTTP 403 on every
+   * attempt and was therefore neither read nor cited.
+   */
+  manti: [
+    {
+      author: "Aylin Öney Tan",
+      title: "Manti and Mantou: Dumplings across the Silk Road from Central Asia to Turkey",
+      publisher: "in Mark McWilliams (ed.), Wrapped & Stuffed Foods: Proceedings of the Oxford Symposium on Food and Cookery 2012, Prospect Books",
+      year: "2013",
+      identifier: { kind: "isbn", value: "9781903018996" },
+      note: "The non-Armenian academic anchor for the wider-family section, and the reason that section is a description of a scholarly subject rather than a counter-claim. Carries the Eurasian spread of the manti family, the Yinshan Zhengyao of 1330 compiled by Hu Sihui at the Yuan court as the earliest well-known written record of a related dish, and the etymological position that most references derive manti from Chinese mantou while Turkish etymological dictionaries also point to a Mongol link. Cited for the shape of the question and never for an origin verdict: the article's sentence that the wider family has a transregional history no single people invented is this source's position, not Armat's improvement on it.",
+    },
+    {
+      author: "Priscilla Mary Işın",
+      title: "Bountiful Empire: A History of Ottoman Cuisine",
+      publisher: "Reaktion Books",
+      year: "2018",
+      identifier: { kind: "isbn", value: "9781780239040" },
+      note: "The Ottoman end of the chronology, and the reason the article can say that the earliest hard evidence for the word anywhere in Anatolia is Ottoman rather than Cilician — the fifteenth-century cookbook of Muhammed bin Mahmud Şirvani, which carries the earliest known Ottoman manti recipe. Cited for the attestation and its date, and explicitly not for national ownership in either direction: a food documented in Ottoman culinary sources can also have developed distinct Armenian forms, and this article treats those as compatible rather than competing facts.",
+    },
+    {
+      author: "Irina Petrosian and David Underwood",
+      title: "Armenian Food: Fact, Fiction & Folklore",
+      publisher: "Yerkir Publishing",
+      year: "2006",
+      identifier: { kind: "isbn", value: "9781411698659" },
+      note: "Sixth use of this book in twelve Cuisine articles, and the §41 concentration rule was weighed rather than waived. It is here for a reason none of the other five shares: it is the ORIGIN of a claim the article refuses, not support for one the article makes. The sentence that manti reached Cilician Armenia through Armenian-Mongol contact in the thirteenth century, and that Turkic peoples then learned it from Armenians, appears on nearly every English page about Armenian manti, almost always unsourced and occasionally credited to an unnamed Armenian researcher; it traces to this popular history and travelled from it through an encyclopedia entry into general circulation. Naming the book is what converts an anonymous fact into a datable modern attribution, and no other source performs that function. Cited for authorship of the claim; not cited as evidence for it.",
+    },
+    {
+      author: "Holly Chase",
+      title: "The Meyhane or McDonald's? Changes in eating habits and the evolution of fast food in Istanbul",
+      publisher: "in Sami Zubaida and Richard Tapper (eds.), A Taste of Thyme: Culinary Cultures of the Middle East, Tauris Parke",
+      year: "2000",
+      identifier: { kind: "isbn", value: "9781860646034" },
+      note: "The source of the nomadic transmission story, cited with its original hedge intact. Chase writes that Turkic and Mongol horsemen on the move are SUPPOSED to have carried frozen or dried manti that could be boiled quickly over a camp-fire — a reported tradition, marked as one. What circulates online is the same sentence with the hedge removed and the supposition promoted to fact. Listed so the article can say where the story comes from and what its author actually claimed, which is the §22 treatment: a popular origin narrative identified as such rather than repeated or silently dropped.",
+    },
+    {
+      author: "Liana Aghajanian",
+      title: "What Is Armenian Food? Depends Who You Ask",
+      publisher: "Smithsonian Folklife Festival",
+      year: "28 June 2018",
+      identifier: {
+        kind: "url",
+        value: "https://festival.si.edu/blog/what-is-armenian-food-depends-who-you-ask",
+      },
+      note: "Carries the article's central structural claim — that Armenian food is not one cuisine, that what is eaten in Armenia differs substantially from what is called Armenian food outside it down to the names and pronunciations, and that manti belongs among the Western Armenian dishes diaspora restaurants keep. A national cultural institution stating the diaspora/Republic distinction is a better warrant for that framing than any number of family recipe pages saying the same thing. Cited for contemporary form, contemporary framing and Western Armenian association only, per §29: it is not used, and does not itself claim, anything about medieval chronology.",
+    },
+    {
+      author: "Christine Vartanian Datian",
+      title: "Recipe Corner: Manti Made Easy",
+      publisher: "The Armenian Mirror-Spectator",
+      year: "20 July 2023",
+      identifier: { kind: "url", value: "https://mirrorspectator.com/2023/07/20/recipe-corner-manti-made-easy/" },
+      note: "A diaspora community publication, used for exactly what community publications are good for. It supplies the physical description the form section rests on — small canoe-shaped open-faced dumplings baked until crisp, served in a tomato-inflected meat broth under garlic yogurt with Aleppo pepper and sumac — and the communal-preparation account: the food writer Andrew Janjigian's description of the women of his family gathering at his Aunt Esther's house to shape and freeze trays for Christmas Eve. It also repeats the Cilician claim, which is why the article names the claim's real source instead of this one. Cited for form, serving and documented family practice; not for chronology.",
+    },
+    {
+      author: "Սոնիա Թաշճեան",
+      title: "Այնթապ — Խոհանոց",
+      publisher: "Hetq",
+      year: "20 May 2017",
+      identifier: { kind: "url", value: "https://hetq.am/hy/article/78984" },
+      note: "The Armenian-language Western Armenian source, and the reason the regional section is not sourced entirely from English recipe pages. Tashchyan's account of Aintab cooking records the town's characteristic filled foods, including tray-baked forms and a yogurt-broth version served after the New Year liturgy — the same three elements the article identifies in manti (tray, oven, yogurt), documented inside the tradition rather than inferred from outside it. Cited for the Aintab context that places manti in a real regional kitchen; not cited as an entry on manti itself, which it does not claim to be.",
+    },
+    {
+      author: "Mikayel Boyajian",
+      title: "5 Delicious Spots to Enjoy Manti in Yerevan",
+      publisher: "Absolute Armenia",
+      year: "3 April 2022, updated 9 July 2025",
+      identifier: { kind: "url", value: "https://absolutearmenia.com/armenian-manti-yerevan/" },
+      note: "Cited under the §27 restriction that menus establish presence and nothing else. It supports one narrow factual claim: that manti in Yerevan is served overwhelmingly by Western Armenian and Middle Eastern Armenian houses, several founded by families from Beirut and Aleppo or named for Aintab, and that it is less prevalent in Armenia proper. That is the evidence behind calling manti a diaspora-returned food, which is one of the article's more distinctive statements and would be unsupportable from historical sources alone. Carries no historical claim here and is not asked to.",
+    },
+  ],
+
   /* ----------------------------------------------------------------- places */
 
   /*
