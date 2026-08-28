@@ -99,6 +99,268 @@ const IMAGES: Record<string, string> = {
   spas: "/images/cuisine/spas.webp",
 
   /*
+   * §71. Jingalov hats — and the first cover in this archive whose acceptance
+   * turned on a single compositional decision rather than on subject accuracy.
+   *
+   * 1586×992, 190 KB (194,240 bytes), a single lossy `VP8 ` chunk with no VP8X
+   * extension, and therefore no alpha, no ICC profile, no EXIF and no XMP. Verified
+   * twice, by a hand-written RIFF chunk walk and by `sharp`, which agree on every
+   * field. Registered exactly as delivered: unaltered, uncropped, unoptimised,
+   * unrenamed. The geometry is `lavash.webp`'s and `spas.webp`'s exactly.
+   *
+   * **What is in the frame.** A round flatbread on a wooden board, cut across the
+   * middle, with the two halves separated and the upper one pulled back — so both
+   * cut faces are open to the camera. Between two very thin sheets of pale dough,
+   * blistered gold and scorched in places, sits a thick dense layer of chopped
+   * greens. A loose bundle of fresh herbs lies at the left, a sprig of purple-leaved
+   * basil below it, a few loose leaves scattered on undyed linen, and the whole
+   * thing stands on a weathered plank table in cool daylight.
+   *
+   * **The commission's one non-negotiable element is present.** The §70 note said
+   * it in terms: at least one round torn or folded open so the layer of greens is
+   * visible rather than implied, because a whole unbroken flatbread photographed
+   * from above is a picture of a different dish. This file does better than the
+   * minimum — it cuts the bread and opens both halves, and the exposed filling is
+   * the largest saturated shape in the frame.
+   *
+   * **The lavash test, which is the one that mattered.** Held side by side at the
+   * 380px listing card, at the 160px search thumbnail and at the 128px one, the two
+   * separate instantly and on two independent axes: this reads cool and pale with a
+   * broad dark-green band through the middle; `lavash.webp` reads warm amber, plain,
+   * with no green anywhere in the frame. The green survives the smallest crop the
+   * site renders, which is the condition §71 set and the reason a closed flatbread
+   * would have been refused.
+   *
+   * The filling is legibly a *mixture* rather than one green: broad serrated leaves,
+   * narrow strap-like ones, pale stem and scallion cross-sections, and a range from
+   * dark to bright. That matters editorially, because the article refuses a fixed
+   * canonical herb count and the picture had to show abundance rather than a
+   * countable botanical display.
+   *
+   * One ambiguity was inspected rather than assumed away. The dough surface carries
+   * a pale greenish mottling that could read as a thin layer of cheese under the
+   * bread. At 3× it is plainly the filling seen through translucent dough, with
+   * flour patches over it — no gloss, no stretch, no separate boundary, and
+   * continuous with the green at the cut. There is no cheese, meat or cream in the
+   * frame.
+   */
+  "jingalov-hats": "/images/cuisine/jingalov-hats.webp",
+
+  /*
+   * §73. Khash — and the first cover in this section whose hardest job was to
+   * avoid two things at once: looking like another dish, and looking like the
+   * thing the dish is actually made of.
+   *
+   * 1585×992, 133 KB (135,762 bytes), a single lossy `VP8 ` chunk with no VP8X
+   * extension, and therefore no alpha, no ICC profile, no EXIF and no XMP.
+   * Verified twice, by a hand-written RIFF chunk walk and by `sharp`, which agree
+   * on every field. Registered exactly as delivered: unaltered, uncropped,
+   * unoptimised, unrenamed.
+   *
+   * **One pixel of geometry drift, recorded rather than corrected.** The
+   * commission asked for 1586×992 and the file is 1585×992 — ratio 1.5978 against
+   * the archive's 1.5988. That is a third of a percent of one dimension, invisible
+   * at every rendered size, and it changes no crop outcome. Resizing to hit the
+   * round number would have meant resampling the whole image to fix nothing.
+   *
+   * **What is in the frame.** A deep speckled stoneware bowl, banded in dark blue,
+   * holding clear pale-golden broth with pieces of slow-cooked meat and pale
+   * gelatinous trotter meat partly submerged in it. Behind and to the left, a
+   * stack of folded lavash on a board; to the front left, a small dish of crushed
+   * garlic with a whole bulb and two loose cloves; to the right, radishes, fresh
+   * greens, and a squat ceramic cup of tea. A second bowl and a spoon sit at the
+   * lower right. Beyond it all, a **frosted window** in cool daylight.
+   *
+   * **The gate this file had to pass is the broth, and it passes at every size.**
+   * The liquid is genuinely transparent — pieces below the surface show through it
+   * softened rather than hidden — with an irregular lace of fat droplets on top
+   * and a visible meniscus against the ceramic. Nothing about it is creamy,
+   * gelatin-solid or gravy-like, which is what separates it from `spas.webp`
+   * (white, opaque, green-flecked) and from `harissa.webp` (a pale homogeneous
+   * mound with a butter pool). Compared side by side at the 380px card and at
+   * 160px and 128px thumbnails, the three separate on two independent axes each:
+   * colour and physical state.
+   *
+   * **The non-graphic requirement is met by an absence.** There is no bone in the
+   * frame — no hoof, no split joint, no cross-section, no anatomy of any kind. The
+   * parts read as cooked meat and soft collagen in a broth, which is exactly the
+   * register the article's prose uses when it describes them briefly and without
+   * emphasis. A cover that made the parts unmistakable would have contradicted the
+   * article rather than illustrated it.
+   *
+   * **The winter-morning brief is carried by one element**: the frost on the
+   * window. It survives every project crop including the tightest, which is why no
+   * `object-position` was needed. Cool light from the left, warm wood, a narrow
+   * drift of steam, and a restrained table do the rest.
+   *
+   * One object was inspected rather than assumed. The ceramic cup at the top right
+   * holds a brown liquid and could, in a thumbnail, be read as something else. At
+   * 3× it is an opaque hand-painted stoneware tumbler filled nearly to the rim —
+   * not glass, not stemware, not a shot glass — and there is no bottle anywhere in
+   * the frame. The alcohol audit §14 asked for is clean.
+   */
+  khash: "/images/cuisine/khash.webp",
+
+  /*
+   * §75. Matsun — the first Cuisine cover in this registry whose subject is not a
+   * dish but a material, and the only one whose whole job is a texture.
+   *
+   * 1584×993, 388 KB (397,682 bytes) — the Gyumri geometry rather than the house
+   * 1586×992, so this section now has a second size alongside `khash.webp`'s
+   * 1585×992. Ratio 1.5952 against the archive's 1.5988: two pixels narrower and
+   * one taller than the commission asked for, a 0.2 per cent difference that
+   * changes no crop outcome and was recorded rather than resampled away, on the
+   * same reasoning as §73. `RIFF/WEBP` with `VP8X` + `ICCP` + `VP8 ` — an extended
+   * container carrying a 456-byte sRGB profile, which makes it the **first
+   * ICC-bearing file under `/images/cuisine/`**; the other nine are plain
+   * `RIFF/VP8`. The `VP8X` flag byte is `0x20`: ICC set, alpha, EXIF, XMP and
+   * animation all clear, and a full chunk walk ends exactly at EOF with the RIFF
+   * size field agreeing with the file length. One lossy VP8 keyframe, sync
+   * `9D 01 2A`, three channels, eight bits, opaque, no orientation tag. SHA-256
+   * d8fc17ea6196c0bf74409be41d190e1aad98d5f3638c2b98127ebe8e2fbaec7f. Verified
+   * twice, by a hand-written RIFF chunk walk and by `sharp`, which agree on every
+   * field. Registered exactly as delivered: unaltered, uncropped, unoptimised,
+   * unrenamed.
+   *
+   * At 388 KB it is **the heaviest file in this section by a wide margin** — nearly
+   * double `spas.webp`'s 198 KB, which held the title before it — and it takes the
+   * ten Cuisine covers to 1,739,688 bytes (1.66 MB), mean 169.9 KB, median
+   * 143.8 KB. That is measured and recorded, not corrected;
+   * the standing media-optimisation debt is unchanged.
+   *
+   * **What is in the frame, and it is the set curd.** A wide hand-thrown stoneware
+   * bowl, pale grey with a brushed blue rim band and a painted geometric arcade low
+   * on the wall, standing on striped linen on a bare wood table. It holds a plain
+   * white mass with no inclusions of any kind, its surface broken into folds and
+   * scoop ridges that stand proud of a thin ring of pale whey against the bowl
+   * wall. A metal spoon lifts a lump clear of the surface: it sits on the spoon,
+   * overhangs it on both sides, slumps softly, and shows flat fracture planes with
+   * a torn edge. Behind, a blue-painted ceramic jug and a bright window with
+   * foliage; to the right, folded flatbread and a small ceramic cup; to the left, a
+   * torn wheat loaf with crumbs on the wood. Daylight from the left.
+   *
+   * **The spas test, which is the one that mattered, and it is decided by an
+   * absence.** The §74 note beside this slug's pending entry named the danger
+   * exactly — spas is *made of* matsun, so a substitution would feel almost right —
+   * and the two separate on two independent axes at every size the site renders.
+   * Inclusions: a numeric sweep of 262,400 pixels of this bowl's interior found
+   * **zero** green-biased pixels, against 1.37 per cent for the same measurement on
+   * `spas.webp`. Physical state: spas has a flat liquid level with grain suspended
+   * through it, this has a broken solid standing above its own whey. Held side by
+   * side at the 380px listing card and at the 160px and 128px search thumbnails,
+   * spas reads speckled green-and-grain and this reads plain white with a scoop
+   * taken out. There is no crop at which it becomes spas without herbs.
+   *
+   * **Spoonable rather than pourable is carried by three things**, and all three
+   * survive the tightest crop: the lifted spoonful with its cut faces, the ragged
+   * standing edge of the mass, and the whey ring it stands above. Nothing in the
+   * frame pours, sits flat like cream, peaks like whipped dairy, wobbles like
+   * gelatin or breaks into cottage-cheese curd.
+   *
+   * **Exposure, measured rather than judged**, because a white subject is where a
+   * cover fails silently: 0.005 per cent of the bowl interior clips at 255 and the
+   * 99th percentile of its luminance is 240, so the whites keep their headroom and
+   * the surface detail survives (greyscale σ = 40.4 across the dairy). The lit
+   * faces measure #eae7e2 and #f5f3f0 — R−B of 5 to 9, natural white rather than
+   * blank digital white. The region mean is warmer (R−B 32) because the shadowed
+   * folds pick up bounce off the wood and ceramic, which the whole frame shares
+   * (R−B 31.6); it is not a cast on the product.
+   *
+   * Everything the §74 note refused in advance stayed out: no tub, foil lid, label
+   * or branded pot; no fruit, honey, granola or parfait layer; no wellness,
+   * probiotic or clinical staging; no thermometer, saucepan, measuring cup or
+   * ingredient lineup; no grain and no herb. Nothing in the frame is a symbol —
+   * no flag, no Ararat, no khachkar, no carpet — and there is no lettering
+   * anywhere: the bowl band is a repeating leaf arcade, the jug a blue floral
+   * repeat, the spoon finial an embossed leaf, the linen stripe a broken warp, and
+   * a contrast-boosted pass over all four corners found no watermark or signature.
+   *
+   * Two things to know rather than rediscover. The lifted spoonful carries a faint
+   * regular diamond cross-hatch on its top face, visible only above about 4× and at
+   * no rendered size — an AI texture artifact, recorded and not retouched. And the
+   * bread beside the bowl is a crusty wheat loaf as well as flatbread, the same
+   * mixed-bread note `spas.webp` carries; it is background at every crop.
+   */
+  matsun: "/images/cuisine/matsun.webp",
+
+  /*
+   * §78. Basturma — the eleventh Cuisine cover, and the one whose whole job is to
+   * say *cured* rather than *cooked*.
+   *
+   * 1586×992, 238 KB (243,844 bytes), ratio 1.5988 — the house geometry exactly,
+   * with **zero drift**, which is the first time in four Cuisine registrations
+   * that has been true (§73 khash was 1585×992, §75 matsun 1584×993). Plain
+   * `RIFF/WEBP` → `VP8 `, one lossy keyframe, sync `9D 01 2A`, three channels,
+   * eight bits, opaque. No `VP8X`, so no ICC, alpha, EXIF, XMP or animation
+   * chunk, and no orientation tag; the chunk walk ends at byte 243,844, exactly
+   * EOF, with the RIFF size field agreeing with the file length. That returns
+   * this section to the plain container the other nine use and leaves
+   * `matsun.webp` still the only ICC-bearing file under `/images/cuisine/`.
+   * SHA-256 e88f33e270f580550e96adc26644fac98e282d94c26502b3d339ff9150890cb5.
+   * Verified twice, by a hand-written RIFF chunk walk and by `sharp`, which agree
+   * on every field. Registered exactly as delivered: unaltered, uncropped,
+   * unoptimised, unrenamed.
+   *
+   * At 238 KB it is the **second-heaviest** Cuisine asset, past `spas.webp`'s
+   * 198 KB and well behind `matsun.webp`'s 388 KB, which stays the outlier. So it
+   * joins the heavy tier rather than opening a new one — matsun is still 1.63× it
+   * — and takes the eleven covers to 1,983,532 bytes (1.89 MB), mean 176.1 KB,
+   * median 146.1 KB. Measured and recorded, not corrected; the standing
+   * media-optimisation debt is unchanged.
+   *
+   * **What is in the frame, and it is unmistakably a cure.** A whole part-sliced
+   * loin lies on a dark, heavily grained wooden board under a thick, dry,
+   * rust-brown chaman crust that is granular rather than glazed, with loose crumbs
+   * of it shed onto the board. Its cut face and five thin slices fanned in front
+   * of it show a deep burgundy interior webbed with fine pale connective tissue,
+   * every slice ringed by the same crust. Behind: folded lavash, a small bowl of
+   * ground red spice, a bowl of whole garlic bulbs, and a brown jug with a dark
+   * lattice band. To the right, linen with a woven red stripe and a sprig of
+   * thyme. Soft neutral daylight from the right.
+   *
+   * **The khorovats test, which is the one that mattered, is decided by
+   * everything at once.** The §77 pending note named the danger exactly — the
+   * section's other beef article is fire and this one is salt and air — and the
+   * two never come close. Khorovats is skewers, char, glowing coals in a stone
+   * hearth and warm firelight; this is a board, a crust and cool daylight, with no
+   * flame, skewer, grill mark or smoke anywhere in it. Held side by side at the
+   * 380px card and the 160px and 128px thumbnails, khorovats reads as browned
+   * chunks over coals and this reads as dark red slices beside a brown log. There
+   * is no size at which they blur.
+   *
+   * **Not raw** is carried by colour and finish together: the interior is matte
+   * burgundy, not bright fresh-steak red, and it is dry — no wet sheen, no blood,
+   * no translucency, no pooling on the board. **Not sausage** is carried by
+   * geometry: one whole muscle with an oval cross-section and no casing, no tied
+   * end, no mince, no uniform cylinder. **Not charcuterie** is carried by absence:
+   * no cheese, grapes, olives, nuts, crackers or elaborate pickles, and no wine,
+   * glass or bottle of any kind.
+   *
+   * The whole piece and the slices correspond, which is where an image like this
+   * usually fails: same interior colour, same crust thickness, same webbing
+   * character, cut faces that plausibly come off the exposed end, and slice
+   * thickness consistent between the board and the loin. The five slices are
+   * individually distinct rather than cloned — different outlines, different
+   * marbling — and each sits with its own contact shadow.
+   *
+   * Two things to record rather than rediscover. The bowl of ground spice and the
+   * bowl of garlic are the **closest this frame comes to the §77 ban on recipe
+   * staging**, and they were assessed rather than waved through: both are
+   * defocused background props, there is no raw meat, no salt bowl, no scale,
+   * thermometer, timer, curing rack or measured lineup, and nothing implies a
+   * sequence. They read as flavour context beside a finished product, and the
+   * accept is deliberate. And the thyme sprig on the linen is the one decorative
+   * herb in the frame; it is secondary at every crop and does not make this a
+   * grazing board.
+   *
+   * Nothing in the frame is a national symbol — no flag, no Ararat, no khachkar,
+   * no carpet — and there is no lettering anywhere: the jug band is an abstract
+   * diamond lattice, the linen a plain woven stripe, and a contrast-boosted pass
+   * over the corners found no watermark or signature.
+   */
+  basturma: "/images/cuisine/basturma.webp",
+
+  /*
    * Places
    *
    * `khor-virap.png` is byte-for-byte the same file as `public/hero-ararat.png`,
@@ -639,6 +901,57 @@ const IMAGES: Record<string, string> = {
  */
 export const PENDING_ARTWORK: readonly string[] = [
   /*
+   * §79. Filled for the eighth time, by `manti` — Cuisine #12, written ahead of its
+   * picture. There is no manti asset in `public/images/cuisine/`, which holds
+   * eleven files and eleven registered slugs, so the article ships on the generated
+   * placeholder and this line is the record that the gap is a decision.
+   *
+   * The commission. Small open boat-shaped dumplings — several dozen of them,
+   * packed upright and close together on a tray or in a shallow dish — with the
+   * meat filling visible along the open top of each one and the standing dough
+   * edges baked to a hard golden brown. A simple serving vessel. Garlic-white
+   * matsun present as a secondary element rather than as the subject, and broth
+   * either poured or absent; either reads correctly, and neither should dominate.
+   *
+   * What would make it wrong is narrower here than in any previous Cuisine
+   * commission, because this subject's whole identity is a shape. If the dumplings
+   * are CLOSED, the picture is not manti — it is ravioli, pelmeni, khinkali or
+   * Turkish mantı, and the article's central distinction is destroyed by its own
+   * illustration. The same applies to a bowl of dumplings floating in soup: that is
+   * the boiled form the article explicitly declines to treat as the characteristic
+   * one, and putting it on top of eleven paragraphs about dry heat would be worse
+   * than a placeholder. The dumplings must also be small — a plate of six large
+   * steamed parcels is the Central Asian form, which the article names precisely to
+   * distinguish it.
+   *
+   * The near misses in this section are `dolma.webp` and `jingalov-hats.webp`, and
+   * both are filled-dough-or-leaf subjects that would pass a careless glance at
+   * thumbnail size; `basturma.webp` is excluded on principle rather than
+   * resemblance, since it is the most recent registration and the most tempting
+   * thing to reach for. None of them may be borrowed, and a `cuisine.spec.ts` test
+   * names all three for the same reason the Lake Sevan three are named below.
+   *
+   * Standing bans carried over: no recipe staging, no raw meat, no ingredient
+   * spread, no restaurant-luxury styling, no national-symbol collage. Preferred
+   * geometry 1586 × 992, the house ratio that `basturma.webp` hit with zero drift.
+   */
+  "manti",
+
+  /*
+   * §78. Emptied again, and this is the seventh time it has filled and the seventh
+   * time it has been emptied. §77 put `basturma` here because the article was
+   * written ahead of its picture; §78 registered the file and took it back out.
+   *
+   * The §77 commission is kept in the note beside the registry entry above rather
+   * than repeated here, because what it asked for is now a fact about a file
+   * rather than a request. Two things from it are worth carrying forward as
+   * standing warnings, since both are one careless substitution away and neither
+   * is protected by anything except a test: this section's meat covers are now
+   * three, and `khorovats.webp` is fire where `basturma.webp` is salt and air.
+   * A cover swap between those two would read as plausible to anyone not looking
+   * closely, and it would undo the distinction the Basturma article is built on.
+   */
+  /*
    * Empty, for the sixth time. Emptied after each of the six times it has filled:
    * §31→§32 (Etchmiadzin), §33→§34 (Erebuni), §35→§36 (Matenadaran), §37→§38 (Lake
    * Sevan), §39→§40 (Garni), §41→§42 (Geghard).
@@ -1159,6 +1472,154 @@ export const PENDING_ARTWORK: readonly string[] = [
    *
    * The list is empty again, and for the first time that sentence covers the whole
    * archive rather than only Places: every article in every section now has a cover.
+   */
+
+  /*
+   * §70. Jingalov hats — Cuisine #8, and the second entry on this list from outside
+   * Places. It arrives one step after the list was emptied, which is the normal
+   * rhythm of this archive rather than a regression.
+   *
+   * All seven cuisine files were opened rather than read off their names. None of
+   * them is this dish, and the refusals divide into two kinds.
+   *
+   * The near miss is `lavash.webp`: folded pale sheets of thin wheat bread on
+   * linen, with the mouth of a tonir open in the background, a clay jug, ears of
+   * wheat and a bowl of flour. Jingalov hats is also a thin sheet of wheat bread,
+   * and a careless substitution would be defensible at a glance. It is refused
+   * twice over. The whole subject of the new article is what is *inside* the bread,
+   * and that cover shows bread with nothing in it; and the oven in the background
+   * is the one method the new article exists partly to distinguish itself from.
+   *
+   * `spas.webp` is the second refusal and a subtler one: it is white, herbed and photographed cool, so it
+   * shares this dish's palette without sharing anything else about it. A green-
+   * flecked white bowl is not a green-filled bread. `dolma`, `khorovats`, `harissa`,
+   * `gata` and `ghapama` are plainly other dishes.
+   *
+   * What a commission would have to carry, written down now so it is not
+   * reconstructed later. One or two rounds of thin flatbread, cooked and blistered,
+   * with dark scorch marks where the metal touched — and the filling legible: dense
+   * chopped greens showing dark through the wrapper, and at least one round torn or
+   * folded open so the layer of greens inside is visible rather than implied. That
+   * torn round is the single non-negotiable element. A whole unbroken flatbread
+   * photographed from above is a picture of a different dish.
+   *
+   * The setting should be domestic and regional: a plain board or cloth, daylight,
+   * maybe a bowl of uncut greens beside it. Explicitly refused in advance: a tonir
+   * or any oven-wall staging, which belongs to lavash and is the exact wrong method
+   * for this bread; laminated or buttery pastry of any kind; a wedge cut from a pie;
+   * anything that reads as a spinach turnover or a griddled cheese wrap; restaurant
+   * plating, garnish arranged for a photograph, and the pale wholesome lighting of
+   * health-food photography. No lettering, no flag, no landscape backdrop standing
+   * in for the region — the greens are the regional content, and they are enough.
+   *
+   * Preferred geometry 1586×992, the archive's dominant one.
+   *
+   * §71 **Resolved.** The file that landed carries the commission, including the one
+   * element it called non-negotiable: the bread is cut and both halves opened, so
+   * the greens are visible rather than implied. It is registered above, with the
+   * lavash comparison recorded there. Everything refused in advance stayed out —
+   * no tonir or oven-wall staging, no laminated pastry, no cheese, no restaurant
+   * plating, no arranged garnish, no lettering and no flag. The one thing the
+   * commission did not ask for and got anyway is a bundle of raw herbs beside the
+   * board, which reads as a table object rather than as a recipe step.
+   *
+   * The list is empty again, and for the second time that sentence covers the whole
+   * archive rather than only Places: every article in every section has a cover.
+   *
+   * §72 reopened it, in the same place and for the same reason as §68 and §70: a
+   * Cuisine article shipped ahead of its picture.
+   */
+  /*
+   * §72. Khash, Cuisine #9, written ahead of its picture. Nothing in the archive
+   * may be borrowed for it: `harissa.webp` is the wrong dish in a similar bowl,
+   * `khorovats.webp` is the section's other meat cover, and `spas.webp` is a pale
+   * broth photographed from above, which is the single most dangerous
+   * substitution here because at card size it would pass.
+   *
+   * **The subject is the bowl.** A deep bowl of clear, hot, pale broth on a
+   * winter morning table, steam visible, with the things that finish it beside
+   * it: crushed garlic in a small dish, dried lavash for crumbling, salt, radish,
+   * fresh greens. The article's whole argument is that the dish arrives
+   * unfinished and the table completes it, so the accompaniments are not garnish
+   * — they are half the subject, and a cover showing only a bowl would illustrate
+   * a different article.
+   *
+   * **What must not be in the frame.** No graphic close-up of feet, hooves, head
+   * or tripe: the article deliberately keeps the description of the parts brief
+   * and unsensational, and a cover that does the opposite would contradict it.
+   * No restaurant advertising — no branded plate, no menu card, no styled
+   * hero-shot lighting. No bottle staged as the point of the picture; the alcohol
+   * custom occupies two sentences of the article and must not occupy the cover.
+   * No hangover joke, in any form. No recipe staging: no pot on a stove, no
+   * ingredients laid out in a row, no step sequence, no measuring anything.
+   *
+   * **Atmosphere over drama.** Cold early light, a plain table, an ordinary
+   * domestic or small-restaurant setting. Company may be implied — a second bowl,
+   * a second pair of hands — but the frame belongs to the food, and a picture of
+   * people at a party would be a picture of a party.
+   *
+   * Preferred geometry 1586×992, the archive's dominant one. Photographic
+   * register, matching all eight existing Cuisine covers.
+   *
+   * §73 **Resolved.** The delivered file carries the commission, including the two
+   * parts of it that were hardest to satisfy together: the bowl and the things
+   * that finish it share the subject — lavash, crushed garlic, radish, greens are
+   * all present and all secondary — and the animal parts stay non-graphic, with no
+   * bone in the frame at all. Everything refused in advance stayed out: no hoof or
+   * head close-up, no restaurant branding, no bottle or shot glass, no hangover
+   * or wellness framing, no ingredient lineup, no measuring, no lettering, no flag
+   * and no Ararat. The one element the commission did not ask for and got anyway
+   * is the frosted window, which turned out to be the single best winter cue in
+   * the file. It is registered above.
+   *
+   * The list is empty again, and for the third time that sentence covers the whole
+   * archive rather than only Places: every article in every section has a cover.
+   *
+   * §74 reopened it a fourth time, in the same place and for the same reason.
+   */
+  /*
+   * §74. Matsun, Cuisine #10, written ahead of its picture — and the first
+   * pending entry in this section for something that is not a dish.
+   *
+   * **Nothing may be borrowed, and `spas.webp` is the specific danger.** Spas is
+   * made of matsun, so the two are genuinely related and a substitution would
+   * feel almost right — which is exactly why it must not happen. Spas is a fluid
+   * soup with grain and green herbs suspended in it. Matsun is a set, plain,
+   * white mass with no inclusions at all. A cover that showed anything floating
+   * in it would be illustrating the wrong article.
+   *
+   * **The subject is the set curd itself.** A plain ceramic bowl of thick white
+   * fermented milk, its surface showing the characteristic broken, slightly
+   * uneven set of something that gelled in place rather than being stirred
+   * smooth — ideally with a spoon-mark or a cut edge holding its shape, because
+   * that texture is the whole visual argument for what fermentation did. Cool
+   * even daylight, an ordinary table, bread nearby if anything at all is.
+   *
+   * **What must not be in the frame.** No commercial yogurt packaging of any
+   * kind: no printed tub, no foil lid, no label, no branded pot. No fruit, no
+   * honey drizzle, no granola, no berry garnish — that is a Western breakfast
+   * product and this is not one. No wellness or probiotic styling: no supplement
+   * imagery, no clinical white staging, no measuring. No recipe staging, no
+   * ingredient lineup, no thermometer. No herbs or grain floating in it, for the
+   * reason above.
+   *
+   * Preferred geometry 1586×992. Photographic register, matching all nine
+   * existing Cuisine covers.
+   *
+   * §75 **Resolved.** The file that landed carries the commission on its one hard
+   * point: the set curd itself is the subject, with a spoon lifting a lump that
+   * holds its shape and a thin ring of whey around a mass that stands above it.
+   * Nothing floats in it — a numeric sweep of the bowl interior found zero
+   * green-biased pixels — so the spas substitution this note existed to prevent is
+   * refused by the picture as well as by the registry. Everything refused in
+   * advance stayed out: no tub, lid, label or branded pot, no fruit, honey or
+   * granola, no wellness or clinical staging, no thermometer or ingredient lineup,
+   * no grain and no herb. It is registered above, with the spas comparison and the
+   * exposure measurements recorded there. The geometry came in at 1584×993 rather
+   * than the 1586×992 asked for, which is recorded rather than corrected.
+   *
+   * The list is empty again, and for the fourth time that sentence covers the whole
+   * archive rather than only Places: every article in every section has a cover.
    */
 ];
 

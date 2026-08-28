@@ -1,6 +1,6 @@
 # Armat — Project State Report
 
-**Last updated:** 2026-08-21 (Spas artwork registered — every article in the archive is now illustrated)
+**Last updated:** 2026-08-25 (Matsun added as Cuisine #10 with a new Dairy type — artwork pending)
 **Repo:** `d:\armedu` · branch `seo`
 **Status:** Armenian-first multilingual site, complete in three editions and **live in
 production at [armat.site](https://armat.site)** (Vercel). Crawlable and indexable today.
@@ -14233,3 +14233,3099 @@ the **uniform six-section template** in the older six, **Petrosian & Underwood**
 the `hyw` review backlog at fourteen, the deferred **dairy/drinks dish type**, and spas as the only
 Cuisine article rendering filler. New and small: **`spas.webp` is Cuisine's heavy tail at 198 KB**,
 and **its bread is a wheat loaf where the article links to lavash**.
+
+---
+
+## §70. Jingalov hats — Cuisine #8, and the first article about a region (August 2026)
+
+Cuisine goes 7 → 8, and the addition changes the section's geography rather than its length.
+Every dish here so far has been pan-Armenian: made wherever Armenians are, and therefore
+describable without reference to any particular hillside. Jingalov hats is not. It is the food
+of Artsakh and neighbouring Syunik, and what makes it worth writing is exactly what makes it
+hard to write — the dish is defined by a local flora.
+
+```
+bread 2 · main 2 · meat 1 · ceremonial 2 · dessert 1
+```
+
+No dish type was added. `matsun`, `tan`, coffee and cheeses still have no home in the five ids,
+and that decision is still deferred.
+
+### What it adds
+
+Three firsts at once: the first strongly **regional** article, the first **herb-centred** dish,
+and the first **filled flatbread**. It also breaks the section's remaining habit of iconicity —
+`lavash` was the only other `bread`, and it is a national symbol with a UNESCO inscription;
+this one is a regional weekday food that most Armenians outside two provinces met for the first
+time in a Yerevan street stall.
+
+### Structure
+
+**Nine bespoke sections, 27 paragraphs plus 2 in `significance`** — the shape Spas established at
+§68, continued rather than copied: `what-jingalov-hats-is`, `a-food-of-artsakh`,
+`the-language-of-greens`, `how-many-greens`, `knowing-what-to-pick`, `dough-and-enclosure`,
+`the-griddle-and-the-tonir`, `what-the-record-can-say`, `a-food-away-from-its-place`. Six key
+facts, five interesting facts, three important dates, no related figures.
+
+Three dates rather than one, and unlike §68 they are real: 2013, 2015, 2023. All three are
+institutional or documented events, not a manufactured chronology for the dish itself.
+
+### Artsakh framing
+
+The rule the article follows is that the geography is **named and bounded**. Two sections carry
+the regional and displacement material and they are **under a third of the article by word
+count** — a test measures this rather than trusting the reading, because the failure here runs
+in two directions and only one of them is obvious.
+
+Terminology is handled by distinguishing rather than choosing. The article writes "Artsakh — the
+upland region between Armenia and Azerbaijan that Armenians call Artsakh and that international
+usage more often calls Nagorno-Karabakh", says the two are **not interchangeable**, and adds that
+which name a given source reaches for is itself information. Both names then appear where the
+sources use them. It states plainly that nothing in it requires a position on the region's
+status, and no edition contains a territorial or legal claim; a test pins the absence of five
+such formulations in all three.
+
+### The current context
+
+Included, because it explains something about the food that nothing else does. In September 2023,
+after an Azerbaijani military offensive, almost the entire Armenian population of Nagorno-Karabakh
+— more than a hundred thousand people — left for Armenia; the dish went with them and became a
+street food across the country.
+
+The paragraph that earns its place is the next one, and it came **from the source rather than
+being imposed on it**. Writing for the Smithsonian's folklife magazine in February 2025, Aline
+Keledjian quotes a woman from Stepanakert saying the same herbs cannot be found in Armenia,
+because they grow in the mountains of Artsakh. That is a statement about a dish, not about a
+conflict: **a recipe can be carried in a suitcase and a hillside cannot**, so a food defined by a
+local flora is altered by displacement in a way that a food defined by a technique is not. Every
+present-tense statement carries a year, and the closing judgement — continuity rather than
+recovery — is stated as the article's reading rather than as a fact.
+
+The article does not suggest the dish stopped existing in Artsakh historically; the displacement
+section is the last of nine, and the eight before it are in the present tense about the dish.
+
+### The evidence model
+
+**The written record is short, and the article says so.** Two independent sources converge on the
+same century: Ruzanna Tsaturian, of the Institute of Archaeology and Ethnography of Armenia's
+National Academy of Sciences, places the first textual mentions at around two hundred years ago;
+the 2015 heritage-listing coverage says it was first mentioned in written manuscripts of the
+nineteenth century, when Artsakh folklore was being collected. Both point at a moment of
+**recording rather than invention**, and the article separates those explicitly: the dish is
+certainly older than its first mention, how much older the evidence does not establish, and no
+source consulted places it in antiquity. A living regional tradition does not need an ancient
+origin to be worth describing, and the article says that too.
+
+**No origin competition anywhere.** Filled flatbreads are not claimed for anyone; the subject is
+one particular combination — very thin dough, a very large mixture of greens, a griddle — and the
+article never asks who invented the concept.
+
+### Herbs — the article's core, and its biggest trap
+
+The filling is presented as **a system rather than a list**: a bulk of mild leaf greens, a smaller
+quantity of aromatics, a sour element, and a little bitterness, balanced against each other. The
+functional roles are the content; the species are examples of them. Nettle gets its own note
+because it explains something real — it stings raw and stops stinging once cooked, which is why a
+plant nobody would eat from the hand belongs inside this bread.
+
+**The herb count is treated as the folklore trap §70 predicted.** The numbers genuinely disagree
+and the article prints the disagreement with attributions: Ara Zada told RFE/RL in 2024 that the
+original recipe called for twenty-six and that around seventeen are usual now; the Smithsonian
+gives ten to twenty; other totals circulate, "some of them rounder than the sources that carry
+them". Then the explanation: a mixture assembled from what is growing, in a particular week, on a
+particular slope, **cannot have a fixed count**. The closing line is the one that matters — where
+a round number is offered as the authentic count, it is a claim about authenticity and not a
+measurement.
+
+**Gathering knowledge is described and explicitly not taught.** Tsaturian's seasonality (early
+spring and autumn, when the necessary wild herbs grow) frames the whole tradition, and her account
+of households returning to the "forest bread" during the shortages of the 1990s war explains where
+the dish came from without romanticising it. The article then refuses the obvious next step in its
+own words: it describes the knowledge, does not try to convey it, and states that which wild
+plants are safe to eat is not something to learn from a page about food.
+
+### Dough, enclosure, griddle
+
+Unleavened wheat flour, water and salt, rolled very thin — and the enclosure is what makes the
+object: the filling ends as a thin layer *between* two thin layers rather than sitting in a
+pocket, and keeping a very wet filling inside a very thin wrapper through the flattening is the
+actual skill. The proportions run the opposite way from most filled breads, which is why the
+finished bread reads green through its surface.
+
+**The cooking surface is the section's sharpest small finding.** It is griddled on a saj, in
+minutes — *not* baked against the wall of a tonir, which is what lavash uses and what an
+assumption would have supplied. The article states the lavash technique from the UNESCO record
+rather than paraphrasing it, and refuses the false continuity outright: the two should not be run
+together simply because both are Armenian and both involve fire.
+
+### Everyday and communal
+
+Both, and the article keeps both. It is weekday food in the seasons when the greens are up, made
+by several people working together, and it has festivals — the §67 audit's complaint was festive
+framing applied to everything, not the existence of festivals.
+
+### Naming
+
+**Jingalov Hats** is the English display title, with `ժենգյալով հաց` in `hy` and `ժենգեալով հաց`
+in `hyw`. The name is **retained rather than translated**; "herb-filled flatbread" appears as a
+gloss in prose, never as the title. No separate article was created for any transliteration
+variant, and `zhingyalov`, `zhengyalov` and the Armenian spellings all reach the article through
+keywords — verified as queries rather than asserted as array contents.
+
+The Western form is a transcription decision and is flagged as such: `ժենգեալով` is the
+orthographically regular Western rendering of an Eastern regional dialect word, not an attested
+Western Armenian usage this archive could verify.
+
+**One thing the article deliberately does not claim.** The derivation of `ժենգյալ` is not settled
+by anything consulted. Popular accounts connect it to a Persian word for forest — which would
+chime neatly with Tsaturian's "forest bread" — and an alternative regional name built on another
+word for greens also circulates. No lexicographic source was found for either, so the article
+says the first element names the greens and stops there. This is the §68 spas/tanapur discipline
+applied to a case where the answer did not turn up.
+
+### Sources — five, and two refusals recorded
+
+New: **RFE/RL, Amos Chapple, 5 March 2024** (url) — the ethnographic spine, carrying Tsaturian by
+name; **Smithsonian Center for Folklife and Cultural Heritage, Aline Keledjian, 17 February 2025**
+(url) — displacement and cultural continuity; **Hetq, April 2015** (url) — the 2013 heritage
+listing, the 2015 festival, and the independent nineteenth-century statement. Reused:
+**UNESCO RL/00985** from the lavash bibliography, for the tonir-wall technique; **Smithsonian
+Armenia Foodways 2018** from the spas bibliography, for regional wild-plant variation.
+
+**Petrosian and Underwood refused again, and for a different reason than §68's.** There the
+objection was concentration; here it is fit. The claims this article turns on are one named
+ethnographer's statements about one regional dish, one institution's reporting on a displaced
+community, and one dated heritage listing. A general popular survey adds nothing to any of them,
+and adding it would take the book to six of eight for no gain.
+
+**A relevant scholarly work was found and deliberately not cited.** V. A. Petrov's
+*Etnobotanika Nagornogo Karabakha* (Baku, 1940) reports a 1934–1937 field expedition recording
+about a hundred plant species used in the daily life of Nagorno-Karabakh, indexed under Russian,
+Latin, Azerbaijani and Armenian names. It is exactly what the greens sections would want. It is
+absent because **it could not be consulted** — no full text was reachable, and the only accounts
+of its contents are catalogue records. Citing a work from a catalogue entry is how a bibliography
+acquires a source nobody has read. The find is recorded in `sources.ts` so the next person to work
+on Artsakh food knows it exists.
+
+No recipe blog, travel site or restaurant page carries anything here; a test enforces that against
+the identifier URLs.
+
+### Related content, and the cross-category gap
+
+**One authored relation: `lavash`**, carried by a `SectionLink` in the paragraph that compares the
+two techniques. Nothing else in the article does comparable work. A relation to `spas` was
+considered and refused for the reason §70 named in advance — both being everyday foods is not a
+relationship — and manufacturing one to suppress filler would have been the worse error.
+
+The consequence was measured, not assumed: `getRelatedArticles` fills the remaining two slots with
+**`dolma` and `khorovats`, identically in all three editions**. So the section now has two articles
+rendering filler, spas with one slot and this one with two.
+
+**No cross-category link, and the gap is the finding.** The corpus has no Artsakh article in any
+other section. The only article that mentions Karabakh at all is `first-republic-of-armenia`, and
+it does so in a paragraph about the territorial conflicts of 1919 and 1920 — linking a food article
+there would have imported exactly the political framing the article spends a section avoiding.
+`tatev-monastery` shares the province of Syunik and nothing else. **Recorded as a knowledge-graph
+opportunity: the archive needs an Artsakh article in Places or History, and that is what closes
+this gap — not a link.**
+
+### Restraint
+
+No quantities, timings, servings or shopping framing. **No nutrition, wellness or medicinal claim
+anywhere** — the strongest temptation in the section, since the dish is almost entirely greens,
+and a test enforces the absence of twelve such terms across all three editions. Generic `Article`
+schema only: no `Recipe`, `HowTo`, `NutritionInformation`, `MenuItem` or `FoodEstablishment`, and
+none of the four recipe property keys.
+
+### Artwork — pending
+
+`public/images/cuisine/` holds seven files, all registered; `jingalov-hats` is added to
+`PENDING_ARTWORK`, the second entry on that list from outside Places. All seven existing covers
+were opened rather than read off their names.
+
+The near miss is **`lavash.webp`**, and it is refused twice over: it shows folded pale sheets of
+thin wheat bread — bread with nothing in it, when the whole subject of this article is what is
+inside — and it stages the mouth of a tonir in the background, which is the one method this
+article exists partly to distinguish itself from. `spas.webp` is the subtler refusal: white,
+herbed, cool-lit, sharing the palette without sharing anything else.
+
+The commission's single non-negotiable element is recorded: **at least one round torn or folded
+open so the layer of greens inside is visible rather than implied.** A whole unbroken flatbread
+seen from above is a picture of a different dish.
+
+### Localization and parity
+
+Three complete editions. The `hyw` edition is written in Western Armenian orthography and register
+rather than converted — `կերակուր`, `լեցոն`, `ալիւր`, `եղինճ`, `սաճ`, `բանահիւսութիւն` — and is
+**unreviewed machine output** with unusually high terminology risk: a regional dialect dish name,
+Artsakh place names, plant names and ethnographic vocabulary all at once. It joins the standing
+backlog, now fifteen articles.
+
+Plant names were adapted rather than forced into lexical parity, per §70: where a source says
+greens, no edition upgrades it to a species. The parity harness reports **0 differing rows across
+3 editions over 20 checks** — section ids, paragraph counts, `SectionLink` slugs, counts, related
+slugs, dish type, and the numeral multiset in every validator field group, including 1990, 2013,
+2014, 2015, 2020, 2023, 2024 and 2025.
+
+### Tests
+
+`cuisine.spec.ts` 46 → 59. `SLUGS` is eight; `ILLUSTRATED` stays seven; a new `PENDING` list
+states the gap rather than deriving it. The listing placeholder count is still the same
+expression — `SLUGS.length - ILLUSTRATED.length` — now producing its fourth different value
+without an edit.
+
+Thirteen new tests: corpus and the full type distribution as an object rather than a bread count;
+three-edition rendering with canonical and hreflang; search across four English forms and one
+Armenian; the claim-class test covering invention, antiquity, nutrition and recipe framing in all
+three editions; the herb-count test, which requires the figures to be attributed and the
+disagreement stated; the Artsakh test, which measures the regional sections as a fraction of the
+article and pins the absence of territorial adjudication; the recorded-versus-inferred test; the
+wild-plant test, which requires the refusal to be explicit; the griddle test; links and the
+cross-category absence; pending artwork with no borrowing; structured data; and the bibliography
+test.
+
+### Results, and every failure
+
+```
+port 3002 clear, 0 node processes, .next cleared before starting
+parity harness                                   OK — 0 differing rows, 20 checks
+npm run typecheck                                PASS
+npm run validate:content                         PASS — 144 entries; 1 pending note (jingalov-hats)
+npx playwright test tests/e2e/cuisine.spec.ts    58 passed, 1 failed → fixed → 59 passed
+npx playwright test (full, first)                319 passed, 4 failed, 5 skipped (10.4m)
+npx playwright test (full, after fixes)          323 passed, 5 skipped (8.2m), exit 0
+npm run build                                    PASS — 153/153 static pages
+```
+
+315 → 328 tests, and 150 → 153 static pages: thirteen new tests and the article's three routes.
+
+**Three real failures, all correct catches, all count assertions that the section genuinely
+outgrew.**
+
+`a cuisine query parameter restores the listing state` asserted that `?type=bread` returns exactly
+one card, Lavash. It had returned one card since the section was written, and jingalov hats made
+it two — the same thing that happened to `main` at §68 when spas joined dolma. The count was
+updated and the assertion **strengthened rather than relaxed**: it now checks both titles
+individually, because a filter returning the right number of wrong cards would have passed the old
+version.
+
+The other two live outside this section and are the ones worth noting. `places.spec.ts` →
+`the four existing category listings still load and still count what they did` and `visit.spec.ts`
+→ `every canonical route the journey links into still works` both pin the Cuisine card count as a
+literal, precisely so that another section growing does not go unnoticed. Both fired. Both were
+updated to 8 with the move recorded in the comment. **Two tests in two other files noticed an
+eighth cuisine article on their own, which is what they were written to do.**
+
+**Two cold-route timeouts, and they were environmental.** The first full run also reported
+`[hy]` and `[hyw] the places listing and the article both load in this edition` as 30-second
+`page.goto` timeouts. `.next` had been cleared immediately before, so the whole Places route family
+was compiling from scratch under two workers; the `[en]` variant of the same test passed
+immediately afterwards, on warm routes. Rerunning the three focused took 39 seconds for all of
+them, and the second full run passed all three. Recorded as the §65 cold-route flake rather than
+as a content failure — no memory pressure, no internal error, nothing cleared in response.
+
+The suite was run twice in full: once before the count fixes, once after, and the reported figure
+is the second.
+
+### Scope
+
+No Places, Visit, map, coordinate, cluster or Places-artwork change. The seven existing Cuisine
+articles are untouched — spas keeps its nine sections, its two `SectionLink`s, its sources, its
+artwork and its everyday framing. No new category, no new dish type, nothing featured.
+`.claude/settings.json` untouched. **No deployment.**
+
+### Debt
+
+Carried forward: the **Cuisine link island**, now with a second recorded refusal and a named
+remedy — an Artsakh article in Places or History; the **uniform six-section template** in the
+older six, unchanged by this step; **Petrosian and Underwood** at five of eight, improving only by
+dilution; the `hyw` review backlog at **fifteen**; and the deferred **dairy/drinks dish type**.
+New: **two Cuisine articles now render filler** — spas one slot, jingalov hats two — and
+`jingalov-hats` is the only article in the archive without a cover.
+
+---
+
+## §71. Jingalov hats artwork — verified, registered, and the archive illustrated again (August 2026)
+
+No content step. `public/images/cuisine/jingalov-hats.webp` arrived, was inspected before anything
+was written, and is registered. `PENDING_ARTWORK` is empty archive-wide for the second time.
+
+### Pre-registration state, read from source
+
+Eight Cuisine articles, seven illustrated, `PENDING_ARTWORK = ["jingalov-hats"]` and nothing else.
+`public/images/cuisine/` held seven registered files plus the new untracked one. The dish had no
+`IMAGES` key, no `Article.image`, the `/og-default.png` fallback on both social cards, and no
+`image:loc` in the sitemap. Every expectation §71 stated was already true; nothing had to be
+corrected first.
+
+### The asset
+
+```
+public/images/cuisine/jingalov-hats.webp
+1586 × 992          (1.599:1, the preferred geometry exactly)
+194,240 bytes       (190 KB)
+sha256              89c9e176e27f55eaf3da6869fc601ae3b98d3dbe81000eb8267352523c3ab5c4
+RIFF                194,232 declared, 194,232 actual — consistent
+chunks              WEBP → "VP8 " (194,220 bytes), single chunk, sync 9d012a
+no VP8X             therefore no alpha, no ICC, no EXIF, no XMP, no orientation flag
+```
+
+Verified twice, by a hand-written RIFF chunk walk and by `sharp`, which agree on every field:
+`webp`, 1586×992, `srgb`, 3 channels, 8-bit, `hasAlpha: false`, `hasProfile: false`, not palette,
+not progressive. Simple lossy, so the metadata absence is structural rather than merely empty.
+Registered exactly as delivered: unaltered, uncropped, unoptimised, unrenamed. Same geometry as
+`lavash.webp` and `spas.webp`; no new ratio enters the section.
+
+### The visual gate, and the one thing it turned on
+
+A round flatbread on a wooden board, cut across the middle, the two halves separated and the upper
+one pulled back so **both cut faces are open to the camera**. Between two very thin sheets of pale
+dough, blistered gold and scorched in places, sits a thick dense layer of chopped greens. A loose
+bundle of fresh herbs at the left, a sprig of purple-leaved basil below it, loose leaves on undyed
+linen, a weathered plank table, cool daylight.
+
+**The §70 commission named one non-negotiable element and the file delivers more than the
+minimum.** The note said it in terms: at least one round torn or folded open so the layer of greens
+is visible rather than implied, because a whole unbroken flatbread photographed from above is a
+picture of a different dish. This one cuts the bread and opens both halves, and **the exposed
+filling is the largest saturated shape in the frame**. That is the whole acceptance decision; a
+closed flatbread would have been refused however well photographed.
+
+### Jingalov hats against Lavash — the check that mattered
+
+Compared at full resolution, at the 380px listing card, at the 160px search thumbnail and at the
+128px one. They separate instantly, on two independent axes:
+
+|            | lavash.webp                     | jingalov-hats.webp                    |
+| ---------- | ------------------------------- | ------------------------------------- |
+| colour     | warm amber, firelit             | cool pale, daylight                   |
+| green      | none anywhere in frame          | broad dark-green band through middle  |
+| subject    | plain folded sheets             | filled bread, cut open                |
+| setting    | tonir mouth, jug, flour, wheat  | board, linen, fresh herbs             |
+
+**The green survives the smallest crop the site renders.** At 128px the band is still the first
+thing visible, and lavash has nothing of the kind. §71's strongest acceptance question — can a user
+immediately see that one is plain bread and the other is herb-filled — answers yes at every size
+the site uses.
+
+All eight covers were compared. The only other cover with prominent green is `dolma` (whole
+vine-leaf rolls, dark and glossy, on a clay plate), which shares no shape or composition with a
+flat cut bread. `spas` sits nearest in palette — pale, green-flecked, wood and linen — and nowhere
+near in subject: a bowl of soup against a flatbread on a board.
+
+### Not the other filled breads
+
+Not a **spinach pie**: the casing is a thin sheet rather than a pastry shell, and the filling is
+legibly mixed rather than the homogeneous dark mass of cooked spinach. Not a **quesadilla**: no
+tortilla-wedge staging, no cheese, no salsa, no restaurant plating. Not a **borek**: no lamination
+and no flaky layers anywhere. Not a **pita or calzone**: the body is flat and thin, with no pocket
+and no inflation.
+
+### Bread, filling, herbs
+
+**Bread structure** is physically plausible: thin, handmade, irregular, with a wavy pinched sealed
+rim and blistering that varies naturally from gold to scorched. No impossible layers, no fused
+folds, no duplicate edges, no puff-pastry texture, and nothing floating free of the filling.
+
+**The filling reads as a mixture, which is the editorially important part.** Broad serrated
+leaves, narrow strap-like ones, pale stem and scallion cross-sections, and a range from dark to
+bright green. That matters because the article refuses a fixed canonical herb count: the picture
+had to communicate abundance and variety rather than a countable botanical display, and it does.
+The filling sits inside the dough at both cut faces rather than being laid on top.
+
+**Herb realism** holds up at 3×: no repeated identical leaves, no impossible stems, no greenery
+emerging through unbroken dough, no cloned textures, no neon, no microgreens and no edible flowers.
+The purple-leaved sprig reads as purple basil, a real herb of the region, with leaves that differ
+properly in size, shape and colour.
+
+**No meat, cheese or cream.** One ambiguity was inspected rather than assumed away: the dough
+carries a pale greenish mottling that could read as a thin cheese layer. At 3× it is plainly the
+filling seen through translucent dough with flour patches over it — no gloss, no stretch, no
+separate boundary, continuous with the green at the cut. Recorded because it is the one place a
+viewer might pause.
+
+### Character and the audits
+
+**Everyday and regional**: one board, one cloth, one table, herbs. No fine dining, no banquet, no
+advertisement styling.
+
+**Political-symbol audit — clean.** No map, flag, territorial outline, military imagery, slogan or
+monument. The regional identity is carried entirely by the food, which is what the article's own
+bounded treatment of Artsakh requires of its cover.
+
+**Cooking-method consistency**: there is no cooking context in the frame at all, which §71 allows
+explicitly, and therefore no tonir to contradict the article's saj distinction. Nothing in the
+image argues with the prose.
+
+**Recipe framing — none.** No ingredient lineup, no measuring spoons, no numbered steps, no recipe
+card, no labelled herbs, no bowls of flour or water arranged as instructions. The herb bundle is a
+table object beside a finished dish, the same judgement made about the dill plate on `spas.webp`.
+
+**Health framing — none.** No detox or superfood styling, no wellness packaging, no medicinal-herb
+framing, no diet imagery, no nutritional icons. A cover made almost entirely of greens is where
+that failure would have appeared, and it did not.
+
+**Object artifacts**: the board rim is continuous and correctly elliptical with consistent grain
+and tool marks; linen folds behave; shadows are coherent; nothing is duplicated, fused or floating.
+No significant defect found.
+
+**Text and signage — none.** The linen was examined at 3× specifically for pseudo-writing and is
+plain weave; no label, packaging, logo, watermark, signature or pseudo-Armenian anywhere.
+
+### Visual register
+
+**Photographic**, matching the section. All eight Cuisine covers are photographic rustic food
+photography, and this one differs only in being cool-lit rather than warm — which is precisely what
+separates it from lavash. Consistent with the section; no register miss.
+
+### Crops
+
+| crop  | dimensions | trim  | bread exterior | open edge | green filling | ≠ lavash |
+| ----- | ---------- | ----- | -------------- | --------- | ------------- | -------- |
+| 16:10 | 1586×991   | 0.1%  | full           | both      | yes           | yes      |
+| 3:2   | 1488×992   | 6.2%  | full           | both      | yes           | yes      |
+| 16:9  | 1586×892   | 10.1% | full           | both      | yes           | yes      |
+| 4:3   | 1323×992   | 16.6% | full           | both      | yes           | yes      |
+| 160px | 1058×992   | 33.3% | full           | both      | yes           | yes      |
+| 128px | 847×992    | 46.6% | full           | both      | yes           | yes      |
+| 4:5   | 794×992    | 49.9% | full           | both      | yes           | yes      |
+
+The cut runs diagonally through the centre, so every centre-anchored crop keeps both open faces.
+The tightest crop is arguably the **best**: at 4:5 the two cut faces fill the frame and the greens
+dominate. No crop degrades into plain brown bread, only herbs, only a plate or generic pastry. No
+`object-position` was added; none is needed.
+
+### Registration
+
+`"jingalov-hats": "/images/cuisine/jingalov-hats.webp"` added to `IMAGES` through the generic
+pipeline — no Cuisine-specific media logic, no dish-specific component logic, no new image field,
+no new provenance infrastructure. `ARTWORK_PROVENANCE` untouched. The slug was removed from
+`PENDING_ARTWORK`, whose commission note is kept and marked **Resolved** in the §66 convention.
+
+```
+Cuisine articles      8
+Cuisine illustrated   8
+Cuisine placeholders  0
+PENDING_ARTWORK       []
+```
+
+### Provenance, read rather than assumed
+
+`isGeneratedArtwork` is `!article.image && getImageSrc(article.slug) !== undefined` — true exactly
+when a slug resolves through the registry without the article carrying its own `image` object. This
+dish has no `Article.image` literal, so registering the file flipped it to generated. In all three
+editions the raster renders, the AI-illustration disclosure appears in that edition's own words,
+the placeholder caption disappears and the inline placeholder SVG disappears.
+
+### Every surface
+
+- **Listing.** Eight cards, eight distinct covers, **zero** placeholder SVGs.
+- **Hero.** `/en`, `/hy` and `/hyw` each render exactly `jingalov-hats.webp` with the AI caption and
+  no placeholder line. Scoped to the hero; related links legitimately render lavash's cover below.
+- **Search.** The row, scoped by canonical href, carries its own thumbnail and not lavash's.
+  `jingalov hats`, `zhingyalov`, `zhengyalov`, `Artsakh` and `ժենգյալով` all reach the article.
+- **Metadata.** `og:image` and `twitter:image` are the absolute file in every edition and no longer
+  the fallback; `og:image:alt` localises to `Jingalov Hats` / `Ժենգյալով հաց` / `Ժենգեալով հաց`.
+- **JSON-LD.** `Article.image` is the `ImageObject` for this file, five citations, graph is
+  `Organization · WebSite · Article · BreadcrumbList`. No `Recipe`, `HowTo`, `NutritionInformation`,
+  `MenuItem` or `FoodEstablishment`, and none of the four recipe property keys.
+- **Sitemap.** Checked route by route: each of the three locale routes carries exactly one
+  `image:loc`, its own, and no lavash image anywhere in the block.
+
+### Content, relations and taxonomy — unchanged
+
+No editorial content was touched: the Artsakh framing, the under-a-third bound, the
+nineteenth-century evidence treatment, the refused etymology, the herb-count disagreement, the
+saj/tonir distinction, the dated 2023 context, the Petrosian & Underwood refusal and the unread
+Petrov caveat all stand as written at §70. Relations measured, not assumed: `jingalov-hats` keeps
+`["lavash"]` with filler `dolma, khorovats`, and `spas` keeps `["harissa", "lavash"]` with filler
+`dolma` — identical in all three editions. Cuisine stays at eight with
+`bread 2 · main 2 · meat 1 · ceremonial 2 · dessert 1`, no new dish type, nothing featured.
+
+### Asset performance
+
+```
+spas           198 KB      khorovats  152 KB      lavash    120 KB
+jingalov-hats  190 KB      gata       146 KB      harissa   119 KB
+                           ghapama    142 KB      dolma     112 KB
+```
+
+Cuisine now totals **1,178 KB across eight files, mean 147 KB**. Jingalov hats does **not** become
+the heaviest — `spas.webp` keeps that at 198 KB — and it does not create a new tail either: it
+joins the one spas opened, so the section is now two files near 190–200 KB and six between 112 and
+152 KB. Archive-wide it is unremarkable, Places running to Erebuni's 742 KB. Not optimised.
+
+### Test runtime
+
+`cuisine.spec.ts` 59 → **60 tests, 2.0m** on a cold Turbopack cache. Locale × illustrated coverage
+rose from 7×3 = 21 to 8×3 = 24 navigations as §71 predicted. No partition, no retries, no timeout
+changes.
+
+### Tests
+
+`cuisine.spec.ts` 59 → 60. The §70 pending test was **inverted rather than deleted**, the way §69
+inverted §68's, so the transition is pinned in both directions. `ILLUSTRATED` gains the slug,
+`ARTWORK` gains its path, and `PENDING` becomes an empty list rather than being removed — it is
+still declared because the ninth dish will open the gap a third time. The listing placeholder count
+is still the same expression and has now produced four different values without an edit. One new
+test: the search thumbnail scoped by href.
+
+Two names were corrected rather than left misleading: the whole-section ownership test was called
+`registering spas turned no dish's cover into another dish's` and is now
+`no dish's cover is another dish's, across the whole section`, because it iterates `ILLUSTRATED`
+and has covered every registration since §69 without an edit.
+
+### Results, and every failure
+
+```
+port 3002 clear, 0 node processes, .next cleared before starting
+npm run typecheck                                PASS
+npm run validate:content                         PASS — 144 entries, pending note gone
+npx playwright test tests/e2e/cuisine.spec.ts    59 passed, 1 failed → flake → 60 passed
+npx playwright test places + visit + visit-map   149 passed (5.3m)
+npx playwright test (full)                       324 passed, 5 skipped (8.2m), exit 0
+npm run build                                    PASS — 153/153 static pages
+```
+
+328 -> 329 tests: one new test and nothing else. The build generates the same 153 pages as
+before — registering artwork mints no route.
+
+**No test failed on a content claim.** One would have: `no unrelated article artwork changed` in
+`places.spec.ts` pins the entire non-Places half of `IMAGES` as a literal, and registering a Cuisine
+cover trips it by design — it did exactly that at §69. This time it was updated in the same commit
+as the registration, before the spec was run, so it never went red. Recorded plainly because
+"the snapshot passed" and "the snapshot was updated first" are different facts, and only the second
+one is true. The expected object gained one line; every other value is byte-identical.
+
+**One cold-compile flake, diagnosed rather than assumed.** `the cuisine dropdown only offers pages
+inside this edition` failed on the freshly-cleared cache: the test clicks a submenu button on the
+`hyw` homepage, and on first compile the click landed before hydration, so the menu never opened.
+It passed in isolation in 8.7 seconds, and the route was then verified directly — the
+all-cuisine-articles link is present in the server-rendered markup, and nothing in this step touched
+navigation, locale bundles or components. Recorded as the §65 cold-route flake, not a content
+regression.
+
+### Scope
+
+Article content, Cuisine taxonomy, `ARTWORK_PROVENANCE`, `PLACE_COORDINATES`, `VisitMap`,
+`map-cluster.ts`, `visit-map.ts`, `map-tiles.ts`, Visit curation, Places content and Places artwork
+are all untouched. The map is unchanged: 13 Places, 2 groups, 7 individual markers at the opening
+fitted state, 0 covered visible centres. No Cuisine #9. `.claude/settings.json` untouched.
+**No deployment.**
+
+### Debt
+
+Carried forward: the **Cuisine link island** with its named remedy — an Artsakh article in Places
+or History; the **uniform six-section template** in the older six; **Petrosian and Underwood** at
+five of eight; the `hyw` review backlog at **fifteen**; the deferred **dairy/drinks dish type**; and
+**two Cuisine articles rendering filler** (spas one slot, jingalov hats two). Closed by this step:
+`jingalov-hats` is no longer the archive's only article without a cover. New and small: Cuisine now
+carries two ~190 KB files rather than one, so the section's weight band has genuinely widened.
+
+---
+
+## §72 — Khash, Cuisine #9, with a live SEO pass first (2026-08-24)
+
+**Status:** green. Cuisine 8 → 9. Artwork pending.
+
+### What this step did differently
+
+Every previous Cuisine article began with sources. This one began with a live
+search pass, and the difference turned out to matter more than expected: the
+search results were not used as a source list but as a **list of questions**.
+
+Four claims dominate the results for this dish. All four became research
+questions, and none of them survived in the form the results state it:
+
+| claim on the SERP | what the research found |
+|---|---|
+| 11th–12th-century origin, unchanged | a list of medieval authorities passed between popular pages with no passage attached; the one work that is real and datable (Heratsi, 1184) could not be consulted |
+| food of the poor, made from discards | no documentary evidence in anything consulted; **rejected outright** by the head of Armenia's culinary-traditions association, and likened to the pizza-origin story by his colleague |
+| eaten only in months containing "r" | genuinely documented as custom — but the rule depends on borrowed month names, so it cannot be old, and it is not followed strictly now |
+| hangover cure | a social association and a piece of food writing; no medical basis in anything consulted |
+
+That table is the article.
+
+### SEO research (live, August 2026)
+
+**Volume unavailable.** No keyword-volume tool was available and none was
+invented — no monthly searches, no difficulty, no CPC, no traffic estimates
+appear anywhere in this step. The findings below are qualitative SERP evidence.
+
+**Queries run:** khash · Armenian khash · what is khash · what is Armenian
+khash · khash Armenia · Armenian khash tradition · Armenian winter food · khash
+soup · khash recipe · plus Armenian-language forms (խաշ, խաշի ավանդույթ,
+խաշ ինչ է, ր տառ ամիսներ) and targeted evidence queries.
+
+**Primary intent: informational-cultural, not recipe.** The definitional and
+explanatory forms dominate; recipe intent is real but secondary and sits on a
+separate set of pages.
+
+**A SERP fact that drove the title decision.** The bare entity `khash` is
+*ambiguous* and largely not about the dish: the first page is dominated by
+Khash in Iran, Khash County, Khash in Nimruz, Khash Darreh and Khash Rud. The
+dish only reliably owns the SERP once "Armenian" or "Armenia" is present. So the
+SEO title had to carry the country, and the visible title stays `Khash`.
+
+**SERP composition** — roughly, across the queries above:
+
+- encyclopedic: Wikipedia (dish + several places), Wiktionary
+- official tourism: armenia.travel, gyumri.am, visityerevan.am
+- institutional/press: Smithsonian Magazine, Smithsonian Folklife, Caspian Post
+- recipe: PBS Food, Travel Food Atlas, The Armenian Kitchen, DesiDakaar, khash.org
+- travel blog / commercial: absolutearmenia, willflyforfood, restaurant blogs
+- user-generated: forums, personal blogs
+- academic: **almost absent** — one paywalled article, not surfaced by any
+  ordinary query
+
+**Content gap.** Tourism pages explain the experience; recipe pages explain the
+preparation. Nothing on the first pages separates *documented evidence* from
+*tradition* from *storytelling*, and every page repeats the same four claims
+with no attribution. Specifically weak or missing everywhere: what the medieval
+attributions actually rest on; etymology beyond "it means to boil"; why the
+morning; the R-month rule's own age; the class-history claim's evidence; the
+regional relatives treated as anything other than a rival claim; and the
+hangover claim's status.
+
+**Armat differentiation.** Armat explains khash as a *practice* — season, hour,
+table, company — with each claim carried as the kind of claim it is, and with
+the named scholars who actually said it. Three things in the article appear on
+no competing page: the R-month rule's dependence on borrowed month names, the
+salt convergence with Iran, and khash's absence from Armenia's ICH inventory.
+
+**Decisions:**
+
+- **SEO title:** `What Is Khash? Armenia's Winter Morning Meal` (44 chars).
+  Question form because the definitional query is the strongest; "Armenia's"
+  because the bare entity is ambiguous; "Winter Morning Meal" because those are
+  the two facts a searcher wants and the two the article is about.
+- **Meta description:** explains rather than advertises; no "must try", "best",
+  "ultimate", "authentic".
+- **Recipe intent: explicitly refused as a target.** No recipe structure, no
+  recipe schema, no quantities. A test bounds the prose to two numerals.
+- **Armenian SEO:** the Armenian editions were written as Armenian, not as
+  translated English SEO. Both Armenian titles are `Խաշ`; the searchable
+  terminology (խաշ, խաշի ավանդույթ, խաշլամա, տավարի տոտիկներ, սխտոր, բողկ)
+  arises from the prose rather than being inserted into it.
+- **Anti-stuffing measured, not asserted:** a test counts "armenian khash" in the
+  prose (not the rendered chrome, which includes the keyword chips) and caps it.
+
+### The evidence model
+
+**Definition.** Cattle feet, boiled in plain water. Head and stomach appear in
+some accounts; Armenian cooks describe older practice as more often lamb. The
+article distinguishes core / common variation / household variation instead of
+merging them, and keeps the description of the parts brief and unsensational.
+
+**Slow cooking** is explained as technique, not instruction: connective tissue
+is collagen, collagen breaks down to gelatin in long moist heat, and that is
+where the broth's body comes from. Soaking times are given as a *range in words*
+(ten to forty-eight hours) with the disagreement named, because the sources
+genuinely disagree.
+
+**The salt detail became the article's spine.** The cook does not salt the pot,
+because salt darkens the broth (Mamulyan, via Hetq). Encyclopaedia Iranica gives
+the same instruction for the same reason for kalla-pāča. Two unconnected
+traditions, one technical reason — and it explains why the table is
+participatory: the dish *arrives unfinished*, so each person completes it. That
+is the article's central observation, and it came from the sources rather than
+being imposed on them.
+
+**Seasonality — the strongest original finding.** The R-month rule is real and
+documented in Armenian. It also works exactly: September–April all carry ր, and
+մայիս, հունիս, հուլիս, օգոստոս do not. But it *can only be as old as the month
+names it depends on*, which are Latin borrowings; the older Armenian calendar's
+names (Նավասարդ, Հոռի, Սահմի, Տրե …) do not sort by any letter, and that
+calendar drifted through the seasons anyway at 365 days with no correction. So:
+good mnemonic, real practice, no evidence of age — and not followed strictly
+today. No competing page makes this point.
+
+**Morning practice: custom certain, reason not.** The most concrete explanation
+is mechanical (a night's cooking is ready at dawn), and Iran arrives at the same
+morning custom for the same overnight preparation. The article says outright
+that no source consulted establishes a cause.
+
+**Social ritual.** Nahapetyan's ethnographic statement — khash is still almost
+never enjoyed without guests — is the scholarly warrant for the one thing every
+popular page asserts. Toasts are recorded with attribution and with the
+disagreement about whether the number is fixed. Gender history included as
+documented ethnography (Tsaturyan). Bayadyan's Soviet-era reading — khash as a
+morning deliberately spent not working, outside the state's calendar of
+organised occasions — converges with Tsaturyan's finding that the modern ritual
+is not evidenced before the Soviet period. Two scholars, different arguments,
+same period.
+
+**Alcohol:** two sentences, attributed, with an explicit statement that it is
+neither required by the dish nor recommended by the page. No quantities, no
+pairing, no authenticity framing. A test bounds the mentions.
+
+**Hangover claim:** classified as popular belief and modern food writing, a
+social association rather than a medical conclusion, with the article stating
+that it makes no claim about a therapeutic effect.
+
+**Class history:** audited and not adopted. Its mirror image (the king who tries
+the villagers' dish) circulates alongside it, which is the tell. What survives is
+nose-to-tail practicality, which needs no class explanation; what does not
+survive is "food of the poor" as documented social history. The earliest
+association the ethnographic record offers is a **wedding** — Tsaturyan on the
+historical references, Mamulyan independently on the Gyumri custom of khash the
+morning after a wedding.
+
+**Regional family:** khashi, xaş, pacha, kalla-pāča, kelle paça. Handled as spas
+handled the yogurt soups. The convergence is read as evidence about the *food*,
+not about influence. The one genuinely interesting difference is naming: Persian
+names the parts, Armenian names the method.
+
+**Khash vs khashlama:** distinguished. Nahapetyan lists them separately among the
+meat dishes, which is the scholarly warrant. No khashlama article created; noted
+as a future opportunity.
+
+**A checkable institutional fact no competitor states:** khash is **not** on
+Armenia's national inventory of intangible cultural heritage, though lavash,
+gata, matsun, tolma, winemaking and fruit-spirit distilling are. Verified twice,
+in two languages, against the ministry page and the published enumeration.
+
+### Sources
+
+Seven entries, all with identifiers, all consulted except where marked:
+
+1. **Rafik Nahapetyan**, *Պատմա-բանասիրական հանդես* 2019, 175–199 — read
+   directly; the ritual grouping and the "never without guests" observation.
+2. **Kaitlin Fertaly**, *Identities* 19(1) 2012, 81–102, DOI — **scoped**: cited
+   only for what its published abstract carries; full text paywalled and not read,
+   and that is recorded in the file.
+3. **Hetq**, 22 November 2010 — Mamulyan, Antinyan, Bayadyan.
+4. **Benjamin Kemper**, Smithsonian Folklife, 21 March 2018 — Tsaturyan.
+5. **Etrat Elahi**, "KALLA-PĀČA", Encyclopaedia Iranica, DOI — the regional
+   comparison rests entirely on this.
+6. **Ministry of ESCS**, ICH inventory — carries one claim, and it is an absence.
+7. **UNESCO RL/00985 Lavash** — reused, for the keeping property that makes dried
+   lavash usable as an ingredient.
+
+**Three refusals recorded in `sources.ts`:**
+
+- **Mkhitar Heratsi's *Relief of Fevers* is discussed and not cited.** No edition
+  was reachable. The article reports the attribution as an attribution and says so
+  in the prose. Citing the text would assert it had been read.
+- **No etymological dictionary is cited.** Nayiri refused the connection again —
+  the same failure as §70 — so Ačaṙyan could not be opened, and Martirosyan could
+  not be checked for the entry. The article therefore states the noun/verb
+  relation and **explicitly declines to date the word**. A dated etymology built
+  from Wiktionary's citation of a dictionary nobody here opened would be the
+  §70 catalogue-entry failure wearing a different hat.
+- **Petrosian & Underwood again not cited** — third consecutive Cuisine article.
+  Stays at five of nine rather than becoming six of nine. Every historical,
+  ethnographic and linguistic claim here is carried by a named scholar or an
+  institutional record.
+
+### Structure and relations
+
+Ten sections, thirty paragraphs, in all three editions:
+`what-khash-is` · `a-dish-made-by-time` · `the-months-with-an-r` ·
+`the-morning-table` · `the-bowl-you-finish-yourself` · `never-eaten-alone` ·
+`what-the-record-can-say` · `the-story-about-poor-peoples-food` ·
+`a-dish-with-relatives` · `the-hangover-reputation`.
+
+`relatedSlugs: ["lavash", "harissa"]` — both earned. Lavash because dried lavash
+is crumbled into the bowl as an ingredient; harissa because Nahapetyan groups the
+two as ritual dishes tied to grain and to livestock respectively.
+
+**The Cuisine link island is closed.** §70 recorded that the section had no
+genuine link out of it and that the remedy was not to manufacture one. Khash
+supplies the first that a source actually provides: **Gyumri**, where Mamulyan
+reports the wedding-morning custom surviving. Cuisine → Places, earned by prose.
+
+Filler measured after the authored relations were set: khash takes `dolma`;
+**spas keeps `dolma` unchanged** and jingalov hats keeps `dolma, khorovats`
+unchanged. Appending to the registry was invisible to the eight existing
+articles, and a test now asserts that rather than assuming it.
+
+### Artwork
+
+`khash` added to `PENDING_ARTWORK` with a commission note. Nothing borrowed —
+the note names `harissa.webp` and `spas.webp` as the two real substitution risks
+at card size. The brief makes the **bowl and the things that finish it** the
+subject together, because the article's argument is that the accompaniments are
+half the dish; and it forbids graphic animal-part close-ups, restaurant
+advertising, alcohol-centred staging, hangover jokes and recipe staging.
+Preferred geometry 1586×992.
+
+### Verification
+
+```
+typecheck                                   PASS
+validate:content                            PASS — 147 entries, pending note = khash
+parity harness (khash)                      OK — 0 differing rows, 3 editions, 20 checks
+cuisine.spec.ts (focused)                   73 passed (2.4m)   [60 → 73]
+```
+
+**Three real failures, all correct.**
+
+1. `places.spec.ts` → the four existing category listings: cuisine 8 → 9. Went
+   red first, then updated.
+2. `visit.spec.ts` → every canonical route the journey links into: `/en/cuisine`
+   8 → 9. Went red first, then updated.
+3. `cuisine.spec.ts` → the eighth-dish distribution assertion: `meat: 1 → 2`.
+   Written out in full rather than checking only the type that moved, which is why
+   adding khash had to come through it rather than past it.
+
+The listing-placeholder expression `SLUGS.length - ILLUSTRATED.length` was **not**
+edited and has now produced its fifth value without an edit — 0, 1, 0, 1, 0, 1.
+Only the test's name has ever changed.
+
+**Four failures in my own new tests, fixed in the tests and not in the content:**
+three were Armenian-script assertions run against the English edition (`Հերաց`,
+`Մամուլ`/`Անտին`, `խաշլամա`), and one counted the anti-stuffing phrase in the
+rendered `main`, which includes the keyword chips and so measured the keyword list
+rather than the writing. Recorded because a test that fails for the wrong reason
+is not evidence of anything.
+
+### Western Armenian
+
+Written as a Western Armenian edition rather than converted: `եւ`/`ութիւն`
+throughout, Western verb forms, Western vocabulary (`կերակուր`, `ճաշարան`,
+`այրեր`), and Western proper names (`Կիւմրի`, `Ռաֆիք Նահապետեան`, `Ցատուրեան`).
+The eastern-orthography marker check finds nothing. **Flagged for native review**,
+as every hyw edition in this archive is — the backlog is now sixteen.
+
+### Technical debt carried forward
+
+- **Closed:** the Cuisine link island, via Gyumri.
+- **Open:** Petrosian & Underwood at five of nine; the uniform template in the
+  older six Cuisine articles; the `hyw` native-review backlog, now sixteen; no
+  dairy/drinks type, so `matsun` and `tan` still have no home; three Cuisine
+  articles now render filler (spas, jingalov hats, khash).
+- **New:** Ačaṙyan is unreachable from here, which is now the second article whose
+  etymology had to be kept short for that reason. Worth solving once rather than
+  working around a third time.
+- **New:** khashlama is a genuine future Cuisine opportunity, and the article
+  already distinguishes it.
+
+### Not touched
+
+Places, Visit, map clustering, coordinates and Visit curation are unmodified —
+13 Places, 2 groups, 7 initial individual markers, 0 covered visible centres, no
+Place #14. `geo.ts`, `map-cluster.ts`, `visit-map.ts`, `map-tiles.ts` and
+`src/components/visit/` are clean in git. No Armat category added. No Cuisine type
+added. `ARTWORK_PROVENANCE` unmodified. `getRelatedArticles` unmodified.
+`.claude/settings.json` unmodified. Steps 38–42 not rewritten.
+
+**No deployment occurred.**
+
+---
+
+## §73 — Khash artwork verified and registered (2026-08-24)
+
+**Status:** green. Cuisine 9/9 illustrated. `PENDING_ARTWORK` empty archive-wide
+for the third time.
+
+### The asset
+
+```
+path       public/images/cuisine/khash.webp
+size       1585 × 992 · ratio 1.5978
+bytes      135,762 (132.6 KB)
+sha256     71c5845b4d3a3c33e4ddce52d1275dd3d835d36dce86fdb9d3111a0462910e78
+RIFF       135,754 declared / 135,754 actual — match
+chunks     one: "VP8 " (135,742). No VP8X.
+format     simple lossy · keyframe · start code 9d012a
+alpha      none (no ALPH, sharp channels = 3, hasAlpha false)
+ICC        absent      EXIF absent      XMP absent
+orientation none possible — no VP8X and no EXIF to carry one
+```
+
+Verified twice and independently: a hand-written RIFF chunk walk and `sharp`
+agree on every field. Because there is no VP8X extension, the absence of ICC,
+EXIF, XMP and orientation is **structural** rather than merely empty — the
+container has no place to put them.
+
+**One pixel of geometry drift, reported rather than corrected.** The §72
+commission asked for 1586×992; the file is 1585×992. That is 0.06% of one
+dimension, it changes no crop outcome, and it is invisible at every rendered
+size. Resizing to hit the round number would have meant resampling the entire
+image to fix nothing, and §44 forbids resizing anyway. Recorded and accepted.
+
+### Visual acceptance — pass
+
+A deep speckled stoneware bowl, banded in dark blue, holding **clear pale-golden
+broth** with pieces of slow-cooked meat and pale gelatinous trotter meat partly
+submerged. Behind and left, a stack of folded lavash on a board. Front left, a
+small dish of crushed garlic with a bulb and two loose cloves. Right, radishes,
+fresh greens, and a squat ceramic cup of tea. A second bowl and spoon at the
+lower right. Beyond it all, a **frosted window** in cool daylight.
+
+It reads first as a traditional hot broth dish, which is the gate §3 set.
+
+### The three comparisons
+
+Built as side-by-side composites at the real rendered sizes — 380px listing card,
+160px and 128px search thumbnails — rather than asserted.
+
+| | reads as | separates from khash on |
+|---|---|---|
+| **spas** | white, opaque, green-flecked | colour *and* opacity — nothing in common |
+| **harissa** | pale homogeneous mound, butter pool, terracotta, firelit | physical state (mound vs liquid), bowl colour, warm vs cool light |
+| **khorovats** | dark browned skewered meat, red accents | subject entirely |
+
+**Khash is the only clear golden liquid in the section**, and that holds at 128px,
+the narrowest crop the site renders. The closest pair is khash/harissa, since both
+are warm-toned bowls; they separate on two independent axes even so.
+
+Checked against all eight, not only the three: lavash, dolma, gata, ghapama and
+jingalov hats are different subjects entirely. The one element khash shares with
+another cover is **stacked lavash** — but there it is the subject and here it is
+background, out of focus, behind the bowl, and the bowl is unmistakably what the
+picture is of.
+
+### The audits
+
+**Broth.** Genuinely transparent: submerged pieces show through softened rather
+than hidden. Irregular lace of fat droplets on the surface — sizes and clustering
+vary, density falls off toward the calmer centre-right, no tiling and no repeated
+motif. Visible meniscus against the ceramic; visible wall above the waterline, so
+liquid depth reads. Nothing crosses the rim. Not creamy, not gelatin-solid, not
+gravy-like, not separated, not glossy.
+
+**Food components — the non-graphic requirement is met by an absence.** There is
+**no bone in the frame at all**: no hoof, no split joint, no cross-section, no
+anatomy of any kind. Pieces are partially submerged; the meat is cooked
+grey-pink-brown with visible fibre, not raw and not seared. The pale gelatinous
+pieces are deliberately ambiguous between skin, tendon and fat — and that is the
+right outcome, because the article describes the parts briefly and without
+emphasis, so a cover that made them unmistakable would have contradicted it.
+
+**Lavash** present, secondary, roughly a sixth of the frame, out of focus. It does
+not turn the file into a second lavash cover.
+
+**Garlic / radish / accompaniments** restrained and scattered as table objects, not
+arranged: a small bowl of crushed garlic (explicitly permitted by §10), a bulb, two
+cloves, three radishes, a bunch of greens. No lineup, no mise-en-place, no labelled
+bowls, no restaurant garnish, no microgreens.
+
+**Winter-morning character** — carried by the frosted window, which is the single
+best cue in the file and one the commission did not ask for. Cool light from the
+left, warm wood, a restrained table. No snow required and none needed.
+
+**Steam** subtle, narrow, drifting right, physically plausible, obscuring nothing.
+No symmetry, no clouds, no fog effect.
+
+**Communal character** without people: a second bowl with a spoon, extra lavash, a
+shared table. No hands, so no hand anatomy to check.
+
+**Alcohol — clean, and inspected rather than assumed.** The ceramic cup at top
+right holds a brown liquid and could be misread in a thumbnail. At 3× it is an
+opaque hand-painted stoneware tumbler filled nearly to the rim: not glass, not
+stemware, not a shot glass. No bottle anywhere in the frame, no drinking gesture,
+no hangover imagery.
+
+**Health / hangover framing** — none. No pills, medical props, wellness styling or
+symbols.
+
+**Recipe framing** — none. No raw lineup, measuring spoons, numbered steps, recipe
+card, timer or labels. The finished dish only.
+
+**AI artifacts** — bowl rim a continuous correctly-oriented ellipse of consistent
+thickness, with a rust wear-line following the curve; second bowl and spoon
+coherent, the spoon a single ellipse with a continuous handle; cloth folds behave;
+shadows coherent; nothing duplicated, fused or floating.
+
+**Text / signage** — none. The bowl's blue band is a repeating chevron-and-dot
+motif between two rules, and the cup's is wavy lines and dots; inspected at 3×,
+neither resolves into lettering in any script. The out-of-focus streaks on the
+second bowl are glaze and shadow. No watermark, no signature, no branding.
+
+**Armenian context** carried by the food and the ceramics. No flag, no Ararat, no
+monastery, no khachkar, no carpet, no symbol collage.
+
+**Visual register: photographic**, matching all eight existing Cuisine covers.
+Cuisine remains the section with one coherent register.
+
+### Crops
+
+| crop | geometry | trims | outcome |
+|---|---|---|---|
+| 16:10 | 1585×991 | 0.1% | everything |
+| 3:2 | 1488×992 | 6.1% | everything |
+| 16:9 | 1585×892 | 10.1% | bowl, broth, lavash, window |
+| 4:3 | 1323×992 | 16.5% | bowl, broth, lavash, garlic |
+| 4:5 thumb | 794×992 | 49.9% | bowl centred, broth legible, lavash, window, cup, bowl band |
+
+**The tightest crop is arguably the best framing in the set.** The bowl is centred
+and dominant, the golden broth and its pieces stay legible, and both the lavash and
+the frosted window survive. It never degrades into a generic beige bowl, only
+bread, only a spoon or only table. No `object-position` added.
+
+### Registration
+
+`khash: "/images/cuisine/khash.webp"` added to `IMAGES` through the generic
+pipeline — no Cuisine-specific media logic, no khash-specific component logic, no
+new image field, no new provenance infrastructure. `ARTWORK_PROVENANCE`
+untouched. Removed from `PENDING_ARTWORK`; the commission note is retained and
+marked **§73 Resolved**.
+
+```
+Cuisine 9 · illustrated 9 · placeholders 0 · PENDING_ARTWORK []
+```
+
+### Provenance
+
+`isGeneratedArtwork` was read, not assumed:
+`!article.image && getImageSrc(slug) !== undefined`. No cuisine article declares an
+`image` field at all (grep count: 0), so registering flipped khash to generated in
+all three editions — raster renders, AI disclosure appears in each edition's own
+words, placeholder caption and placeholder SVG both gone.
+
+### Surfaces
+
+- **Listing:** 9 cards, 9 distinct covers, zero placeholders.
+- **Heroes:** all three locales render exactly `khash.webp`, with localized alt.
+- **Search:** the row scoped by canonical href carries its own thumbnail and not
+  spas's, harissa's or khorovats's; `khash`, `armenian khash`, `winter morning`,
+  `khashlama` and `խաշ` in both Armenian editions all reach it.
+- **OG / Twitter:** the registered file in every edition; the `/og-default.png`
+  fallback is gone.
+- **JSON-LD:** `Article.image` is the registered file; graph is still
+  `Organization · WebSite · Article · BreadcrumbList` — no Recipe, HowTo,
+  NutritionInformation, MenuItem or FoodEstablishment, and none of the four recipe
+  keys.
+- **Sitemap:** checked **route by route**, not by a global filename count. Each
+  locale carries exactly one `image:loc`, its own, and none of the other eight
+  covers appears in khash's block.
+
+### Regressions
+
+**SEO unchanged.** Titles, SEO titles, meta descriptions, canonicals, hreflang,
+search terms, headings and structured-data type are all exactly as §72 left them.
+Nothing was rewritten because a picture now exists.
+
+**Content unmodified.** No locale article file was touched in this step; the only
+source changes are the media registry and tests.
+
+**Relations measured, not assumed.** `khash` keeps `["lavash","harissa"]` with
+filler `dolma`; **`spas` keeps `dolma` unchanged** and `jingalov-hats` keeps
+`dolma, khorovats` unchanged — identical in all three editions.
+`getRelatedArticles` untouched, and no Cuisine filler was "fixed" here.
+
+**Cuisine unchanged otherwise:** 9 articles, `bread 2 · main 2 · meat 2 ·
+ceremonial 2 · dessert 1`, nothing featured, no new type. The eight existing
+covers are byte-for-byte where they were.
+
+**Places / Visit / map untouched:** 13 Places, 2 groups, 7 initial individual
+markers, 0 covered visible centres, no Place #14. `geo.ts`, `map-cluster.ts`,
+`visit-map.ts`, `map-tiles.ts` and `src/components/visit/` clean in git. The
+archive-wide pending change did not break the Places-scoped assertions — the
+§68 rescoping still holds, with both sides of it now empty.
+
+### Performance
+
+```
+spas 198.4 · jingalov-hats 189.7 · khorovats 151.7 · gata 146.1 · ghapama 141.5
+khash 132.6 · lavash 119.7 · harissa 119.0 · dolma 111.9   (KB)
+```
+
+Cuisine totals **1,310.6 KB across 9 files, mean 145.6 KB**. Khash is **sixth of
+nine** — it does **not** become the heaviest and it does **not** extend the heavy
+tail spas opened at §69. It lands in the main body of the distribution and pulls
+the section mean down slightly, from 147 KB to 145.6 KB. Not optimised.
+
+### Runtime
+
+`cuisine.spec.ts` 74 tests, **2.0m** — the same wall-clock as §72's 73 tests, and
+illustrated × locale coverage rose 24 → 27 navigations as §39 predicted. No
+partition, no retries, no timeout changes, no instability.
+
+### Tests
+
+The §72 pending test was **inverted, not deleted**, the way §69 inverted §68's and
+§71 inverted §70's: every assertion that pinned the pending state has a mirror.
+One new test (search thumbnail). Two tests renamed for accuracy. The sitemap
+assertion was **strengthened** while being inverted — it now requires exactly one
+`image:loc` per locale route and checks the other eight covers are absent, rather
+than only checking that an image exists.
+
+```
+typecheck                              PASS
+validate:content                       PASS — 147 entries, pending note gone
+places (snapshot + pending scope)      2 passed
+cuisine.spec.ts (focused)              74 passed (2.0m)
+full Playwright suite                  338 passed, 5 skipped (9.2m), exit 0
+npm run build                          PASS — 156/156 static pages
+```
+
+**A process error of mine, recorded because it nearly became a false report.** The
+first full-suite run was piped through `tail -20`, which §41 forbids. The tail I
+read showed `239 passed` against 343 tests in the suite, and I came within one step
+of reporting a green run on a number that did not add up. Re-run with the complete
+output captured to a file instead: **338 passed, 5 skipped, zero failures**, which
+is exactly 343. The rule against hiding test output is not about failures alone —
+it is also about not being able to tell whether the run was whole.
+
+**One real failure, and it is the one that should fail.** `places.spec.ts` → `no
+unrelated article artwork changed` pins the entire non-Places half of `IMAGES` as a
+literal. It went red on exactly one added line, `khash: "/images/cuisine/khash.webp"`.
+Run first, failed, then updated — not updated pre-emptively. That is the correction
+recorded at §71 being applied rather than only noted.
+
+The listing-placeholder expression `SLUGS.length - ILLUSTRATED.length` was not
+edited and has now produced its **sixth** value without an edit: 0, 1, 0, 1, 0, 1,
+0. Only the test's name has ever changed.
+
+### Technical debt carried forward
+
+- **Closed:** khash is illustrated; the archive has no article without a cover.
+- **Open:** Petrosian & Underwood at five of nine; the uniform template in the
+  older six Cuisine articles; the `hyw` native-review backlog at sixteen; no
+  dairy/drinks type, so `matsun` and `tan` still have no home; three Cuisine
+  articles render filler; Ačaṙyan still unreachable, which has now shortened two
+  articles' etymology sections.
+- **New and small:** the Cuisine weight band is now bimodal — two files near
+  190–200 KB and seven between 112 and 152 KB. Khash did not widen it, but it makes
+  the shape clearer.
+
+**No deployment occurred.**
+
+---
+
+## §74 — Matsun, Cuisine #10, and the Dairy type (2026-08-25)
+
+**Status:** green. Cuisine 9 → 10. First new dish type since the section was
+built. Artwork pending. **The Ačaṙyan debt, open since §70, is closed.**
+
+### Phase A — taxonomy audit
+
+Every place a Cuisine type is defined or consumed was read before anything was
+added. The finding: **`dairy` needed no architecture at all.**
+
+| surface | what it does | change needed |
+|---|---|---|
+| `src/data/types.ts` | `dishTypeId?: string` — no union, no enum | none |
+| `src/data/locales/*/cuisine.ts` | `cuisineTypes: Filter[]`, ids shared, labels translated | one line each |
+| `CuisineListing.tsx` | reads the vocabulary from a prop, filters generically on `dishTypeId`, URL key `type` | none |
+| `src/lib/search.ts` | passes `dishType`/`dishTypeId` through | none |
+| `scripts/validate-content.ts` | two rules: label must match the filter, and **every filter must match ≥1 article** | none |
+| tests | vocabulary spelled out in several places | four literals |
+
+A grep for hardcoded ids (`"bread"`, `"meat"`, …) across `src/app`, `src/components`,
+`src/lib` and `scripts` returns **nothing**. The taxonomy is data, and adding to it
+is a data change.
+
+**The gate was tested rather than assumed.** The `dairy` filter was added first,
+with no article under it, and `validate:content` failed in all three editions —
+"filter matches no content, so selecting it always shows the empty state". That
+is §4's requirement enforced by the repo itself: the archive cannot grow an empty
+type, which is why there is no `drink` id sitting ready for tan.
+
+**Scope decision recorded in the file:** `dairy` means dairy foods in their own
+right — matsun, the cheeses, chortan — not everything containing milk. Spas
+contains matsun and stays `main`, because spas is a soup. Filing matsun under
+`main` to avoid touching the list would have encoded a classification the article
+itself contradicts, which is why §5 forbade it and why it was not done.
+
+### Phase B — live SEO/SERP research
+
+**Volume unavailable.** No keyword tool was reachable; no monthly searches,
+difficulty, CPC or traffic figures appear anywhere in this step.
+
+**The SERP is the most contaminated this archive has researched.** For khash the
+mix was tourism plus recipes. Here it is four-way:
+
+- encyclopedic — Wikipedia (Matzoon), Wiktionary
+- food heritage — Slow Food Ark of Taste
+- **commercial dairy** — retailer and producer pages, starter-culture shops
+- recipe/fermentation blogs — several making very strong historical claims
+- **news** — the Georgia/Armenia naming dispute, in general-interest outlets
+- forums — including a thread titled "Yogurt is an Armenian Invention. Period."
+- academic — present but invisible to ordinary queries
+
+**Primary intent:** informational-cultural with heavy commercial contamination.
+The explanatory entity query — *what is matsun* — is the gap, and it is a wider
+gap than khash's because product pages outrank explanation.
+
+**Primary entity:** Matsun, with `matzoon` as a live transliteration and
+`Armenian yogurt` as the highest-volume-looking English approach. The article is
+**not** renamed to Armenian Yogurt: it explains the relationship instead, and the
+Colombo paragraph turns that editorial choice into a documented event.
+
+**Content gap.** Nothing on the first pages separates what is documented from what
+is repeated. Four claims recur with no attribution: an eleventh-century
+chronology, a UNESCO upgrade, an invention claim, and probiotic health benefits.
+
+**Armat differentiation:** entity + food science + evidence + language, with each
+claim carried as the kind of claim it is. Three things here appear on no competing
+page: Ačaṙyan's own cross-linguistic naming argument, the peer-reviewed
+transnational microbiology, and the national-inventory/UNESCO distinction stated
+precisely.
+
+**SEO title:** `What Is Matsun? Armenia's Fermented Milk` (40 chars). Question form
+because the definitional query is the gap; "Armenia's" because `matsun` alone
+returns product pages; "Fermented Milk" because it is accurate where "yogurt"
+would not be.
+
+### Phase C — the evidence model
+
+**Fermentation** explained as chemistry, not instruction: lactose → lactic acid →
+pH falls → casein destabilises → the vessel sets in place. Nothing is added to
+thicken it, and the acid's second job — making the food inhospitable to spoilage
+organisms — is the reason a household without refrigeration keeps milk this way.
+
+**The starter is evidenced, not asserted.** Bokulich et al. (2015) found that
+production region and milk type both shape the microbial community, and concluded
+that traditional production preserves the transfer of a distinctive regional
+population **from batch to batch**. That turns back-slopping from a pleasing story
+about continuity into a measured finding. Slow Food's `meran` starter — dried
+cornelian cherries with wheat and rye, plus a rennet step — is reported as one
+documented local practice in Lori and explicitly not generalised.
+
+**Etymology — and the closed debt.** §70 and §72 each had to shorten an etymology
+section because nayiri would not serve Ačaṙyan's `Հայերեն արմատական բառարան`. The
+dictionary is on the Internet Archive, scanned and OCR'd; volume three carries
+`մած-` and was read directly. It gives: the root sense (to stick, cling, thicken;
+of milk, to curdle), `մածուն` as a **native** Armenian word from a PIE root meaning
+to knead, cognates across Slavic, Greek and Germanic (English *make* among them),
+and the classical texts in which the word is attested.
+
+**Ačaṙyan also settles the ownership question himself**, which no competing page
+notices. Beside matsun he sets Persian *māsīdan*/*māst*, Turkish
+*yoğurmak*/*yoghurt* and French *cailler*/*lait caillé*: several unrelated
+languages each named their fermented milk after the verb for curdling. The naming
+pattern is a fact about how people name foods, not evidence of priority.
+
+**The eleventh-century claim, followed to its source.** Every popular page says
+matsun is "mentioned in many tales by Armenian writers since the 11th century".
+What is actually at the end of that chain is **Grigor Magistros's treatise on
+grammar, giving an etymology of the word**, reaching modern discussion through a
+philological study of 1915. A grammarian explaining a word proves the word
+existed. It is not a tale, not a description of the food, and cannot support a
+claim about how matsun was made or eaten.
+
+Worth recording: **Magistros is the same name §72 found at the end of the khash
+chronology.** An eleventh-century grammarian is being used as a culinary witness
+in two different food literatures.
+
+**Matsun and matsoni — settled with evidence rather than diplomacy.** Bokulich et
+al. is titled *Microbial biogeography of the transnational fermented milk matsoni*,
+was written by a team including both Armenian and Georgian researchers, and found
+the microbial community tracking region and milk type rather than the border. The
+2012 Georgian geographical-indication registration and the naming dispute that
+followed are placed in a separate paragraph and described as a modern argument
+about trade names — not evidence about who fermented milk first. The article takes
+no position on origin.
+
+**Heritage status, stated precisely.** Matsun is on **Armenia's national inventory**
+of intangible cultural heritage as *Մածունի պատրաստման ու կիրառման ավանդույթը*.
+It is **not** on the UNESCO Representative List, where lavash is Armenia's only
+food. The article makes the distinction explicitly and argues that the national
+entry is a *stronger* fact when it is not inflated.
+
+**Health: refused entirely.** The microbiology is cited for what lives in matsun
+and how it varies by region, and the article says in terms that it makes no claim
+about what that ecosystem does to a person who eats it.
+
+**The Colombo paragraph** is the article's best single find and it does editorial
+work: in 1929 Sarkis and Rose Colombosian sold their household matsun in Andover,
+Massachusetts under the Armenian word `madzoon`, and the name on the container
+later became `yogurt` because that was the word the American market knew. The food
+crossed intact; the word did not survive the trip. That is the terminology
+argument made as an event.
+
+### Structure and relations
+
+Ten sections, thirty paragraphs, identical across editions: `what-matsun-is` ·
+`milk-turned-by-bacteria` · `the-starter-and-the-chain` · `the-word-and-the-food` ·
+`what-the-record-actually-says` · `matsun-and-matsoni` · `an-everyday-food` ·
+`what-matsun-becomes` · `households-and-factories` · `named-on-a-national-list`.
+
+**`relatedSlugs: ["spas"]` — one authored relation, deliberately.** §16 predicted
+it and the prose earns it. §39 offered lavash as a second; it was **refused**,
+because matsun-with-bread rests on one clause in one source and a link built on
+that is manufactured. Recorded rather than padded.
+
+**Spas was not modified.** §16 permitted reciprocity only if the existing content
+had a natural place and the task's scope supported it; it does not, and §55/§56
+forbid touching the existing nine. The relation is one-directional and that is
+recorded here rather than quietly fixed.
+
+**Tan is described and deliberately not linked** — no article exists, and a
+`relatedSlug` pointing at nothing is the failure being avoided. Recorded as a
+knowledge-graph opportunity, and a test asserts `relatedSlugs` does not contain
+`tan`.
+
+**No cross-category link.** §26 anticipated Lori and forbade reaching for
+`haghpat-monastery` on geography alone — a monastery is not a dairy-culture
+article. No Lori food or regional article exists yet. "No earned cross-category
+link" is the honest outcome, and §40 allows it.
+
+Filler measured after the authored relation was set: matsun takes `lavash, dolma`.
+**Spas keeps `dolma`, jingalov hats keeps `dolma, khorovats`, khash keeps `dolma`**
+— all unchanged, and asserted rather than assumed.
+
+### Sources
+
+Six entries, all identified. **Ačaṙyan HAB vol. 3** (Internet Archive, read
+directly) · **Bokulich et al., *Food Microbiology* 50:12–19, DOI** · **Ministry of
+ESCS ICH inventory** (reused from khash, where it carried an absence; here a
+presence) · **UNESCO RL/00985 lavash** (cited for the negative claim) · **Slow Food
+Ark of Taste** (scoped) · **Massachusetts Historical Society** (Colombo).
+
+**Slow Food is cited and scoped.** It is used for Lori, the daily-diet framing, the
+`meran` starter and the two keeping forms. It is explicitly **not** used for its
+opening chronology, which is the sentence the article takes apart.
+
+**Grigor Magistros is discussed and not cited** — the 1915 philological study could
+not be consulted, so the claim is reported at one remove and the prose says so.
+Same handling as Heratsi at §72.
+
+**No commercial dairy source is cited at all.** They carry origin, antiquity and
+health claims, and the only fact they establish — that matsun is a normal retail
+product — needs no citation.
+
+**Petrosian & Underwood again not cited** — fourth consecutive Cuisine article.
+Stays at five of ten rather than six of ten.
+
+### Verification
+
+```
+typecheck                                   PASS
+validate:content                            PASS — 150 entries, pending note = matsun
+parity harness (matsun)                     OK — 0 differing rows, 3 editions, 20 checks
+cuisine.spec.ts (focused)                   84 passed (3.1m)   [74 → 84]
+full Playwright suite                       348 passed, 5 skipped (11.0m), exit 0
+npm run build                               PASS — 159/159 static pages
+```
+
+**One more transient failure, re-run rather than explained away.** The first full
+suite returned 345 passed and **3 failed**: the desktop-navigation test in all
+three editions, each landing on the previous section's URL after clicking the
+cuisine link. Navigation is untouched by this step, and the spec passed 10/10 in
+isolation — but three consecutive failures are worth more than one isolated pass,
+so the whole suite was run again rather than reasoned about. It came back **348
+passed, 0 failed**, with those three tests taking 4.6s, 5.9s and 4.6s against the
+13.9s, 14.7s and 14.5s they took when they failed. A cold window, evidenced by
+the timings rather than asserted.
+
+**Three real content-growth failures, all correct, all run before being fixed:**
+
+1. `places.spec.ts` → category listings: cuisine 9 → 10.
+2. `visit.spec.ts` → canonical routes: `/en/cuisine` 9 → 10.
+3. `cuisine.spec.ts` → **three** separate literals: the seventh- and eighth-dish
+   tests each pin the full type vocabulary, and the eighth-dish test pins the whole
+   distribution. A new type could not enter the section without every test that
+   describes the section noticing. Widened, never loosened.
+
+The registry snapshot in `places.spec.ts` correctly **passed**, because matsun has
+no artwork yet and `IMAGES` is unchanged.
+
+**A Turbopack cache failure, diagnosed rather than guessed.** One full-spec run
+produced **48 failures**, including 404s (`Այս էջը չգտնվեց`) on `/hy/cuisine/lavash`
+— a route untouched by this step. Following §41: system memory was measured first
+(**4.9 GB free of 15.9 GB**, so not host exhaustion), the server was confirmed
+stopped and the port clear, and `.next` was cleared. The next run returned to 2
+failures. Cache corruption, evidenced, not asserted.
+
+**One measured timeout, not a blind raise.** `every dish's metadata comes from its
+own SEO fields` navigates every dish in every edition — eighteen page loads at six
+dishes, **thirty at ten**. Alone against a warm server it takes ~16s inside a 30s
+budget; under two workers on a cold cache it exceeded it twice. Marked
+`test.slow()` with the measurement recorded in the file. No retries, no partition,
+and not one assertion weakened.
+
+**Three bugs in my own new tests, fixed in the tests and not the content** — and
+two of them are the same mistake in different clothes:
+
+1. An Armenian-script assertion (`Մագիստրոս`) run against the English edition.
+   The identical error class as §72's three.
+2. The forbidden-claim sweep read the whole rendered `main`, which includes the
+   related-articles block — and **lavash's own excerpt reads "inscribed by UNESCO
+   in 2014"**. The test was about to accuse matsun of a neighbour's card. Scoped to
+   matsun's own fields.
+3. A flat ban on "thousands of years" went red on the article's own sentence
+   *refuting* that claim. **A substring sweep cannot distinguish an assertion from
+   a refutation**, so the test was restructured into two scopes: antiquity and
+   invention banned in the headline text, where nothing has room to qualify
+   anything; health and marketing banned everywhere, including in refutation,
+   because the article's position is that the question is out of scope.
+
+That third one is the useful lesson of this step: an archive whose editorial method
+is *name the bad claim and take it apart* cannot test for bad claims by searching
+for their words.
+
+### Western Armenian
+
+Written as Western Armenian, not converted: `եւ`/`ութիւն` throughout, Western verb
+forms and vocabulary (`կերակուր`, `գաղթականներ`, `ամաններ`), Western renderings of
+names (`Գոլոմպոսեան`, `Անտովըր`, `Աճառեան`), and `ԻՒՆԵՍՔՕ` against Eastern
+`ՅՈՒՆԵՍԿՕ`. Eastern-orthography check finds nothing. **Flagged for native review** —
+backlog now seventeen.
+
+### Technical debt carried forward
+
+- **Closed:** the Ačaṙyan gap, open since §70 and shortening two earlier etymology
+  sections. The Internet Archive copy is now cited and the path is recorded for
+  the next article that needs it.
+- **Closed:** Cuisine had no home for dairy. `matsun` and `tan` were both named as
+  homeless at §72 and §73; half of that is now fixed.
+- **Open:** Petrosian & Underwood at five of ten; the uniform template in the older
+  six; the `hyw` backlog at seventeen; **four** Cuisine articles now render filler;
+  no `drink` type, so tan still has no home, deliberately.
+- **New:** spas → matsun is not reciprocal, by decision rather than by oversight.
+- **New:** `cuisine.spec.ts` has tests whose cost grows linearly with the section.
+  One is marked slow; a twelfth or thirteenth dish will need this looked at
+  properly rather than marked again.
+
+### Not touched
+
+Places, Visit, map clustering, coordinates and Visit curation unmodified — 13
+Places, 2 groups, 7 initial individual markers, 0 covered visible centres, no Place
+#14. `geo.ts`, `map-cluster.ts`, `visit-map.ts`, `map-tiles.ts` and
+`src/components/visit/` clean in git. **Khash untouched** — content, SEO, relations,
+artwork, metadata, type and safeguards all exactly as §73 left them. No Armat
+category added. `getRelatedArticles` unmodified. `ARTWORK_PROVENANCE` unmodified.
+`.claude/settings.json` unmodified. Steps 43 and 44 not rewritten.
+
+**No deployment occurred.**
+
+---
+
+## §75 — Matsun artwork verified and registered (2026-08-25)
+
+Artwork only. No article content, no taxonomy, no `dairy` type change, no `drink`,
+no Spas edit, no Places/Visit/map change, no Cuisine #11, and no change to the
+supplied file.
+
+### Pre-registration state, read from source before anything moved
+
+Ten Cuisine articles, nine illustrated, `PENDING_ARTWORK = ["matsun"]`. Type
+distribution `bread 2 / main 2 / meat 2 / ceremonial 2 / dessert 1 / dairy 1`,
+`cuisineTypes` ending `…dessert, dairy` in all three editions. `matsun` absent from
+`IMAGES`, rendering the generated placeholder SVG with the placeholder caption, no
+`Article.image`, fallback `og:image` and `twitter:image` (`/og-default.png`), and no
+`image:loc` in any of its three sitemap entries. **No discrepancy against the
+expected state.**
+
+### Asset
+
+`public/images/cuisine/matsun.webp`, registered exactly as delivered — unaltered,
+uncropped, unoptimised, unrenamed, unreplaced.
+
+| | |
+|---|---|
+| Dimensions | **1584 × 993** (ratio 1.5952) |
+| Bytes | **397,682** (388.4 KB) |
+| SHA-256 | `d8fc17ea6196c0bf74409be41d190e1aad98d5f3638c2b98127ebe8e2fbaec7f` |
+| Container | `RIFF`/`WEBP` → `VP8X` (10 B) + `ICCP` (456 B) + `VP8 ` (397,180 B) |
+| RIFF size field | 397,674 = filesize − 8, and the walk ends **exactly at EOF** |
+| `VP8X` flags | `0x20` — ICC set; alpha, EXIF, XMP, animation all clear |
+| Compression | lossy VP8, one keyframe, sync `9D 01 2A` |
+| Colour | sRGB, 3 channels, 8 bit, `isOpaque`, 456-byte ICC profile |
+| Alpha / EXIF / XMP / orientation | none / none / none / none |
+
+Verified twice — a hand-written RIFF chunk walker and `sharp` — which agree on
+every field.
+
+**Geometry drift, reported rather than corrected.** The commission asked for
+1586×992 and the file is 1584×993: two pixels narrower, one taller, ratio 1.5952
+against 1.5988, a 0.2 per cent difference. It is the `gyumri.webp` geometry
+exactly, so it introduces no new size to the archive, and it changes no crop
+outcome at any rendered surface. Resampling the whole image to hit a round number
+would have been a real edit to fix nothing — the same call §73 made for khash's
+1585×992.
+
+**First ICC-bearing Cuisine file.** The other nine covers are plain `RIFF/VP8` with
+no `VP8X`. This one carries an extended container with a 456-byte sRGB profile, like
+`erebuni-fortress.webp`, `matenadaran.webp`, `gyumri.webp` and
+`amberd-fortress.webp` on the Places side. Not a fault, not touched.
+
+### Visual acceptance — PASS
+
+A wide hand-thrown stoneware bowl, pale grey with a brushed blue rim band and a
+painted geometric arcade low on the wall, on striped linen on a bare wood table. It
+holds a plain white mass with no inclusions of any kind, its surface broken into
+folds and scoop ridges standing proud of a thin ring of pale whey against the bowl
+wall. A metal spoon lifts a lump clear of the surface. Behind: a blue-painted
+ceramic jug and a bright window with foliage. Right: folded flatbread and a small
+ceramic cup. Left: a torn wheat loaf with crumbs on the wood. Daylight from the
+left.
+
+It reads as **plain white fermented dairy, thick and set, spoonable, on an ordinary
+table** at full resolution and at every crop the site renders. It does not read as
+white soup, milk, cream, sauce, whipped cream, pudding, ice cream, or a commercial
+yogurt advertisement.
+
+### Matsun vs Spas — the decisive comparison
+
+The §74 note named this as the specific danger: spas is *made of* matsun, so a
+substitution would feel nearly right. The two separate on **two independent axes**,
+and one of them was measured rather than judged.
+
+**Inclusions.** A numeric sweep of 262,400 pixels of the Matsun bowl interior found
+**zero** green-biased pixels (`G > R+6 ∧ G > B+18`). The identical measurement over
+`spas.webp`'s bowl returns **1.37 per cent**. There is no grain, no dzavar, no rice,
+no grain-like solid and no herb anywhere in the Matsun bowl.
+
+**Physical state.** Spas has a flat liquid level with grain suspended through it and
+a wooden spoon lying beside the bowl. Matsun has a broken solid standing above its
+own whey with a metal spoon lifting part of it out.
+
+Compared side by side at full resolution, at the 380px listing card, at the 160px
+search thumbnail and at the 128px one. At every size spas reads *speckled
+green-and-grain liquid* and matsun reads *plain white solid with a scoop taken out*.
+There is no crop at which it becomes "spas without herbs" or a generic white soup.
+
+### Set texture — the core requirement, PASS
+
+Present: spoon marks and drag furrows across the surface; soft folds; a ragged,
+broken standing edge where a scoop was taken; natural irregularity throughout;
+visible density; **a thin ring of translucent whey** against the bowl wall with a
+real meniscus and one specular highlight; a matte soft sheen.
+
+Absent: pouring behaviour, a flat cream-like level, stiff whipped peaks, gelatinous
+wobble, cottage-cheese graininess, artificial gloss.
+
+The mass **stands above its own whey**, which is the single strongest set cue in the
+file — a soup cannot do that.
+
+### Spoon — PASS
+
+One spoon, a plain tapered metal one with an embossed leaf finial. The handle is
+continuous from bowl to finial, crosses the bowl rim once and rests on the flatbread
+and cloth. No duplicated utensil, no impossible reflection, no floating contact.
+
+The lifted portion **sits on the spoon and overhangs it on both sides**, shows flat
+fracture planes with a torn edge, and slumps softly. It does not stream like soup
+and does not form sculpted advertising peaks. This is the file's clearest statement
+of *spoonable rather than pourable*.
+
+### Grain / soup-herb audit — clean
+
+Zero green-biased pixels in the bowl (above). No dzavar, wheat, rice or grain-like
+solid. No herbs through the bowl and none on the table. Nothing floats in it, which
+is what §74 said a wrong cover would show.
+
+### Generic-yogurt comparison — passes as a cultural food article
+
+The identity cues are the subtle ones §8 asked for and no more: a simple handmade
+hand-thrown ceramic bowl with hand-painted decoration, a matching blue-painted jug
+and cup, coarse striped linen, a bare weathered wood table, restrained bread context
+(a torn wheat loaf and folded flatbread), natural set texture, daylight. No Armenian
+symbol is required and none appears. The food is central — the bowl occupies the
+frame's middle third and is the brightest thing in it.
+
+### Commercial-yogurt audit — clean
+
+No plastic cup, no foil lid, no packaging, no branded jar, no dairy logo, no
+supermarket styling, no milk splash, no fruit explosion, no sculpted advertising
+spoonful, no high-key studio composition. The lighting is low-key with a dark
+surround (whole-frame luma median 91 of 255), which is the opposite register from a
+product campaign. This is editorial food imagery.
+
+### Fruit / breakfast-bowl audit — clean
+
+No berries, granola, honey drizzle, tropical fruit, chocolate, staged nuts or
+parfait layers. Nothing shifts it toward a Western yogurt breakfast.
+
+### Everyday-food character — PASS
+
+Ordinary, homemade, foundational, quiet. Bread crumbs lie scattered on the bare wood
+at the lower left — an unstaged detail that does more for the everyday register than
+any prop. Simple bread, linen, wood, ceramic, a modest spoon; no dessert styling, no
+luxury breakfast, no fine dining, no ceremonial table.
+
+### Fermentation / health / recipe visual audit — clean
+
+Fermentation is implied only by the set texture and the whey, exactly as §12 asked.
+No bacteria graphics, no bubbles-as-science, no microscope imagery, no
+starter-culture label, no diagram, no icon.
+
+No gut-health, probiotic, immunity, weight-loss, detox, fitness or medical framing.
+No health icons, no green wellness branding, no supplement, no pill, no exercise
+prop, no clinical staging.
+
+No recipe framing: no milk, no starter bowl, no thermometer, no saucepan, no
+measuring cup, no timer, no recipe card, no numbered step, no ingredient label. The
+image depicts **finished matsun**.
+
+### Household / context — PASS
+
+Wood, linen, simple ceramic, neutral daylight through a window. No hay, no giant
+clay storage jar dominating the frame, no costume, no deliberately primitive
+environment. It reads as a contemporary kitchen table.
+
+### Armenian-context audit — clean
+
+No flag, no Ararat, no monastery, no khachkar, no map, no oversized carpet, no
+souvenir object. Identity comes from the dish and the material context.
+
+### Bowl / ceramic — PASS
+
+The rim is a continuous, coherent ellipse of even thickness with an unbroken brushed
+glaze band; the bowl has plausible depth, a coherent foot and a consistent contact
+shadow on the cloth. No warped rim, no fusion between bowl and cloth, no impossible
+base, no repeated-motif artifact. The decorative band is a repeating leaf arcade with
+dots, inspected at magnification.
+
+### AI artifact audit
+
+**One artifact, recorded and not retouched.** The top face of the lifted spoonful
+carries a faint regular diamond cross-hatch — a texture-generation artifact. It is
+visible only above roughly 4× magnification and at no size the site renders.
+
+Everything else inspected at 3–6×: spoon geometry and handle continuity, the far rim
+ellipse, the ceramic bands, the jug's floral repeat, the cup motif, the linen weave
+and the bread. Nothing else is defective.
+
+### Text / signage audit — clean
+
+No readable text anywhere. Inspected at magnification: the bowl band is a repeating
+leaf arcade; the jug carries a blue floral repeat of rosettes and sprigs; the cup
+carries an incised radial star; the spoon finial is an embossed leaf; the linen
+stripe is a broken warp that dissolves into thread-level noise with no baseline, no
+repeated glyph shapes and no word spacing. A contrast-boosted pass over all four
+corners found no watermark and no signature. No dairy label, logo, restaurant name,
+pseudo-Armenian lettering or textile pseudo-writing.
+
+### Colour and exposure — measured, PASS
+
+| Measurement | Value |
+|---|---|
+| Bowl interior clipped at 255 | **0.005 %** |
+| Bowl interior ≥ 250 | 0.030 % |
+| Bowl interior luma p50 / p99 | 197 / **240** |
+| Bowl interior greyscale σ | **40.4** |
+| Brightest 10 % of the dairy | `#eae7e2` (R−B = 8.7) |
+| Brightest 1 % of the dairy | `#f5f3f0` (R−B = 5.3) |
+| Bowl-interior region mean | 193 / 183 / 161 (R−B = 32.5) |
+| Whole frame mean | 115 / 101 / 83 (R−B = 31.6) |
+
+The whites keep their headroom — the 99th percentile stops at 240 — and the surface
+detail survives, with σ = 40.4 of local variation across the dairy. The lit faces are
+near-neutral white rather than blank digital white. The warmer region mean comes from
+shadowed folds picking up bounce off the wood and ceramic, a bias the **whole frame
+shares** (R−B 31.6 against the dairy's 32.5), so it is the scene's white balance and
+not a yellow cast on the product. No blue-grey cast. The bowl and the dark surround
+give ample contrast.
+
+### Lighting — PASS
+
+Soft daylight from the left through a window. It reveals the folds, the spoon marks
+and the thickness rather than erasing them; there is no high-key advertising wash, no
+dramatic darkness hiding the dairy, and no orange restaurant cast. **No steam** — the
+dish is not hot, and the file does not pretend otherwise. The window itself is blown
+(0.8 per cent of that corner ≥ 250), which is the light source and not the subject.
+
+### Visual register
+
+**Photographic** — realistic food photography, matching all nine existing Cuisine
+covers. The section's register stays coherent. Not compared against Places, which
+carries its own unresolved painterly/photographic split.
+
+### Crops — every live surface holds, no `object-position` added
+
+| Crop | Geometry | Trim | Result |
+|---|---|---|---|
+| 16:10 (category card, featured) | 1584×990 | 0.3 % vertical | whole frame, effectively uncropped |
+| 16:9 (listing card, desktop hero, map card) | 1584×891 | 10.3 % vertical | bowl, spoon, whey, loaf, flatbread, jug, cup all kept |
+| 3:2 (tablet hero) | 1490×993 | 5.9 % horizontal | everything kept |
+| 4:3 (compact card, mobile hero) | 1324×993 | 16.4 % horizontal | loses the cup; bowl, spoon, texture, loaf, jug kept |
+| narrow search thumbnail (0.801) | 795×993 | 49.8 % horizontal | **the strongest crop of the set** — whole bowl, spoon with the lifted curd, whey ring, ceramic band, jug and flatbread edge |
+| portrait 3:4 | 745×993 | 53.0 % horizontal | bowl, spoon, set texture and ceramic band all intact |
+
+The narrow crop degrades into none of the failures §22 named: not an empty white
+bowl, not a plain white circle, not only the spoon, not only bread, not generic
+cream. The bowl survives every crop, enough matsun surface survives every crop, the
+set texture is visible in every crop, the spoon cue survives every crop, and matsun
+stays distinct from spas in every crop. Generic centre-crop behaviour is not merely
+adequate here — it is good, so no custom `object-position` was added.
+
+### Search-thumbnail comparison
+
+At 160px and at 128px, against the three §23 named:
+
+- **Spas** — fluid white with dense green flecks and suspended grain, flat level
+- **Matsun** — plain thick white set dairy, broken surface, a scoop taken out
+- **Khash** — clear pale-golden broth with meat, wholly different hue
+- **Harissa** — beige/amber thick grain in a red clay bowl with a butter pool
+
+All four separate instantly. The Matsun-vs-Spas pair, which is the decisive one,
+separates on colour *and* on physical state, so no single failure collapses it.
+
+### All ten Cuisine covers compared
+
+`lavash`, `dolma`, `khorovats`, `harissa`, `gata`, `ghapama`, `spas`,
+`jingalov-hats`, `khash`, `matsun` were opened side by side at the 300px listing
+width. Ten distinct images, ten distinct subjects, no reuse and no duplication.
+Matsun does not become spas, does not borrow gata's dessert styling, and is not a
+generic breakfast product.
+
+### Files changed
+
+- `src/lib/media.ts` — one `IMAGES` entry added, `matsun` removed from
+  `PENDING_ARTWORK`, and the §75 verification note recorded beside each.
+- `tests/e2e/cuisine.spec.ts` — `ILLUSTRATED` gains `matsun`, `PENDING` empties,
+  `ARTWORK` gains the path, the §74 pending test is **inverted** rather than
+  deleted, and three new tests are added.
+- `tests/e2e/places.spec.ts` — the cross-section registry snapshot gains one line.
+- `PROJECT_STATE.md` — this section.
+
+Nothing else. No Matsun-specific image logic, no Dairy-specific image logic, no new
+field, no new provenance infrastructure — the generic media pipeline only.
+
+### Registry update
+
+```ts
+matsun: "/images/cuisine/matsun.webp",
+```
+
+Appended to the Cuisine block after `khash`, in the section's existing order and
+comment style.
+
+### Pending artwork
+
+```ts
+export const PENDING_ARTWORK: readonly string[] = [];
+```
+
+**Empty for the fourth time archive-wide**, and every article in every section has a
+cover again. The §74 commission note is kept and closed with a `§75 Resolved`
+paragraph rather than deleted, on the same principle as §69, §71 and §73: the
+rejected-substitute reasoning outlives the file landing.
+
+Final Cuisine state: **10 articles, 10 illustrated, 0 placeholders.**
+
+### Provenance
+
+`isGeneratedArtwork` was read rather than assumed. Its implementation is
+`!article.image && getImageSrc(article.slug) !== undefined` — so registering the file
+flips Matsun to generated in all three editions at once, because nothing in it is
+locale-dependent. Matsun declares no content-level `image`, so it inherits
+`ARTWORK_PROVENANCE` (`source: "ai-generated"`, `documentary: false`) exactly like
+the other nine.
+
+Verified live in `en`, `hy` and `hyw`: raster present (one `<img>` in the hero
+figure, `src` matching `/matsun\.webp/`), the AI-illustration disclosure rendered
+from each locale's own dictionary, the placeholder caption absent, and zero
+`svg[role='img']` placeholders in the hero figure.
+
+`ARTWORK_PROVENANCE` unmodified.
+
+### Dairy filter regression
+
+`?type=dairy` still returns **exactly Matsun** in all three editions. The type
+distribution is unchanged and now asserted as a whole object per locale rather than
+per-type: `bread 2 / main 2 / meat 2 / ceremonial 2 / dessert 1 / dairy 1`, ten
+articles. `cuisineTypes` still ends `["all", "bread", "main", "meat", "ceremonial",
+"dessert", "dairy"]` in every edition. No article was reclassified, no type renamed,
+nothing featured, and **no `drink` type exists**.
+
+### Listing, article heroes, search
+
+**Listing.** 10 cards, 10 distinct covers, 0 placeholders. Matsun uses exactly
+`/images/cuisine/matsun.webp` and does not borrow `/images/cuisine/spas.webp`.
+
+**Heroes.** `/en/cuisine/matsun`, `/hy/cuisine/matsun` and `/hyw/cuisine/matsun` each
+render exactly `/images/cuisine/matsun.webp` with localized alt text, the AI
+disclosure, and no placeholder disclosure. Assertions are scoped to `header figure`,
+so the related block rendering spas's cover further down the page cannot satisfy
+them — and a separate assertion proves spas's file is *not* in the hero.
+
+**Search.** Checked for all four §45 terms — `matsun`, `matzoon`, `Armenian matsun`
+and `մածուն` — each scoped by canonical href `a[href="/en/cuisine/matsun"]` rather
+than by title, and each verified to carry matsun's own thumbnail and neither spas's,
+harissa's nor khash's. Search semantics were not touched.
+
+### Metadata transition
+
+| | Before §75 | After §75 |
+|---|---|---|
+| `Article.image` | absent | `/images/cuisine/matsun.webp` |
+| `og:image` | `/og-default.png` | `/images/cuisine/matsun.webp` |
+| `twitter:image` | `/og-default.png` | `/images/cuisine/matsun.webp` |
+| sitemap `image:loc` | absent | `/images/cuisine/matsun.webp` |
+
+The JSON-LD graph is still the archive's usual four nodes — `Organization`,
+`WebSite`, `Article`, `BreadcrumbList`. **No `Product` schema**, and none of
+`Recipe`, `HowTo`, `NutritionInformation`, `MenuItem`, `FoodEstablishment`,
+`recipeIngredient`, `recipeInstructions`, `cookTime` or `prepTime`. Matsun being a
+food product does not make this a Product page, and `Product` is now named
+explicitly in the forbidden list because this is the one Cuisine article where it
+would have looked defensible.
+
+### Sitemap
+
+Checked **route by route**, not by a global filename count: `/en/cuisine/matsun`,
+`/hy/cuisine/matsun` and `/hyw/cuisine/matsun` each carry exactly one `<image:loc>`,
+each is matsun's own file, and each is asserted not to contain any of the other nine
+Cuisine paths — spas's included.
+
+### SEO regression
+
+Unchanged by this step and re-verified: visible title, SEO title (`What Is Matsun?
+Armenia's Fermented Milk`), meta description, canonical, hreflang across all three
+editions plus x-default, the `keywords` array, the section headings, and the
+`Article` schema type. Nothing was rewritten because artwork now exists.
+
+### Heritage / evidence regression
+
+Matsun's evidence model is untouched. All of it still holds: Armenian national ICH
+inventory status with the explicit distinction from UNESCO, the Ačaṙyan etymology,
+the Grigor Magistros chronology treatment, the fermentation science, the
+starter-culture evidence, the Matsun/Matsoni framing, the Georgia/Armenia
+naming-dispute separation kept separate, no invention claim, no probiotic or health
+claim, no recipe instructions, the scoped Slow Food use, no commercial-source
+citation, and the Petrosian & Underwood refusal.
+
+### Related-content regression
+
+`relatedSlugs: ["spas"]` unchanged. Spas unmodified — its own
+`relatedSlugs: ["harissa", "lavash"]` and its artwork path are both pinned. The
+decision not to add reciprocal linking in this task is preserved, and `tan` remains a
+future knowledge-graph opportunity only.
+
+Matsun's filler measured after registration off the rendered page: **`spas`, then
+`lavash`, `dolma`** — exactly what §45 recorded, so registering artwork did not
+disturb the registry walk. `getRelatedArticles` unmodified.
+
+### Existing Cuisine regression
+
+All nine existing artwork paths verified exact and unchanged, `spas.webp` asserted
+first and separately because it is the easiest accidental substitute for matsun. A
+new assertion checks that the ten registered paths are ten **distinct** values, so no
+two dishes can ever share a file.
+
+### Places / Visit / map regression
+
+`PLACE_COORDINATES`, `VisitMap`, `map-cluster.ts`, `visit-map.ts`, `map-tiles.ts`,
+Places content, Places artwork and Visit curation are all unmodified. The map state
+is unchanged and was re-verified by the full suite: **13 Places, 2 groups, 7
+individual opening markers, 0 covered visible centres**, at 360/390/768/1440 px. No
+Place #14.
+
+The archive-wide pending assertion in `places.spec.ts` needed no change and was not
+weakened: §67 already rescoped it to filter `PENDING_ARTWORK` down to Place slugs, so
+matsun leaving the list is correctly invisible to it. The one Places edit is the
+cross-section registry snapshot, which went red on the registration — **which is what
+it is for** — and gained one line rather than being relaxed.
+
+### Artwork performance — measured, nothing optimised
+
+| File | Bytes | KB |
+|---|---|---|
+| **matsun** | **397,682** | **388.4** |
+| spas | 203,194 | 198.4 |
+| jingalov-hats | 194,240 | 189.7 |
+| khorovats | 155,340 | 151.7 |
+| gata | 149,570 | 146.1 |
+| ghapama | 144,904 | 141.5 |
+| khash | 135,762 | 132.6 |
+| lavash | 122,540 | 119.7 |
+| harissa | 121,874 | 119.0 |
+| dolma | 114,582 | 111.9 |
+
+Ten files, **1,739,688 bytes (1.66 MB)**, mean 169.9 KB, median 143.8 KB.
+
+Matsun becomes **the heaviest Cuisine asset by a wide margin** — 1.96× spas, which
+held the title, and 2.29× the median. It does not merely extend the ~190–200 KB heavy
+tail that spas and jingalov-hats formed; it opens a new tier roughly twice as high,
+and it alone is 22.9 per cent of the section's bytes. Archive-wide it is still well
+under the Places outliers (`jermuk.webp` 636 KB, `amberd-fortress.webp` 660 KB,
+`erebuni-fortress.webp` 742 KB). Measured and recorded only — nothing was optimised,
+resized or recompressed, and the standing media-optimisation debt is unchanged
+except that this file is now its largest Cuisine member.
+
+### Test-runtime observation
+
+Focused `cuisine.spec.ts`: **87 tests, 1.4 min, 6 workers, all green.** Cuisine now
+drives 10 illustrated articles × 3 locales = 30 artwork navigations.
+
+The slowest test is still the one §45 marked: *"every dish's metadata comes from its
+own SEO fields, in every edition"* at **27.6 s** against a 30 s timeout. That is the
+number worth watching — it is the only test in the file within striking distance of
+the limit, and it grows linearly with the dish count. §45 already carried
+`test.slow()` on it, which is what kept it green here.
+
+Nothing was done about it in this step, deliberately: no second `test.slow()`, no
+blind timeout raise, no partitioning. Runtime has not materially worsened — this
+step added three focused tests and inverted one — so it is **carried forward as debt
+for the next structural test-maintenance step** rather than patched inside an artwork
+step. Cuisine #11 is the point at which the 27.6 s test should be split or the file
+partitioned.
+
+### Commands run, and results
+
+| Command | Result |
+|---|---|
+| custom RIFF chunk walker | green — container internally consistent, walk ends at EOF |
+| `sharp` metadata + stats | green — agrees with the walker on every field |
+| numeric exposure / colour / green-fleck sweeps | green — reported above |
+| `npm run typecheck` | **green**, no output |
+| `npm run validate:content` | **green** — 150 entries across 3 locales |
+| `npx playwright test tests/e2e/cuisine.spec.ts --project=desktop` | **87 passed** (1.4 m) |
+| `npx playwright test` (full suite) | **351 passed, 5 skipped, 0 failed** (4.0 m) |
+| `npm run build` | **green** — compiled in 5.6 s, 159 static pages |
+
+**No failures of any kind.** The five skips are pre-existing conditional skips
+(`test.skip(hasArticle("hyw", slug), "every edition is fully translated; no
+untranslated page exists")`) in `locale.spec.ts`, `mobile.spec.ts` and
+`seo.spec.ts`, unrelated to this step.
+
+**Process discipline.** Port 3002 confirmed to have no listener and no stale dev
+server before browser testing; two node processes present, neither a server (12 MB
+resident, no command line — the editor's own helpers). 6.07 GB of 15.75 GB physical
+memory free. `.next` was **not** cleared — there was no failure to justify it.
+Playwright and `build` were run strictly in sequence, with the listener re-checked
+between them (only TIME_WAIT sockets draining). No output was hidden behind `tail` or
+`grep` in the verification path.
+
+### Tests changed
+
+Nine of the twenty-six required checks were already covered by tests §69–§74 left in
+place and needed no edit. The rest:
+
+- `ILLUSTRATED` gains `matsun` (10 entries), `PENDING` empties to `[]`, `ARTWORK`
+  gains the path. Both lists stay **explicit literals**, not derived from
+  `getImageSrc` — a derived list agrees with the registry by construction, including
+  on the day the registry is wrong.
+- *"the cuisine listing shows exactly one placeholder"* → *"shows no placeholders"*.
+  Only the **name** changed; the expression `SLUGS.length - ILLUSTRATED.length` has
+  now produced the right answer eight times without being edited.
+- *"matsun has no artwork, says so, and borrows nobody else's"* → **inverted** into
+  *"matsun owns its artwork in every edition, and borrows nobody else's"*, the way
+  §69, §71 and §73 inverted theirs. Every assertion that pinned the pending state has
+  a mirror, so the transition is checked in both directions. It also reclaims the
+  archive-wide `PENDING_ARTWORK === []` assertion that §74 had handed forward.
+- **New:** *"the matsun search result carries its own thumbnail"* — four §45 query
+  terms, scoped by canonical href.
+- **New:** *"matsun gained a picture and no product or recipe markup with it"* —
+  graph shape, `Article.image`, the forbidden-schema list with `Product` added, and
+  route-by-route sitemap `image:loc`.
+- **New:** *"registering matsun changed no other dish's artwork, type or relations"*
+  — spas pinned first and separately, ten distinct covers, the full type distribution
+  as one object per locale, authored relations, and the rendered filler.
+- `places.spec.ts` cross-section registry snapshot gains `matsun`.
+
+**No existing assertion was weakened, relaxed or deleted.**
+
+### Claim-test discipline
+
+§45's lesson holds and was not regressed. No naive whole-page substring ban was added
+for `thousands of years`, `UNESCO`, `probiotic` or `invention` — a page may name a
+bad claim precisely to refute it, and Matsun's does. The claim tests §45 wrote remain
+scoped to article-owned text, distinguish assertion from refutation, and do not sweep
+related cards as if their excerpts belonged to Matsun. Everything added in this step
+is structural — image paths, schema shapes, sitemap blocks, registry values — and
+none of it touches page prose.
+
+### Technical debt carried forward
+
+1. **Matsun is the heaviest Cuisine asset at 388 KB**, roughly double the previous
+   tier and 22.9 per cent of the section's bytes. Not optimised. Feeds the standing
+   media-optimisation debt.
+2. **First ICC-bearing Cuisine file** — the section is no longer container-uniform.
+   Harmless, recorded so it is not rediscovered.
+3. **1584×993 geometry drift** from the 1586×992 house size; the section now has
+   three sizes (1586×992, 1585×992, 1584×993). No crop consequence.
+4. **The diamond cross-hatch artifact** on the lifted spoonful, invisible at every
+   rendered size. Not retouched.
+5. **The mixed-bread note**, inherited from spas: a crusty wheat loaf sits beside the
+   flatbread. Background at every crop, no claim rests on it.
+6. **The 27.6 s metadata test** in `cuisine.spec.ts`, growing linearly with the dish
+   count against a 30 s timeout. Owed to the next structural test-maintenance step,
+   not to an artwork step.
+7. **The photographic/painterly register split** in Places is untouched and still
+   open; Cuisine remains internally coherent, and this file does not change that.
+
+### What was not done
+
+Matsun article content unmodified. Cuisine taxonomy unmodified. The `dairy` type
+unchanged. No `drink` type added. **Spas unmodified** — no reciprocal linking, and
+its artwork path pinned. Places, Visit, map clustering, coordinates and Visit
+curation all unmodified. No Cuisine #11. The supplied image was not optimised,
+resized, cropped, recoloured, renamed, regenerated or replaced.
+`ARTWORK_PROVENANCE` unmodified. `getRelatedArticles` unmodified.
+`.claude/settings.json` unmodified. Step 45 not rewritten.
+
+**No deployment occurred.**
+
+---
+
+## §75a — Matsun artwork: independent re-verification (2026-08-26)
+
+Step 46 was re-run against a repository where §75 was **already committed** (`00ce9cd
+macun`, working tree clean). Nothing was re-registered. This pass re-derived every §75
+claim from the source and the file rather than reading them back, and records one
+correction.
+
+### State found, not created
+
+`IMAGES.matsun` present, `PENDING_ARTWORK = []`, ten Cuisine articles, ten illustrated,
+zero placeholders — verified by executing `src/lib/media.ts` and the locale bundles,
+not by reading them. Type distribution re-derived from `dishTypeId` in all three
+editions: `bread 2, main 2, meat 2, ceremonial 2, dessert 1, dairy 1`; `dairy` resolves
+to `["matsun"]` alone; no `drink` filter; nothing featured. Registry holds exactly ten
+`/images/cuisine/` entries, each path distinct and self-owned.
+
+### Asset re-verified twice
+
+A hand-written RIFF chunk walker and `sharp` were run independently and agree on every
+field: 397,682 bytes, SHA-256 `d8fc17ea6196c0bf74409be41d190e1aad98d5f3638c2b98127ebe8e2fbaec7f`,
+`RIFF/WEBP` → `VP8X` (flags `0x20`: ICC set; alpha, EXIF, XMP, animation clear) →
+`ICCP` (456 bytes) → `VP8 `, one lossy keyframe, sync `9D 01 2A`, 1584×993, ratio
+1.5952, three channels, eight bits, opaque, no orientation. The chunk walk ends at
+byte 397,682, exactly EOF, and the RIFF size field agrees with the file length. Still
+the only ICC-bearing file under `/images/cuisine/`.
+
+### Visual gate re-run
+
+The image was opened at full resolution and at 2× on the bowl. It reads as plain white
+set fermented dairy: no inclusions, a broken folded surface, a whey ring against the
+bowl wall, and a spoon lifting a lump that sits on the spoon with flat fracture faces
+and overhangs both sides. Spoonable, not pourable. No grain, no herbs, no fruit,
+granola, honey or parfait layer; no tub, lid, label or branded pot; no wellness,
+probiotic or clinical staging; no thermometer, pan or measuring cup; no flag, Ararat,
+khachkar or carpet; no steam. A contrast-boosted pass over the lower-left corner found
+linen weave, broken warp stripe and bread crumbs — no watermark, signature or lettering.
+
+Fresh 380 / 160 / 128 px strips were built against **spas, khash and harissa**. At
+128 px all four remain distinct: matsun plain white with a scoop taken out, spas
+green-speckled with grain, khash pale-golden broth, harissa beige-amber grain. The
+matsun/spas separation holds at every rendered size.
+
+Crops re-measured on the delivered 1584×993 rather than the commissioned geometry:
+16:10 trim 0.3 %, 3:2 5.9 %, 16:9 10.3 %, 4:3 16.4 %, narrow search 36.2 %, portrait
+mobile 53.0 %. Bowl, spoonful, set texture and whey ring survive all six; nothing
+degrades into an empty white bowl. No `object-position` needed.
+
+### Surfaces re-verified live
+
+Against a dev server on 3002, per locale: hero `src` is `/images/cuisine/matsun.webp`
+with localized alt (`Illustration for Matsun` / `Նկարազարդում «Մածուն» հոդվածի համար`),
+AI caption rendered, no placeholder caption. `og:image` and `twitter:image` both
+absolute `matsun.webp`; canonical unchanged. JSON-LD carries `Article` with
+`image: ImageObject → matsun.webp` and **no** `Product`, `Recipe`, `HowTo`,
+`NutritionInformation` or `FoodEstablishment` node. Sitemap parsed route by route:
+`/{en,hy,hyw}/cuisine/matsun` each carry exactly one `image:loc`, their own; spas
+routes still carry spas. Search returns matsun with its own thumbnail for `matsun`,
+`matzoon`, `Armenian matsun`, `matsoni` and `մածուն`. Listing renders ten cards and ten
+distinct covers. Related block is **spas + lavash + dolma** — the explicit link plus the
+Step 45 filler, unchanged.
+
+`isGeneratedArtwork` was read rather than assumed: `!article.image && getImageSrc(slug)
+!== undefined`. Matsun declares no own `image`, so registration alone flips it to
+generated Armat artwork in all three editions. `ARTWORK_PROVENANCE` untouched.
+
+### One correction made
+
+`src/lib/media.ts` recorded the ten Cuisine covers as totalling **1.60 MB**. The
+measured total is **1,739,688 bytes (1.66 MB)**, which is what the §75 table in this
+file already said. The comment figure was wrong and is now corrected to the measured
+bytes plus mean 169.9 KB and median 143.8 KB. Comment only — no behaviour, no asset,
+no registry change.
+
+### Results
+
+`npm run typecheck` clean. `npm run validate:content` clean, 150 entries across three
+locales. Focused `cuisine.spec.ts` **87/87 passed in 3.0 min**; the measured metadata
+test ran 29.6 s against the 30 s timeout — up from the 27.6 s recorded in §75 and now
+within 0.4 s of failing. **This is the one item that has materially worsened**, and it
+is owed to the next structural test-maintenance step; no timeout was raised and no
+`test.slow()` was added here. Full Playwright suite **351 passed, 5 skipped, 0 failed
+in 9.3 min**; the five skips are the pre-existing untranslated-article conditionals.
+`npm run build` exit 0, 159 static pages. Playwright and build were run separately,
+never overlapped; port 3002 was confirmed clear before and between runs.
+
+**No deployment occurred.**
+
+---
+
+## §76 — Cuisine #11 selected: Basturma (2026-08-26)
+
+Decision only. No article written, no taxonomy touched, no artwork commissioned.
+
+### How the candidate was chosen
+
+Two gap classes were measured against the ten-article section rather than guessed.
+
+**Internal demand** — terms named in existing cuisine prose that have no article of
+their own, counted with word boundaries per article:
+
+| Term | Mentions | Where |
+|---|---|---|
+| tan | 6 | spas only |
+| chortan | 4 | matsun only |
+| khashlama | 3 | khash only |
+
+Everything else that surfaced (wheat 38, yogurt 10, honey 8, dzavar 6, cheese 4) is an
+ingredient, not an article candidate.
+
+**One finding worth pinning, because it settles a standing question.** Tan is **never
+mentioned in the Matsun article** — all six mentions are in Spas. The §74/§75 note kept
+Tan as a future knowledge-graph opportunity on the reasoning that the Dairy cluster
+would pull it in. The prose does not support that: Tan's internal demand comes from a
+soup article, not from the dairy one. Adding Tan because Dairy exists would have been a
+taxonomy argument, not a content one. Tan stays deferred.
+
+**External demand** — never named anywhere in the section: basturma, sujukh, kufta,
+manti, lahmajun, choreg, pakhlava, ishkhan, topik, eech, aveluk, anoushabour,
+matnakash, tarhana.
+
+### The choice
+
+**Basturma.** Highest external search demand of any uncovered candidate, zero current
+coverage, and one of the few Armenian foods with global name recognition through the
+diaspora and the delicatessen trade. It has a concrete technical fact to build on — the
+chaman crust — rather than resting on atmosphere, and it opens a cured-and-preserved
+cluster that `chortan` (already named in matsun) can later join on earned prose rather
+than on category symmetry.
+
+Type impact: `meat` 2 → 3, section total 10 → 11. No new type. No `drink`.
+
+### Constraints carried into the writing step
+
+1. The Armenian/Turkish naming question is the same shape as Matsun/Matsoni and must be
+   handled the same way: names and records separated, **no invention claim in either
+   direction**, dispute described rather than adjudicated.
+2. Source vetting is stricter here than for most dishes, because much of what is
+   written about basturma online is commercial or nationalist. The standing rule holds:
+   no denialist or hostile material, and a valid ISBN does not make a source
+   acceptable.
+3. Curing is food-safety-adjacent. Explain the process; **do not publish a method**
+   readers could follow — the same line khash and matsun hold between explanation and
+   recipe.
+4. No health/probiotic-style framing, no `Recipe`/`HowTo`/`Product` schema.
+
+### Alternatives considered and why they lost
+
+**Manti** was the strongest structural candidate — served with matsun and broth, so it
+would earn reciprocal links to both Matsun and Spas from prose rather than taxonomy.
+Held as the leading #12 candidate. **Choreg** overlaps the lavash/gata baked-goods
+territory. **Anoushabour** would balance the thin `dessert` type but has the weakest
+external demand. **Ishkhan** is the only candidate that cross-links into Places (Lake
+Sevan) — a real structural win — but it is an endangered endemic species, and that
+needs an editorial position decided before drafting, not during it. Recorded as open.
+
+**No deployment occurred.**
+
+---
+
+## §77 — Cuisine #11: Basturma, written after a live SERP audit (2026-08-26)
+
+The eleventh Cuisine article, and the section's first about **preserving** food rather
+than cooking it. Written ahead of its picture, so `PENDING_ARTWORK` is non-empty for
+the seventh time.
+
+### Pre-change state, read from source
+
+Ten articles, ten illustrated, `PENDING_ARTWORK = []`, distribution `bread 2, main 2,
+meat 2, ceremonial 2, dessert 1, dairy 1`, nothing featured — verified by executing the
+bundles rather than by reading PROJECT_STATE. After: **eleven articles, ten
+illustrated, one pending**, distribution `bread 2, main 2, meat 3, ceremonial 2,
+dessert 1, dairy 1`. No new type; `drink` and `preserved` both refused and both pinned
+by test.
+
+### Phase A — what the live SERP actually showed
+
+Searched across `basturma`, `what is basturma`, `Armenian cured meat`, `basturma vs
+pastirma`, `apukht`, `բաստուրմա` and the transliteration variants. No keyword-volume
+tool was available, so **volume unavailable** — no monthly searches, CPC, difficulty or
+traffic figures are estimated anywhere below.
+
+Composition of the English results: **recipe and DIY-curing pages dominate**
+(Instructables, UMAi Dry, 2 Guys & A Cooler, Saveur's "make your own", PopSci's DIY),
+followed by sellers, then food blogs, with one encyclopedic result and one genuine
+cultural source (Smithsonian Folklife). Two structural findings:
+
+1. **Wikipedia's article is titled `Pastirma`, not `Basturma`.** The entity a reader
+   searching the Armenian spelling lands on is filed under the Turkish one.
+2. **The definitional query is under-served.** Almost everything ranking is either "how
+   to make it" or "buy it". Nothing explains what the food *is*, how curing works, or
+   what the historical record supports.
+
+That is the gap, and it set the SEO title: `What Is Basturma? Armenia's Air-Dried Cured
+Beef` — the house pattern already used by khash and matsun, aimed at entity plus
+definition plus culture, not recipe or commercial intent. Visible H1 stays `Basturma`.
+
+### SERP misinformation found, and refused
+
+* **"First recorded between 95–45 BC under Tigranes the Great."** Repeated across
+  tourism and food pages. It names no source, the trail ends at recipe blogs, and it
+  **misstates the reign it invokes** — Tigranes II ruled 95–55 BC. Refused in prose.
+* **The saddle legend.** Told of *Armenian* horsemen on Armenian pages and of *Turkic*
+  warriors on Turkish ones, with the same details and no source on either side. Recorded
+  as folklore, with that symmetry stated — it is the article's sharpest evidentiary
+  observation and appears in `interestingFacts`.
+* **`apukht` = ancient basturma.** Wikipedia asserts "Basturma existed in ancient
+  Armenian cuisine, where it was known as aboukh". Refused; see below.
+* **GI status.** Several pages report Armenia's geographical-indication protection as
+  registered or applied-for. The source says **discussions are under way** (deputy
+  economy minister Narek Hovakimyan, parliamentary committee, 24 March 2025). The
+  article says discussions.
+
+### The apukht finding — the article's central evidentiary move
+
+`ապուխտ` is Classical Armenian, from **Pahlavi `apuxt`, "uncooked"** (`a-` + `puxta`,
+cooked) — an *Iranian* loan, not a Turkic one, in Armenian long before Turkish was
+spoken in Anatolia. Attested in the **fifth-century Armenian Bible translation** meaning
+salted and dried meat. Armenian lent it outward: Georgian `apukhti`, Polish `abucht`
+through the Armenians of Poland; internally it forms `խոզապուխտ`, ham.
+
+The dictionary sense is **flat strips of cattle *or sheep* meat, salted, beaten and
+air-dried without cooking, eaten raw** — a category, with **no spice crust in the
+definition at all**. Modern basturma is one member of that category, distinguished
+precisely by what the definition omits. So the fifth-century attestation is real and
+establishes that Armenians had a word for salted dried meat in late antiquity; it does
+**not** establish the fenugreek-coated product. Pages reporting the fifth-century date
+under the heading "basturma" have swapped a category for one of its members.
+
+### The Byzantine question, left plural
+
+Three Byzantinists read the same Greek words three ways: **Koder** — `paston` as salted
+meat *or* salted fish, `akropaston` as salted meat; **Dalby** — `paston` as salted fish;
+**Nagy** — `akropaston` as smoked. The Oxford Companion to Food and the Oxford
+Encyclopedia of Food and Drink both record a Byzantine forerunner, and that position is
+reported *as a position*. No `A → B → modern basturma` chain is drawn, because the
+specialists do not agree on what A meant.
+
+Etymology of the name itself is strong and stated: Ottoman Turkish `pastırma`, verbal
+noun of `bastırmak`, to press — named for the weight, not the spice. The article states
+the principle that governs the whole section: **a name can travel without its technique,
+and a technique without its name.**
+
+### Kayseri — specialism, not origin
+
+Rewritten once its sources were actually read. The anchor is **Evliya Çelebi's
+seventeenth-century Seyahatname**, recording Kayseri's cumin-flavoured beef pastirma as
+found nowhere else and sent to Istanbul as a gift — a dated observation from a named
+writer, quoted at one remove and attributed as such. Armenians dominated the trade there
+by the nineteenth century; Philip Mansel records Armenians selling pastirma in Istanbul
+from the seventeenth century. **Krikor Apikoğlu** founded a pastirma house in Kayseri in
+**1910**, moved production to Istanbul in **1920**, and the firm became the republic's
+first nationwide meat company. An earlier draft rested on a British Foreign Office
+report of 1893 taken from an encyclopedia paraphrase; it was replaced rather than kept.
+
+### Diaspora, and the food-safety boundary
+
+The post-1915 dispersal carried the craft to Aleppo, Beirut, Cairo, Athens and
+Thessaloniki, later to France and the United States. The Smithsonian Center for Folklife
+documents a shop in Little Armenia, Los Angeles whose proprietor learned the work from
+family makers in Armenia and Lebanon — a two-step route that is the history in
+miniature. Displacement is treated as movement of communities and continuation of
+practice; no graphic detail.
+
+Preservation is explained conceptually — water activity rather than water content, salt
+drawing water osmotically, pressing removing more mechanically, air doing the slow part
+— and **no parameter appears anywhere**: no salt proportion, drying time, temperature or
+humidity. The article states its own boundary, and refuses the "salt kills everything"
+line explicitly, saying traditional curing does not sterilise meat. Tests enforce all of
+this against the rendered page.
+
+### Decisions recorded
+
+* **Chaman** does double duty in Armenian — the ground fenugreek *and* the paste built
+  on it. Stated rather than silently merged. Composition presented as varying; no single
+  mixture given as standard. Fenugreek's insect-deterrent role is noted as kitchen
+  practice, not as a health claim.
+* **Pastrami** is a linguistic cousin, not a descendant: Turkish → Romanian `pastramă` →
+  New York with Romanian Jewish immigrants, where the food was rebuilt around brisket,
+  brine and smoke. One paragraph, not a thesis.
+* **Sujuk** is named in prose to bound the subject (whole muscle vs. sausage) and
+  deliberately **not** added to `relatedSlugs` — a test pins that a nonexistent slug is
+  never linked. Recorded as a future *Armenian preserved meats* cluster with basturma.
+* **Everyday and festive both**, because the constraint is cost and keeping rather than
+  occasion — an expensive product bought in small amounts and cut thin.
+* **Petrosian & Underwood not cited**, for the fifth consecutive article: concentration
+  holds at **5 of 11** rather than 6 of 11. It supplies nothing here unavailable from
+  stronger evidence.
+* **Ačaṙyan listed with a qualification.** `nayiri.com` refused connection throughout
+  this step, so the `ապուխտ` entry was **not** read page-by-page the way `մածուն` was in
+  §75. The volume is listed as the underlying authority; the etymology the article states
+  is Matiossian's, corroborated by the Armenian Wiktionary entry and the explanatory
+  dictionary sense. Recorded so a later step can close the gap rather than inherit an
+  unearned claim.
+* **No cross-category link.** The Tigranes claim is refuted in prose, but a relation to
+  the Tigran the Great article would rest on a *false* claim, which is not a historical
+  relationship. "No cross-category link" was the honest answer.
+
+### Relations and filler
+
+Authored: `["lavash", "khorovats"]`, each carried by a `SectionLink` in the paragraph
+that earns it — lavash because the article describes what basturma is eaten with,
+khorovats because the closing paragraph turns on fire versus salt-and-air as two
+opposite answers to the same animal. Filler measured identically in all three editions:
+**`dolma`**. `getRelatedArticles` unmodified.
+
+### Artwork — pending, with the commission recorded
+
+No dedicated file exists, so `basturma` is in `PENDING_ARTWORK` and absent from `IMAGES`.
+The commission is written beside the entry in `media.ts`: thin slices of dark red cured
+beef with a visible reddish-brown chaman crust, beside a whole or part-sliced piece, on a
+simple board; preferred 1586×992. Two refusals matter more than the brief — **it must
+not read as khorovats** (nothing grilled, no skewer, no char) and **it must not read as
+raw meat** (dried and matte, not the wet sheen of a fresh steak). `khorovats.webp` and
+`khash.webp` are named as the files a careless registration would reach for, and a test
+pins that neither is borrowed.
+
+### §63 — the Cuisine test-scaling debt, resolved rather than deferred
+
+§75 measured the metadata test at **29.6 s against a tripled 30 s budget** — 0.4 s of
+headroom with the eleventh dish already written. Raising the budget a fourth time was
+refused: growth is linear in section size and another multiplier only moves the cliff.
+
+Split along the line between what needs a browser and what never did, taking nothing
+away — every assertion survives over the same three editions and now eleven dishes:
+
+| | Before | After |
+|---|---|---|
+| field-level checks | 33 navigations | **0** — pure data test, **152 ms** |
+| rendered checks | 1 test, 33 loads in series | 3 per-locale tests, 11 loads each, concurrent |
+| measured | 29.6 s / 30 s, `test.slow()` | **9.4 / 10.3 / 9.7 s**, `test.slow()` dropped |
+
+Focused `cuisine.spec.ts` went from 87 tests in 3.0 min at ten articles to **100 tests in
+2.6 min at eleven** — the split more than absorbed the new article. Slowest test in the
+file is now 11.5 s. This is the same fix already applied a few tests above for the same
+reason, so it matches existing convention rather than inventing one.
+
+### Tests
+
+Added eleven basturma tests covering: the eleventh-dish corpus and full type
+distribution; no new type and no `drink`/`preserved`; dairy still matsun alone; no
+reclassification; SEO fields, canonical and hreflang in three editions; ten search
+queries including Armenian and the transliteration variants; the claim tests (Tigranes,
+saddle, invention in both directions, apukht, Byzantine plurality, Kayseri); the
+food-safety and health tests; plain `Article` with no Recipe/HowTo/Nutrition/Product/
+FoodEstablishment/Offer; pending-artwork in the mirror-image of the §75 registration
+test; earned relations with no `sujuk`; the bibliography; and the regression that nothing
+else moved.
+
+Existing counts updated where a deliberate addition made them untrue — meat 2→3 in three
+places, the meat filter 2→3, listing counts to `SLUGS.length`, `places.spec.ts` cuisine
+11 and `visit.spec.ts` cuisine 11. Each of those is a hand-maintained figure whose stated
+job is to go red when a section grows; none was weakened or derived away. The
+`visit.spec.ts` comment log had fallen two steps behind its own number (§72 and §74 moved
+the figure silently); §77 brings both current.
+
+### Commands and results
+
+`npm run typecheck` clean. `npm run validate:content` clean — **153 entries** across
+three locales, up from 150. Focused `cuisine.spec.ts` **100/100 in 2.6 min**. Full
+Playwright suite **362 passed, 5 skipped, 2 failed in 14.7 min**. `npm run build` exit 0,
+**162 static pages**, up from 159.
+
+**Both failures, reported rather than smoothed over**, are
+`places.spec.ts:379` `[hy]` and `[hyw]` — `page.goto` timeouts on
+`/hy|hyw/places/dilijan-national-park`. Evidence gathered before classifying, per the
+process rule: free memory 4.7 GB of 15.9 GB (not exhaustion); the page snapshot shows the
+route rendering correctly; `[en]` passed; `places.spec.ts` passed **83/83 in isolation**
+on this exact code; and on re-run all three pass — but `[hy]` and `[hyw]` take **20.5 s
+and 20.6 s of a 30 s budget** against `[en]`'s 7.6 s. Cold-compile cost on Places routes
+under two workers, unrelated to this change, which touched no Places file.
+
+One earlier full run produced ~77 broad failures across untouched files (article, brand,
+locale, places) with routes returning **404**. That was diagnosed, not assumed: memory was
+measured and was fine, untouched routes were failing, and clearing `.next` with the server
+stopped resolved it completely. It was stale dev-server state, not Turbopack memory
+exhaustion and not the content change.
+
+### Technical debt carried forward
+
+1. **`places.spec.ts:379` is the next scaling cliff** — 20.5 s of 30 s on a cold cache,
+   and it is what actually failed the full run. It is the Places analogue of the Cuisine
+   test just fixed, and it should get the same per-locale split.
+2. **`places.spec.ts:3203` is now the suite's slowest test at 1.1 m** — the Places
+   analogue of the metadata test, same linear growth, same fix available.
+3. **Basturma artwork is owed** and is the next step.
+4. **`nayiri.com` was unreachable**, so the Ačaṙyan `ապուխտ` entry is cited but unread;
+   a later step should read the scan and close the note.
+5. **`hyw` still needs native review** — the backlog is unchanged, and this article adds
+   to it.
+6. Standing: media-optimisation debt, the Places photographic/painterly register split.
+
+### What was not done
+
+No artwork created. No Sujuk, no Matnakash, no Cuisine #12. Dairy untouched and `drink`
+not added. Matsun content, artwork, SEO, ICH distinction, relations and metadata all
+unmodified. `PLACE_COORDINATES`, `VisitMap`, `map-cluster.ts`, `visit-map.ts`,
+`map-tiles.ts`, Places content, Places artwork and Visit curation all unmodified — the
+map still reports 13 Places, 2 groups, 7 individual markers, 0 covered centres.
+`getRelatedArticles` and `ARTWORK_PROVENANCE` unmodified. `.claude/settings.json`
+unmodified. Previous steps not rewritten. The five source files carry **zero deletions**;
+only the test files were edited in place.
+
+**No deployment occurred.**
+
+---
+
+## §78 — Basturma artwork verified and registered (2026-08-26)
+
+Cuisine is fully illustrated again: eleven articles, eleven covers, no placeholder.
+`PENDING_ARTWORK` is empty for the seventh time.
+
+### Pre-registration state, read from source
+
+Eleven articles, ten illustrated, `PENDING_ARTWORK = ["basturma"]`, distribution
+`bread 2, main 2, meat 3, ceremonial 2, dessert 1, dairy 1`, nothing featured;
+`getImageSrc("basturma")` undefined and `isGeneratedArtwork` false. Verified by
+executing the bundles rather than by reading this file. **No discrepancy** — the
+expected state and the actual state agreed on every point.
+
+### Asset
+
+`public/images/cuisine/basturma.webp`, registered exactly as delivered — unaltered,
+uncropped, unoptimised, unrenamed.
+
+* **1586 × 992**, ratio 1.5988 — the house geometry with **zero drift**, the first
+  time in four Cuisine registrations that has been true (§73 khash 1585×992, §75
+  matsun 1584×993).
+* **243,844 bytes** (238.1 KB).
+* SHA-256 `e88f33e270f580550e96adc26644fac98e282d94c26502b3d339ff9150890cb5`.
+* `RIFF/WEBP` → `VP8 ` only. **No `VP8X`**, so no ICC, alpha, EXIF, XMP or animation
+  chunk, and no orientation tag. One lossy VP8 keyframe, sync `9D 01 2A`, three
+  channels, eight bits, opaque. The chunk walk ends at byte 243,844, exactly EOF,
+  with the RIFF size field agreeing with the file length.
+* This returns the section to the plain container the other nine use and leaves
+  `matsun.webp` the only ICC-bearing file under `/images/cuisine/`.
+
+Verified twice — a hand-written RIFF chunk walker and `sharp` — which agree on every
+field.
+
+### Visual acceptance — passed
+
+A whole part-sliced loin on a dark grained board under a thick, dry, granular
+rust-brown chaman crust, with loose crumbs of it shed onto the board; its cut face and
+five thin fanned slices show a deep burgundy interior webbed with fine pale connective
+tissue, each slice ringed by the same crust. Behind: folded lavash, a small bowl of
+ground red spice, a bowl of garlic bulbs, a brown jug with a dark lattice band. Right:
+linen with a woven red stripe and a sprig of thyme. Soft neutral daylight from the
+right.
+
+| Audit | Result |
+|---|---|
+| vs **Khorovats** | Decisive at every size. Khorovats is skewers, char, coals and firelight; this is a board, a crust and cool daylight — no flame, skewer, grill mark or smoke. |
+| vs **raw meat** | Matte burgundy, not fresh-steak red; dry, no wet sheen, no blood, no translucency, no pooling. |
+| vs **Sujuk / sausage** | One whole muscle, oval section, no casing, no tied end, no mince, no cylinder. |
+| whole/slice correspondence | Same interior colour, crust thickness and webbing character; cut faces plausibly come off the exposed end; thickness consistent. Five slices individually distinct, not cloned; each with its own contact shadow. |
+| chaman | Dry, matte, granular, rust-brown, adhered — not glaze, sauce or curry. Survives every crop including the narrowest. |
+| cured texture | Compact fibre, dry slice edges, natural variation. No plastic smoothness, no fake marbling, no cloned patterns. |
+| slice thickness | Thin, hand-cut variation, clearly slices — not steaks, cubes or chunks. |
+| serving context | Board, linen, ceramic, lavash. Simple and specialty rather than luxury charcuterie. |
+| bread / lavash | Present, secondary, never dominant; the meat reads without it. |
+| charcuterie board | No cheese, grapes, olives, nuts, crackers or elaborate pickles. One thyme sprig, secondary. |
+| alcohol | None — no bottle, glass or pairing staging. |
+| recipe / curing | No raw meat, curing rack, thermometer, timer, scale or labelled ingredients; no raw-to-finished progression. |
+| food-safety neutrality | Nothing reads as DIY curing guidance. |
+| health marketing | None — no fitness, protein, keto or nutrition styling. |
+| Armenian context | No flag, Ararat, khachkar, monastery, map or carpet. Identity comes from the food and the table. |
+| knife / utensils | None in frame. |
+| board / tableware | Coherent perspective, contact shadows correct, no warping, fusing, floating or repeated props. |
+| text / branding | None. Jug band is an abstract diamond lattice, linen a plain woven stripe; a contrast-boosted pass over the corners found no watermark or signature. |
+| colour / exposure | Interior dark ruby, crust rust-brown, no neon, no orange cast, no crushed blacks, coating detail intact. |
+| lighting | Soft neutral daylight; reveals density, crust texture and slice edges. No commercial gloss, no spotlight, no firelight glow, no steam. |
+| visual register | Realistic food photography — fits the Cuisine family exactly. |
+
+**One item assessed rather than waved through.** The bowl of ground spice and the bowl
+of garlic are the closest this frame comes to the §15 ban on recipe staging. Both are
+defocused background props; there is no raw meat, no salt bowl, no scale, thermometer,
+timer, curing rack or measured lineup, and nothing implies a sequence. They read as
+flavour context beside a finished product. The accept is deliberate and recorded so a
+later reader can disagree with it knowingly.
+
+### Crops — all six survive
+
+| Crop | Geometry | Trim | Result |
+|---|---|---|---|
+| 16:10 | 1586×991 | 0.1% | whole frame |
+| 3:2 | 1488×992 | 6.2% | intact |
+| 16:9 | 1586×892 | 10.1% | intact |
+| 4:3 | 1323×992 | 16.6% | intact |
+| narrow search | 1586×634 | 36.1% | loin, cut face, four slices, crust — intact |
+| portrait / mobile | 744×992 | 53.1% | **strongest framing of all** — crust dominant, cut face and slices full height |
+
+Nothing degrades into generic red meat, only bread, only board or only coating. No
+`object-position` needed.
+
+Thumbnail comparison against khorovats, khash and harissa at 380 / 160 / 128 px: at
+128 px basturma reads as dark red slices beside a brown log, khorovats as browned chunks
+over coals, khash as pale-golden broth, harissa as beige-amber grain. It does not read
+as raw steak at any size. Checked against all ten other covers on one contact sheet — no
+reuse, no subject duplication.
+
+### Registration
+
+`basturma: "/images/cuisine/basturma.webp"` added to `IMAGES` after matsun, in section
+order, through the generic pipeline — no basturma-specific or meat-specific media logic,
+no new fields, no new provenance infrastructure. Removed from `PENDING_ARTWORK`, which
+is now **empty for the seventh time**.
+
+`isGeneratedArtwork` was read rather than assumed — `!article.image && getImageSrc(slug)
+!== undefined` — and basturma declares no own `image`, so registration alone flips it to
+generated Armat artwork in all three editions. `ARTWORK_PROVENANCE` untouched.
+
+### Surfaces verified live, per edition
+
+Hero `src` is `/images/cuisine/basturma.webp` with localized alt (`Illustration for
+Basturma` / `Նկարազարդում «Բաստուրմա» հոդվածի համար` / `Պատկերազարդում՝ Բաստուրմա`),
+AI caption rendered and localized, **zero placeholder SVGs**, and no other dish's cover
+in the hero. `og:image` and `twitter:image` both absolute `basturma.webp`.
+`Article.image` → `ImageObject` → `basturma.webp`. JSON-LD types are exactly `Article`,
+`BreadcrumbList`, `Organization`, `WebSite` — no `Product`, `Recipe`, `HowTo`,
+`NutritionInformation` or `FoodEstablishment`.
+
+Sitemap parsed route by route: each of `/{en,hy,hyw}/cuisine/basturma` carries exactly
+one `image:loc`, its own; khorovats routes still carry khorovats; three occurrences
+total, one per edition. Listing renders **11 cards, 11 distinct covers, 0 placeholders**.
+Search returns basturma with its own thumbnail for `basturma`, `bastourma`, `pastirma`,
+`Armenian basturma`, `apukht`, `բաստուրմա` and `ապուխտ`.
+
+### Regressions
+
+SEO, evidence model, translations and relations all unchanged — registration touched no
+article field. Relations remain `["lavash", "khorovats"]` with SectionLinks on the same
+two, and rendered filler is still `dolma` in all three editions; `getRelatedArticles`
+unmodified. Cuisine total 11 with the §77 distribution intact; `dairy` still Matsun
+alone; no `drink`; nothing featured; nothing reclassified. Matsun's article, artwork,
+SEO, ICH handling, relations and metadata all untouched. The ten pre-existing covers
+resolve to their exact paths and all eleven are distinct. Places, Visit and the map are
+absent from the diff entirely — the map still reports 13 Places, 2 groups, 7 individual
+markers, 0 covered centres.
+
+### Artwork performance
+
+| File | Bytes | KB |
+|---|---|---|
+| matsun | 397,682 | 388.4 |
+| **basturma** | **243,844** | **238.1** |
+| spas | 203,194 | 198.4 |
+| jingalov-hats | 194,240 | 189.7 |
+| khorovats | 155,340 | 151.7 |
+| gata | 149,570 | 146.1 |
+| ghapama | 144,904 | 141.5 |
+| khash | 135,762 | 132.6 |
+| lavash | 122,540 | 119.7 |
+| harissa | 121,874 | 119.0 |
+| dolma | 114,582 | 111.9 |
+
+Eleven files, **1,983,532 bytes (1.89 MB)**, mean 176.1 KB, median 146.1 KB. Basturma is
+the **second-heaviest** Cuisine asset, past spas and well behind matsun, which stays the
+outlier at 1.63× it. It joins the existing heavy tier rather than opening a new one.
+Measured and recorded only; nothing was optimised.
+
+### §44 — Cuisine test-scaling, checked not assumed
+
+Step 47 split the metadata test in two. Inspected before running anything broad: **no
+`test.slow()` anywhere in `cuisine.spec.ts`** (the phrase survives only in a comment
+explaining its removal) and **no per-test timeout overrides**. Coverage is intact — every
+assertion still runs over three editions and eleven dishes.
+
+Measured with eleven illustrated articles: the data half **132 ms**, the three rendered
+halves **11.1 / 11.3 / 13.8 s** against the plain 30 s budget — roughly 16 s of headroom.
+Registration added image loading and moved them from ~9–10 s to ~11–14 s, which the
+split absorbs comfortably. Focused `cuisine.spec.ts` ran **103 tests in 3.3 min**. No
+timeout was raised and none is needed.
+
+### Tests
+
+The §77 pending test was **inverted rather than deleted**, the way §69, §71, §73 and §75
+each inverted the one before: `basturma owns its artwork in every edition, and borrows
+nobody else's` now asserts the raster where the placeholder was, the AI caption where
+the placeholder caption was, out of `PENDING_ARTWORK` where it was in, and the archive
+empty again. Added alongside it: `basturma gained a picture and no product or recipe
+markup with it` (schema plus `Article.image`, OG, Twitter and per-route sitemap), `the
+basturma search result carries its own thumbnail`, and `registering basturma changed no
+other dish's artwork, type or relations`.
+
+`ILLUSTRATED` gained basturma, `ARTWORK` gained its path, `PENDING` returned to empty.
+Three assertions elsewhere had to move because registration inverted them, each updated
+rather than weakened: the matsun test's archive-wide pending claim (empty → `[basturma]`
+→ empty, a line that has now moved three times and is kept precisely because it does),
+the §77 `Article.image`-absent assertion, and `places.spec.ts`'s registry snapshot, which
+has now gone red on **every** Cuisine registration and been extended each time.
+
+### Commands and results
+
+`npm run typecheck` clean. `npm run validate:content` clean, 153 entries across three
+locales, and the "1 slug has no artwork" note is gone. Focused `cuisine.spec.ts`
+**103/103 in 3.3 min**. Focused `places.spec.ts` **84/84**. Full Playwright suite
+**367 passed, 5 skipped, 0 failed in 14.0 min**. `npm run build` exit 0, 162 static pages.
+Playwright and build never overlapped; port 3002 confirmed clear before each run.
+
+### The root cause of the broad failures, finally identified
+
+Two full-suite runs in this step (and the comparable incident in §77) produced dozens of
+failures across untouched files, with valid routes returning 404 or 500. Memory was
+measured each time and was never the problem — 3.6–4.7 GB free of 15.9 GB.
+
+The cause is now known exactly, and it was **self-inflicted tooling, not the content**:
+saving rendered page HTML into `scratchpad/` poisons Tailwind's content scan. A dump of a
+Next.js page contains class names split across `</script><script>self.__next_f.push([1,"`
+boundaries; Tailwind reads the fragment as a utility class and emits invalid CSS, so
+`globals.css` fails to parse and **every route 500s**.
+
+It was proved rather than guessed: with the dumps present, `hy` and `hyw` returned 500
+with a PostCSS parse error naming the mangled selector; deleting them and restarting gave
+`en` 200; writing a single new dump immediately re-broke `hy`/`hyw`; writing the dumps
+outside the repo instead gave all three 200. `scratchpad/` is tracked, not gitignored, so
+Tailwind scans it.
+
+This retroactively explains the §77 incident and the earlier ones in this step, and it
+means "clear `.next`" worked only because the poisoning artifacts happened to be gone by
+then. The real rule is narrower and permanent: **never write rendered HTML inside the
+repo.**
+
+### Technical debt carried forward
+
+1. **`scratchpad/` is inside Tailwind's content scan and is not gitignored.** Any future
+   session that saves a page dump there breaks every route until it is removed. Worth
+   either gitignoring the directory or excluding it from the Tailwind content globs —
+   deliberately not changed here, because this step is artwork registration only.
+2. **`places.spec.ts:379`** remains the next scaling cliff (~20 s of a 30 s budget on a
+   cold cache) and **`places.spec.ts:3203`** the slowest test in the suite; both are the
+   Places analogues of the Cuisine test §77 fixed, and both should get the same
+   per-locale split.
+3. **`nayiri.com` was unreachable in §77**, so the Ačaṙyan `ապուխտ` entry is cited but
+   unread; a later step should read the scan and close the note.
+4. **`hyw` still needs native review.**
+5. Standing: media-optimisation debt (now 1.89 MB across eleven Cuisine covers), and the
+   Places photographic/painterly register split.
+
+### What was not done
+
+Basturma article content unmodified. Cuisine taxonomy unmodified. `dairy` unchanged and
+no `drink` added. No Sujuk. No Cuisine #12. Places, Visit, map clustering, coordinates
+and Visit curation all unmodified. The supplied image was not optimised, resized,
+cropped, recoloured, renamed, regenerated or replaced. `ARTWORK_PROVENANCE` and
+`getRelatedArticles` unmodified. `.claude/settings.json` unmodified. Step 47 not
+rewritten.
+
+**No deployment occurred.**
+
+---
+
+## §79 — Cuisine #12: Manti, written after a live SERP audit (2026-08-27)
+
+Cuisine reaches twelve articles. Manti is the third `main` dish, the first article
+in the section whose home is outside the Republic of Armenia, and the first whose
+loudest origin claim could be traced to a specific book rather than only dismissed
+for lacking a source.
+
+`PENDING_ARTWORK` reopens for the sixth time in this section: the article ships on
+the generated placeholder.
+
+### Pre-change state, read from source
+
+Eleven articles in all three editions — lavash, dolma, khorovats, harissa, gata,
+ghapama, spas, jingalov-hats, khash, matsun, basturma — eleven registered covers,
+`PENDING_ARTWORK` empty, distribution `bread 2, main 2, meat 3, ceremonial 2,
+dessert 1, dairy 1`, nothing featured. Verified against the bundles and the
+registry, not against this file. **No discrepancy.**
+
+### Phase A — live SEO/SERP research
+
+Fourteen live searches plus nine page fetches, in English, Armenian and Western
+Armenian, covering `manti`, `Armenian manti`, `what is Armenian manti`, `Armenian
+dumplings`, `Armenian baked dumplings`, `sini manti`, `sulu manti`, `boraki`,
+`մանթի`, the Smithsonian material, the etymology literature, the Ottoman
+chronology, and the `mante`/`monta` variants. Three fetches failed and are
+recorded as failures rather than paraphrased: `folklife.si.edu` returned HTTP 403,
+`hy.wikipedia.org/wiki/Մանթի` returned 404 (no Armenian Wikipedia article exists),
+and `cbc.ca` returned 403.
+
+**Search volume: unavailable.** No monthly volume, CPC, keyword difficulty or
+traffic figure appears anywhere in this step.
+
+**Dominant intent: recipe, overwhelmingly.** Of roughly thirty distinct result URLs
+observed, about twenty were recipes or family food blogs (mission-food, osharak,
+cupofyum, noregrettispaghetti, thestuffedgrapeleaf, armeniandish, erinobrien,
+momsdinnerbell, larahadi, heghineh, elenskitchen, cooks.am, wordloaf, aish). The
+non-recipe remainder was small: one encyclopedia entry, two food-media explainers
+(Tasting Table, Pantry Pursuits), two Smithsonian pages, one diaspora community
+publication (Armenian Mirror-Spectator), one travel guide, one Turkish food-history
+column, video results, and commercial restaurant listings. **No page found answers
+the entity question directly.**
+
+**Primary entity: Armenian Manti**, with `What is Armenian manti?` as the secondary
+explanatory intent. Visible H1 stays `Manti`. `Armenian dumplings` is used as a
+descriptive gloss inside the article and as a search variant, never as the title.
+
+**Content gap.** Every strong result explains how to make manti. None explains what
+distinguishes the Armenian form, none traces the origin story that all of them
+repeat, and none acknowledges that Armenian practice itself contradicts the
+"always baked" universal they carry. Those three are Armat's differentiation, along
+with the Western Armenian/diaspora framing and the matsun relationship.
+
+**SEO title chosen:** `What Is Armenian Manti? The Baked Open Dumpling` (en),
+`Ի՞նչ է հայկական մանթին. բաց ու թխած խմորագունդը` (hy),
+`Ի՞նչ է հայկական մանթին. բաց ու թխուած խմորագունդը` (hyw). The candidate
+directions offered in §8 were all discarded for leading with "Baked Dumplings,
+History and Culture", which reads as a listicle; the chosen form asks the question
+the SERP does not answer and names the distinguishing feature.
+
+**Armenian SEO.** Armenian-language results are recipe pages and video, and the
+spelling is settled: **մանթի** in both standards. `մենթի` and `մանթը` returned
+nothing usable and are not in the keyword sets. One finding shaped the article:
+Armenian-language recipe sites inside Armenia routinely describe **steamed** manti
+in the larger post-Soviet manner, which is not the diaspora dish under the same
+name.
+
+### Cuisine after the change
+
+Twelve articles. `bread 2, main 3, meat 3, ceremonial 2, dessert 1, dairy 1`.
+No new taxonomy value — `dumpling`, `filled-dough`, `pastry` and `drink` all
+refused. Dairy is still matsun alone. Nothing featured.
+
+### Article
+
+Eleven sections, thirty-three body paragraphs, in all three editions with identical
+structure. Section ids in order: `what-armenian-manti-is`, `the-open-baked-form`,
+`dough-filling-and-the-crisp-edge`, `broth-and-matsun-at-the-table`,
+`a-dish-made-by-many-hands`, `a-western-armenian-food`, `the-cilician-claim`,
+`manti-across-a-wider-region`, `the-word-and-what-it-proves`, `carried-and-kept`,
+`manti-in-armenia-today`.
+
+**Definition.** Small wheat-dough dumplings with a ground-meat filling, pinched
+open along two sides into boat shapes, packed upright on a tray, baked in dry heat
+until the standing edges brown and harden, then flooded with hot broth and topped
+with garlic-beaten matsun and sumac.
+
+**The open baked form — and the refusal of "always".** This is the article's
+central move. The claim circulating in English, including in the encyclopedia
+entry, is that Armenian manti is *always* baked and *never* boiled or steamed,
+unlike every other regional variety. The article carries that sentence only inside
+the frame that examines it, and refuses it on Armenian evidence: **sulu manti** is
+Armenian, closed rather than open, and simmered in broth; and Armenian-language
+recipe sites in the Republic give steamed manti. The formulation adopted is
+"a characteristic and widely documented Armenian style", and the article says
+outright that it "describes a form, not a border".
+
+**Dough, filling, baking.** Thin unleavened wheat dough, usually with egg, stated
+conceptually with no ratios. Filling is ground lamb or beef with onion and
+seasoning; lamb usual in older Western Armenian accounts and the Levantine
+diaspora, beef at least as common now, mixtures ordinary, vegetarian lentil and
+chickpea versions noted as real rather than as substitutes. Baking is explained by
+mechanism — dry heat drives water off the exposed dough so its surface passes the
+boiling point and browns and sets, which water and steam cannot do — with no
+temperature and no time anywhere on the page.
+
+**Broth.** Treated as variable and said to be variable: poured over the tray in
+many versions, served alongside in others, omitted in others, with tomato common
+in the Levantine form. No preparation instructions.
+
+**Matsun.** Garlic-beaten matsun is described as the constant that broth is not,
+and the article refuses the "Greek yogurt" gloss explicitly while acknowledging
+that diaspora recipes written for English-speaking kitchens use yogurt or labneh as
+reasonable substitutes. This earns the `manti → matsun` relation and a real
+SectionLink in the paragraph that carries it.
+
+**Communal preparation.** Documented rather than romanticised: the practice is
+attributed to named diaspora accounts, including Andrew Janjigian's description of
+his family's women gathering at Aunt Esther's house to shape and freeze trays for
+Christmas Eve. The article states in the same section that this is not a
+description of how all Armenians live and that freezers, food processors and bought
+dough have changed it within living memory.
+
+**Western Armenian context.** Defined geographically and historically — the
+Armenians of the western, Ottoman half of the historic lands, and the towns of
+Anatolia and Cilicia — and explicitly *not* as a synonym for Armenians abroad, with
+"an Armenian family in Moscow or Rostov is not Western Armenian" as the stated
+counter-example. Anchored to Liana Aghajanian's Smithsonian Folklife Festival piece
+and to the Aintab material.
+
+**Cilician claim — result.** Not asserted, and not merely omitted: **traced**. The
+sentence that manti reached Cilician Armenia through Armenian-Mongol contact in the
+thirteenth century, and that Turkic peoples then learned it from Armenians, appears
+on nearly every English page about Armenian manti, almost always unsourced and
+occasionally credited to an unnamed "Armenian researcher". It goes back to Irina
+Petrosian and David Underwood's *Armenian Food: Fact, Fiction & Folklore* (2006)
+and travelled from there through an encyclopedia entry into general circulation.
+The article names the book, calls the claim a hypothesis about the thirteenth
+century rather than a record of it, and then declines both it and its opposite.
+
+**Wider family.** Manti, mantı, mantu, manta from Xinjiang and Uzbekistan through
+Afghanistan and the Caucasus to Anatolia and the Balkans, with Korean mandu and
+Chinese mantou in the same tangle of names. Kayseri mantısı (small, closed, boiled,
+under garlic yogurt) and the large steamed Central Asian form are both named to
+make the Armenian form distinguishable rather than to build a catalogue.
+
+**Origin history — result.** No invention claim in any direction. The two dated
+points available are non-Armenian: *Yinshan Zhengyao*, compiled 1330 by Hu Sihui at
+the Yuan court, and the fifteenth-century Ottoman cookbook of Muhammed bin Mahmud
+Şirvani. The stated conclusion is that the wider family has a transregional history
+no single people invented and that the Armenian baked form is a distinct
+development within it, with both halves of that sentence said to be necessary.
+
+**Mongol/nomadic story — result.** Identified as a popular origin narrative and
+attributed to Holly Chase, who wrote that horsemen "are supposed to have" carried
+frozen or dried manti. What circulates online is that sentence with the hedge
+removed. The article does not repeat the hardened form.
+
+**Ottoman context.** Present as chronology (Şirvani) and not as ownership. The
+article states that a food documented in Ottoman culinary sources can also have
+developed distinctive Armenian forms.
+
+**Terminology.** `մանթի` in both Armenian standards; Latin `manti`, `mante`,
+`monta`, the last current in Los Angeles and Detroit diaspora usage and attached to
+a Glendale shop. Related terms recorded: `sini manti` (tray manti; *sini* is
+Persian for a large round tray), `sulu manti` (soup manti), `mantapour` (the broth
+version).
+
+**Etymology.** Most references derive manti from Chinese *mantou*; Turkish
+etymological dictionaries also point to a Mongol link; the reverse direction has
+been argued and questioned. Stated as unsettled, and separated from ownership in
+the same paragraph — Armenian took *basturma* from Turkish and *sini* from Persian,
+and a borrowed name is evidence of contact.
+
+**Diaspora.** The best-evidenced part of the subject. Aintab, Marash and the
+Cilician towns destroyed or emptied in 1915; survivors to Aleppo and Beirut, then
+France, the United States and Canada. The transmission is explicitly contrasted
+with basturma's: a commercial craft carried by producers versus a household
+practice carried by families, which is why the family accounts collected in
+community publications are the evidence here rather than decoration on it. This
+earns the `manti → basturma` relation and its SectionLink.
+
+**Contemporary Armenia.** Manti is present and known but is not a standard dish of
+the highland kitchen, and in Yerevan it is served overwhelmingly by houses founded
+by Western Armenian families from Beirut and Aleppo, or named for Aintab. The
+article calls it a diaspora-returned food and notes that the same word covers the
+larger steamed dumpling inside Armenia — a conclusion drawn from a restaurant guide
+used strictly for presence, never for chronology.
+
+**Everyday/celebratory.** Both, and said to be both: served at Christmas and Easter
+and at church and community events because those occasions justify and gather the
+labour, while also being an ordinary meal in households that keep shaped trays
+frozen. Explicitly **not** ceremonial — "it is not liturgical, it carries no ritual
+role" — and the type stays `main`.
+
+**Recipe restraint.** No ingredient quantities, no oven temperature, no baking
+time, no dough or meat ratios, no folding tutorial, no servings. The `cuisine`
+block's `preparation` field ends by saying the article is not a recipe. Generic
+`Article` schema only.
+
+**Food-safety restraint.** No internal temperature, no storage instruction, no
+make-ahead handling guidance, no raw-meat tutorial. The subject did not need a
+safety statement and does not get one.
+
+**Health restraint.** No protein, gut-health, probiotic, immune or wellness framing
+anywhere. The one occurrence of "proteins" is the Maillard explanation in the
+baking paragraph.
+
+### Sources
+
+Eight entries, none reused from another article's bibliography:
+
+1. Aylin Öney Tan, *Manti and Mantou: Dumplings across the Silk Road from Central
+   Asia to Turkey*, in McWilliams (ed.), *Wrapped & Stuffed Foods* (Oxford
+   Symposium 2012), Prospect Books 2013 — isbn 9781903018996. The §40
+   cross-community academic source.
+2. Priscilla Mary Işın, *Bountiful Empire: A History of Ottoman Cuisine*, Reaktion
+   2018 — isbn 9781780239040. Ottoman chronology.
+3. Irina Petrosian and David Underwood, *Armenian Food: Fact, Fiction & Folklore*,
+   2006 — isbn 9781411698659.
+4. Holly Chase, *The Meyhane or McDonald's?…*, in Zubaida and Tapper (eds.),
+   *A Taste of Thyme*, Tauris Parke 2000 — isbn 9781860646034.
+5. Liana Aghajanian, *What Is Armenian Food? Depends Who You Ask*, Smithsonian
+   Folklife Festival, 28 June 2018.
+6. Christine Vartanian Datian, *Recipe Corner: Manti Made Easy*, The Armenian
+   Mirror-Spectator, 20 July 2023.
+7. Սոնիա Թաշճեան, *Այնթապ — Խոհանոց*, Hetq, 20 May 2017.
+8. Mikayel Boyajian, *5 Delicious Spots to Enjoy Manti in Yerevan*, Absolute
+   Armenia, 3 April 2022 (updated 9 July 2025).
+
+**Smithsonian decision.** The festival blog is cited; the folklife magazine's
+Armenian-diaspora piece is **not**, because it returned HTTP 403 on every attempt
+and was never read. Used for contemporary form and framing only, never for
+chronology.
+
+**Petrosian & Underwood decision — §41.** Sixth use in twelve articles, and the
+concentration rule was weighed rather than waived. It is cited for a job none of
+the other five shares: it is the **origin** of a claim the article refuses, not
+support for a claim the article makes. Naming it converts an anonymous internet
+fact into a datable modern attribution, and no other source performs that function.
+The entry's note says so, and a test pins the pairing.
+
+**Deliberately not cited.** Rose Baboian's *Armenian-American Cook Book*
+(Watertown, 1964) is the obvious historical Western Armenian cookbook for this
+subject — its recipes are overwhelmingly from Aintab, exactly the trail the article
+follows — but no copy was read, so whether it contains manti and in what form is
+unverified. Recorded here as an open gap rather than converted into a citation.
+
+### Related content
+
+Authored: `["matsun", "basturma"]`, each with a real SectionLink in the paragraph
+that earns it — matsun in `broth-and-matsun-at-the-table`, basturma in
+`carried-and-kept`. Lavash, khash and dolma were evaluated and refused: none is
+carried by substantive prose, and "both use dough" is not a reason.
+
+**Matsun was not edited for reciprocity.** Its `relatedSlugs` are still `["spas"]`
+and a test asserts it.
+
+**Cross-category: none earned.** No Place link was forced. The strongest future
+cross-category connection for this article is a Culture, People or Diaspora article
+that does not exist yet.
+
+**Future graph opportunities, recorded without slugs:** manti ↔ future Western
+Armenian cuisine content; manti ↔ future diaspora/culture content; manti ↔ a future
+boraki or dumpling article. No placeholder relationships were created, and a test
+asserts that `boraki`, `matnakash`, `sujuk` and `tan` are absent from
+`relatedSlugs`.
+
+**Filler.** Measured, not assumed: the related block renders **three** articles in
+every edition — matsun and basturma authored, plus **one** filler, lavash, from
+registry order. Identical across hy, hyw and en. `getRelatedArticles` unchanged.
+
+### Artwork
+
+No dedicated asset exists. `public/images/cuisine/` holds eleven files against
+twelve slugs, `PENDING_ARTWORK = ["manti"]`, and the §79 note beside it carries the
+commission: small open boat-shaped dumplings, visible filling, baked golden crisp
+edges, simple serving dish, matsun as a secondary element. The distinction the
+commission is built on is that **closed dumplings would destroy the article's
+central claim** — a picture of ravioli, pelmeni, khinkali or Turkish mantı, or a
+bowl of dumpling soup, would contradict eleven paragraphs about dry heat. Near
+misses named and forbidden: `dolma.webp`, `jingalov-hats.webp`, `basturma.webp`.
+Preferred geometry 1586 × 992.
+
+Nothing was generated, borrowed or optimised in this step.
+
+### Localization
+
+Genuine editions rather than conversions. Eastern Armenian uses modern orthography;
+Western Armenian uses classical orthography throughout (`եւ`, `-ութիւն`, `կը`/`կ՚`
+verb particles, `Հալէպ`, `Պէյրութ`, `Կլենտէյլ`). Structure is identical across the
+three: same eleven section ids, same SectionLink placement, same four
+`importantDates`, same five `interestingFacts`.
+
+**`hyw` is flagged for native review**, as every previous Western Armenian edition
+has been.
+
+Four content-validator failures were fixed rather than suppressed: an
+`importantDates` number-parity break (en `15th century` against hy `XV դար` and hyw
+`ԺԵ. դար`, all three now `15-րդ դար`/`15th century`), three over-long
+`metaDescription`s, two over-long `summary`s and one over-long `hyw` `seoTitle`.
+
+### Tests
+
+`tests/e2e/cuisine.spec.ts`: `MANTI` added, appended to `SLUGS`, **not** added to
+`ILLUSTRATED`, `PENDING` reopened to `[MANTI]`. Eleven new tests covering the
+corpus, the open-form claim discipline, the origin audit, the Western Armenian and
+communal-practice scoping, the etymology treatment, the matsun relation, recipe and
+food-safety restraint, health restraint, SEO, pending artwork, the bibliography and
+the no-regression sweep.
+
+Hand-maintained figures updated because their stated job is to go red: `main` 2 → 3
+in four distribution assertions and one filter-count array; `places.spec.ts`
+`["cuisine", 11]` → `12`; `visit.spec.ts` `["/en/cuisine", 11]` → `12`, with both
+comment logs extended rather than left behind.
+
+Two stale assertions from §78 were **moved, not weakened**:
+`expect([...PENDING_ARTWORK]).toEqual([])` became `.toEqual([MANTI])` in both places
+that held it, and the §78 listing assertion `toHaveCount(0)` for placeholders became
+the derived `SLUGS.length - ILLUSTRATED.length` the rest of the file uses. One test
+name was corrected — "the cuisine listing shows no placeholders" became "…shows
+exactly the placeholders it owes" — because the name stopped being true and the name
+was the wrong thing to defend.
+
+**Claim-test discipline.** Three of the new tests could not use substring bans,
+because the strings they are about appear on the page inside their own refutations.
+Those assert the *frame* instead: `"always baked"` must appear exactly once and be
+immediately preceded by "The claim in circulation is that Armenian manti is";
+`"originated in Cilician Armenia"` must appear exactly once and be inside "does not
+say that manti originated in Cilician Armenia". A naive full-page ban would have
+failed on the refusal itself, and an unframed ban would pass on the day the
+attribution is deleted and the story kept.
+
+### Test scaling — §65
+
+Measured again after the twelfth article rather than assumed. No `test.slow()` was
+added, no timeout was raised, and nothing in `cuisine.spec.ts` is near its budget:
+
+* the data-only half, `every dish declares its own SEO fields in every edition`:
+  **136 ms**
+* the three rendered halves the §77 split created: **11.1 s / 11.0 s / 10.1 s**
+  against a 30 s budget — roughly 19 s of headroom
+* `every dish is published in this edition`: **10.6 / 10.4 / 12.4 s**
+* the focused `cuisine.spec.ts` run: **115 tests in 3.4 minutes**, against 103 in
+  3.3 minutes at eleven articles — the §77 split is still absorbing the growth
+
+### Results
+
+| Check | Result |
+| --- | --- |
+| `npm run typecheck` | exit 0 |
+| `npm run validate:content` | clean — 156 entries across 3 locales, and the "no artwork" note names `manti` |
+| focused `cuisine.spec.ts` | **115/115** in the full warm run; see the two genuine failures below |
+| focused `places.spec.ts` | **84/84** in 3.0 min |
+| full Playwright suite (cold) | 249 passed, 5 skipped, **130 failed** in 22.4 min — diagnosed below |
+| full Playwright suite (warm) | **377 passed, 5 skipped, 2 failed** in 12.6 min |
+| `npm run build` | exit 0, **165 static pages** (162 at eleven articles; +3 is manti in three editions) |
+
+**Two genuine failures were found and fixed**, both hand-maintained literals doing
+exactly the job they exist for:
+
+1. `?type=main` expected 2 cards. Manti makes it 3. Updated, and the named-slug
+   list beside it gained `MANTI` so the count cannot be satisfied by the wrong
+   three articles.
+2. `cuisine listing search narrows on an occasion` probed the listing haystack
+   with "Christmas" and expected exactly one card, ghapama. Manti's occasions name
+   Christmas and Easter tables, so there are now two legitimate matches. The test
+   was **widened, not re-aimed**: the expected set is stated as a literal pair, both
+   cards are asserted to match, and both are asserted not to show the word. Moving
+   to a rarer probe would have made the test weaker; the invariant it exists for is
+   now demonstrated twice.
+
+**One flake, not a regression.** `the cuisine dropdown only offers pages inside
+this edition` failed once at 11.5 s in a focused run and passed in isolation in
+1.2 s and in every other run. It clicks the submenu button immediately after
+`goto` with no wait for hydration; under two-worker contention the handler is not
+yet attached. Pre-existing, unrelated to manti, and recorded rather than patched.
+
+### The 130-failure run, diagnosed rather than assumed
+
+The first full-suite run failed 130 tests across files this step never touched.
+That is the §77/§78 shape, and §64 forbids assuming a cause, so three hypotheses
+were tested against evidence instead:
+
+* **Scratchpad/Tailwind poisoning — ruled out.** No rendered HTML exists anywhere
+  under `d:\armedu`; `git status --porcelain --untracked-files=all` showed no
+  untracked files at all and `scratchpad/` held only its three tracked files.
+* **Memory exhaustion — ruled out by measurement.** 6.38 GB free of 16.72 GB.
+* **`PROJECT_STATE.md` being scanned by Tailwind — plausible, and disproved.**
+  `globals.css` is a bare `@import "tailwindcss"` with no `@source`, so Tailwind v4
+  auto-detection scans the whole repo minus `.gitignore`, and this file is tracked
+  and now contains §78's forensic quotation of a mangled selector. The hypothesis
+  was tested directly: the dev server was started and `/en/places/khor-virap`,
+  `/en/cuisine/manti` and `/hy/cuisine` were requested. All three returned **200**,
+  with no PostCSS error in the log. The hypothesis is wrong and is recorded as
+  wrong.
+
+What the evidence does support is cold compilation under contention. Every failure
+was a `page.goto`/locator timeout or a symptom of one — an empty `<title>`, an
+`<html>` with no `lang`, a 404 on a route that serves 200 on request — and every
+failing test passes when its file is run alone: `cuisine.spec.ts` 115/115,
+`places.spec.ts` 84/84. Re-running the identical tree against a warmed server gave
+377 passed / 2 failed. Nothing in the tree changed between the two runs.
+
+The two survivors are `places.spec.ts:3208` and `:3257`, both `page.goto` timeouts
+on Places article routes, and both are the debt §66 named and told this step not to
+fix.
+
+### Scratchpad/Tailwind hazard — §64
+
+Complied with and re-verified: no rendered HTML, sitemap XML or page dump was
+written anywhere under `d:\armedu` at any point in this step. All working files —
+three article drafts, the sources block, the pending note, the test block and three
+edit scripts — were written to the session scratchpad under
+`C:\Users\user\AppData\Local\Temp\claude\…`. Tailwind config and `.gitignore` were
+not touched. The hazard was not encountered.
+
+### Technical debt carried forward
+
+* `scratchpad/` sits inside Tailwind's content scan and is not gitignored — a
+  latent hazard, deliberately not fixed in a content step.
+* `places.spec.ts` around line 379 and around line 3203: cold-compile runtime,
+  untouched here by design.
+* Rose Baboian's 1964 cookbook unread; the Aintab manti question is open.
+* `hyw` native review outstanding across the whole archive.
+* No Armenian Wikipedia article on մանթի exists, so there is no Armenian-language
+  encyclopedic source to check the terminology against; the spelling rests on
+  Armenian recipe collections and diaspora publications.
+
+### No deployment
+
+Nothing was deployed.

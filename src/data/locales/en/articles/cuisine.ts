@@ -982,4 +982,1026 @@ export const cuisineArticles: Article[] = [
     },
     relatedSlugs: ["harissa", "lavash"],
   },
+  {
+    slug: "jingalov-hats",
+    href: "/cuisine/jingalov-hats",
+    category: "cuisine",
+    categoryLabel: "Armenian Cuisine",
+    title: "Jingalov Hats",
+    seoTitle: "Jingalov Hats: Artsakh's Herb-Filled Bread",
+    dishType: "Bread",
+    dishTypeId: "bread",
+    imageSeed: "jingalov-hats",
+    keywords: [
+      "jingalov hats",
+      "zhingyalov hats",
+      "zhengyalov hats",
+      "ժենգյալով հաց",
+      "Artsakh",
+      "Nagorno-Karabakh",
+      "Syunik",
+      "Armenian herb bread",
+      "herb-filled flatbread",
+      "saj",
+    ],
+    excerpt:
+      "A thin round of unleavened dough closed over a filling of chopped greens and cooked on a griddle: the bread of Artsakh, and the one dish in this section whose defining ingredient is a hillside rather than a shopping list.",
+    metaDescription:
+      "Jingalov hats, the herb-filled flatbread of Artsakh and Syunik: the greens that define it, why the number of them is never fixed, and what the record can say.",
+    summary:
+      "Jingalov hats is a flatbread of Artsakh and Syunik: unleavened dough rolled thin, heaped with a large mixture of finely chopped greens, closed over the filling and cooked on a flat metal plate over a fire. What defines it is the filling rather than the bread, and the filling is a working system rather than a recipe — mild leaf greens for bulk, aromatic ones for scent, sour and bitter ones in small amounts for balance. Accounts of how many kinds go in disagree, and the disagreement is the point, because the mixture follows the season and the hillside. It enters the written record only in the nineteenth century, and since 2023 it has been made mostly away from the place whose plants define it.",
+    intro:
+      "Jingalov hats is bread used as a container. A round of unleavened dough is rolled until it is nearly transparent, a large quantity of finely chopped greens is spread over it, the dough is drawn up and sealed, and the parcel is flattened again and cooked on a hot metal plate until it blisters. It belongs to Artsakh and to neighbouring Syunik rather than to the Armenian world as a whole, which makes it the first strongly regional dish in this section, and its filling is the reason it resists being written down as a recipe: what goes into it is what the season and the hillside are offering.",
+    author: "Armat Editorial Team",
+    updated: "2026-08-24",
+    keyFacts: [
+      { label: "Kind of dish", value: "Unleavened flatbread filled with chopped greens" },
+      {
+        label: "Where from",
+        value: "Artsakh — Nagorno-Karabakh — and Syunik, rather than the Armenian world as a whole",
+      },
+      {
+        label: "The filling",
+        value: "Many greens at once: mild leaves for bulk, aromatics, and small amounts of sour and bitter",
+      },
+      {
+        label: "How many greens",
+        value: "Accounts range from about ten to twenty-six; the mixture follows the season, not a count",
+      },
+      {
+        label: "Cooked on",
+        value: "A saj — a metal plate over a fire — in minutes, rather than against the wall of a tonir",
+      },
+      { label: "Season", value: "Early spring and autumn, when the wild greens are up" },
+    ],
+    sections: [
+      {
+        id: "what-jingalov-hats-is",
+        heading: "What jingalov hats is",
+        paragraphs: [
+          "The dish is one object made of two opposite things. The bread is as plain as bread gets: wheat flour, water and salt, unleavened, rolled thin. The filling is the opposite of plain — a dense mixture of many different greens, chopped fine and dressed with oil and salt, in a quantity that looks impossible until the dough closes over it.",
+          "It is cooked flat and dry. The sealed parcel is pressed out until the greens show dark through the dough, then laid on a hot surface and turned once, so that both faces scorch in places while the filling steams inside. The whole thing takes minutes.",
+          "It is eaten warm, in the hand, on its own. It is not a course, not an accompaniment and not a pastry: the dough is a skin thin enough to be part of the mouthful rather than the substance of it, and what a person tastes is the greens.",
+        ],
+      },
+      {
+        id: "a-food-of-artsakh",
+        heading: "A food of Artsakh",
+        paragraphs: [
+          "Jingalov hats belongs to Artsakh — the upland region between Armenia and Azerbaijan that Armenians call Artsakh and that international usage more often calls Nagorno-Karabakh — and to Syunik, the Armenian province along its western side. Both names appear in the sources used here, and they are kept apart rather than merged: they are not interchangeable, and which one a given source reaches for is itself information.",
+          "The regional attachment is the first thing to state, because it is unusual in this section. Lavash, dolma, harissa and the rest are made wherever Armenians are. This one is not. It is the dish of a particular upland, and the reason is agricultural rather than sentimental: the filling depends on what grows there.",
+          "The region's Armenians speak their own dialect, and the name of the dish belongs to it. Nothing in this article requires a position on the region's status. What it does require is that the dish be described as coming from a specific place with a specific flora, because otherwise the most interesting thing about it disappears.",
+        ],
+      },
+      {
+        id: "the-language-of-greens",
+        heading: "The language of greens",
+        paragraphs: [
+          "The filling is a system rather than a list. Descriptions of it — from cooks in Stepanakert, from displaced households in Yerevan, from a bakery in California — set out the same architecture: a bulk of mild leaf greens, a smaller quantity of strongly aromatic herbs, a sour element, and a little bitterness, balanced against each other.",
+          "The mild greens do the work of volume: spinach, chard, beet greens, lettuce and their wild equivalents. The aromatics are the ones most readers will know — cilantro, dill, parsley, mint, green onion, green garlic. Sorrel supplies acidity. Dandelion and its relatives supply a bitter edge, and they go in sparingly, because a filling that is mostly bitter is a mistake rather than a variant.",
+          "Nettle turns up in many accounts and deserves a note of its own: it stings raw and stops stinging once it is cooked, which is why a plant nobody would eat from the hand is ordinary inside this bread. Some cooks sharpen the mixture at the end with lemon, or with the purple powder of dried barberries.",
+        ],
+      },
+      {
+        id: "how-many-greens",
+        heading: "How many greens",
+        paragraphs: [
+          "Almost every account of jingalov hats reaches for a number, and the numbers do not agree. Ara Zada, co-author of a book on Armenian cooking, told RFE/RL in 2024 that the original recipe called for twenty-six herbs and greens and that around seventeen are usual today. The Smithsonian's account of displaced Artsakh families gives ten to twenty. Other totals circulate, some of them rounder than the sources that carry them.",
+          "The disagreement is not a failure of the sources. It follows from what the dish is. A mixture assembled from what is growing, in a particular week, on a particular slope, cannot have a fixed count — and the same cook will not arrive at the same number twice in one season.",
+          "So the honest statement is about abundance rather than arithmetic. Many kinds go in, more than into any other dish in this section, and a specific total should be read as a description of one recipe or one household rather than as a rule. Where a round number is offered as the authentic count, it is a claim about authenticity and not a measurement.",
+        ],
+      },
+      {
+        id: "knowing-what-to-pick",
+        heading: "Knowing what to pick",
+        paragraphs: [
+          "Ruzanna Tsaturian, a researcher at the Institute of Archaeology and Ethnography of Armenia's National Academy of Sciences, has described the dish as traditionally made in early spring and in autumn, when the necessary wild herbs grow. That is the constraint the whole tradition sits inside: the bread is available when the hillside is.",
+          "It also indicates where the dish came from. In the countryside of Nagorno-Karabakh, someone who knew which greens to pick could make a meal out of flour, water and what could be gathered, in seasons when there was little else. Tsaturian describes households returning to it during the shortages of the war of the 1990s, and calls it in that context the forest bread of their ancestors.",
+          "The knowledge involved is specific — which plants, which weeks, which parts of them, and which ones must be cooked before they can be eaten at all — and it is held in households rather than written down. This article describes that knowledge. It does not try to convey it: which wild plants are safe to eat is not something to learn from a page about food.",
+        ],
+      },
+      {
+        id: "dough-and-enclosure",
+        heading: "Dough and enclosure",
+        paragraphs: [
+          "The dough is the plainest element of the dish: wheat flour, water and salt, unleavened, rested and rolled out until it is very thin. Nothing enriches it, and nothing is meant to.",
+          "The enclosure is what makes the object. The greens are spread over the round, the edge is drawn up over them and pinched shut, and the sealed parcel is rolled or pressed flat again — so that the filling ends up as a thin layer between two thin layers of dough rather than sitting in a pocket. Getting a very wet filling to stay inside a very thin wrapper through that flattening is the actual skill of the dish.",
+          "The proportions run the opposite way from most filled breads. There is far more filling than dough by volume, and the dough is present as a skin. That is why the finished bread reads green through its surface, and why it is a different kind of thing from a pie.",
+        ],
+      },
+      {
+        id: "the-griddle-and-the-tonir",
+        heading: "The griddle, not the tonir",
+        paragraphs: [
+          "It is cooked on a saj, a metal plate set over a fire, and it is done in minutes. Some accounts allow a tonir, the clay pit oven, as an alternative. The plate is the characteristic method, and the two should not be run together simply because both are Armenian and both involve fire.",
+          "The distinction matters because of the obvious comparison. Lavash is the other thin Armenian wheat bread, and it is made in a quite different way: the sheet is slapped against the inner wall of a tonir and lifted off seconds later, which is how the UNESCO inscription of 2014 describes it. Lavash is thin bread presented as bread. Jingalov hats uses a similarly thin sheet of wheat dough as a wrapper for something else.",
+          "The comparison is worth making and worth limiting. Both are unleavened wheat breads rolled thin by hand, and both belong to a wide regional family of such breads. Neither is a version of the other, and the cooking surface is the plainest evidence of that.",
+        ],
+        links: [{ phrase: "Lavash", slug: "lavash" }],
+      },
+      {
+        id: "what-the-record-can-say",
+        heading: "What the record can say",
+        paragraphs: [
+          "The written record is short, and saying so is more useful than filling it in. Tsaturian places the first textual mentions of the dish at around two hundred years ago. An account published when it was listed as heritage puts the same thing differently: it was first mentioned in written manuscripts of the nineteenth century, at the period when Artsakh folklore was being collected.",
+          "Both statements point at the same moment, and it is a moment of recording rather than of invention. Nineteenth-century collectors wrote down what people were already doing, so the dish is certainly older than its first mention — but how much older is not something the available evidence establishes. No source consulted here places it in antiquity, and neither does this article. A living regional tradition does not need an ancient origin to be worth describing.",
+          "What can be dated is its recent institutional life. In 2013 the authorities in Artsakh added the dish to their register of intangible cultural heritage, and in April 2015 the first festival devoted to it was held at Tsaghkashat, in the Askeran district, as part of a heritage-preservation programme. Tsaturian observes that across the twentieth century it had drifted towards being, in her phrase, entertainment food rather than a daily staple — so the listing and the festival were recognising something that had already changed.",
+        ],
+      },
+      {
+        id: "a-food-away-from-its-place",
+        heading: "A food away from its place",
+        paragraphs: [
+          "In September 2023, following an Azerbaijani military offensive, almost the entire Armenian population of Nagorno-Karabakh — more than a hundred thousand people — left for Armenia. The dish went with them. Stalls and small businesses run by displaced families appeared in Yerevan and in towns across the country, and by 2024 RFE/RL was describing jingalov hats as a street food of pizza-like popularity.",
+          "One thing did not travel. Writing in the Smithsonian's folklife magazine in February 2025, Aline Keledjian quotes a woman from Stepanakert on exactly the problem: the same herbs cannot be found in Armenia, because they grow in the mountains of Artsakh. A recipe can be carried in a suitcase; a hillside cannot. A dish defined by a local flora is altered by being moved in a way that a dish defined by a technique is not.",
+          "The tradition continues in that altered form. Families displaced in the earlier war of 2020 opened restaurants in Yerevan to keep making it, and a bakery in Glendale, California that serves nothing else became in 2023 the first Armenian restaurant in the United States to be listed in the Michelin guide. None of that replaces the place. Describing it as continuity rather than as recovery is the accurate reading, and it is the reading this article takes.",
+        ],
+      },
+    ],
+    importantDates: [
+      {
+        year: "2013",
+        event:
+          "The dish is entered on the register of intangible cultural heritage maintained by the authorities in Artsakh.",
+      },
+      {
+        year: "2015",
+        event:
+          "The first festival devoted to jingalov hats is held at Tsaghkashat, in the Askeran district of Artsakh, under a heritage-preservation programme.",
+      },
+      {
+        year: "2023",
+        event:
+          "Almost the whole Armenian population of Nagorno-Karabakh is displaced to Armenia in September; the dish is afterwards made mainly outside the region whose plants define it.",
+      },
+    ],
+    significance: {
+      heading: "Why jingalov hats matters",
+      paragraphs: [
+        "This is the first article in the section about a dish that is not made everywhere Armenians live, and that is the point of adding it. A national cuisine described only through its pan-national dishes is a cuisine with its regions edited out, and the regions are where most of the cooking actually happened.",
+        "It is also the clearest case in this archive of a dish inseparable from a landscape. The technique can be taught anywhere and the dough can be made anywhere; the filling is a set of plants that grow on particular mountains in particular weeks. That is what makes it an unusually good article to write and, since 2023, an unusually difficult one.",
+      ],
+    },
+    interestingFacts: [
+      "The filling has no fixed list: accounts of how many kinds of green belong in it range from about ten to twenty-six, because the mixture follows what is growing.",
+      "Nettle is an ordinary ingredient. It stings raw and stops stinging once cooked, which is why a plant nobody would eat from the hand belongs inside this bread.",
+      "There is more filling than dough by volume, and the wrapper is thin enough that the greens read dark green through it before it goes near the heat.",
+      "It is cooked on a metal plate over a fire rather than against the wall of a tonir, which is the plainest thing separating it from lavash.",
+      "Its first written mentions belong to the nineteenth century, when Artsakh folklore was being collected — a date of recording rather than of invention.",
+    ],
+    relatedFigures: [],
+    cuisine: {
+      ingredients: [
+        "Wheat flour, water and salt — unleavened dough",
+        "Mild leaf greens: spinach, chard, beet greens, lettuce and wild equivalents",
+        "Aromatics: cilantro, dill, parsley, mint, green onion, green garlic",
+        "Sorrel and other sour greens",
+        "Nettle and other wild greens, in smaller quantities",
+        "Oil and salt",
+      ],
+      preparation:
+        "Unleavened dough is rolled very thin and heaped with a large quantity of finely chopped greens dressed with oil and salt; the edge is drawn up, sealed, and the parcel pressed flat again so the filling lies in a thin layer inside. It is cooked dry on a hot metal plate over a fire and turned once, until both faces are marked.",
+      occasions: [
+        "Everyday eating, in the seasons when the greens are up",
+        "Made communally, with several people chopping and shaping at once",
+        "Festivals devoted to the dish",
+      ],
+      regions: [
+        "Artsakh — Nagorno-Karabakh — where it is the best-known dish of the region",
+        "Syunik, the neighbouring Armenian province",
+        "Since 2023, made mainly in Armenia, by displaced households",
+      ],
+      serving:
+        "Eaten warm and in the hand, on its own, soon after it comes off the heat rather than kept.",
+    },
+    relatedSlugs: ["lavash"],
+  },
+  {
+    slug: "khash",
+    href: "/cuisine/khash",
+    category: "cuisine",
+    categoryLabel: "Armenian Cuisine",
+    title: "Khash",
+    seoTitle: "What Is Khash? Armenia's Winter Morning Meal",
+    dishType: "Meat dishes",
+    dishTypeId: "meat",
+    imageSeed: "khash",
+    keywords: [
+      "khash",
+      "Armenian khash",
+      "խաշ",
+      "khash soup",
+      "Armenian winter food",
+      "winter morning meal",
+      "cattle feet broth",
+      "garlic and lavash",
+      "Gyumri",
+      "khashlama",
+    ],
+    excerpt:
+      "A broth of cattle feet boiled through most of a night and eaten at first light in the cold months: the Armenian dish that arrives unfinished, and that nobody eats alone.",
+    metaDescription:
+      "Khash, the Armenian broth of long-boiled cattle feet eaten on winter mornings: why it is cold-season food, how its table works, and what the record supports.",
+    summary:
+      "Khash is a broth made by boiling cattle feet in plain water for most of a night, then served scalding and unsalted on winter mornings. Each person finishes their own bowl with garlic, salt and crumbled dried lavash, which is why the dish is a table rather than a plate. Custom attaches it to the cold months and to the early hours, and every account of it agrees on one thing before it agrees on anything else: it is not eaten alone. The two claims repeated most often about khash in English, that it is ancient and unchanged and that it cures hangovers, are the two the evidence supports least.",
+    intro:
+      "Khash is what happens when the toughest parts of an animal are given enough time. Cattle feet are cleaned, soaked in cold water for many hours, and then simmered in nothing but water until the broth is thick with what has come out of them and the meat falls off the bone. That is most of a night's work for something eaten at dawn. It reaches the table boiling and unseasoned, and each person at the table finishes their own bowl with garlic, salt and crumbled dried bread. The food is that simple. The season, the hour, the toasts and the company are the practice built around it, and the practice is what this article is mainly about.",
+    author: "Armat Editorial Team",
+    updated: "2026-08-24",
+    keyFacts: [
+      { label: "Kind of dish", value: "A broth of long-boiled cattle feet, served scalding" },
+      {
+        label: "Season",
+        value:
+          "The cold half of the year — customarily the months whose Armenian names carry the letter ր",
+      },
+      {
+        label: "Time of day",
+        value: "Early morning, before ordinary breakfast rather than alongside it",
+      },
+      {
+        label: "In the pot",
+        value: "Feet and water, and nothing else; the cook adds no salt, because salt darkens the broth",
+      },
+      {
+        label: "At the table",
+        value: "Garlic, salt, dried and fresh lavash, radish, fresh greens and pickles, added by each person",
+      },
+      { label: "Eaten", value: "In company — the one thing every account of the dish agrees on" },
+    ],
+    sections: [
+      {
+        id: "what-khash-is",
+        heading: "What khash is",
+        paragraphs: [
+          "Khash is a broth and the parts of the animal that made it. In present-day Armenia those parts are the feet of cattle, boiled until the liquid is dense with what has dissolved out of them. Some accounts include the head and the stomach as well, and Armenian cooks describe older practice as using lamb more often than beef. What every version has in common is the choice of the parts that are useless quickly and good slowly.",
+          "It is not a soup in the sense the English word suggests, and calling it one is the first thing that misleads a reader. Nothing goes into the pot except the feet and water: no vegetables, no stock, no aromatics, not even salt. The body of the finished broth is not the result of anything added to thicken it, which is why the dish sits in this section as a meat dish rather than among the soups.",
+          "The last thing to say about it is the strangest, and everything later in this article follows from it. What arrives at the table is deliberately unfinished. It is scalding, it is plain, and it is not yet seasoned, and the person who is going to eat it is the person who completes it.",
+        ],
+      },
+      {
+        id: "a-dish-made-by-time",
+        heading: "A dish made by time",
+        paragraphs: [
+          "The length of the cooking is not tradition for its own sake; it is what the ingredient requires. Feet and shanks are mostly connective tissue, and connective tissue is collagen, which is tough and does not soften in a short cooking. Held long enough in water below a rolling boil, collagen breaks down into gelatin, which dissolves and thickens the liquid. The parts that resist a quick fire are exactly the parts that give a broth its body when they are given a night.",
+          "The laborious half comes before the pot. The feet are cleaned of hair and soaked in cold water that is changed repeatedly, for a stretch of hours that the sources put anywhere from ten to forty-eight. The disagreement there is real rather than apparent: it depends on the animal, on the water and on the household, and no source consulted here presents a single correct figure.",
+          "One detail of technique matters more than any timing, and it shapes the whole table. The cook does not salt the broth. Sedrak Mamulyan, who heads an Armenian association for the preservation of culinary traditions, gives the reason plainly: salt darkens it. The same instruction, for the same reason, appears in the Encyclopaedia Iranica's account of a related Persian dish, which is a piece of evidence worth holding onto for a later section.",
+        ],
+      },
+      {
+        id: "the-months-with-an-r",
+        heading: "The months with an R",
+        paragraphs: [
+          "Khash is cold-weather food, and the customary way of saying so is a rule about spelling: it is eaten in the months whose names contain the letter ր. In Armenian that works out exactly. September through April all carry it, and the four months of the warm half of the year — մայիս, հունիս, հուլիս, օգոստոս — do not.",
+          "The explanation usually offered is straightforwardly practical. Khash is heavy and rich, and the cold half of the year is when a body is thought to want that; Armenian cooks interviewed by the investigative outlet Hetq add that livestock-keeping was concentrated in the mountain districts, where those particular months are genuinely cold. Whether or not one accepts the reasoning, the seasonal practice it describes is well attested.",
+          "The rule itself, though, cannot be old, and noticing why is more useful than repeating it. It depends entirely on the modern Armenian month names, which are borrowings of the Latin ones and brought the r along with them. The older Armenian calendar used quite different names — Նավասարդ, Հոռի, Սահմի, Տրե and the rest — which do not sort into a cold set and a warm set by any letter at all, and which drifted through the seasons anyway, because that calendar ran three hundred and sixty-five days with nothing added to correct it. The saying is a good mnemonic for a real practice. It is not evidence of the practice's age, and it is not followed strictly now either: restaurants serve khash outside those months.",
+        ],
+      },
+      {
+        id: "the-morning-table",
+        heading: "The morning table",
+        paragraphs: [
+          "That khash is a morning food is not in doubt. Armenian sources describe it eaten early, in place of breakfast rather than alongside it, and often on a weekend; visitor-facing accounts describe gatherings beginning at eight or nine. The custom is consistent across every kind of source consulted for this article.",
+          "The reason for it is another matter, and it is worth saying plainly that no source consulted establishes one. The most concrete explanation is simply mechanical: a dish that needs most of a night is ready in the morning, and the writer Benjamin Kemper, describing khash for the Smithsonian's folklife programme, notes that a gathering at nine obliges the cook to have started overnight. The same logic surfaces independently in Iran, where the related dish is likewise a morning food and likewise cooked overnight.",
+          "Other explanations circulate — that the dish is too heavy for later in the day, that it warms a cold start, that it belongs to the morning after an evening of eating and drinking. Each is plausible and none is documented as the cause. The honest position is that the custom is certain and its origin is not, and an article that supplied a confident reason here would be inventing one.",
+        ],
+      },
+      {
+        id: "the-bowl-you-finish-yourself",
+        heading: "The bowl you finish yourself",
+        paragraphs: [
+          "Because the pot cannot be seasoned, the table must be. What comes round is garlic — crushed, often worked with salt or slaked with a little of the hot broth — along with salt itself, radish, fresh greens and pickles. Each person seasons their own bowl to their own taste, and the quantities are theirs to decide. This is the structural fact about khash that photographs never quite convey: the dish is a table rather than a plate, and eating it is something each person does to it rather than merely with it.",
+          "Lavash does two jobs at that table, which is why it belongs here rather than in a list of side dishes. Dried lavash is crumbled into the broth until the liquid thickens towards a porridge, and soft lavash is used to scoop and to wrap; some accounts also describe a sheet laid over the bowl to hold the heat in. The dried form exists at all because lavash keeps for months and is brought back with a sprinkle of water, the property the UNESCO record of the bread describes — which is precisely why a winter dish has bread available to it in a form that behaves like an ingredient.",
+          "The garlic is not modest. One account puts it at up to eight cloves a portion, which should be read as an observation rather than a rule. It is worth separating the widely attested from the singular here: garlic, salt, lavash, radish, greens and pickles recur across Armenian-language reporting and institutional writing alike, whereas lemon and vinegar belong to a particular modern recipe. One restaurant table is not a national custom, and the difference between the two is the kind of thing this article exists to mark.",
+        ],
+        links: [{ phrase: "Lavash", slug: "lavash" }],
+      },
+      {
+        id: "never-eaten-alone",
+        heading: "Never eaten alone",
+        paragraphs: [
+          "Every source consulted for this article agrees on one thing before it agrees on anything else. Rafik Nahapetyan, surveying the Armenian food system for the Historical-Philological Journal in 2019, states it as a plain ethnographic fact: khash, in our own day as before, is almost never enjoyed without guests. One of the chefs interviewed by Hetq puts the same point in ordinary words — nobody gathers for khash in order to stop being hungry, since a bowl of sorrel soup would do that; they gather in order to sit down together.",
+          "The gathering has customary shape. Hetq records three toasts in order — a greeting, then one to whoever cooked it, then a wish that the khash be a good one — while Kemper records the sequence as the day, the cooks and the guests, and one of the Hetq chefs objects that fixing a number at all misses the point. Some modern accounts describe vodka or fruit spirit as part of these adult gatherings; this article records that as documented custom and nothing more, and it is neither required by the dish nor recommended here. The gathering has also been strongly gendered: it was historically a male occasion, and the ethnographer Ruzanna Tsaturyan has described women's khash parties as something that would have been hard to imagine a decade before she spoke and is now unremarkable.",
+          "What the table has meant has changed with what surrounded it. The cultural scholar Hrach Bayadyan, also speaking to Hetq, describes khash acquiring a quiet edge among the Soviet-era intelligentsia: an occasion outside the state's calendar of organised public ones, a morning spent deliberately not working, and in that sense a mild form of refusal. The city most attached to the dish makes the same point from another direction. Gyumri claims to like khash more than anywhere else in Armenia, and Mamulyan reports that the custom of eating it on the morning after a wedding has survived there in particular.",
+        ],
+        links: [{ phrase: "Gyumri", slug: "gyumri" }],
+      },
+      {
+        id: "what-the-record-can-say",
+        heading: "What the record can say",
+        paragraphs: [
+          "The word says less than it appears to. Khash is the Armenian verb meaning to boil, pressed into service as a noun, and the same root produces khashlama, which is a different dish altogether. That tells us the thing is named after its method, which is a fact about naming rather than about age. This article does not attempt to date the word, because the Armenian lexicographic works that could do so properly were not available to consult.",
+          "A list of medieval authorities travels through nearly every English-language account: Grigor Magistros in the eleventh century, Mkhitar Heratsi in the twelfth, Yesayi Nchetsi in the thirteenth, with the dish under an older form of the name. Heratsi's medical encyclopedia of 1184 is a real and much-studied work, and secondary writing reports that it describes khash as having healing properties. None of those texts was consulted here, the attributions pass from one popular account to the next without a passage attached, and — even taken at face value — a medieval physician recommending a boiled preparation is not evidence that today's dish and today's table descend from it. The claim is reported here as a claim, which is the most this article can honestly do with it.",
+          "What the ethnographic record does offer points somewhere less expected. Tsaturyan reports that the few historical references that exist characterise khash as a wedding food, which is the same association that survives in Gyumri. Nahapetyan places it among a small group of ritual dishes — Harissa dedicated to the grain harvest, milk soup to the abundance of dairy, khash to the success of livestock-keeping — though that is a reconstruction argued from later practice rather than a dated attestation, and it should be read as one. And there is a plain institutional fact worth stating: khash does not appear on Armenia's national inventory of intangible cultural heritage, though lavash, gata, matsun, tolma, winemaking and fruit-spirit distilling all do.",
+        ],
+        links: [{ phrase: "Harissa", slug: "harissa" }],
+      },
+      {
+        id: "the-story-about-poor-peoples-food",
+        heading: "The story about poor people's food",
+        paragraphs: [
+          "One account of khash's origin is repeated more than any other. It holds that khash was the food of the poor: that the good cuts went to the wealthy, that the feet and the offal were thrown out or handed down, and that the people who received them made something remarkable out of what nobody else wanted.",
+          "It is worth noticing that its mirror image circulates alongside it — a king tastes the villagers' dish, likes it, and makes it fashionable — and that two stories explaining the same thing in opposite directions are usually both stories. Mamulyan rejects the class account outright, arguing that foods in the past did not carry a marked belonging to one social group. His colleague Grisha Antinyan does not rule it out, but compares it to what people say about the origins of pizza, which amounts to recognising the shape of a folk narrative rather than a documented history.",
+          "Something does survive the audit, and it is smaller and duller than the story. Using the whole animal is ordinary practice in a household that has slaughtered one, and it requires no explanation in terms of class at all. That much is economic practicality, and it is well attested. Khash as documented social history of the poor is not established by anything consulted for this article, and the earliest association the ethnographic record actually offers — a wedding — is not an ordinary weekday in a poor household.",
+        ],
+      },
+      {
+        id: "a-dish-with-relatives",
+        heading: "A dish with relatives",
+        paragraphs: [
+          "Boiled head-and-trotter dishes are made across a wide region, under names that are sometimes the same word and sometimes not: khashi in Georgia, xaş in Azerbaijan, pacha and kalla-pāča in Iran, kelle paça in Turkey, and relatives further afield in the Balkans and Central Asia. Armenian khash belongs to that family, and describing it does not require deciding who had it first.",
+          "The comparison is more useful than any ownership claim, because of how closely the practices match. The Encyclopaedia Iranica's entry on kalla-pāča describes a sheep's head and trotters cooked over low heat, usually overnight; reserved for the colder days of the year; served in the morning; salted only at the end, because salt blackens the meat; prepared in specialist shops with their own guild rather than at home; and, in a nineteenth-century account, served with vinegar, onion or crushed garlic. Almost every structural feature of the Armenian practice appears there, in a tradition that arrived at it separately.",
+          "That convergence is best read as evidence about the food rather than about influence. A preparation that takes a night is ready in the morning; a heavy gelatinous broth suits cold weather; a pot that cannot be salted forces the table to season itself; a dish that is hard to make at home becomes a reason to gather. The most interesting difference is in the naming. Persian names the parts — head and trotter — and Armenian names the method. Two traditions describing the same dish by different halves of it, and neither this article nor its sources needs to turn that into a competition.",
+        ],
+      },
+      {
+        id: "the-hangover-reputation",
+        heading: "The hangover reputation",
+        paragraphs: [
+          "In English, khash usually arrives attached to a single claim. Headlines call it a hangover cure, and a reader who searches for the dish will meet that description before they meet the dish. It is the most widely repeated thing said about khash outside Armenia.",
+          "Where it comes from is not mysterious. Khash is eaten in the morning, in company, and Armenian descriptions note that it often follows a festive evening the night before. A food eaten the morning after acquires the reputation of a remedy for the morning after, and once the association exists, food writing repeats it because it makes a good line.",
+          "What matters is what kind of claim it is. It is a popular belief and a piece of modern food writing — a social association rather than a medical conclusion. Nothing consulted for this article establishes a therapeutic effect, and this article makes no claim about one. It is set out here because it is what most English-language pages lead with, and a reader arriving from them is owed the distinction.",
+        ],
+      },
+    ],
+    importantDates: [
+      {
+        year: "1184",
+        event:
+          "Mkhitar Heratsi completes his medical encyclopedia, the work later accounts most often name when they date khash to the Middle Ages; the text itself was not consulted for this article.",
+      },
+      {
+        year: "2012",
+        event:
+          "Khash becomes the subject of peer-reviewed anthropology, analysed as a male gathering and a national narrative rather than as a recipe.",
+      },
+      {
+        year: "2019",
+        event:
+          "Rafik Nahapetyan's survey of the Armenian food system places khash among the ritual dishes tied to livestock-keeping, and records that it is still almost never eaten without guests.",
+      },
+    ],
+    significance: {
+      heading: "Why khash matters",
+      paragraphs: [
+        "Khash is the second meat dish in this section and the first that is far more interesting as a practice than as a preparation. The recipe is two lines long and contains one ingredient. Everything else worth knowing about it is the season, the hour, the table and the company — which makes it an unusually good subject for an archive that treats food as culture rather than as instruction.",
+        "It is also the clearest case so far of a dish whose popular history and documented history do not match. The two things said about it most often in English are the two the evidence supports least, and telling them apart from what named scholars actually say is most of the work this article does.",
+      ],
+    },
+    interestingFacts: [
+      "The rule that khash belongs to the months with an r in them works in Armenian only because Armenian borrowed its month names from Latin and the r came with them; with the older Armenian month names it would not work at all.",
+      "The cook never salts the broth, because salt darkens it — and the same instruction, for the same reason, is given in Iran for a related dish by an entirely separate tradition.",
+      "Dried lavash is crumbled into the bowl until the broth thickens, a use for bread that depends on lavash keeping for months and reviving with water.",
+      "The word is the verb to boil doing duty as a noun; the same root gives khashlama, which is a different dish and should not be confused with this one.",
+      "Khash is absent from Armenia's national inventory of intangible cultural heritage, although lavash, gata, matsun, tolma and fruit-spirit distilling are all on it.",
+    ],
+    relatedFigures: [],
+    cuisine: {
+      ingredients: [
+        "Cattle feet — trotters — as the characteristic part",
+        "The head and the stomach in some accounts and some households",
+        "Water, and nothing else in the pot",
+        "Garlic, crushed and often worked with salt, added at the table",
+        "Dried and soft lavash, radish, fresh greens and pickles",
+        "Salt, which each person adds to their own bowl",
+      ],
+      preparation:
+        "The feet are cleaned and soaked in cold water that is changed repeatedly over many hours, then simmered in plain unsalted water for most of a night, until the collagen has broken down and the broth has body. It is served scalding and unseasoned, and finished by each person at the table.",
+      occasions: [
+        "Winter mornings, and weekend mornings in particular",
+        "Gatherings of family, friends and neighbours, with customary toasts",
+        "In Gyumri, the morning after a wedding",
+      ],
+      regions: [
+        "Throughout Armenia, as a cold-season practice rather than a regional dish",
+        "Gyumri and Shirak, where the attachment to it is strongest",
+        "Part of a wider regional family of boiled head-and-trotter dishes",
+      ],
+      serving:
+        "Served boiling and unsalted in a deep bowl, with garlic, salt and the accompaniments passed round so that each person seasons and thickens their own portion.",
+    },
+    relatedSlugs: ["lavash", "harissa"],
+  },
+  {
+    slug: "matsun",
+    href: "/cuisine/matsun",
+    category: "cuisine",
+    categoryLabel: "Armenian Cuisine",
+    title: "Matsun",
+    seoTitle: "What Is Matsun? Armenia's Fermented Milk",
+    dishType: "Dairy",
+    dishTypeId: "dairy",
+    imageSeed: "matsun",
+    keywords: [
+      "matsun",
+      "matzoon",
+      "մածուն",
+      "Armenian matsun",
+      "Armenian yogurt",
+      "fermented milk",
+      "matsoni",
+      "chortan",
+      "kamats matsun",
+      "starter culture",
+    ],
+    excerpt:
+      "Milk set thick by its own bacteria, eaten every day and turned into half the rest of the cooking: the first Armat Cuisine article about an ingredient rather than a dish.",
+    metaDescription:
+      "Matsun, the Armenian fermented milk: how bacteria set it, how a starter carries from batch to batch, what it becomes, and what the record actually supports.",
+    summary:
+      "Matsun is milk fermented by lactic-acid bacteria until it sets into a thick, sour, spoonable food. It is eaten plain and with bread, and it is also the base the cooking is built on: thinned into a drink, cooked into soup, drained and salted for keeping, or dried into hard sour balls that last years. A portion of one batch starts the next, which is why traditional matsun carries a local microbial population rather than a bought culture. The Armenian and Georgian traditions are one food under two names, and microbiologists from both countries have studied them together. The word is native Armenian and old; how far back the food in its present form goes is a separate question the evidence does not settle.",
+    intro:
+      "Matsun is what milk becomes when the right bacteria are allowed to work on it. They turn its sugar into acid, the acid destabilises the protein, and the whole vessel sets into something thick, sour and spoonable that keeps far longer than the milk did. That is the entire transformation, and Armenian households have been running it continuously for a very long time by the simplest possible method: keeping back a spoonful of yesterday's to start tomorrow's. This is the first article in this section about a foundational food rather than a finished dish. Matsun is eaten on its own, and it is also the thing a great deal of other Armenian cooking is made out of.",
+    author: "Armat Editorial Team",
+    updated: "2026-08-25",
+    keyFacts: [
+      { label: "Kind of food", value: "Fermented milk, set thick — a dairy food rather than a prepared dish" },
+      { label: "Made from", value: "Cow's milk usually; also sheep, goat, buffalo, or mixtures" },
+      {
+        label: "What sets it",
+        value: "Lactic-acid bacteria — Lactobacillus and Streptococcus dominate, with yeasts also present",
+      },
+      {
+        label: "Started by",
+        value: "A portion of the previous batch, which carries a local microbial population forward",
+      },
+      {
+        label: "Kept as",
+        value: "Fresh; drained and salted as kamats matsun; or dried into chortan, which lasts years",
+      },
+      {
+        label: "Recognised by",
+        value: "Armenia's national inventory of intangible cultural heritage — not a UNESCO list",
+      },
+    ],
+    sections: [
+      {
+        id: "what-matsun-is",
+        heading: "What matsun is",
+        paragraphs: [
+          "Matsun is milk that has been fermented until it sets. The result is thick enough to hold the shape of a spoon, distinctly sour, and white; it is eaten cold, on its own or with bread, and it is used as an ingredient in a great many other things. Cow's milk is the usual base in Armenia today, but sheep, goat and buffalo milk are all used, and so are mixtures of them.",
+          "The English word that comes nearest is yogurt, and this article uses the comparison rather than the equation. Matsun is a fermented milk in the same family, and readers looking for it under the word yogurt should find it — but the two are not interchangeable terms for one standardised product. Industrial yogurt is made with a defined pair of bacteria at a controlled temperature; traditional matsun is made with whatever population the household's own starter carries, at whatever temperature a warm corner provides.",
+          "That difference is why this is the first article in the section about a foundational food rather than a prepared dish. Everything else here is something a cook makes and serves. Matsun is something a cook keeps, and then makes other things out of.",
+        ],
+      },
+      {
+        id: "milk-turned-by-bacteria",
+        heading: "Milk turned by bacteria",
+        paragraphs: [
+          "The chemistry is straightforward and worth stating properly rather than waving at. Milk contains lactose, a sugar. Lactic-acid bacteria consume it and excrete lactic acid, and as the acid accumulates the liquid's pH falls. Milk protein — casein, which normally floats in stable clusters — loses that stability as the acidity rises, and the clusters link into a continuous network that traps the water. The milk has not thickened because anything was added to it. It has set, in place, into a gel.",
+          "The acid does a second job at the same time. It makes the food inhospitable to most of the organisms that would otherwise spoil milk, which is why a fermented milk keeps for days where fresh milk keeps for hours. In a household without refrigeration that is not a pleasant side effect; it is the point.",
+          "What is actually living in it has been measured. A survey published in 2015 in the journal Food Microbiology sequenced bacterial and fungal communities in matsun and matsoni from across Armenia and Georgia, and found the bacteria dominated by Lactobacillus and Streptococcus species. It also found yeasts — among them Kluyveromyces marxianus, Candida famata and Saccharomyces cerevisiae — varying sharply from place to place. A traditional fermented milk is a small ecosystem rather than a two-strain recipe, and this article makes no claim at all about what that ecosystem does to a person who eats it.",
+        ],
+      },
+      {
+        id: "the-starter-and-the-chain",
+        heading: "The starter and the chain",
+        paragraphs: [
+          "The ordinary way to make matsun is to add a little of the last batch to fresh milk. That is all a starter is: a living population, moved from a finished vessel into a new one, where it does the same thing again. Nothing is bought and nothing is measured out, and the chain can run for as long as somebody remembers to hold a portion back.",
+          "The same survey supplies the evidence that this really is what happens, rather than a pleasing story about continuity. It found that both the production region and the milk type shaped the microbial community, and concluded that traditional production preserves the transfer of a distinctive regional population from batch to batch. A starter that had been bought would erase that pattern; a starter carried forward in kitchens is what produces it.",
+          "Other starting methods are documented, and one should be attributed rather than generalised. The Slow Food Foundation's description of the practice in Lori records a preparation called meran, made from dried cornelian cherries with wheat and rye, along with a rennet step. That is a specific account of a specific local practice, and it is reported here as one. Taking any single description of a household process as the timeless national method is the standard error with foods like this one, and the honest position is that the back-slopped starter is the widely attested constant and the elaborations around it vary.",
+        ],
+      },
+      {
+        id: "the-word-and-the-food",
+        heading: "The word and the food",
+        paragraphs: [
+          "Hrachia Acharian's Armenian etymological dictionary treats մածուն under the root մած-, whose sense is to stick, to cling, to thicken — and, of milk, to curdle. The same root gives the verbs for curdling milk and setting cheese, and the adjective for anything viscous. Acharian classes it as a native Armenian word, from an Indo-European root meaning to knead or to work into a sticky mass, with relatives across Slavic, Greek and Germanic; the English word make belongs to the same family.",
+          "He then makes an observation this article borrows, because it settles a question that otherwise attracts a great deal of noise. Beside matsun he sets Persian māsīdan, to curdle, alongside māst; Turkish yoğurmak, to knead, alongside yoghurt; and French cailler, to curdle, alongside lait caillé. Several unrelated languages independently named their fermented milk after the verb for what happens to it. The pattern is a fact about how people name foods, not evidence about who made one first.",
+          "That is the distinction to hold on to. The word is old and it is Armenian. Acharian records մածուն in the classical texts he cites, which establishes the term in written Armenian. What it does not establish is that the food behind the word in those texts was identical to what a shop in Yerevan sells now, and no source consulted for this article closes that gap.",
+        ],
+      },
+      {
+        id: "what-the-record-actually-says",
+        heading: "What the record actually says",
+        paragraphs: [
+          "One sentence travels through nearly every English page about matsun: that it is mentioned in many tales by Armenian writers from the eleventh century onward. It is worth following that back, because what is at the end of it is not what the sentence describes.",
+          "The eleventh-century figure involved is Grigor Magistros, and the work is his treatise on grammar. What he supplies there is an etymology — a scholar's note about where the word comes from — reported into modern discussion through a philological study published early in the twentieth century. A grammarian explaining a word is genuine evidence that the word existed and was familiar enough to explain. It is not a tale, it is not a description of the food, and it will not support a claim about how matsun was made or eaten.",
+          "So the accurate statement is narrower than the popular one and more useful. Matsun is named in Armenian writing from the medieval period, and its name is native and older still. Beyond that the evidence available here does not reach, and this article does not pretend otherwise. Statements that matsun is thousands of years old, or the oldest cultured milk anywhere, are not supported by anything consulted for this page, and the confident ones tend to appear on pages that are selling something.",
+        ],
+      },
+      {
+        id: "matsun-and-matsoni",
+        heading: "Matsun and matsoni",
+        paragraphs: [
+          "Armenians call it matsun and Georgians call it matsoni, and the food is the same food. Both names come from the same root, both traditions set milk with a carried-forward starter, and the products differ in the way that two households' bread differs rather than in the way that two dishes differ.",
+          "Science has treated it that way. The 2015 survey described above was carried out on samples from both countries by a team including Armenian and Georgian researchers, and its title calls matsoni a transnational fermented milk. Its finding — that the microbial community tracks region and milk rather than border — is the most concrete thing anyone can say about the relationship, and it was arrived at by people from both traditions working on the question together.",
+          "There is also a dispute, and it belongs in a different paragraph from the history. Georgia registered matsoni as a protected geographical indication in 2012, and a disagreement over the naming and transit of Armenian matsun followed. That is a modern argument about trade names and markets. It is not evidence about who fermented milk first, it should not be read as any, and this article takes no position on the question of origin because the sources consulted do not answer it and nothing about the food requires it answered.",
+        ],
+      },
+      {
+        id: "an-everyday-food",
+        heading: "An everyday food",
+        paragraphs: [
+          "Matsun is not festival food. The Slow Food Foundation, describing the tradition as it survives particularly in the northern province of Lori, calls it part of the daily diet, and that phrase does more work than it looks like it does: this is a food that appears at ordinary meals, repeatedly, rather than being brought out for an occasion.",
+          "It is eaten plain, with or without bread, and it goes beside salads and soups. It is also a component rather than an accompaniment in a whole family of dishes — the Armenian repertoire includes preparations built on it, and it turns up in fillings and in mixtures where its sourness is doing the seasoning.",
+          "That is the argument for giving it an article of its own. A section that described only finished dishes would keep meeting matsun as a line in other people's ingredient lists and never explain it. Most of Armenian home cooking assumes it is in the house, in the way that a great deal of cooking elsewhere assumes there is butter.",
+        ],
+      },
+      {
+        id: "what-matsun-becomes",
+        heading: "What matsun becomes",
+        paragraphs: [
+          "Thinned with water and salted, it becomes a cold drink — the everyday summer counterpart to the way it is eaten in winter. That drink has its own name and deserves its own article eventually; it does not have one here yet, and this article stops at describing the relationship rather than pretending to cover it.",
+          "Cooked, it becomes soup. Spas is the clearest case in this section: a soup whose body and sourness are both supplied by fermented milk, stabilised so that it can be heated without splitting. That article deliberately left the larger matsun story to be told somewhere else, and this is the somewhere else. Reading the two together is the point of having both.",
+          "Drained and salted, it keeps. The strained form is known as kamats matsun and was stored in clay or in leather for months. Dried further, into hard balls, it becomes chortan, which lasts years and is reconstituted with water when it is wanted. A pastoral household with no cold store could carry the summer's milk into the winter in that form, and the preservation chain — fresh, drained, dried — is the practical reason a fermented milk sits at the centre of the food system rather than at the edge of it.",
+        ],
+        links: [{ phrase: "Spas is the clearest case", slug: "spas" }],
+      },
+      {
+        id: "households-and-factories",
+        heading: "Households and factories",
+        paragraphs: [
+          "Matsun is made in both places now. It is an ordinary supermarket product in Armenia, made industrially with defined cultures and sold in tubs, and it is also still made at home from a starter that came from a previous batch, which came from the batch before that.",
+          "The difference between the two is exactly the difference the microbiology found. An industrial culture is chosen, consistent and reproducible, which is what a product sold at scale requires. A household chain is none of those things, and that is why it carries a regional signature at all. Neither is a corruption of the other; they are two answers to the question of how to make the same food reliably, and they optimise for different kinds of reliability.",
+          "The tradition has also travelled. In 1929 Sarkis and Rose Colombosian, Armenian immigrants in Andover, Massachusetts, began selling their household matsun locally, and the wagon carried the Armenian word. The business grew, and along the way the name on the container was changed to yogurt, because that was the word an American market recognised. It became one of the first commercially sold yogurts in the United States. The food crossed an ocean intact and the word did not survive the trip, which is as neat an illustration as this article could ask for of why it declines to treat the two words as equivalents.",
+        ],
+      },
+      {
+        id: "named-on-a-national-list",
+        heading: "Named on a national list",
+        paragraphs: [
+          "Armenia keeps a national inventory of intangible cultural heritage, and matsun is on it: the entry is the tradition of the preparation and use of matsun, filed under national cuisine. That is a real, dated, institutional recognition by the state of the practice rather than of the product.",
+          "It is worth being precise about what that is not. The national inventory is not the UNESCO Representative List, and the two are separate instruments with separate procedures. Of Armenia's inscriptions on the UNESCO list, the only food is lavash. Matsun does not appear there, and any page that says it is UNESCO heritage has collapsed a national listing into an international one.",
+          "The distinction matters more than pedantry usually does, because this is precisely the kind of claim that gets upgraded as it is repeated. A national inventory entry is worth stating plainly and worth stating accurately, and it is a stronger fact when it is not inflated: a state has formally recognised that making and using matsun is part of its living culture, which is a different and more interesting claim than a badge.",
+        ],
+      },
+    ],
+    importantDates: [
+      {
+        year: "1929",
+        event:
+          "Sarkis and Rose Colombosian begin selling matsun in Andover, Massachusetts; the name on the container is later changed to yogurt for the American market.",
+      },
+      {
+        year: "2012",
+        event:
+          "Georgia registers matsoni as a protected geographical indication, the beginning of a modern dispute over naming rather than over history.",
+      },
+      {
+        year: "2015",
+        event:
+          "A survey in Food Microbiology sequences matsun and matsoni across Armenia and Georgia, and finds the microbial community tracking region and milk type rather than border.",
+      },
+    ],
+    significance: {
+      heading: "Why matsun matters",
+      paragraphs: [
+        "This is the first article in the section about something that is not a dish, and it is the reason the section needed a dairy category rather than a place to file an awkward entry. Matsun is a food, an ingredient, a preservation method and a drink base at once, and describing Armenian cooking without it means describing a great many dishes by their surfaces.",
+        "It is also an unusually clean case of evidence doing better than assertion. The claims that circulate about matsun are about antiquity and ownership; the things that can actually be established are a native word with a documented root, a measured microbial community that ignores the border, and a state inventory entry that is not the international one it is often mistaken for. Each of those is more interesting than the claim it replaces.",
+      ],
+    },
+    interestingFacts: [
+      "Nothing is added to thicken matsun: the acid the bacteria produce destabilises the milk protein, and the whole vessel sets in place into a gel.",
+      "Acharian sets matsun beside Persian māst, Turkish yoghurt and French lait caillé — several unrelated languages each named their fermented milk after the verb for curdling, which is a fact about naming rather than about origin.",
+      "Sequencing found the microbial community of matsun and matsoni tracking region and milk type rather than the Armenian-Georgian border, in a study written by researchers from both countries.",
+      "Dried into hard balls as chortan, matsun keeps for years and is brought back with water — which is how a pastoral household carried summer milk into winter.",
+      "The Armenian-run creamery that introduced yogurt to the United States began by selling matsun under its Armenian name, and changed the word rather than the food.",
+    ],
+    relatedFigures: [],
+    cuisine: {
+      ingredients: [
+        "Milk — cow's usually, also sheep, goat, buffalo or mixtures",
+        "A portion of the previous batch, as the starter",
+        "Lactic-acid bacteria, chiefly Lactobacillus and Streptococcus, with yeasts present",
+        "Salt, for the drained and dried keeping forms",
+      ],
+      preparation:
+        "Milk is warmed, a little of the previous batch is stirred in, and the vessel is left covered and warm until the bacteria have acidified it enough for the protein to coagulate and the whole to set. It is then cooled. No quantities or timings are given here: this article explains what matsun is rather than teaching unsupervised fermentation.",
+      occasions: [
+        "Everyday meals rather than festivals",
+        "Eaten plain or with bread, beside salads and soups",
+        "As the base of soups, drinks, fillings and mixtures",
+      ],
+      regions: [
+        "Throughout Armenia, as an ordinary household and commercial product",
+        "Lori, where the traditional practice is particularly documented",
+        "Shared with Georgia, where the same food is called matsoni",
+      ],
+      serving:
+        "Served cold and plain, or thinned and salted as a drink, or cooked into soup; the drained and dried keeping forms are reconstituted before use.",
+    },
+    relatedSlugs: ["spas"],
+  },
+  {
+    slug: "basturma",
+    href: "/cuisine/basturma",
+    category: "cuisine",
+    categoryLabel: "Armenian Cuisine",
+    title: "Basturma",
+    seoTitle: "What Is Basturma? Armenia's Air-Dried Cured Beef",
+    dishType: "Meat dishes",
+    dishTypeId: "meat",
+    imageSeed: "basturma",
+    keywords: [
+      "basturma",
+      "Armenian basturma",
+      "բաստուրմա",
+      "ապուխտ",
+      "apukht",
+      "basterma",
+      "bastourma",
+      "pastirma",
+      "Armenian cured meat",
+      "cured beef",
+      "chaman",
+      "fenugreek",
+    ],
+    excerpt:
+      "Beef salted, pressed, air-dried and sealed under a paste of fenugreek and garlic: the first article in this section about preserving meat rather than cooking it.",
+    metaDescription:
+      "Basturma, the Armenian air-dried cured beef under its fenugreek coating: how curing works, what chaman is, where the names come from, and what the record supports.",
+    summary:
+      "Basturma is a whole cut of beef preserved by salt, pressure and moving air, then sealed under a thick paste of fenugreek, garlic and pepper called chaman and sliced almost transparently thin. It is eaten as a cold appetiser, with bread, and with eggs, and it belongs to both ordinary breakfasts and festive tables. Armenians also have an older native word for salted dried meat, apukht, which is not the same thing as the modern coated product and should not be read as its birth certificate. The food belongs to a wide regional family of cured meats; what the record supports about the Armenian share of it is a documented craft specialism and an unbroken diaspora transmission, not an invention claim.",
+    intro:
+      "Basturma is what happens to beef when it is given salt, weight, air and time instead of heat. A whole muscle is packed in salt until it gives up much of its water, pressed under weight until it gives up more, hung in moving air until it is firm all the way through, and then coated in a wet paste of ground fenugreek, garlic and red pepper that dries to a dark crust around it. Nothing is cooked and nothing is smoked. What comes out is dense, deep red, intensely savoury, and cut so thin that the light comes through it. This is the first article in this section about preservation rather than cooking — about the problem of keeping meat in a country with hot summers and cold winters and no refrigeration, and about the particular Armenian answer to it.",
+    author: "Armat Editorial Team",
+    updated: "2026-08-26",
+    keyFacts: [
+      { label: "Kind of food", value: "A whole cut of beef, cured and air-dried — not a sausage and not cooked" },
+      { label: "Made from", value: "Lean whole muscle, beef in the modern product; older practice also used sheep" },
+      { label: "Preserved by", value: "Salt, pressing and moving air — no heat, no smoke" },
+      {
+        label: "Coated with",
+        value: "Chaman, a wet paste built on ground fenugreek with garlic and red pepper",
+      },
+      { label: "Served", value: "Sliced almost transparently thin, cold, as meze — and with eggs and bread" },
+      {
+        label: "Also called",
+        value: "Apukht (ապուխտ), the older native Armenian word for salted dried meat",
+      },
+    ],
+    sections: [
+      {
+        id: "what-basturma-is",
+        heading: "What basturma is",
+        paragraphs: [
+          "Basturma is a single piece of lean meat that has been preserved whole. That distinguishes it immediately from most of what English speakers file under cured meat: it is not ground, not stuffed into a casing, not fermented into a sausage. One muscle goes in and one muscle comes out, smaller, darker and much firmer than it started. The modern product is beef, usually cut from the loin or the leg, and it is sold either as a whole dried piece or ready-sliced.",
+          "Four things happen to it, and the order matters more than the quantities. It is salted until a large part of its water has been drawn out. It is pressed under weight, which forces out more and compacts the meat into the flattened shape the finished piece keeps. It is hung in moving air until it has dried through rather than only at the surface. And it is coated in chaman, a wet spice paste that dries into a crust and stays on the meat as part of the food.",
+          "Which of those is essential and which varies is worth separating at the start, because regional versions are not identical and the differences are usually presented as errors by whoever does it differently. The salting, the drying and the fenugreek-based coating are constant wherever this food is made. The cut, the exact composition of the paste, the length of drying and the degree of pressing all vary by producer, household and country, and no single version is the authentic one against which the others fail.",
+        ],
+      },
+      {
+        id: "salt-pressure-and-air",
+        heading: "Meat kept by salt, pressure and air",
+        paragraphs: [
+          "The principle is the same one behind every dried food, and it is about water rather than about salt as such. Bacteria, moulds and the meat's own enzymes all need liquid water to work. Food scientists measure not how much water a food contains but how much of it is available for that work — water activity — and the useful fact is that the organisms which spoil meat and the ones which make people ill are progressively shut down as it falls. Most spoilage bacteria stop well before a food is dry to the touch; the more dangerous ones stop lower still.",
+          "Salt and drying attack the same variable from two directions. Salt on the surface of the meat creates a steep concentration difference across the cell membranes, and water moves outward to equalise it, so the meat sheds liquid before any air has done anything. Pressing removes more of that freed liquid mechanically. Then the hanging does the slow part: air moving across a large flat surface carries moisture away steadily enough that the inside dries before the outside spoils. The pressed shape is not decorative — it is what gives the piece enough surface for its thickness to dry evenly.",
+          "This article explains that process; it does not teach it. Curing whole meat without refrigeration is exactly the kind of preparation where the difference between a good result and a dangerous one lies in conditions that cannot be judged by eye, and no salt proportions, drying times, temperatures or humidity figures appear anywhere on this page. Traditional curing does not sterilise meat, and the sentence sometimes offered — that salt kills everything — is not what the science says. What salt and drying do is make conditions progressively hostile to growth, which is a different and more conditional claim.",
+        ],
+      },
+      {
+        id: "chaman-and-the-coating",
+        heading: "Chaman, and what the word covers",
+        paragraphs: [
+          "The dark red-brown crust is the thing most people picture when they picture basturma, and its Armenian name is chaman (չաման), which appears in English as chemen or chaiman and corresponds to Turkish çemen. The word needs handling carefully, because it does two jobs. In Armenian usage it names the ground fenugreek itself, and it also names the wet paste built on it — a page headed chaman may be about the spice or about the coating, and the two senses are not always signalled.",
+          "The paste is fenugreek-led and garlic-heavy, with red pepper — paprika, or something hotter — supplying most of the colour. Beyond that, published compositions differ: cumin appears in many accounts and not in others, and the proportions vary widely enough that no single mixture can be presented as the standard one. What is consistent is the dominance of fenugreek, which is why the smell of basturma is unmistakable and why it carries: the aroma is powerful, faintly bitter, and it stays on the hands and in a room.",
+          "The coating is not only flavour. Sealing a dried muscle under a dense paste protects the surface while the piece finishes drying and afterwards, and fenugreek in particular is described in Armenian kitchen practice as discouraging insects from a food hung in open air. The thinned form of the same paste, chamanichur, is used as a sauce in its own right, which is a small piece of evidence that Armenian cooking treats chaman as an ingredient rather than only as a wrapper.",
+        ],
+      },
+      {
+        id: "the-names-basturma-and-pastirma",
+        heading: "Basturma, pastirma, and what a name proves",
+        paragraphs: [
+          "The word arrives in Armenian from outside it. Western Armenian basturma and Eastern Armenian bastoorma are loanwords from Turkish pastırma, which is a verbal noun of the verb bastırmak, to press — a name taken from the weight on the meat rather than from the spice on it. Turkish transmitted it widely: the same word underlies Greek pastourmas, Bulgarian and Balkan pastarma, Arabic basterma and the spellings bastourma, basterma and pasturma that English has never settled between.",
+          "There is an older layer beneath the Turkish one, and it is genuinely disputed. The Oxford Encyclopedia of Food and Drink records that the Ottomans applied the word to a Byzantine cured beef called paston, and the Oxford Companion to Food describes a Byzantine dried-meat delicacy as a forerunner of modern pastirma. That much is a real position held in real reference works. But the Byzantinists do not agree on what the Greek terms meant: Johannes Koder reads paston as salted meat or salted fish and akropaston as salted meat, Andrew Dalby reads paston as salted fish, and Gregory Nagy reads akropaston as smoked. Three specialists, three readings of the same words.",
+          "The important thing is what none of this establishes. A name can travel without the technique it names, and a technique can travel without its name; peoples who trade with each other borrow both, in either order, and repeatedly. That Armenians today mostly use a Turkish loanword for this food is a fact about language contact in Anatolia, not evidence about who first hung salted beef in the wind. The argument that spelling settles ownership is made in both directions online and is worth no more in either.",
+        ],
+      },
+      {
+        id: "apukht-and-the-older-word",
+        heading: "Apukht, the older Armenian word",
+        paragraphs: [
+          "Armenian has its own word for this kind of food and it is much older than the loanword. Apukht (ապուխտ) is Classical Armenian, and the philologist Vartan Matiossian, following the standard etymological scholarship, derives it from Pahlavi apuxt, meaning uncooked — from a-, un-, and puxta, cooked. It is an Iranian borrowing, not a Turkic one, and it entered Armenian long before Turkish was spoken in Anatolia. It appears in the fifth-century Armenian translation of the Bible, where it means salted and dried meat.",
+          "The word was productive and it travelled outward rather than inward. Armenian lent it to Georgian as apukhti and, through the dialect of the Armenians of Poland, to Polish as abucht. Inside Armenian it formed compounds — khozapukht, literally pig-apukht, for ham. Armenian dictionaries define apukht as flat strips of meat from cattle or sheep, salted, beaten and dried in open air without cooking, and eaten raw; the apukht of Erzurum is singled out as particularly well known. In modern Armenian the word is still current and is used alongside բաստուրմա, often in the same sentence.",
+          "Now the distinction this article most needs to make. The dictionary sense of apukht is salted, beaten, air-dried raw meat — a category, taking in sheep as readily as cattle, with no spice crust in the definition at all. Modern basturma is one member of that category, distinguished precisely by the thing the definition does not mention. So the fifth-century attestation is real and worth having, and it establishes that Armenians had a word for salted dried meat in late antiquity. It does not establish the fenugreek-coated product, and pages that report the fifth-century date under the heading basturma have quietly swapped a category for one of its members.",
+        ],
+      },
+      {
+        id: "what-the-early-evidence-establishes",
+        heading: "What the early evidence can and cannot establish",
+        paragraphs: [
+          "One dating claim travels further than any other: that basturma is first recorded between 95 and 45 BC, under Tigranes the Great, and that the technique was developed to preserve meat traded from Armenia to China and India. It is repeated across tourism pages and food sites, and it does not survive being followed back. No source is ever named for it. The reign it invokes is misstated — Tigranes II ruled from 95 to 55 BC — and the trail leads to recipe blogs rather than to any text, inscription or scholarly study. There is no first-century-BC record of this food, and the confident date should be treated as an artefact of repetition.",
+          "The second story is about saddles: horsemen who packed salted meat under the saddle, where the horse's weight pressed it and the ride dried it, arriving with the food made. It is a good story and it has an instructive property — it is told about Armenian traders and horsemen on Armenian pages and about Turkic warriors and nomads on Turkish ones, with the same details and the same absence of a source. A legend that changes owner according to who is telling it is folklore about the food rather than evidence about it, and this article records it as the first while declining to present it as the second.",
+          "Set the three lines of evidence beside each other and the honest result is plural. There is an old Iranian-derived Armenian word for salted dried meat; there is a Byzantine vocabulary for salted meat or fish whose meaning specialists dispute; and there is an Ottoman Turkish word for pressing that spread across the whole region and is now what almost everyone says. Those are three real things. They do not line up into a chain in which one becomes the next and arrives at the modern product, and the sources consulted for this article do not support drawing one.",
+        ],
+      },
+      {
+        id: "kayseri-and-the-craft",
+        heading: "Kayseri, and a craft rather than an origin",
+        paragraphs: [
+          "One place is attached to this food more firmly than any other. Kayseri — Caesarea in Cappadocia — was the recognised centre of pastirma production, and the recognition is old enough to be quoted rather than merely asserted. The seventeenth-century Ottoman traveller Evliya Çelebi, in his Seyahatname, records the town's cumin-flavoured beef pastirma as something found nowhere else and sent as a gift to Istanbul. That is a dated external observation from a named writer, which is a better class of evidence than most of what surrounds this subject.",
+          "Who was making it there is also documented. The trade in Kayseri was overwhelmingly in Armenian hands, to the point where accounts describe an effective Armenian dominance of its manufacture and sale by the nineteenth century, while Greeks and Turks in the town made and ate it domestically; the historian Philip Mansel notes Armenians selling pastirma in Istanbul from the seventeenth century onward. The best-known survival of that world is a business rather than a legend: Krikor Apikoğlu founded a pastirma house in Kayseri in 1910 and moved production to Istanbul in 1920, and the firm went on to become the first nationwide meat company of the Turkish republic.",
+          "What that evidence supports is a specialism, and the difference from an origin claim is the whole point. Being the acknowledged masters of a craft in the town most famous for it, over a long enough period for a foreign consulate to note it in passing, is a strong and documentable historical fact. It is not the same as having invented the food, it does not require that anyone did, and the phrasing to prefer is that Kayseri became particularly renowned for basturma and that Armenians were particularly renowned for making it there.",
+        ],
+      },
+      {
+        id: "after-1915-the-craft-travels",
+        heading: "A craft carried out of Anatolia",
+        paragraphs: [
+          "The Armenian population of Kayseri and the surrounding provinces was destroyed or driven out during the genocide of 1915 and the years around it. Among the many things that displacement moved was this trade: survivors who reached Aleppo, Beirut, Cairo, Athens and Thessaloniki brought the craft with them, and basturma became a fixture of Armenian quarters in each of those cities. The people were displaced; the knowledge was portable, and it was carried by families who had practised it commercially.",
+          "That is why basturma is not only a food of the Republic of Armenia. It is a diaspora food in the strict sense — one whose modern geography was set by where Armenians ended up. Later migrations extended the same line westward, to France and to the United States, and the shops that resulted are recognisably descended from the Anatolian trade rather than independently invented. The Smithsonian Center for Folklife and Cultural Heritage has documented one of them, a basturma shop in the Little Armenia neighbourhood of Los Angeles, whose proprietor learned the work from family makers in Armenia and Lebanon — a two-step route that is itself the history in miniature.",
+          "This is the part of the subject where Armat can be most precise and least speculative, because the transmission is recent, documented and still visible. A cured meat that requires weeks of attention and a tolerance for the smell of fenugreek in the building is not a thing communities keep by accident. It was kept deliberately, in kitchens and shops, by people for whom it was both a livelihood and a piece of the place they had lost, and that continuity is better evidence of what basturma means to Armenians than any claim about the first century BC.",
+        ],
+      },
+      {
+        id: "how-basturma-is-eaten",
+        heading: "How basturma is eaten",
+        paragraphs: [
+          "It is cut thin — thin enough to be translucent — and eaten cold. That is the default and it is not a garnish convention: the meat is dense, salty and strongly spiced, and a thick slice is unpleasant in a way a thin one is not. Sliced this way it goes on a meze table among other cold dishes, it is folded into bread, and it is the filling of a sandwich in every diaspora city where it is sold.",
+          "The best-known cooked use is with eggs. Slices are warmed in a pan and eggs are broken over them, and the fat and spice from the crust flavour the whole dish; it is a standard Armenian breakfast and one of the few preparations in which basturma is heated at all. It is worth naming this as one common use rather than as the definition of the product, which is a trap the English-language pages fall into regularly.",
+          "The bread it is eaten with is normally lavash, which is the pairing this section has already described from the other side: a thin, foldable bread does for a strongly flavoured meat exactly what it does for cheese and greens. And the contrast with the section's other beef article is worth stating, because the two are opposite solutions to the same animal. Khorovats applies fire, quickly, and is eaten the day it is made; basturma applies salt, weight and air, slowly, and is eaten for months afterwards. One is a method of cooking and the other is a method of keeping.",
+        ],
+        links: [
+          { phrase: "normally lavash", slug: "lavash" },
+          { phrase: "Khorovats applies fire", slug: "khorovats" },
+        ],
+      },
+      {
+        id: "everyday-and-festive",
+        heading: "Everyday food and holiday food at once",
+        paragraphs: [
+          "Basturma does not sit cleanly on either side of the ordinary-versus-special line, and forcing it onto one is a mistake. Armenian breakfast descriptions place cured meats among the standing components of the meal, alongside lavash, cheeses, eggs and fresh vegetables, which is as everyday as food gets. Armenian-language accounts equally describe it as a fixture of the festive table, where it appears among the cold dishes at the start.",
+          "Both can be true because the constraint is cost and keeping rather than occasion. This is an expensive product — a large piece of lean beef reduced substantially in weight, then held for weeks before it can be sold — and it is bought in small quantities and cut thin. A food that is sliced sparingly can be an ordinary breakfast in small amounts and a generous gesture in larger ones without changing what it is.",
+          "Its official standing in Armenia today is a live question rather than a settled one. In March 2025 the deputy minister of economy told a parliamentary committee that discussions were under way to protect Armenian basturma, alongside Armenian matsun, as national geographical indications under the law that came into force in 2022. That is a stated intention at an early stage, not a completed registration, and the distinction is worth keeping: it says the state considers the product worth protecting, and nothing yet about whether protection was granted.",
+        ],
+      },
+      {
+        id: "a-regional-food-without-one-owner",
+        heading: "A regional food without a single owner",
+        paragraphs: [
+          "Basturma in some form belongs to Armenian, Turkish, Greek, Arab, Kurdish, Bulgarian, Egyptian and Azerbaijani cooking, and versions of it are made across all of them. The internet's preferred question about it — who invented it — has no answer that the evidence will carry, and the arguments conducted under that heading are almost always about something other than food. This article does not take a position on it, because taking one would require sources that do not exist.",
+          "The questions that can be answered are narrower and better. Armenians have a native word for salted dried meat attested in the fifth century and lent onward to two other languages. Armenians were the documented specialists in the trade in the town most renowned for it. Armenians carried the craft out of Anatolia after 1915 and kept it in half a dozen countries, which is why a Los Angeles shop can trace its practice through Lebanon to Armenia. That is a distinctive and well-evidenced Armenian tradition inside a shared regional history, and it does not need an invention claim to be substantial.",
+          "Two neighbouring foods are worth naming to close the boundaries of this one. Sujuk, the dry spiced sausage that sits beside basturma in every account of an Armenian breakfast, is a different technique — meat ground and cased rather than kept whole — and it has no article here yet. And pastrami is a linguistic relative rather than a descendant: the Turkish word passed into Romanian as pastramă and travelled to New York with Romanian Jewish immigrants in the late nineteenth century, where the food itself was rebuilt around brisket, brine and smoke. Basturma did not become pastrami. The two share an ancestor in a word for pressing, and then went separate ways.",
+        ],
+      },
+    ],
+    importantDates: [
+      {
+        year: "5th century",
+        event:
+          "Apukht (ապուխտ), from Pahlavi apuxt meaning uncooked, appears in the Armenian translation of the Bible in the sense of salted and dried meat.",
+      },
+      {
+        year: "17th century",
+        event:
+          "Evliya Çelebi's Seyahatname records Kayseri's cumin-flavoured beef pastirma as found nowhere else and sent as a gift to Istanbul.",
+      },
+      {
+        year: "1910",
+        event:
+          "Krikor Apikoğlu founds a pastirma house in Kayseri; production moves to Istanbul in 1920 and the firm becomes a national meat company.",
+      },
+      {
+        year: "2025",
+        event:
+          "Armenia's deputy minister of economy tells a parliamentary committee that geographical-indication protection for Armenian basturma and Armenian matsun is under discussion.",
+      },
+    ],
+    significance: {
+      heading: "Why basturma matters",
+      paragraphs: [
+        "This is the first article in the section about keeping food rather than making it. The other ten describe what Armenian cooks do with ingredients on the day; this one describes the problem that comes before all of them, which is how a household in a country of hot summers and hard winters holds meat through the months when there is none. Bread, dairy and meat each had an answer, and this is the meat one.",
+        "It is also the clearest case in the section of a subject where the popular claims and the demonstrable ones point in different directions. What circulates is a first-century-BC date and a story about saddles. What can actually be shown is an Iranian-derived word in a fifth-century translation, an Ottoman traveller praising one Cappadocian town's pastirma in the seventeenth century, a family firm founded in 1910, and a shop in Los Angeles whose owner learned the work in Lebanon from people who learned it in Armenia. The documented version is less ancient and considerably more interesting.",
+      ],
+    },
+    interestingFacts: [
+      "Armenian chaman does double duty: the word names ground fenugreek and also the wet paste built on it, so a reference to chaman may mean the spice or the coating.",
+      "Apukht is an Iranian loanword — from Pahlavi apuxt, uncooked — and Armenian lent it onward to Georgian as apukhti and, through the Armenians of Poland, to Polish as abucht.",
+      "The saddle legend is told about Armenian horsemen on Armenian pages and about Turkic warriors on Turkish ones, with the same details and no source on either side.",
+      "Three Byzantinists give three readings of the Greek terms behind pastirma: salted meat, salted fish, and smoked — which is why no clean origin chain can be drawn from them.",
+      "Basturma did not become pastrami. The Turkish word passed into Romanian and reached New York with Romanian Jewish immigrants, where the food was rebuilt around brisket, brine and smoke.",
+    ],
+    relatedFigures: [],
+    cuisine: {
+      ingredients: [
+        "A lean whole cut of beef, usually from the loin or leg",
+        "Salt, in quantity, for drawing out water",
+        "Fenugreek, ground — the base of the coating and its dominant aroma",
+        "Garlic and red pepper, with cumin in many but not all versions",
+      ],
+      preparation:
+        "A whole muscle is packed in salt until much of its water has been drawn out, pressed under weight to remove more and to flatten it, and hung in moving air until it has dried through. It is then coated in chaman, a wet fenugreek paste, and left until the crust has set. No quantities, timings, temperatures or humidities are given here: this article explains what basturma is and how curing works, and it is not a method for curing meat at home.",
+      occasions: [
+        "Everyday breakfasts, among the standing cold components of the meal",
+        "Festive tables, among the cold dishes served at the start",
+        "Meze tables, sliced thin and served cold",
+      ],
+      regions: [
+        "Throughout Armenia, as both a household purchase and a commercial product",
+        "Kayseri in Cappadocia, the historic centre of the trade, where Armenians were the documented specialists",
+        "The Armenian diaspora — Aleppo, Beirut, Cairo, Greece, France and the United States",
+      ],
+      serving:
+        "Cut almost transparently thin and eaten cold, on a meze table or folded into lavash; warmed in a pan with eggs broken over it for breakfast.",
+    },
+    relatedSlugs: ["lavash", "khorovats"],
+  },
+  {
+    slug: "manti",
+    href: "/cuisine/manti",
+    category: "cuisine",
+    categoryLabel: "Armenian Cuisine",
+    title: "Manti",
+    seoTitle: "What Is Armenian Manti? The Baked Open Dumpling",
+    dishType: "Main dishes",
+    dishTypeId: "main",
+    imageSeed: "manti",
+    keywords: [
+      "manti",
+      "Armenian manti",
+      "մանթի",
+      "sini manti",
+      "Armenian dumplings",
+      "Armenian baked dumplings",
+      "mante",
+      "monta",
+      "sulu manti",
+      "Western Armenian food",
+      "manti and matsun",
+      "boat-shaped dumplings",
+    ],
+    excerpt:
+      "Tiny open boats of dough with meat in them, baked until the edges go hard, then drowned in broth and garlic matsun: the Armenian form of a dumpling the whole region makes.",
+    metaDescription:
+      "Armenian manti, the small open dumplings baked crisp and served with broth and garlic matsun: what makes the form distinctive and what the origin stories rest on.",
+    summary:
+      "Manti are small meat-filled dumplings, and the Armenian form is recognisable at a glance: pinched into open boats rather than sealed, arranged upright on a tray, and baked until the exposed dough goes brown and hard before broth and garlic matsun are poured over them. That form belongs above all to Western Armenian cooking — to Aintab, Marash and Cilicia, and to the diaspora communities that descend from them. Manti also exist far beyond Armenians, in a family running from Chinese mantou through Central Asia to Turkish mantı, and the popular story that Armenians received them from the Mongols in thirteenth-century Cilicia traces to a single modern book. What the record supports is a particular Armenian treatment of a shared food, and a well-documented account of how it left Anatolia and was kept.",
+    intro:
+      "Almost every dumpling in the world is closed. The dough is folded over the filling and sealed, and whatever happens next — boiling, steaming, frying — happens to a parcel. Armenian manti are the ones left open. Two sides of a small square of dough are pinched up around a little meat, the ends are left standing apart, and what goes into the oven is a tray of tiny open boats rather than a pot of sealed ones. Dry heat does to them what water never could: the raised edges brown and go brittle while the filling cooks down inside. Then hot broth is poured straight over the tray and garlic-whipped matsun goes on top, and the dish arrives as three textures at once — hard, soft and cold. This article is about that form: what it is, where it belongs, and how much of the history usually attached to it will actually bear weight.",
+    author: "Armat Editorial Team",
+    updated: "2026-08-26",
+    keyFacts: [
+      { label: "Kind of food", value: "Small meat-filled dumplings, served as a main dish" },
+      { label: "Characteristic Armenian form", value: "Open boat shapes, baked on a tray until the edges crisp — sini manti" },
+      { label: "Filled with", value: "Ground lamb or beef with onion and spices" },
+      { label: "Served with", value: "Hot broth poured over the baked tray, and matsun beaten with garlic" },
+      { label: "Belongs to", value: "Western Armenian cooking above all — Aintab, Marash, Cilicia and their diaspora" },
+      { label: "Also spelled", value: "Mante, monta; մանթի in Armenian" },
+    ],
+    sections: [
+      {
+        id: "what-armenian-manti-is",
+        heading: "What Armenian manti is",
+        paragraphs: [
+          "Manti are small dumplings of wheat dough filled with ground meat, and they are made under that name across a very wide stretch of Asia. What makes the Armenian ones a recognisable thing rather than a local spelling is the handling: they are shaped open, cooked in dry heat on a tray, and finished at the table with two wet things poured over them. English has settled on Armenian dumplings as the gloss, which is accurate and tells you almost nothing, because the interest is entirely in what is done to them.",
+          "The form is small. These are not the fist-sized steamed manti of Central Asia and they are not a plate of six; a tray holds many dozens, and the making of them is measured in hours rather than minutes. The size is not a flourish. It is what produces the ratio the dish depends on — a great deal of edge for very little filling — and it is the reason the dish is almost never made for one household on an ordinary evening.",
+          "A second name is worth having at the start. Sini manti, tray manti, is the term used for the baked form specifically, from the tray it is arranged on; sini is a Persian word for a large round tray that reached Armenian through the same Ottoman-era contact that supplied a good deal of Western Armenian kitchen vocabulary. When a recipe says sini manti it is signalling the baked open version rather than any of the others, and that distinction is more useful than it looks.",
+        ],
+      },
+      {
+        id: "the-open-baked-form",
+        heading: "The open baked form, and the word always",
+        paragraphs: [
+          "The baked open boat is the characteristic Armenian form and the one worth explaining. Squares of thin dough are given a little filling, the two opposite sides are pinched together over it and the two ends are left open, so the finished shape is a canoe with the meat visible along the top. They are packed upright and close together on an oiled tray, often in a pattern, and put into a hot oven until the standing dough has coloured and hardened and the meat has browned in its trough. Nothing about that sequence resembles what most dumpling traditions do.",
+          "It is also the point where the English-language sources overreach, and the overreach is worth naming because it is repeated everywhere. The claim in circulation is that Armenian manti is always baked and never boiled or steamed, unlike every other regional variety. That is a stronger statement than the evidence carries, and Armenian practice itself contradicts it. Sulu manti — soup manti, from the word for water — is Armenian, and its dumplings are closed rather than open and simmered in broth rather than baked. Armenian-language recipe sites in the Republic routinely give manti steamed in a stacked steamer, in the larger Central Asian manner.",
+          "The honest formulation is narrower and survives contact with the evidence: the baked open form is a characteristic and widely documented Armenian style, strongly associated with Western Armenian cooking, and it is what most people mean when they say Armenian manti without qualification. It is not a rule that every Armenian kitchen follows, and the versions that depart from it are not mistakes. This article describes a form, not a border.",
+        ],
+      },
+      {
+        id: "dough-filling-and-the-crisp-edge",
+        heading: "Dough, filling, and why the edge matters",
+        paragraphs: [
+          "The dough is plain: wheat flour worked with water, usually with egg, rolled very thin and cut into small squares. It is unleavened, which matters more here than it would elsewhere, because a risen dough would puff and soften rather than harden. What the recipe wants from it is not tenderness but the capacity to dry out and hold a shape, and thinness is what makes that possible in the time the filling takes to cook.",
+          "The filling is ground meat with onion and seasoning, and the meat varies by household more than by rule. Lamb is usual in the older Western Armenian accounts and remains standard in the Levantine diaspora; beef is at least as common in American and Armenian kitchens today, and mixtures of the two are ordinary. Onion is near-universal, and the seasoning runs to salt, pepper, parsley and often a warming spice such as allspice or cumin. Vegetarian versions filled with lentils or chickpeas exist and are made by people who make the meat kind too.",
+          "The baking is where the identity of the dish is made, and the reason is a piece of ordinary food science. Dry heat drives water off the exposed dough and lets its surface rise well past the temperature of boiling, so the sugars and proteins in it brown and the structure sets hard; a dumpling cooked in water or steam cannot do either, because its surface stays wet and stays at the temperature of the water. That is why the open shape and the oven belong together. Leaving the top open exposes the maximum amount of dough to the dry air, and the result is a food that is genuinely crisp before anything is poured on it.",
+        ],
+      },
+      {
+        id: "broth-and-matsun-at-the-table",
+        heading: "Broth and matsun at the table",
+        paragraphs: [
+          "Having made the dough hard, the cook then wets it again, and the timing of that reversal is the whole trick. Hot broth — meat stock, in many versions given body and colour with tomato — is poured directly over the baked tray shortly before it is eaten, and the crisped edges take up just enough of it to soften without collapsing. Some households serve the broth alongside in bowls instead, and some skip it entirely and finish with the dairy alone. Which of these is correct is a question that families answer for themselves and answer confidently.",
+          "The dairy is not optional in the same way. Matsun beaten smooth with crushed garlic goes over the top, and the combination of hot baked dough, hot broth and cold sour dairy is what the dish is for. Matsun is the Armenian fermented milk described in its own article here, and naming it precisely is worth the trouble: recipes written for English-speaking kitchens routinely call for Greek yogurt or labneh, which are reasonable substitutes and are not the same product. The dish belongs to a cuisine that had matsun in it long before it had manti.",
+          "Sumac finishes it in most Western Armenian versions, sometimes with dried mint or Aleppo pepper, and the choice is not decorative. Sumac is sour and dry, and it is doing the same job as the matsun from another direction on a dish that is otherwise rich, salty and soft. This is the layered, sour-topped style of the eastern Mediterranean rather than of the Armenian highland, and its presence on the plate is one more piece of evidence about where this form of manti comes from.",
+        ],
+        links: [{ phrase: "Matsun is the Armenian fermented milk", slug: "matsun" }],
+      },
+      {
+        id: "a-dish-made-by-many-hands",
+        heading: "A dish made by many hands",
+        paragraphs: [
+          "Filling and pinching several hundred dumplings the size of a thumb-joint is not an evening's work for one person, and the practice that grew up around that fact is documented rather than merely asserted. Diaspora accounts describe the making of manti as a gathering: the women of a family meeting at one house, often at a weekend, working through trays of them together and freezing what was not needed immediately. The food writer Andrew Janjigian describes exactly that arrangement at his Aunt Esther's house, with the frozen trays kept for Christmas Eve.",
+          "The consequence is that manti tends to appear at the far end of the ordinary-to-special scale without being a ceremonial food. It is served at Christmas and Easter, at family gatherings and at church and community events, because those are the occasions that justify the labour and gather the labourers. It is not liturgical, it carries no ritual role, and it belongs in this section among main dishes rather than beside harissa and ghapama.",
+          "It is worth saying what this does not amount to. Communal manti-making is a documented practice in particular families and communities, recorded by the people it belongs to; it is not a description of how all Armenians live, and freezers, food processors and bought dough have changed it substantially within living memory. A dish made by many hands is a real tradition and also a tradition with a history, including a recent one.",
+        ],
+      },
+      {
+        id: "a-western-armenian-food",
+        heading: "A Western Armenian food",
+        paragraphs: [
+          "Armenian food is not one cuisine, and manti is among the clearest illustrations of that. The dish belongs above all to Western Armenian cooking — the food of the Armenian communities of Ottoman Anatolia and Cilicia, and of the diaspora that descends from them — rather than to the cooking of the eastern highlands that became the Republic of Armenia. Writing for the Smithsonian Folklife Festival, Liana Aghajanian put the general case bluntly: what is eaten in Armenia is very different from what constitutes Armenian cuisine outside it, down to the names and pronunciations of the foods, and she names manti among the Western Armenian dishes that diaspora restaurants keep.",
+          "Precision about the term matters here, because Western Armenian is a geographical and historical description and not a synonym for abroad. It refers to the Armenians of the western, Ottoman half of the historic Armenian lands and to the cities and provinces of Anatolia and Cilicia where they lived — Aintab, Marash, Kilis, Adana, Kharberd, Sebastia — and to their language, which is a distinct standard of Armenian rather than an accent. An Armenian family in Moscow or Rostov is not Western Armenian, and its cooking is generally not manti cooking.",
+          "The regional trail is visible in the sources. The Armenian-American cookbook tradition of the mid-twentieth century was overwhelmingly an Aintab tradition, compiled in Massachusetts by women born in Anatolia; the Hetq archive's account of Aintab cooking records tray-baked and yogurt-served filled foods among the town's characteristic dishes, including one served after the New Year liturgy. Manti sits inside that world, and it is not an accident that the modern recipe pages carrying it so often begin with a grandmother from Aintab or Marash who left for Aleppo.",
+        ],
+      },
+      {
+        id: "the-cilician-claim",
+        heading: "The Cilician claim and where it comes from",
+        paragraphs: [
+          "One historical sentence accompanies almost every English page about Armenian manti: that manti reached Cilician Armenia through contact between Armenians and Mongols during their thirteenth-century alliance, and that Turkic peoples then learned it from the Armenians and carried it into Anatolia. It appears on food-media explainers, on diaspora community pages and on recipe blogs, usually with no source at all and occasionally attributed to an unnamed Armenian researcher.",
+          "It can be traced. The claim goes back to Irina Petrosian and David Underwood's Armenian Food: Fact, Fiction and Folklore of 2006, a popular history of Armenian cuisine, and it circulated from there through an encyclopedia entry into general use. Knowing that changes how much weight it can carry. The Armenian-Mongol alliance is real, well documented and interesting in its own right, and it is entirely plausible that food moved along it. But a plausible inference published in a modern popular book is a hypothesis about the thirteenth century, not a record of it, and the second half — that Turkic peoples got manti from Armenians — is a larger claim still and rests on the same single foundation.",
+          "So this article does not say that manti originated in Cilician Armenia, and it does not say the opposite either. There is no medieval Armenian text, inscription or cookbook establishing when dumplings under this name entered Armenian cooking, and the earliest hard evidence for the word anywhere in Anatolia is Ottoman rather than Cilician. The strong association between manti and Cilicia in modern Armenian memory is real and worth recording as what it is: a fact about where the dish flourished and who carried it, not a dated account of how it arrived.",
+        ],
+      },
+      {
+        id: "manti-across-a-wider-region",
+        heading: "Manti across a wider region",
+        paragraphs: [
+          "Armenian manti sits inside a family that is much larger than Armenia. Dumplings called manti, mantı, mantu or manta are made from Xinjiang and Uzbekistan through Afghanistan and the Caucasus to Anatolia and the Balkans, and Korean mandu and Chinese mantou belong to the same tangle of names. The Turkish mantı best known outside Turkey is Kayseri mantısı — very small, closed, boiled, and served under garlic yogurt with melted butter and pepper poured over. The dumplings of Central Asia are usually much larger and steamed. The Armenian form is the baked open one.",
+          "The chronology available is thin and comes from outside Armenian sources. The earliest well-known written record of a manti-like dish is in Yinshan Zhengyao, the dietary manual compiled in 1330 by Hu Sihui at the Mongol Yuan court, which contains recipes plainly related to the later Anatolian ones; the earliest Ottoman manti recipe appears in the fifteenth-century cookbook of Muhammed bin Mahmud Şirvani. Between those two points sits the Mongol expansion, which is why so many accounts reach for it — the westward spread of these dumplings across Eurasia is a genuine scholarly subject, treated by Aylin Öney Tan in the Oxford Symposium's volume on wrapped and stuffed foods.",
+          "The honest summary is that the wider manti family has a long transregional history that no single people invented, and that the Armenian baked form is one distinct development within it. Both halves of that sentence are needed. Dropping the first produces the invention claims that circulate in several languages at once; dropping the second reduces a specific and well-attested culinary practice to a borrowing, which is not what it is.",
+        ],
+      },
+      {
+        id: "the-word-and-what-it-proves",
+        heading: "The word, and what a word proves",
+        paragraphs: [
+          "Armenian writes the dish մանթի, and English transcribes it as manti, mante and — in some diaspora communities, notably around Los Angeles and Detroit — monta. The variants are pronunciation caught in different spellings rather than different foods; a Glendale shop selling monta and a Boston kitchen making manti are making the same thing. Related terms travel with it: mantapour for the broth version, sini manti for the baked one, sulu manti for the soup one.",
+          "The etymology of the root is genuinely unsettled. Most etymological references derive manti from Chinese mantou, and Turkish etymological dictionaries also point toward a Mongol link; the reverse direction, mantou as a borrowing into Chinese from a Turkic source, has been argued and questioned. What is not in doubt is that the word is not Armenian in origin and arrived from the east along with the food.",
+          "That fact settles nothing about ownership, and it is worth saying plainly because the argument is made in both directions online. Loanwords are the normal condition of cooking vocabulary across this whole region — Armenian took basturma from Turkish, sini from Persian, and lent its own words outward in turn — and a borrowed name is evidence of contact rather than of who is entitled to the dish. What a people does with a food after it arrives is the thing worth describing, and in this case what Armenians did with it was distinctive enough to have its own name.",
+        ],
+      },
+      {
+        id: "carried-and-kept",
+        heading: "Carried out of Anatolia and kept",
+        paragraphs: [
+          "The best-documented part of this subject is the most recent. The Armenian communities of Aintab, Marash and the Cilician towns were destroyed or driven out during the genocide of 1915 and the years around it, and their survivors reached Aleppo and Beirut first and then, in later migrations, France, the United States and Canada. Manti went with them. The same trays are set in Aleppo, Beirut, Boston, Los Angeles and Toronto, made from recipes that trace back through one or two named women to a town that no longer has Armenians in it.",
+          "This is a different kind of transmission from the one described in the section's other Anatolian survival. Basturma was carried by families who had made it commercially, and it re-established itself as a trade with shops and producers. Manti was carried in households, by people who made it for their own families and taught daughters and daughters-in-law to pinch it, and it re-established itself as a domestic practice that only later acquired restaurants. Both routes worked; the household one leaves fewer records, which is why the family accounts collected in community publications are the evidence here rather than an ornament on it.",
+          "It also means the dish has been changing continuously while remaining recognisable. Diaspora versions differ by country — more tomato in the Levantine broth, more sumac in some kitchens than others, beef where the grandmother used lamb — and some cooks now build them from bought wrappers. The people making those adjustments are the tradition, not a departure from it, and the constant across all of them is the shape and the oven.",
+        ],
+        links: [{ phrase: "the section's other Anatolian survival", slug: "basturma" }],
+      },
+      {
+        id: "manti-in-armenia-today",
+        heading: "Manti in Armenia today",
+        paragraphs: [
+          "In the Republic of Armenia the picture is different and specific. Manti is available and known, but it is not a standard dish of the Armenian highland kitchen in the way dolma or khash are, and where it is served in Yerevan it is served overwhelmingly by restaurants that are explicitly Western Armenian or Middle Eastern Armenian — houses founded by families from Beirut and Aleppo, or named for Aintab. The dish has arrived in Armenia in large part by returning with the diaspora rather than by descending within it.",
+          "That gives manti an unusual position among the twelve dishes in this section, and a useful one. Most of them are foods of the country that also travelled; this is a food of the exile that has been travelling back. It is also, alongside the word manti in Armenian-language recipe collections, an illustration of how the same name covers two different foods in the two halves of Armenian life — the baked open tray in the diaspora, and the larger steamed dumpling of the post-Soviet repertoire in kitchens inside Armenia.",
+          "None of this makes it less Armenian, and the question of whether it counts is not one this article thinks is worth asking. A food that a people has made under its own name for centuries, shaped in a way nobody else shapes it, served with its own dairy and carried through a catastrophe by the households that survived it, is that people's food. What the record supports is not an invention story but something more particular: a shared regional dumpling that Armenians handled differently from everyone around them, and kept.",
+        ],
+      },
+    ],
+    importantDates: [
+      {
+        year: "1330",
+        event:
+          "Yinshan Zhengyao, compiled by Hu Sihui at the Mongol Yuan court, records dumpling recipes plainly related to the later Anatolian manti.",
+      },
+      {
+        year: "15th century",
+        event:
+          "The earliest known Ottoman manti recipe appears in the cookbook of Muhammed bin Mahmud Şirvani.",
+      },
+      {
+        year: "1915",
+        event:
+          "The Armenian communities of Aintab, Marash and Cilicia are destroyed or expelled; survivors carry manti to Aleppo, Beirut and, later, the Americas and Europe.",
+      },
+      {
+        year: "2006",
+        event:
+          "Irina Petrosian and David Underwood publish the Cilician-Mongol account of manti's arrival that later circulates, unattributed, across the English-language web.",
+      },
+    ],
+    significance: {
+      heading: "Why manti matters",
+      paragraphs: [
+        "Manti is where this section stops being a cuisine of one country. Ten of the dishes here can be described from inside Armenia; this one cannot, because its home is the western half of the historic Armenian world and its living centre is a diaspora that was made by force. To write about manti at all is to write about Aintab and Aleppo and Beirut and Glendale, and about a form of Armenian cooking that survived its own geography.",
+        "It is also the section's clearest case of a shared food made distinctive by treatment rather than by ingredients. Nothing in a manti is Armenian in itself: the dough is wheat and water, the filling is minced lamb, the name came from the east. What is Armenian is the decision to leave the parcel open and put it in an oven, and then to pour broth and garlic matsun over what came out. That is a small technical difference that produces a completely different food, and it is worth defending as carefully as any origin claim — more carefully, because unlike the origin claims it can actually be shown.",
+      ],
+    },
+    interestingFacts: [
+      "Sini manti means tray manti; sini is a Persian word for a large round tray, and it names the baked form after the thing it is baked on.",
+      "The widely repeated claim that Armenian manti is never boiled or steamed is contradicted by Armenian practice: sulu manti is closed and simmered, and Armenian-language recipe sites give steamed versions.",
+      "The Cilician-Mongol origin story that appears on nearly every English page about Armenian manti traces to a single popular book published in 2006.",
+      "In parts of the American diaspora the dish is called monta, and a Glendale shop sells it under that name — the same food, a different vowel.",
+      "In Yerevan manti is mostly found in restaurants founded by Western Armenian families from Beirut and Aleppo: a diaspora food that has been travelling home.",
+    ],
+    relatedFigures: [],
+    cuisine: {
+      ingredients: [
+        "Thin unleavened wheat dough, usually made with egg",
+        "Ground lamb or beef with onion, salt, pepper and parsley",
+        "Meat broth, in many versions coloured and given body with tomato",
+        "Matsun beaten with crushed garlic, and sumac to finish",
+      ],
+      preparation:
+        "Thin dough is cut into small squares, each given a little filling, and pinched along two sides so the ends stay open. The boats are packed upright on an oiled tray and baked in dry heat until the standing edges brown and harden and the meat browns inside. Hot broth is poured over the tray shortly before serving. No quantities, oven temperatures or baking times appear here: this article describes what manti is and why the form works, and it is not a recipe.",
+      occasions: [
+        "Family gatherings, where the shaping is shared out among several people",
+        "Christmas and Easter tables, and church and community events",
+        "Everyday meals in households that keep trays of shaped manti in the freezer",
+      ],
+      regions: [
+        "Western Armenian Anatolia and Cilicia — Aintab, Marash and the towns around them",
+        "The Levantine diaspora, above all Aleppo and Beirut",
+        "Armenian communities in the United States, France and Canada",
+        "Yerevan, chiefly in restaurants founded by Western Armenian families",
+      ],
+      serving:
+        "Baked until the open edges are hard, then flooded with hot broth and topped with garlic-beaten matsun and sumac, so that hot, soft and cold arrive together.",
+    },
+    relatedSlugs: ["matsun", "basturma"],
+  },
 ];

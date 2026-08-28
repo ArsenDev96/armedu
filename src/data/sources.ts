@@ -666,6 +666,522 @@ const SOURCES: Record<string, Source[]> = {
     },
   ],
 
+  /*
+   * §70. Jingalov hats — the section's first bibliography for a dish whose
+   * subject is a place, and the first that had to weigh a source's provenance
+   * rather than only its quality.
+   *
+   * Two decisions are recorded here because neither is visible from the list.
+   *
+   * **Petrosian and Underwood is again not cited, and this time for a different
+   * reason than §68's.** There the objection was concentration — five of six
+   * existing Cuisine articles rest on it. Here the objection is fit: a general
+   * survey of Armenian food and folklore is not where the load-bearing claims of
+   * this article live. What this article rests on is one named ethnographer's
+   * statements about a specific regional dish, one cultural institution's
+   * reporting on a displaced community, and one dated heritage listing. A popular
+   * survey adds nothing to any of those, and adding it would take the book to six
+   * of eight for no gain.
+   *
+   * **A genuinely relevant scholarly work was found and deliberately not cited.**
+   * V. A. Petrov's `Etnobotanika Nagornogo Karabakha` (Baku, 1940) reports a field
+   * expedition of 1934–1937 that recorded about a hundred plant species used in
+   * the economy and daily life of Nagorno-Karabakh, indexed under their Russian,
+   * Latin, Azerbaijani and Armenian names. It is exactly the kind of source the
+   * greens sections would want. It is absent because it could not be consulted —
+   * the monograph is not available in any full text reachable from here, and the
+   * only descriptions of its contents are catalogue records. Citing a work from a
+   * catalogue entry is how a bibliography acquires a source nobody has read, and
+   * that is the failure this archive was audited for. Recorded here so the next
+   * person to work on Artsakh food knows the source exists and what it would
+   * support.
+   *
+   * On the journalism below: RFE/RL is not carrying the ethnographic claims on its
+   * own authority. It names Ruzanna Tsaturian of the Institute of Archaeology and
+   * Ethnography, and the article attributes those claims to her by name rather than
+   * stating them flatly, which is the correct handling of expertise that reaches
+   * print through a reporter.
+   */
+  "jingalov-hats": [
+    {
+      author: "Amos Chapple",
+      title: "Jingalov Hats: The Flatbread Creating A Lifeline For Armenia's Karabakh Refugees",
+      publisher: "RFE/RL",
+      year: "5 March 2024",
+      identifier: {
+        kind: "url",
+        value: "https://www.rferl.org/a/jingalov-hats-traditional-karabakh-food-armenia-refugees/32848698.html",
+      },
+      note: "The single richest source here, and the one that carries the ethnography. It quotes Ruzanna Tsaturian of the Institute of Archaeology and Ethnography of Armenia's National Academy of Sciences on the first textual mentions being about two hundred years old, on the early-spring and autumn seasonality, on the twentieth-century drift towards entertainment food, on the return to it during the shortages of the 1990s, and for the phrase forest bread. It separately reports Ara Zada's figures of twenty-six greens in the original recipe and around seventeen today, the named greens including nettle, and the street-stall economy that grew after 2020 and 2023.",
+    },
+    {
+      author: "Aline Keledjian",
+      title:
+        "\"Who Are We?\" Maintaining Artsakhtsi Identity After Forced Displacement from Nagorno-Karabakh",
+      publisher: "Smithsonian Center for Folklife and Cultural Heritage",
+      year: "17 February 2025",
+      identifier: {
+        kind: "url",
+        value: "https://folklife.si.edu/magazine/artsakhtsi-identity-nagorno-karabakh",
+      },
+      note: "The source for the displacement context and for the article's central observation, which came from it rather than being imposed on it: a woman from Stepanakert saying the same herbs cannot be found in Armenia because they grow in the mountains of Artsakh. Also the source for the ten-to-twenty range, for the unleavened dough rolled flat, and for the continuation of the dish by displaced households in Yerevan. Chosen over general news reporting of the same events because it is a cultural-heritage institution writing about cultural continuity, which is the only aspect of 2023 this article discusses.",
+    },
+    {
+      title: "Zhengyalov Hats Festival in Tsaghkashat on April 29",
+      publisher: "Hetq",
+      year: "April 2015",
+      identifier: { kind: "url", value: "https://hetq.am/en/article/59884" },
+      note: "Two dated institutional facts rest on this and nothing else does: that the authorities in Artsakh entered the dish on their register of intangible cultural heritage in 2013, and that the first festival devoted to it was held at Tsaghkashat in the Askeran district in April 2015 under a heritage-preservation programme. It also states independently of Tsaturian that the first mention is in written manuscripts of the nineteenth century, when Artsakh folklore was being collected — two sources converging on the same century is what licenses the article to state it.",
+    },
+    {
+      title:
+        "Lavash, the preparation, meaning and appearance of traditional bread as an expression of culture in Armenia",
+      publisher:
+        "UNESCO Representative List of the Intangible Cultural Heritage of Humanity, no. 00985",
+      year: "inscribed 2014",
+      identifier: { kind: "url", value: "https://ich.unesco.org/en/RL/00985" },
+      note: "Reused from the lavash bibliography, deliberately, for one claim: that lavash is baked by slapping the sheet against the inner wall of a tonir. That is the contrast the griddle section turns on, and it should come from the same record the lavash article uses rather than from a paraphrase of it.",
+    },
+    {
+      title: "Armenia: Creating Home — Foodways",
+      publisher: "Smithsonian Folklife Festival, Center for Folklife and Cultural Heritage",
+      year: "2018",
+      identifier: { kind: "url", value: "https://festival.si.edu/2018/armenia/feasting/foodways" },
+      note: "Reused from the spas bibliography for the same claim it supports there: each region has its own favoured wild plants. In spas that explains why the herbs vary; here it is the general statement of which this dish is the strongest single instance.",
+    },
+  ],
+
+  /*
+   * §72. Khash — the first Cuisine bibliography assembled after a live search
+   * pass, and the first where the search results were treated as a list of
+   * questions rather than as a list of sources.
+   *
+   * That distinction did most of the work. Almost every page ranking for this
+   * dish repeats the same four claims: an eleventh-to-twelfth-century origin, a
+   * poor-man's-food class history, a rule about months containing the letter r,
+   * and a hangover cure. Each became a research question. Three of the four
+   * survive in some form and none of them survives in the form the search
+   * results state it, which is the whole reason this article exists.
+   *
+   * **What the load-bearing claims rest on.** Named scholars, in every case.
+   * Nahapetyan for the ritual grouping and for the observation that khash is
+   * still not eaten without guests; Tsaturyan, through the Smithsonian, for the
+   * absence of evidence that today's ritual predates the Soviet period and for
+   * the wedding association; Bayadyan, through Hetq, for the Soviet-era reading;
+   * Mamulyan and Antinyan, also through Hetq, for the technique, the toasts and
+   * for their disagreement about the class story. Where expertise reaches print
+   * through a reporter, the article attributes it to the person by name rather
+   * than stating it flatly — the handling settled at §70.
+   *
+   * **Three refusals, recorded because none of them is visible from the list.**
+   *
+   * 1. **Mkhitar Heratsi's `Relief of Fevers` is discussed and not cited.** The
+   *    claim that it describes khash is in nearly every popular account, and the
+   *    work is real, printed since the nineteenth century and translated into
+   *    German. But no edition of it was reachable from here, and the attribution
+   *    travels from one popular page to the next without a passage attached. The
+   *    article therefore reports the claim as a claim and says so in the prose.
+   *    Citing the text would assert that it had been read.
+   *
+   * 2. **No etymological dictionary is cited, and the etymology is short as a
+   *    result.** Ačaṙyan's `Հայերեն արմատական բառարան` is the work that would
+   *    settle when the noun `խաշ` separates from the verb `խաշել`, and it is
+   *    exactly the source §27 of the specification asks for. Nayiri, the archive
+   *    that holds it, refused the connection here — the same failure recorded at
+   *    §70. Martirosyan's Brill dictionary could not be checked for the entry
+   *    either. So the article states the relation between the noun and the verb,
+   *    which is uncontroversial and attested in the Armenian sources below, and
+   *    explicitly declines to date the word. A dated etymology assembled from
+   *    Wiktionary's citation of a dictionary nobody here opened would be the
+   *    catalogue-entry failure under a different name.
+   *
+   * 3. **Petrosian and Underwood is again not cited, for the third consecutive
+   *    Cuisine article.** It stands at five of eight and the specification asks
+   *    that it not become six of nine by default. It would add nothing here: the
+   *    one thing it is quoted for online — that khash is an Armenian institution
+   *    with songs written about it — is colour rather than evidence, and Hetq
+   *    records the existence of a khash song independently. Every historical,
+   *    ethnographic and linguistic claim in this article is carried by a named
+   *    scholar or an institutional record.
+   *
+   * **One entry is scoped rather than refused.** Fertaly's article is the only
+   * peer-reviewed study devoted to khash that could be identified, and its
+   * bibliographic record is fully verified through Crossref. The full text is
+   * paywalled and was not read. It is therefore cited for what its published
+   * abstract and title establish — that khash has been analysed as a male
+   * gathering and a national narrative — and nothing in the prose is attributed
+   * to it beyond that. The distinction from the Petrov refusal at §70 is that
+   * there the only description of the work was a catalogue record; here there is
+   * a published abstract. It is a narrower claim, and it is marked as one.
+   */
+  khash: [
+    {
+      author: "Ռաֆիկ Նահապետյան",
+      title: "Հայոց ավանդական ուտեստի էթնոմշակութային բնութագրության շուրջ",
+      publisher: "Պատմա-բանասիրական հանդես, Երևան",
+      year: "2019",
+      identifier: {
+        kind: "url",
+        value: "https://artsakhlib.am/wp-content/uploads/2020/05/Ռաֆիկ-Նահապետյան-–-Հայոց-ավանդական-ուտեստի-էթնոմշակութային.pdf",
+      },
+      note: "The strongest source here and the one that answers the question the popular accounts cannot: why khash is never eaten alone. Nahapetyan, an ethnographer at Yerevan State University, groups khash with harissa, milk soup and matagh as ritual dishes dedicated to the powers over farming and livestock — harissa to grain, khash to the success of animal husbandry — and observes that khash and matagh are, in his words, still almost never enjoyed without guests. He also lists khash and khashlama separately among the respected meat dishes, which is the scholarly warrant for keeping the two apart. Read directly, pages 175–199; the ritual passage is on page 191. His antiquity statement is a reconstruction argued from later practice rather than a dated attestation, and the article marks it as one.",
+    },
+    {
+      author: "Kaitlin Fertaly",
+      title:
+        "Khash, history and Armenian national identity: reconsidering post-socialist gender, food practices and the domestic",
+      publisher: "Identities: Global Studies in Culture and Power, 19(1), 81–102",
+      year: "2012",
+      identifier: { kind: "doi", value: "10.1080/1070289X.2012.672835" },
+      note: "The only peer-reviewed study devoted to khash that could be identified. Cited for one thing only, which its published abstract carries: that khash is analysed in the scholarship as a male gathering and as a vehicle for national narratives of resourcefulness, rather than as a recipe. The full text is behind a paywall and was not consulted; the bibliographic record was verified through Crossref. Nothing in the article's prose is attributed to it beyond the scope of that abstract.",
+    },
+    {
+      title: "Խաշ. պատրաստվում է հեթանոսության ժամանակներից",
+      publisher: "Հետք",
+      year: "22 November 2010",
+      identifier: { kind: "url", value: "https://hetq.am/hy/article/48744" },
+      note: "The richest single source for practice, and unusual in that it prints a disagreement rather than a consensus. It carries: the letter-ր rule with the reason offered for it; that the cook adds no salt because it darkens the broth; the three toasts in order and one chef's objection that fixing a number misses the point; the Gyumri attachment and the custom of khash on the morning after a wedding; and the alcohol custom. It is also the source for the article's class-history section, because it records Sedrak Mamulyan rejecting the poor-man's-food account outright and Grisha Antinyan comparing it to the story told about pizza. Hrach Bayadyan, a scholar of culture, supplies the Soviet-era reading and — against Mamulyan's claim of unchanged pagan-era continuity — the argument that the rites around the dish change even where the dish does not.",
+    },
+    {
+      author: "Benjamin Kemper",
+      title: "How to Cure a Hangover in Armenia? With Cow-Foot Soup",
+      publisher: "Smithsonian Center for Folklife and Cultural Heritage",
+      year: "21 March 2018",
+      identifier: {
+        kind: "url",
+        value: "https://festival.si.edu/blog/how-to-cure-a-hangover-in-armenia-cow-foot-soup-khash",
+      },
+      note: "Quotes Ruzanna Tsaturyan of the Institute of Archaeology and Ethnography of Armenia's National Academy of Sciences on the two claims the article leans on hardest: that no evidence has been found for today's khash ritual being widespread before the Soviet period, and that the few historical references that exist characterise khash as wedding food. Also the source for the gendered history and its recent change, for the two kinds of lavash at the table, for the garlic quantity, and for the observation that a nine o'clock gathering obliges the cook to start overnight. Chosen over the same author's magazine piece because this is the institution's own folklife programme.",
+    },
+    {
+      author: "Etrat Elahi",
+      title: "KALLA-PĀČA",
+      publisher: "Encyclopaedia Iranica",
+      year: "15 December 2010",
+      identifier: { kind: "doi", value: "10.1163/2330-4804_EIRO_COM_611" },
+      note: "The regional comparison rests entirely on this, and it is a scholarly reference work rather than a food page, which is why the comparison could be made at all. It supplies: head and trotters cooked over low heat, usually overnight; reserved for the colder days of the year; served in the morning; salted only at the end because salt blackens the meat; made in specialist shops with their own guild rather than at home; and served with vinegar, onion or crushed garlic in a nineteenth-century account. The salt detail arriving independently here and in Hetq is what let the article treat the shared features as consequences of the food rather than as borrowing in either direction.",
+    },
+    {
+      title: "Intangible Cultural Heritage",
+      publisher:
+        "Ministry of Education, Science, Culture and Sport of the Republic of Armenia",
+      year: "consulted 2026",
+      identifier: { kind: "url", value: "https://escs.am/en/static/intangible-cultural-heritage" },
+      note: "Carries one claim, and it is a claim about an absence: khash does not appear on Armenia's national inventory of intangible cultural heritage, although lavash, gata, matsun, tolma, winemaking and fruit-spirit distilling do. Checked twice and in two languages, against the ministry's own page and against the published enumeration of the inventory, because an absence stated from a single reading of a single list is not a checked fact.",
+    },
+    {
+      title:
+        "Lavash, the preparation, meaning and appearance of traditional bread as an expression of culture in Armenia",
+      publisher:
+        "UNESCO Representative List of the Intangible Cultural Heritage of Humanity, no. 00985",
+      year: "inscribed 2014",
+      identifier: { kind: "url", value: "https://ich.unesco.org/en/RL/00985" },
+      note: "Reused from the lavash bibliography for one claim, as at §70: that lavash is dried, keeps for months and is brought back with water. That property is why dried lavash can be crumbled into a bowl of khash as though it were an ingredient, which is the link between the two articles and the reason the relation is authored rather than filled in.",
+    },
+  ],
+
+  /*
+   * §74. Matsun — and the first Cuisine bibliography in which the strongest
+   * source is a dictionary this archive had twice recorded as unreachable.
+   *
+   * **The Ačaṙyan debt is closed.** §70 and §72 both had to shorten an etymology
+   * section because `Հայերեն արմատական բառարան` could not be consulted: nayiri,
+   * the archive that hosts it, refused the connection on both occasions, and both
+   * steps recorded the gap rather than reconstructing the word history from
+   * secondary discussion. The dictionary turns out to be on the Internet Archive,
+   * scanned and OCR'd, and volume three carries `մած-`. It was read directly for
+   * this article, and it is the source of the etymology section — including the
+   * observation the section turns on, which is Ačaṙyan's own and not this
+   * archive's: that Persian, Turkish and French each named their fermented milk
+   * after the verb for curdling, exactly as Armenian did. That is a scholar of
+   * the language pre-emptively dismantling the ownership argument, and it is
+   * worth more than any amount of editorial even-handedness.
+   *
+   * **Two refusals and one scoping decision.**
+   *
+   * 1. **Grigor Magistros is discussed and not cited.** Every popular page says
+   *    matsun is mentioned by Armenian writers from the eleventh century. What is
+   *    actually at the end of that chain is Magistros's grammatical treatise
+   *    giving an *etymology* of the word, reported through a philological study of
+   *    1915 that could not be consulted here. The article therefore reports the
+   *    claim at one remove and says so in the prose, and no entry below pretends
+   *    the underlying works were read. Note that Magistros was the same name
+   *    recycled through the khash claim at §72 — a grammarian is being used as a
+   *    culinary witness twice over, in two different food literatures.
+   *
+   * 2. **No commercial dairy source is cited at all.** The SERP for this topic is
+   *    unusually contaminated with product pages, and several of them carry
+   *    origin, antiquity and health claims. They are useful only for establishing
+   *    that matsun is a normal retail product today, which is not a fact that
+   *    needs a citation. None appears here.
+   *
+   * 3. **Slow Food is cited and scoped.** It is a food-heritage organisation, not
+   *    a scholarly one, and its entry opens with the claim that matsun "is
+   *    mentioned in many tales by Armenian writers since the 11th century" — the
+   *    sentence the article exists partly to take apart. It is cited for what it
+   *    is good for: a specific description of a specific regional practice in
+   *    Lori, the meran starter, and the two keeping forms. It carries no
+   *    chronology and no origin claim in this article, and the prose attributes
+   *    its process description to it by name rather than stating it flatly.
+   *
+   * **Petrosian and Underwood is again not cited** — the fourth consecutive
+   * Cuisine article. It stays at five of ten rather than becoming six of ten. It
+   * would add nothing: the etymology is Ačaṙyan's, the microbiology is
+   * peer-reviewed, the heritage status is the ministry's own, and the regional
+   * practice is Slow Food's. A general survey of Armenian food and folklore has no
+   * load to carry here.
+   *
+   * **No health claim rests on anything below, because the article makes none.**
+   * The microbiology entry is cited for what lives in matsun and for how the
+   * community varies by region. It is not cited, and must not later be used, for
+   * any statement about what eating it does to a person.
+   */
+  matsun: [
+    {
+      author: "Հրաչյա Աճառյան",
+      title: "Հայերեն արմատական բառարան, հատոր Գ",
+      publisher: "Երևանի համալսարանի հրատարակչություն",
+      year: "1926–1935; reprinted 1971–1979",
+      identifier: { kind: "url", value: "https://archive.org/details/Hrarm3" },
+      note: "Read directly, in the Internet Archive's scan, after two earlier steps recorded this work as unreachable. The entry for the root մած- gives the sense — to stick, to cling, to thicken, and of milk to curdle — classes մածուն as a native Armenian word from an Indo-European root meaning to knead or work into a sticky mass, lists the Slavic, Greek and Germanic cognates, and records the classical texts in which մածուն is attested. It is also the source of the article's central linguistic observation: Ačaṙyan himself sets Persian māsīdan/māst, Turkish yoğurmak/yoghurt and French cailler/lait caillé beside the Armenian pair, showing the naming pattern to be a widespread independent parallel rather than evidence of priority.",
+    },
+    {
+      author:
+        "Nicholas A. Bokulich, Lia Amiranashvili, Karine Chitchyan, Narine Ghazanchyan, Karen Darbinyan, Nino Gagelidze et al.",
+      title: "Microbial biogeography of the transnational fermented milk matsoni",
+      publisher: "Food Microbiology, 50, 12–19",
+      year: "2015",
+      identifier: { kind: "doi", value: "10.1016/j.fm.2015.01.018" },
+      note: "The scientific spine of the article, and the reason its regional section could be written as evidence rather than as diplomacy. Marker-gene sequencing of matsun and matsoni from across Armenia and Georgia: bacteria dominated by Lactobacillus and Streptococcus, yeasts including Kluyveromyces marxianus, Candida famata and Saccharomyces cerevisiae varying sharply by place, and both production region and milk type shaping the community. Its conclusion — that traditional production preserves the transfer of a distinctive regional population from batch to batch — is what turns the back-slopped starter from a nice story into a measured finding. Its title calls the food transnational and its author list contains researchers from both countries, which is the strongest available answer to the ownership question and was not manufactured by this archive.",
+    },
+    {
+      title: "Intangible Cultural Heritage",
+      publisher: "Ministry of Education, Science, Culture and Sport of the Republic of Armenia",
+      year: "consulted 2026",
+      identifier: { kind: "url", value: "https://escs.am/en/static/intangible-cultural-heritage" },
+      note: "Reused from the khash bibliography, where it carried an absence; here it carries a presence. Matsun appears on Armenia's national inventory of intangible cultural heritage as Մածունի պատրաստման ու կիրառման ավանդույթը — the tradition of the preparation and use of matsun — filed under national cuisine. Checked in both languages against the ministry's page and the published enumeration of the inventory, because the article's whole heritage section turns on this being a national listing and not an international one.",
+    },
+    {
+      title:
+        "Lavash, the preparation, meaning and appearance of traditional bread as an expression of culture in Armenia",
+      publisher:
+        "UNESCO Representative List of the Intangible Cultural Heritage of Humanity, no. 00985",
+      year: "inscribed 2014",
+      identifier: { kind: "url", value: "https://ich.unesco.org/en/RL/00985" },
+      note: "Cited for the negative claim rather than the positive one, which is unusual and deliberate: lavash is the only Armenian food on the UNESCO Representative List, and matsun is not on it. The article's heritage section distinguishes the national inventory from the international list, and the cleanest way to make that concrete is to name the one food that is on both kinds of list and observe that matsun is on only one.",
+    },
+    {
+      title: "Matsun",
+      publisher: "Slow Food Foundation for Biodiversity, Ark of Taste",
+      year: "consulted 2026",
+      identifier: {
+        kind: "url",
+        value: "https://www.fondazioneslowfood.com/en/ark-of-taste-slow-food/matsun/",
+      },
+      note: "Scoped, as the comment above sets out. Cited for the association with Lori, for matsun as part of the daily diet, for the meran starter of dried cornelian cherries with wheat and rye, and for the two keeping forms — kamats matsun, drained and stored in clay, and the dried balls that keep for years. Explicitly NOT cited for its opening chronology, which repeats the eleventh-century claim the article takes apart. A heritage organisation describing a living regional practice is doing what it is good at; the same page dating the food is not.",
+    },
+    {
+      title: "Colombo Yogurt: A Massachusetts Success Story",
+      publisher: "Massachusetts Historical Society, Object of the Month",
+      year: "June 2004",
+      identifier: {
+        kind: "url",
+        value:
+          "https://www.masshist.org/object-of-the-month/objects/colombo-yogurt-a-massachusetts-success-story-2004-06-01",
+      },
+      note: "The source for the 1929 date and for the detail the article ends on: that Sarkis and Rose Colombosian sold their household matsun in Andover under the Armenian word, and that the name on the container later became yogurt because that was the word the American market knew. Chosen over the several diaspora and tourism retellings of the same story because it is a historical society writing from an object in its own collection. The food crossing intact while the word did not is the article's argument about terminology, made as an event rather than as an assertion.",
+    },
+  ],
+
+  /*
+   * §77. Basturma. The bibliography of a subject whose loudest claims have no
+   * sources at all, which changed what this list had to be built to do.
+   *
+   * The two dominant assertions in English — a first-century-BC date under
+   * Tigranes the Great, and the saddle legend — are not cited below because
+   * nothing citable stands behind either. They were followed back and they end
+   * at recipe blogs and tourism pages. The article says so in prose; the honest
+   * bibliography is the one that does not manufacture a reference for a claim it
+   * is refusing.
+   *
+   * Petrosian and Underwood is **again not cited** — the fifth consecutive
+   * Cuisine article to leave it out, holding the concentration at five of eleven
+   * rather than six. §41 of the commission asked for a decision rather than a
+   * habit, and the decision is that it supplies nothing here unavailable from
+   * stronger evidence: the lexicography is Matiossian's and Ačaṙyan's, the
+   * Byzantine reading is Davidson's, the Kayseri material is Çelebi's through a
+   * reported source, and the diaspora material is the Smithsonian's.
+   *
+   * One absence to record rather than hide. `nayiri.com`, which hosts the
+   * Armenian dictionary corpus, refused connection throughout this step, so the
+   * Ačaṙyan entry for ապուխտ was **not** read page-by-page in the scan the way
+   * the մածուն entry was in §75. The volume is listed below because it is the
+   * underlying authority and it is publicly readable, and the note says exactly
+   * what was and was not checked. The Pahlavi derivation the article states is
+   * Matiossian's, who is a philologist reporting the standard etymology, and it
+   * is corroborated independently by the Armenian Wiktionary entry's Iranian
+   * derivation and by the sense given in the Armenian explanatory dictionary
+   * tradition. That is three agreeing witnesses and one unread original, which
+   * is worth stating plainly rather than implying a reading that did not happen.
+   */
+  basturma: [
+    {
+      author: "Vartan Matiossian",
+      title: "How Do You Say Basturma in Armenian?",
+      publisher: "Armenian Language Corner",
+      year: "2016",
+      identifier: {
+        kind: "url",
+        value: "https://armenianlanguagecorner.blogspot.com/2016/07/how-do-you-say-basturma-in-armenian.html",
+      },
+      note: "The linguistic spine of the article, and the reason its central distinction could be drawn at all. Matiossian, a philologist rather than a food writer, separates the two Armenian words: apukht (ապուխտ) is Classical Armenian from Pahlavi apuxt, uncooked — a- plus puxta, cooked — attested in the fifth-century Bible translation meaning salted and dried meat, and lent onward to Georgian and, through the Armenians of Poland, to Polish abucht; while basturma and bastoorma are modern loanwords from Turkish pastırma. He also supplies the compound khozapukht for ham and notes cured meat documented in Byzantine Asia Minor as apokti. Cited for the terminology and for the chronology of the words, and explicitly NOT for any claim that the fifth-century word denotes the modern coated product — a distinction the article makes against the grain of nearly every page on the subject.",
+    },
+    {
+      author: "Հրաչյա Աճառյան",
+      title: "Հայերեն արմատական բառարան, հատոր Ա",
+      publisher: "Երևանի համալսարանի հրատարակչություն",
+      year: "1926–1935; reprinted 1971–1979",
+      identifier: { kind: "url", value: "https://archive.org/details/Hrarm1" },
+      note: "The underlying authority for ապուխտ, which falls in the first volume. Listed with a qualification the reader is entitled to: unlike the մածուն entry in §75, this one was NOT read directly in the scan, because nayiri.com refused connection throughout this step and a page-level reading of the Internet Archive volume was not completed. The etymology the article states is taken from Matiossian above, who reports the standard derivation, and is corroborated by the Armenian Wiktionary entry's Iranian derivation and by the explanatory-dictionary sense — flat strips of cattle or sheep meat, salted, beaten and air-dried without cooking. Recorded this way so that a later step can close the gap rather than inherit an unearned claim.",
+    },
+    {
+      author: "Alan Davidson, ed. Tom Jaine",
+      title: "The Oxford Companion to Food",
+      publisher: "Oxford University Press, 3rd edition",
+      year: "2014",
+      identifier: { kind: "isbn", value: "9780199677337" },
+      note: "Reused from the dolma and ghapama bibliographies. Carries the Byzantine end of the terminology section: a Byzantine dried-meat delicacy described as a forerunner of modern pastirma, alongside the Oxford Encyclopedia of Food and Drink's report that the Ottomans applied the word to a Byzantine cured beef called paston. Cited for that position as a position, not as a settled fact — the article sets it beside the disagreement among Koder, Dalby and Nagy over what the Greek terms meant, which is the point of the section.",
+    },
+    {
+      author: "Fidel Toldrá, Iciar Astiasarán, Joseph Sebranek and Régine Talon, eds.",
+      title: "Handbook of Fermented Meat and Poultry",
+      publisher: "Wiley-Blackwell, 2nd edition",
+      year: "2015",
+      identifier: { kind: "isbn", value: "9781118522691" },
+      note: "The food science behind the preservation section: water activity as the variable that matters rather than water content, the osmotic action of salt at the surface, the mechanical role of pressing, and the progressive rather than absolute suppression of microbial and enzymatic activity as a meat dries. Cited deliberately for concepts and never for parameters — no salt proportion, drying time, temperature or humidity from this or any other source appears on the page, because the article explains curing and does not teach it.",
+    },
+    {
+      author: "Joshua Bruce Allen",
+      title: "In Search of Pastırma",
+      publisher: "Roads & Kingdoms",
+      year: "12 June 2017",
+      identifier: { kind: "url", value: "https://roadsandkingdoms.com/2017/in-search-of-pastirma/" },
+      note: "The Kayseri section rests on this rather than on encyclopedia paraphrase, which is why that section was rewritten once its contents were read. It reports Evliya Çelebi's seventeenth-century Seyahatname on Kayseri pastirma being found nowhere else and sent to Istanbul as a gift; the historian Philip Mansel on Armenians selling pastirma in Istanbul from the seventeenth century onward; Armenian dominance of the Kayseri trade by the nineteenth century; and the Apikoğlu house founded in Kayseri in 1910, moved to Istanbul in 1920, becoming the first nationwide meat company of the Turkish republic. Çelebi is quoted here at one remove and the article attributes it as such.",
+    },
+    {
+      author: "Arianna Sikorski and Hannah Luc",
+      title: "The Lure of Basturma in Little Armenia",
+      publisher: "Smithsonian Center for Folklife and Cultural Heritage",
+      year: "19 July 2018",
+      identifier: {
+        kind: "url",
+        value: "https://festival.si.edu/blog/the-lure-of-basturma-in-little-armenia",
+      },
+      note: "Carries the diaspora section, which is where this subject is best evidenced and least speculative. A basturma shop in the Little Armenia neighbourhood of Los Angeles, thirty years in operation, whose proprietor's practice descends from family makers in Armenia and Lebanon — a two-step route that is the post-1915 dispersal in miniature. Chosen over the several diaspora-restaurant write-ups of the same shop because it is a national cultural institution documenting a foodway, not a review.",
+    },
+    {
+      title: "Armenia to protect 'basturma' and 'matsun' as national brands",
+      publisher: "ARKA News Agency",
+      year: "24 March 2025",
+      identifier: {
+        kind: "url",
+        value: "https://arka.am/en/news/business/armenia-to-protect-basturma-and-atsun-as-national-brands/",
+      },
+      note: "Cited for a status and for its limits. Armenia's deputy minister of economy, Narek Hovakimyan, told a parliamentary committee on 24 March 2025 that discussions were under way to protect Armenian basturma and Armenian matsun as geographical indications under the law in force since November 2022. That is a stated intention at an early stage. Several pages report it as a completed registration or as an application filed; this article says discussions, because that is what the source says, and the difference is exactly the kind of upgrade-by-repetition the rest of the page is about.",
+    },
+  ],
+
+  /*
+   * §79. Manti is the first Cuisine subject where the loudest claim in circulation
+   * could actually be traced to a book rather than merely dismissed for having no
+   * source, and the bibliography is shaped by that. Two entries below exist to
+   * attribute claims the article declines to adopt — Petrosian & Underwood for the
+   * Cilician-Mongol story and Chase for the frozen-under-the-saddle one — and both
+   * notes say so, because a reader who sees them listed is entitled to know they
+   * are cited as the origin of a claim rather than as support for it.
+   *
+   * One source was deliberately not used. Rose Baboian's `Armenian-American Cook
+   * Book` (Watertown, 1964) is the obvious historical Western Armenian cookbook
+   * for this subject and its recipes are overwhelmingly from Aintab, which is
+   * exactly the regional trail the article follows. It is absent because no copy
+   * was read: whether it contains manti, and in what form, was not verified, and
+   * §38 discipline forbids converting a strong prior about a book into a citation.
+   * A later step with access to the text can close that gap.
+   *
+   * The Smithsonian is represented by the festival blog rather than by the
+   * folklife magazine's Armenian-diaspora piece, which returned HTTP 403 on every
+   * attempt and was therefore neither read nor cited.
+   */
+  manti: [
+    {
+      author: "Aylin Öney Tan",
+      title: "Manti and Mantou: Dumplings across the Silk Road from Central Asia to Turkey",
+      publisher: "in Mark McWilliams (ed.), Wrapped & Stuffed Foods: Proceedings of the Oxford Symposium on Food and Cookery 2012, Prospect Books",
+      year: "2013",
+      identifier: { kind: "isbn", value: "9781903018996" },
+      note: "The non-Armenian academic anchor for the wider-family section, and the reason that section is a description of a scholarly subject rather than a counter-claim. Carries the Eurasian spread of the manti family, the Yinshan Zhengyao of 1330 compiled by Hu Sihui at the Yuan court as the earliest well-known written record of a related dish, and the etymological position that most references derive manti from Chinese mantou while Turkish etymological dictionaries also point to a Mongol link. Cited for the shape of the question and never for an origin verdict: the article's sentence that the wider family has a transregional history no single people invented is this source's position, not Armat's improvement on it.",
+    },
+    {
+      author: "Priscilla Mary Işın",
+      title: "Bountiful Empire: A History of Ottoman Cuisine",
+      publisher: "Reaktion Books",
+      year: "2018",
+      identifier: { kind: "isbn", value: "9781780239040" },
+      note: "The Ottoman end of the chronology, and the reason the article can say that the earliest hard evidence for the word anywhere in Anatolia is Ottoman rather than Cilician — the fifteenth-century cookbook of Muhammed bin Mahmud Şirvani, which carries the earliest known Ottoman manti recipe. Cited for the attestation and its date, and explicitly not for national ownership in either direction: a food documented in Ottoman culinary sources can also have developed distinct Armenian forms, and this article treats those as compatible rather than competing facts.",
+    },
+    {
+      author: "Irina Petrosian and David Underwood",
+      title: "Armenian Food: Fact, Fiction & Folklore",
+      publisher: "Yerkir Publishing",
+      year: "2006",
+      identifier: { kind: "isbn", value: "9781411698659" },
+      note: "Sixth use of this book in twelve Cuisine articles, and the §41 concentration rule was weighed rather than waived. It is here for a reason none of the other five shares: it is the ORIGIN of a claim the article refuses, not support for one the article makes. The sentence that manti reached Cilician Armenia through Armenian-Mongol contact in the thirteenth century, and that Turkic peoples then learned it from Armenians, appears on nearly every English page about Armenian manti, almost always unsourced and occasionally credited to an unnamed Armenian researcher; it traces to this popular history and travelled from it through an encyclopedia entry into general circulation. Naming the book is what converts an anonymous fact into a datable modern attribution, and no other source performs that function. Cited for authorship of the claim; not cited as evidence for it.",
+    },
+    {
+      author: "Holly Chase",
+      title: "The Meyhane or McDonald's? Changes in eating habits and the evolution of fast food in Istanbul",
+      publisher: "in Sami Zubaida and Richard Tapper (eds.), A Taste of Thyme: Culinary Cultures of the Middle East, Tauris Parke",
+      year: "2000",
+      identifier: { kind: "isbn", value: "9781860646034" },
+      note: "The source of the nomadic transmission story, cited with its original hedge intact. Chase writes that Turkic and Mongol horsemen on the move are SUPPOSED to have carried frozen or dried manti that could be boiled quickly over a camp-fire — a reported tradition, marked as one. What circulates online is the same sentence with the hedge removed and the supposition promoted to fact. Listed so the article can say where the story comes from and what its author actually claimed, which is the §22 treatment: a popular origin narrative identified as such rather than repeated or silently dropped.",
+    },
+    {
+      author: "Liana Aghajanian",
+      title: "What Is Armenian Food? Depends Who You Ask",
+      publisher: "Smithsonian Folklife Festival",
+      year: "28 June 2018",
+      identifier: {
+        kind: "url",
+        value: "https://festival.si.edu/blog/what-is-armenian-food-depends-who-you-ask",
+      },
+      note: "Carries the article's central structural claim — that Armenian food is not one cuisine, that what is eaten in Armenia differs substantially from what is called Armenian food outside it down to the names and pronunciations, and that manti belongs among the Western Armenian dishes diaspora restaurants keep. A national cultural institution stating the diaspora/Republic distinction is a better warrant for that framing than any number of family recipe pages saying the same thing. Cited for contemporary form, contemporary framing and Western Armenian association only, per §29: it is not used, and does not itself claim, anything about medieval chronology.",
+    },
+    {
+      author: "Christine Vartanian Datian",
+      title: "Recipe Corner: Manti Made Easy",
+      publisher: "The Armenian Mirror-Spectator",
+      year: "20 July 2023",
+      identifier: { kind: "url", value: "https://mirrorspectator.com/2023/07/20/recipe-corner-manti-made-easy/" },
+      note: "A diaspora community publication, used for exactly what community publications are good for. It supplies the physical description the form section rests on — small canoe-shaped open-faced dumplings baked until crisp, served in a tomato-inflected meat broth under garlic yogurt with Aleppo pepper and sumac — and the communal-preparation account: the food writer Andrew Janjigian's description of the women of his family gathering at his Aunt Esther's house to shape and freeze trays for Christmas Eve. It also repeats the Cilician claim, which is why the article names the claim's real source instead of this one. Cited for form, serving and documented family practice; not for chronology.",
+    },
+    {
+      author: "Սոնիա Թաշճեան",
+      title: "Այնթապ — Խոհանոց",
+      publisher: "Hetq",
+      year: "20 May 2017",
+      identifier: { kind: "url", value: "https://hetq.am/hy/article/78984" },
+      note: "The Armenian-language Western Armenian source, and the reason the regional section is not sourced entirely from English recipe pages. Tashchyan's account of Aintab cooking records the town's characteristic filled foods, including tray-baked forms and a yogurt-broth version served after the New Year liturgy — the same three elements the article identifies in manti (tray, oven, yogurt), documented inside the tradition rather than inferred from outside it. Cited for the Aintab context that places manti in a real regional kitchen; not cited as an entry on manti itself, which it does not claim to be.",
+    },
+    {
+      author: "Mikayel Boyajian",
+      title: "5 Delicious Spots to Enjoy Manti in Yerevan",
+      publisher: "Absolute Armenia",
+      year: "3 April 2022, updated 9 July 2025",
+      identifier: { kind: "url", value: "https://absolutearmenia.com/armenian-manti-yerevan/" },
+      note: "Cited under the §27 restriction that menus establish presence and nothing else. It supports one narrow factual claim: that manti in Yerevan is served overwhelmingly by Western Armenian and Middle Eastern Armenian houses, several founded by families from Beirut and Aleppo or named for Aintab, and that it is less prevalent in Armenia proper. That is the evidence behind calling manti a diaspora-returned food, which is one of the article's more distinctive statements and would be unsupportable from historical sources alone. Carries no historical claim here and is not asked to.",
+    },
+  ],
+
   /* ----------------------------------------------------------------- places */
 
   /*
