@@ -3134,6 +3134,7 @@ test("no unrelated article artwork changed", () => {
     // is the whole argument for spelling the registry out here instead of deriving
     // it: a derived list would agree with `IMAGES` on the day `IMAGES` is wrong.
     basturma: "/images/cuisine/basturma.webp",
+    manti: "/images/cuisine/manti.webp",
   });
 
   // Every other entry is still a WebP in one of the category directories, and

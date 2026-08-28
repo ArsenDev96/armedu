@@ -361,6 +361,62 @@ const IMAGES: Record<string, string> = {
   basturma: "/images/cuisine/basturma.webp",
 
   /*
+   * §80. Manti, and the first Cuisine cover registered with a recorded
+   * reservation rather than a clean pass.
+   *
+   * The file. 1585 × 992, ratio 1.5978 — one pixel short of the 1586 × 992 house
+   * geometry, the same single-pixel drift `khash.webp` carried in §73 and the
+   * second time in four registrations that basturma's zero-drift has not been
+   * matched. 472,550 bytes (461.5 KB), SHA-256
+   * 7a3780ea5eb7f942c9b2c6bf73fd582e65f635a9ccc0ce927141c769d4ad125b. Plain
+   * `RIFF/WEBP` → `VP8 ` only: no `VP8X`, so no ICC, alpha, EXIF, XMP or
+   * animation chunk and no orientation tag. One lossy keyframe, sync 9D 01 2A.
+   * The chunk walk ends at byte 472,550, exactly EOF, with the RIFF size field
+   * agreeing with the file length. `matsun.webp` remains the section's only
+   * ICC-bearing file.
+   *
+   * This is now the heaviest file under `/images/cuisine/` at 461.5 KB, ahead of
+   * matsun's 388.4 KB, and it moves the section's mean materially. That is
+   * recorded rather than acted on: this registry does not optimise, resize or
+   * re-encode what it is given, and the media-optimisation debt already carried
+   * in PROJECT_STATE.md is where a decision about it belongs.
+   *
+   * What the picture shows. A round rustic ceramic tray packed with roughly
+   * nineteen small dumplings, each one OPEN with its ground-meat filling exposed,
+   * the dough gathered and pinched up around the filling and baked to a golden
+   * brown at the raised edges, sitting in a shallow pool of broth. A bowl of
+   * garlic-white matsun with a spoon sits to the right as a clearly secondary
+   * element, with flatbread, linen and a jug behind, in soft daylight from a
+   * window.
+   *
+   * Every forbidden reading in the §79 commission is refused, and these are the
+   * ones that would have destroyed the article rather than merely disappointed
+   * it. The dumplings are not closed, so this is not ravioli, not pelmeni, not
+   * khinkali and not Turkish mantı. The broth is a shallow pool under baked
+   * dough rather than a bowl of soup, which is the serving the article actually
+   * describes. There is no recipe staging, no raw meat, no ingredient spread, no
+   * restaurant-luxury styling, no national symbol and no lettering anywhere.
+   *
+   * The reservation, recorded because it is real and because burying it would
+   * make this note worthless. The article's prose says the shape is a canoe —
+   * two opposite sides pinched together, the two ends left open — and §51 asked
+   * for boat-shaped dumplings by name. What is in the frame reads closer to a
+   * round nest or purse: the dough is gathered all the way around a circular
+   * well of filling. Several pieces have an elongated axis, but the dominant
+   * reading is round, not boat.
+   *
+   * The two claims the article is actually built on — OPEN, and BAKED — are both
+   * unambiguous here, and no competing dish is suggested. On that basis the file
+   * was registered as a deliberate compromise rather than rejected. What must not
+   * happen as a consequence is the prose being softened to match the picture: the
+   * canoe description is what the sources say, and a `cuisine.spec.ts` test pins
+   * it so that a later edit cannot quietly resolve the mismatch in the wrong
+   * direction. If a boat-shaped replacement is ever commissioned, it replaces
+   * this file and this note goes with it.
+   */
+  manti: "/images/cuisine/manti.webp",
+
+  /*
    * Places
    *
    * `khor-virap.png` is byte-for-byte the same file as `public/hero-ararat.png`,
@@ -901,41 +957,20 @@ const IMAGES: Record<string, string> = {
  */
 export const PENDING_ARTWORK: readonly string[] = [
   /*
-   * §79. Filled for the eighth time, by `manti` — Cuisine #12, written ahead of its
-   * picture. There is no manti asset in `public/images/cuisine/`, which holds
-   * eleven files and eleven registered slugs, so the article ships on the generated
-   * placeholder and this line is the record that the gap is a decision.
+   * §80. Emptied for the eighth time, and the eighth time it has filled. §79 put
+   * `manti` here because Cuisine #12 was written ahead of its picture; §80
+   * registered the file and took it back out.
    *
-   * The commission. Small open boat-shaped dumplings — several dozen of them,
-   * packed upright and close together on a tray or in a shallow dish — with the
-   * meat filling visible along the open top of each one and the standing dough
-   * edges baked to a hard golden brown. A simple serving vessel. Garlic-white
-   * matsun present as a secondary element rather than as the subject, and broth
-   * either poured or absent; either reads correctly, and neither should dominate.
-   *
-   * What would make it wrong is narrower here than in any previous Cuisine
-   * commission, because this subject's whole identity is a shape. If the dumplings
-   * are CLOSED, the picture is not manti — it is ravioli, pelmeni, khinkali or
-   * Turkish mantı, and the article's central distinction is destroyed by its own
-   * illustration. The same applies to a bowl of dumplings floating in soup: that is
-   * the boiled form the article explicitly declines to treat as the characteristic
-   * one, and putting it on top of eleven paragraphs about dry heat would be worse
-   * than a placeholder. The dumplings must also be small — a plate of six large
-   * steamed parcels is the Central Asian form, which the article names precisely to
-   * distinguish it.
-   *
-   * The near misses in this section are `dolma.webp` and `jingalov-hats.webp`, and
-   * both are filled-dough-or-leaf subjects that would pass a careless glance at
-   * thumbnail size; `basturma.webp` is excluded on principle rather than
-   * resemblance, since it is the most recent registration and the most tempting
-   * thing to reach for. None of them may be borrowed, and a `cuisine.spec.ts` test
-   * names all three for the same reason the Lake Sevan three are named below.
-   *
-   * Standing bans carried over: no recipe staging, no raw meat, no ingredient
-   * spread, no restaurant-luxury styling, no national-symbol collage. Preferred
-   * geometry 1586 × 992, the house ratio that `basturma.webp` hit with zero drift.
+   * The §79 commission is kept in the note beside the registry entry above rather
+   * than repeated here, because what it asked for is now a fact about a file. Two
+   * things from it are worth carrying forward as standing warnings. The first is
+   * that this section's covers now include three filled-dough-or-leaf subjects —
+   * `dolma.webp`, `jingalov-hats.webp` and `manti.webp` — any two of which would
+   * pass a careless glance at thumbnail size, and only a test keeps them apart.
+   * The second is that `manti.webp` was accepted with a recorded reservation
+   * about its shape, which means it is the one cover in this section a
+   * replacement is already contemplated for.
    */
-  "manti",
 
   /*
    * §78. Emptied again, and this is the seventh time it has filled and the seventh
