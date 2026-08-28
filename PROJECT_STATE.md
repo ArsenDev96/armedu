@@ -17329,3 +17329,156 @@ not touched. The hazard was not encountered.
 ### No deployment
 
 Nothing was deployed.
+
+---
+
+## §80 — Manti artwork verified and registered (2026-08-28)
+
+Cuisine is fully illustrated again: twelve articles, twelve covers, no placeholder.
+`PENDING_ARTWORK` is empty for the eighth time.
+
+This is the first Cuisine cover registered **with a recorded reservation** rather
+than on a clean pass, and the reservation is the most important thing in this
+section.
+
+### Pre-registration state, read from source
+
+Twelve articles, eleven illustrated, `PENDING_ARTWORK = ["manti"]`, distribution
+`bread 2, main 3, meat 3, ceremonial 2, dessert 1, dairy 1`, nothing featured;
+`getImageSrc("manti")` undefined. **No discrepancy.**
+
+### Asset
+
+`public/images/cuisine/manti.webp`, registered exactly as delivered — unaltered,
+uncropped, unoptimised, unrenamed.
+
+* **1585 × 992**, ratio 1.5978 — **one pixel short** of the 1586 × 992 house
+  geometry. The same single-pixel drift `khash.webp` carried in §73; basturma's
+  zero-drift has now been missed in two of the four most recent registrations.
+* **472,550 bytes** (461.5 KB).
+* SHA-256 `7a3780ea5eb7f942c9b2c6bf73fd582e65f635a9ccc0ce927141c769d4ad125b`.
+* Plain `RIFF/WEBP` → `VP8 ` only. **No `VP8X`**, so no ICC, alpha, EXIF, XMP or
+  animation chunk and no orientation tag. One lossy VP8 keyframe, sync
+  `9D 01 2A`. The chunk walk ends at byte 472,550, exactly EOF, with the RIFF
+  size field (472,542) agreeing with the file length.
+* `matsun.webp` remains the section's only ICC-bearing file.
+
+### Visual acceptance — passed, with a reservation
+
+A round rustic ceramic tray packed with roughly nineteen small dumplings, each one
+**open** with its ground-meat filling exposed, the dough gathered and pinched up
+around the filling and baked to a golden brown at the raised edges, sitting in a
+shallow pool of broth. A bowl of garlic-white matsun with a spoon sits to the right
+as a clearly secondary element; flatbread, linen and a jug behind; soft daylight
+from a window.
+
+**Every forbidden reading in the §79 commission is refused**, and these are the
+ones that would have destroyed the article rather than merely disappointed it:
+
+* the dumplings are **not closed**, so this is not ravioli, not pelmeni, not
+  khinkali and not Turkish mantı;
+* the broth is a shallow pool under baked dough rather than a bowl of soup, which
+  is the serving the article actually describes;
+* no recipe staging, no raw meat, no ingredient spread, no restaurant-luxury
+  styling, no national symbol, no lettering anywhere.
+
+**The reservation.** The article's prose says the shape is a **canoe** — two
+opposite sides pinched together, the two ends left open — and §51 asked for
+boat-shaped dumplings by name. What is in the frame reads closer to a **round nest
+or purse**: the dough is gathered all the way around a circular well of filling.
+Several pieces have an elongated axis, but the dominant reading is round, not boat.
+
+The two claims the article is actually built on — **open** and **baked** — are both
+unambiguous, and no competing dish is suggested. The file was put to the user with
+that assessment and the alternative of commissioning a boat-shaped replacement, and
+the user chose to register it. It is recorded as a deliberate compromise rather
+than filed as a clean pass.
+
+**The consequence that must not follow** is the prose being softened to match the
+picture. The canoe description is what the sources say; the picture is the thing
+that is approximate. `cuisine.spec.ts` now carries a test — *manti keeps its canoe
+description, whatever the cover happens to show* — that pins the canoe sentence in
+all three editions, so resolving the mismatch has to mean replacing the file.
+
+### Weight
+
+Twelve files, **2,456,082 bytes (2.34 MB)**, mean 199.9 KB, median 143.8 KB.
+
+Manti is the **heaviest file in the section** at 461.5 KB, ahead of matsun's
+388.4 KB, and it moves the mean from 176.1 KB to 199.9 KB on its own. Recorded and
+not acted on: the registry does not re-encode what it is given, and the
+media-optimisation debt already carried in this file is where a decision belongs.
+
+### Registration
+
+`manti` added to `IMAGES` in section order, through the same generic pipeline as
+the other eleven; removed from `PENDING_ARTWORK`, which is now empty for the eighth
+time. `ARTWORK_PROVENANCE` untouched. `isGeneratedArtwork` flips to true in all
+three editions — read, not assumed.
+
+### Surfaces
+
+Verified per edition: hero renders `manti.webp` with the localized AI-illustration
+caption and no placeholder; `Article.image` present and pointing at manti's own
+file; `og:image` and `twitter:image` off the `og-default.png` fallback and onto the
+real file; the sitemap carries exactly one `image:loc` per route and it is manti's
+own; the search thumbnail is manti's own file, scoped by canonical href because
+matsun and basturma legitimately appear in the same results; the listing shows
+**twelve cards, twelve distinct covers, zero placeholders**.
+
+The hero borrow check is scoped to the hero figure rather than the whole page, and
+deliberately: manti's authored relations are matsun and basturma, so their covers
+appear legitimately in the related block and a whole-page ban would fail on the
+article's own links. `dolma.webp`, `jingalov-hats.webp`, `basturma.webp` and
+`matsun.webp` are named individually.
+
+### Tests
+
+`ILLUSTRATED` gains `MANTI`, `PENDING` returns to `[]`, `ARTWORK` gains manti's
+path, and `places.spec.ts`'s registry snapshot gains the entry. The two
+`toEqual([MANTI])` assertions §79 set are inverted back to `toEqual([])` — moved
+with the list, never relaxed to "does not contain manti".
+
+The §79 pending test was replaced by five: artwork ownership, structured
+data/social/sitemap, the search thumbnail, the canoe-prose guard, and the
+no-regression sweep. Two count messages that said "eleven distinct covers" now say
+"every registered cover is distinct" rather than being edited to twelve, since the
+assertion was already derived from `ILLUSTRATED.length`.
+
+### Results
+
+| Check | Result |
+| --- | --- |
+| `npm run typecheck` | exit 0 |
+| `npm run validate:content` | clean — 156 entries, and the "no artwork" note is gone |
+| focused `cuisine.spec.ts` | **119/119** in 3.3 min |
+| full Playwright suite | **383 passed, 5 skipped, 0 failed** in 10.5 min |
+| `npm run build` | exit 0, **165 static pages** |
+
+The full suite was run against a warm dev server, for the reason §79 established:
+the identical tree fails ~130 tests against a cold one and passes against a warm
+one, and the difference is Turbopack compiling under two-worker contention rather
+than anything in the repository. Both Places tests that survived §79's warm run —
+`places.spec.ts:3208` and `:3257` — passed here.
+
+### Regressions
+
+Eleven pre-existing covers exact and all twelve distinct; basturma, matsun, khash,
+spas and jingalov hats relations and SectionLinks untouched; taxonomy unchanged and
+dairy still matsun alone; nothing featured; nothing reclassified. Places, Visit and
+the map are absent from the diff.
+
+### Technical debt carried forward
+
+* The manti cover's shape reservation — the one file in this section a replacement
+  is already contemplated for.
+* Media optimisation: 2.34 MB across twelve Cuisine covers, with manti alone at
+  461.5 KB.
+* One pixel of geometry drift, now in two of the last four registrations.
+* `scratchpad/` sits inside Tailwind's content scan and is not gitignored.
+* `places.spec.ts` cold-compile runtime around lines 379 and 3208/3257.
+* Rose Baboian's 1964 cookbook unread; `hyw` native review outstanding.
+
+### No deployment
+
+Nothing was deployed.

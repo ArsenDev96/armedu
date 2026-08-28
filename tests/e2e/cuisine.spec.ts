@@ -66,10 +66,10 @@ const SLUGS = [
  * the Places file gives: a derived list agrees with the registry by construction,
  * including on the day the registry is wrong.
  *
- * §79 separates them for the sixth time. `SLUGS` gains manti and this list does
- * not, because Cuisine #12 was written ahead of its picture like the five before
- * it. That is now the settled rhythm of this section rather than an exception,
- * and it is the reason no assertion below has ever needed an edit for it.
+ * §79 separated them for the sixth time and §80 closes it again: manti's file
+ * landed, so this list gains it and the two name the same twelve. Six openings
+ * and six closings in this section alone, and not one assertion below that says
+ * "each illustrated dish" has needed an edit for any of the twelve moves.
  */
 const ILLUSTRATED = [
   "lavash",
@@ -83,23 +83,24 @@ const ILLUSTRATED = [
   KHASH,
   MATSUN,
   BASTURMA,
+  MANTI,
 ] as const;
 
 /**
  * The dishes still waiting for one. Derived from nothing — stated.
  *
- * Reopened by §79, for the sixth time. §78 closed it by registering basturma, and
- * the note there recorded that the next article shipping ahead of its picture was
- * the likeliest next thing to happen in this section; manti is that article, and
- * `public/images/cuisine/` still holds eleven files against twelve slugs.
+ * Closed again by §80, for the sixth time: §79 opened it with manti written ahead
+ * of its picture, the file has landed, and `public/images/cuisine/` now holds
+ * twelve files against twelve slugs.
  *
- * The declaration has now been emptied and refilled six times here, and every
- * assertion below that says "each illustrated dish" has survived all twelve of
- * those moves without an edit — which is the whole reason it is stated as its own
- * literal instead of being derived from `getImageSrc`, and the reason it is never
- * deleted when it happens to be empty.
+ * The declaration is kept rather than deleted. It has been emptied and refilled
+ * six times in this section alone, and every assertion below that says "each
+ * illustrated dish" has survived all twelve of those moves without an edit —
+ * which is the whole reason it is stated as its own literal instead of being
+ * derived from `getImageSrc`, and the reason it is never deleted when it happens
+ * to be empty.
  */
-const PENDING: readonly string[] = [MANTI];
+const PENDING: readonly string[] = [];
 
 /** Where each dish's cover must live, spelled out rather than templated. */
 const ARTWORK: Record<string, string> = {
@@ -114,6 +115,7 @@ const ARTWORK: Record<string, string> = {
   khash: "/images/cuisine/khash.webp",
   matsun: "/images/cuisine/matsun.webp",
   basturma: "/images/cuisine/basturma.webp",
+  manti: "/images/cuisine/manti.webp",
 };
 
 const dishTypeLabel = (locale: "hy" | "hyw" | "en", id: string) => {
@@ -2847,11 +2849,12 @@ test("matsun owns its artwork in every edition, and borrows nobody else's", asyn
     registered basturma and it is empty again. The archive-wide claim itself lives
     in the §78 basturma test now; what this one keeps is the part it is actually
     about — matsun is registered, is not pending, and nothing here regressed when
-    the list moved underneath it. §79 moves it a fourth time, to manti, and this
-    line follows rather than being softened: the claim is about what the list
-    contains, so it has to name the contents.
+    the list moved underneath it. §79 moved it a fourth time, to manti, and §80
+    empties it again. The line follows the list rather than being softened into
+    "does not contain matsun": the claim is about what the list contains, so it
+    has to name the contents, empty or not.
   */
-  expect([...PENDING_ARTWORK], "manti is the only slug still pending").toEqual([MANTI]);
+  expect([...PENDING_ARTWORK], "and the archive is fully illustrated again").toEqual([]);
 
   /*
     And it borrows nothing. Spas is named first because it is the real risk in this
@@ -3400,12 +3403,12 @@ test("basturma owns its artwork in every edition, and borrows nobody else's", as
   /*
     Basturma was the last pending slug archive-wide when §78 wrote this, and the
     note predicted the list would reopen at the next article written ahead of its
-    picture. §79 is that article. The assertion is kept in place and moved to the
-    exact list rather than relaxed to "does not contain basturma", because a test
-    that only checked basturma's absence would pass on the day some other section
-    silently left something pending.
+    picture. §79 was that article and §80 has closed it again. The assertion is
+    kept in place and pinned to the exact list rather than relaxed to "does not
+    contain basturma", because a test that only checked basturma's absence would
+    pass on the day some other section silently left something pending.
   */
-  expect([...PENDING_ARTWORK], "basturma out, manti in").toEqual([MANTI]);
+  expect([...PENDING_ARTWORK], "and the archive is fully illustrated again").toEqual([]);
 });
 
 test("basturma gained a picture and no product or recipe markup with it", async ({ page }) => {
@@ -3512,7 +3515,7 @@ test("registering basturma changed no other dish's artwork, type or relations", 
 
   // Exact ownership across all eleven: no two dishes share a file.
   const paths = ILLUSTRATED.map((slug) => getImageSrc(slug));
-  expect(new Set(paths).size, "eleven distinct covers").toBe(ILLUSTRATED.length);
+  expect(new Set(paths).size, "every registered cover is distinct").toBe(ILLUSTRATED.length);
 
   for (const locale of LOCALES) {
     const dishes = bundle(locale).articles.filter((a) => a.category === "cuisine");
@@ -4295,74 +4298,118 @@ test("manti carries its own SEO fields and is findable under its own names", asy
   }
 });
 
-test("manti is waiting for artwork, and borrows nobody else's", async ({ page }) => {
+test("manti owns its artwork in every edition, and borrows nobody else's", async ({ page }) => {
   /*
-    §50 and §58. The sixth time this section has had to pin a pending state, and
-    the shape is the one §68 established: every surface that will change when the
-    file lands is asserted in its pre-registration form, so the registration step
-    has a mirror to invert rather than a blank page to guess at.
+    §80 inverts the §79 pending test rather than deleting it. Every assertion that
+    pinned the pending state has a mirror here, so the transition is checked in
+    both directions: the raster where the placeholder was, the AI caption where the
+    placeholder caption was, the slug out of `PENDING_ARTWORK` where it was in, and
+    the real file where the fallback OG image was.
 
-    The borrowing half matters more here than in any previous Cuisine commission.
-    Two registered covers in this section are filled-dough subjects that would pass
-    a careless glance at thumbnail size, and one is the dish registered one step
-    ago. All three are named.
+    A registration that flipped some of these and not others — a registry key with
+    no rendered image, or a rendered image still captioned as a placeholder — is
+    exactly the half-done state this shape catches.
   */
-  expect(getImageSrc(MANTI), "manti has no registered file").toBeUndefined();
-  expect(PENDING_ARTWORK, "and is recorded as pending").toContain(MANTI);
-  expect([...PENDING_ARTWORK], "and is the only pending slug archive-wide").toEqual([MANTI]);
+  expect(getImageSrc(MANTI), "registered file").toBe(ARTWORK[MANTI]);
+  expect(PENDING_ARTWORK, "no longer pending").not.toContain(MANTI);
 
   for (const locale of LOCALES) {
     const dict = ui(locale);
     await page.goto(`/${locale}/cuisine/${MANTI}`);
 
     const figure = page.locator("header figure");
-    await expect(figure.locator("svg[role='img']"), `${locale} placeholder`).toHaveCount(1);
-    await expect(figure.locator("img"), `${locale} no raster`).toHaveCount(0);
-
-    // The placeholder is disclosed as one, and the AI caption is absent — the
-    // article has no artwork to attribute, so claiming provenance would be a lie.
-    await expect(figure.locator("figcaption"), locale).toHaveText(
-      dict.article.imagePlaceholderCaption.replace("{title}", articleTitle(locale, MANTI)),
+    await expect(figure.locator("svg[role='img']"), `${locale} no placeholder`).toHaveCount(0);
+    await expect(figure.locator("img"), `${locale} raster`).toHaveCount(1);
+    await expect(figure.locator("img"), `${locale} exact file`).toHaveAttribute(
+      "src",
+      /manti\.webp/,
     );
-    await expect(
-      figure.locator("figcaption"),
-      `${locale} not the AI line`,
-    ).not.toHaveText(
+
+    // A dish is a scene rather than a likeness, so it takes the illustration
+    // caption — and it must say "AI-generated" outright, as the other eleven do.
+    await expect(figure.locator("figcaption"), locale).toHaveText(
       dict.article.imageAiIllustrationCaption.replace("{title}", articleTitle(locale, MANTI)),
     );
+    await expect(figure.locator("figcaption"), `${locale} not the placeholder line`).not.toHaveText(
+      dict.article.imagePlaceholderCaption.replace("{title}", articleTitle(locale, MANTI)),
+    );
 
-    // And it borrows nothing. The three near misses the §79 commission names are
-    // checked by filename across the whole page, not only the hero.
-    const html = (await page.content()).toLowerCase();
-    for (const other of ILLUSTRATED) {
-      expect(
-        html.includes(`/images/cuisine/${other}.webp`) &&
-          !html.includes(`/${locale}/cuisine/${other}`),
-        `${locale} must not show ${other}'s cover without linking to ${other}`,
-      ).toBe(false);
+    /*
+      And it borrows nothing. The hero figure is scoped deliberately: manti's
+      authored relations are matsun and basturma, and their covers legitimately
+      appear further down the page in the related block, so a whole-page ban on
+      other files would fail on the article's own links.
+
+      The three named in the §79 commission are the ones this matters for.
+      `dolma.webp` and `jingalov-hats.webp` are the section's other
+      filled-dough-or-leaf subjects and would pass a careless glance at thumbnail
+      size; `basturma.webp` was excluded on principle as the most recent
+      registration and the easiest thing to reach for.
+    */
+    const heroSrc = (await figure.locator("img").getAttribute("src")) ?? "";
+    for (const other of ["dolma", JINGALOV, BASTURMA, MATSUN]) {
+      expect(heroSrc, `${locale} hero must not be ${other}'s cover`).not.toContain(
+        `${other}.webp`,
+      );
     }
-    await expect(
-      figure.locator('img[src*="/images/cuisine/"]'),
-      `${locale} hero borrows no cuisine cover`,
-    ).toHaveCount(0);
   }
 
-  // Structured data and social cards fall back rather than pointing at a file.
+  /*
+    Manti was the last pending slug archive-wide, so the empty-list assertion comes
+    back here — the claim §75 held for matsun, handed on when §77 reopened the
+    list, and held again by §78. This test owns it until the next article ships
+    ahead of its picture, which on the record of this section is the likeliest next
+    thing to happen.
+  */
+  expect([...PENDING_ARTWORK], "and the archive is fully illustrated again").toEqual([]);
+});
+
+test("manti gained a picture and no recipe markup with it", async ({ page }) => {
+  /*
+    §33 and §55 again, from the other side of registration. An article that gains a
+    cover gains an `ImageObject` inside its `Article` node, and nothing else: the
+    schema stays generic, and a picture of food on a tray must not have tempted a
+    `Recipe` or a `Product` node into the graph.
+  */
   await page.goto(`/en/cuisine/${MANTI}`);
   const graph = await readGraph(page);
-  expect(node(graph, "Article").image, "Article.image is absent while pending").toBeUndefined();
+
+  const article = node(graph, "Article");
+  expect(article["@type"], "generic Article only").toBe("Article");
+
+  const types = graph.map((n) => n["@type"]);
+  for (const forbidden of [
+    "Recipe",
+    "HowTo",
+    "NutritionInformation",
+    "Product",
+    "FoodEstablishment",
+    "Offer",
+  ]) {
+    expect(types, `no ${forbidden} node`).not.toContain(forbidden);
+  }
+
+  // Article.image is the real file now, where §79 asserted it was absent.
+  const image = article.image as { url?: string } | undefined;
+  expect(image, "Article.image is present after registration").toBeDefined();
+  expect(image!.url, "Article.image is manti's own file").toBe(
+    `https://armat.site${ARTWORK[MANTI]}`,
+  );
+
+  // OG and Twitter moved off the fallback onto the real file.
   await expect(page.locator('meta[property="og:image"]')).toHaveAttribute(
     "content",
-    "https://armat.site/og-default.png",
+    `https://armat.site${ARTWORK[MANTI]}`,
   );
   await expect(page.locator('meta[name="twitter:image"]')).toHaveAttribute(
     "content",
-    "https://armat.site/og-default.png",
+    `https://armat.site${ARTWORK[MANTI]}`,
   );
 
   /*
-    The sitemap advertises no image for manti in any edition. A stale entry here
-    would hand an image crawler a 404, which is the failure this half exists for.
+    The sitemap, read route by route rather than by counting filenames across the
+    document. Each edition's manti URL must carry exactly one image and it must be
+    its own — a global count would pass while three routes shared one file.
   */
   const sitemap = await (await page.request.get("/sitemap.xml")).text();
   for (const locale of LOCALES) {
@@ -4370,23 +4417,146 @@ test("manti is waiting for artwork, and borrows nobody else's", async ({ page })
       .split("<url>")
       .find((entry) => entry.includes(`/${locale}/cuisine/${MANTI}<`));
     expect(block, `${locale} manti is in the sitemap`).toBeDefined();
-    expect(block, `${locale} manti advertises no image`).not.toContain("<image:loc>");
+    const images = [...block!.matchAll(/<image:loc>([^<]+)<\/image:loc>/g)].map((m) => m[1]);
+    expect(images.length, `${locale} manti has exactly one image`).toBe(1);
+    expect(images[0], `${locale} manti image`).toContain(ARTWORK[MANTI]);
+    for (const other of ILLUSTRATED) {
+      if (other === MANTI) continue;
+      expect(images[0], `${locale} must not carry ${other}`).not.toContain(
+        `/cuisine/${other}.webp`,
+      );
+    }
+  }
+});
+
+test("the manti search result carries its own thumbnail", async ({ page }) => {
+  /*
+    Scoped by canonical href rather than by position: the same query legitimately
+    returns matsun and basturma, whose own covers appear on the same page, so an
+    unscoped image assertion would pass on the wrong card.
+  */
+  for (const [locale, query] of [
+    ["en", "manti"],
+    ["hy", "մանթի"],
+    ["hyw", "մանթի"],
+  ] as const) {
+    await page.goto(`/${locale}/search?q=${encodeURIComponent(query)}`);
+    const card = page.locator(`main a[href="/${locale}/cuisine/${MANTI}"]`).first();
+    await expect(card, `${locale} manti result`).toBeVisible();
+    await expect(
+      page.locator(`main img[src*="${MANTI}.webp"]`).first(),
+      `${locale} manti thumbnail is its own file`,
+    ).toBeVisible();
+  }
+});
+
+test("manti keeps its canoe description, whatever the cover happens to show", async ({ page }) => {
+  /*
+    The §80 guard, and the reason it exists is worth stating plainly.
+
+    `manti.webp` was registered with a recorded reservation: the dumplings in it
+    read as round nests rather than the canoe shape the article's prose asserts and
+    the §51 commission asked for. Open and baked — the two claims the article is
+    actually built on — are both unambiguous in the file, which is why it was
+    accepted rather than rejected.
+
+    The failure mode that creates is a later edit "fixing" the mismatch in the
+    wrong direction, by softening the prose to match the picture. The canoe
+    description is what the sources say; the picture is the thing that is
+    approximate. This test pins the prose so that resolving the mismatch has to
+    mean replacing the file.
+  */
+  await page.goto(`/en/cuisine/${MANTI}`);
+  const text = (await page.getByRole("main").textContent()) ?? "";
+
+  expect(text, "the shape is still described as a canoe").toContain(
+    "the finished shape is a canoe with the meat visible along the top",
+  );
+  expect(text, "and the pinch is still on two opposite sides").toContain(
+    "the two opposite sides are pinched together over it and the two ends are left open",
+  );
+  expect(text, "and the intro still says boats rather than nests").toContain(
+    "a tray of tiny open boats",
+  );
+
+  for (const [locale, phrase] of [
+    ["hy", "ձևը նավակ է"],
+    ["hyw", "ձեւը նաւակ մըն է"],
+  ] as const) {
+    await page.goto(`/${locale}/cuisine/${MANTI}`);
+    const localized = (await page.getByRole("main").textContent()) ?? "";
+    expect(localized, `${locale} keeps the canoe description`).toContain(phrase);
+  }
+});
+
+test("registering manti changed no other dish's artwork, type or relations", async ({ page }) => {
+  /*
+    §60 and §61. §80 adds one line to `IMAGES` and removes one from
+    `PENDING_ARTWORK`; nothing else may have moved. Dolma and jingalov hats are
+    checked first because they are the two files this registration was most likely
+    to displace — all three are filled-dough-or-leaf subjects.
+  */
+  expect(getImageSrc("dolma"), "dolma artwork unchanged").toBe(ARTWORK["dolma"]);
+  expect(getImageSrc(JINGALOV), "jingalov hats artwork unchanged").toBe(ARTWORK[JINGALOV]);
+  expect(getImageSrc(BASTURMA), "basturma artwork unchanged").toBe(ARTWORK[BASTURMA]);
+  for (const slug of ILLUSTRATED) {
+    expect(getImageSrc(slug), `${slug} artwork unchanged`).toBe(ARTWORK[slug]);
   }
 
-  // The listing shows exactly one placeholder, and it is manti's card.
+  // Exact ownership across all twelve: no two dishes share a file.
+  const paths = ILLUSTRATED.map((slug) => getImageSrc(slug));
+  expect(new Set(paths).size, "twelve distinct covers").toBe(ILLUSTRATED.length);
+
+  for (const locale of LOCALES) {
+    const dishes = bundle(locale).articles.filter((a) => a.category === "cuisine");
+    expect(dishes.length, `${locale} dish count follows SLUGS`).toBe(SLUGS.length);
+
+    // The §79 type distribution, unchanged by artwork registration.
+    const counts: Record<string, number> = {};
+    for (const dish of dishes) {
+      counts[dish.dishTypeId ?? ""] = (counts[dish.dishTypeId ?? ""] ?? 0) + 1;
+    }
+    expect(counts, `${locale} type distribution`).toEqual({
+      bread: 2,
+      main: 3,
+      meat: 3,
+      ceremonial: 2,
+      dessert: 1,
+      dairy: 1,
+    });
+
+    // Dairy is still matsun alone, and no drink type appeared.
+    expect(
+      dishes.filter((a) => a.dishTypeId === "dairy").map((a) => a.slug),
+      `${locale} dairy membership`,
+    ).toEqual([MATSUN]);
+
+    // Relations and SectionLinks survive registration untouched.
+    const authored = Object.fromEntries(dishes.map((a) => [a.slug, a.relatedSlugs]));
+    expect(authored[MANTI], `${locale} manti relations untouched`).toEqual([MATSUN, BASTURMA]);
+    expect(authored[MATSUN], `${locale} matsun relations untouched`).toEqual(["spas"]);
+    expect(authored[BASTURMA], `${locale} basturma relations untouched`).toEqual([
+      "lavash",
+      "khorovats",
+    ]);
+    const links = dishes
+      .find((a) => a.slug === MANTI)!
+      .sections.flatMap((s) => (s.links ?? []).map((l) => l.slug));
+    expect(links, `${locale} manti SectionLinks untouched`).toEqual([MATSUN, BASTURMA]);
+  }
+
+  // The listing is fully illustrated: twelve cards, twelve covers, no placeholder.
   await page.goto("/en/cuisine");
   await expect(cards(page)).toHaveCount(SLUGS.length);
-  await expect(page.locator("main svg[role='img']")).toHaveCount(1);
+  await expect(page.locator("main svg[role='img']")).toHaveCount(
+    SLUGS.length - ILLUSTRATED.length,
+  );
   for (const slug of ILLUSTRATED) {
     await expect(
       page.locator(`main img[src*="${slug}"]`),
-      `${slug} still has its own card artwork`,
+      `${slug} has its own card artwork`,
     ).not.toHaveCount(0);
   }
-  await expect(
-    page.locator(`main img[src*="${MANTI}"]`),
-    "manti has no card artwork to show",
-  ).toHaveCount(0);
 });
 
 test("manti rests on scholarship, and no menu carries its history", async ({ page }) => {
@@ -4437,9 +4607,10 @@ test("adding manti changed no existing dish's artwork, type or relations", async
   for (const slug of ILLUSTRATED) {
     expect(getImageSrc(slug), `${slug} artwork unchanged`).toBe(ARTWORK[slug]);
   }
-  expect(new Set(ILLUSTRATED.map((s) => getImageSrc(s))).size, "eleven distinct covers").toBe(
-    ILLUSTRATED.length,
-  );
+  expect(
+    new Set(ILLUSTRATED.map((s) => getImageSrc(s))).size,
+    "every registered cover is distinct",
+  ).toBe(ILLUSTRATED.length);
 
   for (const locale of LOCALES) {
     const dishes = bundle(locale).articles.filter((a) => a.category === "cuisine");
