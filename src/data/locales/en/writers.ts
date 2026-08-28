@@ -74,6 +74,30 @@ export const writers: Writer[] = [
     imageSeed: "paruyr-sevak",
     notableWorks: ["The Unsilenceable Belfry", "Let There Be Light", "Man in the Palm of the Hand"],
   },
+  {
+    slug: "grigor-narekatsi",
+    name: "Grigor Narekatsi",
+    lifespan: "about 951–1003",
+    period: "Medieval",
+    periodId: "medieval",
+    role: "Poet and theologian",
+    description:
+      "The monk of Narek whose Book of Lamentations became the most copied and most read work of classical Armenian literature, and the first medieval writer in this section.",
+    imageSeed: "grigor-narekatsi",
+    notableWorks: ["Book of Lamentations", "Commentary on the Song of Songs", "Odes and panegyrics"],
+  },
+  {
+    slug: "daniel-varoujan",
+    name: "Daniel Varoujan",
+    lifespan: "1884–1915",
+    period: "20th Century",
+    periodId: "20th-century",
+    role: "Poet and teacher",
+    description:
+      "The Western Armenian poet of Pagan Songs and The Song of the Bread, who enlarged what the literary language could do and was killed in 1915 at the age of thirty-one.",
+    imageSeed: "daniel-varoujan",
+    notableWorks: ["The Song of the Bread", "Pagan Songs", "The Heart of the Race"],
+  },
 ];
 
 export const literaryPeriods: Filter[] = [

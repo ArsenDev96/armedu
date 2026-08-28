@@ -77,6 +77,30 @@ export const writers: Writer[] = [
     // and is left exactly as Sevak's publisher set it. Do not "correct" it.
     notableWorks: ["Անլռելի զանգակատուն", "Եղիցի լույս", "Մարդը ափի մեջ"],
   },
+  {
+    slug: "grigor-narekatsi",
+    name: "Գրիգոր Նարեկացի",
+    lifespan: "մոտ 951–1003",
+    period: "Միջնադար",
+    periodId: "medieval",
+    role: "Բանաստեղծ և աստվածաբան",
+    description:
+      "Նարեկի վանականը, ում «Մատյան ողբերգության» երկը դարձավ գրաբար հայ գրականության ամենաշատ ընդօրինակված ու ամենաշատ կարդացված գործը, և այս բաժնի առաջին միջնադարյան հեղինակը։",
+    imageSeed: "grigor-narekatsi",
+    notableWorks: ["Մատյան ողբերգության", "Երգ երգոցի մեկնություն", "Տաղեր և ներբողներ"],
+  },
+  {
+    slug: "daniel-varoujan",
+    name: "Դանիել Վարուժան",
+    lifespan: "1884–1915",
+    period: "XX դար",
+    periodId: "20th-century",
+    role: "Բանաստեղծ և ուսուցիչ",
+    description:
+      "«Հեթանոս երգեր»-ի և «Հացին երգը»-ի արևմտահայ բանաստեղծը, որ ընդլայնեց գրական լեզվի հնարավորությունները և սպանվեց 1915 թվականին՝ երեսունմեկ տարեկանում։",
+    imageSeed: "daniel-varoujan",
+    notableWorks: ["Հացին երգը", "Հեթանոս երգեր", "Ցեղին սիրտը"],
+  },
 ];
 
 export const literaryPeriods: Filter[] = [

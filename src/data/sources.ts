@@ -304,6 +304,157 @@ const SOURCES: Record<string, Source[]> = {
     },
   ],
 
+  /*
+   * §81. The first medieval subject in this section, and the first Writers
+   * bibliography that needed notes.
+   *
+   * The other six writers are nineteenth- and twentieth-century figures with
+   * documented lives, and two entries each was enough. Narekatsi has no
+   * contemporary biography at all: his dates are disputed, part of his corpus is
+   * traditionally rather than securely attributed, and the two claims that
+   * circulate most widely about him — a heresy association and a count of invented
+   * words — are exactly the kind that need a source named beside them or refused.
+   * So the entries below say what each one is being used for, in the manner of the
+   * Cuisine and Places bibliographies rather than the terse Writers ones.
+   *
+   * Two things were deliberately not cited. Britannica's entry returned HTTP 403
+   * on every attempt and is absent rather than cited unread. Wikipedia was used to
+   * locate references and is cited for nothing: not the dates, not the attribution
+   * of works, not the Tondrakian question, and above all not the lexical claim.
+   */
+  /*
+   * §84. Daniel Varoujan, and the first Writers bibliography that had to separate
+   * a literary life from the event that ended it.
+   *
+   * Six entries, none of them reused from another article in this section. The
+   * shape follows the evidence: three books that carry the literary argument, one
+   * encyclopedia for the Armenian-language biographical spine, one piece of
+   * archival reporting for the four years the short biographies skip, and one
+   * linguistic study for the claim this article makes about Western Armenian.
+   *
+   * Two sources were deliberately *not* cited. A Western Armenian cultural-society
+   * profile was consulted for native orthographic forms and then dropped, because
+   * its bibliography dates the collections 1905, 1910 and 1913 against the 1906,
+   * 1909 and 1912 that the catalogue records and every other source give, and it
+   * puts the death in April rather than August; forms taken from it were checked
+   * against other Western Armenian material before use. An ARAR item comparing
+   * Varoujan's and Tumanyan's views of language is known to exist from its listing
+   * and could not be retrieved, so the article says only that Armenian scholarship
+   * has made the comparison, which the listing itself establishes.
+   */
+  "daniel-varoujan": [
+    {
+      author: "A. J. Hacikyan, G. Basmajian, E. S. Franchuk and N. Ouzounian (eds.)",
+      title: "The Heritage of Armenian Literature, Volume III: From the Eighteenth Century to Modern Times",
+      publisher: "Wayne State University Press",
+      year: "2005",
+      identifier: { kind: "isbn", value: "9780814332214" },
+      note: "The section's backbone series, at the volume that covers him — the same volume the six modern writers here cite, and the tenth article to rest on it. Carries the literary-historical placement: Varoujan inside the Western Armenian tradition rather than as an isolated figure, and the four collections as a development rather than a list.",
+    },
+    {
+      author: "Marc Nichanian, translated by G. M. Goshgarian and Jeff Fort",
+      title: "Mourning Philology: Art and Religion at the Margins of the Ottoman Empire",
+      publisher: "Fordham University Press",
+      year: "2014",
+      identifier: { kind: "isbn", value: "9780823255245" },
+      note: "The source of record for the two hardest sections. It is where the argument comes from that Varoujan had to invent a language to carry a pantheistic experience, that the aestheticisation of literary Western Armenian was an explicit aim of the Mehean circle, and that the group's paganism was an aesthetic programme rather than a religious position. Cited for the literary and intellectual reading, not for the chronology.",
+    },
+    {
+      author: "Grigoris Balakian, translated by Peter Balakian with Aris Sevag",
+      title: "Armenian Golgotha: A Memoir of the Armenian Genocide, 1915–1918",
+      publisher: "Alfred A. Knopf",
+      year: "2009",
+      identifier: { kind: "isbn", value: "9781400096770" },
+      note: "The primary witness for where and how Varoujan died: Balakian was deported in the same group, survived, and wrote the account every later source depends on. Cited for the date, the transfer from Çankırı and the fact that four other detainees were killed with him — and for nothing else. The memoir contains far more detail than this article uses, and the omission is deliberate.",
+    },
+    {
+      author: "Հայկական սովետական հանրագիտարան, հատոր 11 (Armenian Soviet Encyclopedia, volume 11)",
+      title: "Վարուժան, Դանիել — encyclopedia entry, via Armenian Wikisource",
+      publisher: "Armenian Soviet Encyclopedia",
+      year: "1985",
+      identifier: {
+        kind: "url",
+        value: "https://hy.wikisource.org/wiki/%D4%B7%D5%BB:%D5%80%D5%A1%D5%B5%D5%AF%D5%A1%D5%AF%D5%A1%D5%B6_%D5%8D%D5%B8%D5%BE%D5%A5%D5%BF%D5%A1%D5%AF%D5%A1%D5%B6_%D5%80%D5%A1%D5%B6%D6%80%D5%A1%D5%A3%D5%AB%D5%BF%D5%A1%D6%80%D5%A1%D5%B6_(Soviet_Armenian_Encyclopedia)_11.djvu/349",
+      },
+      note: "The Armenian-language biographical spine: the Chalcedon boarding school, the 1901 student paper, the publication cities, and the naming of beauty, strength and labour as the substance of the work — a framing this article follows because it is better than the political one. Its interpretive apparatus is Soviet and is treated as interpretation: the article reports the national-liberation reading as a reading rather than adopting it.",
+    },
+    {
+      author: "Christopher Atamian, on the archival work of Simon Payaslian",
+      title: "A Critical Exclusive — Daniel Varoujan: An Armenian Poet in Ghent",
+      publisher: "The Armenian Mirror-Spectator",
+      year: "2020",
+      identifier: {
+        kind: "url",
+        value: "https://mirrorspectator.com/2020/10/29/a-critical-exclusive-daniel-varoujan-an-armenian-poet-in-ghent/",
+      },
+      note: "The reason the Ghent section can say anything concrete. Reports Payaslian's archival lists — rent, household expenses, the thirty-nine poems written in the city — from essays published bilingually in French and Flemish. Cited for what it documents and used as the reason the article refuses to award him a degree: it establishes four years of study and no completion, and no source that grants him one names its authority.",
+    },
+    {
+      author: "Յուրի Ավետիսյան (Yuri Avetisyan)",
+      title: "Արևելահայերենի և արևմտահայերենի զուգադրական քերականություն (Comparative Grammar of Eastern and Western Armenian)",
+      publisher: "Yerevan State University, via ARAR",
+      year: "2019",
+      identifier: {
+        kind: "url",
+        value: "https://arar.sci.am/Content/362340/AVETISYAN_YURI_Arevelahayereni_ev_arevmtahayereni_zugadrakan_qerakanutyun.pdf",
+      },
+      note: "Cited so that the article's central linguistic claim rests on grammar rather than on assertion: Western and Eastern Armenian differ in pronunciation, verb system and vocabulary, and are two standard forms of one language rather than two spellings of it. The distinction matters here more than anywhere else in the archive, because the subject wrote in one of them and this edition of the article is written in it.",
+    },
+  ],
+  "grigor-narekatsi": [
+    {
+      author: "A. J. Hacikyan, G. Basmajian, E. S. Franchuk and N. Ouzounian (eds.)",
+      title: "The Heritage of Armenian Literature, Volume II: From the Sixth to the Eighteenth Century",
+      publisher: "Wayne State University Press",
+      year: "2000",
+      identifier: { kind: "isbn", value: "9780814330234" },
+      note: "The section's backbone series, at the volume that actually covers a tenth-century author — the other six writers cite Volume III, which begins where Narekatsi's period ends. Carries the literary-historical placement this article is built on: Narekatsi inside medieval Armenian letters rather than beside them, and the Book of Lamentations as a work of literature before it is anything else.",
+    },
+    {
+      author: "Abraham Terian",
+      title: "From the Depths of the Heart: Annotated Translation of the Prayers of St. Gregory of Narek",
+      publisher: "Liturgical Press",
+      year: "2021",
+      identifier: { kind: "isbn", value: "9780814684641" },
+      note: "An annotated scholarly translation by an Armenologist rather than a devotional edition, and the source of record here for the shape of the text: ninety-five chapters, the first-person address, the biblical saturation and the refusal of the book to resolve what it opens. Cited for what the work is and how it is built, and not for the biography, which it is not a biography of.",
+    },
+    {
+      author: "Thomas J. Samuelian (translator)",
+      title: "Speaking with God from the Depths of the Heart: The Armenian Prayer Book of St. Gregory of Narek",
+      publisher: "VEM Press, Yerevan",
+      year: "2001",
+      identifier: { kind: "isbn", value: "9789993085317" },
+      note: "The bilingual translation that put the text in front of English readers, and the reason the article can say that this is the one medieval Armenian work a non-specialist is likely to have met. Cited for the reception and for the modern English title of the work; the article quotes neither this translation nor any other, which is deliberate — §33 of the commission, and the reason the literary section describes technique rather than reproducing lines still in copyright.",
+    },
+    {
+      title: "Գրիգոր Նարեկացի",
+      publisher: "Հայկական սովետական հանրագիտարան (Armenian Soviet Encyclopedia), via Armenian Wikisource",
+      identifier: {
+        kind: "url",
+        value: "https://hy.wikisource.org/wiki/%D5%80%D5%8D%D5%80/%D4%B3%D5%90%D4%BB%D4%B3%D5%88%D5%90_%D5%86%D4%B1%D5%90%D4%B5%D4%BF%D4%B1%D5%91%D4%BB",
+      },
+      note: "The Armenian-language reference entry, and the source of the conventional 951–1003 dating this article uses while flagging it as a convention. It also supplies the works list, the education under Anania Narekatsi, and — usefully — two things it did not intend to supply. It records that Grigor and his teacher faced accusations of Tondrakian sympathy, which is the accusation half of that question; and it describes him as the founder of an Armenian literary renaissance and the summit of Armenian renaissance thought, which is the Soviet-era interpretive frame the article attributes rather than adopts. Cited as evidence of a scholarly position, including where the position is the thing being reported on.",
+    },
+    {
+      author: "Pope Francis",
+      title: "Apostolic Letter for the proclamation of Saint Gregory of Narek as a Doctor of the Church",
+      publisher: "Holy See",
+      year: "12 April 2015",
+      identifier: {
+        kind: "url",
+        value: "https://www.vatican.va/content/francesco/en/apost_letters/documents/papa-francesco_lettera-ap_2015412_gregorius-narecensis-doctor-ecclesiae.html",
+      },
+      note: "The primary document for the second of the two 2015 events, and the reason the article can date the proclamation exactly. Cited for the Catholic recognition and for nothing else: a Vatican document is authoritative about what the Vatican did in 2015 and is not a source for tenth-century chronology, and the article keeps those on opposite sides of the same section.",
+    },
+    {
+      title: "St. Gregory of Narek, Doctor of the Church",
+      publisher: "Holy See Press Office, Vatican Information Service bulletin",
+      year: "23 February 2015",
+      identifier: { kind: "url", value: "https://visnews-en.blogspot.com/2015/02/st-gregory-of-narek-doctor-of-church.html" },
+      note: "The first of the two events, which almost every account merges into the second. The bulletin records that on Saturday 21 February 2015 the Pope received Cardinal Angelo Amato, prefect of the Congregation for the Causes of Saints, and confirmed the proposal to grant the title; the announcement followed days later, which is why 23 February also circulates as the date. Cited to keep the confirmation and the proclamation apart. The bulletin as published also carries an obvious slip in its biographical line, giving both birth and death as 1005, which is a useful reminder that a primary source is primary about its own subject and not about everything it mentions.",
+    },
+  ],
+
   /* ------------------------------------------------------------------ works */
 
   anush: [

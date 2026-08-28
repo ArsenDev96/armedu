@@ -17482,3 +17482,1296 @@ the map are absent from the diff.
 ### No deployment
 
 Nothing was deployed.
+
+---
+
+## §81 — Writers #7: Grigor Narekatsi, the section's first medieval author (2026-08-28)
+
+Writers reaches seven. Grigor Narekatsi is the first medieval subject in the
+section, the first writer shipped ahead of his portrait, the first with disputed
+dates, and the first whose religious reception could have swallowed his literary
+biography. He is also the first member the `medieval` filter has ever had.
+
+### Pre-change Writers state, read from source
+
+Six writers in all three editions, in one order: `hovhannes-tumanyan`,
+`yeghishe-charents`, `raffi`, `avetik-isahakyan`, `khachatur-abovyan`,
+`paruyr-sevak`. Tumanyan is the only `featured` writer. Six registered portraits
+against six writers; `PENDING_ARTWORK` empty. Bibliographies for all six, two
+entries each, no notes. **No discrepancy** with the expected list.
+
+### Architecture audit — the answers that shaped the step
+
+* **Two files per locale, not one.** `src/data/locales/<l>/writers.ts` holds the
+  `Writer[]` listing cards (`period`, `periodId`, `role`, `notableWorks`,
+  `featured`); `src/data/locales/<l>/articles/writers.ts` holds the full `Article`.
+  Both had to gain an entry, and a test now asserts the two lists agree on order
+  and on the period label.
+* **The `medieval` filter already existed, in all three editions, with ZERO
+  members.** It has rendered a control leading to an empty result set since the
+  section was built. This is recorded explicitly because §3 asked for it, and it
+  settles the taxonomy question: no new value was added, and Narekatsi is the
+  filter's first real member.
+* **Writers ↔ Works uses `relatedSlugs`, and it already crosses categories.**
+  Tumanyan authors `["anush", "david-of-sassoun", "avetik-isahakyan"]`.
+  `getRelatedArticles` confirms the rule in its own comment: an authored relation
+  may deliberately cross categories, while *filler* is confined to the article's
+  own category.
+* **No writer article used `SectionLink`s.** Six `bullets` blocks, zero `links`.
+  Narekatsi's are the first in the section.
+* **No SEO fields.** No writer carried `seoTitle`, `metaDescription` or `summary`;
+  all three are optional. Narekatsi has them; the other six were not touched.
+* **No `writers.spec.ts` existed.** Writers were covered incidentally by
+  `article.spec.ts`, `listing.spec.ts`, `search.spec.ts`, `seo.spec.ts` and one
+  count literal in `places.spec.ts`.
+* **The Book of Lamentations has no article.** Works holds four: `anush`,
+  `wounds-of-armenia`, `the-fool`, `david-of-sassoun`. No slug was invented.
+* **Narekatsi was already in the archive.** `history.ts` → `bagratid-armenia`
+  carries him as a `relatedFigure` at "about 951–1003" and dates the Book of
+  Lamentations to "around 1002". The new article was written to agree with that
+  rather than to diverge from it silently.
+
+### Phase B — live SEO/SERP research
+
+Eleven live searches and eight fetches across English and Armenian. **Search
+volume: unavailable**; no volume, CPC, difficulty or traffic figure appears
+anywhere in this step. Three fetches failed and are recorded as failures:
+Britannica returned HTTP 403, the academia.edu paper on the Narekian Fathers
+returned 403, and the eScholarship dissertation on Anania of Narek could not be
+resolved to a confirmed author.
+
+**Intent split — religious results dominate.** The first page for the English
+forms is Vatican documents, Franciscan Media, National Catholic Register, Catholic
+Culture, church and diocesan pages, plus Britannica and Wikipedia. Literary
+treatments are a minority and are mostly bookseller pages for translations.
+Armenian-language results are encyclopedic (ՀՍՀ via Wikisource, Hayazg,
+armenianhouse) and bookshop listings.
+
+**The gap, and Armat's differentiation.** Nothing on the first page reads as a
+*literary biography*. The saint pages give the cult and skip the poetics; the
+encyclopedias give a paragraph; the translations give the text without the life.
+Nobody explains the disputed dates as disputed, nobody separates the father's
+Chalcedonian excommunication from the son's Tondrakian association, nobody
+attributes the "renaissance" framing to the Soviet-era scholarship that produced
+it, and nobody refuses the 2500-word statistic. Those five are the article.
+
+**Primary entity: Grigor Narekatsi**, with `Gregory of Narek` supported as the
+common English form in keywords, prose and search — one page, not two, and a test
+asserts `/en/writers/gregory-of-narek` is a 404.
+
+**SEO title chosen:** `Grigor Narekatsi: Poet of the Book of Lamentations` (en),
+`Գրիգոր Նարեկացի. «Մատյան ողբերգության»-ի հեղինակը` (hy),
+`Գրիգոր Նարեկացի. «Մատեան ողբերգութեան»-ի հեղինակը` (hyw). It names the entity
+and the work and leads with *poet*, which is the half of the SERP nobody owns.
+
+### Writers after the change
+
+Seven articles and seven cards per locale. Period distribution:
+`medieval 1, 19th-century 3, 20th-century 2, soviet 1`. Tumanyan remains the only
+featured writer.
+
+### Article
+
+Eleven sections, thirty-three body paragraphs, identical structure across the three
+editions. Section ids: `who-narekatsi-was`, `vaspurakan-and-narek`,
+`a-family-of-scholars`, `what-can-be-dated`, `the-works`,
+`the-book-of-lamentations`, `how-the-writing-works`, `the-armenian-he-wrote`,
+`what-narek-came-to-mean`, `manuscripts-and-readers`, `orthodoxy-and-accusation`,
+`recognition-and-afterlife`.
+
+**Name form.** Canonical `Grigor Narekatsi`; `Gregory of Narek` introduced in the
+first paragraph as the common English form. Not renamed to `Saint Gregory of
+Narek` — the section titles writers by name, and the honorific belongs to the
+reception section.
+
+**Dates — the central evidence decision.** Birth is given variously as about 945,
+about 950 and about 951; death as 1003 or around 1010–1011. The article uses the
+conventional 951–1003 pairing and says in the same paragraph that it is a
+convention rather than a record, and that the alternative is held by serious
+scholars. Two dates are firmer because they come from the works: the Commentary on
+the Song of Songs in 977, and the Book of Lamentations completed about 1002–1003.
+
+**Family.** Father Khosrov Andzevatsi, churchman and author of a surviving
+commentary on the liturgy, described in the sources as connected to the Artsruni
+house — reported and then explicitly bounded: it does not establish princely rank
+for Grigor. Teacher and kinsman Anania Narekatsi, the monastery's founder.
+
+**The School of Narek.** The most useful corrective in the article. Narekatsi is
+routinely introduced as a solitary mystic with no Armenian antecedents — "a
+literary asteroid" in the phrase the specialist literature uses to reject. The
+evidence is that he was formed inside a working tradition, and the triad of
+Khosrov, Anania and Grigor is described in scholarship as a school of Narek. The
+framing is associated with **Hrachya Tamrazyan**'s studies (Նարեկյան դպրոցը); the
+paper articulating it against the solitary-mystic reading could not be opened, so
+the article states the position without attaching it to a named author, in the same
+way §77 handled the unread Ačaṙyan volume.
+
+**Historical geography.** Vaspurakan is described as a kingdom under the Artsruni
+house that took a crown in 908, a rival and occasional partner of the Bagratid
+kingdom — not a province of a single Armenian state, which is how the tenth century
+is usually flattened. Narekavank stood near the southern shore of Lake Van, was
+emptied in 1915, demolished around 1951, and is now a mosque site in the Gevaş
+district of Van province.
+
+**Works corpus.** Commentary on the Song of Songs (977, for the Artsruni prince
+Gurgen-Khachik); a commentary on part of Job surviving in a single manuscript;
+homilies, panegyrics and letters; roughly two dozen *tagher*; a treatise against
+the Tondrakians in the 980s; and the Book of Lamentations. The article names the
+*tagher* as the part of the output most likely to be over-counted, which is the
+secure-versus-traditional distinction §16 asked for.
+
+**Book of Lamentations.** Մատեան ողբերգութեան, also Գիրք աղօթից; ninety-five
+chapters, more than ten thousand lines, completed about 1002. Genre is explained
+rather than chosen: prayer book, poem, lament, mystical/meditative and theological
+are all reported as real descriptions serving different traditions.
+
+**`Narek` terminology.** Three senses separated explicitly — the place, the man,
+and the book. The third is the one that surprises readers and the article says so.
+
+**Literary style.** Three named techniques with explanation: accumulation
+(synonym on synonym as the formal equivalent of a mind that cannot let go),
+parallelism inherited structurally rather than decoratively from the Psalter, and
+metaphor that refuses to settle. The voice — the sinner as representative rather
+than as exception — is identified as the innovation that matters for literary
+history. No vague praise.
+
+**Language.** Grabar, high register, dense compounding. The **2500-word claim is
+printed in order to be refused**: the figure circulates everywhere, appears hedged
+even in cautious reference works, and no study is ever named as its source. The
+qualitative replacement is stated and a test pins both halves.
+
+**Mysticism and Renaissance.** Both scoped. The Soviet-era Armenian description of
+Narekatsi as founder of an Armenian literary renaissance and summit of Armenian
+renaissance thought is **attributed to that scholarship, not adopted**, and named
+as an imported European periodisation. Armat's own claim is the narrower one: no
+Armenian book before the modern period was copied more or read by more people.
+
+**Orthodoxy and accusation.** Handled in three moves. Accusations existed and were
+ordinary currency in a century when the Armenian church was policing its
+boundaries. The father's excommunication was a *separate*, Chalcedonian matter and
+the article says so, because every popular account conflates the two. And the only
+direct evidence of Grigor's own position is a body of writing arguing against the
+heresy in question. The reading that the treatise was written partly to clear him
+is offered as a plausible inference and labelled as one.
+
+**Religious reception.** Armenian Apostolic veneration first, with evidence going
+back at least to the twelfth century and a feast on 27 February — the reception
+that actually shaped the text's transmission. The Catholic recognition second, in
+its **two distinct stages**, which almost every account merges: confirmed in an
+audience with Cardinal Angelo Amato on **21 February 2015** (announced by the Holy
+See press office days later, which is why 23 February also circulates), formally
+proclaimed at St Peter's on **12 April 2015**. Thirty-sixth Doctor of the Church,
+first Armenian. No UNESCO claim of any kind is made.
+
+**Manuscripts and popular reception.** Matenadaran MS held in Yerevan — the 1173
+Cilician copy made by the scribe Grigor Skevratsi for Nerses of Lambron, carrying
+four painted portraits of the author. First printed edition Marseille 1673.
+Household possession and the attribution of protective and healing power to the
+physical book are recorded as documented popular belief and practice, with an
+explicit disclaimer that this is cultural history and not a medical claim. No
+devotional instruction anywhere.
+
+### Sources
+
+Six entries, none reused from another writer's bibliography, and the first Writers
+bibliography with notes:
+
+1. Hacikyan et al. (eds.), *The Heritage of Armenian Literature, Volume II: From
+   the Sixth to the Eighteenth Century*, Wayne State UP, 2000 — isbn
+   9780814330234. The section's own backbone series, at the volume that actually
+   covers a tenth-century author; the other six writers cite Volume III.
+2. Abraham Terian, *From the Depths of the Heart: Annotated Translation of the
+   Prayers of St. Gregory of Narek*, Liturgical Press, 2021 — isbn 9780814684641.
+3. Thomas J. Samuelian (tr.), *Speaking with God from the Depths of the Heart*,
+   VEM Press, 2001 — isbn 9789993085317.
+4. Հայկական սովետական հանրագիտարան, «Գրիգոր Նարեկացի», via Armenian Wikisource.
+5. Pope Francis, *Apostolic Letter for the proclamation of Saint Gregory of Narek
+   as a Doctor of the Church*, 12 April 2015 — vatican.va.
+6. Holy See Press Office / VIS bulletin, 23 February 2015, recording the audience
+   of 21 February.
+
+**Deliberately not cited.** Britannica (403, never read). Wikipedia (used only to
+locate references; cited for nothing — not the dates, not the attribution of
+works, not the Tondrakian question, and above all not the lexical claim).
+
+### Relationships
+
+Authored: `["matenadaran", "bagratid-armenia"]` — both cross-category, both
+carried by a real `SectionLink`, and the first SectionLinks in the Writers section.
+
+* **Matenadaran — earned.** Not "both involve manuscripts": the 1173 illuminated
+  copy of the Book of Lamentations is held there, and the Matenadaran article is
+  substantively about the collection, its monastic origins and conservation.
+* **Bagratid Armenia — earned** by the political setting, since Vaspurakan under
+  the Artsrunis has to be distinguished from the Bagratid kingdom for the geography
+  section to make sense.
+* **No writer-to-writer link.** §44 refused; a test asserts none of the six appears
+  in `relatedSlugs`.
+* **Matenadaran was not edited for reciprocity**, and a test asserts it.
+
+**Future Works candidate #1: the Book of Lamentations.** No slug was invented, and
+a test asserts that `book-of-lamentations`, `matean-oghbergutean`, `narek`,
+`narekavank` and `anania-narekatsi` are all genuinely absent from the archive. It
+is the highest-value next Literary Works addition by a wide margin: the Writers
+section now names a work that has no page, and the author article is written so
+that the link can be added without rewriting a paragraph.
+
+**Filler, measured not assumed:** three rendered in every edition — matenadaran and
+bagratid-armenia authored, plus **one** filler, `hovhannes-tumanyan`, from the
+Writers pool. Identical across hy, hyw and en. `getRelatedArticles` unchanged.
+
+### Portrait
+
+No portrait exists. `PENDING_ARTWORK = ["grigor-narekatsi"]`, filled for the ninth
+time and the first time by a Writer. The §81 commission is recorded beside it and
+turns on one constraint the other portraits did not have: **no contemporary
+likeness of Narekatsi exists or could exist** — even the four portraits in the 1173
+manuscript were painted a hundred and seventy years after his death. Anything made
+must be a historically informed editorial reconstruction, not an accurate likeness.
+
+The commission asks for a medieval Armenian monk at work as a writer, with a
+manuscript and a restrained Vaspurakan monastic interior, and forbids in order of
+severity: devotional icon styling (a halo inverts the article's entire argument in
+one glance), Roman Catholic vesture of any kind, modern clerical dress or a printed
+book, and photorealistic "historical photograph" treatment. The quill gets its own
+line: Armenian scribes of the period are associated with the reed pen, and a goose
+quill is a western European reflex. Named near miss: `khachatur-abovyan.webp`, the
+only other writer portrait with a desk and a dark coat.
+
+### Localization
+
+Genuine editions. Eastern Armenian in modern orthography; Western Armenian in
+classical orthography throughout (`եւ`, `-ութիւն`, `կը`/`կ՚`, `Ժ. դար`, `Մատեան
+ողբերգութեան`, `Գեւաշ`, `Մարսէյլ`). Structure identical across the three: same
+twelve section ids, same SectionLink placement, same eight `importantDates`, same
+six `interestingFacts`, same three `relatedFigures`.
+
+**`hyw` is flagged for native review**, as every Western Armenian edition has been.
+
+Three validator failures were fixed rather than suppressed: an http URL where the
+schema requires https; a number-parity break where the hy summary carried 1915 and
+the others 2015; and an en `interestingFacts` entry where "2,500" parsed as *2* and
+*500* against the Armenian editions' "2500".
+
+### Tests
+
+New file: **`tests/e2e/writers.spec.ts`**, thirteen tests. This is the §63
+structural answer — the section had no spec of its own, and the alternative was
+spreading medieval claim-discipline assertions through four unrelated files.
+
+Coverage: corpus and card/article agreement; the medieval filter's first member and
+the other periods' unchanged counts; date uncertainty in all three editions;
+family without ennoblement and the two accusations kept apart; the three senses of
+Narek; secure-versus-traditional attribution; literary technique present and the
+lexical statistic refused; religious chronology with both 2015 stages; SEO and
+dual-name search with a 404 on the alternate-name page; earned relations and the
+absent Works slug; the pending portrait; schema and bibliography; and the
+no-regression sweep across Writers, Works, Cuisine and Places.
+
+`places.spec.ts` `["writers", 6]` → `7`, with its comment log extended.
+
+**Claim-test discipline.** Three tests could not use substring bans because the
+page prints the claim in order to refuse it. The 2500-word figure and the
+Renaissance framing are pinned by their frames — the refusal sentence and the
+attribution sentence must both be present — rather than by banning the words, which
+would fail on the refutation itself.
+
+### Writers test scaling — §63
+
+Measured rather than assumed. Thirteen tests in **27.5 s**, with the data-only
+corpus test at **102 ms**. The section's tests do not serially navigate every
+writer in every locale, and there is no scaling problem to fix. No timeout was
+raised and no `test.slow()` was added.
+
+### A new failure mode, diagnosed rather than assumed
+
+Every article route in the archive returned **404** while every listing returned
+200 — Narekatsi, Tumanyan, `cuisine/manti`, `places/matenadaran`, `works/anush`,
+all of them, on single sequential requests answering in 40 ms.
+
+The data was verified present in the bundles first, by executing them: all three
+locales returned seven writers from both `articles` and `writers`. So the content
+was fine and the server was not.
+
+The cause was `.next`. The manti step ended with `npm run build`, so the directory
+held a **production** build; starting `next dev` over it produced a server that
+served listings and 404ed every dynamic `[slug]` route. Stopping the server,
+removing `.next` and restarting fixed it: all six probe routes returned 200.
+
+This is worth separating from the failure family recorded in §77–§79, because the
+symptoms overlap and the causes do not:
+
+| Signature | Cause |
+| --- | --- |
+| Rendered HTML dumps inside a Tailwind-scanned path | globals.css fails to parse; routes 500 |
+| Two-worker contention against a cold dev server | `page.goto` **timeouts**, 10 s / 30 s |
+| `next dev` started over a production `.next` | fast, clean **404s** on dynamic routes only |
+
+The diagnostic that distinguishes the last two is response time: a timeout is a
+compile, a 40 ms 404 is a wrong build.
+
+### Results
+
+| Check | Result |
+| --- | --- |
+| `npm run typecheck` | exit 0 |
+| `npm run validate:content` | clean — 162 entries across 3 locales, and the "no artwork" note names `grigor-narekatsi` |
+| focused `writers.spec.ts` | **13/13** in 27.5 s |
+| full Playwright suite (first run) | 392 passed, 5 skipped, **4 failed** |
+| full Playwright suite (after fixes) | **396 passed, 5 skipped, 0 failed** in 13.4 min |
+| `npm run build` | exit 0, **168 static pages** (165 before; +3 is Narekatsi in three editions) |
+
+**Five genuine failures were found and fixed.** One was my own test bug and four
+were real consequences of the change:
+
+1. `writers.spec.ts` — my first version banned every writer-portrait filename
+   across the whole page and failed on Tumanyan. Correctly: the related block
+   carries one Writers card as filler and that card legitimately shows its own
+   portrait. Rescoped to forbid an *orphan* portrait — a writer's file rendered
+   without a link to that writer, which is what a borrowed hero looks like. This
+   is the same mistake made and corrected in §77 on manti, and it is recorded here
+   because making it twice is worth writing down.
+2. `listing.spec.ts:252` — the Western Armenian writers listing expected 6 cards.
+   Updated to 7 with its comment extended.
+3–5. `cuisine.spec.ts` × 3 — the matsun, basturma and manti artwork tests each
+   asserted `[...PENDING_ARTWORK]).toEqual([])`, an **archive-wide** claim, and a
+   pending *Writer* made all three false. Rescoped to Cuisine, which is the same
+   correction `places.spec.ts` made at §67 when Cuisine first put `spas` on the
+   list and a Places test found itself asserting something about dishes. The claim
+   those tests were always making is "no dish is waiting for a picture", and they
+   now make it — still as a filtered list rather than a count, so a stale entry
+   still fails them. §60 permits this: they are generic archive-wide literals, not
+   Cuisine content.
+
+### Regressions
+
+The six existing writer biographies, their SEO, portraits, classifications,
+relations and sources are untouched — the diff adds to their files and deletes
+nothing from them. Works still holds four articles and none was rewritten. Cuisine
+still holds twelve and was not reopened. Places still holds thirteen, and the map,
+Visit and coordinate registries are absent from the diff.
+
+### Technical debt carried forward
+
+* The Book of Lamentations has no article, and the Writers section now names a work
+  that has no page. Works expansion candidate #1.
+* The `medieval` filter has exactly one member; the section's medieval coverage is
+  one author deep.
+* The "School of Narek" framing is stated without a named author because the paper
+  articulating it could not be opened.
+* Britannica unread (403).
+* Narekavank's demolition date rests on general reference rather than a cited
+  source in the bibliography.
+* `hyw` native review outstanding across the whole archive.
+* `scratchpad/` sits inside Tailwind's content scan and is not gitignored.
+* `places.spec.ts` cold-compile runtime around lines 379 and 3208/3257.
+
+### No deployment
+
+Nothing was deployed.
+
+---
+
+## §83 — Grigor Narekatsi portrait: verification and registration
+
+Step 53. Artwork only. No biography, no taxonomy, no new writer, no Cuisine, no
+Places, no deployment.
+
+### Pre-registration state, read from source
+
+| | |
+|---|---|
+| Writers articles | 7 per locale (en/hy/hyw) |
+| Writer cards | 7 per locale |
+| Registered portraits | 6 |
+| `PENDING_ARTWORK` | `["grigor-narekatsi"]` |
+
+Narekatsi was absent from `IMAGES`, `isGeneratedArtwork` returned false for him,
+`Article.image` was absent, OG and Twitter fell back to `og-default.png`, the
+sitemap advertised no image for him in any edition, and the listing and all three
+heroes rendered the generated placeholder SVG. Every expectation §1 named was
+confirmed rather than assumed. **No part of Step 53 had been committed** — the
+Step 52 working tree was intact and `public/images/writers/grigor-narekatsi.webp`
+was present but untracked. No discrepancy to report.
+
+### The asset
+
+| | |
+|---|---|
+| Dimensions | **1585 × 992** |
+| Aspect ratio | 1.5978 (≈ 16:10) |
+| Bytes | **280,082** |
+| SHA-256 | `4e80e1ead2c864f7a795428cd68621b225c68474715dbeceeb6b544d58d51318` |
+
+Verified twice, by an independent custom RIFF walker and by `sharp`, which agree.
+
+RIFF header `RIFF`/`WEBP`, declared size 280,074 = file length − 8. Chunk walk:
+**one chunk**, `VP8 ` at offset 12, size 280,062, no padding; the walk ends at
+280,082, exactly the file length, so the container terminates cleanly with no
+trailing bytes. Simple lossy format — no `VP8X`, therefore no extended-format
+flag byte and no possibility of a declared alpha/ICC/EXIF/XMP payload. Confirmed
+absent: `ALPH`, `ICCP`, `EXIF`, `XMP `. No orientation tag. Lossy VP8 keyframe,
+sync `9D 01 2A`, dimensions read back from the keyframe header as 1585 × 992,
+agreeing with `sharp`.
+
+**Geometry drift: 1585 not 1586.** The preferred geometry and the width of all
+six existing portraits is 1586 × 992; this is one pixel narrower. It changes
+nothing at any rendered size — no slot is served at native width — and it is not
+a rejection, but it is the first geometry drift in this section and is recorded
+beside the registry entry so the next portrait is measured against 1586 rather
+than against this file.
+
+The file is also by some distance the largest writer portrait except Tumanyan
+(280 KB against 85–366 KB), consistent with a denser, more detailed scene.
+
+### Visual and historical gate
+
+The full-resolution asset was opened and examined, then six regions were
+magnified 1.7×–5× and the four corners swept.
+
+**Reconstruction, not documentary likeness — passes.** The treatment is
+painterly: visible brushwork in the hair, sky and wall texture, no lens
+signature, no depth-of-field bokeh, no grain, no sepia or daguerreotype
+convention, no vignette. It does not reproduce the standard later icon type
+(frontal, haloed, book held up). No caption, name or date is embedded anywhere.
+Nothing in it claims to be a record of what he looked like, which matters more
+here than for any other portrait in the archive: no contemporary likeness exists
+or could exist, and the four painted portraits in the 1173 manuscript are
+themselves inventions made 170 years after his death.
+
+**Writer before saint — passes decisively.** The open codex is the largest single
+object in the frame and occupies the whole lower right; a second codex lies
+closed on the table, a third open on a lectern, more stand on the shelf; an
+inkpot and a pen sit within reach. Posture is a working posture, seated at a
+desk with a hand on the page. Expression is contemplative and directed away in
+thought, not ecstatic and not upturned. Lighting is ordinary daylight from a
+single window with coherent falloff. **No halo, no blessing gesture, no dominant
+cross, no miracle light, no iconostasis composition, no prayer-only pose.** Every
+religious cue in the picture is environmental and none of them carries his
+identity.
+
+**Clothing — passes.** A dark hooded monastic mantle over an oxblood tunic with a
+woven band at the sleeve, natural textiles, restrained colours, visible wear. No
+modern clerical collar, no mitre, no cardinal red, no stole, omophorion or
+pectoral cross, no ornate modern vestments, no Catholic vesture, no Renaissance
+friar habit (no rope cincture, no tonsure). *Recorded:* he is bare-headed with
+loose hair where an Armenian monastic would ordinarily wear a veghar or a raised
+hood. A liberty, not an error.
+
+**Manuscript — passes strongly.** A physical codex on wooden boards with a
+leather-covered edge and metal fittings, thick hand-cut vellum leaves with
+visible cockling and an uneven fore-edge, a deep correct gutter, consistent block
+thickness, a clasp at the tail. Handwritten brown-black ink with red rubricated
+openings and an illuminated interlace initial. No printed book, no machine
+typography, no modern paper, no modern notebook, no impossible spine.
+
+**Manuscript text — passes, with a flag.** The codex script is unreadable
+texture. The sheet pinned to the back wall carries a ringed cross and nine lines
+that resolve into distinct glyphs under 4.6× magnification without spelling
+anything; the lectern codex does the same, smaller and darker. **Nothing readable
+appears anywhere** — no Armenian word, no title, no *Book of Lamentations*, no
+*Grigor Narekatsi* — so this is a flag under §8 rather than a rejection, which
+§8 reserves for readable text. The wall sheet is ≈4.9% of the frame, shadowed,
+and invisible at every rendered size below full. It is nonetheless the most
+obviously synthetic region in the file, and it is the point at which a future
+portrait putting invented script under better light should be refused.
+
+**Writing instrument — passes, and this was the commission's named risk.** §81
+gave the quill its own paragraph: Armenian scribes of this period used the reed
+pen (kalam), and a goose quill is a western European convention imported by
+habit. What lies on the table is a slender straight reed with an obliquely cut
+nib, resting rather than held. No feather, no barbs, no fountain pen, no modern
+pen. It is also what separates the picture at a glance from
+`khachatur-abovyan.webp`, whose subject holds a quill upright over paper.
+
+**Hands — passes the stricter gate.** Magnified 5×. Four fingers plus a thumb
+concealed on the far side of the book edge, which is correct for the pose; no
+sixth digit, no missing digit. Knuckle ridges, phalanx boundaries, tendons and
+veins all run correctly and the joint wrinkles are coherent. Finger silhouettes
+and page striations remain separate substances. *Recorded:* the boundary where
+the ring and little fingertips meet the page block is slightly soft, reading as
+fingers resting among the top leaves rather than crisply on them — an
+imperfection, not fused geometry.
+
+**Face — passes.** Two coherent eyes with irises and catchlights consistent with
+the window, one correctly formed ear for the three-quarter view, coherent beard
+and hairline, realistic proportions, no duplicated features. Reads roughly
+45–55, consistent with a man who died about 1003 at about 52. Contemplative, not
+entranced. No attempt was made, and none should be made, to validate resemblance
+as historical fact.
+
+**Narek / Vaspurakan environment — passes.** Through a stone window: a cruciform
+cut-stone church with a polygonal drum under a conical umbrella roof, narrow
+arched windows, a plain cross finial, cypresses and a rubble precinct wall on a
+rocky slope above a large lake ringed by snow-capped mountains. The drum-and-cone
+is the defining Armenian form, and a monastery above a great lake in mountains is
+the right topography for Narekavank on the southern shore of Lake Van. It is
+generic-Armenian rather than an elevation of Narekavank, which is exactly what
+§12 asked for. **Not** Gothic (no pointed arches, buttresses or tracery), not
+Renaissance, not Russian Orthodox (no onion dome, no tented tower), not a modern
+monastery, not a fantasy castle. The landscape stays secondary, framed by the
+window and confined to the left third.
+
+**Historical objects — passes.** Rough wooden desk and shelving, ceramic jars, a
+metal inkpot, a leather-wrapped bundle, loose cockled parchment, carpets used as
+a table covering and a wall hanging. No glasses, clock, electric light, modern
+window, modern furniture or contemporary stationery anywhere in the frame.
+*Recorded:* the shelved volumes stand upright, spine out, which is a later
+European library convention — Armenian monastic libraries of this period stored
+codices flat, in chests. They are hand-bound leather over board rather than
+modern books, so this is an anachronism of practice, not of object. One volume on
+the shelf does lie flat, so the scene contains both conventions.
+
+**Religious symbols — passes.** A ringed cross drawn on the pinned sheet, a small
+woven cross in the hanging textile, interlace carved into the furniture, a cross
+finial on the distant church. All restrained, all integrated into objects that
+have their own reason to exist, none of them load-bearing for his identity.
+
+**Catholic-reception regression — passes cleanly.** No Vatican symbol, no papal
+figure, no Catholic heraldry, no cardinal clothing, no modern Catholic imagery,
+nothing whatever that imports the 2015 Doctor of the Church title into a
+tenth-century room. The article's own argument — that he was read as a writer
+first and honoured much later — survives the picture intact.
+
+**Armenian symbols — passes, and the density is worth stating.** No flag, no
+alphabet chart, no free-standing khachkar placed as an emblem. The mountains are
+a snow range across a lake, not the twin-peaked Ararat silhouette used
+symbolically, and Ararat is not visible from Van in that way. The carpets are
+furniture, the cross is on a document, the interlace is on a chair. This is a
+coherent room rather than a collage — but it is the most symbol-dense of the
+seven portraits, and the pinned sheet is the element closest to being decorative,
+since it exists mainly to say "Armenian Christian scriptorium".
+
+**AI artifacts — no rejection-level artifact found.** Fingers, manuscript, cloth
+folds, desk, shelving, architectural intersections, stone courses, page edges,
+script and lighting were each inspected at magnification. Shadows are consistent
+with one window source. Recorded imperfections, all minor: the fingertip/page
+boundary softness, the synthetic legibility of the wall script, the upright
+shelved spines, the bare head.
+
+**Text and watermark sweep — clean.** All four corners magnified 1.4×: no label,
+signature, watermark, manuscript title, pseudo-Armenian signage or hidden
+lettering anywhere.
+
+### Comparison with the existing six
+
+Compared at full resolution and as a 4:3 contact sheet at 380 / 160 / 128 px.
+
+No portrait is reused, no face is duplicated, and the seven files are seven
+distinct paths. All six existing writers wear nineteenth- and twentieth-century
+dress — frock coats, waistcoats, ties, cravats, suits — and Narekatsi is the only
+one without a collar, tie or jacket, the only one against bare stone, and the
+only one with an illuminated codex rather than loose paper. **The differentiating
+cues are exactly the three §17 asked for: manuscript, monastic setting, medieval
+clothing — not exaggerated religious symbolism.**
+
+All seven do share a house template: seated writer, three-quarter view, window or
+landscape on one side, books on the other. That is the section's visual grammar,
+not a defect, and no pose is near-identical. The closest single comparison is
+Charents, who also has an Armenian church in a left-hand landscape, but he is in
+a suit and tie holding a pen against a mountain village. `khachatur-abovyan.webp`
+— the near miss §81 named — shares only the desk, and is separated by the quill.
+
+*Recorded:* Narekatsi's tile is cooler and bluer than the uniformly warm amber of
+the other six. A mild inconsistency in the listing grid that also reads as
+distance in time.
+
+### Responsive crops
+
+Every real site slot was emulated exactly, including `object-position`. This
+mattered: `PORTRAIT_FOCUS = "object-[38%_28%]"` applies to writer cards and
+portrait search results, while article heroes use plain centring, so a single
+centred measurement would have been wrong for half the surfaces.
+
+| Slot | Ratio / box | Trim | Face | Manuscript |
+|---|---|---|---|---|
+| Hero, mobile (centre) | 4:3 | 16.5% | 100% | 100% |
+| Hero, sm (centre) | 3:2 | 6.1% | 100% | 100% |
+| Hero, lg (centre) | 16:9 | 10.1% | 100% | 89% |
+| Writer card, listing (focus) | 4:3 | 16.5% | 100% | 98% |
+| Featured (focus) | 16:10 | 0.0% | 100% | 100% |
+| Square (focus) | 1:1 | 37.4% | 100% | 72% |
+| Search thumb, 128 (focus) | `w-32` full height | 46.6% | 100% | 61% |
+| Search thumb, 160 (focus) | `lg:w-40` full height | 47.3% | 100% | 60% |
+| Writer card, compact strip (focus) | `w-[38%]` full height | **60.4%** | 100% | 44% |
+
+**The face survives whole in every slot** — the existing off-centre focus lands
+almost exactly on it. The source is ≈16:10, so the featured slot is a lossless
+fit. The worst case is the compact strip at 60.4% trim, and even there the crop
+retains the face, the hooded mantle, the hand, the closed codex and the
+illuminated initial with rubricated text: face + upper robe + part of manuscript,
+which is precisely §18's preferred retained information. It does not degrade into
+a generic monk. **No custom `object-position` was added** — the generic
+`PORTRAIT_FOCUS` serves this asset better than centring would.
+
+**Thumbnail gate:** at 128–160 px the open book is the brightest and most legible
+object in the frame, with the desk and a second codex under it, and no cross,
+halo or vestment is resolvable at that size. It reads as a medieval scholar at
+work, not as a bearded priest.
+
+### Registration
+
+Registered through the existing generic pipeline, nothing else:
+
+```ts
+"grigor-narekatsi": "/images/writers/grigor-narekatsi.webp",
+```
+
+one line in `IMAGES`, in the Writers block, in house order and style, with a §82
+note above it recording the gate result and the four reservations. No
+writer-specific image logic, no Narekatsi-specific branch, no custom image field,
+no new provenance architecture.
+
+`PENDING_ARTWORK` is now `[]` — emptied for the ninth time, and the first time by
+a Writer. The §81 commission moved to sit beside the registry entry, where it can
+be read against the thing it produced. Archive-wide the list is empty; eight
+times before this it emptied and eight times it filled again, which is the normal
+working order here rather than a failure.
+
+Writers state: **7 articles, 7 cards, 7 portraits, 0 placeholders.**
+
+### Provenance
+
+Read from the implementation rather than copied from Cuisine, as §24 required —
+and the two genuinely differ.
+
+`isGeneratedArtwork` is `!article.image && getImageSrc(slug) !== undefined`, so a
+registry entry alone flips it. `ArticleLayout` then chooses the caption by
+category: `category === "writers"` selects `imageAiPortraitCaption` — *"AI-generated
+portrait of {title} — an imagined likeness, not a real photograph"* — where every
+other category gets `imageAiIllustrationCaption`, *"an imagined scene"*. For a
+subject with no possible contemporary likeness that distinction is the entire
+disclosure, and it arrived free from the generic pipeline. **Nothing in the
+provenance infrastructure was modified**, because the generic behaviour was
+already right, and it would have been wrong to reach for the Cuisine caption.
+
+Verified in all three editions: the generated-artwork disclosure is present and
+exact, and the placeholder disclosure is absent.
+
+A second transition came free: `WriterCard` picks `portraitIllustrationAlt`
+("Illustrated portrait of {name}") over `portraitAlt` ("Portrait placeholder of
+{name}") once a file resolves, so his card alt stopped calling itself a
+placeholder. Both forms are now asserted.
+
+### Surfaces
+
+**Listing** — 7 cards, 7 portrait assets, 0 placeholder SVGs, his card on
+`/images/writers/grigor-narekatsi.webp` and no borrowed portrait.
+**Medieval filter** — still returns exactly him, now with his picture; no
+classification changed.
+**Heroes** — all three locales render the exact file with a localized alt, the
+portrait provenance caption, no placeholder caption and no placeholder SVG.
+**Search** — found under *Grigor Narekatsi*, *Gregory of Narek* and *Narekatsi*,
+each hit scoped by canonical href and each showing the portrait rather than a
+placeholder. Search semantics were not touched.
+**Metadata** — `Article.image` transitioned from absent to
+`{"@type": "ImageObject", url: …}`, and `og:image` and `twitter:image` from the
+`og-default.png` fallback to the file. Still a plain `Article`: no `Person`,
+`VisualArtwork` or `Book` schema was added, and that absence is asserted.
+**Sitemap** — checked per locale, not by global occurrence count: each of the
+three `<url>` blocks owns its own `<image:loc>` for the portrait.
+
+### Regressions
+
+The biography is untouched — the diff adds one registry line and deletes nothing
+from any content file. Chronology uncertainty, the 951–1003 convention, the
+School of Narek, the corpus, the Book of Lamentations, the 95 chapters, the
+style analysis, the refused lexical statistic, the mysticism treatment, the
+refused Renaissance periodisation, the Tondrakian/orthodoxy distinction, the
+two-stage 2015 chronology, the manuscript history, the healing-belief disclaimer,
+the sources, `relatedSlugs`, both SectionLinks and all three translations are as
+Step 52 left them.
+
+`relatedSlugs` remains `["matenadaran", "bagratid-armenia"]`, both SectionLinks
+survive, and the filler was **measured, not assumed**: one filler card,
+`hovhannes-tumanyan`, identical across all three editions. No Book of
+Lamentations slug was invented; it still does not exist and remains Works
+expansion candidate #1.
+
+The six existing writers keep their portraits, classifications, featured state,
+content, relations and bibliographies; Tumanyan remains the sole featured writer.
+Works remains four. Cuisine remains twelve and was not reopened. Places remains
+thirteen, and map, Visit and coordinates are absent from the diff.
+
+### Tests
+
+`tests/e2e/writers.spec.ts` — `ILLUSTRATED` gains Narekatsi (7), `PORTRAIT` gains
+his file, `PENDING` becomes `[]` and is kept rather than deleted so that "no
+writer is waiting for a portrait" stays an assertion instead of a silence. The
+§81 pending test was **inverted** into its registered form, which is what it was
+written for: registry absent → present, pending → empty, placeholder SVG →
+raster, fallback OG → the file, no sitemap image → his own. The orphan-portrait
+scoping was carried over unchanged, including the §81 correction that it must
+forbid a portrait rendered *without* a link to its writer rather than any
+portrait, because the related block legitimately shows the Tumanyan filler card.
+
+`tests/e2e/places.spec.ts` — the pinned non-Places registry snapshot gained one
+line. It went red on registration, correctly, and for the first time on a
+*Writers* file rather than a Cuisine one; extended by one line with every other
+value byte-identical, exactly as §69, §71, §73, §75, §78 and §80 did.
+
+No existing Writers test was weakened.
+
+### Failures
+
+**One genuine failure, and it was mine.** The new test asserted `Article.image`
+was the bare URL string. It is an `ImageObject` — `{"@type": "ImageObject", url}`
+— which is what `seo.ts` has always emitted and what `places.spec.ts` already
+pins for a registered place. The site was right and the assertion was wrong;
+corrected to compare the whole object, so a stray extra key would also fail.
+
+**A second genuine failure, and the worst of the step: the registration edit
+destroyed the pending list's accumulated history.** `PENDING_ARTWORK` is not just
+a list — the block carries every note this archive has written about artwork
+being commissioned ahead of delivery, seventeen sections deep, §41 through §80.
+Replacing the whole block to empty the list deleted all of them: 698 lines gone,
+and `git diff --numstat` showed `60 / 698` for a file that should only ever have
+gained a line. It was caught by reading the diffstat rather than by any test,
+because every test still passed — the code was correct and only the commentary
+was destroyed, which is exactly the kind of loss a green suite cannot see.
+
+Repaired by reconstructing the block from `HEAD`, whose copy already held the
+full history with an empty list (§81 had prepended its commission above it, and
+that commission's substance now lives beside the registry entry, which is the
+§80 precedent). `media.ts` is now **64 insertions and 0 deletions**, and the only
+non-comment change in the entire file is the one registry line. Verified by
+stripping comments from the diff.
+
+The lesson is narrow and worth keeping: emptying this list means removing the
+entry and prepending a note, never rewriting the block. It is an append-only
+record with a mutable last line.
+
+**No stale-`.next` failure this time, because §37 was followed rather than
+discovered.** Step 52 ended with `npm run build`, so `.next` held a production
+build — `BUILD_ID`, `prerender-manifest.json` and `export-marker.json` all
+present, timestamped 12:26. With no server running it was removed and a clean dev
+server started, and eight dynamic routes across writers, cuisine, places, works
+and history were probed to 200 before any browser test ran. The failure mode §81
+diagnosed did not recur. The three modes stay distinguished by timing: fast clean
+404s on dynamic routes only → `next dev` over a production `.next`; 10 s/30 s
+`page.goto` timeouts → cold compile under two-worker contention; 500 with a
+PostCSS parse error → rendered HTML written into a Tailwind-scanned path. No
+debug output was written inside the repository.
+
+### Results
+
+| Check | Result |
+|---|---|
+| `npm run typecheck` | exit 0 |
+| `npm run validate:content` | clean — 162 entries across 3 locales |
+| `writers.spec.ts` (focused) | **13 / 13** in 27.4 s |
+| `listing` + `search` + `seo` | 30 passed, 2 skipped |
+| Full Playwright suite | **396 passed, 5 skipped, 0 failed** in 11.4 m |
+| `npm run build` | exit 0, **168 static pages** |
+| Re-verified after the `media.ts` restore | typecheck 0, validate clean, `writers` + `places` + `cuisine` **216 passed, 0 failed** in 6.5 m, build exit 0 |
+
+168 pages, unchanged from §81 — an artwork step adds no route. No flake occurred
+in this run. Playwright and the build did not overlap; the dev server was stopped
+and the port confirmed free before `next build` started.
+
+Measured after registration rather than assumed: 7 writer articles, 7 cards, 7
+registered portraits, `PENDING_ARTWORK` empty, Tumanyan still the sole featured
+writer, periods `medieval 1 / 19th-century 3 / 20th-century 2 / soviet 1`, works
+4, cuisine 12, places 13.
+
+### Technical debt
+
+Carried forward from §81 and unchanged by this step: no Book of Lamentations
+article; medieval coverage one author deep; the School of Narek framing not
+attributed to a named author; Britannica unread (403); Narekavank's demolition
+date uncited; the Western Armenian edition still wants a native review; the
+scratchpad/Tailwind hazard; the Places cold-compile runtime.
+
+Added here: the 1585 px width against the section's 1586; the synthetic
+legibility of the wall-sheet script; the upright spine-out shelved volumes; the
+bare head where a veghar would be expected; and the cooler palette against the
+six warm portraits.
+
+### No deployment
+
+Nothing was deployed. No `.claude/settings.json` change. No previous
+project-state section rewritten.
+
+---
+
+## §85 — Daniel Varoujan added as Writer #8
+
+Step 54. Content only. No portrait, no second writer, no Literary Work, no
+Cuisine, no Places, no Visit, no map, no deployment.
+
+### Pre-change state, read from source
+
+Seven writers in one order across all six files (`writers.ts` and
+`articles/writers.ts` per locale), seven cards, seven registered portraits,
+`PENDING_ARTWORK` empty, distribution `medieval 1 / 19th-century 3 /
+20th-century 2 / soviet 1`. Every expectation the step named was confirmed
+rather than assumed.
+
+Three findings the audit added:
+
+- **Only Narekatsi carries SEO fields.** The six original biographies have no
+  `seoTitle`, `metaDescription` or `summary` and run to five or six sections;
+  Narekatsi has all three and twelve. Varoujan is the second article built on
+  that architecture, which now has two members out of eight.
+- **`keywords[]` is the variant mechanism.** The field already exists for
+  alternative romanisations and older titles, feeding the search haystack and the
+  schema.org `keywords` property. Every spelling variant went there and none went
+  into body prose.
+- **There is no Armenian Genocide article in History.** History holds seven
+  articles and the closest is `first-republic-of-armenia`, which treats 1915 as
+  background to a state founded three years after Varoujan died. This is the
+  reason the article authors no cross-category relation, and it is recorded as
+  debt rather than papered over with a link.
+
+### Taxonomy
+
+`20th-century` already existed and already had two members, so nothing was added
+and nothing was redesigned. The section classifies by principal working period
+rather than by birth year — Tumanyan died in 1923 and is `19th-century`,
+Isahakyan was born in 1875 and is `20th-century` — and Varoujan, who published
+everything between 1906 and 1912, belongs to the twentieth century on that rule
+without argument. Distribution is now `medieval 1 / 19th-century 3 /
+20th-century 3 / soviet 1`.
+
+No `western-armenian`, `ottoman`, `diaspora` or `modernist` value was created.
+Western Armenian identity is carried by the prose, the `hyw` edition and the
+keywords, which is where it belongs; a filter chip with one member would have
+been a worse answer than a section a reader can read.
+
+### Writers ↔ Works
+
+Works holds four articles and **no Varoujan work exists**. The repository was
+searched for every spelling the step listed — Varoujan, Varujan, Varuzhan,
+Վարուժան, Վարուժեան, Չպուքքեարեան, Չպուգքյարյան, Chboukkiarian, Tchboukkiarian —
+and for all four collection titles in both languages. **Zero occurrences.** No
+slug was invented and no Work was created.
+
+**Future Works candidate #2, after the Book of Lamentations: `Հացին երգը` / The
+Song of the Bread.** It is the entity with the most search demand attached to
+it, it is the work readers arrive for, its Armenian text is old enough to be out
+of copyright in most jurisdictions, and it already has an authored article
+pointing at where it would sit. Pagan Songs is the stronger book critically and
+the weaker candidate practically.
+
+### SEO and SERP
+
+Eleven searches and six fetches, in English, Eastern Armenian and Western
+Armenian. **Volume unavailable** — no keyword tool was reachable and no volume,
+difficulty, CPC or traffic figure is stated anywhere in this section or the
+article.
+
+The hypothesis the step asked to be tested held. The first page is short
+biographies, poetry-text repositories, bookseller listings for translations,
+commemorative and genocide-anniversary material, and encyclopedic stubs.
+Biography intent and poetry intent are both large and are served separately —
+the biography results carry almost no literary analysis and the poetry sites
+carry almost no biography. What is missing is the join: a page that follows the
+development across the four collections, states the Ghent record, explains the
+Mehean programme, and treats Western Armenian as a literary medium rather than as
+a label. That gap is what this article is for.
+
+The Armenian and English SERPs differ in kind rather than in quality. Armenian
+results are school-and-curriculum shaped, with biography pages, blog write-ups
+and full poem texts; English results are diaspora-institutional and
+translation-shaped. Academic material exists on ARAR — including comparative
+studies of Varoujan with Charents and with Tumanyan — and is essentially invisible
+from a normal search.
+
+**Title chosen: `Daniel Varoujan: Western Armenian Poet`.** Deliberately not
+`1884–1915`, and deliberately not a title built on how he died. The commonest
+existing framing leads with the death, and matching it would have made the page
+another one of what it is trying not to be.
+
+### Names
+
+Canonical English `Daniel Varoujan`, with `Daniel Varujan` and `Taniel Varoujan`
+genuinely attested and carried in `keywords` rather than in prose. Eastern
+Armenian `Դանիել Վարուժան`, Western Armenian `Դանիէլ Վարուժան` — the classical
+orthography verified against Western Armenian sources rather than assumed.
+
+The birth surname reaches the page three ways and the article says so once: the
+Eastern spelling `Չպուգքյարյան`, the classical spelling `Չպուգքեարեան` that his
+own edition of the language uses, and the Latin forms `Chboukkiarian` and
+`Tchboukkiarian`. **No single romanisation is presented as correct**, because
+none is; they are the same name through different systems. `Վարուժան` is
+explained as a pen name rather than reported as a surname.
+
+Alternate spellings generate no routes. `/en/writers/daniel-varujan`,
+`/taniel-varoujan` and `/varoujan` all 404, and a test asserts it.
+
+### Biography, and what the evidence supports
+
+**Birth.** 20 April 1884, Brgnik, district of Sebastia — Sivas in Turkish, and
+the administrative centre of the Ottoman province. Prgnik and Perknik are
+transcription variants of the same village and are named as such.
+
+**Historical geography.** The article uses Ottoman administrative names for
+places and Armenian names for the culture, and states explicitly that *Western
+Armenia* is a genuine historical term for a cultural and demographic region
+rather than a state or a province with those borders. It does not label every
+Ottoman Armenian locality that way without saying what the label means, and it
+does not politicise the sentence.
+
+**Family.** The father worked in Constantinople, which was an ordinary migration
+pattern and the reason the family had a link to the capital at all. **The vivid
+childhood anecdotes were refused.** Popular biographies attach an imprisoned
+father and a specifically shadowed childhood; the more dramatic versions cannot
+be traced to a source, and the article says that instead of repeating them. The
+1890s appear in one clause — his childhood fell in that decade, Sebastia was
+inside the affected region — with no graphic content and no general history of
+the Hamidian massacres.
+
+**Constantinople.** The Mkhitarian school at Kadıköy, the district Armenians
+called Chalcedon. First verses published in 1901 in the handwritten student paper
+*Արձագանք Մոտայի*. The reference literature disagrees here — some encyclopedias
+give the Sakızağacı school on the European side — and the article resolves it out
+loud rather than silently, following the Armenian sources that are specific.
+
+**Venice.** Moorat-Raphael College from 1902, attached to the Mkhitarist
+monastery on San Lazzaro, the order's centre of Armenian scholarship and printing
+since the eighteenth century. The first collection was printed there, which ties
+the book to the schooling rather than leaving Venice as a travel paragraph.
+
+**Ghent.** 1905 to 1909 on a scholarship. This is the section the short
+biographies skip and the one with unusually concrete evidence: Simon Payaslian's
+archival work, reported by Christopher Atamian, includes lists of his rent and
+household expenses in the city alongside the thirty-nine poems he wrote there.
+What he studied is stated as a range — literature, sociology and economics in the
+commonest account, economics and political science in Western Armenian ones —
+rather than resolved by picking the crisper version. **No degree is claimed.**
+The sources establish four years of study and no completion, and the biographies
+that award him a degree do not say on what authority; the article says exactly
+that, and a test asserts the refusal survives.
+
+**European influences.** Only Nietzsche is named, because he is the influence
+scholarship actually attaches to features of the work, and the article shows the
+influence operating rather than listing movements: what Varoujan took was a
+licence to write physical sensation and pre-Christian imagery in a literary
+language reserved mainly for devotional, didactic and patriotic use. Nichanian's
+argument — that he had to invent a language to carry a pantheistic experience —
+is attributed to Nichanian.
+
+**Teaching and family.** Returned 1909, taught about three years in the Sebastia
+region, married Araksi in 1912, became principal of the school of St Gregory the
+Illuminator in Constantinople. The teaching is treated as part of his public life
+and as the chronological hinge it is: he wrote about sowing and harvest after
+living where they happened.
+
+### The four collections
+
+`Սարսուռներ`, San Lazzaro, Venice, 1906 · `Ցեղին սիրտը`, Constantinople, 1909 ·
+`Հեթանոս երգեր`, Constantinople, 1912 · `Հացին երգը`, Constantinople, 1921,
+posthumous.
+
+These dates were **contested during research and resolved against a catalogue**.
+A widely circulated Western Armenian cultural-society profile dates them 1905,
+1910 and 1913 and puts the death in April rather than August. The catalogue
+record — Venice, S. Ghazar, 1906, forty-two pages; Constantinople, 1909, 249
+pages — together with every other source supports 1906/1909/1912, and the outlier
+was not followed. The source was used for orthographic forms only and is **not
+cited**, with the reason recorded beside the bibliography.
+
+English titles are treated as unsettled where they are. Pagan Songs and The Song
+of the Bread are reliable; `Սարսուռներ` appears as both Shivers and Tremors, and
+`Ցեղին սիրտը` has been printed as The Heart of the Race, The Heart of the Nation
+and The Heart of the Tribe. The article prints the Armenian and gives the
+renderings rather than choosing one.
+
+`Սարսուռներ` is treated as a stage rather than as juvenilia: the sensory
+vocabulary is already there and not yet organised, and the distance to the next
+book measures how fast he developed.
+
+### `ցեղ`
+
+The word gets its own section, and it is one of the two reasons this article is
+longer than the target. In early twentieth-century Armenian literary usage `ցեղ`
+means a people, a stock, a lineage — the sense English carried in *the English
+race* before the word narrowed — and it is **not the vocabulary of biological
+racial theory**. Reading it that way imports a framework that postdates the poem.
+The three circulating English renderings are presented as the evidence of the
+difficulty rather than as a menu, and the article explains the problem instead of
+resolving it silently.
+
+### Pagan Songs and literary paganism
+
+`Հեթանոս երգեր` is described as an aesthetic and literary programme and
+explicitly **not a religious conversion**: he did not renounce Christianity, did
+not attempt to revive a cult, and nothing in the record suggests he wanted to.
+His own term, *poetic paganism*, is used. The themes — body, beauty, strength,
+appetite, classical and Near Eastern antiquity, creative vitality — are handled
+analytically and without explicit content.
+
+One distinction the article draws that the sources do not: **modern Armenian
+Hetanism**, a real religious movement founded in the last decade of the twentieth
+century, is named and separated from Varoujan's literary paganism. The shared
+English word is a coincidence of translation, and a reader searching either term
+lands among results for the other.
+
+### Western Armenian as a literary language
+
+Treated as the article's centre rather than as a note. Western and Eastern
+Armenian are two standard forms of one language, differing in pronunciation, verb
+system and vocabulary — sourced to a comparative grammar rather than asserted —
+each with its own literature, press, schools and readership by Varoujan's
+lifetime. His contribution was to enlarge what the western standard could do:
+scholarship on the Mehean circle describes the aestheticisation of literary
+Western Armenian as an explicit aim of the group and Varoujan's poetry as its
+clearest demonstration.
+
+**No numerical lexical claim appears.** No invented-word count, no rare-word
+count, no dictionary statistic — the discussion is qualitative, and a test
+forbids the numeric form.
+
+### Mehean
+
+Founded in 1914 in Constantinople by five writers: Varoujan, Gostan Zarian, Hagop
+Oshagan, Kegham Parseghian and Aharon Dadourian. The name means *pagan temple*,
+which the article uses to connect the group to the poetics rather than treating
+the two as unrelated facts.
+
+**Varoujan's role is documented rather than assumed**, which is what the step
+asked for: by Zarian's own account Zarian drafted most of the manifesto in French
+and Varoujan completed it and translated it into Armenian. The manifesto's claim —
+the worship and expression of the Armenian spirit, without which there is no
+Armenian literature and no Armenian artist — is quoted in substance.
+
+**It is not inflated.** Mehean ran a matter of months, produced a small run of
+issues, and dissolved amid disagreements; Varoujan withdrew before the end. The
+article says the group is easier to call a nationalist literary circle than that
+description deserves, and that its argument was about artistic autonomy at least
+as much as about the nation.
+
+### 1915
+
+**Arrest and death are kept apart, and this is the single most important factual
+discipline in the article.** Arrested at his home in Constantinople on 24 April
+1915 with several hundred other writers, editors, clergy, teachers and community
+leaders; the article states that this is the date of the arrests and not of his
+death, in the same paragraph, because collapsing the two is the commonest error
+about him.
+
+Deported inland, held about four months at Çankırı in the province of Kastamonu,
+and killed on 26 August 1915 with four other detainees while being moved toward
+Ankara. Grigoris Balakian, held in the same group and a survivor, is named as the
+source.
+
+**No graphic detail.** Detailed eyewitness accounts of the killing exist and
+circulate widely; none is reproduced, and the article says out loud that it
+states this and does not illustrate it. The genocide context is factual and
+proportionate: the arrests are described as the operation that removed the
+intellectual leadership of the Ottoman Armenian community at the beginning of the
+Armenian Genocide, and nothing more general is attempted. **The death section is
+under fifteen per cent of the article's prose, measured and asserted by test**, so
+that a later expansion of the 1915 material fails.
+
+The literary loss is where the emphasis sits: Ruben Sevak killed with him, Kegham
+Parseghian the same year, and Western Armenian going from the everyday language of
+a large rooted population to a diaspora language within a decade.
+
+### The posthumous manuscript
+
+`Հացին երգը` was confiscated at the arrest and printed in Constantinople in 1921.
+**How it travelled between those two facts is not known**, and the article says
+so. The version repeated almost everywhere — recovered by bribing Ottoman
+officials — circulates with no named source and no named intermediary, and is
+recorded as a tradition rather than retold as fact. What is not in doubt is that
+the book exists.
+
+Legacy is attributed rather than asserted. Soviet Armenian scholarship canonised
+him and read him through social protest and national liberation; the article
+reports that as a reading and notes that the emphasis on beauty, labour and the
+body in the last two books does not reduce to politics. No superlative is used
+without attribution.
+
+### Bread, land and labour — and a refused link
+
+`Հացին երգը` follows the agricultural year and locates dignity in the work
+itself: the land is not scenery, the villagers are not types, and the poems are
+about the transformation of grain into bread through human effort. It is the same
+interest in body and strength as `Հեթանոս երգեր`, moved from myth to the field.
+
+**The lavash link was considered and refused, in the article's own text.** A
+literary symbol of bread and a flatbread tradition are not the same subject, and a
+reader sent from one to the other would learn nothing about either. Naming the
+refusal in the prose is deliberate: it stops the next editor from "fixing" the
+missing link.
+
+### Relations
+
+Authored: `["hovhannes-tumanyan", "yeghishe-charents"]`, and each is carried by a
+real SectionLink in the paragraph that earns it. Tumanyan appears in the Western
+Armenian section as the Eastern counterpart writing in the same years toward the
+opposite ideal — the contrast that makes the language claim legible, and a pairing
+Armenian scholarship has made directly. Charents appears in the reception section
+as the comparison later criticism actually draws.
+
+**Siamanto is the strongest relation this article could have and does not exist.**
+Recorded as the leading Writers knowledge-graph opportunity: same generation, same
+literary moment, different poetics, and killed in the same operation. No slug was
+fabricated, and a test asserts `siamanto` is absent.
+
+**Filler measured, not assumed: 3 rendered = 2 authored + 1 filler (`raffi`),
+identical across all three editions.** Generic relation behaviour untouched.
+
+### Portrait, and a provenance problem worth naming
+
+`daniel-varoujan` added to `PENDING_ARTWORK` — filled for the tenth time, by the
+second Writer. No portrait borrowed, none created.
+
+**This commission differs from Narekatsi's in the way that matters most.
+Photographs of Varoujan survive.** §81's brief was written against a picture that
+would claim false certainty about a face nobody has seen; §84's is written against
+the opposite failure. An invented face for a man who was photographed is not an
+editorial reconstruction — it is a wrong portrait of a real person, and visibly
+wrong to any reader who has seen him. The brief therefore requires the surviving
+photographs as likeness references and requires the verification pass to compare
+the delivered file against them, which is a check §82 could not perform.
+
+The identifying features are written into the commission as a description of what
+to go and look at, not as a substitute for looking.
+
+Direction: the living poet at about thirty, formal period clothing, a writer's
+setting. Explicitly forbidden: a generic moustached man of the period, a borrowed
+face, modern dress, a national-symbol collage, and **any imagery of 1915** — no
+arrest, no deportation, no violence, no mourning, no commemorative iconography.
+
+**One infrastructure question is raised and deliberately left open.** Everything
+in `IMAGES` is captioned as an AI-generated portrait and *an imagined likeness*,
+which is exactly right for Narekatsi and not quite right for a subject with
+photographs. Changing that is provenance infrastructure and this was a content
+step; the decision belongs to the registration pass, which must judge whether the
+existing caption is honest for a face drawn from references or whether Writers
+needs a second disclosure form. **Nothing in the provenance code was touched.**
+
+### Localisation
+
+All three editions written in full: 15 sections, 44 paragraphs, identical section
+ids and identical paragraph counts, same dates, same works, same relations, same
+SectionLink targets. Centuries and decades are spelled out in every edition so
+that no locale introduces a numeral the others lack — the number-parity check
+compares a multiset per field and would otherwise have failed on
+`20-րդ դար` against *twentieth century*.
+
+**The `hyw` edition is flagged as high-priority native review, and the reason is
+specific rather than routine: Varoujan wrote in Western Armenian.** An error in
+that edition is an error in the subject's own literary language on his own page.
+Native forms were researched rather than converted from `hy` — `Դանիէլ Վարուժան`,
+`Չպուգքեարեան`, `Կանտ` for Ghent, `Գատըգիւղ`, `Մուրատ-Ռափայէլեան`, and Western
+Armenian verbal morphology (`կը գրէր`, `կ՚աշխատէր`, `սպաննուեցաւ`) throughout —
+but the edition still needs a native reader.
+
+### Depth, and a stated deviation
+
+The step asked for approximately 11–13 sections and 30–36 paragraphs. **The
+article came in at 15 sections and 44 paragraphs, and the overage is deliberate
+and recorded rather than hidden.** Three sections beyond the suggested outline
+exist because other numbered requirements of the same step demanded real
+treatment and a findable heading: European reading, the word `ցեղ`, and Western
+Armenian as a literary language. Folding them into neighbours would have produced
+six-paragraph sections in an article whose others run to three. The exact counts
+are asserted by test, so drifting further fails.
+
+### Tests
+
+`writers.spec.ts` grew from 13 tests to 25, covering the corpus and taxonomy, the
+names, the education chronology and the degree refusal, the four collections and
+the invented-slug ban, the literary refusals (`ցեղ`, paganism, Mehean scale, the
+lexical statistic), the 1915 chronology and its proportionality, the copyright
+ban, SEO and search in three editions, the pending portrait, and the relations
+and filler.
+
+`SLUGS` 7 → 8, `PENDING` `[]` → `[VAROUJAN]`, `ILLUSTRATED` unchanged at 7. The
+§82 portrait test's archive-wide `toEqual([])` narrowed to the claim it is
+actually about, and its every-writer-is-illustrated assertion became
+illustrated-plus-pending — the same correction `cuisine.spec.ts` made at §81.
+`listing.spec.ts` writers 7 → 8. `places.spec.ts` writers 7 → 8.
+
+**Test scaling, as the step asked.** 13 tests in 27.5 s became 25 tests in
+49.8 s — near-linear, with the longest single test at 15.0 s against a 30 s
+timeout. No timeout was raised, no `test.slow()` added, no locale skipped, no
+structural change needed.
+
+### Failures
+
+**Two, both genuine, one of them a test doing its job.**
+
+1. **The §81 medieval-filter test failed on the `20th-century` count**, expecting
+   two and finding three. That is the literal working exactly as intended: a
+   writer arriving in an existing period bucket should move a count that some file
+   states out loud. Updated from 2 to 3 with the reason recorded in place.
+2. **My own assertion was wrong.** The new proportionality test asserted 11–13
+   sections against §47's target; the article has 15. The article was not cut to
+   fit the assertion — the assertion was corrected to state the real structure,
+   with the deviation and its justification written into the test.
+
+No stale-`.next` failure. `.next` held a production build from §83's final
+`npm run build` — `BUILD_ID`, `prerender-manifest.json` and `export-marker.json`
+present — and was removed with the server stopped before a clean dev server
+started. Nine dynamic routes across Writers, Works, Cuisine, Places and History
+were probed to 200 before any browser test ran. The three failure modes stay
+distinguished by timing: fast clean 404 → production `.next` under `next dev`;
+10 s/30 s timeout → cold compile under contention; 500 with a PostCSS error →
+rendered HTML inside a Tailwind-scanned path. No debug output was written inside
+the repository.
+
+Three research fetches failed and are recorded: the Inknagir article on Nietzsche
+in Armenian literature returned HTTP 500 (its content was obtained by search
+instead), and an ARAR item comparing Varoujan's and Tumanyan's views of language
+is known to exist from its catalogue listing but could not be retrieved — so the
+article claims only that the comparison has been made, which the listing itself
+establishes.
+
+### Regressions
+
+Narekatsi is untouched: portrait, period, relations, SectionLinks, SEO fields,
+metadata and sitemap all as §82 left them, and his known minor debt was not
+touched. The other six writers are unchanged — the diff adds to their files and
+deletes nothing. Works remains four. Cuisine remains twelve and was not reopened.
+Places remains thirteen; Visit, the map and coordinates are absent from the diff.
+Tumanyan and Charents gained a link *from* Varoujan and were not edited for
+reciprocity, which a test asserts.
+
+### Results
+
+| Check | Result |
+|---|---|
+| `npm run typecheck` | exit 0 |
+| `npm run validate:content` | clean — 168 entries across 3 locales |
+| `writers.spec.ts` (focused) | **25 / 25** in 49.8 s |
+| `listing` + `search` + `seo` | 30 passed, 2 skipped |
+| Full Playwright suite | 407 passed, 5 skipped, **1 failed** (flake, below) in 11.3 m |
+| Full suite, re-run | **408 passed, 5 skipped, 0 failed** in 11.8 m |
+| `npm run build` | exit 0, **171 static pages** |
+
+**One flake, recorded and not patched.** `newsletter.spec.ts` — "the form
+submits the active route locale" — failed once at 11.9 s against a 10 s expect
+timeout, waiting for the Western Armenian unconfigured-Supabase message. Run
+alone the whole file passes 11/11 in 15.4 s with that test at 2.1 s. It is the
+newsletter form, which this step did not touch, and the signature matches the
+§79 cuisine-dropdown flake exactly: near-timeout under two-worker contention,
+fast in isolation. Recorded rather than patched, on the §79 precedent.
+
+171 pages, three more than §83's 168 — Daniel Varoujan in three editions.
+Playwright and the build did not overlap; the dev server was stopped and port
+3002 confirmed free before `next build`.
+
+### Technical debt
+
+Carried forward: no Book of Lamentations article; medieval coverage one author
+deep; Britannica unread; Narekavank's demolition date uncited; the Narekatsi
+portrait's four recorded reservations; the scratchpad/Tailwind hazard; the Places
+cold-compile runtime.
+
+Added here: **no Armenian Genocide article exists in History**, which is why this
+article authors no cross-category relation and is the largest single gap the step
+exposed; the ARAR Varoujan–Tumanyan linguistic study is unretrieved; the
+School-of-Narek-style question of whether *Ցեղին սիրտը* deserves its own Work
+article is unanswered; the `hyw` edition needs high-priority native review; the
+provenance caption question for photographed subjects is open and belongs to the
+portrait pass; and six of eight Writers still lack SEO fields, a gap that widens
+each time a new writer is added with them.
+
+### No deployment
+
+Nothing was deployed. No `.claude/settings.json` change. No previous
+project-state section rewritten.

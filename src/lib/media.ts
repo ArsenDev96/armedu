@@ -42,6 +42,53 @@ const IMAGES: Record<string, string> = {
   "avetik-isahakyan": "/images/writers/avetik-isahakyan.webp",
   "khachatur-abovyan": "/images/writers/khachatur-abovyan.webp",
   "paruyr-sevak": "/images/writers/paruyr-sevak.webp",
+  /*
+   * §82. Narekatsi, and the first portrait in this section of a subject nobody
+   * has ever seen.
+   *
+   * The §81 commission is not repeated here, because what it asked for is now a
+   * fact about a file. What it got: a hooded dark mantle over an oxblood tunic,
+   * bare stone, an open codex on wooden boards with hand-cut vellum, rubricated
+   * openings and an illuminated initial, a second codex closed on the table and a
+   * third on a lectern, an inkpot, and a window onto a lake ringed with snow under
+   * an Armenian church on a polygonal drum with a conical cap. It reads as a man
+   * at work on a manuscript. That was the whole point.
+   *
+   * The four things §81 said would make it wrong are all absent: no halo, no
+   * frontal blessing pose, no iconographic frame; no Roman Catholic vesture and
+   * nothing that imports 2015 into the tenth century; no printed page; and the
+   * treatment is painterly rather than a pseudo-photograph. The quill got its own
+   * paragraph in the commission and its own check here — what lies on the table is
+   * a reed with an obliquely cut nib, not a goose feather, which is also what
+   * separates it at a glance from `khachatur-abovyan.webp`, the named near miss,
+   * whose subject holds a quill upright over paper.
+   *
+   * Four reservations, recorded because accepting a file quietly is how a defect
+   * becomes a fact:
+   *
+   *   - **1585x992.** Every other writer portrait is 1586x992. One pixel, no
+   *     consequence at any rendered size, but this is the first geometry drift in
+   *     the section and the next one should be measured against 1586, not against
+   *     this.
+   *   - **The pseudo-script is legible-looking.** The sheet pinned to the back
+   *     wall carries nine lines that resolve into distinct glyphs under
+   *     magnification without spelling anything; the lectern codex does the same,
+   *     smaller. Nothing readable appears anywhere — no title, no name, no
+   *     Armenian word — so it stays. But it is the most synthetic region in the
+   *     file, and if a future portrait puts invented script under better light
+   *     than this, that is the point to refuse it.
+   *   - **The shelved volumes stand upright, spine out.** Armenian monastic
+   *     libraries of this period stored codices flat, in chests and boxes; ranked
+   *     vertical spines are a later European library convention. They are
+   *     hand-bound leather over board rather than modern books, so this is an
+   *     anachronism of practice, not of object.
+   *   - **He is bare-headed.** An Armenian monastic would ordinarily be shown in a
+   *     veghar or with the hood raised. The loose hair is a liberty.
+   *
+   * None of these touch what the article argues. The picture says writer before it
+   * says saint, and that is the one thing it had to do.
+   */
+  "grigor-narekatsi": "/images/writers/grigor-narekatsi.webp",
 
   // Literary works
   anush: "/images/works/anush.webp",
@@ -956,6 +1003,80 @@ const IMAGES: Record<string, string> = {
  * overrides both the file here and the AI caption.
  */
 export const PENDING_ARTWORK: readonly string[] = [
+  /*
+   * §84. Filled for the tenth time, by the second Writer, and the first entry on
+   * this list whose subject can be *seen*.
+   *
+   * Daniel Varoujan is Writer #8 and ships on the generated placeholder while the
+   * portrait is commissioned. Everything below is the commission, and it differs
+   * from §81's in the one way that matters.
+   *
+   * **Photographs of Varoujan survive.** He died in 1915, he was a public literary
+   * figure in Constantinople, and there are studio photographs of him. That single
+   * fact inverts the Narekatsi brief. There, no likeness existed or could exist and
+   * the danger was a picture that claimed false certainty; here a likeness exists,
+   * and the danger is a picture that ignores it. An invented face for a man who was
+   * photographed is not an editorial reconstruction — it is a wrong portrait of a
+   * real person, and it would be visibly wrong to any reader who has seen him.
+   *
+   * The artwork must therefore be produced from the surviving photographs as
+   * likeness references, and the identifying features must be taken from those
+   * photographs rather than from this paragraph. Dark side-parted hair, a prominent
+   * moustache, a slender face and early twentieth-century formal dress are what the
+   * photographs show; they are written here as a description of what to go and look
+   * at, not as a substitute for looking. The verification pass must compare the
+   * delivered file against the references, which is a check §82 could not perform
+   * for Narekatsi and this one must.
+   *
+   * Direction: the living poet, at about thirty, as an early twentieth-century
+   * Western Armenian intellectual. Formal period clothing — the collar, tie and
+   * jacket of the six modern writers already in this section, which for once is the
+   * right register rather than a risk. A writer's setting: papers, a printed book or
+   * a periodical, a desk, the interior mood of Constantinople or of a European
+   * university city.
+   *
+   * What would make it wrong:
+   *
+   *   - a generic moustached Armenian man of the period, interchangeable with any
+   *     other. The photographs exist precisely so this does not happen.
+   *   - an invented face, or a face borrowed from another writer in this section.
+   *   - modern dress, a modern suit, or anything after about 1915.
+   *   - a national-symbol collage — flag, Ararat, khachkar, alphabet.
+   *   - any imagery of 1915: no arrest, no deportation, no violence, no mourning,
+   *     no candles, no commemorative iconography. He was killed at thirty-one and
+   *     the archive is not going to illustrate it. This portrait shows the man who
+   *     wrote four books, not the man who was murdered.
+   *
+   * The provenance question this raises is real and is deliberately *not* answered
+   * here. Everything in `IMAGES` is captioned as an AI-generated portrait and an
+   * imagined likeness, which is exactly right for Narekatsi and not quite right for
+   * a subject with photographs. Changing that is a provenance-infrastructure
+   * decision and this was a content step; it belongs to the registration pass, which
+   * must decide whether the existing caption is honest enough for a face drawn from
+   * references or whether Writers needs a second disclosure form.
+   *
+   * Preferred geometry 1586x992, which is the section's, and not the 1585 that
+   * §82 accepted with a note.
+   */
+  "daniel-varoujan",
+
+  /*
+   * §82. Emptied for the ninth time, and the first time by a Writer rather than a
+   * Place or a dish.
+   *
+   * §81 put `grigor-narekatsi` here because the seventh biography was written
+   * ahead of its portrait, and the archive should say that out loud rather than
+   * let a placeholder stand in silence. §82 verified the file and registered it,
+   * so the entry is gone and the commission it was carrying now sits beside the
+   * registry entry above, where it can be read against the thing it produced.
+   *
+   * Seven writers, seven portraits, no placeholder in the section. Archive-wide
+   * this list is empty again — which is worth saying precisely because it keeps
+   * not lasting: nine times now it has emptied, and eight of those times it
+   * filled again the next time an article landed ahead of its picture. That is
+   * the normal working order here, not a failure of it.
+   */
+
   /*
    * §80. Emptied for the eighth time, and the eighth time it has filled. §79 put
    * `manti` here because Cuisine #12 was written ahead of its picture; §80

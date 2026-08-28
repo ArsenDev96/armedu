@@ -2854,7 +2854,27 @@ test("matsun owns its artwork in every edition, and borrows nobody else's", asyn
     "does not contain matsun": the claim is about what the list contains, so it
     has to name the contents, empty or not.
   */
-  expect([...PENDING_ARTWORK], "and the archive is fully illustrated again").toEqual([]);
+  /*
+    §81 rescopes this to Cuisine, and the rescoping is a correction rather than a
+    relaxation — the same correction `places.spec.ts` made at §67, when Cuisine
+    first put a slug on this list and a Places test found itself asserting
+    something about dishes.
+
+    `PENDING_ARTWORK` is archive-wide, not per-section. While every pending slug
+    happened to be a dish the distinction cost nothing, so this line asserted that
+    the whole list was empty. §81 put `grigor-narekatsi` on it — a Writer, written
+    ahead of his portrait — at which point the line started making a claim about
+    the Writers section that this file has no business making, and went red for a
+    reason that had nothing to do with cuisine.
+
+    The claim that was always meant is the one below: no *dish* is waiting for a
+    picture. Stated as a filtered list rather than a count, so it still fails on a
+    stale entry left behind after a file lands.
+  */
+  expect(
+    [...PENDING_ARTWORK].filter((slug) => (SLUGS as readonly string[]).includes(slug)),
+    "no dish is waiting for a picture",
+  ).toEqual([]);
 
   /*
     And it borrows nothing. Spas is named first because it is the real risk in this
@@ -3408,7 +3428,13 @@ test("basturma owns its artwork in every edition, and borrows nobody else's", as
     contain basturma", because a test that only checked basturma's absence would
     pass on the day some other section silently left something pending.
   */
-  expect([...PENDING_ARTWORK], "and the archive is fully illustrated again").toEqual([]);
+  // Scoped to Cuisine by §81, for the reason given at the matsun test above:
+  // `PENDING_ARTWORK` is archive-wide, and a pending Writer is not this file's
+  // business. No *dish* is waiting for a picture.
+  expect(
+    [...PENDING_ARTWORK].filter((slug) => (SLUGS as readonly string[]).includes(slug)),
+    "no dish is waiting for a picture",
+  ).toEqual([]);
 });
 
 test("basturma gained a picture and no product or recipe markup with it", async ({ page }) => {
@@ -4361,7 +4387,13 @@ test("manti owns its artwork in every edition, and borrows nobody else's", async
     ahead of its picture, which on the record of this section is the likeliest next
     thing to happen.
   */
-  expect([...PENDING_ARTWORK], "and the archive is fully illustrated again").toEqual([]);
+  // Scoped to Cuisine by §81, for the reason given at the matsun test above:
+  // `PENDING_ARTWORK` is archive-wide, and a pending Writer is not this file's
+  // business. No *dish* is waiting for a picture.
+  expect(
+    [...PENDING_ARTWORK].filter((slug) => (SLUGS as readonly string[]).includes(slug)),
+    "no dish is waiting for a picture",
+  ).toEqual([]);
 });
 
 test("manti gained a picture and no recipe markup with it", async ({ page }) => {
