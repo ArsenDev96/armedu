@@ -473,6 +473,46 @@ const SOURCES: Record<string, Source[]> = {
     },
   ],
 
+  /*
+    Nerses Shnorhali, and a bibliography that is deliberately modest about itself.
+
+    This article was built from encyclopedia articles and from the primary texts
+    in public-domain Armenian editions, not from the specialist monographic
+    literature. That is recorded here rather than disguised: the Hacikyan
+    Heritage of Armenian Literature Volume II covers his period and was not
+    consulted directly, and neither were the critical editions or the Armenian
+    Studies journal literature on his verse. Everything the article asserts is
+    carried by what is listed below, and the places where the evidence runs out
+    — the birth year, the reason the epithet attached to him, the number of hymns
+    securely his — are stated in the prose as uncertain rather than filled in.
+  */
+  "nerses-shnorhali": [
+    {
+      title: "Nerses IV the Gracious",
+      publisher: "Wikipedia",
+      identifier: { kind: "url", value: "https://en.wikipedia.org/wiki/Nerses_Shnorhali" },
+      note: "The fullest English-language overview consulted, and the source of record here for the family (Apirat, Gregory III, Gregory II, descent from Grigor Magistros), the schooling at Karmir Vank under Stepanos Manuk, the ordination and consecration ages, the 1138 Antioch synod, the 1165 mediation, the 1171 embassy under Theorianos and the nine conditions from Constantinople. Also the source for two negatives the article depends on: that his birth name is unknown and Nerses was taken at ordination, and that the reason the epithet Shnorhali attached to him is not settled. It makes no claim that he introduced rhyme to Armenian verse, which is why this article does not either.",
+    },
+    {
+      title: "Ներսես Դ Կլայեցի",
+      publisher: "Armenian Wikipedia",
+      identifier: { kind: "url", value: "https://hy.wikipedia.org/wiki/%D5%86%D5%A5%D6%80%D5%BD%D5%A5%D5%BD_%D4%B4_%D4%BF%D5%AC%D5%A1%D5%B5%D5%A5%D6%81%D5%AB" },
+      note: "The Armenian-language counterpart, and materially better than the English one on two things. It carries the Armenian tradition of 4 June 1102 for the birth and 13 August 1173 for the death, and it carries a long bibliography of printed editions — Amsterdam 1661, Constantinople 1746 and 1824, St Petersburg 1785, Venice, Yerevan 1981, 1982 and 1991 — which is what the article's claim about continuous printing rests on. Cited for the editions and the dates, not for interpretation.",
+    },
+    {
+      title: "Հեղինակ:Ներսես Շնորհալի",
+      publisher: "Armenian Wikisource",
+      identifier: { kind: "url", value: "https://hy.wikisource.org/wiki/%D5%80%D5%A5%D5%B2%D5%AB%D5%B6%D5%A1%D5%AF:%D5%86%D5%A5%D6%80%D5%BD%D5%A5%D5%BD_%D5%87%D5%B6%D5%B8%D6%80%D5%B0%D5%A1%D5%AC%D5%AB" },
+      note: "The texts themselves, in public-domain Armenian editions, used to verify titles and the shape of works rather than to quote them: Ողբ Եդեսիոյ, Յիսուս Որդի, Հաւատով խոստովանիմ, Առաւօտ լուսոյ. The article reproduces no passage from any of them, and no modern translation, which is the copyright position the section has held since §54.",
+    },
+    {
+      title: "Nerses IV Shnorhali, patriarch of Armenia",
+      publisher: "Encyclopaedia Britannica",
+      identifier: { kind: "url", value: "https://www.britannica.com/biography/Nerses-IV-Shnorhali" },
+      note: "Orientation only, and used as a check on the chronology of the catholicosate rather than as an authority on the poetry. Encyclopedias are where this article starts and not where it stops; where Britannica and the Armenian sources disagree in emphasis, the Armenian ones were followed on the works and the English ones on the Byzantine negotiations.",
+    },
+  ],
+
   "wounds-of-armenia": [
     {
       author: "A. J. Hacikyan, G. Basmajian, E. S. Franchuk and N. Ouzounian (eds.)",

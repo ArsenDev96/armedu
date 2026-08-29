@@ -98,6 +98,18 @@ export const writers: Writer[] = [
     imageSeed: "daniel-varoujan",
     notableWorks: ["The Song of the Bread", "Pagan Songs", "The Heart of the Race"],
   },
+  {
+    slug: "nerses-shnorhali",
+    name: "Nerses Shnorhali",
+    lifespan: "about 1102–1173",
+    period: "Medieval",
+    periodId: "medieval",
+    role: "Poet, hymnographer and Catholicos",
+    description:
+      "The twelfth-century poet of Cilicia who wrote a verse history of Armenia in a single rhyme, the Lament on Edessa, and hymns still sung today, and who led the Armenian church for the last seven years of his life.",
+    imageSeed: "nerses-shnorhali",
+    notableWorks: ["Lament on Edessa", "Jesus the Son", "I Confess with Faith"],
+  },
 ];
 
 export const literaryPeriods: Filter[] = [

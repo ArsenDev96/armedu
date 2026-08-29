@@ -3122,6 +3122,13 @@ test("no unrelated article artwork changed", () => {
     // is the point: the path is what this snapshot pins, and the path is new.
     // Extended by one line, every other value byte-identical.
     "daniel-varoujan": "/images/writers/daniel-varoujan.webp",
+    // §87 adds Shnorhali, the third Writers registration to turn this snapshot
+    // red and the one that closes the section: nine writers, nine portraits, and
+    // `PENDING_ARTWORK` empty archive-wide for the first time since §85. He takes
+    // the imagined-likeness default and is deliberately absent from
+    // `PORTRAIT_PROVENANCE`, which this snapshot cannot see and `writers.spec.ts`
+    // asserts. Extended by one line, every other value byte-identical.
+    "nerses-shnorhali": "/images/writers/nerses-shnorhali.webp",
     anush: "/images/works/anush.webp",
     "david-of-sassoun": "/images/works/david-of-sassoun.webp",
     "wounds-of-armenia": "/images/works/wounds-of-armenia.webp",
@@ -4767,9 +4774,11 @@ test("the four existing category listings still load and still count what they d
   const dict = ui("en");
   const expected: [string, number, string][] = [
     ["history", 7, dict.listing.history.title],
-    // §81 moves Writers 6 to 7 with Grigor Narekatsi. Edited rather than derived
-    // on purpose: this test exists to notice when another section grows.
-    ["writers", 8, dict.listing.writers.title],
+    // §81 moves Writers 6 → 7 with Grigor Narekatsi, §84 moves it 7 → 8 with
+    // Daniel Varoujan and §86 moves it 8 → 9 with Nerses Shnorhali. Edited rather
+    // than derived on purpose: this test exists to notice when another section
+    // grows, and it has now done so three times, going red first on each.
+    ["writers", 9, dict.listing.writers.title],
     ["works", 4, dict.listing.works.title],
     // §67 moves Cuisine 6 → 7 with Spas, §70 moves it 7 → 8 with jingalov hats,
     // §72 moves it 8 → 9 with khash, §74 moves it 9 → 10 with matsun, §77 moves it

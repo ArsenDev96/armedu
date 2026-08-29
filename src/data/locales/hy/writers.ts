@@ -101,6 +101,18 @@ export const writers: Writer[] = [
     imageSeed: "daniel-varoujan",
     notableWorks: ["Հացին երգը", "Հեթանոս երգեր", "Ցեղին սիրտը"],
   },
+  {
+    slug: "nerses-shnorhali",
+    name: "Ներսես Շնորհալի",
+    lifespan: "մոտ 1102–1173",
+    period: "Միջնադար",
+    periodId: "medieval",
+    role: "Բանաստեղծ, շարականագիր և կաթողիկոս",
+    description:
+      "XII դարի կիլիկյան բանաստեղծը, որ գրել է մեկ հանգով վերջացող վիպասանություն, «Ողբ Եդեսիոյ»-ն ու մինչև այսօր երգվող շարականներ, և իր կյանքի վերջին յոթ տարին գլխավորել է Հայ եկեղեցին։",
+    imageSeed: "nerses-shnorhali",
+    notableWorks: ["Ողբ Եդեսիոյ", "Յիսուս Որդի", "Հաւատով խոստովանիմ"],
+  },
 ];
 
 export const literaryPeriods: Filter[] = [

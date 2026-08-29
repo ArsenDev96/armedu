@@ -1271,4 +1271,228 @@ export const writerArticles: Article[] = [
     ],
     relatedSlugs: ["hovhannes-tumanyan", "yeghishe-charents"],
   },
+  {
+    slug: "nerses-shnorhali",
+    href: "/writers/nerses-shnorhali",
+    category: "writers",
+    categoryLabel: "Armenian Writers",
+    title: "Nerses Shnorhali",
+    seoTitle: "Nerses Shnorhali: Poet of Cilician Armenia",
+    excerpt:
+      "The twelfth-century Armenian poet who wrote a thousand-line verse history in a single rhyme, a lament for a fallen city, and hymns still sung today — and who spent his last seven years as Catholicos.",
+    metaDescription:
+      "Who was Nerses Shnorhali? The life, works and poetry of the twelfth-century Armenian writer known as Nerses the Graceful — his verse, language and church office.",
+    summary:
+      "Nerses Shnorhali (about 1102 to 1173) was an Armenian poet, hymn writer and letter writer of the twelfth century, and Catholicos of the Armenian church from 1166 until his death. He wrote a verse history of Armenia more than a thousand lines long in which every line carries the same rhyme, a long lament on the fall of Edessa, a book-length poem called Jesus the Son, a prayer of twenty-four stanzas that is still recited, and hymns that entered the Armenian liturgy. He is called Shnorhali, meaning graceful or full of grace, an epithet given to him rather than inherited.",
+    period: "Medieval",
+    periodId: "medieval",
+    imageSeed: "nerses-shnorhali",
+    keywords: [
+      "Nerses Shnorhali",
+      "Nerses the Graceful",
+      "Nerses IV",
+      "Nerses IV the Gracious",
+      "Nerses Klayetsi",
+      "Ներսես Շնորհալի",
+      "Ներսէս Շնորհալի",
+      "Շնորհալի",
+      "Lament on Edessa",
+      "Ողբ Եդեսիոյ",
+      "Jesus the Son",
+      "Յիսուս Որդի",
+      "I Confess with Faith",
+      "Հաւատով խոստովանիմ",
+      "Aravot Luso",
+      "Առաւօտ լուսոյ",
+      "Hromkla",
+      "Cilician Armenia",
+      "medieval Armenian poetry",
+      "Armenian hymns",
+      "sharakan",
+    ],
+    intro:
+      "Nerses Shnorhali is one of the two medieval writers in this section, and the one whose work a reader is most likely to have already heard without knowing whose it was. He wrote in the twelfth century, in the Armenian world that had reformed itself along the northern edge of the Mediterranean after the loss of the old kingdoms, and he wrote a great deal: narrative verse, laments, a long devotional poem, prayers, letters, and hymns that are still sung in Armenian churches. For the last seven years of his life he was also head of that church. This article is about the writer first.",
+    author: "Armat Editorial Team",
+    updated: "2026-08-29",
+    keyFacts: [
+      { label: "Lived", value: "About 1102 to 1173; the birth year is approximate, the death date is not" },
+      { label: "Where", value: "Born at the fortress of Tsovk; died at Hromkla on the Euphrates" },
+      { label: "Wrote in", value: "Classical Armenian (grabar), with a plainer register in some minor verse" },
+      { label: "Best known for", value: "The Lament on Edessa, Jesus the Son, and the prayer I Confess with Faith" },
+      { label: "Also called", value: "Nerses the Graceful, Nerses IV, Nerses Klayetsi" },
+      { label: "Church office", value: "Catholicos of the Armenian church, 1166 to 1173" },
+    ],
+    sections: [
+      {
+        id: "who-nerses-shnorhali-was",
+        heading: "Who Nerses Shnorhali was",
+        paragraphs: [
+          "Nerses Shnorhali was an Armenian poet, hymn writer and correspondent of the twelfth century, and from 1166 until his death in 1173 he was Catholicos, the head of the Armenian church. Both halves of that description are accurate and they are not equally weighted here. He wrote for roughly half a century and he held the office for seven years, and the writing is why he is in a section about writers.",
+          "What he produced covers more ground than the phrase religious poet suggests. There is a verse history of Armenia written for students, a lament on the destruction of a city, a long poem retelling scripture and church history, a prayer in twenty-four stanzas, hymns for the liturgical year, riddles and short didactic pieces, an encyclical letter, and a substantial correspondence with the Byzantine court. The range is the point: he wrote to teach, to mourn, to argue and to be sung, and the registers are genuinely different.",
+          "He is also a saint of the Armenian Apostolic Church, and English-language writing about him is dominated by that fact and by his negotiations with Constantinople. Those belong to his life and are treated below. But a reader who arrives knowing only that he was a holy man and a church diplomat has been given the smaller part of him, and the poems are the reason the name survived.",
+        ],
+      },
+      {
+        id: "the-name-and-the-epithet",
+        heading: "The name, and what Shnorhali means",
+        paragraphs: [
+          "His birth name is not known. Nerses is the name he took when he was ordained a priest, which is ordinary practice and worth stating plainly, because it means the name under which all his work travels was chosen in adulthood rather than given at birth.",
+          "Shnorhali is not a surname either. It is an epithet built on the Armenian word for grace, and it is usually rendered in English as the Graceful or the Gracious — full of grace is closer to the sense. Why it attached to him is not settled. It has been explained as an honorific given to graduates of the school where he trained, and as a description of the quality of his person, his speech and his writing; the sources offer both and do not decide between them. This article does not decide either, because the meaning of the word is clear and the reason for its application is not.",
+          "Two further names appear in the literature. Nerses IV is his regnal number as Catholicos and belongs to the office rather than to the poet. Nerses Klayetsi means Nerses of Kla, after Hromkla, the fortress that was the seat of the catholicosate and where he lived and died — the same place-adjective habit that gives Grigor Narekatsi his name. He should not be confused with Nerses of Lambron, a different and later Cilician writer who outlived him by twenty-five years.",
+        ],
+      },
+      {
+        id: "family-education-and-inheritance",
+        heading: "A family that held the office, and a literary inheritance",
+        paragraphs: [
+          "He was born into the Pahlavuni family, which supplied the Armenian catholicosate more or less continuously from 1066 to 1203. His father was the prince Apirat Pahlavuni; his elder brother became Catholicos Gregory III; his mother's uncle had been Catholicos Gregory II. Reciting this can make the family sound like a dynasty of officeholders, and it partly was. It also means that the household he grew up in was one in which books, letters and ecclesiastical politics were the normal furniture of life.",
+          "The more useful ancestor for this article is Grigor Magistros, the eleventh-century prince, scholar and writer from whom the family descends and who is remembered for his correspondence and his verse. Sources differ on the exact number of generations between the two men. What matters is that Nerses inherited a family tradition in which a nobleman was expected to write, and not merely to pay for writing.",
+          "He and his brother were sent as boys to Karmir Vank, the Red Monastery, in the region of Kesun and Shughr, and were taught there by the monk Stepanos Manuk, described in the sources as a scholar and theologian of standing. He was ordained priest at about seventeen and consecrated bishop at about thirty-five. The education was the ordinary monastic one of the period — scripture, the church fathers, grammar, the mechanics of verse — and it is where the technical command visible in his poetry was formed.",
+        ],
+      },
+      {
+        id: "tsovk-hromkla-and-the-cilician-world",
+        heading: "Tsovk, Hromkla and the Cilician world",
+        paragraphs: [
+          "He was born at a fortress called Tsovk. Where exactly that was is genuinely disputed: it is placed either in the district of Tlouk toward Cilicia, or further east in the historic province of Sophene near modern Elazığ. Both readings put his birth in the upper Euphrates country rather than in Cilicia proper, and the distinction is worth keeping, because it is the world he grew up in that moved westward, not only him.",
+          "The catholicosate was itself in motion. It settled at Tsovk in 1125 under his brother, and around 1149 to 1151 moved again to Hromkla, a fortress above the Euphrates — Rumkale in Turkish, Հռոմկլա in Armenian, sometimes written Hromgla in English. His brother established it there; Nerses inherited a seat that was already fixed, and it remained the centre of the Armenian church until it fell in 1292, after which the seat went to Sis. Hromkla is where he lived as Catholicos, where he received the imperial embassy of 1171, where he wrote, and where he is buried.",
+          "One piece of terminology needs care. The Armenian presence in Cilicia in his lifetime was a principality under the Rubenid house, not a kingdom. It became a kingdom only in 1198, when Levon was crowned — twenty-five years after Nerses died. Calling him a poet of the Kingdom of Cilicia, as is often done, moves him into a state that did not yet exist. The Armenian Cilicia he knew was a rising lordship among crusader counties, Byzantine claims and Turkish emirates, and the cultural confidence visible in his generation was being built rather than inherited.",
+        ],
+      },
+      {
+        id: "from-priest-to-catholicos",
+        heading: "From priest to Catholicos",
+        paragraphs: [
+          "For most of his adult life he worked beside his brother rather than in his own right: as priest, as secretary, and after about 1137 as bishop. This is the period in which nearly all the poetry was written, which is the opposite of the usual shape of such a career and is worth noticing. He was not a churchman who wrote late; he was a writer for thirty years before the office arrived.",
+          "The public work of those years was diplomatic and pastoral. He took part in a synod at Antioch in 1138. In 1165 he was called on to mediate between Thoros II, the Rubenid prince, and Oshin of Lambron, in a quarrel between Armenian lords — a reminder that the Cilician Armenian world he lived in was politically fractious and that a bishop with a reputation for tact was a useful instrument in it.",
+          "He succeeded his brother as Catholicos in 1166 and held the office until he died on 13 August 1173. That death date is firm in the sources; his birth year is not, and is given variously as about 1100, 1101 or 1102, with the Armenian tradition naming 4 June 1102. This article uses about 1102 and keeps the approximation visible, because a confident single birth date here would be an invention.",
+        ],
+      },
+      {
+        id: "the-range-of-his-writing",
+        heading: "The range of his writing",
+        paragraphs: [
+          "The securely attributed body of work divides into a few clear groups. There is narrative and historical verse, of which the verse history of Armenia is the largest. There is occasional and commemorative poetry, above all the Lament on Edessa. There is long devotional verse, principally Jesus the Son. There are prayers and hymns, including the twenty-four-stanza I Confess with Faith and a body of sharakans that entered the liturgy. And there is prose: an encyclical letter, doctrinal statements, and a large correspondence.",
+          "A commentary on Genesis is credited to him and has not survived, which is a useful reminder that the surviving corpus is not the whole of what he wrote. Shorter pieces — riddles and short didactic verse — are also attributed to him and are the part of the corpus where attribution is least secure; they are named here as attributed rather than counted as certain.",
+          "No total is given in this article for the number of works or hymns, because the reliable literature does not supply one. Hymns by him and hymns attributed to him were absorbed into the Armenian hymnal gradually and were fully integrated only by the fourteenth century, two hundred years after his death. That process is exactly the kind that makes a confident number impossible, and the round figures that circulate should be treated with suspicion.",
+        ],
+      },
+      {
+        id: "a-thousand-lines-in-one-rhyme",
+        heading: "A thousand lines in one rhyme",
+        paragraphs: [
+          "His first substantial work, usually dated to about 1121, is a history of Armenia in verse, over a thousand lines long, written for students. Its striking feature is technical: every line ends on the same syllable. A single rhyme is sustained across the whole poem.",
+          "That is a real and checkable fact about a text, and it is more informative than any adjective. It tells you what the poem was for — the rhyme is a memory aid, holding a long sequence of unfamiliar names and events in a shape a student can carry — and it tells you what he could do. Sustaining one rhyme over a thousand lines in Classical Armenian is a feat of vocabulary before it is a feat of feeling.",
+          "It also marks where this article declines to follow the popular summaries. Nerses Shnorhali is often credited with introducing rhyme to Armenian poetry, or with inventing Armenian rhymed verse. No standard reference consulted for this article makes that claim, and rhyme in Armenian verse is older than he is. What can be said, and is said here instead, is narrower and better evidenced: he used rhyme with unusual ambition and consistency, and later Armenian poets worked in a tradition his practice helped to shape.",
+        ],
+      },
+      {
+        id: "the-lament-on-edessa",
+        heading: "The Lament on Edessa",
+        paragraphs: [
+          "Edessa, a city with a large Armenian population that had become the seat of a crusader county, fell in December 1144. Nerses wrote a long verse lament on it, the Ողբ Եդեսիոյ, usually dated to the following year. It is the work in which he comes closest to being a public poet writing about an event in his own lifetime.",
+          "The lament is a recognised Armenian genre with its own conventions rather than a spontaneous outpouring, and reading it as reportage misses what it is doing. The city is personified and addressed; grief is organised into a formal structure. This article does not describe the destruction in detail, because the poem's interest is not in atrocity but in how a literary form was used to hold a catastrophe.",
+          "It is also the one work of his that sits directly on a piece of history many non-Armenian readers already know something about, which makes it the natural bridge between his poetry and the twelfth-century Near East. That does not make it a Crusades text. It is an Armenian poem about an Armenian loss, written by a man who was about forty when it happened.",
+        ],
+      },
+      {
+        id: "jesus-the-son",
+        heading: "Jesus the Son",
+        paragraphs: [
+          "Յիսուս Որդի, Jesus the Son, dated to about 1152, is his largest devotional work: a long poem that moves through scripture and church history and ends in eschatology. English renderings of the title vary, and Jesus the Only Son of the Father is also encountered; Jesus the Son is used here as the plainest equivalent of the Armenian.",
+          "It is better described as a poem of instruction than as a devotional lyric. Its ambition is comprehensive — to put the substance of Christian teaching into sustained verse that could be read and remembered — and it belongs with the verse history in that respect: both are works that use poetry to carry a large body of material.",
+        ],
+      },
+      {
+        id: "prayers-and-hymns",
+        heading: "Prayers and hymns",
+        paragraphs: [
+          "Հաւատով խոստովանիմ, I Confess with Faith, is a prayer in twenty-four stanzas, one for each hour of the day. It is the single most widely circulated thing he wrote: it has been translated into more than thirty languages and is still in ordinary use. Its structure is the interesting part — a day divided into hours, each with its own stanza, so that the whole is a text designed to be entered at any point rather than read straight through.",
+          "Առաւօտ լուսոյ, Morning of Light, is a hymn, and one of the best known in the Armenian repertoire; it is sung rather than read, and its life has been musical as much as literary. Other hymns, among them Նորահրաշ պսակաւոր, sit in the same category.",
+          "He is credited in the literature on Armenian chant with reforming it: with simplifying both the words of liturgical poetry and the melodies attached to them, and with bringing the result closer to Armenian folk song. That is a claim about accessibility, and it fits everything else visible in his practice — the mnemonic rhyme, the hour-by-hour prayer, the verse written for students. He wrote to be retained.",
+        ],
+      },
+      {
+        id: "the-language-he-wrote-in",
+        heading: "The language he wrote in",
+        paragraphs: [
+          "His major works are in Classical Armenian, grabar, the literary language of Armenian writing since the fifth century. Saying only that, however, misses what the twelfth century was. Armenian was in transition: the spoken language had moved well away from grabar, and the forms grouped under the label Middle Armenian were emerging, particularly in Cilicia, where they would soon carry law codes, medicine and chronicles.",
+          "The precise position is that his literary works are grabar, while a plainer, more popular register — closer to the developing Middle Armenian environment — appears in some of the minor verse, the fables and riddles among them. That is a distinction between kinds of writing rather than a change of mind, and it is why the flat statement that he wrote in Middle Armenian, which does circulate, is not adopted here.",
+          "The care matters because the terminology is contested territory and the century sits on the boundary. Describing him as a grabar writer with an ear for a plainer register, working in the environment in which Middle Armenian was taking shape, is the formulation the evidence supports.",
+        ],
+      },
+      {
+        id: "letters-and-the-byzantine-negotiations",
+        heading: "Letters, and the negotiations with Constantinople",
+        paragraphs: [
+          "From about 1165 he was in correspondence with the Byzantine emperor Manuel I Komnenos about the differences between the Armenian and Byzantine churches. In 1171 an imperial delegation, headed by the theologian Theorianos, came to Hromkla to negotiate in person. Constantinople eventually presented a list of nine conditions, which included acceptance of the Council of Chalcedon, changes to Armenian liturgical practice, alignment of the calendar, and imperial authority over future appointments to the Armenian catholicosate.",
+          "He did not accept them, objecting to their severity, and the negotiations were unfinished when he died in 1173. The episode belongs here for a literary reason as much as a doctrinal one: it produced letters, and the letters are part of his corpus. He was a working writer of prose as well as verse, and the correspondence is where the prose is.",
+          "Modern accounts often call him a pioneer of ecumenism. The word carries a twentieth-century movement with it and should be handled carefully: what he was engaged in was negotiation and correspondence between two churches aimed at reconciliation, conducted under an emperor with political interests in the outcome. Describing that in its own terms is more accurate than borrowing a later vocabulary, and it does not diminish him — the patience and the courtesy his contemporaries named him for are visible in exactly these letters.",
+        ],
+      },
+      {
+        id: "reception-and-armenian-literary-history",
+        heading: "Reception, and his place in Armenian literary history",
+        paragraphs: [
+          "He was read continuously. His hymns entered the Armenian hymnal over the two centuries after his death; his works were among the earliest Armenian books printed, from the Amsterdam press of 1661 onward, and were reprinted in Constantinople, Venice, St Petersburg and Yerevan; I Confess with Faith is still recited. Few medieval Armenian writers have that unbroken a record of use.",
+          "In literary history he stands between two things. Behind him is Grigor Narekatsi, whose Book of Lamentations had made the long first-person religious poem the great Armenian form — and who was being actively copied in Nerses's own Cilicia, since the most famous illuminated manuscript of that book was made there in 1173, the year Nerses died. Ahead of him is the Cilician flowering of the following century. His own contribution was to turn Armenian verse outward: toward teaching, toward narrative, toward congregational singing, toward the events of the day.",
+          "His religious standing is part of his reception rather than an argument for his literary importance, and the two should not be made to stand in for each other. He is venerated as a saint in the Armenian Apostolic Church and is commemorated on the Feast of the Holy Translators, the feast that honours Armenian writers and translators — which is, appropriately, the company the church itself puts him in.",
+        ],
+        links: [
+          { phrase: "Behind him is Grigor Narekatsi, whose Book of Lamentations had made the long first-person religious poem the great Armenian form", slug: "grigor-narekatsi" },
+        ],
+      },
+    ],
+    importantDates: [
+      { year: "about 1102", event: "Born at the fortress of Tsovk; the year is approximate and about 1100 or 1101 is also given." },
+      { year: "about 1119", event: "Ordained priest at around the age of seventeen; Nerses is the name taken at ordination." },
+      { year: "about 1121", event: "Writes the verse history of Armenia, over a thousand lines in a single rhyme." },
+      { year: "1125", event: "The catholicosate settles at Tsovk under his brother, the future Gregory III." },
+      { year: "1138", event: "Takes part in a synod at Antioch." },
+      { year: "about 1145", event: "Writes the Lament on Edessa, after the city falls in December 1144." },
+      { year: "about 1149–1151", event: "The catholicosate moves to Hromkla on the Euphrates, where he will spend the rest of his life." },
+      { year: "about 1152", event: "Completes Jesus the Son." },
+      { year: "1165", event: "Mediates between Thoros II and Oshin of Lambron; correspondence with Manuel I Komnenos begins." },
+      { year: "1166", event: "Succeeds his brother as Catholicos of the Armenian church." },
+      { year: "1171", event: "A Byzantine delegation under Theorianos comes to Hromkla to negotiate church union." },
+      { year: "13 August 1173", event: "Dies at Hromkla, where he is buried." },
+    ],
+    significance: {
+      heading: "Why Nerses Shnorhali matters",
+      paragraphs: [
+        "He is the writer who made Armenian verse do more jobs. Before him the great achievement of Armenian poetry was inward and singular — one voice, at enormous length, addressing God. Nerses wrote that kind of poem too, but he also wrote verse to teach history to students, to mourn a city in public, to be sung by a congregation, and to be said at a particular hour of the day. The range is the achievement.",
+        "He also demonstrates something about the twelfth-century Armenian world that is easy to miss: that a community which had lost its kingdoms and was reassembling itself among crusader states and Byzantine claims produced, almost immediately, a literature confident enough to be technically ambitious. A thousand-line poem in a single rhyme is not the work of a culture in retreat.",
+      ],
+    },
+    interestingFacts: [
+      "His birth name is unknown — Nerses is the name he took when he was ordained.",
+      "Shnorhali is an epithet, not a surname: it means graceful, or full of grace.",
+      "His first big poem runs over a thousand lines and every one of them ends on the same syllable.",
+      "He is often said to have introduced rhyme to Armenian poetry; the standard references do not make that claim, and rhyme in Armenian verse is older than he is.",
+      "I Confess with Faith has twenty-four stanzas, one for each hour of the day, and has been translated into more than thirty languages.",
+      "He is not Nerses of Lambron, a different Cilician writer of the next generation.",
+      "Cilician Armenia was a principality in his lifetime; it became a kingdom in 1198, twenty-five years after he died.",
+    ],
+    relatedFigures: [
+      {
+        name: "Gregory III Pahlavuni",
+        lifespan: "died 1166",
+        description:
+          "His elder brother, Catholicos before him, who moved the seat of the Armenian church to Hromkla and whom Nerses served as secretary and bishop for decades.",
+      },
+      {
+        name: "Grigor Magistros",
+        lifespan: "about 990–1058",
+        description:
+          "The prince, scholar and writer from whom the Pahlavuni family descends, and the literary ancestor behind a household in which a nobleman was expected to write.",
+      },
+      {
+        name: "Manuel I Komnenos",
+        lifespan: "1118–1180",
+        description:
+          "Byzantine emperor, Nerses's correspondent from about 1165 and the political force behind the union negotiations that were still unfinished when Nerses died.",
+      },
+    ],
+    relatedSlugs: ["grigor-narekatsi"],
+  },
 ];

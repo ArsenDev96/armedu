@@ -158,6 +158,90 @@ const IMAGES: Record<string, string> = {
    */
   "daniel-varoujan": "/images/writers/daniel-varoujan.webp",
 
+  /*
+   * §87. Nerses Shnorhali, Writer #9 and the section's second medieval author.
+   * Accepted on the first delivery, which §85's predecessor was not.
+   *
+   * **Provenance, first, because it is the thing this entry could most easily get
+   * wrong.** He died in 1173. No contemporary likeness survives and none can, so
+   * this face is invented and the caption must say so. Later manuscript
+   * miniatures and modern church icons are evidence of how he was *depicted*
+   * centuries afterward in the conventions of the depicting age, not evidence of
+   * his face — §86 settled that before the brief went out, and the delivery does
+   * not disturb it. **There is deliberately no `PORTRAIT_PROVENANCE` entry for
+   * this slug.** He takes the `imagined` default, and the absence is the
+   * decision, not an oversight; a test asserts it, because a future editor
+   * adding him "for completeness" would silently turn an invented face into a
+   * documented one.
+   *
+   * **The file.** 1586x992 — the house geometry exactly, with no drift to record
+   * for the first time since §85 had to resample to reach it. 315,886 bytes,
+   * SHA-256 667acdf7f65a5cd90f84bd567ec7bfa6436a8f963405b753960f13386be30de9.
+   * Plain `RIFF/WEBP` -> `VP8 `: one lossy keyframe, sync 9D 01 2A, dimensions
+   * agreeing with the container, no `VP8X` and so no ICC, alpha, EXIF, XMP or
+   * animation, no orientation tag, chunk walk ending at byte 315,886 with zero
+   * trailing bytes. Verified twice, by a hand-written RIFF walk and by `sharp`.
+   *
+   * **What is in the frame.** A greying man of about sixty standing three-quarter
+   * to the right in a stone room, a bound codex carried against his chest in his
+   * right hand, his left hanging open at his side. Behind him a wall niche with a
+   * hanging textile and stacked codices, a small carved devotional relief on the
+   * plaster, and at the left margin a heavy hewn writing table with an open
+   * manuscript, an inkpot, a penknife and a pot of cut quills. At the right an
+   * arcaded opening onto a fortified complex on a rock — a conical-domed Armenian
+   * church inside crenellated walls, mountains behind. Warm stone, aged
+   * parchment, charcoal and a desaturated aubergine mantle over a brown robe with
+   * cream undersleeves.
+   *
+   * **Why it passed the gate the first Varoujan failed.** The whole frame was
+   * swept at full resolution, at 1152px hero width, and at magnifications up to
+   * 8x. Nothing readable exists anywhere: not on the open manuscript, whose
+   * writing is continuous wavy ruled strokes that make no letterform at 8x and
+   * do not attempt one; not on the carried codex, whose cover is a worn tooled
+   * interlace panel; not on the niche textile, the book boards, the capital, the
+   * relief, the floor carpet or the walls. The strictest surface is the table
+   * cloth's lower cartouche band, which at 6x resolves into boxed stepped and
+   * hooked weaving motifs with no baseline, no x-height and no sequence, and
+   * which is unreadable pattern at every rendered size. This is a cleaner result
+   * than §82 accepted for Narekatsi, whose wall placard and page both carry
+   * script-like lines; here there is no placard and the page marks are further
+   * from letters.
+   *
+   * **Writer before cleric, which was the conceptual test.** Of the six elements
+   * of the later saint-icon package the image carries exactly one — the codex
+   * held against the chest — and that one is a manuscript author holding his own
+   * book. There is no halo, no frontal pose, no raised blessing hand, no
+   * ceremonial vestment, no icon framing, no gold ground, no throne, no crozier,
+   * no pectoral cross. Nothing in the frame says Catholicos. What identifies him
+   * is the codex, the writing table and the scriptorium, which resolve to
+   * medieval manuscript intellectual. The one concession is that he stands away
+   * from the desk holding a closed book rather than working at an open one, so
+   * the writer reading leans on the room; it survives every crop, but it is a
+   * step less immediate than Narekatsi's, where the open book is the subject.
+   *
+   * **Distinct from the two portraits it could have collided with.** Against
+   * Narekatsi: seated-close versus standing-full-length, hooded monastic cowl
+   * versus draped bordered mantle, dark dense beard versus a beard greyed
+   * through the centre, book-open-as-subject versus book-carried, a rectangular
+   * window left onto Lake Van versus an arcade right onto a fortress, cool
+   * high-key blue against warm low-key ochre. They share the genre, which is the
+   * section's visual language, and no specific. Against Varoujan the comparison
+   * is trivial: no suit, collar, cravat, printed book, framed photograph, metal
+   * nib, glass inkwell, curtain or cityscape survives anywhere in it.
+   *
+   * **Two things to know rather than rediscover.** The commission asked for a
+   * reed pen and the delivery gives cut feather quills in a pot — a Latin-West
+   * instrument where Armenian scribes used the calamus. It is off-subject, at
+   * the extreme left edge, and the mobile hero crop removes it entirely; it is
+   * recorded as a historical inaccuracy rather than treated as a visual failure,
+   * because §16 of that step rejects the giant-quill cliche and these are neither
+   * giant nor brandished. And the 16:9 desktop hero trims the top 10.1 per cent,
+   * which brings the crown of his head to the frame edge — tight, complete, and
+   * not worth a slug-specific `object-position` when the generic centre crop
+   * keeps the face, the codex, the desk, the manuscript and the arch.
+   */
+  "nerses-shnorhali": "/images/writers/nerses-shnorhali.webp",
+
   // Literary works
   anush: "/images/works/anush.webp",
   "david-of-sassoun": "/images/works/david-of-sassoun.webp",
@@ -1071,6 +1155,34 @@ const IMAGES: Record<string, string> = {
  * overrides both the file here and the AI caption.
  */
 export const PENDING_ARTWORK: readonly string[] = [
+  /*
+   * §87. Emptied for the eleventh time, and the first of the three consecutive
+   * Writers to be accepted on the delivery it was first sent.
+   *
+   * §86 put `nerses-shnorhali` here because Writer #9 was written ahead of his
+   * portrait. The commission it carried is not repeated: what it asked for is now
+   * a fact about a file, recorded beside the registry entry above. Two things from
+   * it survive as standing rules rather than as history.
+   *
+   * The first is the rejection condition §86 promoted out of §85 — that readable
+   * generated lettering of any kind is refused outright, not weighed. It held. The
+   * delivery was swept to 8x and carries no readable mark anywhere, which is the
+   * second consecutive portrait to clear the stricter standard the first Varoujan
+   * file forced into existence.
+   *
+   * The second is that §86 decided the provenance before seeing the picture and
+   * committed to the harder answer: `imagined`, by the default, with **no entry
+   * added to `PORTRAIT_PROVENANCE`**. The delivery gave every excuse to soften
+   * that — it is a plausible, dignified, specific face — and it changes nothing.
+   * The rule those two notes now establish together is worth stating plainly for
+   * whoever fills this list next: the type is decided by what survives of the
+   * subject, not by how convincing the artwork looks. A face nobody photographed
+   * stays `imagined` however well it is painted.
+   *
+   * The list is empty again. Every article in every section has a cover, and for
+   * the first time that sentence covers all nine Writers.
+   */
+
   /*
    * §85. Emptied for the tenth time, and the only one of the ten that took two
    * deliveries of the same slug to do it.

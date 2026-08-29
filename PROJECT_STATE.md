@@ -19057,3 +19057,720 @@ fact; establishing that for the modern writers is real work nobody has done.
 Nothing was deployed. `.claude/settings.json` was reverted and is unchanged. No
 previous project-state section was rewritten, and the rejection history is kept
 rather than erased.
+
+## §87 — Nerses Shnorhali added as Writer #9
+
+Step 56. Content only. No portrait, no second writer, no Literary Work, no
+Cuisine, no Places, no Visit, no map, no History article, no deployment.
+
+### Pre-change state, read from source
+
+Eight writers in one order across all six files, eight cards, eight registered
+portraits, `PENDING_ARTWORK` empty, registry 44, distribution `medieval 1 /
+19th-century 3 / 20th-century 3 / soviet 1`, Tumanyan the sole featured Writer
+entity, Works 4, Cuisine 12, Places 13, History 7. Every expectation the step
+named was confirmed rather than assumed.
+
+### Archive search: he was absent, but a near-namesake was not
+
+A search across every category for *Shnorhali*, *Ներսես*, *Ներսէս*, *Կլայեցի*,
+*Hromkla*, *Հռոմկլա*, *Rumkale* and *Nerses the Graceful* returned **zero**
+occurrences of Nerses Shnorhali anywhere in the repository.
+
+It did return something that mattered more. The Narekatsi article and its
+timeline already carry **Nerses of Lambron** — the Cilician scholar who
+commissioned the illuminated 1173 copy of the Book of Lamentations now in the
+Matenadaran, and who is a `relatedFigure` there with the lifespan 1153–1198. He
+is a different man of the next generation, and an archive that gained a *second*
+medieval Nerses without saying so would have quietly created a conflation.
+The new article therefore disambiguates him explicitly in prose, and a test pins
+the disambiguation.
+
+That 1173 manuscript also turned out to be the strongest available link between
+the two medieval writers, and it is what the one authored relation rests on.
+
+### Works audit
+
+Works holds four articles and **no Shnorhali work exists**. Nothing was invented.
+Յիսուս Որդի, Ողբ Եդեսիոյ, Հաւատով խոստովանիմ and Առաւօտ լուսոյ were each
+checked against the Works registry and each is absent; a test now asserts that
+none of the obvious slugs for them exists and that the article links to none.
+
+**Future Works candidate #3: `Ողբ Եդեսիոյ` / the Lament on Edessa**, after the
+Book of Lamentations (#1) and `Հացին երգը` (#2), both of which remain ahead of it.
+Chosen against Յիսուս Որդի and Հաւատով խոստովանիմ on literary and entity grounds
+rather than devotional popularity: it is datable, it belongs to a named Armenian
+genre with its own conventions, it is public domain, and it is the one text of his
+that touches a history — the fall of Edessa in December 1144 — that non-Armenian
+readers already search for. Հաւատով խոստովանիմ is the most *popular* of the three
+and was rejected for exactly that reason: devotional reach is not literary weight.
+Not created here.
+
+### SEO methodology and what the SERP actually looks like
+
+Live searches were run in English and Armenian across biography, works, language
+and place queries. **No keyword volume, CPC or difficulty metric was available and
+none was invented.**
+
+The split the step predicted is real and stronger than expected. English results
+are dominated by church and devotional material — a Vatican News piece on his
+inscription in the Roman Martyrology, saint pages, prayer sites, a dedicated
+`shnorhali.com` prayer domain, ecumenical history — with Britannica and Wikipedia
+carrying the only substantial biography. Literary treatment in English is thin.
+Armenian results are materially different and materially better: Armenian
+Wikipedia and Wikisource carry the works, their dates and a long list of printed
+editions, and the Armenian encyclopedia entries treat him as a writer first.
+
+**Armat's differentiation** follows from that gap: a literary-first biography that
+explains the church office accurately without letting it govern, in a section
+where he sits beside Narekatsi rather than beside saints.
+
+### Names, and the epithet
+
+Canonical visible H1: **Nerses Shnorhali** in English, Ներսես Շնորհալի in Eastern
+Armenian, Ներսէս Շնորհալի in Western. Aliases — Nerses the Graceful, Nerses IV,
+Nerses IV the Gracious, Nerses Klayetsi — live in `keywords[]`. **No alias route
+was created**, and a test asserts that `/en/writers/nerses-the-graceful` and
+`/en/writers/nerses-iv` both 404.
+
+Two findings the research produced that popular summaries drop:
+
+- **His birth name is unknown.** *Nerses* is the name he took at ordination. The
+  name his whole corpus travels under was chosen in adulthood.
+- **Why *Շնորհալի* attached to him is not settled.** The word plainly means
+  graceful or full of grace, but the sources give two different explanations for
+  its application — an honorific for graduates of his school, or a description of
+  his person, speech and writing — and do not choose. The article does not choose
+  either, and does not construct an etymology beyond the word itself.
+
+### Dates, family, geography
+
+Death **13 August 1173** at Hromkla, firm. Birth **about 1102**, and deliberately
+hedged: about 1100, 1101 and 1102 all appear, with the Armenian tradition naming
+4 June 1102. No single confident birth date was manufactured, and a test pins the
+uncertainty.
+
+Family verified rather than embellished: father the prince Apirat Pahlavuni;
+elder brother the future Catholicos Gregory III; a granduncle who had been
+Catholicos Gregory II; descent from the writer-prince Grigor Magistros, on whom
+the English and Armenian sources disagree about the number of generations — the
+article says *descends from* and reports the disagreement rather than picking.
+The Pahlavuni held the catholicosate more or less continuously 1066–1203.
+Education at Karmir Vank near Kesun and Shughr under Stepanos Manuk; priest at
+about seventeen, bishop at about thirty-five.
+
+**Geography was the trap and it was handled.** He was born at the fortress of
+Tsovk, which the sources place either in Tlouk toward Cilicia or in Sophene near
+modern Elazığ — both in the upper Euphrates country, **not** in Cilicia proper.
+The catholicosate settled at Tsovk in 1125 and moved to Hromkla around 1149–51
+**under his brother**, so Nerses inherited a fixed seat rather than moving it.
+English Wikipedia's statement that he moved the see *from Sis* to Hromkla is
+backwards — the seat went to Sis only after Hromkla fell in 1292 — and the article
+does not repeat it.
+
+**The largest correction: Cilicia was a principality, not a kingdom.** The Rubenid
+lordship became a kingdom only in 1198, when Levon was crowned, twenty-five years
+after Nerses died. Calling him a poet of the Kingdom of Cilicia moves him into a
+state that did not yet exist, and the article names that error in order to refuse
+it. A test pins the refusal rather than banning the phrase, because the phrase
+appears inside the correction.
+
+### The corpus, and what is not claimed about it
+
+Grouped as narrative and historical verse, occasional poetry, long devotional
+verse, prayers and hymns, and prose. The verse history of about 1121 runs over a
+thousand lines with **every line ending on the same syllable** — a concrete,
+checkable technical fact that replaces the adjective. The Lament on Edessa dates
+to about 1145, after the city fell in December 1144. Jesus the Son to about 1152.
+I Confess with Faith is twenty-four stanzas, one per hour of the day, translated
+into more than thirty languages. Առաւօտ լուսոյ is a hymn. A Genesis commentary is
+credited to him and is lost. Riddles and short didactic verse are named as
+*attributed* rather than counted as certain.
+
+**No work count and no hymn count is given anywhere**, because the reliable
+literature supplies none: hymns by him and hymns attributed to him entered the
+Sharaknots gradually and were fully integrated only in the fourteenth century.
+The article says that, and a test asserts both the refusal and the reason.
+
+**The rhyme claim was audited and refused.** Shnorhali is popularly credited with
+introducing rhyme to Armenian poetry or inventing Armenian rhymed verse. No
+standard reference consulted makes that claim, and rhyme in Armenian verse
+predates him. The article states the refusal in terms and replaces it with the
+narrower evidenced claim — unusual ambition and consistency in the use of rhyme,
+and a tradition later poets worked in.
+
+**Language was treated as the contested thing it is.** His literary works are
+grabar. A plainer, more popular register closer to the emerging Middle Armenian
+environment appears in some minor verse, the fables and riddles among them. The
+flat claim that he *wrote in Middle Armenian*, which circulates, is named and not
+adopted. The twelfth century sits on the boundary and the article says so.
+
+### Byzantine negotiations, and the ecumenism problem
+
+Correspondence with Manuel I Komnenos from about 1165; an imperial delegation
+under Theorianos at Hromkla in 1171; nine conditions from Constantinople covering
+Chalcedon, liturgical practice, the calendar and imperial authority over future
+catholicoi; refused as too severe; unfinished at his death. Kept to one section
+and framed for a literary reason — it is where his prose is.
+
+The article names *pioneer of ecumenism* as a modern description and declines to
+adopt it, on the ground that the word carries a twentieth-century movement
+backward onto twelfth-century negotiation conducted under an emperor with
+political interests. It says so without diminishing him. No devotional
+instruction appears anywhere, and **no UNESCO claim is made**, because nothing in
+the research supported one.
+
+### Structure, and an overshoot reported rather than hidden
+
+Thirteen sections and **38 substantive paragraphs**, uniform at three paragraphs
+per section. Sections are inside the 11–13 target; paragraphs are **two over the
+30–36 target**, which is recorded here rather than trimmed away, because the
+shape is deliberate and uniform and cutting two more would have removed argument
+rather than redundancy. One paragraph *was* cut during drafting — the printing
+history in the Jesus the Son section duplicated the reception section — which took
+it from 39 to 38 and improved the article independently of the count.
+
+A literary-balance assertion is now in the suite rather than left to judgement:
+excluding the church-office and negotiation sections, more than 70 per cent of the
+prose is literary. It measures at 11 of 13 sections.
+
+### Relations
+
+**One authored relation: `grigor-narekatsi`**, carried by a SectionLink inside the
+paragraph that earns it — the claim that Narekatsi's Book of Lamentations had made
+the long first-person religious poem the great Armenian form, and that it was
+being actively copied in Shnorhali's own Cilicia in 1173. Narekatsi was **not**
+edited for reciprocity.
+
+**The Matenadaran relation was considered and refused.** No named Shnorhali
+manuscript was established by this step's research, and linking on the general
+ground that he is medieval is exactly the reflex the step warned against. Recorded
+as an open question for a later pass rather than forced now.
+
+Filler measured per locale and identical across the three.
+
+### Portrait, and the likeness policy
+
+`PENDING_ARTWORK = ["nerses-shnorhali"]`, filled for the eleventh time. Nine
+writers, eight portraits, one placeholder.
+
+**The provenance decision was made before the commission and is `imagined`.** He
+died in 1173; no contemporary likeness survives and none can. Later manuscript
+miniatures and modern church iconography exist and are evidence of how he was
+*depicted* centuries afterward in the conventions of the depicting age — not
+evidence of his face. He therefore takes the default and **no entry was added to
+`PORTRAIT_PROVENANCE`**, which is asserted by a test. Using the photo-referenced
+type here because iconography survives would be precisely the misuse that type was
+created to prevent, and §86 is one step old.
+
+The commission recorded beside the pending entry asks for a twelfth-century writer
+at work in manuscript culture in the Hromkla and Cilician intellectual
+environment, writer before office, with restrained period ecclesiastical dress. It
+refuses modern Catholicos vestments, cardinal styling, a halo, icon-copy
+composition, a fantasy castle, a printed book, any claim to facial likeness — and
+**readable lettering of any kind**, which §86 made a standing rejection condition
+after refusing a delivered file over a fabricated `LA PATRIE` broadside. A subject
+whose whole life was manuscripts is the likeliest place for invented script to
+appear.
+
+### Sources, and an honest bibliography
+
+Four entries, and the block opens by saying what it is not: this article was built
+from encyclopedia articles and from primary texts in public-domain Armenian
+editions, **not** from the specialist monographic literature. Hacikyan's *Heritage
+of Armenian Literature* Volume II covers his period and **was not consulted
+directly**; neither were the critical editions or the Armenian Studies journal
+literature. Citing them would have been dishonest, so they are named as the gap
+instead. English and Armenian Wikipedia and Armenian Wikisource are cited for what
+each actually supplied, and Britannica for orientation only. No long modern
+translation is reproduced anywhere.
+
+### Localization
+
+Genuine `hy` and `hyw` editions, not mechanical conversions. Western Armenian
+carries its own orthography and morphology throughout — Ներսէս, եւ, մօտ,
+ստեղծուած, գրուած, թուական, բանաստեղծութիւն, ԺԲ. դարու, կ՚ըսուի, -երու genitives
+— and the work titles keep their classical spellings in all three editions.
+**Flagged for native review**, on the same terms as every `hyw` article since §54.
+
+### Tests
+
+`writers.spec.ts` 26 → **33 tests**, all passing, **26.1 s** against §86's 25.8 s —
+seven new tests for essentially no runtime, because four of them are data-level.
+No timeout was raised and no `test.slow()` added. Two cross-category count
+literals moved by one, which is the whole point of their existing: `listing.spec.ts`
+(the `hyw` writers listing, 8 → 9) and `places.spec.ts` (the four-category count,
+writers 8 → 9).
+
+Full suite: **413 passed, 5 skipped, 3 failed in 5.6 m**; `npm run build` green
+afterwards, with the two never overlapping. Typecheck and `validate:content`
+green, the latter now reporting `nerses-shnorhali` as the one placeholder slug and
+174 entries against §86's 168.
+
+### Failures
+
+**Three, and all three are the known pre-existing navigation debt** — `[en]`,
+`[hy]` and `[hyw]` *desktop navigation opens each main section*, failing on the
+Works → Cuisine hop. They reproduced unchanged, they were confirmed pre-existing
+in §86 by stashing every change and running against the pristine tree, and they
+are not attributable to this step. Not fixed here, deliberately: this was a
+content step.
+
+**No new failures survived.** Four assertions went red during the step and all
+four were stale literals doing their job: writer counts hardcoded at 8 in the §84
+test, the medieval filter count in two places, and the two cross-category counts
+above. Each was corrected to the section's own list where possible rather than to
+a new literal.
+
+### Diff safety
+
+`git diff --numstat` shows **zero deletions in every content file** — the three
+`writers.ts` entity files, the three `articles/writers.ts` files, `sources.ts` and
+`media.ts` are all pure insertions. The only deletions anywhere are 22 lines in
+`writers.spec.ts`, and every one was read: they are exactly the assertions
+intentionally updated for a ninth writer. No comment block or history was lost.
+`.claude/settings.json` is untouched.
+
+### Process notes
+
+All diagnostics stayed in the session temp directory. The repository's own tracked
+`scratchpad/` was not written to, and no HTML, DOM dump or generated fragment was
+placed anywhere Tailwind's automatic content detection scans. `.next` was
+confirmed to hold production build state and removed before `next dev`; twelve
+routes were probed and all returned 200, the first at 6.9 s (cold compile) and the
+rest under 1.4 s.
+
+### Technical debt
+
+Carried forward: no Armenian Genocide article in History; no Book of Lamentations
+article; Britannica unread in full; Narekavank's demolition date uncited; the
+Narekatsi portrait's four reservations; the ARAR Varoujan–Tumanyan study
+unretrieved; the *Ցեղին սիրտը* Work question; `hyw` native review; the Places
+cold-compile runtime; the media-optimisation debt; and **the three
+`navigation.spec.ts` failures**, still undiagnosed beyond reproduction.
+
+Added here: **the specialist literature on Shnorhali is unconsulted** — Hacikyan
+Volume II, the critical editions and the Armenian Studies journal work — which is
+the largest single weakness of this article and is stated in its own bibliography;
+the Matenadaran relation is unresolved for want of a named manuscript; the article
+runs two paragraphs over the step's target; and Writers now has **six of nine**
+biographies without SEO fields, a gap that widens with each new writer built on the
+§81 architecture and still wants a dedicated maintenance pass.
+
+### No deployment
+
+Nothing was deployed. No `.claude/settings.json` change. No previous project-state
+section rewritten. No Writer #10 begun, and no portrait generated.
+
+## §88 — Nerses Shnorhali portrait: verified and registered
+
+Step 57. Artwork, provenance and registration only. No biography edit, no Writer
+#10, no Literary Work, no Cuisine, no Places, no Visit, no map, no History, no
+deployment.
+
+Numbering, per the note in §86: the corresponding `media.ts` and `writers.spec.ts`
+notes call this §87, continuing that file's sequence (§86 was the Shnorhali
+commission). This section continues *this* file's. They describe the same work.
+
+### Pre-registration state, read from source rather than assumed
+
+Nine writer articles and nine cards in each of the three editions, eight
+registered portraits, `PENDING_ARTWORK = ["nerses-shnorhali"]`. Periods
+`medieval 2 / 19th-century 3 / 20th-century 3 / soviet 1`, the two medieval
+writers being `grigor-narekatsi` and `nerses-shnorhali`. Provenance
+`grigor-narekatsi → imagined`, `daniel-varoujan → photo-referenced`. Every
+expectation §57 stated matched source exactly; no discrepancy to report.
+
+### The delivered file
+
+`public/images/writers/nerses-shnorhali.webp`, 1586×992 — the house geometry
+exactly, and the first Writers asset to arrive at it without needing a resample.
+315,886 bytes, SHA-256
+`667acdf7f65a5cd90f84bd567ec7bfa6436a8f963405b753960f13386be30de9`.
+
+Structure verified twice, by a hand-written RIFF walker and by `sharp`, and they
+agree. `RIFF` size field 315,878 (file 315,886, consistent), `WEBP` tag, then a
+single `VP8 ` chunk of 315,866 bytes at offset 12: one lossy keyframe, sync
+`9D 01 2A`, intra-chunk dimensions 1586×992 agreeing with the container. No
+`VP8X`, and therefore no ICC profile, no alpha, no EXIF, no XMP, no animation and
+no orientation tag; `sharp` independently reports `hasProfile: false`,
+`hasAlpha: false`, 3 channels, sRGB, non-progressive. The chunk walk ends at byte
+315,886, exactly EOF, with zero trailing bytes.
+
+### Provenance — decided before the picture, and unchanged by it
+
+He died in 1173. No contemporary likeness survives and none can. Later manuscript
+miniatures and modern church icons record how he was *depicted* centuries
+afterward in the conventions of the depicting age; they are not evidence of his
+face. §87 committed to `imagined` before the brief went out, and the delivery gave
+every excuse to soften that — the face is specific, dignified and plausible — and
+changed nothing.
+
+**There is deliberately no `PORTRAIT_PROVENANCE` entry for this slug.** He takes
+the default. The absence is the decision, and `writers.spec.ts` asserts it, because
+a future editor adding him "for completeness" would silently convert an invented
+face into a documented one. The rule §86 and this section establish together: the
+type is decided by what survives of the subject, not by how convincing the artwork
+looks.
+
+### Later-icon copy gate
+
+Of the six elements of the later saint-icon package the image carries exactly
+**one**: the codex held against the chest. Absent are the large halo, the frontal
+saint pose, the raised blessing hand, ornate ecclesiastical vestments and
+icon-style devotional framing. The one present element is the mildest and the most
+defensible — a manuscript author holding his own book — and the composition reads
+as a naturalistic environmental portrait with real depth of field, not a copied
+icon. Nothing in the frame implies those later miniatures preserve his face.
+
+One noted detail: a small carved devotional relief of a haloed figure hangs on the
+wall. It is room furniture, it depicts someone else, it sits left of and below his
+head rather than behind it, it creates no pseudo-halo, and it carries no
+inscription. It is the composition's single most icon-adjacent element and it
+belongs to the wall, not to him.
+
+### Writer before cleric
+
+Passes. What identifies him is the carried codex, the writing table with its open
+manuscript, inkpot and penknife, and the scriptorium setting — which resolve to
+*medieval manuscript intellectual*. Nothing in the frame says Catholicos: no
+throne, no vestment, no blessing gesture, no crozier, no pectoral cross, no halo,
+no office regalia. The robe is unornamented wool.
+
+Recorded honestly as the composition's one concession: he stands away from the
+desk holding a *closed* book rather than working at an open one, so the writer
+reading leans on the room rather than on the pose. It survives every crop tested,
+but it is a step less immediate than Narekatsi's, where the open book is the
+subject.
+
+### Comparison with Grigor Narekatsi
+
+Clearly distinct; not a clone. They share the genre — a medieval Armenian writer
+in a stone room with manuscripts — which is the section's visual language and is
+correct. They share no specific.
+
+Seated-close half-length behind a desk versus standing full-length at room scale.
+A hooded monastic cowl over a saturated burgundy under-robe versus an unhooded
+draped aubergine mantle with a tooled border over a belted charcoal robe with
+cream undersleeves. A dark, dense, square beard and shorter pushed-back hair
+versus a beard greyed through the centre and longer loose curls to the shoulders;
+a gaunter younger face versus a fuller, calmer, older one. The book open as the
+subject, filling the lower third, versus the book closed and carried, with the
+open manuscript pushed to the left margin. A broad frontal table versus a narrow
+side table seen from its corner. A rectangular window at the left onto Lake Van —
+flat blue water, snow-capped range, a shore church — versus an arcaded columned
+opening at the right onto a fortified complex on a dry rock spur. Cool high-key
+daylight and blue-green exterior contrast versus warm low-key interior light and a
+desaturated palette throughout.
+
+### Comparison with Daniel Varoujan
+
+Trivially distinct, as expected, and worth recording only because it also
+demonstrates the provenance split reads visually. Varoujan is rendered in a
+photographic register — a three-piece suit, a tall white detachable collar, a
+waistcoat and watch chain, a metal-nibbed pen, a glass inkwell, gilt-spined
+printed books, framed photographs, a curtained sash window onto the Bosphorus.
+None of it survives anywhere in the Shnorhali frame. He is unmistakably medieval.
+
+### Face, hair, hands
+
+Face coherent at 4× magnification: a mature man reading roughly late fifties to
+early sixties, matched eyes with correct catchlights, coherent nose and nostrils,
+closed mouth under the moustache, plausible skin with forehead lines and
+nasolabial folds. No melting, no duplicated features, no smoothing idealisation,
+and no beatific or upward saint gaze — the expression is restrained and turned
+off-frame. Ears are covered by hair, so none is exposed to be malformed. Age is
+recorded as a broad reading only; no likeness claim is made or possible.
+
+Hair dark and grey-streaked in natural loose curls; beard medium-length, wavy and
+greying through the centre. Not a prophet beard, not a stylised icon beard, not a
+modern cut, and visibly not Narekatsi's.
+
+Both hands inspected at 5×. The right grips the codex — five digits, the thumb
+over the cover with its nail visible, four fingers wrapping the lower edge,
+coherent knuckles, tendons and veins, no fusion with the book. The left hangs
+open at his side, five digits, correct wrist. Minor softness where the lowest
+fingers of the left hand meet the dark robe, recorded as cosmetic rather than as
+an artifact. Neither hand is raised in blessing.
+
+### Clothing
+
+Plausibly medieval and deliberately restrained: a layered unornamented robe in
+charcoal-brown, an aubergine mantle with a narrow worn tooled border, cream
+undersleeves, a plain standing collar and a cloth sash. No modern Catholicos
+vestments, no veghar presented as certain twelfth-century dress, no cardinal
+styling, no Roman cassock, no mitre, no Renaissance European bishop, no fantasy
+priest costume, no omophorion, no phelonion. Where the period record is uncertain
+the image chose simplicity, which §57 named as the safer answer.
+
+### Manuscript, and the printed-book audit
+
+The open manuscript on the desk is a handwritten codex: a thick uneven page block,
+a visible gutter, a sewn spine, wooden-and-leather boards. The carried codex has a
+worn tooled interlace panel on its cover and an irregular hand-cut fore-edge; no
+clasp, so no malformed clasp. A second closed codex sits behind, and the wall
+niche holds horizontally stacked bound codices with blank fore-edges and two
+leaning boards.
+
+No printed book appears anywhere. No machine typesetting, no uniform modern
+spines, no hardbacks, no spine lettering, no modern shelving convention. Nothing
+floats, no page geometry is impossible, no book edge is duplicated.
+
+Ornament stays subordinate: a tooled cover panel, a woven medallion on the niche
+hanging, a carved capital. Nothing becomes an overproduced Gospel-display object,
+and no decoration turns into lettering.
+
+### Text and pseudo-text sweep — the highest-priority gate
+
+The whole frame was swept at full resolution, at 1152px hero width, and at
+magnifications to **8×**, across every surface §57 names: the open manuscript, the
+carried codex, the closed codex, the niche books and boards, the niche hanging,
+the wall relief, the plaster, the desk, the desk cloth, the capital, the
+architecture, the floor carpet and every corner.
+
+**Nothing readable exists anywhere.** No Armenian, English, Latin, Greek or French;
+no date, name, title, caption, signature or watermark. Specifically none of
+`Ներսես Շնորհալի`, `Յիսուս Որդի`, `Ողբ Եդեսիոյ`, `Առաւօտ լուսոյ`,
+`Հաւատով խոստովանիմ` or `Hromkla`.
+
+The manuscript's writing is the best result this gate has had: at 8× it is
+continuous wavy ruled strokes that make no letterform and do not attempt one — no
+word gaps, no baseline discipline, no character shapes. This is a **cleaner**
+result than §83 accepted for Narekatsi, whose portrait carries both a wall placard
+with script-like lines and a full page of visible script.
+
+The strictest surface is the desk cloth's lower cartouche band. At **6×** it
+resolves into boxed stepped and hooked weaving motifs — individually framed, with
+no shared baseline, no x-height and no sequence spelling anything. It is a woven
+textile pattern, which is a legitimate decorative vocabulary, and at hero width the
+band is roughly 145px wide with ~8px motifs: unreadable texture at every rendered
+size. Recorded as the image's most text-adjacent surface, and passed.
+
+### Writing instrument — a recorded inaccuracy, not a visual failure
+
+§87's commission asked for a **reed pen**. The delivery gives cut **feather quills**
+in a pot: a Latin-West instrument where Armenian scribes used the calamus.
+
+Recorded as a historical inaccuracy rather than treated as a rejection, for three
+reasons. §57's rejection list names the fountain pen, the ballpoint, the giant
+feather-quill cliché and the physically impossible instrument, and these are none
+of those — they are modest, unbrandished studio furniture. §57 also directs that
+historical uncertainty be recorded separately from a visual failure. And they sit
+at the extreme left edge, off-subject, where the 4:3 mobile hero crop removes them
+entirely. It is the step's clearest piece of debt.
+
+### Setting, chronology and symbols
+
+A stone interior with a wall niche, a heavy hewn writing table on a turned
+baluster leg, and an arcaded columned opening onto a fortified complex on a rock
+spur: an Armenian church with a conical drum-dome and narrow arched windows inside
+crenellated curtain walls, dry mountains behind. Evocative of a fortress-monastery
+above a river without claiming to reconstruct Hromkla. No Gothic tracery, no
+Renaissance palace, no Russian dome, no fantasy castle, no modern Armenian church,
+no royal court. Furniture is medieval hewn wood: no office desk, no Victorian
+writing slope, no drawer pulls, no modern chair.
+
+Political chronology clean. He died 25 years before the kingdom of 1198 and the
+frame contains no coronation, no king, no crown, no banner and no royal framing —
+the scene is scholarly and clerical throughout. No siege, no burning city, no
+weapon, no battle, no corpse: the Lament on Edessa belongs to the article. No
+Manuel I Komnenos, no Byzantine delegation, no council, no staged union debate.
+
+Religious symbols stay small and period-plausible: a modest ornamental cross woven
+into the niche hanging at chest height, and a cross finial on the distant dome.
+Neither is behind his head, neither glows, and there is no giant cross, no saint
+inscription and no icon border. Armenian identity arises through manuscript
+culture, architecture and setting — no flag, no map, no Ararat backdrop, no
+khachkar, no floating alphabet, no coat of arms.
+
+Lighting is natural interior daylight with no supernatural ray, no glowing
+manuscript and no aura. Palette is warm stone, aged parchment, charcoal,
+desaturated aubergine and cream, with small worn gilt on the mantle border — no
+saturated icon blue, no gold field, no devotional red, no orange-and-teal grade.
+
+### AI-artifact audit
+
+No serious structural artifact. Face, both hands, both books, the clothing folds
+and seams, the stone courses, the arch and capital geometry, the desk edges and
+legs and the object shadows are all coherent under magnification. The background
+masonry courses run correctly and the crenellations are regular. Recorded as minor
+and cosmetic: softness where the left hand's lowest fingers meet the dark robe,
+and depth-of-field softness in the background, which is correct rendering rather
+than a defect.
+
+### Crops and thumbnail
+
+`PORTRAIT_FOCUS` was read from source rather than assumed: `object-[38%_28%]`,
+applied by `WriterCard`, `SearchResultCard` and the portrait variant of
+`FeaturedItem`; article heroes crop centred. **No slug-specific focus was added**,
+because the generic behaviour does not fail.
+
+Measured on the delivered 1586×992, source rectangles computed from the
+`object-cover` geometry:
+
+- **Hero 4:3 (mobile)** — 16.6% trimmed horizontally, x 132–1455. Face, codex,
+  desk, open manuscript, inkpot, niche, relief and arch all survive. The quills at
+  the extreme left are removed.
+- **Hero 3:2 (tablet)** — 6.2% trimmed, x 49–1537. Effectively the whole scene.
+- **Hero 16:9 (desktop)** — 10.1% trimmed vertically, y 50–942. Everything survives
+  horizontally. Headroom is tight: the crown of his head reaches the frame edge.
+  Complete, not clipped, and not worth a slug-specific `object-position`.
+- **Writer card 4:3** — 16.6% trimmed, x 100–1423. Face, codex and manuscript
+  survive.
+- **Featured 16:10** — 0.1% trimmed. Effectively the full frame.
+- **Search thumb 128×130** — 38.4% trimmed, x 232–1209.
+- **Search thumb 160×130** — 23.0% trimmed, x 139–1360.
+- **Writer card horizontal strip 160×210** — 52.3% trimmed, x 315–1071, the
+  tightest slot in the archive.
+
+Thumbnails were rendered at true pixel size and inspected. At 128px, 160px and in
+the 52%-trimmed strip the image reads as **a medieval scholar with a book beside a
+writing desk** — not a generic priest, not a saint icon, not a fantasy monk. The
+carried codex and the desk edge with its open manuscript both survive every slot,
+which is what prevents the generic-priest reading, and no halo, blessing or
+vestment ornament exists to push it the other way. The strip crop is in fact the
+strongest for writer identity, because the codex is largest there.
+
+### Registration and surfaces
+
+`media.ts` gains one registry line and one `§87` note; `PENDING_ARTWORK` is empty
+again, with a `§87` note replacing the commission. **`PENDING_ARTWORK` is now empty
+archive-wide**, and for the first time that sentence covers all nine Writers as
+well as every other section. No article-level `image` field was added and no
+Shnorhali-specific rendering logic exists anywhere.
+
+Verified live in all three editions: hero is his raster with no placeholder SVG,
+alt is localized, and the caption is the **imagined-likeness** string exactly —
+`AI-generated portrait of Nerses Shnorhali — an imagined likeness, not a real
+photograph.` in English, with the `hy` and `hyw` equivalents — and explicitly not
+the photo-referenced caption, not the scene caption and not the placeholder
+disclosure. `Article.image` is an `ImageObject` at his file, `og:image` and
+`twitter:image` both point at it, and each of the three locale URL blocks in
+`sitemap.xml` carries his own `image:loc`, checked per block rather than by a
+global count. Search returns his own portrait, scoped by canonical href. The
+Writers listing shows nine cards and **zero placeholders**. Schema stays generic
+`Article`; no `Person` or `VisualArtwork` was introduced.
+
+### Regressions
+
+Varoujan unchanged: same file, still `photo-referenced`, still receiving the
+historical-photograph caption. Narekatsi unchanged: same file, still `imagined`.
+Both medieval writers now share the `imagined` type while remaining visually
+distinct, which is the case the comparison above exists to prove. The other six
+portraits, all nine biographies, the period assignments, the authored
+`grigor-narekatsi` relation with its SectionLink, the filler measurements, and
+Tumanyan's status as sole featured Writer entity are all untouched. Works 4,
+Cuisine 12, Places 13, History 7 — unchanged, and absent from the functional diff.
+No `lament-on-edessa` or other Shnorhali Work was created; the future ordering
+stands at #1 Book of Lamentations, #2 Հացին երգը, #3 Ողբ Եդեսիոյ. The Matenadaran
+relation was not added merely because the portrait contains manuscripts.
+
+### Tests
+
+`writers.spec.ts` stays at **33 tests**. The §86 pending test was inverted into a
+§87 registration test rather than added alongside it, which is the same trade §83
+and §86 made. Runtime **34.6 s warm** (38.3 s from cold), up from 26.1 s in §87.
+No timeout was raised and no `test.slow()` added; the increase is attributable to
+the section now serving nine raster portraits where one slot was an inline
+placeholder SVG.
+
+The new test asserts registration, absence from pending, `PENDING_ARTWORK` empty,
+nine distinct portraits, `ILLUSTRATED.length === SLUGS.length`, the imagined
+provenance at the data level, the imagined caption by exact equality in all three
+editions with the other three captions explicitly refused, no borrowed portrait,
+`Article.image`, OG, Twitter, per-locale sitemap `image:loc`, and a listing with
+nine cards and no placeholder.
+
+`places.spec.ts` gains the slug in the archive-wide registry snapshot, which is
+the third Writers registration to turn that literal red and is exactly the
+maintenance that shape asks for.
+
+### Failures encountered
+
+Reported plainly, because both look like environment rather than code.
+
+The first full suite run gave **416 tests: 415 passed, 5 skipped, 1 failed** — 
+`article.spec.ts:37 the hero caption names the AI provenance, per category`, which
+failed with `header figcaption` *element not found* on the first hit of
+`/hy/writers/hovhannes-tumanyan`. That page is untouched by this step. Re-run in
+isolation the file passed 15/15, and the second full suite run passed it.
+
+The **three `navigation.spec.ts` failures §87 recorded as pre-existing debt**
+(`[en]`/`[hy]`/`[hyw]` *desktop navigation opens each main section*, the Works →
+Cuisine hop) **did not reproduce** in either full run of this step. They passed.
+This is recorded as an observation, not as a fix: nothing here touched navigation,
+and the honest reading of both this and the `article.spec.ts` failure is a
+dev-server compile race under parallel load rather than a resolved defect. The
+debt should be treated as open until it is understood.
+
+Second full suite run: **416 passed, 5 skipped, 0 failed, 5.4 m** — the suite is
+fully green for the first time in three steps.
+
+Four assertions went red during the step and all four were stale literals doing
+their job: the writer-count and medieval-count expectations moving to nine and two,
+the `hyw` listing count, and the four-category count in `places.spec.ts`. Each was
+corrected to the section's own list where possible rather than to a new literal.
+
+`npm run typecheck` clean. `npm run validate:content` clean at **174 entries**, and
+it no longer reports a placeholder slug. `npm run build` exit 0, `BUILD_ID`
+`ag32cEV_mKKV0FY9pqLPr`, **27 writer paths** (9 × 3), run after Playwright with no
+overlap.
+
+### Process notes, including one mistake
+
+`.next` held a production `BUILD_ID` from §87 and a server was live on port 3000.
+The server was stopped, `.next` removed, a clean dev server started, and twelve
+representative routes probed — the three Shnorhali locales, Narekatsi, Varoujan,
+the Writers listing, a Work, a dish, a Place, a History article, Visit and the
+sitemap — all **200** before Playwright ran. Playwright then managed its own
+server, so the manual one was stopped first rather than left to collide with it.
+
+**A mistake worth recording.** A first splice into `media.ts` used
+`indexOf("[")` to find the array opening and matched the `[` in `readonly
+string[]` instead, corrupting the declaration. The repair used
+`git checkout -- src/lib/media.ts`, which reverted the file to `HEAD` and so also
+discarded §87's uncommitted commission block. The end state is unaffected — Step 57
+was going to delete exactly that block — and the commission is preserved in §87 of
+this file, which is why nothing was reconstructed. But the `media.ts` diff now runs
+from §86 straight to §88 with no intermediate, and a narrower revert would have been
+the correct instrument. The lesson is the same one §61 recorded in a different form:
+`git checkout --` is not an undo for the last edit, it is an undo for the whole
+working-tree state of that file.
+
+No rendered HTML, DOM dump or debug fragment was written into the repository. All
+diagnostic output — crops, contact sheets, magnifications, logs, test transcripts —
+went to the external temp scratchpad. The tracked `scratchpad/` directory is clean,
+`test-results/` is gitignored and empty, and the only untracked file in the repo is
+the intended WebP. No `.claude/settings.json` change.
+
+### Diff safety
+
+**Zero deletions in every source file.** `media.ts` is +112/−0, and the six locale
+content files, `sources.ts` and `PROJECT_STATE.md` are untouched by this step
+beyond this section. Every deletion in the working tree is in the three spec files
+— 24 in `writers.spec.ts`, 3 in `places.spec.ts`, 5 in `listing.spec.ts` — and each
+was read individually. They are exactly the count assertions and their comments
+moving eight to nine, medieval one to two, and the pending list to empty. No
+historical comment block was lost.
+
+### Technical debt
+
+- The feather quills, above: the one point where the delivery departs from its
+  commission and from Armenian scribal practice.
+- The 16:9 desktop hero's headroom is tight; deliberately not corrected with a
+  slug-specific `object-position`.
+- The standing pose with a closed codex makes the writer reading slightly less
+  immediate than Narekatsi's.
+- The small devotional wall relief is the composition's most icon-adjacent
+  element; passed as room furniture, recorded as a judgement call.
+- The `navigation.spec.ts` Works → Cuisine failures remain **open**, not fixed,
+  despite passing twice here.
+- The specialist literature on Shnorhali remains unconsulted, as §87's bibliography
+  states; unchanged by this step.
+- Six of nine Writers biographies still lack SEO fields.
+
+### No deployment
+
+Nothing was deployed. No `.claude/settings.json` change. No previous project-state
+section rewritten. No Writer #10 begun, no Literary Work created, and no Cuisine,
+Places, Visit, map or History change made.
