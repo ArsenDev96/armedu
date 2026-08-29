@@ -18775,3 +18775,285 @@ each time a new writer is added with them.
 
 Nothing was deployed. No `.claude/settings.json` change. No previous
 project-state section rewritten.
+
+## §86 — Daniel Varoujan portrait: rejected, corrected, re-verified and registered
+
+Steps 55, 55A and 55B. Artwork and provenance only. No biography edit, no Writer
+#9, no Literary Work, no Cuisine, no Places, no Visit, no map, no deployment.
+
+Numbering note, because this section is the first to need it: `media.ts` and this
+file have drifted by one and the drift is pre-existing. The registration note in
+`media.ts` calls itself §85 and continues that file's own sequence (§81 Narekatsi
+commission, §82 Narekatsi registration, §84 Varoujan commission); this section
+continues *this* file's (§81, §83, §85). They describe the same work.
+
+### The shape of the step, recorded honestly
+
+    first asset verified  -> passed every gate except text
+    REJECTED              -> readable generated lettering
+    corrected in place    -> two background regions only
+    re-verified           -> independently, from the delivered file
+    registered            -> with a new provenance type
+
+The rejection is the part worth keeping. It is the first asset this archive has
+refused, and §82's Narekatsi note had already named the exact trigger a step
+earlier: it accepted that file's pseudo-script *only* because nothing in it was
+readable, and said in terms that a future portrait putting invented script under
+better light was the point to refuse. That is what happened.
+
+### Pre-registration state, read from source rather than assumed
+
+Eight writer articles and eight cards in all three editions, seven registered
+portraits, one placeholder, `PENDING_ARTWORK` exactly `["daniel-varoujan"]`,
+`Article.image` absent, OG and Twitter on the fallback, no sitemap image, registry
+43 entries. Distribution `medieval 1 / 19th-century 3 / 20th-century 3 / soviet 1`.
+Tumanyan the sole featured **Writer entity** — a point that needed checking twice,
+because the *articles* for Tumanyan and Charents both carry `featured: true` while
+`writers/page.tsx` selects from the Writer entity, where only Tumanyan does. Both
+readings were measured; the page's is the one that matters and it was correct.
+
+### Why the first asset was refused
+
+It passed likeness, hair, moustache, age, face artifacts, hands, clothing, writer
+identity, literary props, historical setting, lighting, palette, crops and
+thumbnail. It failed the text gate on two regions:
+
+- **Wall broadside**, top right, the brightest area of the frame: `ԼԱ ՊԱՏՐԻԻ`
+  over `LA PATRIE` over three lines of bold pseudo-Armenian over
+  `Constantinople, 1913`. `ԼԱ ՊԱՏՐԻԻ` is a French phrase spelled in Armenian
+  letters and is not an Armenian word; the Armenian for homeland is Հայրենիք.
+- **Desk newspaper**: a `MASSIS` masthead. Մասիս was a real Constantinople
+  Armenian periodical, so this fabricated a front page of a real publication.
+
+Fake Armenian, fake French, a fabricated imprint and a real newspaper's name —
+all four of the things the step forbade, at display size, legible on the article
+hero without magnification. A beautiful but wrong picture is still wrong.
+
+### The correction, and why it was not a regeneration
+
+Regenerating would have discarded a likeness verified against three lifetime
+photographs in order to fix two background rectangles. Instead the ink was removed
+and the paper reconstructed: a grayscale morphological closing estimates what the
+sheet looks like with the lettering gone, and a mask fires only where the original
+is markedly darker than that estimate, so real paper texture, tone and lighting
+survive and only ink pixels are replaced. Staged thresholds took the bold display
+type first and the fainter blocks after; a geometric guard kept the newspaper pass
+inside the paper so the page's diagonal silhouette was not eaten.
+
+**The claim that matters is measured, not asserted.** A pixel diff against the
+original found exactly two changed clusters — `(1248,0)-(1503,287)` and
+`(32,640)-(255,767)`, 4.20 per cent of the frame — and six protected zones came
+back **byte-identical**: face and head, raised hand, torso and suit, window and
+Galata, desk and manuscripts, framed photograph. The likeness was not touched.
+
+Two bugs were found and fixed in the correction tooling itself: a blur whose
+column pass bounds-checked against width instead of height, producing NaN and
+black bars; and a first newspaper pass that ate the page edge before the guard
+was added. Both are recorded because green output is not proof of correct code.
+
+### The delivered file
+
+    geometry   1586 x 992    ratio 1.5988   (house geometry, zero drift)
+    bytes      153,012
+    sha256     592a3aeae369b0e82382c4d1835d3033bf181b0311345a8c91501b4377efe05f
+    rejected   7fa087b7d29b600ba2576b4e4a9c26f19158ed0e86346e58e3b07fe76dd2664b
+
+Plain `RIFF/WEBP` -> `VP8 `: one lossy keyframe, sync `9D 01 2A`, no `VP8X` and
+therefore no ICC, alpha, EXIF, XMP or animation, no orientation tag, RIFF size
+agreeing with file length, chunk walk ending exactly at EOF with no trailing
+bytes. Verified twice, by a hand-written RIFF walk and by `sharp`, agreeing on
+every field, and re-verified independently in 55B from the installed file.
+
+The geometry was reached by a uniform 1.00126x resample of the corrected
+1584x993 and a two-row trim — no axis stretched independently. That retires the
+drift the first asset carried (1584x993 was a *third* geometry in a section of
+1586x992 and Narekatsi's 1585x992). Re-encode fidelity in the face measured
+43.1 dB PSNR, MAE 1.18, max channel error 14, against the lossless intermediate;
+q86 and q94 were measured too and q90 chosen. At 149 KB it is unremarkable in a
+section running 85 KB to 366 KB.
+
+### Re-verification of the correction
+
+The wall sheet is blank aged paper with foxing — no lettering at 1152 px hero
+width, at 2x, or at full resolution — and it does not read as patched: no
+rectangular boundary, no repeated texture, no hard edge. `MASSIS` is gone with
+nothing substituted; the engraved plate below it and the page's silhouette are
+intact. A four-quadrant sweep at 2x plus a full-frame pass at hero width found no
+readable Armenian, French or English, no masthead, title, place, date, signature
+or watermark anywhere.
+
+What remains, and remains deliberately: worn gilt marks on the book spines and
+unreadable cursive on the manuscript pages. Neither resolves into a word at any
+rendered size, and correcting the spines was optional. Two retouch artifacts were
+classified rather than waved through — a small soft mark at the newspaper's top
+corner (the paper's own torn corner, mildly softened; invisible at rendered size)
+and faint tonal banding on the broadside where the text lines were (reads as
+foxing at 2x, invisible at hero width). Both **harmless**, neither a blocker.
+
+### Likeness, re-checked after the geometry conversion
+
+Compared again against the 1913 Constantinople studio portrait and the standing
+portrait against a pilaster, with the photograph filed under his birth surname as
+a third point of convergence. Hairline, side part, forehead, eyes, nose, jaw,
+chin, moustache, face length and age all hold; the raised-finger three-quarter
+pose is a direct quote of two of the references rather than an invention. No
+resampling softness, no ringing at the hair or face edge. **PASS — recognizable
+Daniel Varoujan likeness.** At 128 px and 160 px it still reads as him, and with
+the lettered broadside gone the thumbnail is cleaner than before, not less
+identifiable.
+
+### Crops, recomputed on the final geometry
+
+    hero 4:3        1323x992 @(132,0)   16.6% X
+    hero 3:2        1488x992 @(49,0)     6.2% X
+    hero 16:9       1586x892 @(0,50)    10.1% Y
+    card 4:3 focus  1323x992 @(100,0)   16.6% X
+    featured 16:10  1586x991 @(0,0)      0.1% Y
+    search thumb     794x992 @(301,0)   49.9% X
+
+Face, hair, moustache and upper suit survive every slot. No `object-position` was
+added; `PORTRAIT_FOCUS` is unchanged.
+
+### Provenance — the one architectural change
+
+Before this step provenance was category-wide: `ARTWORK_PROVENANCE` as a single
+flat const, and `ArticleLayout` branching on `category === "writers"` to pick an
+imagined-*portrait* caption over an imagined-*scene* one. There was no per-subject
+distinction, so registering Varoujan under it would have captioned him **"an
+imagined likeness"** — false, because photographs of him survive and the artwork
+was made from them. §84 raised this and deferred it here; this is the answer.
+
+`PORTRAIT_PROVENANCE` in `lib/media.ts` is a slug-keyed map with
+`getPortraitProvenance(slug)` returning `"imagined" | "photo-referenced"`. It
+holds one entry. **The default is `imagined`, deliberately** — the more cautious
+claim, which never asserts a photographic basis the repository has not recorded.
+Several modern writers here were certainly photographed and their portraits may
+well have been made with those photographs in view, but this archive never
+recorded that, and inferring it now would be inventing provenance rather than
+reporting it. Rendering asks the map by slug; there is no name test anywhere.
+
+A third caption string was added in all three editions:
+
+- **en** — "AI-generated portrait of {title}, based on surviving historical
+  photographs — not a real photograph."
+- **hy** — "{title}-ի արհեստական բանականությամբ ստեղծված դիմանկար՝ հիմնված
+  պահպանված պատմական լուսանկարների վրա — ոչ թե իրական լուսանկար։"
+- **hyw** — "{title}-ի արհեստական բանականութեամբ ստեղծուած դիմանկար՝ հիմնուած
+  պահպանուած պատմական լուսանկարներու վրայ — ոչ թէ իրական լուսանկար։"
+
+The Western Armenian is written in Western orthography and morphology
+(`ստեղծուած`, `բանականութեամբ`, `հիմնուած`, `պահպանուած`, `լուսանկարներու վրայ`,
+`ոչ թէ`), matching the existing `hyw` strings rather than transliterating the
+Eastern one. Both portrait captions still say AI-generated and still refuse the
+photograph; that is asserted per edition by a test.
+
+Narekatsi keeps the imagined-likeness caption and is asserted never to receive
+the photo-referenced one — for him that would be a false historical claim, not
+merely the wrong wording. Scene artwork is untouched in every edition.
+
+### Registration and surfaces
+
+Registry 43 -> 44, writer portraits 7 -> 8, `PENDING_ARTWORK` -> `[]`. Eight
+articles, eight cards, eight portraits, **zero placeholders** in all three
+editions. All eight portrait paths distinct. Heroes in en/hy/hyw serve the exact
+file with localized alt and the photo-referenced caption, no placeholder SVG and
+no placeholder disclosure. `Article.image` is an `ImageObject` pointing at the
+file; the graph is still a plain `Article` with no `Person`, `VisualArtwork` or
+`Book` node added. OG and Twitter both point at the portrait rather than
+`og-default.png`. The sitemap carries his `image:loc` in each locale's own `<url>`
+block, checked per block rather than by global count. Search shows his own
+portrait under `Daniel Varoujan`, `Daniel Varujan` and `Taniel Varoujan`, scoped
+by canonical href. `20th-century` still returns three, `medieval` still returns
+Narekatsi alone, Tumanyan is still the sole featured Writer entity.
+
+### Regressions
+
+Biography untouched — the Step 54 content, its 44 paragraphs, SEO fields, name
+variants, dates, geography, chronology, four collections, `ցեղ` treatment, Pagan
+Songs framing, Western Armenian section, Mehean, the 24 April and 26 August
+separation and its non-graphic proportion, sources and translations all stand.
+Relations still `["hovhannes-tumanyan", "yeghishe-charents"]` with both
+SectionLinks; Tumanyan and Charents were not edited for reciprocity. No Siamanto,
+no `the-song-of-the-bread`, no Writer #9. Narekatsi's portrait, metadata,
+relations, period and caption unchanged. The other six writers unchanged. Works 4,
+Cuisine 12, Places 13, History 7. Places, Visit and the map absent from the diff.
+
+### Tests
+
+`writers.spec.ts` 25 -> 26 tests, all passing, **25.8 s** against Step 54's
+~49.8 s — faster because the earlier figure included cold compilation, not
+because anything was removed. Longest test 15.6 s. No timeout was raised and no
+`test.slow()` added. The §84 pending test was *inverted* rather than deleted,
+following the convention `places.spec.ts` has used repeatedly; the new provenance
+test is data-level and costs 19 ms, because rendering the same map in a browser
+three times would assert nothing the caption assertions already cover.
+`places.spec.ts` gained the one intentional line in the archive-wide registry
+snapshot — the check that exists precisely to go red when a registration lands.
+
+Full suite: **406 passed, 5 skipped, 3 failed in 4.6 m**; `npm run build` green
+afterwards, with the two never overlapping. Typecheck and `validate:content`
+green, the latter no longer reporting a placeholder slug.
+
+### Failures encountered
+
+**Three, all pre-existing and none caused by this step.**
+`navigation.spec.ts` fails in all three editions on the last hop of *desktop
+navigation opens each main section*: after reaching `/works`, clicking the
+Cuisine link leaves the URL at `/works`. It reproduces in isolation, so it is not
+a parallel-load flake, and it was confirmed pre-existing by stashing every change
+in this step and running it against the pristine tree, where it fails identically.
+Left unfixed as out of scope and recorded as debt.
+
+One process incident: the harness auto-appended session-specific permission
+entries to `.claude/settings.json` while running a shell loop. That file is not to
+be modified by this step, so it was reverted with `git checkout` and the final
+diff does not contain it.
+
+### Diff safety
+
+`media.ts` shows 135 insertions and 54 deletions, and **every one of the 54
+deleted lines was read**: they are exactly the §84 commission block and the
+`"daniel-varoujan",` pending entry, replaced by the shorter §85 emptied note per
+this file's own convention. No unrelated commentary or history was destroyed —
+the §82, §80 and §78 notes and every registry note are intact. One self-inflicted
+error was caught this way: the first pending-block edit dropped the opening `/*`
+of the following §82 comment and was repaired before anything else ran.
+
+### Process notes
+
+The repository has its **own** `scratchpad/` directory, tracked and containing
+pre-existing project files, and Tailwind v4 here uses automatic content detection
+with no explicit `@source` — so the project directory is scanned. All diagnostics
+for this step were written to the session temp directory outside the repository,
+and the rejected original is preserved there rather than in the tree. `.next` was
+confirmed to hold **production build state** (a `BUILD_ID` was present) and was
+removed before `next dev`; eleven routes were then probed and all returned 200,
+the first at 7.6 s (cold compile) and the rest under 1.4 s. The asset served at
+exactly 153,012 bytes.
+
+### Technical debt
+
+Carried forward: no Armenian Genocide article in History; no Book of Lamentations
+article; medieval coverage one author deep; Britannica unread; Narekavank's
+demolition date uncited; the Narekatsi portrait's four recorded reservations; the
+ARAR Varoujan–Tumanyan study unretrieved; the *Ցեղին սիրտը* Work question
+unanswered; the `hyw` edition needing native review; six of eight Writers still
+without SEO fields; the Places cold-compile runtime; the media-optimisation debt.
+
+Resolved here: the provenance-caption question for photographed subjects, open
+since §85, is answered and implemented.
+
+Added here: **`navigation.spec.ts` fails in all three editions** on the
+works-to-cuisine hop, pre-existing and undiagnosed beyond reproduction. The
+newspaper's blank upper page is the correction's one visible compromise — it
+reads as a faded sheet rather than as print. The broadside's engraved vignette
+was removed along with the lettering rather than preserved, which was a judgement
+call and is reversible only by a new asset. And `PORTRAIT_PROVENANCE` holds one
+entry against seven defaults, several of which are probably photo-referenced in
+fact; establishing that for the modern writers is real work nobody has done.
+
+### No deployment
+
+Nothing was deployed. `.claude/settings.json` was reverted and is unchanged. No
+previous project-state section was rewritten, and the rejection history is kept
+rather than erased.

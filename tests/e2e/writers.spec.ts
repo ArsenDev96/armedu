@@ -1,5 +1,5 @@
 import { expect, test, type Page } from "@playwright/test";
-import { PENDING_ARTWORK, getImageSrc } from "@/lib/media";
+import { PENDING_ARTWORK, getImageSrc, getPortraitProvenance } from "@/lib/media";
 import { getSources } from "@/data/sources";
 import { LOCALES, articleTitle, bundle, cards, ui } from "./helpers";
 
@@ -63,17 +63,22 @@ const ILLUSTRATED = [
   ABOVYAN,
   "paruyr-sevak",
   NAREKATSI,
+  VAROUJAN,
 ] as const;
 
 /**
  * The writers still waiting for one. Derived from nothing — stated.
  *
- * §82 emptied it and §84 refilled it, which is the pattern every other section
- * in this archive has followed: an article lands, its picture follows a step
- * later. Keeping the constant through the empty phase is what made refilling it
- * a one-line edit rather than a rediscovery.
+ * §82 emptied it, §84 refilled it and §85 emptied it again, which is the pattern
+ * every other section in this archive has followed: an article lands, its picture
+ * follows a step later. Keeping the constant through the empty phase is what made
+ * refilling it a one-line edit rather than a rediscovery, so it stays at `[]`
+ * rather than being deleted.
+ *
+ * With §85 `ILLUSTRATED` and `SLUGS` are the same set again for the first time
+ * since §81 — eight writers, eight portraits, no placeholder in the section.
  */
-const PENDING: readonly string[] = [VAROUJAN];
+const PENDING: readonly string[] = [];
 
 /** Where each writer's portrait must live, spelled out rather than templated. */
 const PORTRAIT: Record<string, string> = {
@@ -84,6 +89,7 @@ const PORTRAIT: Record<string, string> = {
   "khachatur-abovyan": "/images/writers/khachatur-abovyan.webp",
   "paruyr-sevak": "/images/writers/paruyr-sevak.webp",
   "grigor-narekatsi": "/images/writers/grigor-narekatsi.webp",
+  "daniel-varoujan": "/images/writers/daniel-varoujan.webp",
 };
 
 const escapeRe = (value: string) => value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -641,16 +647,17 @@ test("Narekatsi's portrait is registered, exact, and borrowed from nobody", asyn
   );
   expect(PENDING_ARTWORK, "and is no longer pending").not.toContain(NAREKATSI);
   /*
-    §84 changes what this can claim. `PENDING_ARTWORK` is archive-wide and now
-    carries Varoujan, so the assertion narrows from "nothing is pending" to the
-    thing this test is actually about: Narekatsi is not on it, and whatever is on
-    it is not his file. Narrowed, not deleted — the same correction
-    `cuisine.spec.ts` made at §81 when a Writer first appeared on that list.
+    §84 narrowed this from "nothing is pending" to "Narekatsi is not pending",
+    because `PENDING_ARTWORK` is archive-wide and had just gained Varoujan. §85
+    registered him and emptied it again, so the broad form is true once more — but
+    the narrow assertion above is what this test is actually about and stays.
+    The list is compared to the stated constant rather than to a literal, so the
+    next refill needs one edit here and not two.
   */
-  expect(PENDING, "the stated pending list is Varoujan alone").toEqual([VAROUJAN]);
+  expect(PENDING, "the stated pending list is empty again").toEqual([]);
   expect([...PENDING_ARTWORK], "and matches the registry's own list").toEqual([...PENDING]);
 
-  // All seven portraits resolve, each to its own file, and the six that existed
+  // All eight portraits resolve, each to its own file, and the six that existed
   // before §82 are untouched.
   for (const slug of ILLUSTRATED) {
     expect(getImageSrc(slug), `${slug} portrait exact`).toBe(PORTRAIT[slug]);
@@ -699,6 +706,17 @@ test("Narekatsi's portrait is registered, exact, and borrowed from nobody", asyn
     );
     await expect(caption, `${locale} no placeholder disclosure`).not.toHaveText(
       dict.article.imagePlaceholderCaption.replace("{title}", articleTitle(locale, NAREKATSI)),
+    );
+    /*
+      §85 added a third caption for portraits drawn from surviving photographs,
+      and this is the assertion that keeps it away from him. Nobody has seen
+      Narekatsi — he died around 1003 — so a caption claiming a photographic basis
+      would be a false historical claim, not merely the wrong wording. The comment
+      above still holds for the *other* half: no Writers-specific provenance was
+      added for him, and he takes the default.
+    */
+    await expect(caption, `${locale} claims no photographic basis`).not.toHaveText(
+      dict.article.imageAiPhotoPortraitCaption.replace("{title}", articleTitle(locale, NAREKATSI)),
     );
 
     // No other writer's file appears in the hero, Abovyan included.
@@ -1238,36 +1256,83 @@ test("Varoujan carries localized SEO fields and is findable under his variants",
   }
 });
 
-test("Varoujan is waiting for a portrait, and borrows nobody else's", async ({ page }) => {
+test("Varoujan's portrait is registered, exact, and borrowed from nobody", async ({ page }) => {
   /*
-    §84, and the mirror of §82 run the other way: the same surfaces, asserted in
-    their pre-registration form so the registration pass has something to invert.
-  */
-  expect(getImageSrc(VAROUJAN), "no registered portrait").toBeUndefined();
-  expect(PENDING_ARTWORK, "recorded as pending").toContain(VAROUJAN);
-  expect([...PENDING_ARTWORK], "and is the only pending slug archive-wide").toEqual([VAROUJAN]);
+    §85, and the inversion of the §84 test this replaces — registry absent ->
+    present, pending -> empty, placeholder SVG -> raster, fallback OG -> his file,
+    no sitemap image -> his own. Same shape as the §82 Narekatsi inversion above,
+    because it is the same transition.
 
-  // The seven existing portraits are untouched.
+    What is different, and why this file gained a caption assertion §82 did not
+    need: the first file delivered for this slug was **rejected**. It passed
+    likeness, dress, hands, setting and crops and failed the text gate — it
+    carried a readable `LA PATRIE` broadside and a `MASSIS` masthead, fabricating
+    a periodical front page and an imprint. It was corrected in place rather than
+    regenerated, so the likeness these tests stand on is the one that was verified
+    against three lifetime photographs. Nothing here can see that history; it is
+    recorded in `media.ts` beside the file, and the only part of it with a runtime
+    consequence is the provenance caption asserted below.
+  */
+  expect(getImageSrc(VAROUJAN), "Varoujan has a registered portrait").toBe(
+    "/images/writers/daniel-varoujan.webp",
+  );
+  expect(PENDING_ARTWORK, "and is no longer pending").not.toContain(VAROUJAN);
+  expect([...PENDING_ARTWORK], "the archive has nothing pending").toEqual([]);
+
+  // Eight writers, eight portraits, each its own file, and none of the seven
+  // that existed before §85 moved.
   for (const slug of ILLUSTRATED) {
-    expect(getImageSrc(slug), `${slug} portrait unchanged`).toBe(PORTRAIT[slug]);
+    expect(getImageSrc(slug), `${slug} portrait exact`).toBe(PORTRAIT[slug]);
   }
+  expect(
+    new Set(ILLUSTRATED.map((s) => getImageSrc(s))).size,
+    "every registered portrait is distinct",
+  ).toBe(ILLUSTRATED.length);
+  expect(ILLUSTRATED.length, "every writer is illustrated").toBe(SLUGS.length);
 
   for (const locale of LOCALES) {
     const dict = ui(locale);
     await page.goto(`/${locale}/writers/${VAROUJAN}`);
 
     const figure = page.locator("header figure");
-    await expect(figure.locator("svg[role='img']"), `${locale} placeholder`).toHaveCount(1);
-    await expect(figure.locator("img"), `${locale} no raster`).toHaveCount(0);
+    await expect(figure.locator("svg[role='img']"), `${locale} no placeholder`).toHaveCount(0);
+    const hero = figure.locator("img");
+    await expect(hero, `${locale} hero raster`).toHaveCount(1);
+    await expect(hero, `${locale} hero is his portrait`).toHaveAttribute(
+      "src",
+      /daniel-varoujan\.webp/,
+    );
+    await expect(hero, `${locale} localized alt`).toHaveAttribute(
+      "alt",
+      dict.article.imageAlt.replace("{title}", articleTitle(locale, VAROUJAN)),
+    );
 
+    /*
+      The disclosure, and the one place where this registration is not just §82
+      run again. Photographs of Varoujan survive and the artwork was made from
+      them, so the imagined-likeness caption every other portrait here takes would
+      be *false* for him — it would claim an invented face for a man who was
+      photographed. He therefore takes the third caption, which has to carry both
+      halves: AI-generated and not a photograph, but not invented either.
+    */
     const caption = figure.locator("figcaption");
-    await expect(caption, `${locale} not claiming AI portrait provenance`).not.toHaveText(
+    await expect(caption, `${locale} photo-referenced provenance`).toHaveText(
+      dict.article.imageAiPhotoPortraitCaption.replace("{title}", articleTitle(locale, VAROUJAN)),
+    );
+    await expect(caption, `${locale} not the imagined-likeness caption`).not.toHaveText(
       dict.article.imageAiPortraitCaption.replace("{title}", articleTitle(locale, VAROUJAN)),
+    );
+    await expect(caption, `${locale} not the scene caption`).not.toHaveText(
+      dict.article.imageAiIllustrationCaption.replace("{title}", articleTitle(locale, VAROUJAN)),
+    );
+    await expect(caption, `${locale} no placeholder disclosure`).not.toHaveText(
+      dict.article.imagePlaceholderCaption.replace("{title}", articleTitle(locale, VAROUJAN)),
     );
 
     // No other writer's portrait is rendered without a link to that writer.
     const html = (await page.content()).toLowerCase();
     for (const other of ILLUSTRATED) {
+      if (other === VAROUJAN) continue;
       expect(
         html.includes(`${other}.webp`) && !html.includes(`/${locale}/writers/${other}`),
         `${locale} must not show ${other}'s portrait without linking to ${other}`,
@@ -1275,30 +1340,151 @@ test("Varoujan is waiting for a portrait, and borrows nobody else's", async ({ p
     }
   }
 
-  // Metadata falls back rather than pointing at a file.
+  // Structured data and social cards point at the file instead of falling back.
   await page.goto(`/en/writers/${VAROUJAN}`);
   const graph = await readGraph(page);
-  expect(node(graph, "Article").image, "Article.image absent while pending").toBeUndefined();
+  expect(node(graph, "Article").image, "Article.image is the portrait").toEqual({
+    "@type": "ImageObject",
+    url: "https://armat.site/images/writers/daniel-varoujan.webp",
+  });
+  expect(node(graph, "Article")["@type"], "still a plain Article").toBe("Article");
+  for (const absent of ["Person", "VisualArtwork", "Book"]) {
+    expect(
+      graph.some((n) => n["@type"] === absent),
+      `no ${absent} schema was added because a portrait exists`,
+    ).toBe(false);
+  }
   for (const sel of ['meta[property="og:image"]', 'meta[name="twitter:image"]']) {
     await expect(page.locator(sel)).toHaveAttribute(
+      "content",
+      "https://armat.site/images/writers/daniel-varoujan.webp",
+    );
+    await expect(page.locator(sel)).not.toHaveAttribute(
       "content",
       "https://armat.site/og-default.png",
     );
   }
 
+  // The sitemap, per locale rather than by global count.
   const sitemap = await (await page.request.get("/sitemap.xml")).text();
   for (const locale of LOCALES) {
     const block = sitemap
       .split("<url>")
       .find((entry) => entry.includes(`/${locale}/writers/${VAROUJAN}<`));
     expect(block, `${locale} Varoujan is in the sitemap`).toBeDefined();
-    expect(block, `${locale} advertises no image`).not.toContain("<image:loc>");
+    expect(block, `${locale} advertises his portrait`).toContain(
+      "<image:loc>https://armat.site/images/writers/daniel-varoujan.webp</image:loc>",
+    );
   }
 
-  // The listing shows exactly one placeholder and it is his card.
+  // The listing: eight cards, eight portraits, no placeholder anywhere.
   await page.goto("/en/writers");
   await expect(cards(page)).toHaveCount(SLUGS.length);
-  await expect(page.locator("main svg[role='img']")).toHaveCount(PENDING.length);
+  await expect(
+    page.locator("main svg[role='img']"),
+    "no writer shows a placeholder any more",
+  ).toHaveCount(0);
+  for (const slug of ILLUSTRATED) {
+    await expect(
+      page.locator(`main img[src*="${slug}"]`),
+      `${slug} has its own card portrait`,
+    ).not.toHaveCount(0);
+  }
+  // His card's alt is the illustrated form, not the placeholder one.
+  const enUi = ui("en");
+  const card = bundle("en").writers.find((w) => w.slug === VAROUJAN)!;
+  await expect(
+    page.locator(
+      `main img[alt="${enUi.article.portraitIllustrationAlt.replace("{name}", card.name)}"]`,
+    ),
+    "his card alt is the illustrated-portrait form",
+  ).toHaveCount(1);
+  await expect(
+    page.locator(`main img[alt="${enUi.article.portraitAlt.replace("{name}", card.name)}"]`),
+    "and not the placeholder form",
+  ).toHaveCount(0);
+
+  // Classification did not move: he is still twentieth-century, and the medieval
+  // filter is still Narekatsi alone.
+  await page.goto("/en/writers?period=20th-century");
+  await expect(cards(page)).toHaveCount(3);
+  await expect(page.locator(`main img[src*="${VAROUJAN}"]`)).toHaveCount(1);
+  await page.goto("/en/writers?period=medieval");
+  await expect(cards(page)).toHaveCount(1);
+  await expect(page.locator(`main img[src*="${NAREKATSI}"]`)).toHaveCount(1);
+
+  // Search shows his own portrait, scoped by canonical href.
+  for (const query of ["Daniel Varoujan", "Daniel Varujan", "Taniel Varoujan"]) {
+    await page.goto(`/en/search?q=${encodeURIComponent(query)}`);
+    const hit = page.locator(`main li:has(a[href="/en/writers/${VAROUJAN}"])`).first();
+    await expect(hit, `search "${query}" finds him`).toHaveCount(1);
+    await expect(
+      hit.locator(`img[src*="${VAROUJAN}"]`),
+      `search "${query}" shows his portrait`,
+    ).toHaveCount(1);
+    await expect(hit.locator("svg[role='img']"), `search "${query}" no placeholder`).toHaveCount(0);
+  }
+});
+
+test("portrait provenance separates an imagined likeness from a photo-referenced one", () => {
+  /*
+    §85, and deliberately data-level: this is a claim about a map, and rendering
+    it in a browser three times would assert nothing the caption tests above do
+    not already cover. What needs pinning here is the *shape* of the mechanism,
+    because the failure it guards against is silent — a future writer picking up a
+    photographic claim nobody established.
+
+    The distinction is real rather than cosmetic. Narekatsi died around 1003 and
+    no likeness of him exists; Varoujan was photographed repeatedly before 1915.
+    Captioning both "an imagined likeness" is false for the second, and captioning
+    both "based on surviving photographs" is false for the first.
+  */
+  expect(getPortraitProvenance(VAROUJAN), "Varoujan was photographed").toBe("photo-referenced");
+  expect(getPortraitProvenance(NAREKATSI), "nobody has ever seen Narekatsi").toBe("imagined");
+
+  /*
+    The default is the cautious one, and every other writer takes it. Several of
+    them were certainly photographed, but this archive never recorded that their
+    portraits were made from those photographs, and inferring it would be
+    inventing provenance rather than reporting it. A slug joins the map when the
+    fact is established, which is what this assertion is here to notice.
+  */
+  for (const slug of SLUGS) {
+    if (slug === VAROUJAN) continue;
+    expect(getPortraitProvenance(slug), `${slug} takes the cautious default`).toBe("imagined");
+  }
+  expect(getPortraitProvenance("a-writer-that-does-not-exist"), "unknown slugs default").toBe(
+    "imagined",
+  );
+
+  // Both captions must state the AI origin and refuse the photograph, in every
+  // edition — that is the part neither provenance may ever drop.
+  for (const locale of LOCALES) {
+    const dict = ui(locale);
+    for (const key of ["imageAiPortraitCaption", "imageAiPhotoPortraitCaption"] as const) {
+      const text = dict.article[key];
+      expect(text, `${locale} ${key} names the AI origin`).toMatch(
+        locale === "en" ? /AI-generated/i : /արհեստական բանական/,
+      );
+      expect(text, `${locale} ${key} refuses the photograph`).toMatch(
+        locale === "en" ? /not a real photograph/i : /ոչ թ[եէ] իրական լուսանկար/,
+      );
+    }
+    // And the two must not be the same string, in any edition.
+    expect(
+      dict.article.imageAiPhotoPortraitCaption,
+      `${locale} the two portrait captions differ`,
+    ).not.toBe(dict.article.imageAiPortraitCaption);
+  }
+
+  // Scene artwork is untouched by all of this: a place still gets the imagined
+  // *scene* caption, which says nothing about likeness at all.
+  for (const locale of LOCALES) {
+    const dict = ui(locale);
+    expect(dict.article.imageAiIllustrationCaption, `${locale} scene caption unchanged`).not.toBe(
+      dict.article.imageAiPhotoPortraitCaption,
+    );
+  }
 });
 
 test("Varoujan's relations are earned, and the filler is the same in every edition", async ({

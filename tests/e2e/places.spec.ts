@@ -3115,6 +3115,13 @@ test("no unrelated article artwork changed", () => {
     // *Writers* registration rather than a Cuisine one. Same treatment: extended
     // by one line, every other value byte-identical.
     "grigor-narekatsi": "/images/writers/grigor-narekatsi.webp",
+    // §85 adds Varoujan, the second Writers registration to turn this snapshot
+    // red and the first anywhere in the archive whose file was *replaced* before
+    // it was registered — a first delivery was refused for readable generated
+    // lettering and corrected in place. None of that is visible from here, which
+    // is the point: the path is what this snapshot pins, and the path is new.
+    // Extended by one line, every other value byte-identical.
+    "daniel-varoujan": "/images/writers/daniel-varoujan.webp",
     anush: "/images/works/anush.webp",
     "david-of-sassoun": "/images/works/david-of-sassoun.webp",
     "wounds-of-armenia": "/images/works/wounds-of-armenia.webp",

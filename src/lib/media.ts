@@ -90,6 +90,74 @@ const IMAGES: Record<string, string> = {
    */
   "grigor-narekatsi": "/images/writers/grigor-narekatsi.webp",
 
+  /*
+   * §85. Varoujan — the eighth writer, the first portrait in this archive of a
+   * subject who was *photographed*, and the first asset ever refused and
+   * corrected rather than accepted or replaced wholesale.
+   *
+   * **The refusal, kept because deleting it would delete the reason for the
+   * caption below.** The first delivery passed every gate this registry has —
+   * likeness, dress, hands, setting, crops, thumbnail — and failed the text gate
+   * outright. It carried a wall broadside reading `ԼԱ ՊԱՏՐԻԻ` over `LA PATRIE`
+   * over three lines of bold pseudo-Armenian over `Constantinople, 1913`, and a
+   * desk newspaper mastheaded `MASSIS`. That is fake Armenian, fake French, a
+   * fabricated imprint, and the name of a real Constantinople periodical on an
+   * invented front page — all four of the things §15 of that step forbids, at
+   * display size, in the brightest region of the frame, legible on the article
+   * hero without magnification. §82 had already named this exact trigger: it
+   * accepted Narekatsi's pseudo-script *only* because nothing there was readable,
+   * and said that a future portrait putting invented script under better light
+   * was the point to refuse. It was.
+   *
+   * **The correction.** Rather than regenerate — which would have thrown away a
+   * likeness verified against three lifetime photographs to fix two background
+   * rectangles — the two text regions were reconstructed in place. A grayscale
+   * morphological closing estimates the paper with the ink gone; a mask fires
+   * only where the original is markedly darker than that estimate, so real paper
+   * texture, tone and lighting survive and only ink pixels are replaced. A
+   * pixel diff against the original confirmed exactly two changed clusters,
+   * (1248,0)-(1503,287) and (32,640)-(255,767), 4.20 per cent of the frame, with
+   * the face, the raised hand, the torso, the window, the desk and the framed
+   * photograph all byte-identical. The wall sheet is now blank aged paper with
+   * foxing; the newspaper is blank period paper with its engraved plate intact.
+   * Nothing was substituted for either title.
+   *
+   * **The file.** 1586x992 — the house geometry exactly, reached by a uniform
+   * 1.00126x resample of the corrected 1584x993 and a two-row trim, so no axis
+   * was stretched independently. 153,012 bytes, SHA-256
+   * 592a3aeae369b0e82382c4d1835d3033bf181b0311345a8c91501b4377efe05f. Plain
+   * `RIFF/WEBP` -> `VP8 `: one lossy keyframe, sync 9D 01 2A, no `VP8X` and so no
+   * ICC, alpha, EXIF, XMP or animation, no orientation tag, walk ending exactly
+   * at EOF. Verified twice, by a hand-written RIFF walk and by `sharp`. Re-encode
+   * fidelity in the face measured 43.1 dB PSNR against the lossless intermediate.
+   * The predecessor's hash was 7fa087b7d29b600ba2576b4e4a9c26f19158ed0e86346e58e3b07fe76dd2664b;
+   * it is recorded because nothing in the code can tell two files at one path
+   * apart, which §61 learned the hard way.
+   *
+   * **What is in the frame.** The living poet at about thirty, three-quarter to
+   * the left with the index finger raised to the cheek — which is the attitude of
+   * two of the surviving photographs rather than an invention. Dark side-parted
+   * hair, the full moustache, a tall white standing collar, dark cravat,
+   * waistcoat with a watch chain, dark jacket. A desk of manuscripts, a fountain
+   * pen, an inkwell, bound books, a shelf, framed photographs, and a window onto
+   * the Golden Horn with the Galata Tower. Nothing of 1915 is in it: no arrest,
+   * no deportation, no violence, no mourning, no candle, no commemoration. He was
+   * murdered at thirty-one and this picture shows the man who wrote four books.
+   *
+   * **Why this entry has its own provenance.** Everything else in `IMAGES` is
+   * captioned an imagined likeness, which is exactly right for Narekatsi and
+   * false here: photographs of Varoujan survive and the artwork was made from
+   * them. `PORTRAIT_PROVENANCE` below exists for that one distinction and holds
+   * only this slug.
+   *
+   * Two things to know rather than rediscover. The book spines carry worn gilt
+   * marks that resolve into no word at any rendered size, and the manuscript
+   * pages carry unreadable cursive — both were left, as §82 left Narekatsi's.
+   * And the newspaper's blank upper page is the correction's one visible
+   * compromise: it reads as a faded sheet rather than as print.
+   */
+  "daniel-varoujan": "/images/writers/daniel-varoujan.webp",
+
   // Literary works
   anush: "/images/works/anush.webp",
   "david-of-sassoun": "/images/works/david-of-sassoun.webp",
@@ -1004,61 +1072,28 @@ const IMAGES: Record<string, string> = {
  */
 export const PENDING_ARTWORK: readonly string[] = [
   /*
-   * §84. Filled for the tenth time, by the second Writer, and the first entry on
-   * this list whose subject can be *seen*.
+   * §85. Emptied for the tenth time, and the only one of the ten that took two
+   * deliveries of the same slug to do it.
    *
-   * Daniel Varoujan is Writer #8 and ships on the generated placeholder while the
-   * portrait is commissioned. Everything below is the commission, and it differs
-   * from §81's in the one way that matters.
+   * §84 put `daniel-varoujan` here because Writer #8 was written ahead of his
+   * portrait. The commission it was carrying is not repeated, because what it
+   * asked for is now a fact about a file and sits beside the registry entry
+   * above. Two things from it are worth keeping as standing rules rather than
+   * as history:
    *
-   * **Photographs of Varoujan survive.** He died in 1915, he was a public literary
-   * figure in Constantinople, and there are studio photographs of him. That single
-   * fact inverts the Narekatsi brief. There, no likeness existed or could exist and
-   * the danger was a picture that claimed false certainty; here a likeness exists,
-   * and the danger is a picture that ignores it. An invented face for a man who was
-   * photographed is not an editorial reconstruction — it is a wrong portrait of a
-   * real person, and it would be visibly wrong to any reader who has seen him.
+   * The first is that §84 refused to answer the provenance question and handed
+   * it to the registration pass. That pass answered it: `PORTRAIT_PROVENANCE`
+   * below now separates a face nobody has seen from a face drawn from surviving
+   * photographs, because captioning the second one "an imagined likeness" would
+   * have been false. Any future subject on this list who was photographed needs
+   * that field set, and the default is deliberately the cautious one.
    *
-   * The artwork must therefore be produced from the surviving photographs as
-   * likeness references, and the identifying features must be taken from those
-   * photographs rather than from this paragraph. Dark side-parted hair, a prominent
-   * moustache, a slender face and early twentieth-century formal dress are what the
-   * photographs show; they are written here as a description of what to go and look
-   * at, not as a substitute for looking. The verification pass must compare the
-   * delivered file against the references, which is a check §82 could not perform
-   * for Narekatsi and this one must.
-   *
-   * Direction: the living poet, at about thirty, as an early twentieth-century
-   * Western Armenian intellectual. Formal period clothing — the collar, tie and
-   * jacket of the six modern writers already in this section, which for once is the
-   * right register rather than a risk. A writer's setting: papers, a printed book or
-   * a periodical, a desk, the interior mood of Constantinople or of a European
-   * university city.
-   *
-   * What would make it wrong:
-   *
-   *   - a generic moustached Armenian man of the period, interchangeable with any
-   *     other. The photographs exist precisely so this does not happen.
-   *   - an invented face, or a face borrowed from another writer in this section.
-   *   - modern dress, a modern suit, or anything after about 1915.
-   *   - a national-symbol collage — flag, Ararat, khachkar, alphabet.
-   *   - any imagery of 1915: no arrest, no deportation, no violence, no mourning,
-   *     no candles, no commemorative iconography. He was killed at thirty-one and
-   *     the archive is not going to illustrate it. This portrait shows the man who
-   *     wrote four books, not the man who was murdered.
-   *
-   * The provenance question this raises is real and is deliberately *not* answered
-   * here. Everything in `IMAGES` is captioned as an AI-generated portrait and an
-   * imagined likeness, which is exactly right for Narekatsi and not quite right for
-   * a subject with photographs. Changing that is a provenance-infrastructure
-   * decision and this was a content step; it belongs to the registration pass, which
-   * must decide whether the existing caption is honest enough for a face drawn from
-   * references or whether Writers needs a second disclosure form.
-   *
-   * Preferred geometry 1586x992, which is the section's, and not the 1585 that
-   * §82 accepted with a note.
+   * The second is that the first delivery for this slug was **rejected** — for
+   * readable generated lettering, not for likeness — and corrected rather than
+   * regenerated. That is the first refusal in this registry's history, and the
+   * detail is kept in the §85 note above rather than here so it stays attached
+   * to the file it describes.
    */
-  "daniel-varoujan",
 
   /*
    * §82. Emptied for the ninth time, and the first time by a Writer rather than a
@@ -1840,6 +1875,52 @@ export const ARTWORK_PROVENANCE = {
  */
 export function isGeneratedArtwork(article: Pick<ArticleSummary, "slug" | "image">): boolean {
   return !article.image && getImageSrc(article.slug) !== undefined;
+}
+
+/**
+ * How a generated portrait's face was arrived at.
+ *
+ * `ARTWORK_PROVENANCE` above says the one thing true of every file here — it is
+ * AI-generated and it is not a document. This says the one thing that is *not*
+ * uniform across the portraits, and it exists because the difference is a
+ * factual claim rather than a shade of wording:
+ *
+ *   - `imagined` — no contemporary likeness of the subject survives, or none
+ *     informed the artwork. The face is invented. Grigor Narekatsi, who died
+ *     around 1003, is the case this was written for: nobody has ever seen him.
+ *   - `photo-referenced` — photographs of the subject survive and were used as
+ *     likeness references. The face is not invented; it is also not a
+ *     photograph, and the caption has to say both.
+ *
+ * Captioning a photo-referenced portrait "an imagined likeness" would be false,
+ * and captioning an imagined one "based on surviving photographs" would be worse
+ * — so this is a map rather than a category rule, and rendering asks it by slug
+ * instead of testing for a name.
+ *
+ * **The default is `imagined`, deliberately.** It is the more cautious of the
+ * two claims: it never asserts a photographic basis that the repository has not
+ * recorded. Several of the modern writers here were certainly photographed, and
+ * their portraits may well have been made with those photographs in view — but
+ * this archive never recorded that, and inferring it now would be inventing
+ * provenance rather than reporting it. A slug joins this map when someone
+ * establishes the fact, not when it seems likely.
+ */
+export type PortraitProvenance = "imagined" | "photo-referenced";
+
+const PORTRAIT_PROVENANCE: Record<string, PortraitProvenance> = {
+  /*
+   * §85. Three surviving lifetime photographs were consulted for this one — the
+   * 1913 Constantinople studio portrait, the standing portrait against a
+   * pilaster, and the photograph filed under his birth surname — and the
+   * delivered artwork agrees with all three on hair, moustache, face length,
+   * nose, age and pose. That is a matter of record, so the caption may say it.
+   */
+  "daniel-varoujan": "photo-referenced",
+};
+
+/** A portrait's likeness basis. Unlisted slugs are `imagined` — see above. */
+export function getPortraitProvenance(slug: string): PortraitProvenance {
+  return PORTRAIT_PROVENANCE[slug] ?? "imagined";
 }
 
 /**

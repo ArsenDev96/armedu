@@ -341,6 +341,8 @@ export const ui: UiDictionary = {
       "AI-generated illustration for {title} — an imagined scene.",
     imageAiPortraitCaption:
       "AI-generated portrait of {title} — an imagined likeness, not a real photograph.",
+    imageAiPhotoPortraitCaption:
+      "AI-generated portrait of {title}, based on surviving historical photographs — not a real photograph.",
     imageAlt: "Illustration for {title}",
     portraitAlt: "Portrait placeholder of {name}",
     portraitIllustrationAlt: "Illustrated portrait of {name}",

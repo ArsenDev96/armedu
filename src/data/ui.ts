@@ -350,8 +350,24 @@ export interface UiDictionary {
      * passed off as a document is worse than no picture at all.
      */
     imageAiIllustrationCaption: string;
-    /** `{title}` is the writer's name. The portrait counterpart of the above. */
+    /**
+     * `{title}` is the writer's name. The portrait counterpart of the above, for
+     * a subject whose face is *invented* because no likeness of them survives.
+     */
     imageAiPortraitCaption: string;
+    /**
+     * `{title}` is the writer's name. The third form, for a portrait whose face
+     * was drawn from surviving photographs of the subject rather than imagined —
+     * see `PORTRAIT_PROVENANCE` in `lib/media.ts`, which decides which of the two
+     * portrait captions a slug gets.
+     *
+     * It has to carry two claims at once and drop neither: the artwork is
+     * AI-generated and is not itself a photograph, *and* the likeness is not
+     * invented. Saying only the first would repeat the imagined-likeness claim
+     * and be false; saying only the second would let a student read a generated
+     * picture as a document.
+     */
+    imageAiPhotoPortraitCaption: string;
     imageAlt: string;
     /** `{name}` substituted. The generated placeholder portrait. */
     portraitAlt: string;
