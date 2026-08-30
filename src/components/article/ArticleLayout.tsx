@@ -15,7 +15,7 @@ import { Card, Pill } from "@/components/ui/primitives";
 import { getAdjacentArticles, getCategoryListing } from "@/lib/content";
 import { formatDate } from "@/lib/date";
 import { getUi, localePath, t } from "@/lib/i18n";
-import { getArticleImageSrc, isGeneratedArtwork, IMAGE_SIZES } from "@/lib/media";
+import { getArticleImageSrc, getPortraitProvenance, isGeneratedArtwork, IMAGE_SIZES } from "@/lib/media";
 import { estimateReadingTime } from "@/lib/reading-time";
 
 /**
@@ -79,10 +79,14 @@ export function ArticleLayout({
   // The bibliography is locale-independent: the same book serves every edition.
   const sources = getSources(article.slug);
 
-  // Three distinct cases, and the caption has to tell them apart honestly:
-  // content-declared photography (credited), the shared AI-generated artwork
-  // (named as such — and a writer's invented likeness is distinguished from a
-  // place's imagined scene), and no artwork at all.
+  // Four distinct cases, and the caption has to tell them apart honestly:
+  // content-declared photography (credited), the shared AI-generated artwork,
+  // and no artwork at all. The generated case splits again, because a place's
+  // imagined scene, a writer whose face nobody has ever seen, and a writer drawn
+  // from surviving photographs are three different claims — the last of those is
+  // not an invented likeness and must not be captioned as one. Which portrait
+  // caption a writer gets is data, not a name test: `getPortraitProvenance`
+  // reads it from the map beside the files.
   const heroSrc = getArticleImageSrc(article);
   const heroAlt = article.image?.alt ?? t(ui.article.imageAlt, { title: article.title });
   const heroCaption = article.image
@@ -91,9 +95,11 @@ export function ArticleLayout({
       : article.image.alt
     : isGeneratedArtwork(article)
       ? t(
-          article.category === "writers"
-            ? ui.article.imageAiPortraitCaption
-            : ui.article.imageAiIllustrationCaption,
+          article.category !== "writers"
+            ? ui.article.imageAiIllustrationCaption
+            : getPortraitProvenance(article.slug) === "photo-referenced"
+              ? ui.article.imageAiPhotoPortraitCaption
+              : ui.article.imageAiPortraitCaption,
           { title: article.title },
         )
       : t(ui.article.imagePlaceholderCaption, { title: article.title });

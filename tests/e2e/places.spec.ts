@@ -3111,6 +3111,24 @@ test("no unrelated article artwork changed", () => {
     "avetik-isahakyan": "/images/writers/avetik-isahakyan.webp",
     "khachatur-abovyan": "/images/writers/khachatur-abovyan.webp",
     "paruyr-sevak": "/images/writers/paruyr-sevak.webp",
+    // §82 adds Narekatsi, and it is the first time this snapshot has gone red on a
+    // *Writers* registration rather than a Cuisine one. Same treatment: extended
+    // by one line, every other value byte-identical.
+    "grigor-narekatsi": "/images/writers/grigor-narekatsi.webp",
+    // §85 adds Varoujan, the second Writers registration to turn this snapshot
+    // red and the first anywhere in the archive whose file was *replaced* before
+    // it was registered — a first delivery was refused for readable generated
+    // lettering and corrected in place. None of that is visible from here, which
+    // is the point: the path is what this snapshot pins, and the path is new.
+    // Extended by one line, every other value byte-identical.
+    "daniel-varoujan": "/images/writers/daniel-varoujan.webp",
+    // §87 adds Shnorhali, the third Writers registration to turn this snapshot
+    // red and the one that closes the section: nine writers, nine portraits, and
+    // `PENDING_ARTWORK` empty archive-wide for the first time since §85. He takes
+    // the imagined-likeness default and is deliberately absent from
+    // `PORTRAIT_PROVENANCE`, which this snapshot cannot see and `writers.spec.ts`
+    // asserts. Extended by one line, every other value byte-identical.
+    "nerses-shnorhali": "/images/writers/nerses-shnorhali.webp",
     anush: "/images/works/anush.webp",
     "david-of-sassoun": "/images/works/david-of-sassoun.webp",
     "wounds-of-armenia": "/images/works/wounds-of-armenia.webp",
@@ -4756,7 +4774,11 @@ test("the four existing category listings still load and still count what they d
   const dict = ui("en");
   const expected: [string, number, string][] = [
     ["history", 7, dict.listing.history.title],
-    ["writers", 6, dict.listing.writers.title],
+    // §81 moves Writers 6 → 7 with Grigor Narekatsi, §84 moves it 7 → 8 with
+    // Daniel Varoujan and §86 moves it 8 → 9 with Nerses Shnorhali. Edited rather
+    // than derived on purpose: this test exists to notice when another section
+    // grows, and it has now done so three times, going red first on each.
+    ["writers", 9, dict.listing.writers.title],
     ["works", 4, dict.listing.works.title],
     // §67 moves Cuisine 6 → 7 with Spas, §70 moves it 7 → 8 with jingalov hats,
     // §72 moves it 8 → 9 with khash, §74 moves it 9 → 10 with matsun, §77 moves it
