@@ -242,6 +242,72 @@ const IMAGES: Record<string, string> = {
    */
   "nerses-shnorhali": "/images/writers/nerses-shnorhali.webp",
 
+  /*
+   * §89. Siamanto — Writer #10, the tenth portrait, and the entry that closes the
+   * section: every writer in the archive now has a cover.
+   *
+   * **This file was reviewed twice and the first review got it wrong, so the
+   * record starts there.** The first pass refused it on three counts: a hand it
+   * read as structurally malformed, a composition it read as materially
+   * duplicating `daniel-varoujan`, and a monochrome treatment that measured as an
+   * outlier against the other nine. The second pass, with the composition and the
+   * colour explicitly accepted by the owner of the section, re-examined the hand
+   * at the size it is actually rendered at and reversed that finding. The
+   * reversal is the part worth keeping: the hand was judged at 3.5x with contrast
+   * normalised, where it reads as an undifferentiated taper with no countable
+   * digits — and at 1152px hero scale, where the same region occupies 276x378 css
+   * pixels, it reads as a loosely-curled hand seen from its ulnar edge with the
+   * fingers turned away from the viewer and the thumb hidden behind them. The
+   * foreshortening is legitimate; the magnification was the error. **Judge hands
+   * at rendered size first and magnify to confirm, not the other way round** —
+   * magnification finds a defect in every painted hand in this registry.
+   *
+   * What survives from that first pass as a real observation, and is recorded in
+   * `PROJECT_STATE` rather than acted on here: the writer portraits lean heavily
+   * on desk-and-books-in-a-warm-study. That is a collection-level fact about ten
+   * commissions, not a defect in the tenth, and it is a rule for the eleventh.
+   *
+   * **The file.** 1586x992 — house geometry exactly, no drift, the third
+   * consecutive portrait to arrive at it without a resample. 197,466 bytes,
+   * SHA-256
+   * 4170e1e338590e5ea46a9207f4e4aca0c5b87549d92199f2221b0c0850c92f2f. Plain
+   * `RIFF`/`WEBP` -> a single `VP8 ` chunk at offset 12, size 197,446, payload 20
+   * to 197,466: one lossy keyframe, frame-tag bit 0 clear, sync 9D 01 2A, coded
+   * dimensions agreeing with the container and both scale fields zero. No `VP8X`,
+   * so no ICC, alpha, EXIF, XMP or animation, and no orientation tag. The chunk
+   * walk ends at byte 197,466 with zero trailing bytes. Verified twice, by a
+   * hand-written RIFF walk and by `sharp`.
+   *
+   * **What is in the frame.** The poet at about thirty-five in near-profile to the
+   * left, seated at a desk with the right hand raised against the cheek. Dark
+   * side-parted hair over a high forehead, a long straight nose, a dark moustache
+   * and a small pointed beard. Dark wool jacket with a notch lapel, a tall white
+   * collar, a dark figured tie, a white cuff with a stud. Behind him a
+   * sheer-curtained window at the left, a bookcase with a shaded lamp and framed
+   * objects at the right, and across the foreground blank paper, a stack of
+   * sheets, an inkstand with a dip pen and a bound book. Nothing of 1915 is in it.
+   * He was arrested in April and killed in August of that year and this picture
+   * shows the man who wrote `Կարմիր լուրեր բարեկամէս`.
+   *
+   * **Text gate.** Swept at full resolution, at 1152px hero width, and at 2x-3.5x
+   * with contrast normalised across the papers, the paper stack, the book covers,
+   * the shelved spines, the shelf, the framed objects, the wall, the window and
+   * every corner. Nothing readable anywhere. The leftmost spine carries faint
+   * gilt blobs in a vertical column that form no letterform at 3x, and the
+   * foreground sheet carries grey wisps below glyph scale. That is the same
+   * standard §87 met and the first Varoujan file failed. The blank desk paper is
+   * the one flatness worth naming: a working writer's sheet with nothing on it.
+   *
+   * **Treatment.** This is the most photographic portrait in the section — low
+   * chroma, photographic grain, shallow depth of field — where the other nine are
+   * warm painterly colour. Measured mean chroma-saturation puts it at 0.186
+   * against a family mean near 0.43. It was accepted deliberately, and it makes
+   * the caption below carry more weight than usual rather than less: the
+   * `photo-referenced` string has to say *not itself a photograph* about an image
+   * that is styled like one.
+   */
+  siamanto: "/images/writers/siamanto.webp",
+
   // Literary works
   anush: "/images/works/anush.webp",
   "david-of-sassoun": "/images/works/david-of-sassoun.webp",
@@ -1156,39 +1222,35 @@ const IMAGES: Record<string, string> = {
  */
 export const PENDING_ARTWORK: readonly string[] = [
   /*
-   * §88. Writer #10, written ahead of his portrait, and the first entry on this
-   * list whose provenance was settled before the commission rather than after it.
+   * §89. Emptied for the twelfth time, and the first time the section it emptied
+   * was finished by it: ten writers, ten portraits, no placeholder anywhere in
+   * the archive.
    *
-   * `siamanto` is here for the ordinary reason: the biography shipped and the
-   * artwork has not been made. Nothing has been added to `IMAGES` and nothing has
-   * been added to `PORTRAIT_PROVENANCE`, which is the correct state for a slug in
-   * this list — the registration pass adds both together or neither.
+   * §88 put `siamanto` here because Writer #10 was written ahead of his portrait,
+   * and it did something no previous entry on this list had done — it decided the
+   * provenance *before* the commission rather than after it, committing the slug
+   * to `photo-referenced` on the strength of surviving photographs and setting two
+   * conditions on the delivery. Both were met. The artwork was made with the
+   * photographs in view, and the entry in `PORTRAIT_PROVENANCE` now records which
+   * two, where they disagree, and what the picture agrees with them on. The
+   * standing rejection condition — readable generated lettering refused outright,
+   * not weighed — held for a third consecutive portrait.
    *
-   * What is decided in advance, and what whoever fills the commission must not
-   * quietly reverse, is the provenance. Siamanto was photographed. A lifetime
-   * photograph of him at his desk in Boston in 1910 survives and is in wide
-   * circulation, and it is the obvious reference for a portrait of him. **When the
-   * file lands, this slug takes `photo-referenced`**, and the entry in
-   * `PORTRAIT_PROVENANCE` must record which photographs were actually consulted
-   * and what the delivered artwork agrees with them on, in the manner of the
-   * `daniel-varoujan` note — not merely that photographs exist.
+   * One thing from that pass survives as a standing rule, and it is a new one.
+   * The file was refused on first review and registered on second, and the
+   * finding that reversed was a hand judged malformed at 3.5x magnification that
+   * reads as a correctly foreshortened hand at the 1152px hero size it is
+   * actually shown at. **Judge anatomy at rendered size first and magnify only to
+   * confirm.** Magnification will find a defect in every painted hand here; that
+   * is a property of the magnification, not of the hand. The detail sits beside
+   * the registry entry above.
    *
-   * That is the opposite of the §86 decision for `nerses-shnorhali` and it is the
-   * same rule, applied honestly in the other direction. §87 stated the rule as: the
-   * type is decided by what survives of the subject, not by how convincing the
-   * artwork looks. What survives of Shnorhali is nothing, so he stays `imagined`
-   * however good the painting. What survives of Siamanto is a photograph, so
-   * captioning his portrait an imagined likeness would be the false claim. The
-   * cautious default is only cautious where the record is empty.
-   *
-   * Two things follow, and they are conditions on the delivery rather than notes
-   * about it. The portrait must be made with those photographs in view, because
-   * the caption will assert that it was; if it is not, the entry does not go into
-   * `PORTRAIT_PROVENANCE` and the artwork is `imagined` and wrong. And the standing
-   * rejection condition promoted by §86 still applies unchanged: readable generated
-   * lettering of any kind is refused outright, not weighed.
+   * What did not reverse, and is not a defect in this file, is recorded in
+   * `PROJECT_STATE` instead: ten writer commissions have converged on
+   * desk-and-books-in-a-warm-study, and the eleventh has to be compared against
+   * the whole collection for pose, silhouette, framing, environment and lighting
+   * before it is generated. A writer does not require a visible desk.
    */
-  "siamanto",
 
   /*
    * §87. Emptied for the eleventh time, and the first of the three consecutive
@@ -2063,6 +2125,38 @@ const PORTRAIT_PROVENANCE: Record<string, PortraitProvenance> = {
    * nose, age and pose. That is a matter of record, so the caption may say it.
    */
   "daniel-varoujan": "photo-referenced",
+
+  /*
+   * §89. Two surviving lifetime photographs were consulted for this one, and they
+   * disagree with each other in a way worth recording, because the artwork sits
+   * between them.
+   *
+   * The first is the Boston photograph of him at his rolltop desk at `Hairenik`,
+   * c. 1910, which is the reference §88 named in advance. It gives the oval,
+   * moderately long face, the high forehead, the full dark side-parted hair, the
+   * heavy brows and the deep-set eyes — and it shows him **entirely
+   * clean-shaven**. The second is the fifth panel of the first row of the plate of
+   * the ten intellectuals deported on 24 April 1915, from the Soviet Armenian
+   * Encyclopedia, vol. 7, Yerevan 1981, p. 423, where every panel is identified in
+   * the caption. It is a near-profile, and it gives the long prominent straight
+   * nose with its slightly downturned tip, the dark moustache and the small
+   * pointed beard — over a markedly **receding** hairline.
+   *
+   * So the two references differ on both facial hair and hairline, and they are
+   * the same man at different dates. The delivered artwork takes the full hair of
+   * the 1910 photograph and the moustache-and-beard of the plate, which is a
+   * coherent c. 1910-13 synthesis rather than a copy of either. It agrees with
+   * both on face length, forehead, jaw width, nose bridge, nose length and
+   * projection, cheeks and apparent age. Its one departure is the beard, which is
+   * a fuller van Dyke carried along the jaw where the plate shows a narrow chin
+   * point; recorded, not corrected.
+   *
+   * That is a matter of record, so the caption may say it. No painting, bust,
+   * statue, stamp or reconstruction was used as facial authority — the 2003
+   * Armenian commemorative stamp was seen and deliberately not used, which is the
+   * §87 rule applied to a subject where photographs happen to exist.
+   */
+  siamanto: "photo-referenced",
 };
 
 /** A portrait's likeness basis. Unlisted slugs are `imagined` — see above. */

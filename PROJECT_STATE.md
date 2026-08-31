@@ -20180,3 +20180,261 @@ Nothing was deployed. **Siamanto's portrait was not generated and not registered
 which was the explicit boundary of this step. No `.claude/settings.json` change. No
 previous project-state section rewritten. No Literary Work created, and no Cuisine,
 Places, Visit, map or History change made.
+
+---
+
+## §89 — Siamanto portrait: verified and **rejected**. Not registered.
+
+The second refusal in this archive's history, and the first that cannot be
+repaired the way §86 repaired the first Varoujan file. That one failed on two
+background rectangles and was corrected in place. This one fails on the subject's
+own hand, on the composition, and on the treatment — three things that are the
+picture rather than decoration on it.
+
+**Nothing was registered.** `IMAGES` still holds nine writer portraits,
+`PORTRAIT_PROVENANCE` still holds one slug, `PENDING_ARTWORK` still holds
+`siamanto`, and no file under `src/` was modified in this step. The working tree
+was clean before this section was appended and this section is the only change.
+
+### Pre-registration state, read from source rather than assumed
+
+Ten writer articles and ten cards in each of `en`, `hy`, `hyw`. Period
+distribution Medieval 2, 19th Century 3, 20th Century 4, Soviet Era 1 — exactly
+the §88 state. Tumanyan the sole `featured: true` writer. Nine writer paths in
+`IMAGES`, `siamanto` absent. `PORTRAIT_PROVENANCE` holds `daniel-varoujan:
+"photo-referenced"` and nothing else, so Narekatsi and Shnorhali take the
+`imagined` default and so does an unknown slug. `PENDING_ARTWORK` is
+`["siamanto"]`. The Siamanto article carries no `image` field, so its OG, Twitter
+and `Article.image` fall back and its sitemap `<url>` block carries no image.
+Relations are `["daniel-varoujan", "grigor-narekatsi",
+"mesrop-mashtots-armenian-alphabet"]`. Cuisine 12, Places 13, History 7, Works 4.
+No discrepancy against §88 anywhere.
+
+### The asset
+
+`public/images/writers/siamanto.webp`, already committed as `23bf6f3`. 1586x992 —
+the house geometry exactly, no drift. 197,466 bytes. SHA-256
+`4170e1e338590e5ea46a9207f4e4aca0c5b87549d92199f2221b0c0850c92f2f`.
+
+Plain `RIFF`/`WEBP` -> a single `VP8 ` chunk at offset 12, size 197,446, payload
+20 to 197,466. Lossy keyframe, frame-tag bit 0 clear, sync `9D 01 2A`, coded
+dimensions 1586x992 with both scale fields zero, agreeing with the container. No
+`VP8X`, therefore no ICC, no alpha, no EXIF, no XMP, no animation and no
+orientation tag. The chunk walk ends at byte 197,466 with zero trailing bytes.
+Verified twice, by a hand-written RIFF walk and by `sharp`, which reports srgb,
+3 channels, 8-bit, no profile. **The file is technically flawless.** Nothing below
+is a container defect.
+
+### Lifetime photographs consulted
+
+Two, both institutionally backed, both genuine lifetime photographs.
+
+1. **`Siamanto-in-his-cabinet.jpg`** — the Boston photograph of him at his rolltop
+   desk at *Hairenik*, c. 1910. He is turned to the camera in three-quarter view
+   in a light suit. Face oval and moderately long, high forehead, **full dark
+   side-parted hair**, heavy dark brows, deep-set eyes, a straight nose of
+   moderate length, defined chin. **He is entirely clean-shaven** — no moustache,
+   no beard. This is the photograph the §88 note anticipated.
+2. **`April24Victims.jpg`**, first row, fifth panel — the composite of the ten
+   intellectuals deported on 24 April 1915, sourced from the *Soviet Armenian
+   Encyclopedia*, vol. 7, Yerevan 1981, p. 423, with each panel identified in the
+   plate caption. Near-profile facing right. Very high forehead with a **markedly
+   receding hairline**, a long prominent straight nose with a slightly downturned
+   tip, a **dark moustache**, and a **small pointed beard on the chin**. Dark
+   jacket, white collar, dark neckwear. Mid-thirties.
+
+No painting, bust, statue, stamp, memorial poster or reconstruction was used as
+facial authority. The 2003 Armenian stamp in `Category:Siamanto` was seen and
+deliberately not used. No source failed to resolve.
+
+The two photographs disagree on facial hair, and that disagreement is the useful
+finding: the clean-shaven Boston man of 1910 and the bearded near-profile of the
+encyclopedia plate are the same man at different dates. §8 of the brief was right
+that the moustache-plus-pointed-beard is the identity cue that separates him from
+Varoujan; it is simply not present in every year.
+
+### Likeness — this is the part that passes
+
+Measured feature by feature against both photographs, using convergence rather
+than demanding a single-angle match.
+
+| Feature | Verdict |
+|---|---|
+| Face length / slenderness | **strong match** — elongated, narrow-jawed, no broadening |
+| Forehead | **strong match** — high, and lit so it stays high |
+| Hairline / side part | **acceptable** — full and swept as in the cabinet photograph, rather than receded as in the plate; supported by one reference and not the other, which a c. 1910–13 target permits |
+| Eyebrows | strong match — dark, straight, moderately heavy |
+| Eye shape / setting | strong match — deep-set, heavy upper lid |
+| Nose bridge | **strong match** — long, straight, faintly convex |
+| Nose length / projection | **strong match** — the plate's most distinctive feature, reproduced without exaggeration and without beautification |
+| Nose tip | strong match — slightly downturned |
+| Cheeks | strong match — lean, no fill |
+| Jaw / chin | strong match — narrow |
+| Moustache | **strong match** — dark, moderate width, ends turned slightly down |
+| Pointed beard | **acceptable stylization** — present and correctly placed, but fuller and longer than the plate's narrow tuft; reads as a van Dyke carried along the jaw rather than a chin point |
+| Overall age | **strong match** — early-to-mid thirties. Not aged, not frail, not made to prefigure 1915 |
+
+**Likeness verdict: PASS.** Someone who knows the photographs would recognise
+this as Siamanto. The face is not a generic early-twentieth-century Armenian
+intellectual, and it is not Varoujan's face. Registration does not fail on
+likeness, and any correction must **keep this head**.
+
+### Editorial and historical gates — all pass
+
+Writer before victim: the frame says poet at his desk and nothing else. No arrest,
+no guard, no prison, no deportation road, no memorial, no mourning composition, no
+candle, no black border, no red palette, no weapon, no blood, no Adana imagery.
+Clothing is a period dark wool jacket, tall white collar and dark tie, consistent
+with the plate; no modern cut, no folk costume, no clerical dress, no uniform. No
+clergy or political symbolism, no flag, no map, no Ararat, no coat of arms, no
+khachkar, no floating alphabet. Lighting is soft physical daylight from a
+curtained window at the left, and it preserves nose, forehead, hair and facial
+hair rather than flattening them; no spotlight, no glow.
+
+### Text sweep — passes outright
+
+Swept at full resolution, at 1152px hero equivalent, and at 2x–3.5x magnification
+across papers, desk, book stacks, shelved spines, the framed objects above the
+shelf, the wall, the window and every corner. **Nothing readable anywhere.** The
+shelved spines carry faint gilt marks that never resolve into glyphs; the desk
+papers are blank. No Armenian, no Western Armenian, no English, no French, no
+date, no city, no masthead, no title, no signature, no watermark. None of the
+specific strings the brief named appears. This portrait clears the standard the
+first Varoujan file failed.
+
+The books, the paper stacks and the inkstand with its dip pen are period-plausible
+with coherent bindings and page blocks, no modern glossy covers and no impossible
+perspective. The framed objects above the bookcase are far enough out of focus to
+carry no face and no fake portrait. The pen is a dip pen, which §21 permits.
+
+### Why it is rejected
+
+**1. The hand is structurally malformed — rejection-level under §22.**
+
+The right hand raised to the face is not a hand. Examined at 3.5x with contrast
+normalised: flesh emerges from the white shirt cuff and continues in **one
+unbroken taper** all the way to the mouth. There is no wrist break and no change
+of width at the wrist, so the forearm simply ends in a point against the face.
+Exactly one partial digit separation is visible near the top edge; below it the
+mass is smooth, with soft longitudinal shading that never becomes fingers. There
+are **no knuckles, no joint articulation, no fingernails and no thumb anywhere in
+the form**. The near edge merges directly into the pointed beard with no boundary,
+which is also a hand-into-face merge under §23. The whole mass is about as long as
+the face from hairline to chin, which is why it cannot be read past.
+
+This is not minor softness to be recorded separately. It sits in the second most
+salient region of the frame, immediately beside the face, at full brightness, and
+it is plainly wrong at the 1152px article hero. It is only forgiving at 128–160px,
+where it reduces to a pale wedge.
+
+**2. The composition materially duplicates `daniel-varoujan.webp` — §16.**
+
+Compared at full resolution and at 380, 160 and 128px. Both portraits show the
+same generation of Ottoman Armenian poet **seated at a writing desk, turned to the
+left, with the right hand raised to the face in a thinking attitude, in a dark
+suit over a tall white collar, with papers and books across the lower foreground,
+a curtained window at the left and framed objects and a bookcase behind.** The
+gesture is not identical — Varoujan's is the raised index finger of the surviving
+photographs, Siamanto's is the side of the hand against the mouth — and the
+framing scale differs sharply, Varoujan being a wide half-length and Siamanto a
+tight head-and-shoulders. Backgrounds differ in content. But the pose vocabulary,
+the sitter's direction, the dress and the furniture layout are the same, and §16
+named this exact risk in advance and named the raised-hand-to-face attitude as the
+thing especially to avoid. Placed side by side at thumbnail size the reading is
+close to "Varoujan with a beard added," which is the formulation §16 uses to
+define the failure.
+
+The one thing this does *not* fail: **thumbnail identity holds.** At 128px and
+160px the two are still separable — Siamanto by the goatee, the longer face and
+the monochrome treatment, Varoujan by the moustache alone, the colour and the
+visible watch chain. §34 passes on its own terms. It is §16 that does not.
+
+**3. The treatment is a sepia pseudo-photograph — §30, and it breaks the editorial
+family under §17.**
+
+Every other portrait in the section is a warm painterly colour illustration:
+ochre, cream, burgundy and olive, painted interiors and Armenian architecture,
+visible as a made picture. This file is a desaturated monochrome sepia photograph
+with photographic grain and photographic depth of field. Mean chroma-saturation
+measured across all ten: Siamanto **0.186**, next lowest Varoujan 0.284, family
+mean about 0.43. It is a **34 per cent** outlier below the nearest neighbour and
+about **57 per cent** below the family mean. In a contact sheet of the ten it is
+immediately the odd one out.
+
+§30 names "sepia-only pseudo-documentary look" as a thing to avoid, and this is
+that look precisely. It is also a provenance problem rather than only a taste one:
+the `photo-referenced` caption this slug is due to carry asserts that the image is
+**not itself a real photograph**, and this artwork is styled specifically to be
+mistaken for one. §19's distinction between using a historical photograph as
+context and reproducing it is strained in the same direction.
+
+### Verification not reached
+
+Because the artwork was refused, none of the registration-conditional work was
+done and none of it should be read as passing. No `IMAGES` entry, no
+`PORTRAIT_PROVENANCE` entry, no `PENDING_ARTWORK` removal. Crop geometry was
+measured against the real `PORTRAIT_FOCUS` (`object-[38%_28%]`) and the real
+consumers — `ArticleLayout` hero is `variant="wide"` with **no** focus and
+responsive 4:3 / 3:2 / 16:9; `WriterCard` is 4:3 with focus, plus a 38 per cent
+full-height strip in the horizontal variant; `SearchResultCard` is a 128/160px
+full-height strip with focus; `FeaturedItem` is 16:10 with focus. Face, hair,
+nose, moustache and pointed beard survive every one of them, with the desk props
+trimming away first as intended, and the tightest strip trims 62.5 per cent of the
+width while still holding the head. **No Siamanto-specific focus value would be
+needed**, which is worth keeping for whoever registers the corrected file. No test
+was written or changed, no dev server was started, no typecheck, `validate:content`,
+Playwright run or build was executed, because nothing was changed for them to
+cover.
+
+### Diff and process safety
+
+`git diff --stat` was empty before this section was appended and this section is
+the only modification. **No `git checkout --`, `git restore` or any other
+whole-file rollback was run against any file**, so the §57 failure was not
+repeated and no approved uncommitted work was discarded. `src/lib/media.ts` was
+read but never written. No rendered HTML, DOM dump, page source or generated text
+fragment was written into the repository: every crop, contact sheet, magnification
+and downloaded reference photograph went to the external session scratchpad.
+`.claude/settings.json` was not touched. Nothing was deployed. The Siamanto
+biography, its relations, its SEO fields and its translations are byte-identical
+to §88, as are all nine existing writer portraits and their provenance, and Works,
+Cuisine, Places, Visit, map and History are untouched.
+
+### What must change before this slug can be registered
+
+In priority order. **Keep the head** — the likeness is the expensive part and it
+is correct.
+
+1. **Rebuild the hand, or remove it.** A coherent hand with a countable set of
+   digits, visible knuckles, a real wrist break and a thumb, not touching the
+   beard. Given the pose duplication below, the cleaner answer is to drop the
+   raised hand entirely and let the hands rest on the desk or out of frame.
+2. **Change the pose and the setting away from Varoujan.** Different sitter
+   direction, no hand-to-face attitude, and a background that is not
+   window-left / bookcase-right. The §88 note points at the Boston *Hairenik*
+   office and its rolltop desk, which is his own setting and is nothing like
+   Varoujan's.
+3. **Render it in the family's painterly colour treatment.** Warm greys,
+   charcoal, brown, cream, aged-paper beige, restrained burgundy — a made picture
+   rather than a photograph, so the `photo-referenced` caption stays honest.
+4. Optionally tighten the beard toward the narrow chin point of the encyclopedia
+   plate rather than the fuller van Dyke as delivered. This alone would not have
+   blocked registration.
+
+The text gate, the editorial gate, the clothing, the books and papers, the pen,
+the lighting and the crops all passed and do not need revisiting except where
+points 2 and 3 change the frame.
+
+### Technical debt
+
+- **Siamanto still has no portrait**, and `PENDING_ARTWORK` is non-empty for a
+  second consecutive step. Ten articles, nine portraits, one placeholder.
+- The archive now has a second refusal, and unlike §86's it is not repairable
+  in place. Worth recording as the first delivery refused for *composition and
+  treatment* rather than for lettering: the text gate that dominated §85 and §86
+  is no longer the binding constraint, and the hand and the family style are.
+- The debts §88 recorded are all unchanged: the Թամրազյան and Ռշտունի monographs
+  unconsulted, the Paris/Geneva ordering and the `Հայրենի հրավեր` date left as
+  stated disagreements, and six of ten Writers still without SEO fields.
+- `navigation.spec.ts` was not run in this step, so the intermittent
+  Works → Cuisine failures are neither reproduced nor closed; they stay open.

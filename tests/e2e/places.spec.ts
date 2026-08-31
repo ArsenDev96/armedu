@@ -3129,6 +3129,14 @@ test("no unrelated article artwork changed", () => {
     // `PORTRAIT_PROVENANCE`, which this snapshot cannot see and `writers.spec.ts`
     // asserts. Extended by one line, every other value byte-identical.
     "nerses-shnorhali": "/images/writers/nerses-shnorhali.webp",
+    // §89 adds Siamanto, the fourth Writers registration to turn this snapshot red
+    // and the one that closes the section at ten: every writer in the archive now
+    // has a portrait and `PENDING_ARTWORK` is empty again. He is the second slug in
+    // `PORTRAIT_PROVENANCE`, taking `photo-referenced` on the strength of two
+    // identified lifetime photographs — which this snapshot cannot see and
+    // `writers.spec.ts` asserts. Extended by one line, every other value
+    // byte-identical.
+    siamanto: "/images/writers/siamanto.webp",
     anush: "/images/works/anush.webp",
     "david-of-sassoun": "/images/works/david-of-sassoun.webp",
     "wounds-of-armenia": "/images/works/wounds-of-armenia.webp",

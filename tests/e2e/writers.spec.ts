@@ -69,6 +69,7 @@ const ILLUSTRATED = [
   NAREKATSI,
   VAROUJAN,
   SHNORHALI,
+  SIAMANTO,
 ] as const;
 
 /**
@@ -97,8 +98,13 @@ const ILLUSTRATED = [
  * default, and `PORTRAIT_PROVENANCE` gains an entry. The test below asserts the
  * *absence* of that entry today, because adding it before there is a picture to
  * describe would be recording provenance for artwork nobody has made.
+ *
+ * §89 registered that portrait, so the list is empty for the twelfth time and the
+ * section is complete for the first time at ten. The provenance entry the note
+ * above anticipated now exists: he took `photo-referenced`, not the default, and
+ * the assertion below points the opposite way from the one it replaced.
  */
-const PENDING: readonly string[] = [SIAMANTO];
+const PENDING: readonly string[] = [];
 
 /** Where each writer's portrait must live, spelled out rather than templated. */
 const PORTRAIT: Record<string, string> = {
@@ -111,6 +117,7 @@ const PORTRAIT: Record<string, string> = {
   "grigor-narekatsi": "/images/writers/grigor-narekatsi.webp",
   "daniel-varoujan": "/images/writers/daniel-varoujan.webp",
   "nerses-shnorhali": "/images/writers/nerses-shnorhali.webp",
+  siamanto: "/images/writers/siamanto.webp",
 };
 
 const escapeRe = (value: string) => value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -1498,15 +1505,28 @@ test("portrait provenance separates an imagined likeness from a photo-referenced
   expect(getPortraitProvenance(NAREKATSI), "nobody has ever seen Narekatsi").toBe("imagined");
 
   /*
-    The default is the cautious one, and every other writer takes it. Several of
-    them were certainly photographed, but this archive never recorded that their
-    portraits were made from those photographs, and inferring it would be
-    inventing provenance rather than reporting it. A slug joins the map when the
+    The default is the cautious one, and every writer outside the map takes it.
+    Several of them were certainly photographed, but this archive never recorded
+    that their portraits were made from those photographs, and inferring it would
+    be inventing provenance rather than reporting it. A slug joins the map when the
     fact is established, which is what this assertion is here to notice.
+
+    §89 made this a set rather than the single-slug exception §85 wrote, because
+    Siamanto is the second writer whose artwork was made from identified
+    photographs. Stated as its own literal so that adding a third is one edit and
+    an *unearned* promotion still goes red here — which is the whole point of the
+    loop, and would be lost if the exception list were derived from the map.
   */
+  const PHOTO_REFERENCED: readonly string[] = [VAROUJAN, SIAMANTO];
   for (const slug of SLUGS) {
-    if (slug === VAROUJAN) continue;
+    if (PHOTO_REFERENCED.includes(slug)) continue;
     expect(getPortraitProvenance(slug), `${slug} takes the cautious default`).toBe("imagined");
+  }
+  for (const slug of PHOTO_REFERENCED) {
+    expect(
+      getPortraitProvenance(slug),
+      `${slug}'s portrait was made from surviving photographs`,
+    ).toBe("photo-referenced");
   }
   expect(getPortraitProvenance("a-writer-that-does-not-exist"), "unknown slugs default").toBe(
     "imagined",
@@ -1875,8 +1895,15 @@ test("Shnorhali's portrait is registered, imagined, and borrowed from nobody", a
     weaker version of the same claim but the specific one: exactly one writer is
     pending, and he is the new one. Nothing that was illustrated became pending.
   */
-  expect([...PENDING], "exactly the new writer is pending").toEqual([SIAMANTO]);
-  expect(ILLUSTRATED, "no previously illustrated writer became pending").not.toContain(SIAMANTO);
+  /*
+    §89 registered Siamanto's portrait, so the specific claim §88 substituted here
+    is spent and the broad one is true again — and this time it is stronger than
+    any version of it before, because the section is complete at ten rather than at
+    six or nine. Stated both ways round: nothing is pending, and the writer who was
+    pending is now illustrated.
+  */
+  expect([...PENDING], "nothing is pending").toEqual([]);
+  expect(ILLUSTRATED, "the writer who was pending is now illustrated").toContain(SIAMANTO);
 
   /*
     The provenance decision, at the data level, where it is cheap. He must take
@@ -2422,55 +2449,157 @@ test("Siamanto's name forms are carried per edition and reach the search haystac
   }
 });
 
-test("Siamanto ships without a portrait, and no provenance was recorded for one", async ({
+test("Siamanto's portrait is registered as photo-referenced, and the section is complete", async ({
   page,
 }) => {
   /*
-    §88. The state this step deliberately stops at. He is the fourth writer written
-    ahead of his picture, and the discipline §84 to §87 built up is that the pending
-    state is *declared* rather than left as a slug quietly rendering a placeholder.
+    §89, replacing the §88 test that asserted the absence of everything below. That
+    test existed to make shipping the artwork without revisiting the provenance
+    fail, and this is it being revisited: he takes `photo-referenced` rather than
+    the default, on the strength of two identified lifetime photographs recorded
+    beside the map entry.
 
-    The `PORTRAIT_PROVENANCE` assertion is the important one and it points the
-    opposite way from §87's. Shnorhali had to be kept out of that map because no
-    likeness of him survives and a convincing painting is not evidence. Siamanto is
-    kept out of it for a different reason — the map describes artwork, and there is
-    no artwork yet. He is photographed, so when the file lands he joins the map as
-    `photo-referenced`; adding him now would be recording the provenance of a
-    picture nobody has made. The default `imagined` that `getPortraitProvenance`
-    returns for him today is therefore a placeholder answer, not the decision, and
-    it is asserted here so that shipping the artwork without revisiting it fails.
+    Both directions of the §86/§88 rule are now asserted side by side in one place,
+    which is the point of keeping them together. Shnorhali is kept *out* of the map
+    because nothing of his face survives and a convincing painting is not evidence.
+    Siamanto is put *into* it because photographs of him do survive and the artwork
+    was made from them. The type follows what survives of the subject, never how
+    convincing the picture looks — and the default stays `imagined` for anyone
+    nobody has established a basis for.
   */
-  expect(getImageSrc(SIAMANTO), "no portrait file is registered").toBeUndefined();
-  expect([...PENDING_ARTWORK], "he is declared pending").toContain(SIAMANTO);
-  expect([...PENDING_ARTWORK], "and is the only thing pending").toEqual([SIAMANTO]);
+  expect(getImageSrc(SIAMANTO), "his own portrait file is registered").toBe(
+    "/images/writers/siamanto.webp",
+  );
+  expect([...PENDING_ARTWORK], "and he is no longer pending").not.toContain(SIAMANTO);
+  expect([...PENDING_ARTWORK], "nothing anywhere is pending").toEqual([]);
 
-  // Nothing was added to the provenance map for a file that does not exist.
-  expect(getPortraitProvenance(SIAMANTO), "unlisted, so the default").toBe("imagined");
-  // The three writers whose provenance is settled are exactly as §87 left them.
+  // He is in the map, and everyone else's classification is exactly as §88 left it.
+  expect(getPortraitProvenance(SIAMANTO), "photographs of him survive").toBe("photo-referenced");
   expect(getPortraitProvenance(VAROUJAN), "Varoujan photo-referenced").toBe("photo-referenced");
   expect(getPortraitProvenance(SHNORHALI), "Shnorhali imagined").toBe("imagined");
   expect(getPortraitProvenance(NAREKATSI), "Narekatsi imagined").toBe("imagined");
+  expect(getPortraitProvenance("no-such-writer"), "the default is still the cautious one").toBe(
+    "imagined",
+  );
 
-  // The page renders the generated placeholder and says so, rather than borrowing
-  // another writer's face or captioning an absent portrait as artwork.
+  // Ten writers, ten portraits, ten distinct files, no placeholder anywhere.
+  expect(ILLUSTRATED.length, "every writer is illustrated").toBe(SLUGS.length);
+  expect(
+    new Set(SLUGS.map((s) => getImageSrc(s))).size,
+    "and no two writers share a file",
+  ).toBe(SLUGS.length);
+
+  // The hero is his own raster with the photo-referenced caption — not a
+  // placeholder, and not the imagined-likeness caption Narekatsi and Shnorhali get.
   for (const locale of LOCALES) {
     const dict = ui(locale);
     await page.goto(`/${locale}/writers/${SIAMANTO}`);
     const figure = page.locator("header figure");
-    await expect(figure.locator("svg[role='img']"), `${locale} placeholder is drawn`).toHaveCount(1);
-    await expect(figure.locator("img"), `${locale} no raster hero`).toHaveCount(0);
-    await expect(figure.locator("figcaption"), `${locale} placeholder caption`).toHaveText(
-      dict.article.imagePlaceholderCaption.replace("{title}", articleTitle(locale, SIAMANTO)),
+
+    await expect(figure.locator("svg[role='img']"), `${locale} no placeholder`).toHaveCount(0);
+    const img = figure.locator("img");
+    await expect(img, `${locale} one raster hero`).toHaveCount(1);
+    expect(
+      decodeURIComponent((await img.getAttribute("src")) ?? ""),
+      `${locale} hero is his own file`,
+    ).toContain("/images/writers/siamanto.webp");
+    expect(await img.getAttribute("alt"), `${locale} localized hero alt`).toBe(
+      dict.article.imageAlt.replace("{title}", articleTitle(locale, SIAMANTO)),
     );
 
-    // And no other writer's portrait is served on his page without linking to them.
+    await expect(figure.locator("figcaption"), `${locale} photo-referenced caption`).toHaveText(
+      dict.article.imageAiPhotoPortraitCaption.replace("{title}", articleTitle(locale, SIAMANTO)),
+    );
+    expect(
+      await figure.locator("figcaption").textContent(),
+      `${locale} must not carry the imagined-likeness caption`,
+    ).not.toBe(
+      dict.article.imageAiPortraitCaption.replace("{title}", articleTitle(locale, SIAMANTO)),
+    );
+
+    // And still no borrowed face: another writer's file may only appear on his page
+    // if the page also links to that writer.
     const html = (await page.content()).toLowerCase();
     for (const other of ILLUSTRATED) {
+      if (other === SIAMANTO) continue;
       expect(
         html.includes(`${other}.webp`) && !html.includes(`/${locale}/writers/${other}`),
         `${locale} must not show ${other}'s portrait without linking to ${other}`,
       ).toBe(false);
     }
+  }
+});
+
+test("Siamanto's portrait reaches the listing, search, metadata and sitemap", async ({ page }) => {
+  /*
+    §89. The other half of registration: the file being in `IMAGES` is worth
+    nothing if the four places that read it still serve a fallback. Each is
+    asserted against the exact path rather than against "some image", and the
+    sitemap per locale block rather than by an archive-wide count, because a global
+    count passes when all three images land on one URL.
+  */
+  const FILE = "/images/writers/siamanto.webp";
+  const ABS = `https://armat.site${FILE}`;
+
+  // Listing: ten cards, ten portraits, no placeholder, and his card is his file.
+  await page.goto("/en/writers");
+  await expect(cards(page)).toHaveCount(SLUGS.length);
+  await expect(page.locator("main svg[role='img']"), "no placeholder remains").toHaveCount(0);
+  await expect(
+    page.locator(`main img[src*="${SIAMANTO}"]`),
+    "his card carries his own portrait",
+  ).toHaveCount(1);
+
+  // The period filter §88 moved to four still holds, and he is in it with his face.
+  await page.goto("/en/writers?period=20th-century");
+  await expect(cards(page), "four twentieth-century writers").toHaveCount(4);
+  await expect(page.locator(`main img[src*="${SIAMANTO}"]`)).toHaveCount(1);
+
+  // Tumanyan is still the only featured writer — registering a portrait must not
+  // promote anyone.
+  for (const locale of LOCALES) {
+    const featured = bundle(locale).writers.filter((w) => w.featured);
+    expect(featured.map((w) => w.slug), `${locale} sole featured writer`).toEqual([TUMANYAN]);
+  }
+
+  // Search: his own portrait, under every name form, scoped by canonical href.
+  for (const query of ["Siamanto", "Atom Yarjanian", "Սիամանթո", "Սիամանթօ", "Ատոմ Եարճանեան"]) {
+    await page.goto(`/en/search?q=${encodeURIComponent(query)}`);
+    const hit = page.locator(`main li:has(a[href="/en/writers/${SIAMANTO}"])`).first();
+    await expect(hit, `search "${query}" finds him`).toHaveCount(1);
+    await expect(
+      hit.locator(`img[src*="${SIAMANTO}"]`),
+      `search "${query}" shows his portrait`,
+    ).toHaveCount(1);
+    await expect(hit.locator("svg[role='img']"), `search "${query}" no placeholder`).toHaveCount(0);
+  }
+
+  // Metadata: the generic `Article` schema gains an ImageObject, and OG and
+  // Twitter stop falling back. No `Person` or `VisualArtwork` node was added.
+  await page.goto(`/en/writers/${SIAMANTO}`);
+  const graph = await readGraph(page);
+  const image = node(graph, "Article").image as { "@type": string; url: string } | undefined;
+  expect(image, "Article.image is present").toBeDefined();
+  expect(image!["@type"], "and is an ImageObject").toBe("ImageObject");
+  expect(image!.url, "pointing at his own portrait").toBe(ABS);
+  for (const absent of ["Person", "VisualArtwork", "Book"]) {
+    expect(
+      graph.some((n) => n["@type"] === absent),
+      `no ${absent} node was added in this step`,
+    ).toBe(false);
+  }
+  for (const sel of ['meta[property="og:image"]', 'meta[name="twitter:image"]']) {
+    await expect(page.locator(sel), `${sel} is his portrait`).toHaveAttribute("content", ABS);
+  }
+
+  // Sitemap: his own `<url>` block in each edition carries his own image.
+  const sitemap = await (await page.request.get("/sitemap.xml")).text();
+  for (const locale of LOCALES) {
+    const block = sitemap
+      .split("<url>")
+      .find((entry) => entry.includes(`/${locale}/writers/${SIAMANTO}<`));
+    expect(block, `${locale} Siamanto is in the sitemap`).toBeDefined();
+    expect(block, `${locale} advertises his own image`).toContain(`<image:loc>${ABS}</image:loc>`);
   }
 });
 
