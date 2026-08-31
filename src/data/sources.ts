@@ -2432,6 +2432,92 @@ const SOURCES: Record<string, Source[]> = {
       note: "Already registered for four other articles. Cited here for the architectural vocabulary this article has to use in English without distorting it — the domed hall, the triangular niche, the khachkar, and above all the gavit as a building type rather than as a mistranslated narthex — and for Trdat's place in the period, including the cathedral at Ani and the rebuilding of the dome of Hagia Sophia after the earthquake of 986.",
     },
   ],
+
+  /*
+   * §88. Writer #10, and the first bibliography in this section assembled around a
+   * subject whose reference literature disagrees with itself on the basic facts.
+   *
+   * Three of the article's decisions are decisions about sources rather than about
+   * prose, and they are recorded here because they are invisible from the list:
+   *
+   * The birth date. Three are in print — 15 August 1878, 1 January 1878, and the
+   * 1875 printed on the jacket of the Wayne State translation cited below. The
+   * article takes the first, and the reason is that the Armenian material ties it
+   * to the mid-August feast and to the baptismal name the family chose for it. A
+   * date that explains a name outranks a date that occupies a field. The 1875 is
+   * left standing in the citation rather than corrected, because the book is real
+   * and the reader who picks it up will meet that figure on it.
+   *
+   * The Sorbonne. English reference works have converted an `ազատ ունկնդիր` — a
+   * free listener, auditeur libre — into an education at the University of Paris,
+   * and English Wikipedia files him under that university's alumni. The Armenian
+   * sources are specific and unanimous, and the article follows them. No source is
+   * cited here for the degree, because there is none: the claim exists without an
+   * authority behind it, which is exactly the failure mode this file was built to
+   * catch.
+   *
+   * The Varoujan relation. It rests on one attributable sentence — Varoujan's
+   * `տաղանդավոր ոճրերգություն` on `Կարմիր լուրեր բարեկամէս` — which the Armenian
+   * literature quotes to «Գրական ասուլիսներ», book 6, Constantinople 1913, p. 26.
+   * That 1913 volume is listed below as an archival reference rather than a URL,
+   * because it is a printed volume of its period and not something that resolves.
+   * The relation is authored in one direction only; nothing was added to the
+   * Varoujan article to make the pair symmetrical.
+   */
+  siamanto: [
+    {
+      author: "A. J. Hacikyan, G. Basmajian, E. S. Franchuk and N. Ouzounian (eds.)",
+      title: "The Heritage of Armenian Literature, Volume III: From the Eighteenth Century to Modern Times",
+      publisher: "Wayne State University Press",
+      year: "2005",
+      identifier: { kind: "isbn", value: "9780814332214" },
+      note: "The section's backbone series, at the volume that covers him, pages 774 to 776. Carries the schooling, the flight after 1896, the Droshak years and the sequence of the collections. It is also the source that states the Sorbonne enrolment in the loosest form, which is why the article checks it against the Armenian material rather than repeating it.",
+    },
+    {
+      author: "Siamanto, translated by Peter Balakian and Nevart Yaghlian",
+      title: "Bloody News from My Friend",
+      publisher: "Wayne State University Press, Detroit",
+      year: "1996",
+      identifier: { kind: "isbn", value: "9780814326404" },
+      note: "The standard English translation of Կարմիր լուրեր բարեկամէս and the reason most English readers meet him at all. Cited for the cycle of twelve and for the description of its language as raw and blunt and as refusing metaphor — the claim about technique, not about biography. Its jacket dates him 1875–1915, which is the third of the three birth years discussed above.",
+    },
+    {
+      author: "Karina Asatryan",
+      title: "Metrical Relations Between Siamanto's Poetry and Medieval Armenian Verse",
+      publisher: "Armenian Folia Anglistika, volume 6, issue 1-2 (7), pages 169–175",
+      year: "2010",
+      identifier: { kind: "doi", value: "10.46991/afa/2010.6.1-2.169" },
+      note: "The whole basis for the free-verse section. It is what allows the article to say that his line connects the metres of medieval Armenian lyric to the structural conventions of modern free verse, rather than repeating the encyclopedia formula on its own.",
+    },
+    {
+      title: "Հայկական սովետական հանրագիտարան, հատոր 10",
+      publisher: "Հայկական հանրագիտարանի գլխավոր խմբագրություն, Երևան",
+      year: "1984",
+      identifier: { kind: "archive", value: "ՀՍՀ, հատոր 10, էջ 351–352" },
+      note: "The source of the precise claim the article is careful not to inflate: that he ձև է տվել — gave form to — Armenian free verse, ազատաչափ. It is also where the neo-romanticism placement, the vocabulary-building, and the comparison with Narekatsi's Book of Lamentations come from. Cited for the critical assessment; its framing of him as a poet of national struggle is the Soviet-era reading the article declines to adopt whole.",
+    },
+    {
+      author: "Ատոմ Յարճանյան (Սիամանթո) et al.",
+      title: "Գրական ասուլիսներ, գիրք 6",
+      publisher: "Կ. Պոլիս",
+      year: "1913",
+      identifier: { kind: "archive", value: "Գրական ասուլիսներ, գիրք 6, Կ. Պոլիս, 1913, էջ 26" },
+      note: "The single place the Varoujan relation is anchored: the page the Armenian literature cites for Varoujan's տաղանդավոր ոճրերգություն on Կարմիր լուրեր բարեկամէս. Recorded as an archival reference because it is a Constantinople volume of 1913, not a work with an identifier to give.",
+    },
+    {
+      title: "Kaza of Agn, Vilayet of Mamuratul Aziz-Harput",
+      publisher: "Houshamadyan, Berlin",
+      identifier: { kind: "url", value: "https://www.houshamadyan.org/mapottomanempire/vilayetofmamuratulazizharput/kaza-of-agn.html" },
+      note: "Cited for the administrative geography alone — that Akn was a kaza in the sanjak of Harput within the vilayet of Mamuret-ül-Aziz, and not in the province of Sivas. The article states the Ottoman unit because the commonest error about his birthplace is a provincial one.",
+    },
+    {
+      title: "What Happened on 24 April 1915? The Ayash Prisoners",
+      publisher: "Gomidas Institute, London",
+      identifier: { kind: "url", value: "https://gomidas.org/index.php/?submissions/show/5" },
+      note: "The basis for the one distinction this article insists on: that the men taken on 24 April were divided between Ayaş and Chankiri, that Ayaş was a secure military prison from which almost nobody returned, that Siamanto was among its prisoners, and that the killings there took place in August 1915 in groups, without a day being fixed for any individual. Cited for the detention structure, not for the poetry — and the reason the article gives a month and refuses a date.",
+    },
+  ],
+
 };
 
 

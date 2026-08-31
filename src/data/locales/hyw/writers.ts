@@ -110,6 +110,18 @@ export const writers: Writer[] = [
     imageSeed: "nerses-shnorhali",
     notableWorks: ["Ողբ Եդեսիոյ", "Յիսուս Որդի", "Հաւատով խոստովանիմ"],
   },
+  {
+    slug: "siamanto",
+    name: "Սիամանթօ",
+    lifespan: "1878–1915",
+    period: "20-րդ դար",
+    periodId: "20th-century",
+    role: "Բանաստեղծ եւ խմբագիր",
+    description:
+      "Արեւմտահայ բանաստեղծը՝ ծնած Ատոմ Եարճանեան անունով, որ ձեւ տուաւ հայ ազատաչափ քերթողութեան եւ 1909-ի Ատանայի կոտորածը քերթուած դարձուց նոյն տարին։",
+    imageSeed: "siamanto",
+    notableWorks: ["Կարմիր լուրեր բարեկամէս", "Հայորդիներ", "Հոգեւարքի եւ յոյսի ջահեր", "Սուրբ Մեսրոպ"],
+  },
 ];
 
 export const literaryPeriods: Filter[] = [

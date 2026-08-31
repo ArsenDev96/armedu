@@ -113,6 +113,18 @@ export const writers: Writer[] = [
     imageSeed: "nerses-shnorhali",
     notableWorks: ["Ողբ Եդեսիոյ", "Յիսուս Որդի", "Հաւատով խոստովանիմ"],
   },
+  {
+    slug: "siamanto",
+    name: "Սիամանթո",
+    lifespan: "1878–1915",
+    period: "XX դար",
+    periodId: "20th-century",
+    role: "Բանաստեղծ և խմբագիր",
+    description:
+      "Արևմտահայ բանաստեղծը՝ ծնված Ատոմ Յարճանյան անունով, որ ձև տվեց հայ ազատաչափ բանաստեղծությանը և 1909 թվականի Ադանայի կոտորածը պոեզիա դարձրեց հենց այդ տարում։",
+    imageSeed: "siamanto",
+    notableWorks: ["Կարմիր լուրեր բարեկամես", "Հայորդիներ", "Հոգեվարքի և հույսի ջահեր", "Սուրբ Մեսրոպ"],
+  },
 ];
 
 export const literaryPeriods: Filter[] = [

@@ -1495,4 +1495,301 @@ export const writerArticles: Article[] = [
     ],
     relatedSlugs: ["grigor-narekatsi"],
   },
+  {
+    slug: "siamanto",
+    href: "/writers/siamanto",
+    category: "writers",
+    categoryLabel: "Armenian Writers",
+    title: "Siamanto",
+    seoTitle: "Siamanto: Western Armenian Poet",
+    excerpt:
+      "The Western Armenian poet who gave the language its free verse, wrote the Adana massacre into poetry in 1909, and was taken to Ayaş in 1915.",
+    metaDescription:
+      "Siamanto, born Atom Yarjanian in Akn: his schooling, his years as a student abroad, the collections from 1902 to 1913, and the arrest of April 1915.",
+    summary:
+      "Siamanto was the pen name of Atom Yarjanian, a Western Armenian poet born in Akn on the Euphrates and educated in his birthplace and in Constantinople before the massacres of the eighteen-nineties sent him abroad. He audited literature courses at the Sorbonne rather than taking a degree there, wrote for the party press in Geneva, and published his collections between 1902 and 1913, among them the Adana sequence Կարմիր լուրեր բարեկամէս. Armenian scholarship credits him with giving Armenian free verse its shape. He was arrested in Constantinople on 24 April 1915, held at Ayaş, and killed near Ankara that August.",
+    period: "20th Century",
+    periodId: "20th-century",
+    imageSeed: "siamanto",
+    keywords: [
+      "Siamanto",
+      "Atom Yarjanian",
+      "Adom Yarjanian",
+      "Atom Yarchanyan",
+      "Սիամանթո",
+      "Սիամանթօ",
+      "Ատոմ Յարճանյան",
+      "Ատոմ Եարճանեան",
+      "Կարմիր լուրեր բարեկամէս",
+      "Bloody News from My Friend",
+      "Հայորդիներ",
+      "Դյուցազնորեն",
+      "Հոգեվարքի և հույսի ջահեր",
+      "Հայրենի հրավեր",
+      "Սուրբ Մեսրոպ",
+      "Western Armenian poetry",
+      "Armenian free verse",
+      "Akn",
+    ],
+    intro:
+      "Siamanto is the poet most often quoted on the Armenian Genocide and least often read for anything else. He wrote the Adana massacre of 1909 into a sequence of letter-poems while it was still news, and six years later he was one of the writers arrested in Constantinople on the night the genocide is dated from. Between those two events sits the part that is usually skipped: fifteen years of work in which the shape of the Armenian poetic line changed, and a body of verse that Armenian criticism credits with giving the language its free verse.",
+    author: "Armat Editorial Team",
+    updated: "2026-08-31",
+    sections: [
+      {
+        id: "who-siamanto-was",
+        heading: "Who Siamanto was",
+        paragraphs: [
+          "Siamanto was a Western Armenian poet of the Ottoman Armenian world, born in the town of Akn on the Euphrates and killed in the Armenian Genocide at the age of thirty-six or thirty-seven. He published verse from 1898 onward, brought out collections in Geneva, Paris, Constantinople and Boston, edited a newspaper in the United States for about a year, and travelled through the Russian Caucasus in the last years before the war.",
+          "He is also one of the writers whose life is hardest to state plainly, because the reference literature disagrees with itself on his birth date, his schooling, the year he crossed the Atlantic and even the century's worth of name forms he is filed under. This article says where the sources disagree rather than choosing the version that reads most smoothly.",
+          "What is not in doubt is the shape of the career. He began as a poet of exhortation, writing for a revolutionary party's newspaper; he passed through a long middle period of exhaustion and doubt; and in 1909 he wrote the book that made his name, about a massacre he did not witness, from letters sent by someone who did.",
+        ],
+      },
+      {
+        id: "the-name-and-its-forms",
+        heading: "The name and its forms",
+        paragraphs: [
+          "He was born Atom Yarjanian. The surname reaches Latin script as Yarjanian, Yarchanyan, Yardjanian and Jarjanian, and the given name as Atom or Adom, because Armenian consonants have no single agreed romanisation — these are one name passing through several systems rather than a disagreement about who he was. In Armenian the two orthographies part company as well: Ատոմ Յարճանյան in the reformed Eastern spelling used in Armenia today, Ատոմ Եարճանեան in the classical spelling he himself wrote in.",
+          "The pen name splits the same way, and this one matters more, because it is the name on the books. Սիամանթօ is the classical and Western Armenian form, with the final ligature-vowel; Սիամանթո is the Eastern Armenian form, and it is the spelling under which he is catalogued in Yerevan. Armat prints Սիամանթօ in the Western Armenian edition and Սիամանթո in the Armenian one, which is not inconsistency but the same rule the rest of the archive follows: each edition spells a name the way that edition's readers spell it.",
+          "There is a third name behind both. Armenian accounts of his childhood record that he was baptised Աստվածատուր, Astvatsatur, meaning God-given, for the feast day he was born on, and that he later set that name aside and called himself Atom. The detail is well attested in Armenian writing about him and absent from most English accounts, which begin with a birth name he had already stopped using.",
+        ],
+      },
+      {
+        id: "where-the-pen-name-came-from",
+        heading: "Where the pen name came from",
+        paragraphs: [
+          "Armenian sources agree on who named him: Garegin Srvandztiants, the priest, ethnographer and folklorist who in 1874 was the first to publish a version of the epic Daredevils of Sassoun, gave the pen name to the boy at the Nersisyan school in Akn.",
+          "They do not agree on what it was taken from. English accounts say it was the name of a hero in one of Srvandztiants's own stories. Armenian accounts give something more specific and more checkable: that it comes from a folk poem about two lovers, Sia-Mandon and Khaché-Zaré, who die together, and that Srvandztiants gave the second half of the pair as a pen name to Siamanto's sister Armenouhi, who wrote as Khechezare. A single naming that produced two matching names is harder to invent than a general recollection, and Armat gives that version the weight.",
+          "One thing about the story does not fit and should be said. Srvandztiants's own documented career runs through Van, Mush, Erzurum and Constantinople, and from 1886 he was a bishop and prelate at Trabzon; no biography of him records a teaching post at Akn. He travelled the eastern provinces collecting oral material through exactly these years, so an encounter is entirely possible, but what the Armenian tradition preserves is the naming rather than the classroom. Armat reports the naming as the well-attested part and the schoolroom setting as the part the record does not independently confirm.",
+        ],
+      },
+      {
+        id: "akn-on-the-euphrates",
+        heading: "Akn, on the Euphrates",
+        paragraphs: [
+          "Akn was a town on the right bank of the western Euphrates, in a narrow valley between the Taurus and Anti-Taurus ranges. Armenians called it Ակն, meaning eye or spring; in Turkish it was Eğin, and since 1922 it has been Kemaliye. It was an old Armenian settlement with its own schools, churches and dialect, and — like much of the Armenian interior — a town that exported its men, who went to Constantinople to work and sent money home.",
+          "The administrative geography needs stating precisely, because it is usually given wrong. Akn was a kaza, an Ottoman district, in the sanjak of Harput within the vilayet of Mamuret-ül-Aziz, the province English-language sources usually call Harput. It was not in the province of Sivas, and it was not a province of its own. The cultural region Armenians call Western Armenia contained it, but that phrase names a cultural and demographic geography rather than an Ottoman administrative unit, and Armat keeps the two vocabularies apart.",
+          "He lived there until he was about fourteen, in a family the English literature describes as upper middle class and the Armenian literature as a merchant household. That is the same fact in two registers, and it is the fact that explains the rest: the family could afford to educate him, first at home and then in the capital.",
+        ],
+      },
+      {
+        id: "the-birth-date-question",
+        heading: "The birth-date question",
+        paragraphs: [
+          "Three different birth dates are in print for him, and they are not equally good. The great majority of sources, Armenian and English alike, give 15 August 1878. A smaller set of biographical pages gives 1 January 1878 — a date that is very often what a database records when it has a year and no day, and which no source defends with evidence. A third figure appears on the jacket of the standard English translation of his best-known book, which dates him 1875 to 1915.",
+          "The 15 August date carries something the others do not: a reason. Armenian accounts tie it to the feast the Armenian church keeps in mid-August, and to the baptismal name Astvatsatur that the family chose because of it. A date that explains a name is evidence of a different order from a date that appears in a field.",
+          "Armat therefore uses 15 August 1878, records the two rival dates rather than deleting them, and notes what follows from the choice: he was thirty-six when he was killed, or thirty-seven if the killing fell after his birthday in a month nobody has dated exactly. The article says thirty-six or thirty-seven for that reason and not out of vagueness.",
+        ],
+      },
+      {
+        id: "schooling-in-akn-and-constantinople",
+        heading: "Schooling in Akn and Constantinople",
+        paragraphs: [
+          "His first schooling was at the Nersisyan school in Akn. In 1891 he went to Constantinople with his father, who was already working there, and continued at two schools in succession: the Mirijanian school at Kumkapı, and then the Berberian school — Perperian in Western Armenian pronunciation — at Scutari, on the Asian shore. He finished there in 1896.",
+          "English and Armenian reference works describe this differently, and the difference is worth resolving rather than averaging. English accounts usually name only the Berberian school and give 1891 to 1896 as a single stretch there. The Armenian accounts name both schools in order. These are not competing claims; the shorter version has dropped a step, and Armat gives the sequence.",
+          "The Berberian school was one of the serious Armenian secondary institutions of the capital, and finishing there in 1896 placed him, at eighteen, in the middle of the massacres of Ottoman Armenians of 1894 to 1896. He left the empire because of them. That is the hinge of the biography: everything he wrote afterwards was written by someone who had been driven out of the country he was writing about.",
+        ],
+      },
+      {
+        id: "exile-cairo-geneva-paris",
+        heading: "Exile: Cairo, Geneva, Paris",
+        paragraphs: [
+          "He went first to Egypt, where he spent a period in Cairo, and from 1897 he was in Europe — in Geneva and in Paris. The order of those two cities is given differently by different sources: English accounts have him reach Paris first and move on to Geneva, Armenian accounts have him reach Geneva first and go on to Paris. The years are the same either way and nothing in the work turns on the sequence, so Armat names both cities and does not invent a route.",
+          "In Paris he attended the Sorbonne. This is the single most inflated fact in his biography and it is worth being exact about, because the exact version is not a diminishment. Armenian sources are specific and unanimous: he was an ազատ ունկնդիր, a free listener — what French universities call an auditeur libre — in the literature faculty, attending lectures without being enrolled for a degree. English reference works have quietly converted this into an education at the University of Paris and have filed him among its alumni.",
+          "He did not take a degree there, and no source that claims one says on what authority. He was a poor student in an expensive city, working at whatever jobs he could get; what the Sorbonne gave him was four years of access to European literature and philosophy, which is a real thing to have had and does not need a diploma attached to it.",
+        ],
+      },
+      {
+        id: "droshak-and-the-first-poems",
+        heading: "Droshak, and the first poems",
+        paragraphs: [
+          "His first published poem appeared in 1898, in a newspaper printed in Manchester, under a title he later changed more than once. From there he was published in the Armenian periodical press across three continents: Անահիտ in Paris, Բանբեր in St Petersburg, Հայրենիք in Boston.",
+          "In Geneva he wrote for Դրօշակ, the newspaper of the Armenian Revolutionary Federation, and it is there that his early manner was formed. These are poems of address and exhortation, spoken to a young Armenian reader and demanding something of him, and the two pieces usually named from this period are the one that became the title poem of his first collection and a companion piece called The Knight's Song.",
+          "The political affiliation is a fact about him and not an accusation: he wrote for a party press, he later travelled to America partly as that party's fieldworker, and the poetry of his first decade is openly the poetry of a national movement. What it is not is only that, which is what the next fifteen years demonstrate.",
+        ],
+      },
+      {
+        id: "the-collections",
+        heading: "The collections",
+        paragraphs: [
+          "Դյուցազնորեն, Heroically, was written from about 1897 and printed in 1902 in Paris; it takes its epigraph from the Rigveda — that there are many dawns which have not yet broken — and its poems are messages to Armenian youth. Հայորդիներ, Sons of Armenians, followed as three separate series: the first in Geneva in 1905, the second in Geneva in 1906, the third in Paris in 1908, with the first two reprinted together in Constantinople in 1908.",
+          "Հոգեվարքի և հույսի ջահեր, Torches of Agony and Hope, appeared in Paris in 1907, and it is the book that breaks the pattern. The exhortation has gone out of it. It is a lyric notebook of exhaustion, private grief and doubt about the very calls to struggle the earlier books had made, and Armenian criticism reads it as the point where the public poet turns inward.",
+          "Then Կարմիր լուրեր բարեկամէս in Constantinople in 1909, and Հայրենի հրավեր, a sequence of twelve verse letters addressed to Armenians who had emigrated, written in America and printed with the collected works brought out in Boston in 1910. The long poem Սուրբ Մեսրոպ was written in 1912 and published in Tiflis in 1913. Dates for Հայրենի հրավեր are given as both 1909 and 1910 in different catalogues, which is the ordinary gap between a sequence being written and a book appearing, and not two different works.",
+        ],
+        bullets: [
+          "Դյուցազնորեն, Heroically, Paris, 1902",
+          "Հայորդիներ, three series, Geneva 1905 and 1906, Paris 1908",
+          "Հոգեվարքի և հույսի ջահեր, Torches of Agony and Hope, Paris, 1907",
+          "Կարմիր լուրեր բարեկամէս, Constantinople, 1909",
+          "Հայրենի հրավեր, twelve verse letters, in the collected works, Boston, 1910",
+          "Սուրբ Մեսրոպ, written 1912, published Tiflis 1913",
+        ],
+      },
+      {
+        id: "the-1908-return",
+        heading: "The return of 1908",
+        paragraphs: [
+          "In July 1908 the Young Turk revolution restored the Ottoman constitution, and Armenians who had been living abroad since the eighteen-nineties began to go home. Siamanto went back to Constantinople that year, after more than a decade away.",
+          "Armenian accounts are careful about what he thought he was doing: he returned to test the political weather rather than to celebrate it, and he did not share the optimism of the community's leadership. Whether that scepticism was as clear at the time as it looks in hindsight is not something a biography can settle, and Armat records it as what the Armenian sources say rather than as a documented prediction.",
+          "The test came within a year. In April 1909 there were massacres of Armenians at Adana in Cilicia, under the new constitutional order and not the old regime, and the argument that the constitution had changed the community's position did not survive them.",
+        ],
+      },
+      {
+        id: "karmir-lurer-barekames",
+        heading: "Կարմիր լուրեր բարեկամէս",
+        paragraphs: [
+          "The book he wrote immediately afterwards, published in Constantinople in 1909, is the one his reputation rests on. The title is Կարմիր լուրեր բարեկամէս — Bloody News from My Friend in the standard English translation, more literally red news from my friend — and the form is the point: the poems are letters, written as though relayed from a correspondent who was there.",
+          "He was not at Adana. The sequence is built out of accounts sent to him by people who were, and its method is to report rather than to transform: it sets down what a witness said, with very little of the metaphor and symbol his other books are full of. English criticism describes it as language that is raw and blunt and that refuses the consolation of figurative writing, and that refusal is a deliberate technique rather than an absence of one.",
+          "Armat does not reproduce those scenes. The sequence opens with a lament, runs to eleven letter-poems, and closes with a poem of endurance — twelve pieces in all, which is why the English edition is described as a cycle of twelve — and the last of them turns from what was done to the people who survived it. That structure, and the fact that a poet wrote a massacre down in the year it happened, is what a reader needs in order to understand the book. The detail of the atrocities is available in the historical literature to anyone studying the events, and quoting it here would put the horror in front of the writing, which is the opposite of what this article is for.",
+        ],
+      },
+      {
+        id: "america-and-the-caucasus",
+        heading: "America and the Caucasus",
+        paragraphs: [
+          "In December 1909 he sailed for the United States, sent as a party fieldworker and to take over the editorship of the daily Հայրենիք, published in Boston. He lived in the Boston area, edited the paper for about a year, and used the time to look at Armenian emigrant life at first hand. English sources usually date the move to 1910 and Armenian sources to 1909; the discrepancy is between the sailing and the settling, and Armat gives the earlier date with the later one noted.",
+          "What he took from it was an argument rather than an impression, and Հայրենի հրավեր is that argument in verse: that a people dispersing across the world would not survive as a people, and that the way back was to the land itself and to work on it. He returned to Constantinople in 1911.",
+          "In 1913 he travelled the other way, into the Russian Caucasus — to Tiflis, to Baku, and to Etchmiadzin — visiting the historical sites of Eastern Armenia and meeting the writers and public figures of a literary world that had never been under Ottoman rule. He was received warmly. It was the only time he saw the other half of the language he wrote in.",
+        ],
+      },
+      {
+        id: "surb-mesrop",
+        heading: "Սուրբ Մեսրոպ",
+        paragraphs: [
+          "The occasion for the long poem Սուրբ Մեսրոպ was the national celebration of the fifteen-hundredth anniversary of the invention of the Armenian alphabet, marked across the Armenian world in these years. He wrote it in 1912 and it was published in Tiflis in 1913.",
+          "It is a hymn to Mesrop Mashtots, and it is the least characteristic thing he wrote — a poem of confidence rather than of alarm, imagining a free country in which thought and spirit would flower. Read against the rest of the work it is the clearest evidence that the lamentation was a response to events and not a temperament.",
+          "It is also the point at which his subject and the archive's oldest one meet: a poet writing in a language under threat, addressing the man who gave that language its letters, fifteen centuries after the fact.",
+        ],
+        links: [
+          { phrase: "the man who gave that language its letters", slug: "mesrop-mashtots-armenian-alphabet" },
+        ],
+      },
+      {
+        id: "free-verse-and-the-line",
+        heading: "Free verse, and the shape of the line",
+        paragraphs: [
+          "The claim made for him in Armenian scholarship is precise, and it is usually mistranslated. The Soviet Armenian Encyclopedia says he ձև է տվել — gave form to — Armenian free verse, ազատաչափ, vers libre. That is not the same as inventing it, and Armat does not upgrade it: the claim is that the loose line existed and he was the poet who made it into something with a shape, not that he was the first Armenian ever to write one.",
+          "There is scholarship that makes the point sharper. Metrical study of his verse argues that what he was doing was connecting the metres of medieval Armenian lyric poetry to the structural conventions of modern free verse — that his line is not a break with Armenian prosody but a bridge across it. A poet who reaches modern free verse by way of the medieval metres has not thrown the tradition away, and that is a stronger and more interesting claim than priority would have been.",
+          "The other technical claim is easier to verify and less often made: he enlarged the vocabulary. Armenian criticism credits him with new words, with compounds and with combinations built for the occasion, and with an accumulation of epithets — piling qualifier on qualifier until the noun almost disappears — which is one of the few features of his style a reader can identify without knowing any of the criticism.",
+        ],
+      },
+      {
+        id: "romanticism-symbolism-and-narekatsi",
+        heading: "Romanticism, symbolism, and Narekatsi",
+        paragraphs: [
+          "He is routinely labelled a symbolist in English, and that is too simple. Armenian criticism places him among the leading figures of Armenian neo-romanticism, and describes his art as interweaving the aesthetic principles of classical romanticism with those of symbolism rather than belonging to either. His own development supports the compound label: the Հայորդիներ series is described as moving out of a mystical symbolism toward images of the real world, which is a poet leaving a manner rather than settling into one.",
+          "The comparison Armenian scholarship actually makes is older than any European movement. His poetry is read as having affinities with the Book of Lamentations of Grigor Narekatsi — through the sustained intensity, the visionary abstraction, and above all that piling of epithets, which is one of the most recognisable features of the tenth-century text.",
+          "That is the useful thing to say about his style, and it is worth preferring to the movement labels. A poet who sounds like Narek and reads Verhaeren is not adequately described by either half.",
+        ],
+        links: [
+          { phrase: "the Book of Lamentations of Grigor Narekatsi", slug: "grigor-narekatsi" },
+        ],
+      },
+      {
+        id: "western-armenian",
+        heading: "Western Armenian as a literary language",
+        paragraphs: [
+          "He wrote in Western Armenian, and in his lifetime that was not a heritage language but the standard written form of a large population with its own press, schools, publishing and readership across the Ottoman Empire and its emigrations. Western and Eastern Armenian are two standard forms of one language, differing in pronunciation, in the verb system and in vocabulary, and by 1900 each had a full literature of its own.",
+          "His generation was still deciding what the western standard could do. It had been formed for journalism, for the pulpit, for education and for patriotic address, and the argument of these years was whether it could carry a poetry of sensation, of private despair and of formal experiment as well. He is one of the writers who settled that argument by writing the poems, and the new compounds and the free line are the specific instruments he did it with.",
+          "The asymmetry with the eastern standard has nothing to do with the merits of either. Within a few years of his death the western language lost its territory, its institutions and most of its readers, and it became what it is now — a language maintained by a dispersed population, and classified as endangered. Armat publishes a Western Armenian edition for that reason, and this article exists in it in the orthography he used.",
+        ],
+      },
+      {
+        id: "siamanto-and-varoujan",
+        heading: "Siamanto and Varoujan",
+        paragraphs: [
+          "The two names are almost always given together, and the pairing is usually asserted rather than shown. There is a documented link, and it runs in one direction. Daniel Varoujan, six years younger and by 1913 the more visible of the two in Constantinople, wrote about Կարմիր լուրեր բարեկամէս and called it a տաղանդավոր ոճրերգություն — a gifted song of crime, or a talented crime-poetry, a phrase Armenian criticism has quoted ever since. It appeared in the Constantinople volume Գրական ասուլիսներ in 1913.",
+          "That is a real relation: one poet on another's book, in print, in their own lifetimes, with a page reference. It is worth more than the biographical pairing usually offered, which is that both were arrested on the same night and killed in the same summer — true, and true of a great many people.",
+          "They were also close in a way that is easy to miss because the vocabulary hides it. Siamanto wrote a Navasard prayer to the goddess Anahit and pieces glorifying the pre-Christian Armenian past in exactly the years Varoujan was writing Հեթանոս երգեր, and both were drawing on the same current of literary paganism in the Constantinople of 1911 to 1914. Armat links to Varoujan from here and not the other way round: the Varoujan article was written before this one and stated at the time that the strongest relation it could have did not yet exist, which is now no longer true — but a relation is added where it is earned, not mirrored back for symmetry.",
+        ],
+        links: [
+          { phrase: "Daniel Varoujan, six years younger", slug: "daniel-varoujan" },
+        ],
+      },
+      {
+        id: "arrest-ayas-and-death",
+        heading: "Arrest, Ayaş, and death",
+        paragraphs: [
+          "On 24 April 1915 he was arrested in Constantinople, one of a few hundred Armenian writers, editors, teachers, clergy and public figures seized in the capital that night and in the days that followed. The date is commemorated as the beginning of the Armenian Genocide. It is the date of the arrests and not the date of his death, and collapsing the two is the commonest error made about him.",
+          "The men taken that night were split between two places of detention, and which one a prisoner went to largely decided whether he lived. Chankiri, in the province of Kastamonu, was an open detention town, and a number of those sent there survived; Ayaş, near Ankara, was a secure military depot, and almost none did. Siamanto was sent to Ayaş. Daniel Varoujan was sent to Chankiri. This is the distinction that most short accounts lose, and it is the reason their deaths are documented so unequally.",
+          "He was killed in August 1915, in the killings of the Ayaş prisoners outside Ankara. Beyond that the record thins: of roughly eighty-four men held there, some fourteen were released and the rest were killed in groups within hours of being taken from the prison, and no survivor's account fixes the day for him individually. Sources that give him a precise date are supplying one. Armat states the month, because the month is what is established.",
+          "Armat does not describe the killings. Accounts of how the Ayaş and Chankiri prisoners died exist, are documented, and are reproduced very widely, and this is a biography of a poet.",
+        ],
+      },
+      {
+        id: "what-survived",
+        heading: "What survived",
+        paragraphs: [
+          "His books survived, which was not guaranteed: the collected works were reprinted at Beirut in 1954 and again in 1974, at Cairo in 1960 and at Antelias in 1989, by the diaspora publishing houses that took over the job the Constantinople presses could no longer do. A selected works appeared at Yerevan in 1957, and a volume of previously unpublished work in 2002.",
+          "In English he is represented mostly by one book. Bloody News from My Friend, translated by Peter Balakian and Nevart Yaghlian and published in 1996, put the Adana sequence into English for the first time, and it is why the English-speaking reader who knows one thing about Siamanto knows that one. The rest of the work — the early exhortations, the doubt of 1907, the alphabet poem — is largely untranslated, which is why English accounts of him tend to describe a narrower poet than the Armenian ones do.",
+          "The lasting effect is on the line rather than on any single poem. Armenian poetry after him could use a loose measured line as a normal resource, and the poets of the next generation on both sides of the language inherited it. That is the part of him that outlived the reading of him as a witness, and it is the part this article has tried to keep in front.",
+        ],
+      },
+    ],
+    keyFacts: [
+      { label: "Lived", value: "15 August 1878 to August 1915" },
+      { label: "Born", value: "Akn (Eğin, now Kemaliye), kaza of Akn, vilayet of Mamuret-ül-Aziz" },
+      { label: "Wrote in", value: "Western Armenian" },
+      { label: "Educated at", value: "Nersisyan school, Akn; Mirijanian school, Kumkapı; Berberian school, Scutari; free listener at the Sorbonne" },
+      { label: "Best known for", value: "Կարմիր լուրեր բարեկամէս, Bloody News from My Friend, 1909" },
+      { label: "Also written", value: "Siamanto, Սիամանթօ, Սիամանթո; born Atom Yarjanian" },
+    ],
+    importantDates: [
+      { year: "1878", event: "Born on 15 August at Akn, on the Euphrates." },
+      { year: "1891", event: "Moves to Constantinople with his father and continues his schooling there." },
+      { year: "1896", event: "Finishes at the Berberian school at Scutari and leaves the empire during the massacres." },
+      { year: "1897", event: "In Europe: Geneva and Paris, where he attends the Sorbonne as a free listener." },
+      { year: "1898", event: "First poem published, in a newspaper printed in Manchester." },
+      { year: "1902", event: "Դյուցազնորեն published in Paris." },
+      { year: "1905", event: "The first series of Հայորդիներ published in Geneva." },
+      { year: "1907", event: "Հոգեվարքի և հույսի ջահեր published in Paris." },
+      { year: "1908", event: "Returns to Constantinople after the restoration of the Ottoman constitution." },
+      { year: "1909", event: "Կարմիր լուրեր բարեկամէս published in Constantinople after the Adana massacres; sails for the United States in December." },
+      { year: "1911", event: "Returns to Constantinople after about a year editing Հայրենիք in Boston." },
+      { year: "1913", event: "Travels to Tiflis, Baku and Etchmiadzin; Սուրբ Մեսրոպ published." },
+      { year: "1915", event: "Arrested in Constantinople on 24 April, held at Ayaş, and killed near Ankara that August." },
+    ],
+    significance: {
+      heading: "Why Siamanto matters",
+      paragraphs: [
+        "Siamanto changed what an Armenian poetic line could be. Armenian criticism credits him with giving free verse its form in the language, and the metrical scholarship shows how he did it — by carrying the measures of medieval Armenian lyric into a modern loose line rather than discarding them. Poets after him could use that line without arguing for it.",
+        "He also set a problem that has not gone away: what a poem can honestly do with an atrocity. Կարմիր լուրեր բարեկամէս answered it by refusing metaphor and reporting what witnesses wrote to him, in the year it happened, and it remains one of the earliest sustained attempts in any literature to write a mass killing as it occurred rather than in retrospect. That he was himself killed six years later has made him a symbol, and the symbol has cost him readers.",
+      ],
+    },
+    interestingFacts: [
+      "He was baptised Astvatsatur, God-given, for the feast day he was born on, and later took the name Atom himself.",
+      "The pen name comes from a folk poem about two lovers; his sister was given the other lover's name, Khechezare, as hers.",
+      "He attended the Sorbonne as a free listener rather than as an enrolled student, and took no degree there — English reference works list him among the university's alumni anyway.",
+      "He wrote Կարմիր լուրեր բարեկամէս about a massacre he did not see, from letters sent by someone who did.",
+      "He edited the Boston daily Հայրենիք for about a year, and Հայրենի հրավեր is the book that came out of what he saw of emigrant life.",
+      "He and Daniel Varoujan were arrested on the same night in 1915 and sent to different prisons: Ayaş, where almost no one survived, and Chankiri, where some did.",
+    ],
+    relatedFigures: [
+      {
+        name: "Garegin Srvandztiants",
+        lifespan: "1840–1892",
+        description:
+          "Priest, ethnographer and folklorist, the first to publish the epic Daredevils of Sassoun, who gave the boy at Akn the name Siamanto.",
+      },
+      {
+        name: "Daniel Varoujan",
+        lifespan: "1884–1915",
+        description:
+          "Western Armenian poet who reviewed Կարմիր լուրեր բարեկամէս in 1913, was arrested on the same night in 1915, and was sent to the other prison.",
+      },
+      {
+        name: "Peter Balakian",
+        lifespan: "born 1951",
+        description:
+          "Poet and scholar who, with Nevart Yaghlian, translated the Adana sequence into English in 1996 as Bloody News from My Friend.",
+      },
+      {
+        name: "Mesrop Mashtots",
+        lifespan: "about 361–440",
+        description:
+          "Creator of the Armenian alphabet, the subject of the long poem Սուրբ Մեսրոպ, written for the anniversary of the invention.",
+      },
+    ],
+    relatedSlugs: ["daniel-varoujan", "grigor-narekatsi", "mesrop-mashtots-armenian-alphabet"],
+  },
 ];

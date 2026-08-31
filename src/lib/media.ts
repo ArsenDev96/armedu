@@ -1156,6 +1156,41 @@ const IMAGES: Record<string, string> = {
  */
 export const PENDING_ARTWORK: readonly string[] = [
   /*
+   * §88. Writer #10, written ahead of his portrait, and the first entry on this
+   * list whose provenance was settled before the commission rather than after it.
+   *
+   * `siamanto` is here for the ordinary reason: the biography shipped and the
+   * artwork has not been made. Nothing has been added to `IMAGES` and nothing has
+   * been added to `PORTRAIT_PROVENANCE`, which is the correct state for a slug in
+   * this list — the registration pass adds both together or neither.
+   *
+   * What is decided in advance, and what whoever fills the commission must not
+   * quietly reverse, is the provenance. Siamanto was photographed. A lifetime
+   * photograph of him at his desk in Boston in 1910 survives and is in wide
+   * circulation, and it is the obvious reference for a portrait of him. **When the
+   * file lands, this slug takes `photo-referenced`**, and the entry in
+   * `PORTRAIT_PROVENANCE` must record which photographs were actually consulted
+   * and what the delivered artwork agrees with them on, in the manner of the
+   * `daniel-varoujan` note — not merely that photographs exist.
+   *
+   * That is the opposite of the §86 decision for `nerses-shnorhali` and it is the
+   * same rule, applied honestly in the other direction. §87 stated the rule as: the
+   * type is decided by what survives of the subject, not by how convincing the
+   * artwork looks. What survives of Shnorhali is nothing, so he stays `imagined`
+   * however good the painting. What survives of Siamanto is a photograph, so
+   * captioning his portrait an imagined likeness would be the false claim. The
+   * cautious default is only cautious where the record is empty.
+   *
+   * Two things follow, and they are conditions on the delivery rather than notes
+   * about it. The portrait must be made with those photographs in view, because
+   * the caption will assert that it was; if it is not, the entry does not go into
+   * `PORTRAIT_PROVENANCE` and the artwork is `imagined` and wrong. And the standing
+   * rejection condition promoted by §86 still applies unchanged: readable generated
+   * lettering of any kind is refused outright, not weighed.
+   */
+  "siamanto",
+
+  /*
    * §87. Emptied for the eleventh time, and the first of the three consecutive
    * Writers to be accepted on the delivery it was first sent.
    *

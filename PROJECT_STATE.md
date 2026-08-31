@@ -19774,3 +19774,409 @@ historical comment block was lost.
 Nothing was deployed. No `.claude/settings.json` change. No previous project-state
 section rewritten. No Writer #10 begun, no Literary Work created, and no Cuisine,
 Places, Visit, map or History change made.
+
+---
+
+## §88. Writer #10 — Siamanto (Atom Yarjanian), in all three editions
+
+Step 58. The tenth Writer, written into `hy`, `hyw` and `en`, reusing the existing
+`20th-century` taxonomy. His portrait was **not** generated and **not** registered:
+he is declared in `PENDING_ARTWORK` instead, which is the state this step
+deliberately stops at.
+
+### Pre-state
+
+Branch `writer`, working tree **clean**, `HEAD` at `0935c81 Nerses`. Nine Writers,
+nine registered portraits, `PENDING_ARTWORK` empty, `PORTRAIT_PROVENANCE` holding
+one entry (`daniel-varoujan`). Content validation reported 174 entries.
+
+### Archive findings, before drafting
+
+Three pre-existing hits on the name, all checked and none of them him. `sources.ts`
+carries "Siamanto Press" three times — the publisher of Sonia Uvezian's *The Cuisine
+of Armenia*, cited by three Cuisine bibliographies. It is a real press named after
+the poet and is unrelated to this article; nothing was changed there.
+
+`tests/e2e/writers.spec.ts` carried two references, and both were §84 artefacts that
+had to be retired rather than preserved. The Varoujan test listed `siamanto` among
+slugs that **must not exist**, and its comment recorded that "Siamanto is the
+strongest relation this article could have and does not exist, so it is absent
+rather than fabricated." That sentence was true when written and is now false. Both
+were updated in place, with the §84 reasoning kept and the change explained, rather
+than deleted.
+
+**Works audit:** nothing of his was ever a Work. Works remains the same four slugs.
+
+### Live SEO / SERP findings
+
+Run before a word was drafted. **No keyword metrics are recorded here and none were
+invented** — no volumes, no difficulty scores, no CPC. What follows is SERP
+composition, observed.
+
+English "Siamanto" returns Wikipedia, Armeniapedia, armenianhouse.org, a Hamazkayin
+profile, the Wayne State University Press page for *Bloody News from My Friend*, and
+a tail of scraped aggregators (peoplepill, biographies.net, factsnippet) plus one
+Studocu upload. Armenian queries return the `hy` Wikipedia article, armenianhouse,
+Wikisource's scan of the Soviet Armenian Encyclopedia, `writers.am`, and one art365
+feature on the pen name. Every one of them is a short encyclopedia entry, a poem
+archive, or a product page.
+
+**Armat differentiation.** Six things nothing on the first page does:
+
+1. Reconciles the birth date. Three are in print and no ranking page names more
+   than one.
+2. States the Sorbonne status correctly. English Wikipedia's infobox reads
+   `education = University of Paris` and files him under that university's alumni.
+3. Separates Ayaş from Chankiri — the distinction that decides why his death is
+   documented so much worse than Varoujan's. No ranking English page makes it.
+4. Gives the pen name's actual etymology, with the corroborating detail.
+5. Treats the free-verse claim precisely instead of translating "gave form to" as
+   "invented".
+6. Handles Akn's Ottoman geography, which is usually given as Sivas.
+
+### Canonical name and variants
+
+Canonical: **Atom Yarjanian**, pen name **Siamanto**. Armenian splits by
+orthography and each edition prints its own: `Ատոմ Յարճանյան` / `Սիամանթո`
+(Eastern, `hy`), `Ատոմ Եարճանեան` / `Սիամանթօ` (classical, `hyw`). Romanisations
+carried as keywords: Yarjanian, Yarchanyan, Atom, Adom. Both orthographic forms of
+the pen name are in the keyword list of **all three** editions, so a reader who
+knows one finds the other.
+
+### Pen-name evidence
+
+Garegin Srvandztiants named him — every Armenian source agrees. On what it was
+taken *from* they diverge: English accounts say a hero of one of Srvandztiants's
+own stories; Armenian accounts say the folk poem of Sia-Mandon and Khaché-Zaré, two
+lovers who die together. Armat takes the second, on the corroboration: the same
+naming gave his sister Armenouhi the other lover's name, Khechezare. One event
+producing two matching names is harder to invent than a recollection.
+
+**Investigated and reported rather than smoothed:** Srvandztiants's own documented
+career (Van, Mush, Erzurum, Constantinople; bishop and prelate at Trabzon from 1886)
+records **no teaching post at Akn**. He toured the eastern provinces collecting oral
+material in exactly those years, so the encounter is possible. The article states
+the naming as the well-attested part and the schoolroom as the part the record does
+not independently confirm.
+
+### Birth-date evidence and decision
+
+Three dates, not two:
+
+- **15 August 1878** — the great majority, Armenian and English.
+- **1 January 1878** — a handful of biographical databases, defended by nothing.
+- **1875** — printed on the jacket of the Wayne State translation, which this
+  article cites.
+
+Decision: **15 August 1878**, on the ground that Armenian sources tie it to the
+mid-August feast *and* to the baptismal name Astvatsatur the family chose because of
+it. A date that explains a name outranks a date that occupies a field. The other two
+are printed in the article rather than deleted, and the 1875 is left standing in the
+citation because a reader who picks the book up will meet it.
+
+Consequence stated rather than fudged: **thirty-six or thirty-seven** at death,
+because the month of his killing has never been dated to a day.
+
+### Birthplace, geography, family, Akn context
+
+Akn (Ակն; Turkish Eğin; Kemaliye since 1922), on the right bank of the western
+Euphrates between the Taurus and Anti-Taurus. Administratively: a **kaza in the
+sanjak of Harput within the vilayet of Mamuret-ül-Aziz** — not Sivas, not a province
+of its own. Houshamadyan is cited for exactly this and nothing else. "Western
+Armenia" is used as the cultural and demographic term it is, with the caveat kept.
+Family: a merchant household (Armenian sources) / upper middle class (English) —
+the same fact in two registers, and the one that explains the schooling. He left at
+about fourteen.
+
+### Education chronology, and the Sorbonne finding
+
+Nersisyan school, Akn → 1891 to Constantinople with his father → Mirijanian school
+at Kumkapı → Berberian (Perperian) school at Scutari, finished **1896** → out of the
+empire during the 1894–96 massacres → Cairo → from 1897 Geneva and Paris.
+
+English accounts collapse the two Constantinople schools into one stretch at
+Berberian; the Armenian ones name both in order. The shorter version dropped a step,
+so the article gives the sequence. Paris-then-Geneva versus Geneva-then-Paris is a
+genuine source disagreement with nothing turning on it; both cities are named and no
+route is invented.
+
+**The Sorbonne, stated exactly and not inflated.** He was an `ազատ ունկնդիր` — a
+free listener, *auditeur libre* — in the literature faculty, attending lectures
+without being enrolled. **No degree.** No source claiming one says on what
+authority. The article names the inflation as an inflation, which is the differentiator.
+
+### European intellectual context
+
+The European Armenian Students' Association and the national parties; writing for
+`Դրօշակ` in Geneva; publication across three continents (`Անահիտ` Paris, `Բանբեր` St
+Petersburg, `Հայրենիք` Boston). First poem 1898, in a Manchester-printed paper. The
+party affiliation is stated as a fact about him, not as an accusation and not as
+the whole of him.
+
+### 1908 and 1909 chronology
+
+**1908:** returned to Constantinople after the Young Turk revolution restored the
+Ottoman constitution — to test the political weather, not to celebrate it, per the
+Armenian sources. Whether the scepticism was as clear at the time as in hindsight is
+recorded as what the sources say, not as a documented prediction.
+
+**1909:** the Adana massacres in April, under the new constitutional order and not
+the old regime — which is the point the article makes about them.
+
+### Major works chronology
+
+`Դյուցազնորեն` written from c. 1897, printed Paris 1902, epigraph from the Rigveda ·
+`Հայորդիներ` in three series: Geneva 1905, Geneva 1906, Paris 1908, with I–II
+reprinted Constantinople 1908 · `Հոգեվարքի և հույսի ջահեր` Paris 1907 ·
+`Կարմիր լուրեր բարեկամէս` Constantinople 1909 · `Հայրենի հրավեր`, twelve verse
+letters, in the collected works, Boston 1910 · `Սուրբ Մեսրոպ` written 1912,
+published Tiflis 1913.
+
+The 1909/1910 disagreement over `Հայրենի հրավեր` is stated as what it is — the gap
+between a sequence being written and a book appearing — rather than resolved
+silently.
+
+### `Կարմիր լուրեր բարեկամէս`, handled non-graphically
+
+Described as a book: letter-poems relayed from a correspondent, a lament, eleven
+letter-poems and a closing poem of endurance — twelve in all, which reconciles the
+Armenian structural description with the English edition's "cycle of twelve". Its
+technique is named as a technique: it refuses metaphor and symbol, and that refusal
+is deliberate rather than an absence.
+
+**No atrocity is depicted.** The article says so in the text ("Armat does not
+reproduce those scenes"), gives the reason, and points a reader who needs the events
+to the historical literature. **No long copyrighted translation is quoted** — not a
+line of the Balakian/Yaghlian version is reproduced; it is cited, described and
+credited.
+
+### Free-verse audit
+
+The Soviet Armenian Encyclopedia says he `ձև է տվել` — **gave form to** — Armenian
+free verse (`ազատաչափ`, vers libre). The article quotes that formula and refuses to
+upgrade it, in as many words: *"That is not the same as inventing it"* and *"not
+that he was the first Armenian ever to write one."* **No first/invented claim is
+made anywhere in any edition.**
+
+The claim is then made stronger by evidence rather than by volume: Karina Asatryan's
+metrical study (DOI `10.46991/afa/2010.6.1-2.169`) argues his line connects the
+metres of medieval Armenian lyric to the structural conventions of modern free
+verse. A bridge, not a break — which is a better claim than priority.
+
+### Symbolism / modernism audit, and concrete technique
+
+"Symbolist" is named as the English label and refused as too simple. Armenian
+criticism places him among the leading figures of **neo-romanticism**, interweaving
+classical romanticism with symbolism, and describes `Հայորդիներ` as moving *out of*
+mystical symbolism toward the real world. The comparison Armenian scholarship
+actually makes is with **Narekatsi's Book of Lamentations** — sustained intensity,
+visionary abstraction, and accumulation of epithets.
+
+Concrete techniques named, so the labels are not doing the work alone: the loose
+measured line; coined words, compounds and occasional combinations; the piling of
+epithet on epithet; and, in the Adana sequence, the deliberate refusal of figure.
+
+### Western Armenian, treated substantively
+
+A full section, not a sentence. Two standard forms of one language; in his lifetime
+the written standard of a large population with its own press, schools and
+readership; his generation still deciding what it could carry; his compounds and his
+free line named as the specific instruments. The loss of territory, institutions and
+readers within a few years of his death, and the endangered status, are stated
+without being made a compliment to him.
+
+### The Varoujan relationship, and other relation decisions
+
+**Earned, on one attributable sentence.** Varoujan reviewed
+`Կարմիր լուրեր բարեկամէս` and called it a `տաղանդավոր ոճրերգություն` — a gifted song
+of crime — in `Գրական ասուլիսներ`, book 6, Constantinople 1913, p. 26. That is a
+poet on another poet's book, in print, in their own lifetimes, with a page
+reference. The article says so and prefers it to the usual biographical pairing
+(same night, same summer), which is true of hundreds of people.
+
+**No forced reciprocity.** The relation is authored **Siamanto → Varoujan only**.
+The Varoujan article was not touched: not its `relatedSlugs`, not its `SectionLink`
+list, not a word of its prose. A test asserts that.
+
+Two further relations, both earned: **Narekatsi**, on the poetic comparison above;
+**Mesrop Mashtots**, because `Սուրբ Մեսրոպ` is a hymn to him. `relatedSlugs` is
+`["daniel-varoujan", "grigor-narekatsi", "mesrop-mashtots-armenian-alphabet"]`,
+identical in all three editions, each carried by a SectionLink in the paragraph that
+justifies it. **No Work slug was invented** — not `karmir-lurer-barekames`, not
+`surb-mesrop`, not any of them, and a test names six candidates and forbids each.
+
+### US and Caucasus chronology
+
+December 1909 to the United States as a party fieldworker and to edit the Boston
+daily `Հայրենիք`; about a year in the Boston area; back to Constantinople 1911.
+English sources date the move 1910 and Armenian ones 1909 — the gap between sailing
+and settling; the earlier date is given with the later noted. 1913: Tiflis, Baku,
+Etchmiadzin — the only time he saw the other half of his own language.
+
+### 1915 chronology
+
+**Arrested 24 April 1915** in Constantinople, in the operation commemorated as the
+beginning of the genocide. The article states that this is the date of the arrests
+and not of his death, and names the collapse of the two as the commonest error made
+about him.
+
+**Sent to Ayaş**, the secure military prison near Ankara — not Chankiri, where
+Varoujan went and where some survived. **Killed in August 1915**, outside Ankara.
+Of roughly eighty-four men held at Ayaş, some fourteen were released; no survivor's
+account fixes his individual day, so the article gives the **month** and says
+outright that sources offering a precise date are supplying one.
+
+The killings are not described. Literary identity stays dominant: the arrest section
+is the eighteenth of nineteen, the article closes on the work, and a test pins both.
+
+### Sources used, and rejected
+
+Used: Hacikyan et al., *The Heritage of Armenian Literature* III (ISBN
+9780814332214, pp. 774–776) · the Balakian/Yaghlian *Bloody News from My Friend*
+(ISBN 9780814326404) · Asatryan, *Armenian Folia Anglistika* 6(1-2), 2010, 169–175
+(DOI 10.46991/afa/2010.6.1-2.169) · Հայկական սովետական հանրագիտարան vol. 10, 1984,
+pp. 351–352 (archival reference) · `Գրական ասուլիսներ` book 6, Constantinople 1913,
+p. 26 (archival reference) · Houshamadyan on the Kaza of Agn (URL, verified 200) ·
+the Gomidas Institute on the Ayaş prisoners (URL, verified 200).
+
+Rejected: the scraped biography aggregators (peoplepill, biographies.net,
+factsnippet, Studocu), which have no editorial process and are where the undefended
+1 January date propagates; and English Wikipedia's `education = University of Paris`,
+which is the claim this article exists partly to correct. **No denialist or hostile
+source was consulted or cited.**
+
+### SEO fields
+
+All three editions carry `seoTitle`, `metaDescription` (each ≤165 characters) and
+`summary` (40–140 words), plus an 18-entry `keywords` list carrying both
+orthographies, the romanisations, the Armenian titles, the English title of the
+translated book, and `Akn`. He is the fourth Writer built on the §81 SEO
+architecture.
+
+### Files changed
+
+Ten files, and **every change under `src/` is a pure insertion — zero deletions**:
+
+| File | Change |
+| --- | --- |
+| `src/data/locales/{en,hy,hyw}/articles/writers.ts` | +297 / +296 / +296, the article |
+| `src/data/locales/{en,hy,hyw}/writers.ts` | +12 each, the listing card |
+| `src/data/sources.ts` | +86, the bibliography and its three recorded decisions |
+| `src/lib/media.ts` | +35, the `PENDING_ARTWORK` entry and its commission |
+| `tests/e2e/writers.spec.ts` | +493 / −26 |
+| `tests/e2e/places.spec.ts` | +5 / −4 |
+
+### Counts
+
+Writers **9 → 10**. Period distribution `medieval: 2, 19th-century: 3,
+20th-century: 4, soviet: 1` — the `20th-century` value moved 3 → 4 and **no new
+filter id was created**. Tumanyan remains the only `featured` Writer. Content
+validation: **174 → 180 entries**. Works 4, Cuisine 12, Places 13, History 7 — all
+unchanged.
+
+### Portrait pending state, and future provenance
+
+`PENDING_ARTWORK = ["siamanto"]` — the list was empty, so nothing unrelated was
+displaced. **Nothing was added to `IMAGES`. Nothing was added to
+`PORTRAIT_PROVENANCE`.** No portrait was generated in this step.
+
+The commission recorded beside the entry decides the provenance in advance and in
+the opposite direction from §86: **when the file lands, this slug takes
+`photo-referenced`.** A lifetime photograph of him at his desk in Boston in 1910
+survives. §87's rule is unchanged and is what produces the different answer — the
+type is decided by what survives of the subject, not by how convincing the artwork
+looks. Shnorhali stays `imagined` however good the painting because nothing of him
+survives; Siamanto cannot be captioned an imagined likeness because a photograph
+does. Two conditions on the delivery: the portrait must actually be made with those
+photographs in view, since the caption will assert it; and §86's outright rejection
+of readable generated lettering still stands.
+
+A test asserts the **absence** of the provenance entry today, so that shipping the
+artwork without revisiting it fails.
+
+### Regressions checked
+
+Existing nine Writers: untouched. Varoujan still `photo-referenced`, still serving
+his own portrait and caption, relations still `[tumanyan, charents]`. Narekatsi and
+Shnorhali still `imagined`. Shnorhali's single relation unchanged. All nine
+registered portraits still resolve to their own files. Works, Cuisine, Places, the
+map and History: **no change of any kind**.
+
+### Tests changed
+
+`writers.spec.ts`: `SIAMANTO` constant added; `SLUGS` 9 → 10; `PENDING` `[]` →
+`[SIAMANTO]`; three stale `PENDING` "is empty" assertions retired with the §84–§87
+reasoning kept; §87's "every writer is illustrated" replaced with the specific
+claim (exactly the new writer is pending, nothing previously illustrated became
+pending); the listing placeholder count moved from `0` to `PENDING.length`; the
+20th-century count literals 3 → 4 in two places; `siamanto` removed from the
+Varoujan forbidden-slug list and that test's comment brought up to date. Eight new
+§88 tests added — taxonomy, contested facts, geography and 1915 chronology,
+non-graphic treatment, relations and invented Work slugs, name forms and SEO,
+portrait pending state, and the regression sweep.
+
+`places.spec.ts`: the Writers count literal 9 → 10.
+
+Every one of these went red first, which is the tests working.
+
+### Results
+
+`npm run typecheck` **clean**. `npm run validate:content` **clean at 180 entries**,
+noting one slug with no artwork — `siamanto` — which is the declared state.
+`tests/e2e/writers.spec.ts` **42/42 passed**. Full suite: **425 passed, 5 skipped, 0 failed** in 11.2 minutes across 430 tests,
+desktop and mobile projects.
+`npm run build` exit **0**, `BUILD_ID` `r6YcDqegaaWpy-L2IUsQ6`,
+**30 writer paths** prerendered (10 x 3), including all three Siamanto routes. Run
+after Playwright with the dev server stopped and `.next` cleared, so the two never
+overlapped.
+
+Fifteen routes probed by hand before Playwright — the three Siamanto locales, the
+three Writers listings, Varoujan in two editions, Shnorhali, Narekatsi, a Work, a
+dish, a Place, a History article and the sitemap — all **200**. The sitemap carries
+`writers/siamanto` in all three editions.
+
+### Process notes
+
+`.next` again held a production `BUILD_ID`, this time from §87's build, with no
+server running. It was removed before any dev server started, which is the §87
+lesson applied ahead of the failure rather than after it.
+
+Four assertions went red on the first Playwright run and three were stale literals
+doing their job — the two 20th-century counts and the period distribution. The
+fourth was a defect in a test written in this step: it asserted
+`getImageSrc(SIAMANTO)` did not contain a substring, but the function returns
+`undefined` for an unregistered slug and `not.toContain` errors on `undefined`
+rather than passing. Corrected to `toBeUndefined()`, which is what was meant.
+
+No whole-file checkout or revert was used at any point, so no uncommitted work was
+lost — the §87 failure was not repeated. Every splice located its insertion point
+with `lastIndexOf("];")` or an exact-string match rather than a bare `indexOf("[")`,
+which is what corrupted `media.ts` last time.
+
+No rendered HTML, DOM dump or debug fragment was written into the repository. All
+drafting fragments, logs and fetched wikitext went to the external temp scratchpad.
+`.claude/settings.json` was not touched.
+
+### Technical debt
+
+- **Siamanto has no portrait.** Declared, commissioned, and the provenance decided
+  in advance; the registration pass is the next step.
+- The specialist monographs on him — Թամրազյան (1964) and Ռշտունի (1970, 1979) —
+  were **not consulted**. The article rests on the encyclopedia, the metrical
+  study and the English literary history. This is the same gap §87 recorded for
+  Shnorhali.
+- The Paris/Geneva ordering is left as a stated disagreement rather than resolved;
+  it would take a specialist biography to settle.
+- The `Հայրենի հրավեր` 1909/1910 date is likewise stated rather than resolved.
+- Six of ten Writers biographies still lack SEO fields.
+- The `navigation.spec.ts` Works → Cuisine failures §87 recorded as **open** did
+  not reproduce: all ten `navigation.spec.ts` tests passed in both full runs. They
+  are recorded as intermittent rather than fixed, because nothing in this step
+  touched navigation and two green runs do not close a flake.
+
+### No deployment
+
+Nothing was deployed. **Siamanto's portrait was not generated and not registered**,
+which was the explicit boundary of this step. No `.claude/settings.json` change. No
+previous project-state section rewritten. No Literary Work created, and no Cuisine,
+Places, Visit, map or History change made.

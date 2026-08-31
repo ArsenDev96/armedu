@@ -4775,10 +4775,11 @@ test("the four existing category listings still load and still count what they d
   const expected: [string, number, string][] = [
     ["history", 7, dict.listing.history.title],
     // §81 moves Writers 6 → 7 with Grigor Narekatsi, §84 moves it 7 → 8 with
-    // Daniel Varoujan and §86 moves it 8 → 9 with Nerses Shnorhali. Edited rather
-    // than derived on purpose: this test exists to notice when another section
-    // grows, and it has now done so three times, going red first on each.
-    ["writers", 9, dict.listing.writers.title],
+    // Daniel Varoujan, §86 moves it 8 → 9 with Nerses Shnorhali and §88 moves it
+    // 9 → 10 with Siamanto. Edited rather than derived on purpose: this test exists
+    // to notice when another section grows, and it has now done so four times,
+    // going red first on each.
+    ["writers", 10, dict.listing.writers.title],
     ["works", 4, dict.listing.works.title],
     // §67 moves Cuisine 6 → 7 with Spas, §70 moves it 7 → 8 with jingalov hats,
     // §72 moves it 8 → 9 with khash, §74 moves it 9 → 10 with matsun, §77 moves it

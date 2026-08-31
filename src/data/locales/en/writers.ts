@@ -110,6 +110,18 @@ export const writers: Writer[] = [
     imageSeed: "nerses-shnorhali",
     notableWorks: ["Lament on Edessa", "Jesus the Son", "I Confess with Faith"],
   },
+  {
+    slug: "siamanto",
+    name: "Siamanto",
+    lifespan: "1878–1915",
+    period: "20th Century",
+    periodId: "20th-century",
+    role: "Poet and editor",
+    description:
+      "The Western Armenian poet born Atom Yarjanian, who gave Armenian free verse its form and wrote the Adana massacre of 1909 into poetry in the year it happened.",
+    imageSeed: "siamanto",
+    notableWorks: ["Կարմիր լուրեր բարեկամէս", "Հայորդիներ", "Հոգեվարքի և հույսի ջահեր", "Սուրբ Մեսրոպ"],
+  },
 ];
 
 export const literaryPeriods: Filter[] = [
