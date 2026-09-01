@@ -20438,3 +20438,181 @@ points 2 and 3 change the frame.
   stated disagreements, and six of ten Writers still without SEO fields.
 - `navigation.spec.ts` was not run in this step, so the intermittent
   Works → Cuisine failures are neither reproduced nor closed; they stay open.
+
+## §90 — Siamanto portrait registered. §89's rejection is superseded.
+
+The first verdict in this archive to be reversed. §89 above refused this file and
+is **left standing in full**, unedited, because §31 requires the visual-review
+history be kept rather than tidied: a rejection that was overturned is more
+useful as a record than a rejection that was deleted. What follows supersedes its
+verdict and nothing else. Where §89 and this section disagree, this section is
+the current state of the repository.
+
+### What reversed, and what did not
+
+Three findings carried §89's refusal. Two were overruled by the owner of the
+section and one was overturned on re-measurement.
+
+1. **The hand — overturned on the evidence.** §89 judged it at 3.5x with
+   contrast normalised, where it reads as an undifferentiated taper with no
+   countable digits. Re-judged at the size it is actually rendered at — the
+   1152px hero, where that region occupies **276x378 css pixels** — it reads as a
+   loosely-curled hand seen from its ulnar edge, fingers turned away from the
+   viewer, thumb hidden behind them. The foreshortening is legitimate. The
+   magnification was the error, and the rule that comes out of it is recorded
+   beside the registry entry in `src/lib/media.ts`: **judge anatomy at rendered
+   size first and magnify only to confirm.** Magnification will find a defect in
+   every painted hand in this registry; that is a property of the magnification.
+2. **The composition — accepted.** §89 read the pose, the sitter direction and
+   the window-left / bookcase-right setting as materially duplicating
+   `daniel-varoujan` under §16. The duplication is real and is not disputed. It
+   was accepted for this file. The observation was not discarded; it was promoted
+   from a defect in one asset to a rule for the collection, below.
+3. **The sepia treatment — accepted.** The measurement stands: mean
+   chroma-saturation 0.186 against a family mean near 0.43, the lowest in the
+   section by 34 per cent from its nearest neighbour. It was accepted
+   deliberately. The consequence §89 named is also accepted and is the reason the
+   provenance note is written the way it is — a `photo-referenced` caption on an
+   image styled as a photograph has to say *not itself a photograph* and carry
+   more weight than usual, not less.
+
+What §89 recorded that is unaffected and remains true: the file is technically
+flawless, the text gate passed at every magnification, the likeness converges on
+both lifetime photographs, and no Siamanto-specific `PORTRAIT_FOCUS` value is
+needed because the head survives every crop the four consumers apply.
+
+### The registration, read back from source
+
+Registered in the working step before this one and committed as `bc6f6be`. Three
+files under `src/` and `tests/`, and the portrait itself was not regenerated,
+re-encoded, renamed or touched in any way — it is the byte-identical file
+committed as `23bf6f3`, 197,466 bytes, SHA-256
+`4170e1e338590e5ea46a9207f4e4aca0c5b87549d92199f2221b0c0850c92f2f`.
+
+- `src/lib/media.ts` — `IMAGES` gains `siamanto:
+  "/images/writers/siamanto.webp"`, the tenth writer path.
+  `PORTRAIT_PROVENANCE` gains `siamanto: "photo-referenced"`, the second slug in
+  that map, on the strength of the two identified lifetime photographs and with
+  the note recording where they disagree. `PENDING_ARTWORK` is spliced to empty
+  for the twelfth time — **and for the first time the section it emptied is
+  finished by it: ten writers, ten portraits, no placeholder anywhere in the
+  archive.**
+- `tests/e2e/writers.spec.ts` — `SIAMANTO` moves into `ILLUSTRATED`, `PENDING`
+  becomes `[]`, the `PORTRAIT` map gains his path. The §88 test *"Siamanto ships
+  without a portrait, and no provenance was recorded for one"* is replaced by
+  *"Siamanto's portrait is registered as photo-referenced, and the section is
+  complete"*, and a new test *"Siamanto's portrait reaches the listing, search,
+  metadata and sitemap"* covers the four consumers at once. The §85 provenance
+  loop now iterates a stated `PHOTO_REFERENCED = [VAROUJAN, SIAMANTO]` set
+  instead of a single-slug `continue`.
+- `tests/e2e/places.spec.ts` — the cross-section registry snapshot is extended by
+  one line, `siamanto: "/images/writers/siamanto.webp"`, every other value
+  byte-identical.
+
+### Verification
+
+Run in this step, in this order, never overlapping. A production `.next` from
+2026-08-31 12:00 was cleared first with no server running, per the standing rule
+that `next dev` over a production build 404s every dynamic article route.
+
+**Full Playwright suite — 431 tests, 426 passed, 0 failed, 5 skipped, 12.2m**,
+two workers, `desktop` and `mobile` projects, against Playwright's own dev server
+on 3002. This closes every one of the five failures the previous full run
+carried:
+
+- The places registry snapshot — `places.spec.ts:3084` *"no unrelated article
+  artwork changed"* — passes (37ms), as does `places.spec.ts:3050` *"the registry
+  and the pending list are mutually exclusive"* (28ms), which is the assertion an
+  emptied `PENDING_ARTWORK` had to satisfy.
+- `newsletter.spec.ts:89` *"the form submits the active route locale"* passes
+  (1.7s) in the full run, not only in isolation. Confirmed as a load-related
+  flake; it is not tracked as a defect. The `[newsletter] insert failed /
+  TypeError: Failed to fetch` lines in the server log are the expected
+  missing-Supabase-configuration path being exercised, not failures.
+- The 5 skips are the pre-existing untranslated-article states —
+  `locale.spec.ts:77`, `locale.spec.ts:100`, `seo.spec.ts:106`,
+  `seo.spec.ts:127`, `mobile.spec.ts:126`. Unchanged in count and identity.
+
+**Navigation — not reproduced. Recorded honestly as such, and nothing in
+`navigation.spec.ts` or in the navigation components was modified to obtain it.**
+`navigation.spec.ts:16` *"desktop navigation opens each main section"* passed in
+all three locales in the full suite (hy 4.0s, hyw 3.9s, en 5.4s) and again in an
+isolated re-run of the whole file, 10/10 in 38.1s (hy 10.2s, hyw 7.9s, en 5.4s).
+Six clean passes of the Works → Cuisine chain across two runs. The previous step
+saw the same three fail in the full run and reproduce in isolation, which is the
+opposite result on the same code. **The failure is therefore confirmed
+intermittent rather than closed**, as §87 first described it, and it stays open.
+Nothing has been fixed and nothing should be read as fixed; the honest statement
+is that this step could not make it fail.
+
+**`npm run build` — succeeded**, run separately after Playwright with port 3002
+free and no dev server up. New `BUILD_ID` `j8qmGYaLcm4-LKFEhUKzG`. All three
+`/{locale}/writers/siamanto` routes prerender as SSG, and the registration is
+visible in the emitted output rather than only in the tests: the portrait path
+appears 7 times in each of the three article documents, 11 times on the `en`
+writers listing, and the sitemap carries
+`<image:loc>https://armat.site/images/writers/siamanto.webp</image:loc>`.
+
+Note for whoever runs `next dev` next: `.next` now holds a production build
+again. Clear it, with the server stopped, before the next dev session.
+
+### Diff audit
+
+`git diff --stat` and `git diff --cached --stat` are both empty — the working
+tree and the index are clean, and the registration is committed as `bc6f6be`,
+which is what was audited. This section is the only subsequent change.
+
+| file | + | − |
+|---|---|---|
+| `PROJECT_STATE.md` | 258 | 0 |
+| `src/lib/media.ts` | 126 | **32** |
+| `tests/e2e/places.spec.ts` | 8 | 0 |
+| `tests/e2e/writers.spec.ts` | 164 | 35 |
+
+Every deletion was read. In `src/lib/media.ts` the 32 removed lines are exactly
+the §88 commission note (31 comment lines) and the `"siamanto",` entry beneath
+it, which is what registering a pending slug is supposed to remove and nothing
+else. In `tests/e2e/writers.spec.ts` the 35 are the old `PENDING = [SIAMANTO]`,
+the two pending assertions, the `if (slug === VAROUJAN) continue;` line and the
+prose the `PHOTO_REFERENCED` set replaced, and the body of the replaced §88
+placeholder test. `tests/e2e/places.spec.ts` deletes nothing. **No
+`git checkout --`, `git restore` or `git reset --hard` was run against any file
+in this step**, so the §57 failure is not repeated. No rendered HTML, DOM dump or
+page source was written into the repository — the built documents inspected above
+were read in place under `.next` and nothing was copied out of it.
+`.claude/settings.json` was not touched. Navigation was not modified. Writer #11
+was not started. **Nothing was deployed.**
+
+### Technical debt
+
+- **New, and the reason §89's composition finding was kept rather than
+  discarded: the Writer portrait collection has converged on
+  desk / books / study / warm interior.** Ten commissions, and the pose
+  vocabulary, the sitter attitude, the furniture and the lighting repeat. This is
+  a collection-level fact, **not a defect in the Siamanto asset**, which is
+  registered and accepted. The rule it produces binds the eleventh writer and
+  every one after: **future Writer artwork must be compared against the whole
+  collection for pose, silhouette, framing, environment and lighting before it is
+  generated and again before it is accepted.** A writer does not require a
+  visible desk or visible books.
+- **A section-numbering collision, recorded rather than repaired.** The registry
+  comments in `src/lib/media.ts` and `tests/e2e/places.spec.ts` label the
+  registration "§89", while §89 in this file is the rejection those comments
+  reverse. The registration is this section, §90. The source comments were left
+  alone deliberately — rewriting them was not in this step's scope and they are
+  otherwise accurate — but the next reader should not be misled by the label.
+  This file also carries two sections numbered §88.
+- `navigation.spec.ts:16` Works → Cuisine, all three locales: **open,
+  intermittent, not reproduced in this step.** Two clean runs here against a
+  reproduction in the previous step. Cause unknown; it is not a cold-compile
+  timeout, since `/{locale}/cuisine` serves 200 in about 90ms warm, and the
+  anchor is present and correct.
+- `newsletter.spec.ts:89`: closed as a load-related flake, passing in the full
+  suite.
+- The §88 content debts are all unchanged and none of them were touched here: the
+  Թամրազյան and Ռշտունի monographs unconsulted, the Paris/Geneva ordering and the
+  `Հայրենի հրավեր` date left as stated disagreements, and six of ten Writers
+  still without SEO fields.
+- The beard departure recorded in `PORTRAIT_PROVENANCE` — a fuller van Dyke along
+  the jaw where the 1915 encyclopedia plate shows a narrow chin point — is
+  recorded, accepted and not to be re-litigated.
