@@ -800,6 +800,7 @@ export const historyArticles: Article[] = [
           "Other buildings show the range of Bagratid design. The church of Saint Gregory built for the merchant Tigran Honents in 1215 preserves extensive frescoes, and the round church of the Redeemer once enclosed a relic of the True Cross. Outside Ani, monasteries such as Haghpat and Sanahin, founded in the tenth century, combine churches, libraries, bell towers and covered halls into complexes that served as universities as much as places of worship.",
           "The same centuries produced remarkable manuscript illumination, carved khachkars and religious poetry. Grigor Narekatsi, a monk at Narekavank on Lake Van, composed the Book of Lamentations around 1002, a long sequence of prayers that remains the most widely read work of classical Armenian literature and is still recited today.",
         ],
+        links: [{ phrase: "composed the Book of Lamentations around 1002", slug: "book-of-lamentations" }],
       },
       {
         id: "decline-causes",

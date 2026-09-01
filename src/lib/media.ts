@@ -2021,6 +2021,38 @@ export const PENDING_ARTWORK: readonly string[] = [
    * The list is empty again, and for the fourth time that sentence covers the whole
    * archive rather than only Places: every article in every section has a cover.
    */
+
+  /*
+   * §61. Work #5, written ahead of its artwork, and the first entry this list has
+   * ever carried that is neither a person, a place nor a dish.
+   *
+   * `book-of-lamentations` is here for the ordinary reason: the article shipped and
+   * the picture has not been made. The registration pass adds the `IMAGES` entry
+   * when the file lands and drops this line in the same change, which is the rule
+   * every previous entry has followed.
+   *
+   * Two things are decided in advance, and neither should be quietly reversed.
+   *
+   * The first is that **this artwork must not borrow the author's portrait.**
+   * `writers/grigor-narekatsi.webp` exists, it is good, and it shows a monk at a
+   * table with an open illuminated codex in front of him — which is very nearly a
+   * picture of this book already. Using it, or a variation on it, would make the
+   * Work an appendix to the Writer rather than an entity of its own, and it would
+   * put a face on a work whose whole subject is a voice with no face. The Work owns
+   * its own future asset or it renders the generated placeholder.
+   *
+   * The second is that **`PORTRAIT_PROVENANCE` does not apply here and no entry
+   * belongs in it.** That map records how a likeness of a *person* was arrived at —
+   * whether photographs were consulted or the face was imagined. A book has no
+   * likeness to get right, so the question the map answers is not a question this
+   * slug raises. When the file lands it inherits `ARTWORK_PROVENANCE` like every
+   * other entry in the registry: an AI-generated editorial illustration, captioned
+   * as one. The §85 rejection condition carries over unchanged and is unusually
+   * sharp for this subject — readable generated lettering is refused outright, and
+   * the obvious composition for a book about a book is an open manuscript page
+   * covered in writing. Whatever is delivered, no glyph in it may resolve.
+   */
+  "book-of-lamentations",
 ];
 
 /**

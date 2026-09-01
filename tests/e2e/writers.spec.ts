@@ -602,6 +602,9 @@ test("Narekatsi links only where the prose earns it, and invents no Works slug",
     expect(article.relatedSlugs, `${locale} authored relations`).toEqual([
       "matenadaran",
       "bagratid-armenia",
+      // §61 added Work #5, and the author-to-work relation is the one relation a
+      // Work article earns automatically. It is authored here, not derived.
+      "book-of-lamentations",
     ]);
 
     const bySection = Object.fromEntries(
@@ -613,6 +616,11 @@ test("Narekatsi links only where the prose earns it, and invents no Works slug",
     expect(bySection["vaspurakan-and-narek"], `${locale} bagratid link placement`).toEqual([
       "bagratid-armenia",
     ]);
+    // §61. The sentence that says everything else is the Book of Lamentations is
+    // where a reader should be able to leave for it.
+    expect(bySection["the-works"], `${locale} work link placement`).toEqual([
+      "book-of-lamentations",
+    ]);
 
     // Every authored relation resolves to a real article in this edition.
     const slugs = bundle(locale).articles.map((a) => a.slug);
@@ -620,9 +628,10 @@ test("Narekatsi links only where the prose earns it, and invents no Works slug",
       expect(slugs, `${locale} ${related} exists`).toContain(related);
     }
 
-    // And no slug was reserved for a work that does not exist yet.
+    // And no slug was reserved for a work that does not exist yet. §61 wrote
+    // `book-of-lamentations`, so it has left this list — it is asserted above as
+    // an authored relation instead. The rest are still genuinely absent.
     for (const future of [
-      "book-of-lamentations",
       "matean-oghbergutean",
       "narek",
       "narekavank",
@@ -693,7 +702,10 @@ test("Narekatsi's portrait is registered, exact, and borrowed from nobody", asyn
     when Siamanto refilled it. The narrow assertion above is the one this test is
     about and is unaffected by that.
   */
-  expect([...PENDING_ARTWORK], "and matches the registry's own list").toEqual([...PENDING]);
+  expect(
+    [...PENDING_ARTWORK].filter((slug) => (SLUGS as readonly string[]).includes(slug)),
+    "and matches the registry's own list",
+  ).toEqual([...PENDING]);
 
   // All eight portraits resolve, each to its own file, and the six that existed
   // before §82 are untouched.
@@ -924,7 +936,13 @@ test("adding Narekatsi changed no existing writer, work or place", async ({ page
     expect(
       bundle(locale).works.map((w) => w.slug),
       `${locale} works unchanged`,
-    ).toEqual(["anush", "wounds-of-armenia", "the-fool", "david-of-sassoun"]);
+    ).toEqual([
+      "anush",
+      "wounds-of-armenia",
+      "the-fool",
+      "david-of-sassoun",
+      "book-of-lamentations",
+    ]);
 
     // Cuisine is closed for v1 and Places are untouched by a Writers step.
     expect(
@@ -1119,6 +1137,7 @@ test("the four collections are dated correctly and no Work slug is invented", as
       "wounds-of-armenia",
       "the-fool",
       "david-of-sassoun",
+      "book-of-lamentations",
     ]);
     const slugs = new Set(bundle(locale).articles.map((a) => a.slug));
     for (const invented of [
@@ -1332,7 +1351,10 @@ test("Varoujan's portrait is registered, exact, and borrowed from nobody", async
     the thing this test is about — Varoujan is not on it, and what is on it is
     not his file.
   */
-  expect([...PENDING_ARTWORK], "the pending list is empty again").toEqual([...PENDING]);
+  expect(
+    [...PENDING_ARTWORK].filter((slug) => (SLUGS as readonly string[]).includes(slug)),
+    "the pending list is empty for the writers",
+  ).toEqual([...PENDING]);
 
   // Eight writers, eight portraits, each its own file, and none of the seven
   // that existed before §85 moved.
@@ -1623,7 +1645,7 @@ test("adding Varoujan changed no existing writer, work, dish or place", async ({
     expect(b.articles.filter((a) => a.category === "cuisine").length, `${locale} cuisine`).toBe(12);
     expect(b.articles.filter((a) => a.category === "places").length, `${locale} places`).toBe(13);
     expect(b.articles.filter((a) => a.category === "history").length, `${locale} history`).toBe(7);
-    expect(b.works.length, `${locale} works`).toBe(4);
+    expect(b.works.length, `${locale} works`).toBe(5);
 
     // Narekatsi, closed one step earlier, is exactly as §82 left him.
     const narekatsi = b.articles.find((a) => a.slug === NAREKATSI)!;
@@ -1873,7 +1895,10 @@ test("Shnorhali's portrait is registered, imagined, and borrowed from nobody", a
     and it still holds. Compared to the stated constant rather than to a literal,
     which is why the refill was one edit.
   */
-  expect([...PENDING_ARTWORK], "and matches the registry's own list").toEqual([...PENDING]);
+  expect(
+    [...PENDING_ARTWORK].filter((slug) => (SLUGS as readonly string[]).includes(slug)),
+    "and matches the registry's own list",
+  ).toEqual([...PENDING]);
 
   // Nine registered portraits, each its own file, and none of the eight that
   // existed before §87 moved. §88 added a tenth writer without a tenth portrait,
@@ -2084,12 +2109,11 @@ test("Shnorhali's one relation is earned, and invents no Work slug", async ({ pa
       "havatov-khostovanim",
       "aravot-luso",
       "the-song-of-the-bread",
-      "book-of-lamentations",
     ]) {
       expect(workSlugs.has(invented), `${locale} ${invented} must not exist`).toBe(false);
       expect(article.relatedSlugs, `${locale} no relation to ${invented}`).not.toContain(invented);
     }
-    expect(bundle(locale).works.length, `${locale} Works untouched`).toBe(4);
+    expect(bundle(locale).works.length, `${locale} Works after §61`).toBe(5);
   }
 
   // Narekatsi was not edited for reciprocity.
@@ -2123,7 +2147,7 @@ test("adding Shnorhali changed no existing writer, work, dish or place", async (
     expect(b.articles.filter((a) => a.category === "cuisine").length, `${locale} cuisine`).toBe(12);
     expect(b.articles.filter((a) => a.category === "places").length, `${locale} places`).toBe(13);
     expect(b.articles.filter((a) => a.category === "history").length, `${locale} history`).toBe(7);
-    expect(b.works.length, `${locale} works`).toBe(4);
+    expect(b.works.length, `${locale} works`).toBe(5);
 
     // Varoujan, closed one step earlier, is exactly as §85 left him.
     const varoujan = b.articles.find((a) => a.slug === VAROUJAN)!;
@@ -2372,6 +2396,7 @@ test("Siamanto's relations are earned, and no Work slug was invented for him", a
       "wounds-of-armenia",
       "the-fool",
       "david-of-sassoun",
+      "book-of-lamentations",
     ]);
     const slugs = new Set(bundle(locale).articles.map((a) => a.slug));
     for (const invented of [
@@ -2471,7 +2496,16 @@ test("Siamanto's portrait is registered as photo-referenced, and the section is 
     "/images/writers/siamanto.webp",
   );
   expect([...PENDING_ARTWORK], "and he is no longer pending").not.toContain(SIAMANTO);
-  expect([...PENDING_ARTWORK], "nothing anywhere is pending").toEqual([]);
+  /*
+    §61 refilled the archive-wide list with `book-of-lamentations`, a Work written
+    ahead of its artwork. The broad "nothing anywhere is pending" form is therefore
+    false again — and it was never what this test was about. Narrowed to the
+    Writers section, which is complete: ten writers, ten portraits, none pending.
+  */
+  expect(
+    [...PENDING_ARTWORK].filter((slug) => (SLUGS as readonly string[]).includes(slug)),
+    "no writer is pending",
+  ).toEqual([]);
 
   // He is in the map, and everyone else's classification is exactly as §88 left it.
   expect(getPortraitProvenance(SIAMANTO), "photographs of him survive").toBe("photo-referenced");
@@ -2649,7 +2683,7 @@ test("adding Siamanto changed no existing writer, work, dish, place or history a
     expect(b.articles.filter((a) => a.category === "cuisine").length, `${locale} cuisine`).toBe(12);
     expect(b.articles.filter((a) => a.category === "places").length, `${locale} places`).toBe(13);
     expect(b.articles.filter((a) => a.category === "history").length, `${locale} history`).toBe(7);
-    expect(b.works.length, `${locale} works`).toBe(4);
+    expect(b.works.length, `${locale} works`).toBe(5);
     expect(b.articles.filter((a) => a.category === "writers").length, `${locale} writers`).toBe(10);
 
     // Varoujan is exactly as §85 left him — relations included, and in particular

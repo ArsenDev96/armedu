@@ -915,6 +915,7 @@ export const writerArticles: Article[] = [
           "Two things should be said about the edges of this list. The first is that the tagher are the part of his output most likely to be over-counted: liturgical poems circulate anonymously, attach themselves to famous names and are easy to attribute generously, and figures for how many he wrote vary. The second is that a treatise against the Tondrakians, written in the 980s, is part of the corpus and is discussed further below, because it is evidence about his position as well as a text.",
           "Everything else is the Book of Lamentations, and the imbalance is real rather than an artefact of what survived. It is longer than the rest of his output together, it is the work he was writing at the end of his life, and it is the only one that left the monastery.",
         ],
+        links: [{ phrase: "Everything else is the Book of Lamentations", slug: "book-of-lamentations" }],
       },
       {
         id: "the-book-of-lamentations",
@@ -1026,7 +1027,7 @@ export const writerArticles: Article[] = [
           "Cilician archbishop and scholar who commissioned the illuminated 1173 copy of the Book of Lamentations now in the Matenadaran.",
       },
     ],
-    relatedSlugs: ["matenadaran", "bagratid-armenia"],
+    relatedSlugs: ["matenadaran", "bagratid-armenia", "book-of-lamentations"],
   },
   {
     slug: "daniel-varoujan",
@@ -1440,6 +1441,7 @@ export const writerArticles: Article[] = [
         ],
         links: [
           { phrase: "Behind him is Grigor Narekatsi, whose Book of Lamentations had made the long first-person religious poem the great Armenian form", slug: "grigor-narekatsi" },
+          { phrase: "the most famous illuminated manuscript of that book was made there in 1173", slug: "book-of-lamentations" },
         ],
       },
     ],
@@ -1683,6 +1685,7 @@ export const writerArticles: Article[] = [
         ],
         links: [
           { phrase: "the Book of Lamentations of Grigor Narekatsi", slug: "grigor-narekatsi" },
+          { phrase: "one of the most recognisable features of the tenth-century text", slug: "book-of-lamentations" },
         ],
       },
       {

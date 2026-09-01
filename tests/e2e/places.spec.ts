@@ -4788,7 +4788,7 @@ test("the four existing category listings still load and still count what they d
     // to notice when another section grows, and it has now done so four times,
     // going red first on each.
     ["writers", 10, dict.listing.writers.title],
-    ["works", 4, dict.listing.works.title],
+    ["works", 5, dict.listing.works.title],
     // §67 moves Cuisine 6 → 7 with Spas, §70 moves it 7 → 8 with jingalov hats,
     // §72 moves it 8 → 9 with khash, §74 moves it 9 → 10 with matsun, §77 moves it
     // 10 → 11 with basturma and §79 moves it 11 → 12 with manti. Edited rather than

@@ -575,6 +575,73 @@ const SOURCES: Record<string, Source[]> = {
     },
   ],
 
+  "book-of-lamentations": [
+    {
+      author: "A. J. Hacikyan, G. Basmajian, E. S. Franchuk and N. Ouzounian (eds.)",
+      title: "The Heritage of Armenian Literature, Volume II: From the Sixth to the Eighteenth Century",
+      publisher: "Wayne State University Press",
+      year: "2000",
+      identifier: { kind: "isbn", value: "9780814330234" },
+      note: "The same volume the Narekatsi article cites, used here for the work rather than the man: its literary-historical placement, the reading of the book aloud to the sick, and the transmission of the text through the manuscript centuries.",
+    },
+    {
+      author: "Abraham Terian (translator)",
+      title: "From the Depths of the Heart: Annotated Translation of the Prayers of St. Gregory of Narek",
+      publisher: "Liturgical Press, Collegeville MN",
+      year: "2021",
+      identifier: { kind: "isbn", value: "9780814684641" },
+      note: "The scholarly annotated translation, and the source of record for the shape of the text and for the reading of the speaker. Terian's stated preference for Penitential Prayers over Lamentations is cited in the title section. Not to be confused with his The Festal Works of St. Gregory of Narek (2016), which contains the odes, litanies and encomia and not this book.",
+    },
+    {
+      author: "Thomas J. Samuelian (translator)",
+      title: "Speaking with God from the Depths of the Heart: The Armenian Prayer Book of St. Gregory of Narek",
+      publisher: "VEM Press, Yerevan",
+      year: "2001",
+      identifier: { kind: "isbn", value: "9789993085317" },
+      note: "The complete English translation that is freely readable online, and the reason most English readers have met the text at all. Cited for the title question and for the psalm comparison; no line of it is quoted here, because it is still in copyright.",
+    },
+    {
+      author: "Anush Apresyan",
+      title: "Universal Key Between East and West: St. Gregory of Narek",
+      publisher: "Banber Matenadarani, Mesrop Mashtots Institute of Ancient Manuscripts, Yerevan",
+      year: "2025",
+      identifier: { kind: "doi", value: "10.54503/1829-4073-2025.3.147-161" },
+      note: "A Matenadaran study, and the source for the commentary tradition, for Nerses of Lambron's 1177 treatment of the thirty-third discourse, and for the ascetic writers the book stands among. Also the basis for the statement that the work was difficult for medieval readers, which is why commentaries were written.",
+    },
+    {
+      author: "Anush Apresyan",
+      title: "Grigor Narekatsi and the Translators",
+      publisher: "Journal of Armenian Studies, Yerevan",
+      year: "2021",
+      identifier: { kind: "url", value: "https://arar.sci.am/Content/280582/213-222.pdf" },
+      note: "Carries the finding this article leans on hardest in the form section: the original was not broken into poetic lines in the manuscripts, so the verse layout of modern editions is editorial. Also the source for Kheranyan's omission of the prefatory title-piece and for the reordering in Gevorgyan's translation.",
+    },
+    {
+      author: "Jesse S. Arlen",
+      title: "A Window into the Tenth Century: The Life and Literary Works of Anania of Narek",
+      publisher: "PhD dissertation, University of California, Los Angeles",
+      year: "2021",
+      identifier: { kind: "url", value: "https://escholarship.org/content/qt41d7d655/qt41d7d655.pdf" },
+      note: "The source for the divisions being called ban, for rendering them as discourses, for the foundation of Narekavank under Gagik I, and for the argument that the book develops Anania of Narek's teaching rather than arriving from nowhere. Arlen's related work characterises it as a text for keeping watch.",
+    },
+    {
+      author: "E. A. Nazaryan",
+      title: "Book of Lamentations by Gregory of Narek: Anthropological Aspects",
+      publisher: "Manuscript, vol. 13 no. 6",
+      year: "2020",
+      identifier: { kind: "url", value: "https://manuscript-journal.ru/en/article/mns20200280/fulltext" },
+      note: "The peer-reviewed statement of the position the speaking-voice section rests on: the first person is a representative of humanity rather than an autonomous individual, which is why the catalogue of sins cannot be read as a personal inventory.",
+    },
+    {
+      author: "Vazgen Safaryan",
+      title: "The First Followers of the Book of Lamentations Poem of Grigor Narekatsi",
+      publisher: "Journal for Armenian Studies, Armenian State Pedagogical University, no. 4 (63)",
+      year: "2023",
+      identifier: { kind: "url", value: "https://armenianstudies.aspu.am/index.php/armenianstudies/article/view/72" },
+      note: "Names the first inheritors — Grigor Marashetsi, Nerses Shnorhali and Grigor Tlay — and makes the structural claim about Shnorhali recasting the tiered prayer form in rhymed verse. Cited for that and for nothing stronger: it does not establish verbal borrowing, and the article does not assert any.",
+    },
+  ],
+
   /* ---------------------------------------------------------------- cuisine */
 
   /*

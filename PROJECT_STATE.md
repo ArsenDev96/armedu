@@ -20616,3 +20616,335 @@ was not started. **Nothing was deployed.**
 - The beard departure recorded in `PORTRAIT_PROVENANCE` — a fuller van Dyke along
   the jaw where the 1915 encyclopedia plate shows a narrow chin point — is
   recorded, accepted and not to be re-litigated.
+
+## §91 — Writers reassessed at ten. Writer #11 selected: Hakob Paronyan (2026-09-01)
+
+Research and audit only. **No article written, no Work created, no artwork commissioned,
+no taxonomy touched, no test added, no deployment.** The only file changed by this step is
+this one. `§89` and `§90` are untouched; Siamanto's review history stands as written.
+
+### The ten-writer baseline, read from source
+
+Verified in `src/data/locales/{en,hy,hyw}/writers.ts`, `.../articles/writers.ts`,
+`src/lib/media.ts` and `src/data/sources.ts`, not assumed from §90.
+
+Ten cards and ten articles in each of the three editions. Ten registered portraits,
+`PENDING_ARTWORK` empty, no placeholder anywhere. Periods **medieval 2, 19th-century 3,
+20th-century 4, soviet 1**. `daniel-varoujan` and `siamanto` are `photo-referenced`;
+Narekatsi and Shnorhali take the `imagined` default. Tumanyan is the only `featured: true`.
+All ten carry `sources` entries; **four of ten carry `seoTitle`/`metaDescription`** —
+Narekatsi, Varoujan, Shnorhali, Siamanto — so the §88 debt of six without SEO fields is
+confirmed unchanged. Works stands at 4, Places 13, History 7, Cuisine 12.
+
+### Genre balance — the sharpest measurable deficiency
+
+Classified from the `role` field and the article prose, not from reputation:
+
+| Primarily | Writers |
+|---|---|
+| poet | Tumanyan, Charents, Isahakyan, Sevak, Narekatsi, Varoujan, Shnorhali, Siamanto |
+| novelist | Raffi |
+| prose / educator | Abovyan |
+| **playwright** | **none** |
+| **satirist** | **none** |
+| **short-story / modern prose** | **none** |
+| **woman** | **none** |
+
+**Eight of ten are primarily poets.** The section has no dramatist, no satirist, no modern
+prose writer and no woman. That is the gap, and it is larger than any period gap.
+
+### Eastern / Western / medieval balance, and the explicit answer §6 demands
+
+Eastern 6 (Tumanyan, Charents, Raffi, Isahakyan, Abovyan, Sevak), Western 2 (Varoujan,
+Siamanto), medieval/pre-modern 2 (Narekatsi, Shnorhali). Western Armenian is *present* but
+occupies **one register only**: both entries are lyric poets killed in 1915, six years
+apart in age, with adjacent articles.
+
+The answer is therefore neither "another Western Armenian" nor "an Eastern novelist" as
+tradition labels. **What the section needs is a new register, and the tradition follows
+from whoever supplies it.** A third Western Armenian lyric poet (Duryan, Metsarents,
+Tekeyan) would deepen the existing rut and is rejected on that ground. A Western Armenian
+*satirist and playwright* who died in 1891 of tuberculosis, with no relation to 1915,
+breaks the register **and** fills three genre gaps at once — which is why the selection
+below is Western Armenian without being a Western-Armenian-balance argument.
+
+### Internal demand, measured the way §76 measured it
+
+Figures named in existing Armat prose who have no article of their own, counted from
+`relatedFigures` and body text:
+
+| Figure | Mentions | Where |
+|---|---|---|
+| **Vahan Terian** | 2 | `relatedFigures` of **Charents** and **Isahakyan** |
+| Komitas | 2 | not a Writers candidate |
+| Aksel Bakunts | 1 | `relatedFigures` of Charents |
+| **Levon Shant** | 1 | Tumanyan body text, the Vernatun paragraph |
+| **Derenik Demirchyan** | 1 | Tumanyan body text, the Vernatun paragraph |
+| Sayat-Nova, Shiraz, Nalbandian, Proshian, Zarian, Oshagan, R. Sevak | 1 each | `relatedFigures` |
+
+**Shirvanzade, Muratsan, Nar-Dos, Paronyan, Duryan, Sahyan, Kaputikyan and Papazian are
+named nowhere in the repository.** Note the spelling trap: the Vernatun paragraph writes
+**Demirchyan**, so a search for "Demirchian" reports a false zero.
+
+This is the same shape as §76's Tan finding, and it resolves the same way. Internal demand
+identifies who the existing prose already leans on; it does not by itself identify the best
+next article. §76 chose external demand and a real gap over internal demand, and so does
+this step.
+
+### Candidate pool reviewed
+
+Thirteen named in the brief plus two added from the repository's own `relatedFigures`:
+Demirchian, Shirvanzade, Muratsan, Nar-Dos, Paronyan, Duryan, Terian, Mahari, Sahyan,
+Kaputikyan, Bakunts, Papazian, Shant, **Sayat-Nova** and **Hovhannes Shiraz**. Sayat-Nova
+is a genuinely strong future candidate — trilingual ashugh, enormous international
+recognition through Parajanov — but he would require a new period id between medieval and
+19th-century, which this step is forbidden to create, and his portrait would be `imagined`.
+Recorded as the leading candidate for a later step, not scored here.
+
+### SERP and discovery findings
+
+Live English, Eastern Armenian and Western Armenian searches were run for every finalist.
+**No keyword metrics were invented. No search-volume, keyword-difficulty, CPC or traffic
+figure appears anywhere in this section, because no such tool was reachable: qualitative
+SERP evidence only.**
+
+The recurring finding across the whole pool is **transliteration fragmentation**, and it is
+the single largest discovery opportunity available to a trilingual site:
+
+- **Paronyan / Baronian** return two nearly disjoint universes. `Hakob Paronyan` is owned by
+  the Yerevan Musical Comedy Theatre named after him and returns almost no biography;
+  `Hagop Baronian` returns the actual biographical corpus. English Wikipedia lists his works
+  in ad-hoc romanisation **with no Armenian script at all**.
+- **Duryan / Tourian** likewise: English Wikipedia lives at `Bedros_Tourian` while Wikidata
+  and its own mirrors use "Petros Duryan"; the National Library of Armenia's authority record
+  strings Դուրյան / Դուրեան / Զմպայան / Дурян / Duryan together to retrieve 77 records.
+- **Bakunts** is halved between `Axel` (English Wikipedia) and `Aksel` (the Goris museum and
+  Armenian institutions), with a real English translation in print behind the split.
+- **Terian / Teryan / Derian**, plus collision with Vahan Tekeyan and Vahan Minakhoryan.
+- **Demirchyan** is not the default "Demirchyan" — Karen Demirchyan and the Demirchyan Arena
+  own that query. **Muratsan** returns a Yerevan hospital first. **Nar-Dos** loses to a
+  street and a flower. **Vrtanes Papazian** loses to four other Papazians, one of them his
+  own brother.
+
+Nowhere in the pool does a decent English biography exist above Wikipedia. That is
+consistent, and it is the opportunity.
+
+### Source-quality findings
+
+Strong and resolving: the **Soviet Armenian Encyclopedia**, fully digitised page-by-page on
+hy.wikisource (Paronyan is vol. 9 p. 204, with a portrait printed on the entry); **hy.wikisource
+author pages** carrying public-domain collected works (Paronyan 10 volumes on Commons,
+Bakunts, Nar-Dos 4 volumes, Papazian); **AUA digital library**; **Vem journal**; the
+**Charents Museum of Literature and Art (GAT)**, whose five branch house-museums include
+**Demirchian**, **Bakunts (Goris, ~500 primary exhibits)** and **Kaputikyan**; the **Arak-29
+Foundation** Muratsan site, which hosts a full English translation of *Gevorg Marzpetuni*;
+a free NAS RA monograph PDF on Duryan (Gasparyan 2021); and full authority control for
+Shirvanzade (VIAF, LC, BnF, GND, ISNI).
+
+Blocked or gated, and to be recorded rather than worked around: **arar.sci.am** full texts
+are access-gated, including the 1980 Academy volume on Demirchian and Ohanyan's 1976
+monograph on Papazian; **hamazkayin.com returns 403 on every page**, which removes the most
+authoritative institution on Shant; `armenianlanguage.am` and its `armin.am` mirror do not
+resolve; Britannica and armenianprelacy.org 403; Bardakjian's Oxford thesis on Baronian is a
+scanned image PDF with no text layer. **Specialist Armenian-language literature is still
+required for every finalist** and was not reachable in this step.
+
+Sources that surfaced and were deliberately **not** opened or used: Turkish state-aligned
+outlets on Paronyan, `grokipedia.com`, and `armenian-history.com`, which was opened once and
+found inaccurate. The standing rule holds unchanged.
+
+### Corrections the research produced, worth more than the ranking
+
+Five factual errors were found in the brief or in widely circulating sources. All are
+verified and all would have shipped into an article:
+
+1. **Nar-Dos's real surname is Hovhannisyan, not Ter-Hovhannisyan.** Muratsan is
+   Ter-Hovhannisyan. Two Tiflis writers buried at the same pantheon; the collision is easy.
+2. **Duryan's `Սեւ հողեր` is a play, not a poem.**
+3. **Levon Shant wrote no work called `Դատաստան`.** His novel is `Հոգիներ ծարավի`.
+4. **Vrtanes Papazian had no Soviet-era career.** He died 26 April 1920; Soviet Armenia was
+   proclaimed 29 November 1920. hy.wikipedia nonetheless carries a sentence placing him in
+   Soviet Armenia. His standalone ethnography is on the **Bosha**, not on Kurds.
+5. **Demirchian's "USSR State Prize" appears to be phantom.** The two award lists actually
+   opened list Order of Lenin, Order of the Red Banner of Labour ×2, the Caucasus defence
+   medal, Honoured Art Worker and Academician — **no Stalin or State Prize**. Four
+   irreconcilable birth dates also circulate for him.
+
+And one that governs a future portrait: **no lifetime photograph of Petros Duryan exists.**
+Armenian sources state it plainly — when he died at twenty it emerged that he had no picture
+at all; an artist refused to draw the disfigured face; the canonical 1893 image was drawn
+from the features of relatives, and one of its two authors was **born three years after
+Duryan died**. A 1970 forensic reconstruction over the skull found it **shorter and wider**
+than that portrait. The Commons file carries none of this in its metadata, so automated
+pipelines describe it as a lifetime photograph. **Any future Duryan portrait is `imagined`.**
+
+### Weighted scoring — editorial judgement, not measurement
+
+Weights per the standing framework: cultural importance 30, SEO/discovery 30, coverage gap
+20, source quality 10, internal-link graph 10. **The 0–10 inputs are editorial judgement
+expressed as numbers. They are not derived from any metric and must not be read as data.**
+
+| Candidate | Cult. 30 | SEO 30 | Gap 20 | Src 10 | Link 10 | **Weighted** |
+|---|---|---|---|---|---|---|
+| **Hakob Paronyan** | 9 | 9 | 10 | 7 | 7 | **8.8** |
+| **Alexander Shirvanzade** | 9 | 6 | 9 | 9 | 7 | **7.9** |
+| **Aksel Bakunts** | 8 | 9 | 7 | 8 | 6 | **7.9** |
+| Levon Shant | 8 | 7 | 9 | 5 | 8 | 7.6 |
+| Vahan Terian | 8 | 7 | 6 | 7 | 9 | 7.3 |
+| Derenik Demirchian | 8 | 7 | 7 | 7 | 7 | 7.3 |
+| Nar-Dos | 7 | 8 | 8 | 5 | 5 | 7.0 |
+| Muratsan | 7 | 8 | 7 | 6 | 6 | 7.0 |
+| Silva Kaputikyan | 8 | 5 | 8 | 9 | 6 | 7.0 |
+| Gurgen Mahari | 7 | 7 | 7 | 6 | 5 | 6.7 |
+| Hamo Sahyan | 6 | 7 | 5 | 5 | 5 | 5.9 |
+| Petros Duryan | 7 | 7 | 4 | 7 | 5 | 6.2 |
+| Vrtanes Papazian | 5 | 6 | 6 | 3 | 4 | 5.1 |
+
+Terian scores 6 on coverage gap **despite the highest internal demand in the repository**,
+because he is a ninth lyric poet and would be the fourth consecutive suited young man of the
+1910s in the portrait collection. That is the §76 lesson applied: internal demand is not the
+same as the best next article.
+
+### Existing portrait collection — visual-pattern audit
+
+All ten files were viewed, not inferred from their registry notes. The repetition is
+stronger than §90 stated:
+
+| Pattern | Count |
+|---|---|
+| seated | 9/10 (only Shnorhali stands) |
+| desk or writing table in frame | 10/10 |
+| books, papers or codex in frame | 10/10 |
+| warm ochre-to-sepia palette | 10/10 |
+| half-length, three-quarter body turn | 9/10 |
+| window or arch opening onto landscape | 7/10 |
+| pen, quill or inkstand | 6/10 |
+| hand raised to the face | 2/10 (Varoujan, Siamanto) |
+| close head-and-shoulders framing | **0/10** |
+| outdoors, inhabited | **0/10** |
+| urban, street or working environment | **0/10** |
+| standing in modern dress | **0/10** |
+
+Every portrait is an interior. Every one contains the furniture of writing. Nothing in the
+section is framed closer than half-length. **This is not a critique of any accepted file** —
+all ten were accepted, and the §90 rule stands: judge at rendered size. It is the baseline
+the eleventh must be measured against.
+
+### Portrait provenance and proposed archetype per finalist
+
+| Finalist | Expected provenance | Basis | Proposed archetype | Uniqueness |
+|---|---|---|---|---|
+| **Paronyan** | `photo-referenced` (preliminary) | one lifetime studio photograph, "before 1891"; features unambiguous — long gaunt face, high forehead, dark wavy hair receding at the temples, **thick drooping moustache, no beard, bare-headed, no fez**; a portrait also printed in HSH vol. 9 p. 204 | **The composing room of his own satirical journal** — standing at the type cases of `Խիկար`, Constantinople 1880s, proofs in hand | **distinct** on pose (standing), environment (workshop), dominant prop (type and press, not books), camera distance (three-quarter length); some overlap on palette only |
+| **Shirvanzade** | `photo-referenced` (strong) | two lifetime images at opposite ends of life: an 1880 bohemian near-profile aged ~22, and a late studio portrait with a **white mane standing clear of the head**, downcast eyes, loose artistic cravat; plus two Russian gendarme registration cards | **Close half-length, plain ground, no props whatsoever** — the head is the subject | **distinct** on camera distance (the section's first close portrait) and on the complete absence of desk, books and window |
+| **Bakunts** | `photo-referenced` | a dated **1932** portrait aged 33, plus the Goris museum's holdings spanning school years to mid-thirties | **Outdoors in a Zangezur gorge, standing, landscape-dominant** — he was senior agronomist of Zangezur, named his debut collection after a gorge and his novel after Goris's old name | **distinct** on environment, lighting (open daylight), palette (rock and green against ten warm interiors) |
+
+The rule from §90 is applied rather than restated: none of the three requires a desk, and two
+of them forbid one.
+
+### The choice
+
+**Writer #11 is Hakob Paronyan (Յակոբ Պարոնեան / Հակոբ Պարոնյան, 1843–1891).**
+
+He is the only candidate that closes three genre gaps in one article — **satire, drama and
+comic prose** — and he is the only one that adds a Western Armenian voice **without** adding
+a third 1915 elegy. *Uncle Baghdasar*, *National Bigshots* and *Honourable Beggars* are
+continuously staged and read; a Yerevan theatre carries his name. The discovery case is the
+strongest in the pool and is of a kind Armat is uniquely built to fix: the Paronyan/Baronian
+split has produced two disjoint search universes and an English Wikipedia article that lists
+his works with no Armenian script at all, while a trilingual entity page carrying `hyw`
+classical, `hy` reformed and both English forms consolidates the entity by construction.
+Sources are adequate without being luxurious — HSH vol. 9 p. 204 is a clean citable spine and
+ten volumes of collected works are public domain on Commons.
+
+**Runner-up: Alexander Shirvanzade (1858–1935).**
+
+**Why Paronyan comes first.** Shirvanzade is the better-documented subject — full authority
+control, the richest portrait base in the pool, and a genuine cross-domain hook in *Namus*
+becoming the first Armenian feature film in 1926. He is also, precisely because of that, the
+**best-covered of the pool in English**, so the marginal addition is smaller: Armat would be
+writing a better page about a writer who already has pages. Two further considerations
+separate them. Paronyan fills the drama and satire gaps that no existing entry touches, while
+Shirvanzade's realism partly overlaps Raffi and Abovyan. And Shirvanzade's Shamakhi/Baku
+material, including his People's Writer status in the Azerbaijani SSR, carries framing risk
+that must be handled from Armenian institutional sources under the standing sourcing rule —
+a cost that is manageable but real, and better paid when it is not also the section's first
+attempt at a non-desk portrait. Shirvanzade loses on gap and discovery, not on quality, and
+should be Writer #12.
+
+**Third: Aksel Bakunts**, who ties Shirvanzade on score and beats him on discovery, but who
+would make the fourth Armat writer killed or persecuted by the state and the third in
+sequence. The section is at risk of reading as a martyrology rather than a literature. He is
+the strongest candidate the moment a non-persecution entry sits between him and Charents —
+and his outdoor Syunik portrait is the best single artwork idea in this whole audit.
+
+**Levon Shant is deliberately not in the top three despite scoring 7.6**, and the reason is
+worth recording: his biography *is* the historiography of the First Republic's fall, there is
+no non-partisan institutional source (the ARF-affiliated ones are authoritative, and
+hamazkayin.com is unfetchable), and three wrong facts circulate actively — he was a
+**vice-**president of parliament, he **led but did not sign** the 1920 Moscow mission, and the
+10 August 1920 agreement was signed in Tiflis by others. His play, however, is a different
+matter; see below.
+
+### Sequencing — Writer #11 now, or the first Work cluster?
+
+Measured rather than argued. Unwritten work titles named in existing prose, counted in `en`:
+
+| Work | Mentions | Distinct articles |
+|---|---|---|
+| **Book of Lamentations** | **28** | **4** — narekatsi 18, bagratid-armenia 4, shnorhali 2, siamanto 2 |
+| The Unsilenceable Belfry | 11 | 1 |
+| Abu Lala Mahari | 8 | 1 |
+| Samvel | 8 | 1 |
+| Lament on Edessa | 7 | 1 |
+| The Song of the Bread | 6 | 1 |
+
+**Book of Lamentations leads by 2.5× on mentions and is the only one named across four
+articles and two sections.** Works stands at 4 against Writers' 10; the imbalance is the
+site's largest structural asymmetry, and the most-cited text in Armenian literature is
+currently a phrase in other people's biographies rather than an entity.
+
+**Recommendation: switch to Works. Write `Book of Lamentations` next, then Paronyan.**
+
+Against the four criteria. *Topical authority*: a literature section whose Writers outnumber
+its Works 10:4 asserts that Armenian literature is a set of biographies; the Narekatsi entry
+alone names the book eighteen times without being able to link it. *Internal linking*: the
+Work earns reciprocal links from Narekatsi, Shnorhali, Siamanto, Bagratid Armenia **and**
+`matenadaran`, where the Narekatsi article already says the manuscript is held — five inbound
+edges from prose that already exists, which no new writer can match. *SEO*: "Narek" is a
+household word with three referents the archive has already had to disambiguate, and the
+entity page is the natural place to resolve it. *Content balance*: Writers has just reached a
+clean terminal state — ten articles, ten portraits, nothing pending, no placeholder — which
+is the cheapest possible moment to pause it, and the only such moment since the section
+began. *User value*: a reader sent to Narekatsi currently cannot read about the book.
+
+One further argument, from §90. The next Writer portrait now carries a collection-wide
+composition study as a precondition. A Work article's artwork is a manuscript-and-codex
+subject rather than a portrait, so taking it next **buys the time to define that study
+properly instead of paying it under pressure**, and it is the one kind of article that does
+not touch `PORTRAIT_PROVENANCE` at all.
+
+Paronyan is selected and stays selected. He is Writer #11 whenever Writers resumes.
+
+### Technical debt
+
+- **Six of ten Writers still carry no `seoTitle`/`metaDescription`** — Tumanyan, Charents,
+  Raffi, Isahakyan, Abovyan, Sevak. Unchanged since §88 and now the oldest open debt in the
+  section.
+- **The portrait collection is 10/10 interiors, 10/10 with desks and books, 0/10 close-framed
+  and 0/10 outdoors.** The §90 rule is now backed by counts.
+- **`arar.sci.am` full texts are access-gated and `hamazkayin.com` 403s**, which puts the
+  best specialist source for Demirchian, Papazian and Shant out of reach. Any of those three
+  needs a library or an Armenian-reading specialist before drafting, not during.
+- **Five circulating factual errors are recorded above** and must not be re-imported: the
+  Nar-Dos surname, Duryan's `Սեւ հողեր`, the non-existent Shant `Դատաստան`, Papazian's
+  impossible Soviet career, and Demirchian's phantom State Prize.
+- **No lifetime photograph of Petros Duryan exists.** If he is ever written, his portrait is
+  `imagined` and the caption must say so, against a Commons file that invites the opposite.
+- **Sayat-Nova is deferred for a taxonomy reason, not an editorial one** — he needs a period
+  between medieval and 19th-century. Worth revisiting deliberately rather than by accident.
+- The §88 content debts on Siamanto are unchanged: the Թամրազյան and Ռշտունի monographs
+  unconsulted, and the Paris/Geneva ordering and `Հայրենի հրավեր` date left as stated
+  disagreements.
+
+**No implementation. No Writer #11 files, no Work, no artwork, no provenance change, no test,
+no navigation change. Nothing was deployed.**
