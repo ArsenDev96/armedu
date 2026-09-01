@@ -20948,3 +20948,316 @@ Paronyan is selected and stays selected. He is Writer #11 whenever Writers resum
 
 **No implementation. No Writer #11 files, no Work, no artwork, no provenance change, no test,
 no navigation change. Nothing was deployed.**
+
+## §92 — Book of Lamentations added as Work #5, in all three editions (2026-09-01)
+
+Steps 61 and 61B. The Works section had stood at four since §33 while Writers went
+from six to ten, and §91 named that as the archive's worst structural imbalance: an
+encyclopedia of Armenian literature whose authors outnumbered its works more than
+two to one. This closes the gap at the one place where it was least defensible —
+Grigor Narekatsi had been Writer #7 since §82 with his book present only as a phrase
+inside his own biography.
+
+Content only. No artwork was generated or registered, Writer #11 was not started,
+and nothing was deployed.
+
+### Pre-state
+
+```text
+Works    4   anush, wounds-of-armenia, the-fool, david-of-sassoun
+Writers 10   complete, ten registered portraits, none pending
+PENDING_ARTWORK  empty (emptied for the twelfth time at §89)
+```
+
+### What was written
+
+```text
+slug              book-of-lamentations
+href              /works/book-of-lamentations
+en                Book of Lamentations
+hy                Մատյան ողբերգության
+hyw               Մատեան ողբերգութեան
+author            Grigor Narekatsi / Գրիգոր Նարեկացի
+publicationPeriod completed about 1002 / ավարտվել է մոտ 1002-ին / աւարտուած՝ մօտ 1002-ին
+genre             Prayer cycle / Աղոթագիրք
+genreId           poetry
+period            Medieval prayer cycle
+periodId          medieval
+relatedSlugs      grigor-narekatsi, matenadaran, nerses-shnorhali
+sections          16, identical ids across the three editions
+```
+
+The sixteen sections: `what-the-book-is`, `the-title`, `the-name-narek`,
+`where-it-was-written`, `when-it-was-written`, `the-ninety-five-discourses`,
+`verse-or-prose`, `the-speaking-voice`, `lament-confession-hope`,
+`the-armenian-of-the-book`, `the-bible-in-the-book`, `manuscripts`, `printing`,
+`translations`, `the-narek-in-armenian-life`, `afterlife`.
+
+The Western Armenian edition is written in classical orthography throughout rather
+than transliterated from the Eastern one: 145 occurrences of `-ութիւն` and 191 of
+the `կը`/`կ՚` auxiliary. `Մատեան ողբերգութեան` against Eastern `Մատյան
+ողբերգության` is the same distinction the Writers section has held since §85.
+
+### The taxonomy decision, stated as a limitation rather than hidden
+
+`genreId: "poetry"` is the closest value the existing Works taxonomy offers, and it
+is not a good fit. The work is a prayer cycle in rhythmic prose-verse, and calling
+it poetry files it beside `anush`. The alternative — inventing a `prayer` genre for
+a single member — would have changed the Works filter UI for one entry, which §39's
+rule against reflexive structure forbids. So the taxonomy value is the loose one and
+the article itself carries the correction: the `verse-or-prose` section explains that
+the divisions are not poems in the modern sense, and the `the-ninety-five-discourses`
+section says that calling them ninety-five poems "is not wrong but loses something".
+If a second prayer-cycle work is ever written, the genre should be added then and
+both entries moved; one member is not enough to justify it.
+
+### Research decisions recorded
+
+**The title, and the disambiguation that matters most.** The book is not the
+biblical Lamentations. `the-title` states the distinction directly, because the
+English name collides with a book of the Bible and a reader arriving from a search
+engine is the person most likely to be confused. The article mentions no UNESCO
+status anywhere: the 1997 Memory of the World inscription is the **Matenadaran
+collection**, not this work, and attaching it to the work would have been a
+plausible-sounding falsehood. A test asserts the absence.
+
+**The name Narek.** `the-name-narek` keeps three things apart that the single word
+runs together — Narek the monastery and place in Vaspurakan, Narekatsi the man named
+after it, and the Narek as the colloquial name of the book. The book acquired that
+name in the medieval period, alongside the description "a medicine of life".
+
+**Date.** Completed about 1002, on the colophon's own Armenian year 451. The spread
+in the scholarship is recorded as a spread and not as a dispute: Terian around 1003,
+Samuelian around 1001, the standard English reference about 1002–1003. Mahé's
+qualification is kept — the ninety-five pieces accumulated over more than a decade
+and were then given their architecture — because it contradicts the deathbed story
+that circulates. The year **977 is recorded as a straightforward error**: it is the
+year of Narekatsi's ordination and his Commentary on the Song of Songs, and has
+nothing to do with this book.
+
+**Geography.** Narek was in **Vaspurakan, not Bagratid territory**. In 1002
+Vaspurakan was its own Artsruni kingdom, crowned in 908 and held until 1021, and
+the Bagratid realm centred on Ani was a separate state to the north. The period is
+routinely written as though there were one Armenian kingdom; there was not. The
+kingdom was also internally divided at the moment of composition, under
+Gurgen-Khachik. This is the correction that the inbound link from Bagratid Armenia
+had to be phrased carefully around.
+
+**The ninety-five parts.** The number is stable across the manuscript tradition.
+The article uses "discourses"/`բան` rather than "poems", and says why.
+
+**The speaking voice.** `the-speaking-voice` handles the nuance that the first
+person of the book is not straightforwardly autobiography — the "I" is a
+representative penitent voice, and reading the confessions as a record of the
+author's own sins is a persistent misreading.
+
+**Manuscripts.** The earliest **dated** copy is MS 1568, made in 1173 at Skevra in
+Cilicia for Nerses of Lambron, held at the Matenadaran: about 15.4 × 11.5 cm, some
+343 folios, illuminated in tempera and gold with four portraits of the author. Two
+overstatements are refused in the text: institutional sources say earliest *dated*,
+not earliest *complete*, and the stronger claim appears in none of them. MS 1568 also
+carries the Life of Narekatsi that Nerses bound into it, making it the earliest
+surviving biographical source for the author as well. A catalogue trap is recorded:
+**MS 5159 is a 1750 commentary**, not the work. The Matenadaran holds eighty-four
+complete copies and comparably many partial ones.
+
+**Scribe identity, resolved rather than left as a conflict.** The repository's
+Narekatsi article names Grigor Skevratsi; institutional sources name Grigor
+Mlichetsi. These were verified to be **the same person** — Mlichetsi, called
+Skevratsi after the monastery where he ran the scriptorium. No correction to
+existing content was needed, and the article states both names.
+
+**Printing.** First appearance in print is inside the **Urbatagirk**, Hakob
+Meghapart, Venice 1512 — the first book ever printed in Armenian — which means the
+earliest printed Armenian text carrying Narekatsi carries him inside a healing-prayer
+compilation. The 1512/1513 date variation is explained as one press episode rather
+than reported as a contradiction. The complete text was first printed at **Marseille
+in 1673 by Voskan Yerevantsi**. The Catholic-censorship story is included explicitly
+**as a claim rather than a fact**, because it rests on a single line of reporting.
+
+**Translations.** The first audience needing one was Armenian, and the two branches
+did it separately — Western: Gochoonian 1902, Gushakian 1926, Khachaturian 1926
+(revised Buenos Aires 1948); Eastern: Kheranyan 1960, Gevorgyan 1979, Aramyan 2019.
+Kheranyan omitted the prefatory title-piece because its authorship has never been
+settled. Russian begins oddly and informatively: Ioanesov printed the close of the
+twelfth discourse at Saint Petersburg in 1810 as a *Prayer Against Nocturnal
+Terrors* — direct evidence that individual parts had acquired specific protective
+uses. Grebnev's verse selections (1969, 1977) are the text Schnittke set in the 1985
+Concerto for Choir. French: Kéchichian 1961, Mahé 2000 (Peeters, CSCO). **No
+copyrighted modern translation is reproduced anywhere in the article.**
+
+**Reception, and the line the article does not cross.** `the-narek-in-armenian-life`
+records the devotional practices exactly as what they are — religious belief and
+custom, not medicine. Ormanian in 1912 on the book as a talisman; passages read
+beside the sick; prayers copied into hmayil amulet scrolls; Aparan fieldwork
+2016–2023 recording families still keeping shrine-books with a designated keeper.
+The article states in as many words that it makes no claim the book cures or treats
+illness. A test asserts the healing language stays framed as belief.
+
+### Sources
+
+Eight, every one with a real identifier, no Wikipedia:
+
+```text
+Hacikyan et al., Heritage of Armenian Literature vol. II   ISBN 9780814330234
+Terian, Commentary on the Song of Songs / Narekatsi (2021) ISBN 9780814684641
+Samuelian, Speaking with God from the Depths (2001)        ISBN 9789993085317
+Apresyan (2025)                        DOI 10.54503/1829-4073-2025.3.147-161
+Apresyan (2021)                                            arar.sci.am
+Arlen (2021)                                               escholarship.org
+Nazaryan (2020)                                            manuscript journal
+Safaryan (2023)                                            armenianstudies.aspu.am
+```
+
+### Relations and the link graph
+
+Outward, four `SectionLink`s, each in the paragraph that earns it:
+
+```text
+what-the-book-is  -> grigor-narekatsi
+manuscripts       -> matenadaran
+afterlife         -> nerses-shnorhali
+afterlife         -> siamanto
+```
+
+Inbound, four upgrades in every locale — the point of the step, since a Work nobody
+links to is a Work nobody reaches:
+
+```text
+Grigor Narekatsi  the-works      "everything else is the Book of Lamentations"
+Nerses Shnorhali  1173 manuscript context
+Siamanto          tenth-century-text comparison
+Bagratid Armenia  architecture   "composed the Book of Lamentations around 1002"
+```
+
+Narekatsi's `relatedSlugs` gained `book-of-lamentations` — the author-to-work
+relation, the one relation a Work earns automatically.
+
+**The Matenadaran was deliberately not given an inbound link.** Its article never
+mentions the Narek, and §52 forbids editing a target article purely to manufacture
+reciprocity. The relation runs outward from the Work instead, earned by the Work
+naming MS 1568.
+
+### Artwork: pending, and two decisions taken in advance
+
+`PENDING_ARTWORK` refilled with `book-of-lamentations` — the thirteenth time it has
+filled, and the first time the entry is a Work rather than a Writer or a place. The
+registry note records two decisions made now so they are not relitigated later:
+
+1. **The artwork must not borrow `writers/grigor-narekatsi.webp`.** Doing so would
+   make the Work an appendix to the Writer, and would put a face on a work whose
+   whole subject is a voice with no face. The Work owns its own future asset or it
+   renders the generated placeholder.
+2. **`PORTRAIT_PROVENANCE` does not apply and no entry belongs in it.** That map
+   records how a likeness of a *person* was arrived at. A book has no likeness to
+   get right. When a file lands it inherits `ARTWORK_PROVENANCE` like any other
+   illustration.
+
+The §85 rejection condition carries over and is unusually sharp here: the obvious
+composition for a book about a book is an open manuscript page covered in writing,
+and **readable generated lettering is refused outright**. No glyph may resolve.
+
+### Verification
+
+```text
+npm run typecheck            clean
+npm run validate:content     186 entries across 3 locales
+route probes                 10/10 -> 200 (clean .next, fresh dev server)
+tests/e2e/works.spec.ts      20/20   (new spec, 560 lines)
+tests/e2e/writers.spec.ts    43/43
+full Playwright suite        446 passed, 5 skipped, 0 failed, 11.8m, exit 0
+npm run build                exit 0, 180 static pages
+```
+
+The five skips are the pre-existing untranslated-article conditionals in
+`locale.spec.ts`, `seo.spec.ts` and `mobile.spec.ts`; every article is translated in
+all three editions, so they skip by design and are unrelated to this step.
+
+Build output verified rather than assumed:
+
+```text
+/en|hy|hyw/works/book-of-lamentations   all three prerendered
+canonical                                https://armat.site/en/works/book-of-lamentations
+hreflang                                 hy, hyw, en, x-default -> hy
+og:image / twitter:image                 https://armat.site/og-default.png  (fallback)
+references to /images/works/             0
+references to book-of-lamentations.webp  0
+sitemap entries                          3, none carrying image:loc
+```
+
+The twelve occurrences of `grigor-narekatsi.webp` in the built page are all inside
+the related-article card for his own article — `<article key="grigor-narekatsi">`,
+linking to `/en/writers/grigor-narekatsi`. **The portrait is not borrowed as the
+Work's artwork**, and the contrast with `anush`, whose sitemap entry does carry an
+`image:loc`, shows the pending-artwork path working rather than being globally off.
+
+### Step 61B — four stale Writer guards retargeted
+
+Six assertions across four tests in `writers.spec.ts` still stated that no Work had
+changed. Step 61 changed a Work on purpose, so each was **restated, not deleted** —
+none was weakened to a containment check, skipped, or given a longer timeout:
+
+```text
+:583  Narekatsi   rendered-href guard inverted. It asked whether the page dangles a
+                  link at a page that is not there; the target now exists, so it now
+                  asserts the link IS offered and that every href mentioning the slug
+                  resolves under /works/ - never improvised under /writers/.
+:1642 Varoujan    bookkeeping snapshot of Narekatsi's relations gained the third
+                  entry, with a comment recording that the Varoujan step still
+                  changed nothing about him - §61 did.
+:2078 Shnorhali   SectionLink targets now [NAREKATSI, book-of-lamentations]; the
+                  reciprocity snapshot gained the third relation AND a new explicit
+                  assertion that Narekatsi still carries no relation back to
+                  Shnorhali, which is what that block was actually protecting.
+:2357 Siamanto    sorted SectionLink target array gained the fourth entry.
+```
+
+`git diff` for 61B is `+35 / -7` in `tests/e2e/writers.spec.ts` alone. Every one of
+the seven deleted lines is a replaced expectation line or its comment; **no source
+file was touched during the closeout**, and no whole-file rollback was used at any
+point.
+
+### Final source state
+
+```text
+Works    5      + book-of-lamentations
+Writers 10      unchanged
+Cuisine 12      unchanged
+Places  13      unchanged
+History  7      unchanged
+Writer portraits   10 registered, 0 pending
+PENDING_ARTWORK    ["book-of-lamentations"]  - one entry, the Work
+Siamanto           registered, photo-referenced
+Hakob Paronyan     does not exist
+```
+
+### Technical debt carried forward, none of it resolved here
+
+- **Writer portrait composition debt (§59B/§90).** Writer portraits overuse the
+  desk/books/study/warm-interior archetype. Future Writer artwork must be compared
+  collection-wide for pose, silhouette, framing, environment and lighting. "Writer"
+  does not require a visible desk. Untouched by this step.
+- **Six of ten Writers still carry no SEO fields.** Narekatsi, Varoujan, Shnorhali
+  and Siamanto have them; the six older entries do not.
+- **Intermittent Works → Cuisine navigation failure.** `navigation.spec.ts:16`
+  **did not reproduce** in this run — it passed for all three editions (hy 4.3s,
+  hyw 5.3s, en 5.2s), as it did across the two runs at §90. That is three clean
+  runs against one earlier reproduction. **The issue is recorded as still open, not
+  as fixed**; navigation was not modified in this step or the last.
+- `newsletter.spec.ts:89` passed; no flake this run.
+- **`genreId: "poetry"` is a loose fit** for a prayer cycle, as described above.
+  Revisit when a second such work exists, not before.
+- **Book of Lamentations artwork is pending**, with the two advance decisions above
+  binding on whoever commissions it.
+
+### Research caveats left open in the article rather than resolved
+
+- Whether Grigor Mlichetsi copied the text of MS 1568 or only illuminated it —
+  sources differ, and the article says so.
+- Whether the prefatory title-piece is the author's own — never settled, which is
+  why Kheranyan omitted it.
+- The Catholic-censorship story around the 1673 Marseille printing — one line of
+  reporting, carried as a claim.
+
+Next step: the Book of Lamentations artwork brief. Writer #11, Hakob Paronyan, was
+selected at §91 and remains unstarted.

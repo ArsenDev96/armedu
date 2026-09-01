@@ -664,10 +664,22 @@ test("Narekatsi links only where the prose earns it, and invents no Works slug",
         `${locale} offers authored ${related}`,
       ).toBe(true);
     }
+    /*
+      §61 wrote the Work, so this guard inverts rather than disappears. It asked
+      whether the page dangles a link at a page that is not there; the answer is
+      still the thing worth asking, only the target now exists. So: the link must
+      be offered, and every href that mentions the slug must resolve under
+      /works/ -- never improvised under /writers/.
+    */
     expect(
-      hrefs.some((h) => h.includes("/book-of-lamentations")),
-      `${locale} offers no nonexistent work page`,
-    ).toBe(false);
+      hrefs.some((h) => h === `/${locale}/works/book-of-lamentations`),
+      `${locale} offers the authored work page`,
+    ).toBe(true);
+    for (const href of hrefs.filter((h) => h.includes("book-of-lamentations"))) {
+      expect(href, `${locale} links the Work only under /works/`).toBe(
+        `/${locale}/works/book-of-lamentations`,
+      );
+    }
   }
 });
 
@@ -1647,11 +1659,14 @@ test("adding Varoujan changed no existing writer, work, dish or place", async ({
     expect(b.articles.filter((a) => a.category === "history").length, `${locale} history`).toBe(7);
     expect(b.works.length, `${locale} works`).toBe(5);
 
-    // Narekatsi, closed one step earlier, is exactly as §82 left him.
+    // Narekatsi is as §82 left him, plus the one relation §61 authored: his own
+    // book. The Varoujan step still changed nothing about him -- this is a later
+    // step's edit, recorded here so the snapshot stays exact rather than loose.
     const narekatsi = b.articles.find((a) => a.slug === NAREKATSI)!;
     expect(narekatsi.relatedSlugs, `${locale} Narekatsi relations`).toEqual([
       "matenadaran",
       "bagratid-armenia",
+      "book-of-lamentations",
     ]);
     expect(narekatsi.periodId, `${locale} Narekatsi period`).toBe("medieval");
     expect(getImageSrc(NAREKATSI)).toBe("/images/writers/grigor-narekatsi.webp");
@@ -2089,7 +2104,12 @@ test("Shnorhali's one relation is earned, and invents no Work slug", async ({ pa
     expect(article.relatedSlugs, `${locale} one authored relation`).toEqual([NAREKATSI]);
 
     const links = article.sections.flatMap((s) => s.links ?? []);
-    expect(links.map((l) => l.slug), `${locale} SectionLink targets`).toEqual([NAREKATSI]);
+    // §61 added the second target: the sentence about the 1173 illuminated copy
+    // names the book, so it now leaves for the book as well as for its author.
+    expect(links.map((l) => l.slug), `${locale} SectionLink targets`).toEqual([
+      NAREKATSI,
+      "book-of-lamentations",
+    ]);
 
     // Every SectionLink phrase is a real substring of its own section's prose.
     for (const section of article.sections) {
@@ -2116,13 +2136,18 @@ test("Shnorhali's one relation is earned, and invents no Work slug", async ({ pa
     expect(bundle(locale).works.length, `${locale} Works after §61`).toBe(5);
   }
 
-  // Narekatsi was not edited for reciprocity.
+  // Narekatsi was not edited for reciprocity with Shnorhali -- and still is not.
+  // The third entry is §61's author-to-work relation, not a mirror of this step.
   for (const locale of LOCALES) {
     const narekatsi = bundle(locale).articles.find((a) => a.slug === NAREKATSI)!;
-    expect(narekatsi.relatedSlugs, `${locale} Narekatsi relations unchanged`).toEqual([
+    expect(narekatsi.relatedSlugs, `${locale} Narekatsi relations`).toEqual([
       "matenadaran",
       "bagratid-armenia",
+      "book-of-lamentations",
     ]);
+    expect(narekatsi.relatedSlugs, `${locale} still no Shnorhali reciprocity`).not.toContain(
+      SHNORHALI,
+    );
   }
 
   // Filler measured rather than assumed, and identical across editions.
@@ -2374,10 +2399,13 @@ test("Siamanto's relations are earned, and no Work slug was invented for him", a
     ]);
 
     const links = article.sections.flatMap((s) => s.links ?? []);
+    // §61 added the fourth: the phrase about the tenth-century text names the
+    // book it belongs to, so the reader can leave for it from that sentence.
     expect(links.map((l) => l.slug).sort(), `${locale} SectionLink targets`).toEqual([
       VAROUJAN,
       NAREKATSI,
       "mesrop-mashtots-armenian-alphabet",
+      "book-of-lamentations",
     ].sort());
 
     // Every SectionLink phrase is a real substring of its own section's prose.
