@@ -137,6 +137,18 @@ export const writers: Writer[] = [
     imageSeed: "hakob-paronyan",
     notableWorks: ["Պաղտասար աղբար", "Ազգային ջոջեր", "Մեծապատիվ մուրացկաններ", "Ատամնաբուժն արևելյան"],
   },
+  {
+    slug: "alexander-shirvanzade",
+    name: "Ալեքսանդր Շիրվանզադե",
+    lifespan: "1858–1935",
+    period: "XIX դար",
+    periodId: "19th-century",
+    role: "Վիպասան և դրամատուրգ",
+    description:
+      "Նավթային Բաքվի ռեալիստը՝ ծնված Ալեքսանդր Մովսիսյան, որի վեպերն ու պիեսները փողը, ընտանիքն ու հասարակական դիրքը դարձրին հայ արձակի կենտրոնական նյութ:",
+    imageSeed: "alexander-shirvanzade",
+    notableWorks: ["Նամուս", "Քաոս", "Պատվի համար", "Մորգանի խնամին"],
+  },
 ];
 
 export const literaryPeriods: Filter[] = [

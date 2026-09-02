@@ -364,6 +364,67 @@ const IMAGES: Record<string, string> = {
    */
   "hakob-paronyan": "/images/writers/hakob-paronyan.webp",
 
+  /*
+   * §98. Writer #12, and the first portrait in this registry whose whole point is
+   * what is *not* in it.
+   *
+   * 1586×992 — the section's preferred geometry exactly, which the previous entry
+   * drifted from — 187,602 bytes, SHA-256
+   * `49fcbd38049c79b8bff0f188e1eeb15be402c348ce3a8b36dda636f6f859842a`. RIFF valid:
+   * the declared size is the filesize minus eight exactly and the walker consumes
+   * the file to the byte with **zero trailing bytes**. A single lossy `VP8 ` chunk
+   * with the `9d 01 2a` start code, key frame, no horizontal or vertical scaling.
+   * **No `VP8X`, no `ICCP`, no alpha, no EXIF, no XMP, no animation, no
+   * orientation** — structurally the simplest file in the registry, and in
+   * particular it does *not* repeat the embedded ICC profile §96 introduced. sRGB,
+   * three channels, decodes clean to 4,719,936 raw bytes. Verified twice, by a
+   * hand-written RIFF walker and by sharp, which agree on every field.
+   *
+   * **Accepted on the first delivery**, unlike §95/§96.
+   *
+   * **The reference is the Charents Museum photograph**, opened and read directly
+   * rather than described: the mid-life studio portrait credited to the Charents
+   * Museum of Literature and Art in Yerevan. It gives a very high broad forehead
+   * with deep bilateral temporal recession, a thick curly mane rolled back and
+   * standing off the head, dark brows carrying a real asymmetry — the viewer's-right
+   * brow rides higher and arcs more than the left — deep-set hooded eyes with the
+   * same asymmetry, a long straight broad-bridged nose with a fleshy slightly
+   * downturned tip, a large protruding left ear, and a full horizontal moustache
+   * over a clean-shaven jaw. The delivered artwork agrees with it on every one of
+   * those, asymmetries included. Its one departure is that hair and moustache read a
+   * few years greyer than the photograph's, so the face sits at roughly 50–58 where
+   * the photograph is roughly 45–55; recorded, not corrected, and internally
+   * consistent rather than a hybrid.
+   *
+   * **One photographic period, deliberately.** Three lifetime references survive and
+   * they disagree: the Tiflis gendarme card of c. 1898 shows a full dark beard, the
+   * Charents Museum portrait a moustache over a clean-shaven jaw, and the late
+   * `azg.am` studio portrait a white mane and no facial hair at all. The artwork
+   * takes the Charents period whole — hair, moustache, age and dress together — and
+   * borrows nothing from the other two. That is the §12 rule from the commission,
+   * and it is the thing to check first if this file is ever regenerated.
+   *
+   * **What this file is for.** Ten of the eleven portraits before it seat the writer
+   * at a desk with books; the eleventh, Paronyan, stands in a working print room with
+   * type, a press and other figures. This is the section's first **close half-length**
+   * — chest-up, near-frontal, the head roughly 57 per cent of the frame height against
+   * roughly 20–30 per cent for most of the collection — against a plain plaster wall
+   * with a single undecorated moulding at the right edge. **No desk, no books, no
+   * manuscript, no pen, no prop of any kind, and no hands in frame.** Measured warmth
+   * is R−B 23.0, the fourth coolest of twelve and cooler than Paronyan's 26.1, with a
+   * higher green mean that gives an olive-grey cast rather than Paronyan's browner
+   * grey-green — so it is restrained without copying the entry before it. That
+   * restraint is the part of this image that must survive any future change to it: a
+   * writer does not require a visible desk, and this is the file that proves it.
+   *
+   * The readable-lettering gate was swept at 2.8× over six tiles covering the whole
+   * frame and found nothing in any script. The single glyph-like mark — a short
+   * vertical slot on the lapel — resolves at 8× as a stitched buttonhole with a
+   * bar-tack at each end, which is tailoring, not a letter. Judged at rendered size
+   * first, magnified only to confirm: the §89 rule.
+   */
+  "alexander-shirvanzade": "/images/writers/alexander-shirvanzade.webp",
+
   // Literary works
   anush: "/images/works/anush.webp",
   "david-of-sassoun": "/images/works/david-of-sassoun.webp",
@@ -1346,6 +1407,75 @@ const IMAGES: Record<string, string> = {
  * overrides both the file here and the AI caption.
  */
 export const PENDING_ARTWORK: readonly string[] = [
+  /*
+   * §97. Refilled for Writer #12. Shirvanzade's biography shipped without his
+   * portrait, on the same terms as every entry before him: the artwork is a
+   * separate step and the placeholder renders until it lands.
+   *
+   * Two things are decided here in advance, on the §88 and §94 pattern, and both
+   * are asserted in the negative by `writers.spec.ts` today.
+   *
+   * The first is the provenance. Photographs of him survive and were looked at
+   * rather than read about, so the expected type when the file arrives is
+   * `photo-referenced` — but `PORTRAIT_PROVENANCE` gains nothing now, because
+   * recording how a likeness was arrived at before the likeness exists is
+   * recording provenance for artwork nobody has made. What survives, precisely:
+   * a studio portrait photograph credited to the Charents Museum of Literature
+   * and Art in Yerevan, a second undated photographic portrait, and two gendarme
+   * registration cards compiled by the Tiflis provincial gendarme administration
+   * and held by the National Archive of Georgia. The image widely captioned
+   * "c. 1880" is **not** a photograph — it is a lithograph printed in the
+   * Constantinople paper `La Patrie` in 1910 and held by the BnF — and the 2008
+   * commemorative stamp in the same Commons category is not facial authority
+   * either. The §87 rule applies to both: a photograph is what earns the word.
+   * The late studio portrait is the primary likeness reference; the gendarme
+   * cards are corroboration and are decades earlier.
+   *
+   * The second is the composition, and it is the first entry on this list to set
+   * one against an audit of the whole collection rather than against the previous
+   * picture. Eleven writer portraits now exist. Ten of them put the subject at a
+   * desk, or with books, or against a warm study interior; §96 broke that once
+   * with Paronyan's print room, which is still a working environment with props
+   * in it. So the archetype reserved for this slug is the one thing the section
+   * has never done: **a close half-length, near-frontal portrait, plain
+   * restrained historical ground, no desk, no books, no pen, no manuscript, no
+   * props of any kind** — the white hair read as a silhouette against the ground,
+   * and the head as the entire subject. A writer does not require a visible desk,
+   * which is the §89 note's standing observation finally cashed.
+   *
+   * The standing rejection condition carries forward unchanged: readable
+   * generated lettering of any kind is refused outright, not weighed. And anatomy
+   * is judged at rendered size first, magnified only to confirm — the §89 rule.
+   */
+
+  /*
+   * §98. Emptied for the fifteenth time, and the section is complete at twelve:
+   * twelve writers, twelve portraits, no placeholder anywhere in the archive.
+   *
+   * §97 put `alexander-shirvanzade` here and decided two things in advance rather
+   * than after the fact. Both held, which is why this list is empty again on the
+   * first delivery rather than the second.
+   *
+   * The provenance was committed to `photo-referenced` before the picture existed,
+   * on the strength of surviving photographs, and the entry in `PORTRAIT_PROVENANCE`
+   * now records which of the three was used as facial authority, which two were held
+   * back to corroborate invariants only, and which two images were refused as
+   * authority because a lithograph and a postage stamp are not photographs. §97 also
+   * corrected the earlier record on that last point, and the correction is what kept
+   * a 1910 print from being treated as a likeness.
+   *
+   * The composition was specified before the commission too, and against an audit of
+   * the whole collection rather than against the previous file: a close half-length,
+   * near-frontal, plain ground, no desk, no book, no pen, no manuscript, no props.
+   * That is what arrived. It is the closest portrait in the section by a wide margin
+   * and the only one with a genuinely plain background, which is the standing
+   * observation §89 left — that ten commissions had converged on
+   * desk-and-books-in-a-warm-study — finally cashed.
+   *
+   * Kept as a constant through the empty phase, for the reason every previous empty
+   * phase gave: refilling it is then a one-line edit rather than a rediscovery.
+   */
+
   /*
    * §89. Emptied for the twelfth time, and the first time the section it emptied
    * was finished by it: ten writers, ten portraits, no placeholder anywhere in
@@ -2388,6 +2518,37 @@ const PORTRAIT_PROVENANCE: Record<string, PortraitProvenance> = {
    * time in this map.
    */
   "hakob-paronyan": "photo-referenced",
+
+  /*
+   * §98. Three lifetime references were opened and read directly for this one, and
+   * the entry records which was used as facial authority, because they disagree with
+   * each other more than any previous subject's did.
+   *
+   * The authority is the **studio portrait credited to the Charents Museum of
+   * Literature and Art, Yerevan** — the mid-life photograph, dark curly hair greying
+   * at the temples, a full horizontal moustache over a clean-shaven jaw, near-frontal
+   * with a level gaze. The artwork agrees with it on face width and length, forehead
+   * height, hairline arc and temporal recession, hair volume and grey distribution,
+   * brow weight *and* the brow asymmetry, eye set and lid shape, nose bridge, length
+   * and tip, moustache geometry, the large protruding left ear, cheeks, jaw and chin.
+   * That is a matter of record, so the caption may say it.
+   *
+   * Two other lifetime photographs survive and were consulted only to corroborate the
+   * invariants, never for hair, facial hair or age: the recto of the Tiflis Provincial
+   * Gendarme Administration registration card held by the National Archive of Georgia,
+   * which carries a frontal and a profile of him at about forty with a full dark beard
+   * and is the best evidence for skull width, ear set and nose profile; and the late
+   * `azg.am` studio portrait, which shows him white-haired and entirely clean-shaven.
+   * Neither contributed a feature. The artwork is one period, not a synthesis.
+   *
+   * Two images in the same Commons category were seen and **deliberately not used**,
+   * which is the §87 rule applied for the fourth time in this map. The picture widely
+   * captioned "c. 1880" is not a photograph at all — it is a lithograph published in
+   * the Constantinople French-language paper `La Patrie` in 1910 and held by the BnF
+   * — and the 2008 Armenian commemorative stamp is not facial authority either.
+   * `photo-referenced` here means a photograph was read, not that some image survives.
+   */
+  "alexander-shirvanzade": "photo-referenced",
 };
 
 /** A portrait's likeness basis. Unlisted slugs are `imagined` — see above. */

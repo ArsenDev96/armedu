@@ -2656,6 +2656,68 @@ const SOURCES: Record<string, Source[]> = {
     },
   ],
 
+  "alexander-shirvanzade": [
+    {
+      title: "Հայկական սովետական հանրագիտարան, հատոր 8",
+      publisher: "Հայկական հանրագիտարանի գլխավոր խմբագրություն, Երևան",
+      year: "1982",
+      identifier: { kind: "archive", value: "ՀՍՀ, հատոր 8, էջ 517–519, «Շիրվանզադե Ալեքսանդր»" },
+      note: "The spine of the article. It is the source for the birth name Մովսիսյան Ալեքսանդր Մինասի, for the Old Style birth date 7 April 1858 that the article prints and flags, for Shamakhi and Kislovodsk, for the burial in Yerevan, for the publication sequence from Հրդեհ նավթագործարանում in 1883 through Խնամատար, Նամուս and Քաոս, for the secretaryship of Արձագանք from 1886 to 1891, for the list of plays and their years, for the placement of Շիրվանզադե in the line of Sundukyan's dramaturgy, and for the assessment of Քաոս as the largest achievement of Armenian critical realism. It is also the source of one recorded conflict: it dates Մորգանի խնամին to 1930 where other Armenian sources give 1926, and the article states both rather than choosing silently.",
+    },
+    {
+      author: "Kevork B. Bardakjian",
+      title: "A Reference Guide to Modern Armenian Literature, 1500–1920",
+      publisher: "Wayne State University Press, Detroit",
+      year: "2000",
+      identifier: { kind: "isbn", value: "9780814327470" },
+      note: "The standard English-language reference for the period, and the volume whose coverage ends exactly where his major career does. Cited for his position in the movement from romanticism to realism — the contrast the article draws between Raffi's historical-national novel and Shirvanzade's contemporary urban realism rests on this rather than on the popular summaries — and for the treatment of his prose and drama as one body of work rather than two.",
+    },
+    {
+      author: "A. J. Hacikyan, G. Basmajian, E. S. Franchuk and N. Ouzounian (eds.)",
+      title: "The Heritage of Armenian Literature, Volume III: From the Eighteenth Century to Modern Times",
+      publisher: "Wayne State University Press",
+      year: "2005",
+      identifier: { kind: "isbn", value: "9780814332214" },
+      note: "The section's backbone series at the volume covering him. Cited for the English-language account of the Baku years and the oil-industrial setting of Քաոս, for the serialization of that novel in 1896–1897 ahead of the 1898 volume, and for his own critical position on realism — generalisation and typification against the photographic reproduction of reality — which is the distinction the article uses to separate him from naturalism.",
+    },
+    {
+      title: "Ширванзаде Александр Минасович, Большая российская энциклопедия",
+      publisher: "Большая российская энциклопедия, Moscow",
+      year: "consulted 2026",
+      identifier: { kind: "url", value: "https://bre.ruwiki.ru/c/shirvanzade-aleksandr-minasovich-1c9f8b" },
+      note: "Cited for the chronology outside Armenia and for the honours. It gives the district school in 1873 and the move to Baku, the Baku employment as accountant and librarian, the settlement at Tiflis from 1883, the arrest and the Odessa exile of 1898–1900, the years in France and America, the return in 1926, and the naming as people's writer of both Armenia and Azerbaijan in 1930. It is also one half of the calendar problem the article records: it prints the birth date as 7 (19) April 1858, while Armenian and Russian encyclopedic practice elsewhere prints 18 April, and the article states the disagreement rather than reconciling it.",
+    },
+    {
+      title: "Namus, The Project — Armenian Institute, London",
+      publisher: "Armenian Institute, London",
+      year: "2011",
+      identifier: { kind: "url", value: "https://www.armenianinstitute.org.uk/namus-the-project" },
+      note: "The basis for keeping the novel and the play apart. It marks the centenary of the play in 2011, which is the evidence for the 1911 dating of Shirvanzade's own stage version, and it records the first English translation of that play, by Veronica Wigg. Cited also for the contemporary staging history and for the fact that the play has been produced in this century as a work about violence against women — the reading the article reports without treating it as an update to the text.",
+    },
+    {
+      title: "Hamo Beknazarian's Namus (1926) — East European Film Bulletin",
+      publisher: "East European Film Bulletin",
+      year: "consulted 2026",
+      identifier: { kind: "url", value: "https://eefb.org/retrospectives/hamo-beknazarians-namus-1926/" },
+      note: "Cited for the film section and, specifically, for the careful form of the claim the article repeats. This source says Namus is considered to be the first Armenian feature, and gives the studio history — Gosfotkino, established at Yerevan in 1923, later Armenfilm — that bounds what first means. It is also cited for the film's account of namus as an honour tied to a woman's chastity, and for Beknazarian's critical rather than illustrative treatment of it.",
+    },
+    {
+      author: "Hasret Çetinkaya",
+      title: "Re-theorising namûs beyond 'honour': self-making, feminist ethics and the politics of translation",
+      publisher: "International Feminist Journal of Politics",
+      year: "2024",
+      identifier: { kind: "doi", value: "10.1177/14647001241226938" },
+      note: "The scholarly basis for the section on the word itself, and the reason the article refuses to translate նամուս as honour and stop there. Cited for the Arabic nāmūs and its Greek origin in nomos, for the regional rather than ethnically specific distribution of the concept, and for the asymmetry the article states — that for men the word can extend to conscience and integrity while for women it is bound to sexual conduct. It is not cited for anything about Shirvanzade.",
+    },
+    {
+      title: "Surviving lifetime images of Alexander Shirvanzade",
+      publisher: "Charents Museum of Literature and Art, Yerevan; National Archive of Georgia; Bibliothèque nationale de France",
+      year: "consulted 2026",
+      identifier: { kind: "archive", value: "Wikimedia Commons, Category:Alexander Shirvanzade" },
+      note: "Cited for the statement that gendarme registration cards on him were compiled by the Tiflis provincial gendarme administration and are held by the National Archive of Georgia. The same record is the portrait evidence for a future commission and is described precisely because it is easy to overstate: a studio portrait photograph credited to the Charents Museum and a second undated photographic portrait survive, while the image often dated about 1880 is a lithograph published in the Constantinople French-language paper La Patrie in 1910 and held by the BnF, and a commemorative stamp and a sketch in the same category are not photographs at all.",
+    },
+  ],
+
 };
 
 

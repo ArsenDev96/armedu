@@ -134,6 +134,18 @@ export const writers: Writer[] = [
     imageSeed: "hakob-paronyan",
     notableWorks: ["Պաղտասար աղբար", "Ազգային ջոջեր", "Մեծապատիւ մուրացկաններ", "Ատամնաբոյժն արեւելեան"],
   },
+  {
+    slug: "alexander-shirvanzade",
+    name: "Ալեքսանդր Շիրվանզադէ",
+    lifespan: "1858–1935",
+    period: "19-րդ դար",
+    periodId: "19th-century",
+    role: "Վիպասան եւ թատերագիր",
+    description:
+      "Նաւթային Պաքուի ռեալիստը՝ ծնած Ալեքսանդր Մովսիսեան, որուն վէպերն ու թատրերգութիւնները դրամը, ընտանիքն ու ընկերային դիրքը դարձուցին հայ արձակին կեդրոնական նիւթը:",
+    imageSeed: "alexander-shirvanzade",
+    notableWorks: ["Նամուս", "Քաոս", "Պատուի համար", "Մորգանի խնամին"],
+  },
 ];
 
 export const literaryPeriods: Filter[] = [

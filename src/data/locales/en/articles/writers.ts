@@ -2079,4 +2079,354 @@ export const writerArticles: Article[] = [
     ],
     relatedSlugs: ["khachatur-abovyan", "siamanto"],
   },
+  {
+    slug: "alexander-shirvanzade",
+    href: "/writers/alexander-shirvanzade",
+    category: "writers",
+    categoryLabel: "Armenian Writers",
+    title: "Alexander Shirvanzade",
+    seoTitle: "Alexander Shirvanzade: Armenian Realist Novelist",
+    excerpt:
+      "The novelist and playwright of oil-boom Baku, whose realist prose made money, family and social standing the central subject of Armenian literature.",
+    metaDescription:
+      "Alexander Shirvanzade, 1858 to 1935: Shamakhi, oil-boom Baku and Tiflis, the novel and play Namus, the novel Chaos, and the drama Patvi hamar.",
+    summary:
+      "Alexander Shirvanzade — the pen name of Alexander Movsisyan — was an Armenian novelist, prose writer and playwright, born at Shamakhi in the Russian Empire in 1858 and dead at Kislovodsk in 1935. He is the central figure of Armenian critical realism, and he was formed neither in a village nor in a seminary but in the counting-houses of oil-boom Baku, which is why his subject is what money does to families. His novel Նամուս appeared in 1885 and his novel Քաոս in 1898; his drama Պատվի համար reached the stage in 1904. He lived into the Soviet period and was decorated by it in 1930, but everything that made him matter was written before it.",
+    period: "19th Century",
+    periodId: "19th-century",
+    imageSeed: "alexander-shirvanzade",
+    keywords: [
+      "Alexander Shirvanzade",
+      "Aleksandr Shirvanzade",
+      "Shirvanzade",
+      "Alexander Shirvan-Zade",
+      "Shirvanzadé",
+      "Chirvanzadé",
+      "Alexander Movsisyan",
+      "Aleksandr Movsesyan",
+      "Ալեքսանդր Շիրվանզադե",
+      "Ալեքսանդր Շիրվանզադէ",
+      "Շիրվանզադե",
+      "Շիրվանզադէ",
+      "Ալեքսանդր Մովսիսյան",
+      "Armenian novelist",
+      "Armenian playwright",
+      "Armenian realism",
+      "Նամուս",
+      "Namus",
+      "Քաոս",
+      "Chaos",
+      "Պատվի համար",
+      "Պատուի համար",
+      "Patvi hamar",
+      "For Honour's Sake",
+      "Չար ոգի",
+      "Մորգանի խնամին",
+      "Baku oil boom",
+      "Shamakhi",
+    ],
+    intro:
+      "Alexander Shirvanzade wrote the Armenian novel of money. He was a novelist and a playwright who spent his youth keeping accounts in the oil offices of Baku, and he turned what he saw there — fortunes made in a decade, families reorganised around them, respectability bought and sold — into the main body of Armenian realist prose. Two of his books have outlived the world they describe: Նամուս, about a provincial honour code that kills, and Քաոս, about an oil family coming apart. He also wrote about twenty plays, and the Armenian stage has been performing them for more than a century.",
+    author: "Armat Editorial Team",
+    updated: "2026-09-02",
+    sections: [
+      {
+        id: "who-alexander-shirvanzade-was",
+        heading: "Who Alexander Shirvanzade was",
+        paragraphs: [
+          "Alexander Shirvanzade was an Armenian novelist, prose writer and playwright, born at Shamakhi in the Russian Empire in 1858 and dead at Kislovodsk in 1935. He wrote in Eastern Armenian, worked mainly in Baku and Tiflis, and is the writer Armenian criticism names first when it discusses critical realism.",
+          "Two things separate him from most of the writers around him in this archive. The first is genre: the section he joins is heavily weighted toward poetry, and he is a novelist and a dramatist who wrote almost no verse. The second is subject. Where Raffi built the Armenian historical novel out of the national past, Shirvanzade wrote about the present, about cities, and about money — who has it, how it was got, and what a household will do to keep it.",
+          "He also lived long enough to be claimed by a state that arrived after his work was done. He died holding Soviet titles awarded in 1930, and this article keeps those apart from the career that earned them, which belongs to the 1880s, the 1890s and the years before 1905.",
+        ],
+        links: [
+          {
+            phrase: "Where Raffi built the Armenian historical novel out of the national past",
+            slug: "raffi",
+          },
+        ],
+      },
+      {
+        id: "movsisyan-and-shirvanzade",
+        heading: "Movsisyan, and the name he signed",
+        paragraphs: [
+          "He was born Alexander Movsisyan — Ալեքսանդր Մինասի Մովսիսյան in the Armenian encyclopedic form, which carries his father's name, Minas. Shirvanzade is a pen name, and it is taken from the place he came from: Shamakhi lay in Shirvan, and the Persian suffix -zade means born of or son of. The name says, plainly, of Shirvan.",
+          "That is the whole of what it means, and this article does not extend it. It is not a title, not an inherited family name, and not evidence of anything about his ancestry. It is a nineteenth-century writer's byline built out of his own district, which is a common enough way for a pen name to be made and needs no further explanation than the sources give it.",
+          "In English he appears as Alexander Shirvanzade and Aleksandr Shirvanzade, with Shirvanzadé, Shirvan-Zade and the bare Shirvanzade also in circulation; French-language material published in his own lifetime printed Chirvanzadé. Armenian writes Ալեքսանդր Շիրվանզադե in the reformed orthography of the east and Ալեքսանդր Շիրվանզադէ in the classical orthography of the west. All of these forms are carried in this page's search terms, because they retrieve different sets of pages.",
+        ],
+      },
+      {
+        id: "shamakhi",
+        heading: "Shamakhi",
+        paragraphs: [
+          "Shamakhi — Շամախի, today Şamaxı in Azerbaijan — was the old capital of Shirvan and, when he was born, a district town of the Russian Empire. It had been the seat of the governorate that carried its name until an earthquake wrecked it in 1859 and the administration was moved to Baku. That is the single most consequential fact about the place for his biography: the town he was born in had just been overtaken by the city he would spend his youth in.",
+          "It was a mixed town, Armenian and Azerbaijani, administered in Russian, and it is the world of Նամուս — the novel is set in it, and the earthquake is in the book. Shamakhi was wrecked again in 1902, by which time he had long left.",
+          "His family was not well off. Russian reference works describe his father, Minas, as a tailor, and the household's circumstances were modest enough that his schooling ended with the district school, which he finished in 1873. This article uses the historical names of these places and the political entities that actually existed at the time, because those are the terms his own documents were written in.",
+        ],
+      },
+      {
+        id: "baku",
+        heading: "Baku, which is the subject as much as the setting",
+        paragraphs: [
+          "Baku in the 1870s was becoming the largest oil city in the world. Derricks went up at Balakhani, refineries filled the district that was known as the Black Town, and capital arrived from everywhere — Armenian, Azerbaijani, Russian, Swedish, French. Shirvanzade went there as a teenager, in a year Armenian sources give variously as 1873 and 1875, and stayed about eight years.",
+          "What that city offered a future novelist was social change fast enough to watch. Fortunes were made inside a decade and lost inside another. Families that had been provincial traders became industrial proprietors, and their sons were sent to Russian and European schools; a labour force was assembled out of the whole Caucasus and northern Persia and housed accordingly. Position had stopped being inherited and started being bought, and nobody yet knew the rules.",
+          "This is the environment his prose is made of, and it is why Baku belongs in an account of his work rather than only in his chronology. He does not write about the city the way a visitor does. He writes about the offices, the contracts, the marriages arranged around shares, the sons who go abroad and the ones who stay, the household that is rich in one decade and ruined in the next. He was standing inside the bookkeeping of that world while it changed.",
+        ],
+      },
+      {
+        id: "the-clerk-who-read",
+        heading: "The clerk who read",
+        paragraphs: [
+          "The jobs were ordinary and they are the reason the books exist. He worked in provincial administration offices and then in the bureaus of the oil firms, as a clerk, an assistant bookkeeper and finally an accountant, and he also worked as a librarian for the Armenian philanthropic society in Baku.",
+          "Accounting is a particular kind of access. A clerk who keeps a firm's books sees the family behind the firm — the inheritance disputes, the guarantees, the debts a household is concealing from its own guests — in a form nobody else outside it is shown. Very little Armenian prose of the century was written from that vantage point, and it is worth naming the jobs for that reason rather than for colour.",
+          "His education after the district school was his own. He read Russian and Armenian literature and the European novelists whose method his most resembles; Balzac and Zola are the names both Armenian and English accounts attach to him, along with Shakespeare. He is a self-taught writer in the exact sense, with no seminary and no university behind him, and with a working knowledge of the material his novels are about that no seminary would have supplied.",
+        ],
+      },
+      {
+        id: "entering-literature-and-tiflis",
+        heading: "1883: out of the oil field and into Tiflis",
+        paragraphs: [
+          "His first published fiction came out of the oil field directly. In 1883 the Tiflis newspaper Մշակ printed his story Հրդեհ նավթագործարանում — a fire at an oil works — and followed it with the novella Գործակատարի հիշատակարանից, from a clerk's notebook. A man who had spent eight years in those offices began by writing about them.",
+          "The same year he moved to Tiflis, then the administrative and cultural capital of the Russian Caucasus and the centre of Eastern Armenian publishing. He entered its literary world as a working journalist rather than as a man of letters, and from 1886 to 1891 he was secretary of the weekly Արձագանք.",
+          "Արձագանք also carried his fiction. Խնամատար appeared there in 1884 and Նամուս in 1885, and it was Նամուս that made his name. The shape of his career was set at that point: fiction and journalism in the same papers, and a living that came from the press rather than from books.",
+        ],
+      },
+      {
+        id: "what-realism-meant-to-him",
+        heading: "What his realism actually consists of",
+        paragraphs: [
+          "Calling Shirvanzade a realist is accurate and nearly useless on its own, because the word covers everything from a preference for ordinary settings to a whole theory of what fiction is for. In his case it means three specific things, and they can be stated.",
+          "It means, first, that the engine of the plot is economic. His characters want money, or have it and are afraid of losing it, or need a marriage in order to secure it. Property, inheritance, dowry, credit, shares and debt are not background in his books; they are the mechanism by which the story moves and the pressure under which the people break. Քաոս is a novel about an oil fortune and a family that cannot hold together around it.",
+          "It means, second, that his moral interest is in compromise rather than villainy. The people who do the damage are rarely monsters. They are men doing what their position makes reasonable, and the harm is cumulative. Պատվի համար turns on a man who burns a document rather than give up an inheritance he had no right to, and the play is about the household that then has to live with him.",
+          "And it means, third, a stated method rather than an instinct. Shirvanzade wrote about realism as well as in it, and what he argued for was generalisation and typification: he criticised the photographic reproduction of reality and rejected open tendentiousness, on the ground that a novel which merely records is not doing a novel's work. That is a considered nineteenth-century position, and it separates him from naturalism in a way worth stating, because short English summaries collapse the two.",
+          "The contrast with the tradition he came out of is sharpest here. Armenian prose before him was dominated by the historical and national novel: the past recovered, the nation addressed, the reader asked to feel something about both. Shirvanzade wrote about the week his reader was living in, and about the part of that week that involved a bank.",
+        ],
+      },
+      {
+        id: "money-family-and-standing",
+        heading: "Money, family and social standing",
+        paragraphs: [
+          "The family in his work is an economic institution before it is anything else. A marriage is a transaction between households; a daughter is the term of the transaction; a son is a claim on a business. This is not cynicism imposed on the material — it is how the arrangements he is describing actually worked, and his books are unusual in Armenian literature chiefly because they say so at the length the subject needs.",
+          "Reputation, in that arrangement, is a working asset. A household's standing determines the credit it can raise, the marriages it can make and the price of both, so the gap between what a family is worth and what it must appear to be worth is a permanent source of pressure. Most of his catastrophes are produced by somebody trying to close that gap.",
+          "His concern with the position of women follows from the same analysis rather than sitting beside it. If a marriage is a transaction, the person who is its object has no standing in it, and two of his plays put the question directly: Եվգինե and Ունե՞ր իրավունք, both from 1903, whose second title asks whether she had the right. Armenian accounts record that his treatment of these subjects drew conservative opposition at the time.",
+        ],
+      },
+      {
+        id: "how-the-prose-works",
+        heading: "How the prose is built",
+        paragraphs: [
+          "His novels are ensemble works. A household, a firm and the people attached to both are established in some detail, and the book proceeds by putting pressure on all of them at once rather than by following a single fate. That is a structural choice with a consequence: the social arrangement, not any one person, is what the reader ends up understanding.",
+          "The dialogue does most of the characterisation. People in his books give away their position, their education and their intentions by how they speak about money, and the comedy and the cruelty both come from the mismatch between the register a man adopts and the thing he is actually doing. He very rarely stops to explain a character; he lets the character explain himself and arranges the explanation so that it convicts him.",
+          "Material detail is used as evidence rather than as decoration. Sums, documents, rooms, clothes and the state of a business are specified because they are what the argument rests on, and a reader can generally reconstruct a household's finances from what the narrator has bothered to mention.",
+          "Armenian criticism has consistently praised the care of his literary language and the psychological depth of the later novels, and this article passes those judgments on as judgments rather than restating them as facts about the prose. What can be said flatly is that his construction is dramatic — scenes, entrances, confrontations — which is one reason his novels moved onto the stage and the screen as easily as they did.",
+        ],
+      },
+      {
+        id: "namus-the-novel",
+        heading: "Նամուս, 1885",
+        paragraphs: [
+          "Նամուս was published in 1885 in the weekly Արձագանք, and it is the book that made him. It is set in his own Shamakhi, and it uses the earthquake that shaped the town: two neighbours, spared by it, promise their small children to one another.",
+          "What follows can be described without spoiling it, because the novel is not built on surprise. The engagement is broken when the young people are found to have met before the marriage, which the town's code forbids. The girl is married elsewhere. Everything after that is consequence, and the consequences are fatal.",
+          "The novel is not really about the lovers. It is about the code — a set of rules that everyone in the town obeys, that nobody in the town can explain, and that costs more than anything it protects. That is the realist argument in its clearest form: the disaster is produced by a social arrangement working exactly as designed.",
+          "The novel, the stage version and the film are three different works, and this article keeps them apart. Shirvanzade made his own dramatisation, dated 1911; it was in the repertoire of Hovhannes Abelyan's company by 1912, including on that company's guest performances in Moscow. The film has its own section below.",
+        ],
+      },
+      {
+        id: "the-word-namus",
+        heading: "What նամուս means, and why honour is not enough",
+        paragraphs: [
+          "նամուս does not translate into a single English word, and the standard rendering — honour — is misleading enough to be worth stopping on, because the whole novel depends on the difference.",
+          "The word is a borrowing. Arabic nāmūs, itself from the Greek nomos, meaning law or custom, travelled into Persian, Turkish, Kurdish and Armenian, and in all of them it names something more specific than the English word does. It is not personal honesty and not individual reputation. It is a collective standing held by a household, and in practice it is carried by the conduct of that household's women: for a man the word can extend to conscience and integrity, but for a woman it is bound to sexual conduct and to the appearance of it.",
+          "Two things need saying about how this article uses it. It is not a peculiarity of Armenians. The concept is regional, shared across the Caucasus, Anatolia and much further, and Shirvanzade wrote about it from inside as a critic of it, not as an ethnographer describing a custom to outsiders.",
+          "And it is not a museum piece. The play has been staged in the present century, in English translation, as a work about violence against women, which is a reading of what is already in the text rather than an update applied to it. That is the reason the title is left in Armenian on this page: Նամուս names a concept, and Honour names a different one.",
+        ],
+      },
+      {
+        id: "chaos",
+        heading: "Քաոս and the oil city",
+        paragraphs: [
+          "Քաոս is the novel Armenian criticism most often calls his best, and it is described in Armenian scholarship as the largest achievement of Armenian critical realism. It was serialized in 1896 and 1897 and published complete in 1898, in the years around his arrest and exile.",
+          "Its subject is an Armenian oil family in Baku: the fortune, the household organised around it, the generation that inherits it and the disintegration of both. The material is exactly what he had spent his twenties keeping the accounts of, and the novel is specific about the business in a way that most nineteenth-century fiction about wealth is not.",
+          "The title is not decorative. What the book describes is a society without a settled order — money moving faster than the forms that used to govern it, positions that mean nothing a decade later, and people improvising a morality to fit their circumstances. Baku had made that condition visible on a scale no other city in the region had, and Քաոս is the Armenian novel of it.",
+          "This archive has not yet given any of his works an article of its own. The titles named on this page are named rather than linked, and Քաոս is the strongest candidate among them for a future one.",
+        ],
+      },
+      {
+        id: "patvi-hamar-is-not-namus",
+        heading: "Պատվի համար is not Նամուս",
+        paragraphs: [
+          "Two of his best-known works are routinely translated into English using the same word, and a reader who is not warned will merge them. They are different works, in different genres, nineteen years apart, and they are about two different things that English calls honour.",
+          "Նամուս is the novel of 1885, later his own play. Պատվի համար is a drama, written in 1904, first staged at Baku on 10 December of that year and published as a book in 1905. Պատիվ is the ordinary Armenian word for honour in the sense of standing, integrity and good name; նամուս is the borrowed word for the collective, sexualised family honour described above. English erases the distinction: the film of the novel is catalogued as Honour, and the drama circulates as For Honour's Sake, For the Sake of Honour and For Honor.",
+          "The plots have nothing in common. In Պատվի համար, Elisbarov has taken possession of a dead friend's estate; when the heir produces the documents that prove it, he burns them; his daughter Margarit, who cannot live in the household that results, takes her own life. It is a play about property, and the honour in its title is the kind that can be audited.",
+          "It became the most performed Armenian play of its generation. Armenian sources record more than 300 stagings by 1911, productions at Tiflis and Constantinople within a few years of the premiere, and revivals across the Soviet republics for decades afterwards.",
+        ],
+      },
+      {
+        id: "the-plays",
+        heading: "The theatre",
+        paragraphs: [
+          "Shirvanzade wrote about twenty plays, and the theatre is not a sideline in his work. He is one of the two writers on whom the modern Armenian dramatic repertoire was built.",
+          "The other is Gabriel Sundukyan, a generation older, whose comedies of Tiflis Armenian domestic life established that Armenian drama could be about ordinary contemporary people at all. Armenian scholarship describes Shirvanzade as continuing that line and widening it: to a repertoire that had been largely comic and domestic he added the social drama, the political drama and the psychological one.",
+          "The list is longer than the two titles everyone knows. Իշխանուհի dates from 1891 and Չար ոգի from 1894; Եվգինե and Ունե՞ր իրավունք from 1903; Պատվի համար from 1904; Կործանվածը from 1909; Ավերակների վրա from 1911; Շառլատանը from 1912; Արհավիրքի օրերին from 1917. Մորգանի խնամին came last, after his years abroad, and is dated 1926 by some Armenian sources and 1930 by the Soviet Armenian Encyclopedia.",
+          "The plays are built the way the novels are: an ensemble, an economic situation, and dialogue that lets people convict themselves. Մորգանի խնամին is the exception in tone — an Armenian family in America persuading itself that a son's engagement has connected it to the banker Morgan — and it is the one place where his social observation turns outward, to the diaspora, and comic.",
+        ],
+      },
+      {
+        id: "eastern-armenian-prose",
+        heading: "Eastern Armenian, and what he did with it",
+        paragraphs: [
+          "He belongs to a different linguistic world from the Western Armenian writers in this section. He wrote Eastern Armenian, the branch built on the spoken language of the Russian Caucasus, whose modern literary career begins with Khachatur Abovyan a generation before him.",
+          "What he did with it was extend it into a register it had not fully had: contemporary urban prose. His people are clerks, contractors, engineers, students, merchants' wives and the servants of all of them, and the dialogue has to carry a class position inside a single sentence. A literary language that had been developed for the village, the epic and the national address had to be made to do office work, and his books are a large part of how it was.",
+          "Armenian sources credit him with unusual care over the literary language and with purity of style, and this article does not go further than they do. His Baku and his Tiflis were multilingual cities, and it would be easy to assert that his prose is full of the resulting borrowings — but that is a linguistic claim about a specific vocabulary, and the sources consulted here support the general judgment about his style rather than an inventory of his words.",
+        ],
+        links: [
+          {
+            phrase: "whose modern literary career begins with Khachatur Abovyan",
+            slug: "khachatur-abovyan",
+          },
+        ],
+      },
+      {
+        id: "prison-exile-and-the-years-abroad",
+        heading: "Prison, Odessa, Paris",
+        paragraphs: [
+          "In the mid-1890s he took a public position over the massacres of Armenians in the Ottoman Empire, and it cost him. He was arrested at Tiflis and then exiled to Odessa, where he lived from 1898 to 1900. Armenian and Russian accounts differ on how long the imprisonment before the exile lasted, and this article does not resolve the difference. Քաոս belongs to those years.",
+          "From 1905 to 1910 he lived in Paris. The two surviving photographic records of him held by the Georgian national archive are gendarme registration cards made by the Tiflis provincial gendarme administration, which is a fair indication of the file the Russian authorities kept on him through this period.",
+          "He left the Caucasus again around 1919 and spent the following years abroad — Constantinople, Paris and the United States — across the destruction of the Ottoman Armenian communities, the short-lived Armenian republic and its sovietisation. He came back in 1926.",
+        ],
+      },
+      {
+        id: "soviet-recognition-and-the-titles",
+        heading: "A pre-Soviet writer, decorated by a Soviet state",
+        paragraphs: [
+          "He was sixty-eight when he returned, and everything this article is about had been written. That is the fact the Soviet chapter of his biography tends to obscure, and it is why this page separates the two: he was not a Soviet writer who happened to start early, but a nineteenth-century realist who lived long enough to be honoured by a state formed after his work was finished.",
+          "He settled in Yerevan and was published there — a multi-volume collected works, and the memoirs Կյանքի բովից, which occupied him between 1926 and 1932. In 1934 he took part in the founding congress of the Union of Soviet Writers, and in the founding congress of the writers' union of Soviet Azerbaijan in the same year.",
+          "In 1930 he was named People's Writer of the Azerbaijan SSR, and in the same year People's Writer of the Armenian SSR. He was the first holder of the title in Azerbaijan. Both republics were at that date constituent parts of the Transcaucasian Soviet Federative Socialist Republic, and both awards are republican honours of that period: administrative distinctions conferred by two Soviet governments on a living writer whose books were read in both. They are not evidence about anybody's nationality, and this article does not use them as such.",
+          "He died at Kislovodsk on 7 August 1935 and is buried in the Komitas Pantheon in Yerevan.",
+        ],
+      },
+      {
+        id: "namus-on-film-and-after",
+        heading: "Նամուս on film, and the work that kept going",
+        paragraphs: [
+          "The film usually called the first Armenian feature is an adaptation of his first novel, which is a fair measure of how far his work reached. Նամուս was directed by Hamo Bek-Nazaryan, made in 1925 at the state film studio in Yerevan — founded in 1923, later Armenfilm — and premiered at the Nairi cinema in Yerevan on 13 April 1926.",
+          "The word first in that description needs a boundary, because it is usually repeated without one. The claim film historians actually make is narrow: this was the first full-length fiction feature produced in Soviet Armenia by its own studio, and it is treated as the founding work of Armenian national cinema. It is not a claim that no film with Armenian subjects or an Armenian director existed before it — Bek-Nazaryan already had a career in Russian cinema behind him. Dates as early as 1924 circulate online for the film, and the premiere record does not support them.",
+          "Three more of his works were filmed afterwards: Չար ոգի in 1928, Պատվի համար in 1956, and Քաոս later still. He lived to see the first two, and had no hand in making either — the films are their directors' readings of the books, not the author's.",
+          "The stage history has never stopped. Պատվի համար and Նամուս have stayed in the Armenian repertoire since before his death, his best works were translated into the languages of the Soviet Union and beyond, and the novels are still read in Armenian schools and universities. What began as a clerk's account of an oil city is now the part of nineteenth-century Armenian literature that is easiest for a modern reader to walk straight into.",
+        ],
+      },
+    ],
+    keyFacts: [
+      { label: "Lived", value: "1858 to 1935" },
+      {
+        label: "Born",
+        value: "Shamakhi (Շամախի) in Shirvan, Russian Empire — now Şamaxı, Azerbaijan",
+      },
+      {
+        label: "Birth date",
+        value:
+          "7 April 1858 in the Old Style form Armenian encyclopedias give; New Style dates of 18 and 19 April are both printed",
+      },
+      { label: "Died", value: "Kislovodsk, 7 August 1935; buried in the Komitas Pantheon, Yerevan" },
+      { label: "Born as", value: "Alexander Movsisyan; Shirvanzade is a pen name meaning of Shirvan" },
+      { label: "Wrote in", value: "Eastern Armenian" },
+      {
+        label: "Worked as",
+        value:
+          "Novelist, prose writer, playwright and journalist; earlier a clerk, bookkeeper, accountant and librarian",
+      },
+      { label: "Best known for", value: "Նամուս, Քաոս and Պատվի համար" },
+      {
+        label: "Soviet honours",
+        value: "People's Writer of the Azerbaijan SSR and of the Armenian SSR, both conferred in 1930",
+      },
+    ],
+    importantDates: [
+      {
+        year: "1858",
+        event: "Born at Shamakhi in the Russian Empire; the date Armenian encyclopedias give is 7 April, Old Style.",
+      },
+      {
+        year: "1873",
+        event: "Finishes the district school at Shamakhi. Armenian sources place his move to Baku in this year and in 1875.",
+      },
+      {
+        year: "1883",
+        event: "Մշակ prints Հրդեհ նավթագործարանում, his first published story; he moves to Tiflis in the same year.",
+      },
+      { year: "1884", event: "The novella Խնամատար appears in the Tiflis weekly Արձագանք." },
+      { year: "1885", event: "Նամուս is published in Արձագանք and makes his name." },
+      { year: "1886", event: "Becomes secretary of Արձագանք, a post he holds until 1891." },
+      { year: "1893", event: "The novel Արսեն Դիմաքսյան." },
+      { year: "1894", event: "The drama Չար ոգի." },
+      { year: "1896", event: "Քաոս begins to appear serially; the serialization runs on into 1897." },
+      {
+        year: "1898",
+        event: "Քաոս published complete; he is exiled to Odessa, where he remains until 1900.",
+      },
+      { year: "1903", event: "The dramas Եվգինե and Ունե՞ր իրավունք." },
+      {
+        year: "1904",
+        event: "Պատվի համար written and first staged at Baku on 10 December; published as a book in 1905.",
+      },
+      { year: "1905", event: "Settles in Paris, where he lives until 1910." },
+      {
+        year: "1911",
+        event: "His own stage version of Նամուս, and the drama Ավերակների վրա; Պատվի համար has by now been staged more than 300 times.",
+      },
+      { year: "1919", event: "Leaves the Caucasus for Constantinople, Paris and the United States." },
+      {
+        year: "1926",
+        event: "Returns to Soviet Armenia and settles in Yerevan; the film of Նամուս premieres at Yerevan on 13 April.",
+      },
+      {
+        year: "1930",
+        event: "Named People's Writer of the Azerbaijan SSR, the first to hold the title there, and of the Armenian SSR.",
+      },
+      { year: "1934", event: "Takes part in the founding congress of the Union of Soviet Writers." },
+      { year: "1935", event: "Dies at Kislovodsk on 7 August; buried in the Komitas Pantheon, Yerevan." },
+    ],
+    significance: {
+      heading: "Why Alexander Shirvanzade matters",
+      paragraphs: [
+        "He gave Armenian literature a realism of the present tense. Before him its strongest prose looked backwards, to the national past and to the village; he wrote about contemporary cities, contemporary money and the households being rebuilt around both, and he did it with the specificity of somebody who had kept the books. Armenian criticism treats him as the central figure of its realist tradition for that reason, and Քաոս as the largest thing that tradition produced.",
+        "He also gave it a modern theatre. Where Sundukyan had shown that Armenian drama could be about ordinary contemporary people, Shirvanzade widened the form into social, political and psychological drama and wrote plays that companies have kept performing for more than a century. Պատվի համար was the most staged Armenian play of its generation and Նամուս has never left the repertoire.",
+        "And he is the reason this archive's picture of the nineteenth century is not only poets and historians. A literature strongest in verse, in the historical novel and in the patriotic lyric acquired, in him, a novelist of contracts, inheritances, marriages and firms — and the questions his books ask about what money does to a family have not become less current since he asked them.",
+      ],
+    },
+    interestingFacts: [
+      "His pen name is a place. Shirvanzade means of Shirvan, the district his home town of Shamakhi stood in, so he signed himself after his province rather than after his family.",
+      "He was the first writer ever to hold the title People's Writer of the Azerbaijan SSR. It was conferred in 1930, the same year the Armenian SSR gave him its own version of it.",
+      "The film usually called the first Armenian feature is an adaptation of his first novel — Bek-Nazaryan's Նամուս, which premiered in Yerevan in 1926, forty-one years after the book appeared in a weekly paper.",
+      "Two of his best-known works are usually put into English with the same word. Նամուս and Պատվի համար are different books about different kinds of honour, and English catalogues file both under it.",
+      "He kept the accounts of Baku oil firms before he published a line of fiction, and his first published story was about a fire at an oil works.",
+      "He wrote about realism as well as in it, and what he argued against was the photographic reproduction of life — a position stated in his own critical writing, and the thing that separates him from the naturalists he is sometimes filed with.",
+    ],
+    relatedFigures: [
+      {
+        name: "Gabriel Sundukyan",
+        lifespan: "1825–1912",
+        description:
+          "The founder of modern Armenian drama, whose comedies of Tiflis domestic life are the tradition Armenian scholarship describes Shirvanzade as continuing and widening.",
+      },
+      {
+        name: "Grigor Artsruni",
+        lifespan: "1845–1892",
+        description:
+          "Editor of the Tiflis newspaper Մշակ, which printed Shirvanzade's first published story in 1883.",
+      },
+      {
+        name: "Hovhannes Abelyan",
+        lifespan: "1865–1936",
+        description:
+          "Armenian actor whose company carried Նամուս on the stage from 1912, including on its guest performances in Moscow.",
+      },
+      {
+        name: "Hamo Bek-Nazaryan",
+        lifespan: "1891–1965",
+        description:
+          "Director of the 1925 film of Նամուս, the founding work of Armenian cinema, and the figure through whom most people outside Armenia first meet the novel.",
+      },
+    ],
+    relatedSlugs: ["raffi", "khachatur-abovyan"],
+  },
 ];

@@ -1,6 +1,7 @@
 import { expect, test, type Page } from "@playwright/test";
 import { PENDING_ARTWORK, getImageSrc, getPortraitProvenance } from "@/lib/media";
 import { getSources } from "@/data/sources";
+import { type Locale } from "@/data/types";
 import { LOCALES, articleTitle, bundle, cards, ui } from "./helpers";
 
 /**
@@ -32,8 +33,9 @@ const TUMANYAN = "hovhannes-tumanyan";
 const ABOVYAN = "khachatur-abovyan";
 const SIAMANTO = "siamanto";
 const PARONYAN = "hakob-paronyan";
+const SHIRVANZADE = "alexander-shirvanzade";
 
-/** Every writer in the section, as of §88. Stated, not derived. */
+/** Every writer in the section, as of §97. Stated, not derived. */
 const SLUGS = [
   TUMANYAN,
   "yeghishe-charents",
@@ -46,6 +48,7 @@ const SLUGS = [
   SHNORHALI,
   SIAMANTO,
   PARONYAN,
+  SHIRVANZADE,
 ] as const;
 
 /**
@@ -73,6 +76,7 @@ const ILLUSTRATED = [
   SHNORHALI,
   SIAMANTO,
   PARONYAN,
+  SHIRVANZADE,
 ] as const;
 
 /**
@@ -134,6 +138,42 @@ const ILLUSTRATED = [
   Kept as a constant through the empty phase, for the reason every previous empty
   phase gave: refilling it is then a one-line edit rather than a rediscovery.
 */
+/*
+  §97 refills it for Writer #12, and the one-line edit the note above predicted is
+  the one below. Shirvanzade's biography shipped without his portrait, on the same
+  terms as Narekatsi, Varoujan, Shnorhali, Siamanto and Paronyan before him.
+
+  Two things are decided in advance and asserted here in the negative, which is now
+  the settled pattern for this list. The provenance: photographs of him survive —
+  a studio portrait credited to the Charents Museum of Literature and Art, a second
+  undated photographic portrait, and two gendarme registration cards from the Tiflis
+  provincial gendarme administration held by the National Archive of Georgia — so
+  the expected type when the file lands is `photo-referenced` rather than the
+  cautious default, and `PORTRAIT_PROVENANCE` gains nothing today. The image usually
+  captioned "c. 1880" is a lithograph rather than a photograph and is not facial
+  authority; that distinction is the §87 rule and is recorded beside this list in
+  `media.ts` rather than here.
+
+  And the composition, which is the first entry on this list set against an audit of
+  the whole collection rather than against the previous picture: a close half-length,
+  near-frontal portrait on a plain ground with no desk, no books, no pen and no
+  manuscript. Ten of the eleven existing portraits put the writer at a desk or in a
+  study; the eleventh, Paronyan's, is a print room. No test asserts a composition —
+  the tests below assert only that the slug is pending and unillustrated.
+*/
+/*
+  §98 empties it for the fifteenth time, and the section is complete at twelve for
+  the first time: twelve writers, twelve portraits, no placeholder anywhere.
+
+  Both of §97's advance decisions held on the first delivery. The provenance it
+  committed to before the picture existed is now a real entry — the assertion below
+  points the opposite way from the one it replaced — and the composition it specified
+  against an audit of the whole collection is what arrived: the section's closest
+  portrait, on a plain ground, with no prop of any kind.
+
+  Kept as a constant through the empty phase, for the reason every previous empty
+  phase gave: refilling it is then a one-line edit rather than a rediscovery.
+*/
 const PENDING: readonly string[] = [];
 
 /** Where each writer's portrait must live, spelled out rather than templated. */
@@ -149,6 +189,7 @@ const PORTRAIT: Record<string, string> = {
   "nerses-shnorhali": "/images/writers/nerses-shnorhali.webp",
   siamanto: "/images/writers/siamanto.webp",
   "hakob-paronyan": "/images/writers/hakob-paronyan.webp",
+  "alexander-shirvanzade": "/images/writers/alexander-shirvanzade.webp",
 };
 
 const escapeRe = (value: string) => value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -269,8 +310,9 @@ test("the medieval filter has members, and returns exactly them", async ({ page 
   // And selecting it disturbed nothing: every other period returns what it did.
   for (const [period, count] of [
     // §94 moves this from three to four: Hakob Paronyan is the fourth
-    // nineteenth-century writer and reused the existing filter value.
-    ["19th-century", 4],
+    // nineteenth-century writer and reused the existing filter value, and §97
+    // moves it to five with Alexander Shirvanzade, who reused it again.
+    ["19th-century", 5],
     // §84 moves this from two to three: Daniel Varoujan is the third
     // twentieth-century writer, and §88 moves it to four with Siamanto. Neither
     // needed a new filter value. This literal going red on each arrival is the
@@ -1058,7 +1100,9 @@ test("the eighth writer exists in every edition and is classified as twentieth c
       // §86 moves medieval from one to two with Nerses Shnorhali, who needed no
       // new filter value either. Same reasoning as the 20th-century line below.
       medieval: 2,
-      "19th-century": 4,
+      // §97 moves this from four to five with Alexander Shirvanzade, classified by
+      // where his major work sits rather than by his 1858–1935 dates.
+      "19th-century": 5,
       // §88 moves this from three to four with Siamanto, who reused the value
       // Varoujan had already reused. Measured, so it goes red on each arrival.
       "20th-century": 4,
@@ -1587,8 +1631,15 @@ test("portrait provenance separates an imagined likeness from a photo-referenced
     §96 is that third, and it went red here first, which is the mechanism working:
     Paronyan's portrait was made from the one surviving lifetime studio photograph,
     so he is promoted by the same one-line edit the note above described.
+
+    §98 is the fourth, and it went red here first as well. Shirvanzade's portrait was
+    made from the Charents Museum studio photograph, read directly; the two other
+    surviving lifetime photographs corroborated invariants and contributed no feature,
+    and the 1910 lithograph and the 2008 stamp in the same category were refused as
+    authority. "photo-referenced" means a photograph was read, not that some image of
+    the subject happens to survive.
   */
-  const PHOTO_REFERENCED: readonly string[] = [VAROUJAN, SIAMANTO, PARONYAN];
+  const PHOTO_REFERENCED: readonly string[] = [VAROUJAN, SIAMANTO, PARONYAN, SHIRVANZADE];
   for (const slug of SLUGS) {
     if (PHOTO_REFERENCED.includes(slug)) continue;
     expect(getPortraitProvenance(slug), `${slug} takes the cautious default`).toBe("imagined");
@@ -1984,10 +2035,25 @@ test("Shnorhali's portrait is registered, imagined, and borrowed from nobody", a
     What this test is actually about survives the change and is stated directly:
     Shnorhali is illustrated and is not the one waiting.
   */
-  expect([...PENDING], "§96 empties the list again").toEqual([]);
+  /*
+    §97 refills it once more, for Writer #12, so the broad claim is spent for the
+    second time and the specific one returns: exactly one writer is pending, he is
+    the new one, and nothing that was illustrated became pending. That is the form
+    this assertion has alternated between since §88, and it is written as the
+    specific claim rather than as a weaker version of the broad one.
+  */
+  /*
+    §98 registers that portrait, so the broad claim is true again and is now stronger
+    than any version of it before: the section is complete at twelve rather than at
+    six, nine, ten or eleven. Stated both ways round, which is the form this assertion
+    takes in its empty phases — nothing is pending, and every writer who has ever been
+    pending is now illustrated.
+  */
+  expect([...PENDING], "§98 empties the list again, at twelve").toEqual([]);
   expect(ILLUSTRATED, "Shnorhali is illustrated").toContain(SHNORHALI);
   expect(ILLUSTRATED, "and so is the writer §94 was waiting on").toContain(PARONYAN);
   expect(ILLUSTRATED, "the writer who was pending at §88 is now illustrated").toContain(SIAMANTO);
+  expect(ILLUSTRATED, "and the writer §97 was waiting on").toContain(SHIRVANZADE);
 
   /*
     The provenance decision, at the data level, where it is cheap. He must take
@@ -2783,7 +2849,7 @@ test("adding Siamanto changed no existing writer, work, dish, place or history a
     expect(b.articles.filter((a) => a.category === "places").length, `${locale} places`).toBe(13);
     expect(b.articles.filter((a) => a.category === "history").length, `${locale} history`).toBe(7);
     expect(b.works.length, `${locale} works`).toBe(5);
-    expect(b.articles.filter((a) => a.category === "writers").length, `${locale} writers`).toBe(11);
+    expect(b.articles.filter((a) => a.category === "writers").length, `${locale} writers`).toBe(12);
 
     // Varoujan is exactly as §85 left him — relations included, and in particular
     // no reciprocal Siamanto link was added to make the pair symmetrical.
@@ -3107,18 +3173,21 @@ test("adding Paronyan changed no existing writer, work, dish, place or history a
     const b = bundle(locale);
     const count = (category: string) => b.articles.filter((a) => a.category === category).length;
 
-    expect(count("writers"), `${locale} writers`).toBe(11);
+    expect(count("writers"), `${locale} writers`).toBe(12);
     expect(count("works"), `${locale} works`).toBe(5);
     expect(count("cuisine"), `${locale} cuisine`).toBe(12);
     expect(count("places"), `${locale} places`).toBe(13);
     expect(count("history"), `${locale} history`).toBe(7);
 
-    // All eleven portraits are registered at their own paths and nothing is pending.
+    // All twelve registered portraits are at their own paths and none of them is
+    // pending. §97 added a twelfth writer without a picture and this assertion
+    // narrowed to "one slug, and it is his"; §98 registered it, so the archive-wide
+    // emptiness claim is true again and is restored here.
     for (const slug of ILLUSTRATED) {
       expect(getImageSrc(slug), `${locale} ${slug} portrait`).toBe(PORTRAIT[slug]);
       expect([...PENDING_ARTWORK], `${locale} ${slug} not pending`).not.toContain(slug);
     }
-    expect([...PENDING_ARTWORK], "no writer is waiting for a picture").toEqual([]);
+    expect([...PENDING_ARTWORK], "nothing is waiting for a picture").toEqual([]);
 
     // §96 makes it three photo-referenced provenances. The other two are unchanged
     // and no fourth appeared.
@@ -3240,13 +3309,20 @@ test("Paronyan's portrait reaches the listing, the hero caption and the card alt
   for (const locale of LOCALES) {
     const dict = ui(locale);
 
-    // Listing: eleven cards, eleven portraits, no placeholder anywhere.
+    /*
+      Listing: one card per writer, and exactly as many placeholders as there are
+      pending slugs. §96 could assert zero here because the section was complete;
+      §97 added Writer #12 ahead of his portrait, so the honest form of the claim
+      is counted from `PENDING` rather than hard-coded — which keeps failing if
+      Paronyan's own picture ever disappears, and stops failing merely because the
+      section grew.
+    */
     await page.goto(`/${locale}/writers`);
-    await expect(cards(page), `${locale} eleven cards`).toHaveCount(SLUGS.length);
+    await expect(cards(page), `${locale} one card per writer`).toHaveCount(SLUGS.length);
     await expect(
       page.locator("main svg[role='img']"),
-      `${locale} no placeholder on the listing`,
-    ).toHaveCount(0);
+      `${locale} one placeholder per pending writer`,
+    ).toHaveCount(PENDING.length);
     await expect(
       page.locator(`main img[src*="${PARONYAN}"]`),
       `${locale} his card carries his own portrait`,
@@ -3274,10 +3350,12 @@ test("Paronyan's portrait reaches the listing, the hero caption and the card alt
     );
   }
 
-  // The nineteenth-century filter still has four writers, and he is in it with his
-  // face. Registering a portrait must not move anyone between filters.
+  // The nineteenth-century filter holds five writers since §97 classified
+  // Shirvanzade there, and Paronyan is still in it with his own face. Registering a
+  // portrait must not move anyone between filters, and adding a writer must not
+  // take anyone's picture away.
   await page.goto("/en/writers?period=19th-century");
-  await expect(cards(page), "four nineteenth-century writers").toHaveCount(4);
+  await expect(cards(page), "five nineteenth-century writers").toHaveCount(5);
   await expect(page.locator(`main img[src*="${PARONYAN}"]`)).toHaveCount(1);
 
   // Tumanyan is still the only featured writer.
@@ -3305,4 +3383,759 @@ test("Paronyan carries a real bibliography covering the contested points", () =>
   // the catalogue records that disagree are themselves cited.
   const notes = sources.map((s) => `${s.title} ${s.note ?? ""}`).join("\n");
   expect(notes, "the authority records are cited for the date conflict").toContain("1841");
+});
+
+/* -------------------------------------------------------------------------- */
+/*  §97 — Writer #12: Alexander Shirvanzade                                    */
+/* -------------------------------------------------------------------------- */
+
+/** Every paragraph, heading, bullet, fact and date of one article, as one string. */
+function proseOf(locale: Locale, slug: string): string {
+  const a = bundle(locale).articles.find((entry) => entry.slug === slug)!;
+  return [
+    a.title,
+    a.excerpt,
+    a.intro,
+    a.summary ?? "",
+    a.seoTitle ?? "",
+    a.metaDescription ?? "",
+    ...a.sections.flatMap((s) => [s.heading, ...s.paragraphs, ...(s.bullets ?? [])]),
+    ...a.keyFacts.map((f) => `${f.label} ${f.value}`),
+    ...a.importantDates.map((d) => `${d.year} ${d.event}`),
+    a.significance.heading,
+    ...a.significance.paragraphs,
+    ...a.interestingFacts,
+    ...a.relatedFigures.map((f) => `${f.name} ${f.lifespan} ${f.description}`),
+  ].join("\n");
+}
+
+test("the twelfth writer exists in every edition and reuses the existing taxonomy", () => {
+  for (const locale of LOCALES) {
+    const b = bundle(locale);
+    const card = b.writers.find((w) => w.slug === SHIRVANZADE);
+    const article = b.articles.find((a) => a.slug === SHIRVANZADE);
+
+    expect(card, `${locale} card`).toBeTruthy();
+    expect(article, `${locale} article`).toBeTruthy();
+    expect(article!.href, `${locale} href`).toBe(`/writers/${SHIRVANZADE}`);
+    expect(article!.category, `${locale} category`).toBe("writers");
+
+    /*
+      Nineteenth century, and this is the one classification decision §97 had to
+      make rather than inherit. He was born in 1858 and died in 1935, so a rule
+      keyed on either date would put him somewhere else — and the section's own
+      convention is neither. Tumanyan (1869–1923) is filed nineteenth century and
+      Isahakyan (1875–1957) twentieth, so what the taxonomy tracks here is where
+      the major work sits, not where the life does. Shirvanzade's is Նամուս in
+      1885, Քաոս in 1898 and Պատվի համար in 1904 — all of it before 1905 — so
+      nineteenth century is the value that describes him. `soviet` was considered
+      and rejected: that slot holds Sevak, born 1924, whose whole formation is
+      Soviet, and Shirvanzade's is not.
+    */
+    expect(card!.periodId, `${locale} card period`).toBe("19th-century");
+    expect(article!.periodId, `${locale} article period`).toBe("19th-century");
+    expect(article!.periodId, `${locale} not filed as Soviet`).not.toBe("soviet");
+
+    const periodIds = b.literaryPeriods.map((f) => f.id);
+    expect(periodIds, `${locale} taxonomy unchanged`).toEqual([
+      "all",
+      "medieval",
+      "19th-century",
+      "20th-century",
+      "soviet",
+    ]);
+
+    // The card's period label has to be the filter's own label, or the chip and
+    // the card disagree on the listing.
+    const label = b.literaryPeriods.find((f) => f.id === "19th-century")!.label;
+    expect(card!.period, `${locale} period label matches the filter`).toBe(label);
+
+    // Five nineteenth-century writers now, four twentieth, two medieval, one
+    // Soviet. Stated so that a later reclassification of anyone shows up here.
+    const byPeriod = (id: string) => b.writers.filter((w) => w.periodId === id).length;
+    expect(byPeriod("medieval"), `${locale} medieval`).toBe(2);
+    expect(byPeriod("19th-century"), `${locale} nineteenth century`).toBe(5);
+    expect(byPeriod("20th-century"), `${locale} twentieth century`).toBe(4);
+    expect(byPeriod("soviet"), `${locale} Soviet era`).toBe(1);
+  }
+});
+
+test("the canonical name and the pen name are carried per edition", () => {
+  expect(articleTitle("en", SHIRVANZADE), "en").toBe("Alexander Shirvanzade");
+  expect(articleTitle("hy", SHIRVANZADE), "hy reformed orthography").toBe(
+    "Ալեքսանդր Շիրվանզադե",
+  );
+  expect(articleTitle("hyw", SHIRVANZADE), "hyw classical orthography").toBe(
+    "Ալեքսանդր Շիրվանզադէ",
+  );
+
+  // The two Armenian editions differ by the final letter and must not drift into
+  // each other's spelling — ե in the east, է in the west.
+  expect(articleTitle("hy", SHIRVANZADE), "hy is not the classical form").not.toContain(
+    "Շիրվանզադէ",
+  );
+  expect(articleTitle("hyw", SHIRVANZADE), "hyw is not the reformed form").not.toContain(
+    "Շիրվանզադե",
+  );
+
+  /*
+    Shirvanzade is a pen name and the article has to say so, in every edition, along
+    with the birth name it replaced. Asserted on the birth surname rather than on a
+    phrase, because the phrasing differs legitimately between the three editions.
+  */
+  for (const [locale, born] of [
+    ["en", "Movsisyan"],
+    ["hy", "Մովսիսյան"],
+    ["hyw", "Մովսիսեան"],
+  ] as const) {
+    expect(proseOf(locale, SHIRVANZADE), `${locale} names the birth surname`).toContain(born);
+  }
+
+  // And it explains the name from Shirvan rather than inventing an etymology for
+  // it. Every edition must carry the place the pen name is built from.
+  for (const [locale, shirvan] of [
+    ["en", "Shirvan"],
+    ["hy", "Շիրվան"],
+    ["hyw", "Շիրվան"],
+  ] as const) {
+    expect(proseOf(locale, SHIRVANZADE), `${locale} names Shirvan`).toContain(shirvan);
+  }
+});
+
+test("the transliteration variants reach the search terms of every edition", () => {
+  const required = [
+    "Alexander Shirvanzade",
+    "Aleksandr Shirvanzade",
+    "Ալեքսանդր Շիրվանզադե",
+    "Ալեքսանդր Շիրվանզադէ",
+  ];
+
+  for (const locale of LOCALES) {
+    const keywords = bundle(locale).articles.find((a) => a.slug === SHIRVANZADE)!.keywords ?? [];
+    for (const form of required) {
+      expect(keywords, `${locale} carries "${form}"`).toContain(form);
+    }
+
+    // Both orthographies of the drama's title, which differ by one letter and are
+    // the query most likely to be typed off a Yerevan theatre programme.
+    expect(keywords, `${locale} carries the reformed title`).toContain("Պատվի համար");
+    expect(keywords, `${locale} carries the classical title`).toContain("Պատուի համար");
+
+    // And the Armenian title of the novel, in the one spelling both branches share.
+    expect(keywords, `${locale} carries the novel's title`).toContain("Նամուս");
+  }
+});
+
+test("Shirvanzade owns his portrait and borrows nobody's", async ({ page }) => {
+  /*
+    §98 inverts the §97 test that stood here. Writer #12 shipped ahead of his picture;
+    the picture has now landed and is registered, so every claim this test made in the
+    negative is made in the positive — except the borrowing check, which is the one
+    thing that had to keep holding through both states.
+  */
+  expect(getImageSrc(SHIRVANZADE), "his own portrait file is registered").toBe(
+    "/images/writers/alexander-shirvanzade.webp",
+  );
+  expect([...PENDING_ARTWORK], "and he is no longer pending").not.toContain(SHIRVANZADE);
+
+  for (const locale of LOCALES) {
+    await page.goto(`/${locale}/writers/${SHIRVANZADE}`);
+    const figure = page.locator("header figure");
+
+    await expect(figure.locator("svg[role='img']"), `${locale} no placeholder`).toHaveCount(0);
+    const img = figure.locator("img");
+    await expect(img, `${locale} one raster hero`).toHaveCount(1);
+    expect(
+      decodeURIComponent((await img.getAttribute("src")) ?? ""),
+      `${locale} hero is his own file`,
+    ).toContain("/images/writers/alexander-shirvanzade.webp");
+
+    // Scoped to the figure: the related-articles block further down legitimately
+    // renders other writers' cards with their own portraits.
+    for (const slug of ILLUSTRATED) {
+      if (slug === SHIRVANZADE) continue;
+      const file = PORTRAIT[slug].split("/").pop()!;
+      await expect(
+        figure.locator(`img[src*="${file}"]`),
+        `${locale} hero must not borrow ${file}`,
+      ).toHaveCount(0);
+    }
+
+    /*
+      The photo-referenced caption, not the imagined-likeness one Narekatsi and
+      Shnorhali take, and localized from the shared dictionary — no Shirvanzade-
+      specific caption string was added for him.
+    */
+    const dict = ui(locale);
+    expect(await img.getAttribute("alt"), `${locale} localized hero alt`).toBe(
+      dict.article.imageAlt.replace("{title}", articleTitle(locale, SHIRVANZADE)),
+    );
+    await expect(figure.locator("figcaption"), `${locale} photo-referenced caption`).toHaveText(
+      dict.article.imageAiPhotoPortraitCaption.replace(
+        "{title}",
+        articleTitle(locale, SHIRVANZADE),
+      ),
+    );
+    expect(
+      await figure.locator("figcaption").textContent(),
+      `${locale} must not carry the imagined-likeness caption`,
+    ).not.toBe(
+      dict.article.imageAiPortraitCaption.replace("{title}", articleTitle(locale, SHIRVANZADE)),
+    );
+  }
+});
+
+test("Shirvanzade's portrait is recorded as photo-referenced, and nobody else moved", () => {
+  /*
+    §97 asserted the *absence* of this entry, because recording how a likeness was
+    arrived at before the likeness exists is recording provenance for artwork nobody
+    has made. §98 made the artwork, so the entry exists and this assertion points the
+    other way.
+
+    The authority is the Charents Museum studio portrait, read directly. The gendarme
+    card and the late white-haired studio portrait were consulted only to corroborate
+    invariants and contributed no feature. The image usually captioned "c. 1880" is a
+    lithograph and the 2008 stamp is a stamp; neither was used — the §87 rule, and the
+    reason `photo-referenced` here means a photograph rather than any surviving image.
+  */
+  expect(getPortraitProvenance(SHIRVANZADE), "a lifetime photograph was consulted").toBe(
+    "photo-referenced",
+  );
+
+  // Nobody else moved. §98 makes it four photo-referenced portraits; the other three
+  // are unchanged, the two imagined ones are unchanged, and no fifth appeared.
+  expect(getPortraitProvenance(VAROUJAN), "Varoujan unchanged").toBe("photo-referenced");
+  expect(getPortraitProvenance(SIAMANTO), "Siamanto unchanged").toBe("photo-referenced");
+  expect(getPortraitProvenance(PARONYAN), "Paronyan unchanged").toBe("photo-referenced");
+  expect(getPortraitProvenance(NAREKATSI), "Narekatsi unchanged").toBe("imagined");
+  expect(getPortraitProvenance(SHNORHALI), "Shnorhali unchanged").toBe("imagined");
+  expect(getPortraitProvenance("no-such-writer"), "the default is still the cautious one").toBe(
+    "imagined",
+  );
+
+  // Stated as a set, so a fifth entry appearing anywhere fails here rather than
+  // silently turning an invented face into a documented one.
+  expect(
+    [...SLUGS].filter((s) => getPortraitProvenance(s) === "photo-referenced").sort(),
+    "exactly four photo-referenced writers",
+  ).toEqual([SHIRVANZADE, VAROUJAN, PARONYAN, SIAMANTO].sort());
+});
+
+test("he is established as a novelist and playwright, not another poet", () => {
+  /*
+    The section was poet-heavy and this is the second consecutive arrival chosen to
+    fix that. The identity claim is asserted as data — role string, listed works,
+    section ids — rather than by matching prose, which differs per edition.
+  */
+  for (const locale of LOCALES) {
+    const card = bundle(locale).writers.find((w) => w.slug === SHIRVANZADE)!;
+
+    // Four works on the card: two novels, a drama and a late comedy. All four are
+    // Armenian titles, which is the same choice Siamanto and Paronyan made.
+    expect(card.notableWorks.length, `${locale} works listed`).toBeGreaterThanOrEqual(3);
+    expect(card.notableWorks.some((w) => w.includes("Նամուս")), `${locale} the novel`).toBe(true);
+    expect(card.notableWorks.some((w) => w.includes("Քաոս")), `${locale} the second novel`).toBe(
+      true,
+    );
+    expect(
+      card.notableWorks.some((w) => w.includes("Պատվի համար") || w.includes("Պատուի համար")),
+      `${locale} the drama`,
+    ).toBe(true);
+
+    // And the article covers the three things he was selected for: the city that
+    // produced the realism, the realism itself, and the theatre.
+    const ids = bundle(locale)
+      .articles.find((a) => a.slug === SHIRVANZADE)!
+      .sections.map((s) => s.id);
+    for (const id of ["baku", "what-realism-meant-to-him", "the-plays"]) {
+      expect(ids, `${locale} has a ${id} section`).toContain(id);
+    }
+  }
+});
+
+test("Baku, realism and the theatre are treated substantively, not named in passing", () => {
+  /*
+    Length is a crude proxy for treatment and a good one for the failure this
+    guards against: a "realism" section that says he was a realist and moves on.
+    Counted in characters over the section's own paragraphs, per edition, because
+    the three editions are separately authored prose.
+  */
+  for (const locale of LOCALES) {
+    const sections = Object.fromEntries(
+      bundle(locale)
+        .articles.find((a) => a.slug === SHIRVANZADE)!
+        .sections.map((s) => [s.id, s.paragraphs]),
+    );
+
+    for (const [id, minParagraphs, minChars] of [
+      ["baku", 3, 900],
+      ["what-realism-meant-to-him", 4, 1400],
+      ["the-plays", 3, 900],
+      ["money-family-and-standing", 3, 800],
+      ["namus-the-novel", 3, 800],
+      ["chaos", 3, 800],
+    ] as const) {
+      expect(sections[id], `${locale} has ${id}`).toBeTruthy();
+      expect(sections[id].length, `${locale} ${id} paragraph count`).toBeGreaterThanOrEqual(
+        minParagraphs,
+      );
+      expect(sections[id].join("").length, `${locale} ${id} length`).toBeGreaterThanOrEqual(
+        minChars,
+      );
+    }
+  }
+});
+
+test("Նամուս and Պատվի համար are kept apart, and neither became a Work slug", () => {
+  for (const locale of LOCALES) {
+    const b = bundle(locale);
+    const article = b.articles.find((a) => a.slug === SHIRVANZADE)!;
+    const ids = article.sections.map((s) => s.id);
+
+    /*
+      The entity-resolution problem this page exists to fix: English translates both
+      titles with forms of "honour", so a reader who meets one may believe they have
+      met the other. The fix is a section that says they are different works, and
+      the assertion is that the section exists and carries both titles.
+    */
+    expect(ids, `${locale} has the disambiguation section`).toContain("patvi-hamar-is-not-namus");
+    const disambiguation = article
+      .sections.find((s) => s.id === "patvi-hamar-is-not-namus")!
+      .paragraphs.join("\n");
+    expect(disambiguation, `${locale} names the novel`).toContain("Նամուս");
+    expect(
+      /Պատվի համար|Պատուի համար/.test(disambiguation),
+      `${locale} names the drama`,
+    ).toBe(true);
+    // Both dates, so the nineteen-year gap between them is on the page.
+    expect(disambiguation, `${locale} dates the novel`).toContain("1885");
+    expect(disambiguation, `${locale} dates the drama`).toContain("1904");
+
+    // And the word itself gets its own section rather than a one-word gloss.
+    expect(ids, `${locale} explains the word`).toContain("the-word-namus");
+
+    /*
+      §97 is content only. His novels and plays are named on the card and in the
+      prose, and none of them is a Work: the Works section still holds five entries
+      and none of them is his. A future step may add one — Քաոս is named in the
+      article as the candidate — and this step must not have.
+    */
+    const works = b.articles.filter((a) => a.category === "works").map((a) => a.slug);
+    expect(works.length, `${locale} works count`).toBe(5);
+    for (const invented of [
+      "namus",
+      "chaos",
+      "kaos",
+      "patvi-hamar",
+      "for-honour",
+      "for-honours-sake",
+      "evil-spirit",
+      "char-ogi",
+      "morgani-khnamin",
+    ]) {
+      expect(works, `${locale} no invented Work "${invented}"`).not.toContain(invented);
+    }
+
+    // Every slug he does point at is a real article in this edition, and the
+    // relations are restrained.
+    const slugs = new Set(b.articles.map((a) => a.slug));
+    expect(article.relatedSlugs.length, `${locale} relations are restrained`).toBeLessThanOrEqual(3);
+    for (const slug of article.relatedSlugs) {
+      expect(slugs.has(slug), `${locale} related "${slug}" exists`).toBe(true);
+    }
+    for (const link of article.sections.flatMap((s) => s.links ?? [])) {
+      expect(slugs.has(link.slug), `${locale} contextual link "${link.slug}" exists`).toBe(true);
+    }
+  }
+});
+
+test("his relations are earned and identical across the editions", () => {
+  /*
+    Two, and each is argued in the prose rather than asserted by the sidebar. Raffi
+    is the contrast the article is built on — the historical-national novel against
+    contemporary urban realism — and Abovyan is the Eastern Armenian vernacular
+    prose Shirvanzade inherits. Both are also the only two contextual prose links on
+    the page, which is the test that the relation was earned: a link has to sit
+    inside a sentence that does the work.
+
+    Paronyan is deliberately absent. Both men wrote prose and drama, but they belong
+    to different branches of the language and different traditions — Ottoman satire
+    against Russian-Caucasus social realism — and no scholarship consulted for §97
+    relates them. Sharing two genres is not a relation.
+  */
+  for (const locale of LOCALES) {
+    const article = bundle(locale).articles.find((a) => a.slug === SHIRVANZADE)!;
+    expect(article.relatedSlugs, `${locale} relations`).toEqual(["raffi", "khachatur-abovyan"]);
+    expect(
+      article.sections.flatMap((s) => s.links ?? []).map((l) => l.slug).sort(),
+      `${locale} contextual links`,
+    ).toEqual([ABOVYAN, "raffi"]);
+    expect(article.relatedSlugs, `${locale} no automatic Paronyan relation`).not.toContain(
+      PARONYAN,
+    );
+
+    // And no reciprocity was added: Raffi and Abovyan point where they pointed.
+    const raffi = bundle(locale).articles.find((a) => a.slug === "raffi")!;
+    expect(raffi.relatedSlugs, `${locale} Raffi unchanged`).not.toContain(SHIRVANZADE);
+    const abovyan = bundle(locale).articles.find((a) => a.slug === ABOVYAN)!;
+    expect(abovyan.relatedSlugs, `${locale} Abovyan unchanged`).not.toContain(SHIRVANZADE);
+  }
+});
+
+test("Soviet recognition is separated from the career that earned it", () => {
+  for (const locale of LOCALES) {
+    const article = bundle(locale).articles.find((a) => a.slug === SHIRVANZADE)!;
+    const ids = article.sections.map((s) => s.id);
+    expect(ids, `${locale} has the Soviet section`).toContain("soviet-recognition-and-the-titles");
+
+    const soviet = article
+      .sections.find((s) => s.id === "soviet-recognition-and-the-titles")!
+      .paragraphs.join("\n");
+
+    /*
+      The exact title and the exact year, in the exact form the republics conferred
+      them: People's Writer of the Azerbaijan SSR and People's Writer of the Armenian
+      SSR, both 1930. Not paraphrased, not softened into "honoured by the Soviet
+      state", and not used to imply a modern national claim about him — the article
+      says so in the same paragraph, which is what the last assertion below pins.
+    */
+    expect(soviet, `${locale} states the year`).toContain("1930");
+    for (const [loc, title] of [
+      ["en", "People's Writer of the Azerbaijan SSR"],
+      ["hy", "Ադրբեջանական ԽՍՀ ժողովրդական գրող"],
+      ["hyw", "Ազրպէյճանական ԽՍՀ ժողովրդական գրող"],
+    ] as const) {
+      if (loc !== locale) continue;
+      expect(soviet, `${locale} names the exact title`).toContain(title);
+    }
+
+    // The separation itself: the section is long enough to make the argument, and
+    // the article states the pre-Soviet formation somewhere in it.
+    expect(soviet.length, `${locale} the separation is argued, not asserted`).toBeGreaterThan(1000);
+    expect(soviet, `${locale} dates the return`).toContain("1926");
+
+    /*
+      And the framing rule. Shamakhi and Baku are handled with the political
+      entities that existed at the time; the article must not import the modern
+      Armenian–Azerbaijani conflict into a nineteenth-century biography. Asserted as
+      the absence of the modern vocabulary across the whole page rather than as the
+      presence of a formula, because there is no formula to match.
+    */
+    const prose = proseOf(locale, SHIRVANZADE);
+    for (const banned of ["Nagorno", "Karabakh", "Artsakh", "Ղարաբաղ", "Արցախ"]) {
+      expect(prose, `${locale} no modern geopolitical framing ("${banned}")`).not.toContain(banned);
+    }
+
+    /*
+      The positive half of the same rule, which is what stops the page solving it by
+      saying nothing: Shamakhi is placed in the state that actually held it, and the
+      modern country is named once as an orientation rather than avoided.
+    */
+    for (const [loc, empire, modern] of [
+      ["en", "Russian Empire", "Azerbaijan"],
+      ["hy", "Ռուսական կայսրություն", "Ադրբեջան"],
+      ["hyw", "Ռուսական կայսրութ", "Ազրպէյճան"],
+    ] as const) {
+      if (loc !== locale) continue;
+      expect(prose, `${locale} names the period state`).toContain(empire);
+      expect(prose, `${locale} orients the reader to the modern country`).toContain(modern);
+    }
+  }
+});
+
+test("the researched conflicts are reported rather than smoothed away", () => {
+  /*
+    Four things about Shirvanzade are genuinely contested, and each was resolved in
+    a direction rather than quietly picked. These assert the decisions.
+  */
+  for (const locale of LOCALES) {
+    const prose = proseOf(locale, SHIRVANZADE);
+
+    /*
+      1. The calendar. Armenian encyclopedias give 7 April 1858 Old Style; the New
+         Style equivalent is printed as 18 April by some authorities and 19 April by
+         others, and the article reports both rather than adopting one silently.
+         Asserted on the birth-date key fact rather than on the page, because a
+         substring test for "18" against a page full of years proves nothing.
+    */
+    const birthDate = bundle(locale)
+      .articles.find((a) => a.slug === SHIRVANZADE)!
+      .keyFacts.find((f) => f.value.includes("1858") && /\b18\b/.test(f.value));
+    expect(birthDate, `${locale} states the birth date as its own fact`).toBeTruthy();
+    expect(
+      /\b19\b/.test(birthDate!.value),
+      `${locale} reports both New Style days, not one`,
+    ).toBe(true);
+
+    // 2. The move to Baku, dated 1873 by some sources and 1875 by others.
+    expect(prose, `${locale} carries 1873`).toContain("1873");
+    expect(prose, `${locale} carries 1875`).toContain("1875");
+
+    // 3. Քաոս: the serialization and the volume are two dates, not one.
+    expect(prose, `${locale} carries the serialization`).toContain("1896");
+    expect(prose, `${locale} carries the volume`).toContain("1898");
+
+    // 4. The film. Made in 1925, premiered in 1926, and the 1924 date that
+    //    circulates online is named in order to be refused.
+    expect(prose, `${locale} the film was made in 1925`).toContain("1925");
+    expect(prose, `${locale} and premiered in 1926`).toContain("1926");
+    expect(prose, `${locale} the 1924 claim is addressed`).toContain("1924");
+
+    /*
+      And the "first Armenian feature" claim is bounded rather than repeated bare.
+      The film section has to be long enough to carry the qualification, which is
+      the only durable way to test a claim that the page states in order to narrow.
+    */
+    const film = bundle(locale)
+      .articles.find((a) => a.slug === SHIRVANZADE)!
+      .sections.find((s) => s.id === "namus-on-film-and-after")!;
+    expect(film.paragraphs.length, `${locale} film paragraphs`).toBeGreaterThanOrEqual(4);
+    expect(
+      film.paragraphs.join("").length,
+      `${locale} the first-feature claim is qualified at length`,
+    ).toBeGreaterThan(1200);
+  }
+});
+
+test("adding Shirvanzade changed no existing writer, work, dish, place or history article", () => {
+  for (const locale of LOCALES) {
+    const b = bundle(locale);
+    const count = (category: string) => b.articles.filter((a) => a.category === category).length;
+
+    expect(count("writers"), `${locale} writers`).toBe(12);
+    expect(count("works"), `${locale} works`).toBe(5);
+    expect(count("cuisine"), `${locale} cuisine`).toBe(12);
+    expect(count("places"), `${locale} places`).toBe(13);
+    expect(count("history"), `${locale} history`).toBe(7);
+
+    // All twelve portraits are registered at their own paths, and §98 leaves nothing
+    // waiting anywhere in the archive.
+    for (const slug of ILLUSTRATED) {
+      expect(getImageSrc(slug), `${locale} ${slug} portrait`).toBe(PORTRAIT[slug]);
+      expect([...PENDING_ARTWORK], `${locale} ${slug} not pending`).not.toContain(slug);
+    }
+    expect([...PENDING_ARTWORK], "no writer is waiting for a picture").toEqual([]);
+    expect(ILLUSTRATED.length, "twelve writers, twelve portraits").toBe(SLUGS.length);
+
+    // §96's Paronyan registration is untouched in all of its parts.
+    expect(getImageSrc(PARONYAN), "Paronyan's file").toBe("/images/writers/hakob-paronyan.webp");
+    expect(getPortraitProvenance(PARONYAN), "Paronyan's provenance").toBe("photo-referenced");
+    expect(
+      b.articles.find((a) => a.slug === PARONYAN)!.relatedSlugs,
+      `${locale} Paronyan's relations`,
+    ).toEqual([ABOVYAN, SIAMANTO]);
+
+    // §92's Work #5 is untouched too.
+    expect(
+      b.works.map((w) => w.slug),
+      `${locale} the five works`,
+    ).toContain("book-of-lamentations");
+
+    // Tumanyan is still the only featured writer: a twelfth must not promote anyone.
+    expect(
+      b.writers.filter((w) => w.featured).map((w) => w.slug),
+      `${locale} sole featured writer`,
+    ).toEqual([TUMANYAN]);
+
+    // The card order and the article order still agree, with him last in both.
+    expect(b.writers.map((w) => w.slug), `${locale} card order`).toEqual([...SLUGS]);
+    expect(
+      b.articles.filter((a) => a.category === "writers").map((a) => a.slug),
+      `${locale} article order`,
+    ).toEqual([...SLUGS]);
+  }
+});
+
+test("Shirvanzade is reachable under his variants, and his hit carries his own face", async ({
+  page,
+}) => {
+  const queries: [string, string][] = [
+    ["en", "Alexander Shirvanzade"],
+    ["en", "Aleksandr Shirvanzade"],
+    ["en", "Shirvanzade"],
+    ["en", "Shirvan-Zade"],
+    ["en", "Alexander Movsisyan"],
+    ["hy", "Ալեքսանդր Շիրվանզադե"],
+    ["hyw", "Ալեքսանդր Շիրվանզադէ"],
+    ["hy", "Նամուս"],
+    ["hy", "Քաոս"],
+    ["hyw", "Պատուի համար"],
+  ];
+
+  for (const [locale, query] of queries) {
+    await page.goto(`/${locale}/search?q=${encodeURIComponent(query)}`);
+    const hit = page.locator(`main li:has(a[href="/${locale}/writers/${SHIRVANZADE}"])`).first();
+    await expect(hit, `${locale} "${query}" finds him`).toHaveCount(1);
+
+    /*
+      §98: his card carries his own portrait now, not a placeholder and not a borrowed
+      one. Scoped to the hit rather than to `main`, because the results page
+      legitimately shows other writers' faces on their own cards.
+    */
+    const thumb = hit.locator("img");
+    await expect(thumb, `${locale} "${query}" one raster`).toHaveCount(1);
+    expect(
+      decodeURIComponent((await thumb.getAttribute("src")) ?? ""),
+      `${locale} "${query}" his own file`,
+    ).toContain("/images/writers/alexander-shirvanzade.webp");
+    await expect(hit.locator("svg[role='img']"), `${locale} "${query}" no placeholder`).toHaveCount(
+      0,
+    );
+  }
+
+  // And the titles named in his article did not become Work results of their own.
+  for (const [locale, query] of [
+    ["hy", "Նամուս"],
+    ["hy", "Քաոս"],
+  ] as const) {
+    await page.goto(`/${locale}/search?q=${encodeURIComponent(query)}`);
+    await expect(
+      page.locator(`main li:has(a[href^="/${locale}/works/"])`).filter({ hasText: query }),
+      `${locale} "${query}" is not a Work`,
+    ).toHaveCount(0);
+  }
+});
+
+test("his routes, metadata and sitemap carry his portrait", async ({
+  page,
+  request,
+}) => {
+  for (const locale of LOCALES) {
+    const response = await page.goto(`/${locale}/writers/${SHIRVANZADE}`);
+    expect(response?.status(), `${locale} status`).toBe(200);
+    await expect(
+      page.getByRole("heading", { level: 1, name: articleTitle(locale, SHIRVANZADE) }),
+      `${locale} h1`,
+    ).toBeVisible();
+
+    await expect(page.locator('link[rel="canonical"]'), `${locale} canonical`).toHaveAttribute(
+      "href",
+      `https://armat.site/${locale}/writers/${SHIRVANZADE}`,
+    );
+    for (const alt of LOCALES) {
+      await expect(
+        page.locator(`link[rel="alternate"][hreflang="${alt}"]`),
+        `${locale} hreflang ${alt}`,
+      ).toHaveAttribute("href", `https://armat.site/${alt}/writers/${SHIRVANZADE}`);
+    }
+
+    /*
+      §98: the social image is his own file now, not the site fallback, and not
+      another writer's — a wrong og:image is invisible on the page itself, which is
+      why it is asserted rather than eyeballed.
+    */
+    for (const property of ['meta[property="og:image"]', 'meta[name="twitter:image"]']) {
+      const content = (await page.locator(property).first().getAttribute("content")) ?? "";
+      expect(content, `${locale} ${property} is his portrait`).toBe(
+        "https://armat.site/images/writers/alexander-shirvanzade.webp",
+      );
+      expect(content, `${locale} ${property} no longer falls back`).not.toContain(
+        "/og-default.png",
+      );
+      for (const slug of ILLUSTRATED) {
+        if (slug === SHIRVANZADE) continue;
+        expect(content, `${locale} ${property} borrows nothing`).not.toContain(
+          PORTRAIT[slug].split("/").pop()!,
+        );
+      }
+    }
+
+    // And the article schema carries the image it did not have at §97.
+    const graph = await readGraph(page);
+    const article = graph.find((n) => n["@type"] === "Article");
+    expect(article, `${locale} Article node`).toBeDefined();
+    expect(JSON.stringify(article!.image), `${locale} Article.image is his portrait`).toContain(
+      "/images/writers/alexander-shirvanzade.webp",
+    );
+    // §36 of the brief: no Person node was added in this step.
+    expect(
+      graph.some((n) => n["@type"] === "Person"),
+      `${locale} no Person schema was introduced`,
+    ).toBe(false);
+  }
+
+  /*
+    Three sitemap entries, one per edition, each advertising his portrait inside its
+    own `<url>` block. Asserted per block rather than by an archive-wide occurrence
+    count, because a count of three passes when all three land on one URL.
+  */
+  const xml = await (await request.get("/sitemap.xml")).text();
+  const blocks = xml.split("<url>").slice(1);
+  for (const locale of LOCALES) {
+    const block = blocks.find((b) => b.includes(`/${locale}/writers/${SHIRVANZADE}</loc>`));
+    expect(block, `${locale} sitemap entry`).toBeDefined();
+    expect(block, `${locale} advertises his portrait`).toContain(
+      "https://armat.site/images/writers/alexander-shirvanzade.webp",
+    );
+  }
+});
+
+test("Shirvanzade's portrait reaches the listing, and the section is complete at twelve", async ({
+  page,
+}) => {
+  /*
+    §98. The other half of registration, on the §89/§96 pattern: the file being in
+    `IMAGES` is worth nothing if the places that read it still serve a placeholder.
+  */
+  for (const locale of LOCALES) {
+    await page.goto(`/${locale}/writers`);
+    await expect(cards(page), `${locale} twelve cards`).toHaveCount(SLUGS.length);
+    await expect(
+      page.locator("main svg[role='img']"),
+      `${locale} no placeholder anywhere on the listing`,
+    ).toHaveCount(0);
+    await expect(
+      page.locator(`main img[src*="${SHIRVANZADE}"]`),
+      `${locale} his card carries his own portrait`,
+    ).toHaveCount(1);
+  }
+
+  // The period filters are untouched by registration: five nineteenth-century
+  // writers, and he is in that filter with his face.
+  await page.goto("/en/writers?period=19th-century");
+  await expect(cards(page), "five nineteenth-century writers").toHaveCount(5);
+  await expect(page.locator(`main img[src*="${SHIRVANZADE}"]`)).toHaveCount(1);
+  await expect(page.locator("main svg[role='img']"), "no placeholder in the filter").toHaveCount(0);
+
+  for (const [period, count] of [
+    ["medieval", 2],
+    ["20th-century", 4],
+    ["soviet", 1],
+  ] as const) {
+    await page.goto(`/en/writers?period=${period}`);
+    await expect(cards(page), `${period} count`).toHaveCount(count);
+  }
+
+  // Tumanyan is still the only featured writer.
+  for (const locale of LOCALES) {
+    expect(
+      bundle(locale).writers.filter((w) => w.featured).map((w) => w.slug),
+      `${locale} sole featured writer`,
+    ).toEqual([TUMANYAN]);
+  }
+});
+
+test("Shirvanzade carries a real bibliography covering the contested points", () => {
+  const sources = getSources(SHIRVANZADE);
+  expect(sources.length, "a substantial source set").toBeGreaterThanOrEqual(6);
+
+  for (const source of sources) {
+    expect(source.identifier?.value, `${source.title} carries an identifier`).toBeTruthy();
+    expect(source.publisher, `${source.title} names a publisher`).toBeTruthy();
+    expect(source.note, `${source.title} says what it is cited for`).toBeTruthy();
+  }
+
+  const notes = sources.map((s) => `${s.title} ${s.note ?? ""}`).join("\n");
+
+  // The hard claims are each attached to something. The calendar disagreement, the
+  // 1930 titles, the bounded first-feature claim and the concept behind the novel's
+  // title are the four the article would be weakest on if they rested on nothing.
+  expect(notes, "the calendar disagreement is cited").toContain("18 April");
+  expect(notes, "the 1930 honours are cited").toContain("1930");
+  expect(notes, "the film's first claim is cited").toContain("first Armenian feature");
+  expect(notes, "the concept of namus is cited to scholarship").toContain("nāmūs");
+
+  // And the portrait evidence is recorded as a source rather than as a note in the
+  // artwork registry alone, because §97 makes a provenance prediction on it.
+  expect(notes, "the surviving images are described").toContain("lithograph");
 });

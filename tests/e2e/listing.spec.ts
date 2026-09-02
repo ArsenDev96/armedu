@@ -248,12 +248,13 @@ test("English query parameters still restore listing state", async ({ page }) =>
 test("the writers listing filters within its own edition", async ({ page }) => {
   await page.goto("/hyw/writers");
 
-  // All ten biographies are translated: six since July 2026, Grigor Narekatsi
-  // since §81, Daniel Varoujan since §84, Nerses Shnorhali since §86 and Siamanto
-  // since §88. Edited rather than derived on purpose — this file's job is to
-  // notice when a section's published count changes underneath it, and Western
-  // Armenian is the edition where a new writer is most likely to be left behind.
-  await expect(cards(page)).toHaveCount(11);
+  // All twelve biographies are translated: six since July 2026, Grigor Narekatsi
+  // since §81, Daniel Varoujan since §84, Nerses Shnorhali since §86, Siamanto
+  // since §88, Hakob Paronyan since §94 and Alexander Shirvanzade since §97.
+  // Edited rather than derived on purpose — this file's job is to notice when a
+  // section's published count changes underneath it, and Western Armenian is the
+  // edition where a new writer is most likely to be left behind.
+  await expect(cards(page)).toHaveCount(12);
 
   await page
     .getByRole("searchbox", { name: ui("hyw").listing.writers.searchLabel })

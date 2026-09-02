@@ -22593,3 +22593,993 @@ no resolution is claimed; the debt stays open.
   the only registered file in the archive known to disagree with its own article.
 
 Nothing was deployed. Writer #12 was not started.
+
+## §97 — Writer #12: Alexander Shirvanzade, in all three editions (2026-09-02)
+
+Content only. Twelfth Writer written, no artwork generated, no Work created, no Writer
+#13 started, nothing deployed.
+
+### Pre-state, verified against source
+
+Writers 11, portraits 11, placeholders 0, `PENDING_ARTWORK = []`. Periods: medieval 2
+(Narekatsi, Shnorhali), 19th-century 4 (Tumanyan, Raffi, Abovyan, Paronyan),
+20th-century 4 (Charents, Isahakyan, Varoujan, Siamanto), soviet 1 (Sevak).
+`PORTRAIT_PROVENANCE` held exactly three entries, all `photo-referenced`:
+`daniel-varoujan`, `siamanto`, `hakob-paronyan`. Tumanyan sole featured. Cross-category:
+Works 5, Writers 11, Cuisine 12, Places 13, History 7. Every expectation in the brief
+matched the source; nothing had to be corrected.
+
+`git status` was **clean** at the start — §66's changes were already committed
+(`b83c3c3 image`), so there is no pre-existing working-tree state to separate from
+§97's. The whole diff below is §97.
+
+### Repository/archive audit
+
+Searched the tree for `Shirvanzade`, `Shirvan-zade`, `Shirvanzadé`, `Aleksandr
+Shirvanzade`, `Ալեքսանդր Շիրվանզադե`, `Ալեքսանդր Շիրվանզադէ`, `Շիրվանզադե`,
+`Շիրվանզադէ`, and for the titles `Նամուս`, `Քաոս`, `Պատվի համար`, `Չար ոգի`, `Namus`,
+`Chaos`, `For Honor`.
+
+**Zero hits in `src/`, `tests/`, `scripts/` or `public/`.** The only occurrences in the
+repository were ten lines in `PROJECT_STATE.md` — the §91 candidate audit that scored
+him 7.9 and placed him runner-up to Paronyan, and the §91 portrait-archetype table.
+No `relatedFigures` entry, no source entry, no alias, no Work guard and no test
+mentioned him. Nothing pointed at a Shirvanzade page that did not exist, so nothing had
+to be un-broken.
+
+### Research and SERP
+
+**No reliable keyword metrics available; qualitative SERP evidence only.** No search
+volume, keyword difficulty, CPC or traffic figure is stated anywhere in this section or
+in the article, because none was obtainable.
+
+*English SERP* (`Alexander Shirvanzade`, `Shirvanzade Armenian writer`, `Shirvanzade
+biography`, `Shirvanzade Namus`, `Shirvanzade Chaos`, `Alexander Shirvanzade Baku`):
+dominated by Wikipedia, with IMDb ranking high on a writer who made no films, plus
+Grokipedia, `adebiportal.kz` (a Kazakh literary portal), `armenian-history.com`,
+Goodreads, Find a Grave, `encyclopedia2.thefreedictionary.com` (a Great Soviet
+Encyclopedia reprint) and an Armenian bookshop. **No Britannica page, no university
+page, no Armenian museum or academy page ranks in English.** That is the informational
+gap: the English-language record of a major realist novelist is an encyclopedia article
+and a film database.
+
+*Eastern Armenian SERP* (`Ալեքսանդր Շիրվանզադե`, `Շիրվանզադե կենսագրություն`,
+`Շիրվանզադե Նամուս`, `Շիրվանզադե Քաոս`, `Պատվի համար Շիրվանզադե`): much healthier and
+differently shaped — hy.wikipedia, `haymard.am`, `armenianlanguage-am.armin.am`,
+`findarmenia.org`, the Sundukyan theatre site, plus a large tail of school-blog
+summaries («համառոտ») and study aids. Armenian queries are dominated by **plot
+summaries for schoolwork**, not by biography.
+
+*Western Armenian*: hyw.wikipedia carries `Շիրվանզադէ` with the classical spelling, and
+the diaspora press (e.g. `azator.gr`) writes `Շիրվանզադէ (Ալեքսանդր Մովսիսեան)`. The
+diaspora material is thin and, where it exists, less reliable — the Athens article
+consulted misdates the Paris years (1911–1919 against the encyclopedic 1905–1910) and
+mistranslates `Պատվի համար`. It was used for orthography evidence only.
+
+*Conflicting chronology found and carried into the article rather than smoothed:* the
+birth date, the Baku move, the serialization vs volume of `Քաոս`, the writing vs
+publication of `Պատվի համար`, and the year of `Մորգանի խնամին`.
+
+*Translation/title ambiguity found:* English renders `Նամուս` as *Honour* and
+`Պատվի համար` as *For Honour's Sake* / *For the Sake of Honour* / *For Honor*, so the
+two works collide in English catalogues. This is the single most useful thing Armat can
+resolve about him and it got its own section.
+
+### Source hierarchy applied
+
+Armenian encyclopedic and institutional sources were preferred throughout, and were
+decisive wherever they and the English-language web disagreed. The Armenian Soviet
+Encyclopedia entry (vol. 8, 1982, pp. 517–519) was read on Wikisource rather than
+described from a summary, and is the spine of the article. Wikipedia was used for
+discovery and for cross-checking, and carries no claim on its own.
+
+### Identity
+
+- **EN:** `Alexander Shirvanzade`.
+- **HY:** `Ալեքսանդր Շիրվանզադե` (reformed orthography).
+- **HYW:** `Ալեքսանդր Շիրվանզադէ` — the established traditional-orthography form, taken
+  from hyw.wikipedia and from diaspora usage, **not** derived mechanically. The two
+  Armenian editions differ by the final letter (`ե` / `է`) and a test pins that neither
+  drifts into the other.
+- **Birth name:** `Ալեքսանդր Մինասի Մովսիսյան` / `Ալեքսանդր Մինասի Մովսիսեան`
+  (Movsisyan; the English web also prints Movsesyan, which is carried as a keyword).
+- **Pen name:** `Շիրվանզադե` is explained **only** as far as the sources support it —
+  Shamakhi lay in Shirvan, and the Persian suffix `-zade` means born of / son of, so the
+  name says *of Shirvan*. The article states that this is the whole of what it means and
+  explicitly refuses to extend it into a claim about ancestry or a title. No etymology
+  was invented.
+- **Transliteration aliases carried:** Alexander Shirvanzade, Aleksandr Shirvanzade,
+  Shirvanzade, Alexander Shirvan-Zade, Shirvanzadé, Chirvanzadé (the form printed in the
+  Constantinople French-language press in his lifetime), Alexander Movsisyan, Aleksandr
+  Movsesyan, plus both Armenian orthographies of the name and of the Work titles. They
+  are in `keywords`, not stuffed into the prose.
+
+### Dates and geography
+
+**Birth date — a genuine authority conflict, reported rather than reconciled.** The
+Armenian Soviet Encyclopedia gives **7.4.1858**, Old Style. The Great Russian
+Encyclopedia prints **7 (19) April 1858**. Russian and Armenian Wikipedias, and the
+English-language web, print **18 April 1858**. The Old Style day converts to 19 April,
+not 18, so the two New Style forms cannot both be right and the sources do not settle
+which is. The article prints the Old Style date as the Armenian encyclopedic form and
+records that **both 18 and 19 April circulate**, in a dedicated key fact. Nothing was
+silently converted.
+
+**Death:** 7 August 1935 at Kislovodsk (then Karachay Autonomous Oblast, RSFSR); buried
+in the Komitas Pantheon, Yerevan. Uncontested across all sources.
+
+**Shamakhi:** old capital of Shirvan, a district town of the Russian Empire at his
+birth, seat of the governorate that bore its name until the **1859 earthquake** moved
+the administration to Baku — the fact that matters biographically, because the town he
+was born in had just been overtaken by the city he grew up in. Wrecked again in 1902.
+Modern `Şamaxı`, Azerbaijan, named once as orientation. The article uses period
+political entities throughout (Shirvan, Russian Empire, later Azerbaijan SSR) and a test
+bans the modern conflict vocabulary (`Nagorno`, `Karabakh`, `Artsakh`, `Ղարաբաղ`,
+`Արցախ`) while also requiring the positive half — that the period state and the modern
+country are both named.
+
+**Baku:** treated as a literary-social environment and given its own substantial
+section, not a line in a timeline. Derricks at Balakhani, refineries in the Black Town,
+Armenian/Azerbaijani/Russian/Swedish/French capital, a labour force drawn from the whole
+Caucasus and northern Persia, fortunes made and lost inside a decade, position bought
+rather than inherited. He arrived as a teenager — **1873 and 1875 both appear in the
+sources and both are stated** — and stayed about eight years.
+
+**Tiflis:** from 1883, the administrative and cultural capital of the Russian Caucasus
+and the centre of Eastern Armenian publishing. Periodicals named only where the evidence
+is strong: `Մշակ` printed his first story in 1883; he was secretary of the weekly
+`Արձագանք` from 1886 to 1891, and `Արձագանք` carried `Խնամատար` (1884) and `Նամուս`
+(1885).
+
+### Early employment
+
+Provincial administration offices, then oil-firm bureaus — clerk, assistant bookkeeper,
+accountant — and librarian for the Armenian philanthropic society in Baku. Kept
+proportionate and used for what it explains: a clerk who keeps a firm's books sees the
+family behind the firm in a form nobody else outside it is shown, and almost no other
+Armenian prose of the century was written from that vantage. Self-education after the
+district school: Russian and Armenian literature, Balzac, Zola and Shakespeare.
+
+### Realism — the reason he was selected
+
+Given the article's largest section (five paragraphs), stated as three specific claims
+rather than as the label:
+
+1. **The engine of the plot is economic.** Property, inheritance, dowry, credit, shares
+   and debt are the mechanism, not the background.
+2. **The moral interest is in compromise, not villainy.** The damage is done by men
+   doing what their position makes reasonable.
+3. **A stated method, not an instinct.** He wrote *about* realism: he argued for
+   generalisation and typification, criticised the photographic reproduction of reality
+   and rejected open tendentiousness. This is what separates him from naturalism, and
+   short English summaries collapse the two.
+
+The Raffi contrast is made in prose *and* earns the one contextual link:
+historical-national novel against contemporary urban realism. A further section, *Money,
+family and social standing*, carries marriage-as-transaction, reputation-as-asset and
+the position of women (`Եվգինե` and `Ունե՞ր իրավունք`, both 1903, and the recorded
+conservative opposition his treatment drew).
+
+### Prose vs drama, and technique
+
+The section was poet-heavy, and this is the second consecutive arrival chosen to fix
+that. His card role is **Novelist and playwright**; his four card works are two novels,
+a drama and a late comedy; a test asserts the identity at data level. The theatre gets a
+full section: about twenty plays, Sundukyan named as the tradition he continued and
+widened, and the plays listed with years — `Իշխանուհի` 1891, `Չար ոգի` 1894, `Եվգինե`
+and `Ունե՞ր իրավունք` 1903, `Պատվի համար` 1904, `Կործանվածը` 1909, `Ավերակների վրա`
+1911, `Շառլատանը` 1912, `Արհավիրքի օրերին` 1917, `Մորգանի խնամին` last.
+
+Technique section names concrete features — ensemble construction, dialogue that carries
+class position, material detail used as evidence, self-convicting speech, dramatic
+scene-building. Where Armenian criticism's judgments are used (care of the literary
+language, psychological depth of the later novels) they are **passed on as judgments,
+attributed**, not restated as facts about the prose. No empty praise.
+
+### `Նամուս`
+
+Published **1885** in the weekly `Արձագանք`; the book that made him. Set in his own
+Shamakhi and using the earthquake. Premise given at a non-spoiler level: two children
+promised to one another, the engagement broken when the code is violated, a marriage
+made elsewhere, fatal consequence. The argument stated plainly — the disaster is
+produced by a social arrangement working exactly as designed.
+
+**Novel, play and film are separated explicitly.** His own dramatisation is dated
+**1911** (the Armenian Institute's 2011 centenary is the evidence) and was in Hovhannes
+Abelyan's repertoire by **1912**, including on the company's Moscow guest performances.
+
+### Translating `նամուս`
+
+Given its own section rather than a one-word gloss. Arabic `nāmūs`, ultimately Greek
+`nomos` (law, custom), travelling into Persian, Turkish, Kurdish and Armenian. It is not
+personal honesty and not individual reputation: it is a collective standing held by a
+household and carried in practice by the conduct of its women — for a man the word can
+extend to conscience and integrity, for a woman it is bound to sexual conduct and the
+appearance of it. The article states twice that the concept is **regional, not an
+Armenian peculiarity**, and that Shirvanzade wrote about it as a critic from inside
+rather than as an ethnographer describing a custom to outsiders. The modern staging of
+the play as a work about violence against women is reported as a reading of what is
+already in the text.
+
+### The 1926 film — claim verified and bounded
+
+Made **1925**, directed by **Hamo Bek-Nazaryan**, at the state studio in Yerevan founded
+in **1923** (Gosfotkino, later Armenfilm); premiered at the **Nairi** cinema in Yerevan
+on **13 April 1926**.
+
+The claim was checked rather than repeated. The careful scholarly form — East European
+Film Bulletin — is *"Namus is considered to be the first Armenian feature."* The
+article states the narrow version: **the first full-length fiction feature produced in
+Soviet Armenia by its own studio**, treated as the founding work of Armenian national
+cinema. It says explicitly that this is **not** a claim that no film with Armenian
+subjects or an Armenian director existed before — Bek-Nazaryan already had a Russian
+cinema career — and it names the **1924** date that circulates online in order to refuse
+it. Three later adaptations are recorded separately: `Չար ոգի` 1928, `Պատվի համար` 1956,
+`Քաոս` later.
+
+### `Քաոս`
+
+**Serialized 1896–1897, published complete 1898** — which reconciles the 1896/1898 split
+found in the sources. Written in the years around his arrest and exile. Subject: an
+Armenian oil family in Baku, the fortune, the household built around it, the generation
+that inherits it, the disintegration of both. The Armenian Soviet Encyclopedia's
+assessment — the largest achievement of Armenian critical realism — is used. The title
+is read as a description of a society without settled order.
+
+### `Պատվի համար` — the entity-resolution section
+
+Its own section, because this is a real collision. `Նամուս` (1885, novel) and
+`Պատվի համար` (drama) are **nineteen years apart, in different genres, about two
+different things English calls honour**: `պատիվ` is standing, integrity and good name;
+`նամուս` is the borrowed word for collective, sexualised family honour. The article
+states the difference and states how English erases it (the film catalogued as *Honour*,
+the drama circulating as *For Honour's Sake*, *For the Sake of Honour*, *For Honor*).
+
+Chronology researched and stated in full: **written 1904, first staged at Baku on
+10 December 1904, published as a book in 1905** — which resolves the 1904/1905 conflict
+between sources rather than picking one. Plot summarised (Elisbarov, the burned
+documents, Otaryan's inheritance, Margarit's suicide). More than **300 stagings by
+1911**, productions at Tiflis and Constantinople within a few years, revivals across the
+Soviet republics for decades.
+
+A test asserts the section exists, names both titles, carries both dates, and that the
+word `նամուս` gets its own section too.
+
+### Language
+
+Eastern Armenian, contrasted with the Western Armenian writers in the section, with
+Abovyan named as the start of its modern literary career (and earning the second
+contextual link). What he did with it: extended it into contemporary urban prose, where
+dialogue has to carry a class position inside a sentence — a literary language developed
+for the village, the epic and the national address made to do office work. **The
+multilingual-borrowing claim was deliberately not made**: the article says that his Baku
+and Tiflis were multilingual, that it would be easy to assert his prose is full of the
+resulting borrowings, and that the sources support the general judgment about his style
+rather than an inventory of his vocabulary. No unsupported linguistic claim.
+
+### Soviet period — separated, and the title stated exactly
+
+Its own section, and the separation is argued rather than asserted. He returned at
+sixty-eight, with everything this article is about already written; he was not a Soviet
+writer who started early but a nineteenth-century realist honoured by a state formed
+after his work was finished. Yerevan from 1926, a multi-volume collected works, the
+memoirs `Կյանքի բովից` (1926–1932), the founding congress of the Union of Soviet Writers
+and of the Azerbaijani writers' union, both 1934.
+
+**Exact title finding.** In **1930** he was named **People's Writer of the Azerbaijan
+SSR** — and he was the **first holder of that title in that republic** — and in the same
+year **People's Writer of the Armenian SSR**. Not translated loosely and not softened
+into "honoured by the Soviet state". The article adds the period fact that both
+republics were then constituent parts of the **Transcaucasian SFSR**, and states in the
+same paragraph that these are historical Soviet republican distinctions and **are not
+evidence about anybody's nationality**. A test asserts the exact title string in each
+edition's own wording (`People's Writer of the Azerbaijan SSR` /
+`Ադրբեջանական ԽՍՀ ժողովրդական գրող` / `Ազրպէյճանական ԽՍՀ ժողովրդական գրող`), the year,
+and the length of the argument.
+
+The article does **not** end on this. It ends on the film and stage legacy and the work
+that kept going, and the `significance` block after it ends on realism, prose, theatre
+and continuing importance.
+
+### Relations — earned, not filled
+
+`relatedSlugs: ["raffi", "khachatur-abovyan"]`, identical in all three editions, and
+each is also the target of the article's only two contextual prose links — which is the
+test that the relation was earned, because a link has to sit inside a sentence that does
+the work.
+
+- **Raffi** — the contrast the article is built on: historical-national novel against
+  contemporary urban realism. Argued in the opening section.
+- **Abovyan** — the Eastern Armenian vernacular prose line Shirvanzade inherits and
+  extends. Argued in the language section.
+
+**Paronyan was considered and refused.** Both wrote prose and drama, but they belong to
+different branches of the language and different traditions — Ottoman satire against
+Russian-Caucasus social realism — and no scholarship consulted relates them. Sharing two
+genres is not a relation. A test asserts the absence.
+
+**No reciprocity was added.** Raffi's and Abovyan's own `relatedSlugs` are unchanged, and
+a test asserts they do not point back.
+
+`relatedFigures` (four, free text, none of them a link): Gabriel Sundukyan (1825–1912),
+Grigor Artsruni (1845–1892), Hovhannes Abelyan (1865–1936), Hamo Bek-Nazaryan
+(1891–1965).
+
+### Period classification — researched, not derived
+
+**Decision: `19th-century`.** Explained, because a rule keyed on either of his dates
+would give a different answer.
+
+The section's existing convention is neither birth nor death: Tumanyan (1869–1923) is
+filed `19th-century` and Isahakyan (1875–1957) `20th-century`, so what the taxonomy
+tracks is **where the major literary work sits**. Shirvanzade's is `Նամուս` 1885, `Քաոս`
+1898 and `Պատվի համար` 1904 — the whole of it before 1905, and Armenian scholarship
+places his best period at 1890–1905. `soviet` was considered and rejected: that value
+holds Sevak, born 1924, whose entire formation is Soviet, and Shirvanzade's is not.
+**No new period was created.**
+
+Resulting distribution: medieval 2, 19th-century **5**, 20th-century 4, soviet 1.
+
+### Future Work
+
+Evaluated afresh rather than inherited from §91.
+
+- **Future Work #1: `Նամուս`.** It has the cross-media hook nothing else in his corpus
+  has (novel 1885 → his own play 1911 → the film that founds Armenian cinema), the
+  strongest source base, a title whose meaning genuinely needs an article, and the
+  clearest discovery case — the English query is dominated by the film and by the
+  honour-concept, and the novel is the thing nobody serves.
+- **Runner-up: `Քաոս`.** The stronger literary claim, and Armenian criticism's choice
+  for his best book, but a thinner discovery case in English and no film or stage hook.
+  The article names it in prose as the candidate.
+
+**Neither was created.** Works is still 5, and a test bans nine plausible Work slugs
+(`namus`, `chaos`, `kaos`, `patvi-hamar`, `for-honour`, `for-honours-sake`,
+`evil-spirit`, `char-ogi`, `morgani-khnamin`).
+
+### Sources — eight
+
+1. **Հայկական սովետական հանրագիտարան, հատոր 8** (Yerevan 1982, pp. 517–519) — archive.
+   The spine: birth name, Old Style date, geography, the publication sequence, the
+   `Արձագանք` secretaryship, the play list, the Sundukyan line, the `Քաոս` assessment. It
+   is also the source of a recorded conflict, dating `Մորգանի խնամին` to 1930 where
+   other Armenian sources give 1926.
+2. **Bardakjian, *A Reference Guide to Modern Armenian Literature, 1500–1920*** —
+   ISBN 9780814327470. Bibliographic fields identical to the §94 entry; only the note
+   differs. Position in the movement from romanticism to realism, and the Raffi contrast.
+3. **Hacikyan et al., *The Heritage of Armenian Literature, Vol. III*** —
+   ISBN 9780814332214, likewise identical to §94's copy. Baku, the `Քաոս` serialization,
+   his own critical position on realism.
+4. **Большая российская энциклопедия**, Shirvanzade entry — URL. The chronology outside
+   Armenia, the honours, and one half of the calendar problem (`7 (19) апреля`).
+5. **Armenian Institute, London — *Namus, The Project*** — URL. The 1911 play, the first
+   English translation (Veronica Wigg), the contemporary staging.
+6. **East European Film Bulletin — *Hamo Beknazarian's Namus (1926)*** — URL. The film,
+   the studio history, and the careful form of the "first Armenian feature" claim.
+7. **Çetinkaya, *Re-theorising namûs beyond 'honour'*** — DOI 10.1177/14647001241226938.
+   The scholarly basis for the `նամուս` section. Cited for nothing about Shirvanzade.
+8. **Surviving lifetime images of Alexander Shirvanzade** — archive (Charents Museum;
+   National Archive of Georgia; BnF, via the Commons category). Cited in the article for
+   the gendarme cards, and here for the portrait evidence.
+
+Tests assert every source carries an identifier, a publisher and a note, and that the
+notes actually cover the four hardest claims (calendar, 1930 titles, the bounded film
+claim, `nāmūs`).
+
+### SEO
+
+`seoTitle`, `metaDescription`, `summary` and `keywords` authored for all three editions.
+The page is built to resolve: the name and its transliterations; the Shamakhi → Baku →
+Tiflis chronology; oil-boom Baku and realism; what `նամուս` means; the novel/play/film
+separation; the `Նամուս` vs `Պատվի համար` translation collision; `Քաոս` and Baku
+capitalism; and Soviet recognition against pre-Soviet career. **The six older Writers'
+missing SEO fields were deliberately not touched.**
+
+### Portrait state
+
+**No artwork was generated.** `public/images/writers/` still holds eleven files and no
+`alexander-shirvanzade.webp` under any spelling.
+
+`PENDING_ARTWORK = ["alexander-shirvanzade"]` — refilled from empty. **No
+`PORTRAIT_PROVENANCE` entry was added**, and a test asserts its absence.
+
+**Photographic evidence, researched and corrected.** §91 recorded "two lifetime images
+… an 1880 bohemian near-profile". That is wrong and is corrected here: the image dated
+about 1880 is a **lithograph**, printed in the Constantinople French-language paper
+*La Patrie* on 26 June 1910 and held by the BnF via Gallica, captioned *Le distingué
+poète Chirvanzadé*. It is not photographic authority. What actually survives:
+
+- a **studio portrait photograph credited to the Charents Museum of Literature and Art,
+  Yerevan** — an institutional archival source, and the **primary likeness reference**;
+- a second undated photographic portrait (public domain, via `azg.am`);
+- **two gendarme registration cards** compiled by the Tiflis provincial gendarme
+  administration and held by the **National Archive of Georgia** — corroboration, and
+  decades earlier than the studio portrait.
+
+Also in the Commons category and **deliberately excluded** as facial authority: a 2008
+commemorative stamp, a sketch, and two *Khatabala* caricatures. That is the §87 rule
+applied for the fourth time.
+
+Expected provenance on registration: **`photo-referenced`**, decided in advance and
+recorded in `media.ts`, not in `PORTRAIT_PROVENANCE`.
+
+### Future portrait archetype — audited against all eleven
+
+Ten of the eleven existing writer portraits put the subject at a desk, or with books, or
+in a warm study interior; the eleventh, §96's Paronyan, is a print room — still a working
+environment with props. The §91 proposal therefore **remains the collection-distinct
+choice** and is now recorded as the commission:
+
+> Close half-length, near-frontal, plain restrained historical ground, white/grey hair
+> read as silhouette against the ground, **no desk, no book, no pen, no visible
+> manuscript, no props of any kind** — the head is the entire subject.
+
+Standing conditions carried forward unchanged: readable generated lettering is refused
+outright, not weighed (§85/§86/§87); anatomy is judged at rendered size first and
+magnified only to confirm (§89).
+
+### Tests
+
+`writers.spec.ts` grew by 15 tests. `SLUGS` gained a twelfth entry, `PENDING` went from
+`[]` to `[SHIRVANZADE]`, `ILLUSTRATED` and `PORTRAIT` are unchanged at eleven. New
+guards, all structural or data-level rather than brittle prose matches:
+
+1. all three locale slugs exist, with card/article parity and order parity;
+2. canonical EN/HY/HYW names, and neither Armenian edition drifting into the other's
+   orthography;
+3. the period classification, with `soviet` explicitly excluded and the full
+   distribution measured (2 / 5 / 4 / 1);
+4. Tumanyan still the sole featured writer;
+5. no registered portrait, placeholder renders, placeholder caption (not either artwork
+   caption);
+6. no `PORTRAIT_PROVENANCE` entry, and the other five unchanged;
+7. no borrowed portrait, scoped to the hero figure;
+8. search aliases and both Work-title orthographies in every edition's `keywords`;
+9. `Նամուս` and `Պատվի համար` kept separate — the section exists, names both, carries
+   both dates;
+10. no nonexistent Work slug, nine banned candidates, and every `relatedSlugs`/link
+    target resolving in its own edition;
+11. Baku substantive — ≥3 paragraphs, ≥900 characters, per edition;
+12. realism substantive — ≥4 paragraphs, ≥1400 characters, per edition;
+13. theatre substantive — ≥3 paragraphs, ≥900 characters, per edition;
+14. Soviet recognition separated, argued at length, and the return dated;
+15. the exact Soviet/Azerbaijani title string, per edition;
+16. no modern geopolitical vocabulary, **and** the positive half — the period state and
+    the modern country both named;
+17. the four researched conflicts each reported (calendar, 1873/1875, 1896/1898,
+    1925/1926 with the 1924 claim refused);
+18. relations earned and identical across editions, Paronyan absent, no reciprocity;
+19. the bibliography, with the four hardest claims each attached to a note.
+
+Count literals updated where they were designed to go red on arrival:
+`writers.spec.ts` (three), `listing.spec.ts`, `works.spec.ts`, `places.spec.ts`. Every
+one of those edits is a count or an emptiness claim; **no assertion was weakened**. Two
+claims that could no longer be true as written were replaced with the stronger specific
+form rather than deleted: "no writer is waiting for a picture" became "only Writer #12
+is waiting", and "no placeholder on the listing" became "one placeholder per pending
+writer", counted from `PENDING`.
+
+### Verification
+
+Run in the prescribed order, with the build kept separate from Playwright.
+
+- `npm run typecheck` — clean.
+- `npm run validate:content` — **✓ 198 entries across 3 locales**, with the expected
+  note: *1 slug(s) have no artwork and render the generated placeholder:
+  alexander-shirvanzade*. The cross-locale number check passing is the meaningful part:
+  all three editions state exactly the same multi-digit numbers in `intro`, `summary`,
+  `seoTitle`, `metaDescription`, `keyFacts`, `importantDates`, section paragraphs,
+  `interestingFacts` and `relatedFigures`. The Western Armenian orthography check passes,
+  so the HYW edition carries no `և` and no `-ություն`.
+- `.next` removed and a clean dev server started on a free port 3002 before any probe.
+- Route probes, sequential, all **200**: the article in all three editions, the three
+  listings, `/en/writers?period=19th-century`, `/hy/writers/hakob-paronyan`,
+  `/en/works/book-of-lamentations`, `/en/search?q=Shirvanzade`, `/sitemap.xml`.
+- Metadata probed directly: canonical correct; `og:image` correctly falls back to
+  `https://armat.site/og-default.png` rather than borrowing a portrait; three sitemap
+  `<loc>` entries, one per edition, none advertising an image file that does not exist.
+- Focused `writers.spec.ts` — **72 passed**.
+- `listing`, `search`, `seo`, `works`, `article` — **66 passed, 2 skipped**.
+- Full Playwright — **476 passed, 5 skipped, 0 failed**.
+- `npm run build`, run separately on a fresh `.next` — **exit 0**, TypeScript clean,
+  186 static pages generated, 36 `/[locale]/writers/[slug]` paths (12 × 3).
+
+### Failures and process mistakes, recorded
+
+1. **Three test failures on the first focused run, all mine, all fixed.** Two were count
+   literals designed to go red on a new arrival (`19th-century` 4 → 5, in the medieval
+   filter test and the period distribution test) — the tests working as intended. The
+   third was my own new guard: I banned the substring `occupied` as
+   "geopolitical framing", and it matched the ordinary English verb in *"the memoirs
+   … which occupied him between 1926 and 1932"*. A naive substring ban on a common word
+   was the wrong instrument; the list was narrowed to proper nouns and a positive
+   assertion was added beside it.
+2. **One count literal missed until the first full run** — `places.spec.ts` still said
+   Writers = 11. Found by the suite, fixed, and it is exactly the cross-section tripwire
+   that test exists to be.
+3. **The §91 portrait note was wrong and is corrected above** — the "1880 photograph" is
+   a 1910 lithograph. Recorded rather than quietly overwritten, because a future
+   commission would otherwise have treated a print as photographic authority.
+4. **Dev-server degradation reproduced, twice, with evidence.** Two consecutive full
+   parallel runs each failed exactly one test, in a *different* unrelated spec each time
+   — `newsletter.spec.ts:89` ("the form submits the active route locale") and then
+   `visit-map.spec.ts:533` ("the rendered basemap and its attribution both come from the
+   configuration"). Neither touches anything §97 changed. Both were re-run sequentially
+   on the same server and passed — newsletter 11/11, visit-map 41/41 — and the dev log
+   showed no compilation error, no 500 and no stalled route across the whole window.
+   The suite was then run again on a **fresh server with `.next` removed**, and came back
+   **476 passed / 0 failed**, which is the result recorded above. This is the §63–§66
+   pattern and it was not diagnosed as a product regression, but it was also not hidden:
+   the two flaked spec names and line numbers are written down here.
+5. **One avoidable stumble:** the first attempt to start the background dev server failed
+   because the scratchpad directory did not exist yet. No effect on the repository.
+
+### Diff audit
+
+Twelve files, 1906 insertions, 29 deletions, no new untracked files.
+
+**Zero deletions in every content, source and library file** — `en/hy/hyw` articles,
+`en/hy/hyw` writer cards, `sources.ts` and `media.ts` are pure additions. All 29
+deletions are in the four test files and every one of them is a count literal or an
+emptiness claim, listed above.
+
+`.claude/settings.json` untouched. `public/` untouched. No map, navigation, Cuisine,
+Places, History or existing-artwork file was modified.
+
+### Regressions evaluated
+
+- **§96 Paronyan** — fully preserved. Portrait registered at its own path,
+  `photo-referenced` provenance, absent from `PENDING_ARTWORK`, relations
+  `["khachatur-abovyan", "siamanto"]`, metadata, sitemap and biography unchanged; all
+  asserted in the §97 regression test as well as by his own surviving tests.
+- **§63/§92 Book of Lamentations** — Works still 5, the slug still present, its artwork
+  and provenance untouched.
+- **The eleven existing Writers** — no biography rewritten, no relation changed, no
+  reciprocal link added, order preserved with the new entry appended last.
+- **Category counts after:** Works 5, Writers **12**, Cuisine 12, Places 13, History 7.
+- **Navigation** — untouched, and `navigation.spec.ts` passes in the full run.
+
+### Technical debt
+
+- **Six older Writers still carry no `seoTitle` / `metaDescription` / `summary`.**
+  Unchanged by design; §97 was told not to fix them.
+- **The Matenadaran basalt discrepancy (§36) is still open.** Unrelated, and still the
+  only registered file in the archive known to disagree with its own article.
+- **The `hakob-paronyan.webp` ICC-profile oddity (§96) is still recorded and still
+  harmless.**
+- **`Մորգանի խնամին` has two dates in circulation (1926 and 1930)** and the article
+  carries both. A future Armenian-language source may settle it.
+- **The New Style birth date is genuinely unsettled** (18 vs 19 April) and is stated as
+  such. Anyone who resolves it should update the key fact in all three editions
+  together — the cross-locale number check will enforce that they move as one.
+
+No artwork was generated. Nothing was deployed. Writer #13 was not started.
+
+## §98 — Alexander Shirvanzade portrait: verified and registered (2026-09-02)
+
+Registration only. No biography change, no Work created, no Writer #13, nothing deployed.
+**Accepted on the first delivery**, which §95/§96 was not.
+
+### Pre-registration state, read from source
+
+Writers 12, registered Writer portraits 11, `PENDING_ARTWORK = ["alexander-shirvanzade"]`.
+Periods medieval 2 / 19th-century 5 / 20th-century 4 / soviet 1 in all three editions.
+Provenance: `daniel-varoujan`, `siamanto`, `hakob-paronyan` → `photo-referenced`;
+`alexander-shirvanzade` absent, resolving to the cautious `imagined` default. Shirvanzade
+absent from `IMAGES`, no `Article.image` in any edition, OG/Twitter falling back to
+`og-default.png`, no sitemap image. Counts Works 5 / Writers 12 / Cuisine 12 / Places 13 /
+History 7. Every expectation in the brief matched; nothing had to be corrected.
+
+### Technical audit — two independent methods, agreeing on every field
+
+`public/images/writers/alexander-shirvanzade.webp`
+
+- **1586 × 992**, aspect 1.598790, reduced 793:496 — the section's preferred geometry
+  **exactly**, which §96 drifted from.
+- **187,602 bytes.**
+- **SHA-256 `49fcbd38049c79b8bff0f188e1eeb15be402c348ce3a8b36dda636f6f859842a`.**
+- RIFF valid: declared size 187,594 = filesize − 8 exactly. `WEBP` fourcc present.
+- **One chunk only** — `VP8 `, 187,582 bytes, starting at offset 12 and ending at 187,602.
+  The walker consumes the file to the byte: **zero trailing bytes**.
+- Lossy VP8, key frame, version 0, show_frame 1, start code `9d 01 2a`, horizontal and
+  vertical scaling both 0.
+- **No `VP8X`, no `VP8L`, no `ALPH`, no `ICCP`, no `EXIF`, no `XMP`, no `ANIM`/`ANMF`, no
+  orientation.** Structurally the simplest file in the registry, and in particular it does
+  **not** repeat the embedded ICC profile §96 introduced — that debt does not grow.
+- sharp agrees: format webp, 1586×992, sRGB, 3 channels, uchar, not progressive,
+  `hasProfile` false, `hasAlpha` false, no icc/exif/xmp buffers, no pages/loop/delay.
+  Full decode to 4,719,936 raw bytes succeeds.
+
+### The reference actually used
+
+**The studio portrait credited to the Charents Museum of Literature and Art, Yerevan**
+(Commons `Alexander Shirvanzade.jpg`, 375×600, SHA-256 `bbd993…85e89`) — reference
+hierarchy #1 from §97. It was **downloaded and opened**, not described from text, and
+compared against the artwork at ~5× magnification side by side. It shows him at roughly
+45–55: thick dark curly hair greying at the temples and standing off the head, a full
+horizontal dark moustache over a clean-shaven jaw, near-frontal with a level gaze, dark
+jacket, white wing collar, dark patterned cravat. It also carries a handwritten Armenian
+ink dedication across the lower right, which the artwork correctly does not reproduce.
+
+Two further lifetime photographs were opened and used **only** to corroborate invariants:
+the recto of the Tiflis Provincial Gendarme Administration registration card held by the
+National Archive of Georgia (frontal + profile, c. 1898, full dark beard — best evidence
+for skull width, ear set and nose profile), and the late `azg.am` studio portrait
+(1200×1600, white mane, entirely clean-shaven). Neither contributed a feature.
+
+**Rejected as facial authority**, per §97 and the standing §87 rule: the image widely
+captioned "c. 1880", which is **a lithograph** printed in the Constantinople French-language
+paper *La Patrie* in 1910 and held by the BnF; the 2008 commemorative stamp; the two
+*Khatabala* caricatures; the sketch. None was used.
+
+### Likeness comparison — feature by feature
+
+| Feature | Verdict |
+|---|---|
+| Face width | strong match — broad at the cheekbones, tapering to a rounded chin |
+| Face length | strong match — same proportion, dominated by the forehead |
+| Forehead | strong match — very high and broad, deep bilateral temporal recession |
+| Hairline | strong match — same rounded arc, same recession, hair rolled back off it |
+| Hair density/texture | strong match — thick curly mass standing off the head, same volume |
+| Hair colour distribution | strong match — grey concentrated front and left, darker mass to the viewer's right, including the dark curl behind the visible ear |
+| Eyebrows | strong match — dark and heavy, **and the reference asymmetry is preserved**: the viewer's-right brow rides higher and arcs more |
+| Eye placement | strong match — deep-set under a heavy brow shelf, same spacing |
+| Eye shape | strong match — hooded lids, same asymmetry (viewer's-right eye more open), same under-eye pouches |
+| Nose bridge | strong match — long, straight, broad, from the same high origin |
+| Nose length | strong match |
+| Nose tip | strong match — fleshy, rounded, slightly downturned, broad wings |
+| Moustache geometry | strong match — full, horizontal, wider than the mouth, ends thickening and turning slightly down, centre part, covering the upper lip |
+| Moustache colour | **acceptable stylization** — reads greyer than the photograph's dark |
+| Beard | strong match — clean-shaven, no beard imported from the gendarme period |
+| Ears | strong match — the viewer's-right ear large, protruding, broad helix, substantial lobe; the other hidden in hair, exactly as in the reference |
+| Cheeks | strong match — full, same nasolabial fold |
+| Jaw | strong match — broad, softening under the ear |
+| Chin | strong match — rounded, not prominent |
+| Apparent age | **acceptable stylization** — reads ~50–58 against the photograph's ~45–55 |
+| Expression | strong match — level, direct, self-possessed |
+
+No mismatches. Two acceptable stylizations, both in the same direction (a few years older),
+which is why they are internally consistent rather than a hybrid.
+
+**Identity question: would someone familiar with his surviving photographs recognise this
+specifically as Alexander Shirvanzade? YES.** The combination of the very high forehead with
+deep temple recession, the rolled-back grey-and-dark curly mane, the asymmetric heavy brows,
+the long broad-bridged nose with the fleshy tip, the large protruding left ear and the wide
+horizontal moustache over a bare jaw is unmistakably that photograph's face.
+
+**Overall verdict: PASS WITH MINOR STYLIZATION.**
+
+### One photographic period
+
+Hair, facial hair, age and dress all belong to the Charents Museum period and nothing else.
+No gendarme-period beard, no late-life white mane, no late-life clean-shaven face. The three
+references genuinely disagree with one another on facial hair — beard / moustache-only /
+none — so this was the live risk, and the file does not combine them. **PASS.**
+
+### Composition and the collection archetype
+
+- **Framing:** close half-length, chest-up. Head roughly **57 per cent of the frame height**
+  against roughly 20–30 per cent for most of the collection. The closest portrait in the
+  Writer section by a wide margin.
+- **Orientation:** near-frontal, a slight turn to the viewer's right, gaze to camera. Not a
+  profile.
+- **Background:** plain plaster wall, painterly texture, darker to the left, with a single
+  **undecorated vertical moulding and door/window casing** at the right edge — the "faint
+  suggestion of a period interior" §9 permits. No bookshelf, desk, manuscript, window view,
+  cityscape, oil field, stage or other figure. The person dominates.
+- **Props: none.** No book, manuscript, pen, newspaper, spectacles, cane, pipe, cigarette,
+  mask or document. **Hands are entirely outside the crop**, which the brief prefers to
+  invented props.
+- **Clothing:** dark charcoal jacket with notched lapels, waistcoat with a visible button,
+  aged-cream stiff wing collar, dark patterned silk cravat. Period-appropriate and matching
+  the reference's dress. No medals, no insignia, no uniform, no folk costume, no clerical
+  dress, nothing modern.
+- **Expression:** serious, observant, self-possessed, faintly weary — the photographed
+  expression, not a heroic stare, a martyrdom or an added smile.
+
+### Symbol audit
+
+No Soviet symbolism of any kind — no flag, hammer and sickle, party insignia, medal display,
+government office or propaganda backdrop. **No Baku-oil cliché** — no derrick, well, stack,
+skyline, barrel or businessman. **No theatre cliché** — no mask, curtain, spotlight, actor or
+audience. **No national-symbol collage** — no flag, coat of arms, Ararat, alphabet, khachkar
+or map. The identity comes entirely from the historical likeness.
+
+### Readable-text sweep — the hard gate
+
+The whole 1586×992 frame was tiled into six regions and swept at ~2.8×, then selected areas
+at 8×. Covered: background left, background right, the moulding and casing, the wall behind
+the head, hair, face, collar, cravat, lapels, waistcoat, buttons, shoulders and all four
+corners.
+
+**Zero readable text in any alphabet.** No name in any romanisation, no `Շիրվանզադե` or
+`Շիրվանզադէ`, no `Նամուս`, `Քաոս` or `Պատվի համար`, no date, initial, label, signature,
+plaque or watermark. Nothing resolves as a word.
+
+One glyph-like mark was found and chased down: a short vertical slot on the left lapel. At
+8× it resolves as a **stitched buttonhole with a bar-tack at each end**, angled with the
+lapel roll — tailoring, not a letter, with no crossbar and no serifs. At the 1152px rendered
+hero width it is about ten pixels of stitching. Judged at rendered size first and magnified
+only to confirm: the §89 rule.
+
+### Lighting and palette
+
+Soft, broad, frontal daylight from the upper left. It reveals forehead, eye sockets, nose,
+moustache, cheek geometry and jaw. No spotlight, no rim light, no golden nostalgia wash, no
+martyr lighting, no glow.
+
+Measured mean channel warmth **R−B = 23.0** (R 75.9, G 67.7, B 52.9) — the **fourth coolest
+of twelve**, and cooler than Paronyan's 26.1. The relatively high green mean gives an
+olive-grey cast rather than Paronyan's browner grey-green, so it is restrained without
+copying the entry before it. Nowhere near the warm-study group (Tumanyan 61.6, Charents 47.2,
+Isahakyan 42.4, Sevak 39.0, Raffi 37.5). Not sepia, not an orange monochrome, no saturated
+decorative ground.
+
+### AI-artifact audit
+
+Face: pupils round and concentric, both eyes looking the same way, consistent catchlights,
+natural lashes and lids, individually rendered brow hairs with correct growth direction,
+natural irregular hairline with fine temple wisps, correctly constructed ear (helix,
+antihelix, tragus, lobe in correct relation), natural nostrils, lips and jaw, no melting or
+duplication in the hair. Clothing: lapels symmetrical and correctly rolled, collar correctly
+folded, cravat plaited naturally, button rimmed and plausible, shoulder geometry natural.
+Background: no accidental faces, no text-like marks, no duplicated forms, no impossible wall
+geometry, no halos. The fine craquelure across the skin is a consistent painterly surface
+choice, not a defect. **No major structural error at article scale.**
+
+### Comparison against all eleven existing Writers
+
+Compared on a twelve-up contact sheet at full resolution and at 380/160/128px.
+
+1. **Tumanyan** — seated at a desk with papers and books, landscape through an opening,
+   warm golden. Small head. Shirvanzade: no desk, no vista, head ~2.5× larger.
+2. **Charents** — seated, pen in hand, books, monastery vista, warm brown. Shirvanzade has
+   no writing action and no landscape.
+3. **Raffi** — seated at a desk, books, ornate interior with window and vessel. Shirvanzade
+   has none of that furniture.
+4. **Isahakyan** — seated writing, carved stone and fresco, books. Shirvanzade's wall is
+   plain plaster.
+5. **Abovyan** — seated with quill and scroll, traceried window, patterned interior.
+   Shirvanzade holds nothing.
+6. **Sevak** — seated at a desk, papers, fresco wall, grey suit. Nearest in clothing tone,
+   but still a desk scene at twice the camera distance.
+7. **Narekatsi** — seated with a large open manuscript, cave arch onto a lake and church.
+   The opposite pole: prop-dominant and environmental.
+8. **Varoujan** — seated at a desk, hand to face, books, Constantinople window. Shirvanzade
+   has no hands in frame at all.
+9. **Shnorhali** — standing full-length in a stone arcade holding a book. The widest framing
+   in the section; Shirvanzade is the tightest.
+10. **Siamanto** — the closest existing rival on camera distance and the closest on palette
+    (R−B 10.3, cooler still), but a seated three-quarter desk portrait with papers, dark
+    furniture and a hand-to-chin pose. Shirvanzade is nearer, frontal, plain-ground and
+    prop-free.
+11. **Paronyan** — see below.
+
+**Collection contribution: the section's first close half-length; the only portrait with a
+genuinely plain background; the only one with no desk, no books and no prop of any kind; and
+the only one with no hands in frame.**
+
+### Explicit Paronyan comparison
+
+**Does Shirvanzade remain clearly distinct from Hakob Paronyan? YES.**
+
+| | Paronyan (§96) | Shirvanzade (§98) |
+|---|---|---|
+| Pose | standing, three-quarter body | chest-up, near-frontal |
+| Head share of frame | ~22 % | ~57 % |
+| Environment | working print room | plain plaster wall |
+| Props | type cabinet, press, proofs in hand | none |
+| Other figures | two compositors at a bench | none |
+| Window / view | arched window onto a Constantinople skyline | none |
+| Hands | both visible, one holding paper | outside the frame |
+| Palette | warm grey-green print room, R−B 26.1 | olive-grey, R−B 23.0 |
+| Geometry | 1560×1008 (1.548) | 1586×992 (1.599) |
+| ICC | 456-byte sRGB profile embedded | none |
+
+Paronyan is a person inside a working world; Shirvanzade is a face as the dominant visual
+field. That is the distinction §97 commissioned, and it holds.
+
+### Crops — generic focus, no override
+
+`PORTRAIT_FOCUS` was read from source rather than assumed: `object-[38%_28%]`, consumed by
+`WriterCard` (both variants), `SearchResultCard`, `FeaturedItem` and, through `ContentPhoto`,
+the `ArticleLayout` hero. Every crop was simulated by reproducing `object-cover` +
+`object-position` against the real 1586×992 geometry and rendered for inspection.
+
+| Slot | Ratio | Source box | Result |
+|---|---|---|---|
+| Hero 4:3 | 1.333 | x[100–1423] y[0–992] | pass |
+| Hero 3:2 | 1.500 | x[37–1525] full height | pass |
+| Hero 16:9 | 1.778 | full width y[28–920] | pass, hair top intact |
+| Featured 16:10 | 1.600 | effectively the whole frame | pass |
+| Writer card 4:3 | 1.333 | x[100–1423] | pass |
+| Compact card strip | 0.960 | x[241–1193] | pass |
+| Search thumb 160 | 0.889 | x[268–1150] | pass |
+| Search thumb 128 | 0.711 | x[335–1040] | pass |
+| Narrow horizontal 21:9 | 2.333 | full width y[87–767] | pass |
+
+Every crop preserves full forehead, both eyes, nose, moustache, chin and enough shoulders to
+read as intentional. **No forehead crop, no accidental chin crop.** The narrowest slot
+(128×180) is the tightest: it grazes the hair at the right edge and puts the ear just outside
+the frame, which is ordinary portrait cropping and costs no identity, because every
+identity-carrying feature stays inside and large. **No Shirvanzade-specific focus override
+was added, because the generic crop does not fail.**
+
+### Thumbnail gates
+
+Rendered at true 128×180 and 160×180 and inspected via nearest-neighbour enlargement, so no
+detail was invented by the upscale.
+
+- **128px: PASS.** The tall forehead with its recession, the grey-and-dark curly silhouette,
+  the heavy asymmetric brows, the long nose and the wide moustache all survive. It reads as
+  one specific man, not "an elderly Armenian intellectual".
+- **160px: PASS**, with more moustache and collar detail.
+
+This is a marked improvement on the section, where most portraits put a small head inside a
+busy room, and it is the reason the close archetype was chosen.
+
+### Registration
+
+**REGISTERED.** Three edits, all in `src/lib/media.ts`, all additive:
+
+1. `IMAGES` gains `"alexander-shirvanzade": "/images/writers/alexander-shirvanzade.webp"` in
+   the generic registry, with the audit above recorded beside it. **No article-level `image`
+   field, no rendering branch, no slug-specific component logic** — `grep` confirms zero
+   `image:` fields in the English writers article file.
+2. `PORTRAIT_PROVENANCE` gains `"alexander-shirvanzade": "photo-referenced"`, with the note
+   recording which photograph was the authority, which two only corroborated, and which two
+   images were refused.
+3. `PENDING_ARTWORK` loses the slug and is `[]` again — emptied for the fifteenth time, and
+   the first time the Writers section has been complete at twelve.
+
+Verified at runtime: 12 registered Writer portraits, `PENDING_ARTWORK = []`,
+`getPortraitProvenance("alexander-shirvanzade") === "photo-referenced"`, unknown slugs still
+default to `imagined`.
+
+### Provenance regressions
+
+`photo-referenced`: `daniel-varoujan`, `siamanto`, `hakob-paronyan`, `alexander-shirvanzade`
+— exactly four, asserted as a set so a fifth appearing anywhere goes red.
+`imagined`: `grigor-narekatsi`, `nerses-shnorhali`, and the seven unlisted writers, plus the
+unknown-slug default. Nobody moved.
+
+### Rendering, metadata and sitemap
+
+- **Listing** — `/en|hy|hyw/writers` each show 12 cards, **zero placeholders**, and exactly
+  one card carrying `alexander-shirvanzade`. Period filters unchanged: medieval 2,
+  19th-century 5 (with his face in it), 20th-century 4, soviet 1. Tumanyan still the sole
+  featured writer.
+- **Heroes** — all three editions render one raster hero at his own path, no placeholder SVG,
+  the localized `imageAlt`, and the **generic** `imageAiPhotoPortraitCaption`. No
+  Shirvanzade-specific caption string was added; the imagined-likeness caption is asserted
+  absent. Both captions still name the AI origin and refuse the photograph in all three
+  editions.
+- **Search** — found under ten queries across the three editions (Alexander/Aleksandr
+  Shirvanzade, bare Shirvanzade, Shirvan-Zade, Alexander Movsisyan, both Armenian
+  orthographies, `Նամուս`, `Քաոս`, `Պատուի համար`); each hit carries his own portrait, no
+  placeholder, nothing borrowed. Asserted scoped to the canonical Writer href. `Նամուս` and
+  `Քաոս` return **no Work result**, because no such Work exists.
+- **`Article.image`** — `{"@type":"ImageObject","url":"https://armat.site/images/writers/alexander-shirvanzade.webp"}`
+  in all three built editions.
+- **OG / Twitter** — both are his portrait in all three editions; the `og-default.png`
+  fallback is gone and no other writer's file appears.
+- **Schema** — graph is Organization, WebSite, Article, BreadcrumbList. **No `Person` node was
+  added**, per the brief, and a test asserts its absence.
+- **Sitemap** — verified **per `<url>` block**, not by occurrence count: each of the three
+  locale blocks contains
+  `<image:loc>https://armat.site/images/writers/alexander-shirvanzade.webp</image:loc>`.
+
+### Tests
+
+`writers.spec.ts` inverted from pending-state to registered-state, on the §96 pattern:
+`ILLUSTRATED` and `PORTRAIT` gain the twelfth entry, `PENDING` returns to `[]`, and the three
+§97 tests that asserted absence now assert presence — the registered path, the absent
+placeholder, the photo-referenced caption, the provenance entry, the search thumbnail, the OG
+image, `Article.image` and the per-locale sitemap image. Two new guards were added: an
+exactly-four photo-referenced set, and a listing test asserting twelve cards with zero
+placeholders across all editions plus the four period-filter counts.
+
+Two further pending-state assertions went red on the first run and were inverted:
+`PHOTO_REFERENCED` in the §85 provenance-shape test (three → four) and the §97
+"only Writer #12 is waiting" literal in the Paronyan regression (→ `[]`). Both are the
+mechanism working, and both were repaired as exact hunks.
+
+`places.spec.ts` holds the archive-wide exact registry snapshot; it went red as designed and
+gained one line. That is the fifth Writers registration to turn it red.
+
+- `npm run typecheck` — clean.
+- `npm run validate:content` — **✓ 198 entries across 3 locales**, and the pending-artwork
+  note is gone, which is the validator's own confirmation that nothing renders a placeholder.
+- Focused `writers.spec.ts` — **73 passed**.
+- `listing`, `search`, `seo`, `article`, `works`, `places` — **233 passed, 2 skipped** across
+  the two runs (149 + 84).
+- **Full Playwright — 477 passed, 5 skipped, 0 failed, 4.5 minutes.** Clean on the first run.
+
+### Dev-server degradation
+
+**Did not reproduce.** `.next` was inspected before testing, found to contain production
+artifacts from §97's build (`BUILD_ID`, `prerender-manifest.json`, `server/app-paths-manifest.json`),
+and removed; the dev server was started clean on a confirmed-free port 3002. Sequential
+probes returned 200 for all three Shirvanzade editions, Paronyan, Book of Lamentations, a
+Cuisine article, a Place, a History article, the Writers listing, the portrait file itself and
+the sitemap. The full parallel suite then passed on its first run with no timeout in any
+spec — unlike §97, which flaked twice in unrelated files.
+
+### Navigation
+
+Works → Cuisine: **did not reproduce.** `navigation.spec.ts` passed in the full run. Not
+modified, and not claimed fixed.
+
+### Build
+
+Run separately, after Playwright exited and port 3002 was freed, on a removed `.next`.
+**Exit 0.** TypeScript clean. 186 static pages. **36 `/[locale]/writers/[slug]` routes
+prerendered** — 12 × 3 — with all three Shirvanzade routes present in
+`prerender-manifest.json`. The built HTML for each of the three editions carries his portrait
+in `og:image`, `twitter:image` and the JSON-LD `Article.image`.
+
+### Diff safety
+
+Thirteen tracked files modified plus one new untracked file. `git diff --cached` empty —
+nothing staged. Because §97 is still uncommitted, the diff is cumulative over §97 + §98.
+
+**Zero deletions in every `src/` file.** `src/lib/media.ts` is pure addition relative to HEAD
+(+161 lines, of which +119 are §98's). All three editions' articles and card files and
+`sources.ts` are byte-identical to what §97 left — 350/12/353/12/353/12/62 insertions, zero
+deletions, exactly the §97 numbers — which is the mechanical proof that **the biography was
+not touched by this step**. No `image:` field exists in any article file.
+
+All 29 deletions are in the four test files and every one is a count literal or a state claim
+that had to invert, each listed and explained above. No whole-file rollback was used; no
+`git checkout`, `git restore` or `git reset` was run at any point. Only exact hunks were
+repaired. Mixed line endings preserved.
+
+`.claude/settings.json` untouched. `public/` gained exactly one file. No map, navigation,
+Cuisine, Places, History or other artwork file was modified.
+
+### Regressions
+
+- **Paronyan (§96)** — file registered at its own path, `photo-referenced`, absent from
+  pending, relations `["khachatur-abovyan", "siamanto"]`, metadata and sitemap intact. His
+  own tests pass unchanged.
+- **Varoujan, Siamanto** — `photo-referenced`, unchanged. **Narekatsi, Shnorhali** —
+  `imagined`, unchanged.
+- **Book of Lamentations (§92/§93)** — artwork, metadata, sitemap image, content and
+  relations untouched; still one of five Works.
+- **The eleven existing Writers** — no article, relation or portrait path changed.
+- **Future Works** — none created. `Նամուս`, `Քաոս` and `Պատվի համար` are still named in
+  prose and are still not Works; the nine banned Work slugs remain absent.
+- **Counts** — Works 5, Writers 12, Cuisine 12, Places 13, History 7. Unchanged.
+
+### Failures and process mistakes
+
+1. **Two test failures on the first focused run**, both mine and both the pending-state
+   assertions §98 had to invert and I had missed: `PHOTO_REFERENCED` in the §85 provenance
+   test and the §97 pending literal in the Paronyan regression. Fixed as exact hunks.
+2. **One further failure on the affected-suite run** — `places.spec.ts`'s exact registry
+   snapshot. That test exists precisely to go red when any non-Places entry appears, so this
+   is the tripwire working rather than a mistake, but it should have been anticipated from
+   §96's history and was not.
+3. **A shell-quoting slip:** a backtick inside a heredoc-driven `node -e` edit was interpreted
+   as command substitution and silently deleted the words `` `photo-referenced` `` from a test
+   comment. Caught on re-reading the hunk, repaired with the file-editing tool, and the lesson
+   is recorded: backticked prose belongs in an Edit, not in a shell string.
+4. No genuine product failure occurred at any point, and no infrastructure flake was
+   misclassified — because none happened.
+
+### Technical debt
+
+- **The §96 ICC-profile oddity persists** on `hakob-paronyan.webp` and is now the *only*
+  registry file with an embedded profile; §98 did not add a second.
+- **Geometry is now non-uniform by one file**: eleven portraits are 1586×992 (Narekatsi
+  1585×992) and Paronyan alone is 1560×1008. Harmless, recorded.
+- **The Matenadaran basalt discrepancy (§36) is still open** — still the only registered file
+  known to disagree with its own article.
+- **Six older Writers still carry no `seoTitle`/`metaDescription`/`summary`.** Unchanged.
+- **`Մորգանի խնամին` still has two circulating dates (1926, 1930)** and the article carries
+  both; **the New Style birth date is still unsettled** (18 vs 19 April). Both are content
+  debt from §97, untouched here.
+- **The §97 correction to the portrait record stands**: the "c. 1880 photograph" is a 1910
+  lithograph. Anyone re-commissioning this portrait must not treat it as a likeness.
+
+Nothing was deployed. Writer #13 was not started. No Work was created.
