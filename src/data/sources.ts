@@ -2585,6 +2585,77 @@ const SOURCES: Record<string, Source[]> = {
     },
   ],
 
+  /*
+   * §94. Paronyan's bibliography carries an unusual load, because three separate
+   * things about him are contested rather than merely thin: his birth year, the
+   * publication chronology of Մեծապատիվ մուրացկաններ, and a schooling claim that
+   * circulates widely with nothing behind it. Each source below is cited for the
+   * specific thing it settles, and the two that disagree are both listed rather
+   * than the losing one being dropped.
+   */
+  "hakob-paronyan": [
+    {
+      title: "Հայկական սովետական հանրագիտարան, հատոր 9",
+      publisher: "Հայկական հանրագիտարանի գլխավոր խմբագրություն, Երևան",
+      year: "1983",
+      identifier: { kind: "archive", value: "ՀՍՀ, հատոր 9, էջ 204" },
+      note: "The spine of the article and the source of every date it states without qualification: 19 November 1843 at Adrianople, 27 May 1891 at Constantinople, the Arshakunyan school, the single year at the Greek school from 1857, the pharmacy and bookkeeping work, and the sequence of periodicals from Եփրատ in 1871 to Խիկար in 1884–1888. It is also the source consulted for the schooling question, and what matters is what it does not contain: no Catholic or Mekhitarist education appears in it, which is why the article omits that claim rather than repeating it.",
+    },
+    {
+      author: "Kevork B. Bardakjian",
+      title: "A Reference Guide to Modern Armenian Literature, 1500–1920",
+      publisher: "Wayne State University Press, Detroit",
+      year: "2000",
+      identifier: { kind: "isbn", value: "9780814327470" },
+      note: "The standard English-language reference for the period and the work of the scholar who has written most on Paronyan specifically. Cited for the placement of him in the movement from romanticism to realism, and for the careful formulation the article follows — first and greatest satirist of modern Armenian literature — in place of the founder-of-Armenian-satire and Armenian-Molière framings that circulate in popular writing.",
+    },
+    {
+      author: "A. J. Hacikyan, G. Basmajian, E. S. Franchuk and N. Ouzounian (eds.)",
+      title: "The Heritage of Armenian Literature, Volume III: From the Eighteenth Century to Modern Times",
+      publisher: "Wayne State University Press",
+      year: "2005",
+      identifier: { kind: "isbn", value: "9780814332214" },
+      note: "The section's backbone series at the volume covering him. Cited for the English-language account of his career and for the treatment of his satire as social rather than political in its primary target.",
+    },
+    {
+      author: "Hagop Baronian, translated and edited by Mischa Kudian",
+      title: "Honourable Beggars: A Satire",
+      publisher: "Mashtots Press, London",
+      year: "1978",
+      identifier: { kind: "isbn", value: "9780903039055" },
+      note: "The standard English translation of Մեծապատիվ մուրացկաններ and the route by which most English readers meet him. Cited for the English title the article uses and for the cast of visiting professionals; it is also part of the transliteration evidence, since it files its author as Baronian while Armenian institutions write Պարոնյան.",
+    },
+    {
+      title: "Հակոբ Պարոնյան, Երկերի ժողովածու, տասը հատորով",
+      publisher: "Հայկական ՍՍՀ ԳԱ հրատարակչություն, Երևան",
+      year: "1962–1979",
+      identifier: { kind: "archive", value: "Wikimedia Commons, Hagop Baronian collected works, volumes 1–10" },
+      note: "The ten-volume academic collected works, digitised and in the public domain. Cited as the primary corpus behind the article's statements about what he actually wrote — the plays, the feuilleton series, Ազգային ջոջեր and the prose — and as the evidence that the texts discussed here are available rather than merely described.",
+    },
+    {
+      author: "Mariam Gevorgyan",
+      title: "Հակոբ Պարոնյանի «Ազգային ջոջեր»-ի գրապատմական արժեքը",
+      publisher: "Artsakh State University, Stepanakert",
+      year: "2019",
+      identifier: { kind: "archive", value: "artsakhlib.am, Գևորգյան, «Ազգային ջոջեր»-ի գրապատմական արժեքը" },
+      note: "The basis for the Ազգային ջոջեր section and the source that resolves what looks like a date conflict elsewhere: serialization in Թատրոն from 1874, then two book parts, Constantinople 1879 and 1880, with roughly six years of biographical research behind the portraits. Also the source for the claim that the portraits are built on documented fact and written without personal malice.",
+    },
+    {
+      title: "Library of Congress Name Authority File and Bibliothèque nationale de France, authority records for Hakob Paronean / Hagop Baronian",
+      publisher: "Library of Congress; Bibliothèque nationale de France",
+      year: "consulted 2026",
+      identifier: { kind: "archive", value: "VIAF cluster 46886934; BnF 12761124" },
+      note: "Cited only for the birth-year disagreement, and cited precisely. The Library of Congress records him as Paronean, Hakob, 1841?-1891, with the question mark that marks an unverified date; the BnF gives 1841–1891 without one. Both cluster with the records that say 1843. This is the evidence for the article's statement that a reader meeting 1841 in a catalogue has found a flagged uncertainty rather than an error, and it is not used for any biographical claim.",
+    },
+    {
+      title: "Հակոբ Պարոնյանի անվան երաժշտական կոմեդիայի պետական թատրոն",
+      publisher: "Yerevan",
+      year: "founded 1941",
+      identifier: { kind: "archive", value: "Paronyan Musical Comedy Theatre, Yerevan — institutional record" },
+      note: "Cited for the reception section: the theatre was founded in 1941 and opened in 1942 and carries his name. It is also the reason the article makes a point about search — the institution now dominates the query Hakob Paronyan, which is precisely the discovery problem this page exists to fix.",
+    },
+  ],
+
 };
 
 

@@ -122,6 +122,18 @@ export const writers: Writer[] = [
     imageSeed: "siamanto",
     notableWorks: ["Կարմիր լուրեր բարեկամէս", "Հայորդիներ", "Հոգեվարքի և հույսի ջահեր", "Սուրբ Մեսրոպ"],
   },
+  {
+    slug: "hakob-paronyan",
+    name: "Hakob Paronyan",
+    lifespan: "1843–1891",
+    period: "19th Century",
+    periodId: "19th-century",
+    role: "Satirist, playwright and editor",
+    description:
+      "The Constantinople satirist and playwright, known in English as Hagop Baronian, whose comedies and satirical journals made Ottoman Armenian city life a literary subject.",
+    imageSeed: "hakob-paronyan",
+    notableWorks: ["Պաղտասար աղբար", "Ազգային ջոջեր", "Մեծապատիվ մուրացկաններ", "Ատամնաբուժն արևելյան"],
+  },
 ];
 
 export const literaryPeriods: Filter[] = [

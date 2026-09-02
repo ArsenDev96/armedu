@@ -3137,10 +3137,27 @@ test("no unrelated article artwork changed", () => {
     // `writers.spec.ts` asserts. Extended by one line, every other value
     // byte-identical.
     siamanto: "/images/writers/siamanto.webp",
+    // §96 adds Paronyan, the fifth Writers registration to turn this snapshot red
+    // and the one that closes the section at eleven. He is the third slug in
+    // `PORTRAIT_PROVENANCE`, taking `photo-referenced` from one surviving lifetime
+    // studio photograph — which this snapshot cannot see and `writers.spec.ts`
+    // asserts. Like Varoujan at §85, his file was delivered twice: the first was
+    // refused for a readable masthead. Also invisible from here, and deliberately:
+    // the path is what this snapshot pins, and the path is new. Extended by one
+    // line, every other value byte-identical.
+    "hakob-paronyan": "/images/writers/hakob-paronyan.webp",
     anush: "/images/works/anush.webp",
     "david-of-sassoun": "/images/works/david-of-sassoun.webp",
     "wounds-of-armenia": "/images/works/wounds-of-armenia.webp",
     "the-fool": "/images/works/the-fool.webp",
+    // §93 adds the Book of Lamentations — the first *Works* registration ever to
+    // turn this snapshot red, after five Cuisine and four Writers ones, and the
+    // registration that leaves every article in every section with a cover. It is
+    // artwork for a book rather than a portrait of a person, so it is deliberately
+    // absent from `PORTRAIT_PROVENANCE`, which this snapshot cannot see and
+    // `works.spec.ts` asserts. Extended by one line, every other value
+    // byte-identical.
+    "book-of-lamentations": "/images/works/book-of-lamentations.webp",
     lavash: "/images/cuisine/lavash.webp",
     dolma: "/images/cuisine/dolma.webp",
     khorovats: "/images/cuisine/khorovats.webp",
@@ -4787,7 +4804,7 @@ test("the four existing category listings still load and still count what they d
     // 9 → 10 with Siamanto. Edited rather than derived on purpose: this test exists
     // to notice when another section grows, and it has now done so four times,
     // going red first on each.
-    ["writers", 10, dict.listing.writers.title],
+    ["writers", 11, dict.listing.writers.title],
     ["works", 5, dict.listing.works.title],
     // §67 moves Cuisine 6 → 7 with Spas, §70 moves it 7 → 8 with jingalov hats,
     // §72 moves it 8 → 9 with khash, §74 moves it 9 → 10 with matsun, §77 moves it

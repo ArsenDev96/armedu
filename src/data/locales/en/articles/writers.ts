@@ -1795,4 +1795,288 @@ export const writerArticles: Article[] = [
     ],
     relatedSlugs: ["daniel-varoujan", "grigor-narekatsi", "mesrop-mashtots-armenian-alphabet"],
   },
+  {
+    slug: "hakob-paronyan",
+    href: "/writers/hakob-paronyan",
+    category: "writers",
+    categoryLabel: "Armenian Writers",
+    title: "Hakob Paronyan",
+    seoTitle: "Hakob Paronyan (Hagop Baronian): Armenian Satirist",
+    excerpt:
+      "The Constantinople satirist, playwright and editor whose comedies and periodicals turned Ottoman Armenian city life into the subject of Armenian comic writing.",
+    metaDescription:
+      "Hakob Paronyan, also written Hagop Baronian: Adrianople and Constantinople, the satirical journals, Uncle Baghdasar, National Bigshots and Honourable Beggars.",
+    summary:
+      "Hakob Paronyan — the same writer English catalogues often file as Hagop Baronian — was a Western Armenian satirist, playwright, prose writer and periodical editor, born at Adrianople in 1843 and dead at Constantinople in 1891. He spent almost his whole working life in the Ottoman capital, editing a series of satirical papers that were closed or abandoned in turn, and writing the comedies and prose satires that made Armenian comic literature a literature about a city. Ազգային ջոջեր portrayed the leading Armenians of his own day by name; Մեծապատիվ մուրացկաններ turned a rich provincial's arrival in Constantinople into a survey of everyone who wanted something from him; Պաղտասար աղբար, written in 1886, was first staged about ten years later and has stayed in the Armenian repertoire ever since.",
+    period: "19th Century",
+    periodId: "19th-century",
+    imageSeed: "hakob-paronyan",
+    keywords: [
+      "Hakob Paronyan",
+      "Hagop Baronian",
+      "Hakob Baronian",
+      "Hagop Paronian",
+      "Hakob Paronean",
+      "Հակոբ Պարոնյան",
+      "Յակոբ Պարոնեան",
+      "Պարոնյան",
+      "Պարոնեան",
+      "Armenian satirist",
+      "Armenian playwright",
+      "Western Armenian satire",
+      "Պաղտասար աղբար",
+      "Uncle Baghdasar",
+      "Baghdasar Aghbar",
+      "Ազգային ջոջեր",
+      "National Bigshots",
+      "Մեծապատիվ մուրացկաններ",
+      "Մեծապատիւ մուրացկաններ",
+      "Honourable Beggars",
+      "Honorable Beggars",
+      "Խիկար",
+      "Մեղու",
+      "Constantinople Armenian press",
+    ],
+    intro:
+      "Hakob Paronyan is the writer who made Armenian readers laugh at themselves in print. For twenty years he edited satirical papers in Constantinople, and when they were shut or ran out of money he started another one; between them he wrote the comedies and prose satires that are still the first thing named when Armenian satire is discussed. What is easy to miss behind the reputation is how specific his work is. He did not write about vice in general. He wrote about a particular city, in a particular decade, in the language that city actually spoke, and he named names.",
+    author: "Armat Editorial Team",
+    updated: "2026-09-02",
+    sections: [
+      {
+        id: "who-hakob-paronyan-was",
+        heading: "Who Hakob Paronyan was",
+        paragraphs: [
+          "Hakob Paronyan was a Western Armenian satirist, playwright, prose writer and journalist, born at Adrianople in the Ottoman Empire in 1843 and dead at Constantinople in 1891. Four occupations is not a padded list: they are one activity seen from four sides. His plays were printed in his own journals, his journalism was written in scenes and dialogue, and his best-known prose work reads like a comedy with the stage directions removed.",
+          "He belongs to the Ottoman Armenian world rather than to the Russian Armenian one, and to a city rather than to a province. Almost everything he wrote was written in Constantinople, printed in Constantinople and aimed at Constantinople Armenians who would recognise the type being described and sometimes the man. That is the sharpest difference between him and the writers around him in this archive, most of whom wrote about villages, mountains, nations and the past.",
+          "The other difference is genre. Armenian nineteenth-century literature is heavily weighted toward poetry, the historical novel and the patriotic lyric. Paronyan wrote comedy for the stage, satirical portraiture and comic prose, and he did it as a working editor rather than as a man of letters with a private income.",
+        ],
+      },
+      {
+        id: "the-name-paronyan-or-baronian",
+        heading: "Paronyan or Baronian: one writer, two search results",
+        paragraphs: [
+          "This article calls him Hakob Paronyan, which is how the name is written in Eastern Armenian and how Armenian institutions in Yerevan spell it — the Yerevan musical comedy theatre named after him carries that form. A great deal of the English-language material about him, including library catalogue records and the standard English translation of his novel, calls him Hagop Baronian instead. Hagop Paronian, Hakob Baronian and Hakob Paronean all also circulate.",
+          "None of these is a mistake. Armenian Պ is a plain p in Eastern Armenian and closer to a b in Western Armenian pronunciation, and Հակոբ in the reformed Eastern spelling is Յակոբ in the classical Western one; the two English forms are simply the two Armenian branches transliterated honestly. The practical consequence is that a reader searching for one form may never meet the material filed under the other, because the two strings retrieve substantially different sets of pages.",
+          "His own name is spelled Հակոբ Պարոնյան in this archive's Eastern Armenian edition and Յակոբ Պարոնեան in its Western Armenian one. Both forms, and the English variants, are carried in this page's search terms so that any of them finds him.",
+        ],
+      },
+      {
+        id: "adrianople-and-early-schooling",
+        heading: "Adrianople and what schooling he had",
+        paragraphs: [
+          "He was born on 19 November 1843 at Adrianople, the Ottoman city on the Maritsa in Thrace known in Armenian as Ադրիանուպոլիս and today the Turkish city of Edirne. It had a long-established Armenian community with its own schools, which is the part of the setting that matters for his biography.",
+          "His formal education was short. He attended the Arshakunyan school in his birthplace, and in 1857 entered the Greek school of the town, where he stayed about a year before leaving. That is the end of his schooling. Everything after it was self-education: he read widely and worked in several languages, and Armenian sources credit him with French, Italian and Greek acquired largely on his own.",
+          "One claim about his education circulates widely and is not repeated here. Various popular biographies place him in Catholic or Mekhitarist schooling. The Armenian encyclopedic and reference sources consulted for this article do not support it — they give the Arshakunyan school and the Greek school and nothing else — so this article omits it rather than passing on an attractive detail that its sources do not carry.",
+        ],
+      },
+      {
+        id: "the-birth-year-question",
+        heading: "1843, and why some catalogues say 1841",
+        paragraphs: [
+          "Armenian reference works are consistent: 19 November 1843. The Soviet Armenian Encyclopedia gives that date, and Armenian educational and literary sources follow it.",
+          "Several major Western library authority files do not. The Library of Congress name authority records him as Paronean, Hakob, 1841?-1891, with the question mark that catalogers use for a date they cannot confirm, and the Bibliothèque nationale de France gives 1841–1891 without one. Both are linked to the same authority cluster as the records that say 1843.",
+          "This article uses 1843, because that is what the Armenian scholarly and encyclopedic tradition states and because the 1841 records are flagged as uncertain in the catalogue that originated them. The disagreement is recorded here rather than smoothed away: a reader who meets 1841 in a library catalogue has not found an error, but a date that the cataloguing tradition itself marks as unverified.",
+        ],
+      },
+      {
+        id: "constantinople",
+        heading: "Constantinople",
+        paragraphs: [
+          "He moved to Constantinople in 1863 — English reference works sometimes give 1864 — and apart from a brief return to Adrianople in 1868 the capital was where he lived and worked for the rest of his life. Constantinople in the 1860s held the largest Armenian population of any city in the world, with its own patriarchate, schools, printing houses, theatres and an expanding press.",
+          "That concentration is what made his kind of writing possible. Satire needs an audience that shares a set of references closely enough to recognise the target, and a press cheap enough to reach that audience weekly. Constantinople had both, and Paronyan spent his career inside the arrangement.",
+          "The city appears in this article under its historical name because that is what it was called by everyone involved, in Armenian as Կ. Պոլիս. It is modern Istanbul, and he is buried there; a monument to him was raised in the Şişli Armenian cemetery in 2019.",
+        ],
+      },
+      {
+        id: "the-jobs-that-paid",
+        heading: "The jobs that paid",
+        paragraphs: [
+          "Before and alongside the writing there was ordinary employment, and it is worth naming because it never really stopped. He worked in a pharmacy for about two years as a young man in Adrianople, picking up some natural history and medicine there, and then kept the books for a tobacco company.",
+          "In Constantinople he worked at the telegraph office, tutored privately in a wealthy household, and taught at the seminary at Scutari on the Asian shore, where one of his pupils was the poet Petros Duryan. He also held a post in the patriarchate administration. At the end of his life, after his last journal was closed, he went back to accountancy.",
+          "This is not colourful background. A satirist who depends on a subscription list is financially exposed in a way a salaried writer is not, and the clerical work is the reason the writing could continue at all.",
+        ],
+      },
+      {
+        id: "the-periodicals",
+        heading: "The periodicals",
+        paragraphs: [
+          "Paronyan's career is best read as a sequence of papers rather than a sequence of books. He became editor of Եփրատ, Euphrates, at Adrianople in 1871. In 1872 he took over the editorship of Մեղու, The Bee, the Constantinople satirical paper founded by Harutyun Svajyan. From 1874 to 1877 he edited Թատրոն, Theatre, which continued it.",
+          "In 1876 he founded Թատրոն. բարեկամ մանկանց, Theatre: Children's Friend, an illustrated paper for children — described in Armenian sources as the first Armenian children's periodical, and an unexpected item in a satirist's bibliography. In 1883 he brought out Ծիծաղ, Laughter, a weekly that lasted about a year. From 1884 he edited Խիկար, named for the sage of the old Near Eastern story, which ran in two stretches — 1884 to 1885 and 1886 to 1888 — and was published at Constantinople and at Adrianople.",
+          "He also wrote for papers he did not edit, among them Մասիս and Փորձ, where according to Armenian accounts editors sometimes declined his satirical pieces because of what printing them might cost the paper.",
+        ],
+        bullets: [
+          "Եփրատ (Euphrates), Adrianople — editor from 1871.",
+          "Մեղու (The Bee), Constantinople — editor from 1872, following Harutyun Svajyan.",
+          "Թատրոն (Theatre) — 1874 to 1877.",
+          "Թատրոն. բարեկամ մանկանց (Theatre: Children's Friend) — illustrated, 1876.",
+          "Ծիծաղ (Laughter) — weekly, 1883, about a year.",
+          "Խիկար — 1884 to 1885 and 1886 to 1888, Constantinople and Adrianople.",
+        ],
+      },
+      {
+        id: "what-he-satirized",
+        heading: "What he actually satirized",
+        paragraphs: [
+          "His subject was the Armenian community of Constantinople looking at itself: its notables, its institutions, its professions and its social performance. He wrote about people who wanted to be thought important, and about the machinery — councils, committees, newspapers, patronage — through which importance was distributed.",
+          "Money runs through all of it, but rarely as simple greed. What interests him is the gap between an economic position and the manner adopted to disguise or advertise it: the provincial with money and no standing, the educated man with standing and no money, the professional whose learning is a sales technique. Մեծապատիվ մուրացկաններ is built entirely on that gap, and its beggars are editors, poets, doctors, teachers, lawyers and priests.",
+          "He was also willing to be specific in a way that satire usually avoids. Ազգային ջոջեր works through the leading Armenians of his own day one at a time, under their own names, among them the editor Grigor Artsruni, the writer Tserents, the churchman Khoren Nar-Bey and the Catholic Armenian leader Anton Hassoun. Whatever else that is, it is not generalised moralising.",
+        ],
+      },
+      {
+        id: "how-the-comedy-works",
+        heading: "How the comedy works",
+        paragraphs: [
+          "His main instrument is the social type rendered precisely enough to stay an individual. A Paronyan character is introduced by what he wants and how he talks about wanting it, and the comedy comes from watching the manner fail to cover the motive. He rarely denounces; he lets a man explain himself at length and arranges the explanation so that it convicts him.",
+          "The technique is fundamentally dramatic even in the prose. Scenes are built out of dialogue, entrances and interruptions; the narrator often withdraws almost entirely and lets speech do the work. This is why Մեծապատիվ մուրացկաններ has been adapted for the stage so readily — much of it is already staged.",
+          "The other constant is repetition with variation: a sequence of visitors, each with a different profession and the same underlying request, so that the pattern rather than any single case carries the argument. Armenian criticism has consistently praised the economy of the language — the terseness and clarity with which a whole situation is set up in a line or two.",
+          "One claim often attached to him is left out here. He is frequently called the founder or father of Armenian satire, and comparisons to Molière are common in popular writing. Armenian scholarship generally describes him more carefully, as the first satirist of modern Armenian literature and its greatest, which is a claim about achievement and position rather than about invention. This article follows the more careful formulation.",
+        ],
+      },
+      {
+        id: "western-armenian-and-the-city",
+        heading: "Western Armenian, and why the language is the joke",
+        paragraphs: [
+          "Paronyan wrote in Western Armenian, and specifically in the literary form of it that was taking shape in his lifetime on the basis of the spoken Armenian of Constantinople. That is the technical fact underneath his comedy, and it does more work than it appears to.",
+          "A satire of social pretension is largely a satire of speech. His characters give themselves away by register: by borrowed words used to sound educated, by formulas of politeness deployed at the wrong size, by a phrase that belongs to the counting-house appearing in a conversation about art. Comedy of that kind is only possible in a language whose spoken and written registers are close enough for the mismatch to be audible, and the Constantinople vernacular of his readers was exactly that.",
+          "This also sets him apart within Armenian literature as a whole. The Eastern Armenian turn toward the vernacular is associated with Khachatur Abovyan a generation earlier; Paronyan belongs to the parallel Western Armenian development, and he is the writer who demonstrated that the new literary language could be funny — that it could carry irony, timing and social nuance and not only elevated feeling.",
+        ],
+      },
+      {
+        id: "the-theatre",
+        heading: "The theatre",
+        paragraphs: [
+          "Paronyan is the only playwright in this archive's writers section, and drama is not a sideline in his work. He wrote for the stage from the beginning: Երկու տերով ծառա մը, A Servant with Two Masters, dates from 1865, and Ատամնաբույժն արևելյան, The Oriental Dentist, from the same period, printed in 1868.",
+          "His theatre is comedy of manners built on domestic situations that turn out to be economic ones — marriages arranged around property, households organised around appearances, professionals whose expertise is a way of charging for it. The dialogue is written for actors: short exchanges, interruptions, and characters who talk past each other while believing they are negotiating.",
+          "The relationship between his plays and the Armenian stage is more complicated than a list of premieres suggests, and it is the subject of the next section.",
+        ],
+      },
+      {
+        id: "uncle-baghdasar",
+        heading: "Պաղտասար աղբար: written 1886, staged about 1896",
+        paragraphs: [
+          "Պաղտասար աղբար is his best-known play and the one that has stayed longest in the repertoire. In English it appears as Uncle Baghdasar, Brother Baghdasar and simply Baghdasar Aghbar; աղբար is the Western Armenian familiar word for brother used as a form of address, and no single English title has become standard.",
+          "The date usually given for it is 1886, and that is the date of writing, in Constantinople. It was not performed then. Armenian sources record that the play was first staged only about ten years later, around 1896, and by Eastern Armenian theatre rather than in the city it was written in and for.",
+          "That gap is worth keeping rather than collapsing into a single year, because it says something true about his position. A comedy written in Western Armenian about Constantinople Armenian life reached the stage first in the other half of the Armenian world, after its author was dead. The play's later career — continuous performance in the Armenian national repertoire — began without him.",
+          "The comedy itself turns on a husband who is deceived, discovers it, and is then managed by everyone around him: a wife, her lover, a lawyer and a set of council members, each with an interest in how the situation is resolved. Armenian criticism has divided over whether Baghdasar is a fool exposed or a decent man surrounded by frauds, and the better readings treat that ambiguity as the design rather than a defect.",
+        ],
+      },
+      {
+        id: "national-bigshots",
+        heading: "Ազգային ջոջեր: portraits of the living",
+        paragraphs: [
+          "Ազգային ջոջեր is a series of satirical portraits of prominent Armenians of his own time. The title resists translation. ջոջ is a dialectal word for a big or important one, with none of the dignity of the standard word for a leader, and English versions render it as National Bigshots, National Notables and similar. This archive keeps the Armenian title and translates it as needed rather than pretending an English title is settled.",
+          "It began appearing in Թատրոն from 1874 and came out as books in two parts, the first at Constantinople in 1879 and the second in 1880. Armenian scholarship notes that he gathered biographical material for the portraits over roughly six years, from 1874 to 1880, and that the portraits are built on documented facts about their subjects rather than invented.",
+          "The method is concentration rather than fabrication: a real career, described accurately, with the proportions adjusted until the shape of it becomes visible. Armenian criticism has noted that the portraits are written without personal malice, which is part of why they survived their occasion — they remain readable after everyone in them has been forgotten.",
+        ],
+      },
+      {
+        id: "honourable-beggars",
+        heading: "Մեծապատիվ մուրացկաններ, and an unresolved chronology",
+        paragraphs: [
+          "Մեծապատիվ մուրացկաններ — Honourable Beggars, also spelled Honorable Beggars in American editions — is his best-known prose work and the one most often read outside Armenian. Abisoghom Agha, a rich man from Trebizond, arrives in Constantinople to find a wife, and is visited in turn by a succession of the city's educated men: an editor, a priest, a poet, a photographer, a doctor, a teacher, a lawyer, an actor. Each has a reason for coming and each wants money. He never gets the thing he came for.",
+          "Its chronology is not settled, and this article does not pretend otherwise. English reference sources state that it was serialized in 1880 and published as a book in 1887. Armenian sources treating the novel as a work frequently give 1887 alone, without distinguishing the serial from the volume. The two readings are compatible if 1880 is the serialization and 1887 the book, which is the most likely reconstruction, but the sources reachable for this article do not jointly confirm it.",
+          "What is not in dispute is what the book does. The beggars of the title are not the poor; they are the respectable, and the joke is structural rather than moral — a society in which every learned profession has been reduced to a claim on somebody else's money. Mischa Kudian's English translation, published as Honourable Beggars: A Satire, is how most English readers have met it.",
+        ],
+      },
+      {
+        id: "censorship-and-the-economics-of-print",
+        heading: "Censorship, and the separate problem of money",
+        paragraphs: [
+          "Two different pressures shortened the life of his papers, and running them together produces a more heroic and less accurate story than the evidence supports.",
+          "The first is censorship. Under the Hamidian regime of the later 1880s the conditions for the Ottoman press tightened considerably, and Armenian accounts describe satirical papers of the period, his own among them, moving away from political subjects toward domestic ones — the visible mark of a constraint working. Խիկար was closed by the authorities in 1888, together with other Armenian periodicals; that closure ended his career as an editor. Armenian sources also record editors at other papers declining his contributions out of concern for the consequences.",
+          "The second is simply that satirical weeklies were bad businesses. Ծիծաղ lasted about a year. Papers folded, were revived and folded again, and the pattern of his bibliography — one title after another, some of them restarts — is as much commercial as political. After 1888 he returned to keeping accounts.",
+          "Both pressures were real and they were not the same thing. A journal that closes because a censor closes it and a journal that closes because nobody renews the subscriptions are different failures, and his career contains both.",
+        ],
+      },
+      {
+        id: "the-last-years",
+        heading: "The last years",
+        paragraphs: [
+          "After Խիկար was closed in 1888 he had no paper of his own. He worked as an accountant, and he was ill; he died of tuberculosis at Constantinople on 27 May 1891, at forty-seven. Armenian sources record that his widow and children were left without means.",
+          "That is the whole of what this article says about it. There is a durable popular version of Paronyan's death in which the great satirist dies destitute in the street, and it is not supported by the sources consulted here. He died of a disease that killed enormous numbers of people in nineteenth-century cities, in poverty that is documented, and adding pathos to it would be inventing detail about a real person's death.",
+        ],
+      },
+      {
+        id: "on-the-stage-after-him",
+        heading: "On the stage after him",
+        paragraphs: [
+          "Almost everything that made Paronyan a fixture of Armenian culture happened after 1891. Պաղտասար աղբար reached the stage around 1896 and entered the permanent repertoire; Մեծապատիվ մուրացկաններ has been repeatedly reprinted and repeatedly adapted; his collected works were edited and issued through the twentieth century in Tiflis, Constantinople, Moscow, Beirut and Yerevan, and ten volumes of them are in the public domain.",
+          "In Soviet Armenia he was firmly canonical, taught in schools and continuously staged. The state musical comedy theatre in Yerevan, founded in 1941 and opened in 1942, carries his name, as do a school and a street in the city. Armenia issued a commemorative stamp for the 175th anniversary of his birth in 2018.",
+          "The chronology matters here in a way it usually does not. He died in 1891; Soviet Armenia was established in 1920. The Soviet-era editions, productions and institutions are part of his reception, not part of his life, and the reading of him they encouraged — a critic of bourgeois society — is one interpretation of the work rather than a description of what he set out to do.",
+        ],
+      },
+    ],
+    keyFacts: [
+      { label: "Lived", value: "19 November 1843 to 27 May 1891" },
+      { label: "Born", value: "Adrianople (Ադրիանուպոլիս), Ottoman Empire — now Edirne, Turkey" },
+      { label: "Died", value: "Constantinople, of tuberculosis, aged 47" },
+      { label: "Wrote in", value: "Western Armenian" },
+      { label: "Worked as", value: "Satirist, playwright, prose writer, periodical editor; also telegraph clerk, teacher and accountant" },
+      { label: "Best known for", value: "Պաղտասար աղբար, Ազգային ջոջեր and Մեծապատիվ մուրացկաններ" },
+      { label: "Also written", value: "Hagop Baronian, Hakob Baronian, Hagop Paronian; Յակոբ Պարոնեան" },
+    ],
+    importantDates: [
+      { year: "1843", event: "Born on 19 November at Adrianople; some library authority files give 1841 instead." },
+      { year: "1857", event: "Enters the Greek school at Adrianople after the Arshakunyan school; leaves after about a year, ending his formal education." },
+      { year: "1863", event: "Settles in Constantinople, where he works at the telegraph office and takes teaching and clerical posts." },
+      { year: "1865", event: "Writes Երկու տերով ծառա մը, which is not printed until 1911." },
+      { year: "1868", event: "Ատամնաբույժն արևելյան published." },
+      { year: "1871", event: "Editor of Եփրատ at Adrianople." },
+      { year: "1872", event: "Takes over the editorship of the Constantinople satirical paper Մեղու." },
+      { year: "1874", event: "Edits Թատրոն, where Ազգային ջոջեր begins to appear." },
+      { year: "1876", event: "Founds Թատրոն. բարեկամ մանկանց, an illustrated children's paper." },
+      { year: "1879", event: "First part of Ազգային ջոջեր published as a book at Constantinople; the second follows in 1880." },
+      { year: "1880", event: "Պտույտ մը Պոլսո թաղերու մեջ and Հոսհոսի ձեռատետրը; Մեծապատիվ մուրացկաններ serialized." },
+      { year: "1883", event: "Brings out the weekly Ծիծաղ, which lasts about a year." },
+      { year: "1884", event: "Founds Խիկար, which runs in two stretches to 1888." },
+      { year: "1886", event: "Writes Պաղտասար աղբար at Constantinople." },
+      { year: "1887", event: "Մեծապատիվ մուրացկաններ published as a book." },
+      { year: "1888", event: "Խիկար closed by the authorities along with other Armenian periodicals; he returns to accountancy." },
+      { year: "1891", event: "Dies of tuberculosis at Constantinople on 27 May." },
+      { year: "1896", event: "Պաղտասար աղբար staged for the first time, about ten years after it was written." },
+    ],
+    significance: {
+      heading: "Why Hakob Paronyan matters",
+      paragraphs: [
+        "Paronyan gave Armenian literature a comic prose and a comic stage. Before him the modern Armenian tradition was strongest in poetry, the historical novel and the patriotic lyric; he demonstrated that the new Western Armenian literary language could carry irony, timing and social observation, and he did it in a body of work that is still performed rather than only studied.",
+        "He also made a city into a literary subject. His writing is about Constantinople Armenians — their councils and committees, their newspapers and professions, their manner of talking about themselves — at the moment when that community was the largest and most institutionally dense in the Armenian world. Very little else in nineteenth-century Armenian literature looks at urban life that closely, which makes his work a record as well as a joke.",
+        "And he is the writer who proves that satire in Armenian did not have to be imported. His targets were local and named, his method was observation rather than borrowed formula, and his best pages still work on readers who have never heard of a single person in them. That is the ordinary test of satire, and Պաղտասար աղբար has been passing it on stage for more than a century.",
+      ],
+    },
+    interestingFacts: [
+      "The satirist who spent his career mocking Constantinople's notables also founded what Armenian sources call the first Armenian children's periodical, an illustrated paper he brought out in 1876.",
+      "Petros Duryan, the poet who died at twenty, was his pupil at the seminary at Scutari.",
+      "Ազգային ջոջեր names its targets. Its subjects were living public figures, and Armenian scholarship records that he spent about six years gathering biographical material on them.",
+      "His first play was printed forty-six years after he wrote it and twenty years after he died.",
+      "The Library of Congress files him under 1841?, with the question mark; Armenian encyclopedias give 19 November 1843 without one.",
+      "The state musical comedy theatre in Yerevan has carried his name since the 1940s, which is why a search for Hakob Paronyan often returns a theatre's programme rather than a biography.",
+    ],
+    relatedFigures: [
+      {
+        name: "Harutyun Svajyan",
+        lifespan: "1831–1874",
+        description:
+          "Founder of the Constantinople satirical paper Մեղու, whose editorship Paronyan took over in 1872.",
+      },
+      {
+        name: "Petros Duryan",
+        lifespan: "1851–1872",
+        description:
+          "Western Armenian poet and playwright, his pupil at the Scutari seminary, dead of tuberculosis at twenty.",
+      },
+      {
+        name: "Grigor Artsruni",
+        lifespan: "1845–1892",
+        description:
+          "Editor of the Tiflis newspaper Մշակ and one of the public figures portrayed by name in Ազգային ջոջեր.",
+      },
+      {
+        name: "Mischa Kudian",
+        lifespan: "1917–1993",
+        description:
+          "Translator whose Honourable Beggars: A Satire is the version through which most English readers know the novel.",
+      },
+    ],
+    relatedSlugs: ["khachatur-abovyan", "siamanto"],
+  },
 ];

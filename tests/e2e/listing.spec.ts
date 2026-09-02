@@ -253,7 +253,7 @@ test("the writers listing filters within its own edition", async ({ page }) => {
   // since §88. Edited rather than derived on purpose — this file's job is to
   // notice when a section's published count changes underneath it, and Western
   // Armenian is the edition where a new writer is most likely to be left behind.
-  await expect(cards(page)).toHaveCount(10);
+  await expect(cards(page)).toHaveCount(11);
 
   await page
     .getByRole("searchbox", { name: ui("hyw").listing.writers.searchLabel })

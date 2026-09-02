@@ -125,6 +125,18 @@ export const writers: Writer[] = [
     imageSeed: "siamanto",
     notableWorks: ["Կարմիր լուրեր բարեկամես", "Հայորդիներ", "Հոգեվարքի և հույսի ջահեր", "Սուրբ Մեսրոպ"],
   },
+  {
+    slug: "hakob-paronyan",
+    name: "Հակոբ Պարոնյան",
+    lifespan: "1843–1891",
+    period: "XIX դար",
+    periodId: "19th-century",
+    role: "Երգիծաբան, թատերագիր և խմբագիր",
+    description:
+      "Պոլսահայ երգիծաբանն ու թատերագիրը, որի կատակերգություններն ու երգիծական հանդեսները օսմանահայ քաղաքային կյանքը դարձրին գրական նյութ:",
+    imageSeed: "hakob-paronyan",
+    notableWorks: ["Պաղտասար աղբար", "Ազգային ջոջեր", "Մեծապատիվ մուրացկաններ", "Ատամնաբուժն արևելյան"],
+  },
 ];
 
 export const literaryPeriods: Filter[] = [

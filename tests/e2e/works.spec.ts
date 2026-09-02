@@ -1,5 +1,5 @@
 import { expect, test, type Page } from "@playwright/test";
-import { PENDING_ARTWORK, getImageSrc } from "@/lib/media";
+import { PENDING_ARTWORK, getImageSrc, getPortraitProvenance } from "@/lib/media";
 import { getSources } from "@/data/sources";
 import { LOCALES, articleTitle, bundle, cards, ui } from "./helpers";
 
@@ -43,18 +43,36 @@ const SLUGS = [
 const PRE_EXISTING = ["anush", "wounds-of-armenia", "the-fool", "david-of-sassoun"] as const;
 
 /**
- * Where each illustrated work's artwork must live.
+ * Where each work's artwork must live.
  *
- * `book-of-lamentations` is deliberately absent: §61 wrote the article and left
- * the picture to a later step, which is the same sequence every other section in
- * this archive has followed.
+ * §61 wrote `book-of-lamentations` and left the picture to a later step, which is
+ * the sequence every other section in this archive has followed. §63 is that step:
+ * the file landed, one line went into `IMAGES` and one came out of
+ * `PENDING_ARTWORK`, and the section is fully illustrated for the first time.
  */
 const ARTWORK: Record<string, string> = {
   anush: "/images/works/anush.webp",
   "wounds-of-armenia": "/images/works/wounds-of-armenia.webp",
   "the-fool": "/images/works/the-fool.webp",
   "david-of-sassoun": "/images/works/david-of-sassoun.webp",
+  [NAREK]: "/images/works/book-of-lamentations.webp",
 };
+
+/**
+ * Artwork filenames, for asserting against rendered `src` attributes.
+ *
+ * `next/image` percent-encodes the path into its own query string — the hero
+ * renders as `/_next/image?url=%2Fimages%2Fworks%2Fbook-of-lamentations.webp&…`
+ * — so a registry path never appears literally in the DOM and matching one is a
+ * test that can only fail. The filename survives the encoding intact, and it is
+ * unique across the archive, which is what makes it the thing to match on.
+ */
+const FILE = Object.fromEntries(
+  Object.entries(ARTWORK).map(([slug, path]) => [slug, path.split("/").pop()!]),
+) as Record<string, string>;
+
+/** The four covers that existed before §63, for borrowing assertions. */
+const PRE_EXISTING_ARTWORK = PRE_EXISTING.map((slug) => FILE[slug]);
 
 function work(locale: string, slug: string) {
   return bundle(locale as never).works.find((w) => w.slug === slug)!;
@@ -375,35 +393,91 @@ test("no UNESCO status is claimed for the work", () => {
 /*  Artwork state                                                              */
 /* -------------------------------------------------------------------------- */
 
-test("the work is declared pending and borrows nobody's picture", async ({ page }) => {
+test("the fifth work owns its artwork and borrows nobody's picture", async ({ page }) => {
   /*
-    §61 is content only. The failure it guards against is specific: Narekatsi's
-    portrait shows a monk at a table with an open illuminated codex, which is very
-    nearly a picture of this book, and reusing it would make the Work an appendix
-    to the Writer.
+    §63 registers the file §61 left pending. The transition is checked in both
+    directions — the raster where the placeholder was, the slug out of
+    `PENDING_ARTWORK` where it was in — because a half-applied registration is the
+    failure mode: a registry entry with no rendered image, or a rendered image with
+    a stale pending entry still beside it.
+
+    The borrowing assertion is the one that has to survive §63 unchanged, and it is
+    why it was written at §61. Narekatsi's portrait shows a monk at a table with an
+    open illuminated codex, which is very nearly a picture of this book; the Work
+    now owns a picture of its own, and reusing the portrait would still make it an
+    appendix to the Writer.
   */
-  expect(getImageSrc(NAREK), "no artwork is registered").toBeUndefined();
-  expect([...PENDING_ARTWORK], "it is declared pending").toContain(NAREK);
-  expect(article("en", NAREK).image, "and carries no credited image either").toBeUndefined();
+  expect(getImageSrc(NAREK), "the artwork is registered").toBe(ARTWORK[NAREK]);
+  expect([...PENDING_ARTWORK], "and is no longer pending").not.toContain(NAREK);
+  expect(article("en", NAREK).image, "and carries no credited image").toBeUndefined();
 
   for (const locale of LOCALES) {
     await page.goto(`/${locale}/works/${NAREK}`);
     const figure = page.getByRole("main").locator("figure").first();
+    const hero = figure.locator("img").first();
 
-    // The generated placeholder is drawn, and no raster hero is served.
-    await expect(figure.locator("svg[role='img']"), `${locale} placeholder`).toHaveCount(1);
-    await expect(figure.locator("img"), `${locale} no raster hero`).toHaveCount(0);
+    await expect(figure.locator("svg[role='img']"), `${locale} no placeholder`).toHaveCount(0);
+    await expect(figure.locator(`img[src*="${FILE[NAREK]}"]`), `${locale} hero src`).toHaveCount(1);
 
-    // And specifically not the author's portrait or another work's cover.
-    const sources = await page.getByRole("main").locator("img").evaluateAll((nodes) =>
-      nodes.map((n) => (n as HTMLImageElement).getAttribute("src") ?? ""),
-    );
-    for (const borrowed of [...Object.values(ARTWORK), "/images/writers/grigor-narekatsi.webp"]) {
-      expect(
-        sources.some((src) => src.includes(borrowed)),
-        `${locale} must not borrow ${borrowed}`,
-      ).toBe(false);
+    // Localized alt, read from the dictionary the page renders.
+    const alt = ui(locale).article.imageAlt.replace("{title}", articleTitle(locale, NAREK));
+    await expect(hero, `${locale} localized alt`).toHaveAttribute("alt", alt);
+
+    // A Work is captioned as an illustration, never as a portrait: the portrait
+    // captions make a claim about a likeness, and a book has none.
+    const caption = (await figure.locator("figcaption").textContent()) ?? "";
+    expect(caption.trim(), `${locale} caption is not empty`).not.toBe("");
+    for (const portraitLine of [
+      ui(locale).article.imageAiPortraitCaption,
+      ui(locale).article.imageAiPhotoPortraitCaption,
+      ui(locale).article.imagePlaceholderCaption,
+    ]) {
+      expect(caption, `${locale} not a portrait or placeholder caption`).not.toContain(
+        portraitLine.replace("{title}", articleTitle(locale, NAREK)),
+      );
     }
+
+    // And nothing on the page serves the author's portrait or another work's cover
+    // as this work's picture.
+    const heroSrc = (await hero.getAttribute("src")) ?? "";
+    for (const borrowed of [...PRE_EXISTING_ARTWORK, "grigor-narekatsi.webp"]) {
+      expect(heroSrc, `${locale} hero must not be ${borrowed}`).not.toContain(borrowed);
+    }
+    /*
+      Scoped to the hero, because the related-articles block further down the page
+      legitimately renders the Writer's card with his portrait — §61 made that
+      relation run both ways on purpose, and an unscoped "no portrait on this page"
+      assertion would forbid it.
+
+      That scoping is also a correction. The §61 version of this check read every
+      `img` in `main` and compared the srcs against registry *paths*, which
+      `next/image` percent-encodes — so it could never have matched anything and
+      passed for the wrong reason. Matching filenames is what makes it able to fail.
+    */
+    await expect(
+      figure.locator('img[src*="grigor-narekatsi"]'),
+      `${locale} the hero is not the author's portrait`,
+    ).toHaveCount(0);
+    await expect(
+      page.getByRole("main").locator('img[src*="grigor-narekatsi"]'),
+      `${locale} the portrait appears only as the related Writer's card`,
+    ).toHaveCount(1);
+  }
+});
+
+test("no work carries a portrait provenance entry", () => {
+  /*
+    `PORTRAIT_PROVENANCE` records how a likeness of a *person* was arrived at —
+    whether photographs were consulted or the face was invented. A book has no
+    likeness, so the question it answers is not one a Work raises, and an entry
+    here would make the article claim something about a face it does not have.
+
+    §61 decided this in advance and §63 held to it. The default is `imagined`, so
+    the assertion is that every Work reads the default rather than that the map is
+    empty — a Work added to the map is the failure, not the map growing.
+  */
+  for (const slug of SLUGS) {
+    expect(getPortraitProvenance(slug), `${slug} is not a portrait`).toBe("imagined");
   }
 });
 
@@ -422,11 +496,28 @@ test("the works listing shows five works in every edition", async ({ page }) => 
       bundle(locale).writers.find((w) => w.slug === NAREKATSI)!.name,
     );
 
-    // Exactly one card renders the placeholder, and it is this one.
+    /*
+      §61 asserted exactly one placeholder here and named it; §63 asserts none,
+      which is the same claim inverted and the reason the line is kept rather than
+      deleted. The section is fully illustrated for the first time.
+    */
     await expect(
       page.getByRole("main").locator("svg[role='img']"),
-      `${locale} one placeholder`,
+      `${locale} no placeholder remains`,
+    ).toHaveCount(0);
+
+    // And the new card carries its own cover, not a neighbour's and not the
+    // author's portrait.
+    await expect(
+      card.locator(`img[src*="${FILE[NAREK]}"]`),
+      `${locale} card uses its own artwork`,
     ).toHaveCount(1);
+    for (const borrowed of [...PRE_EXISTING_ARTWORK, "grigor-narekatsi"]) {
+      await expect(
+        card.locator(`img[src*="${borrowed}"]`),
+        `${locale} card must not borrow ${borrowed}`,
+      ).toHaveCount(0);
+    }
   }
 });
 
@@ -463,10 +554,30 @@ test("the work is reachable by its titles, its nickname and its author", async (
       page.getByRole("main").locator(`a[href="/${locale}/works/${NAREK}"]`).first(),
       `${locale} "${query}" finds the work`,
     ).toBeVisible();
+
+    /*
+      And the canonical hit carries the work's own artwork. Scoped to the card
+      holding that href, because every one of these queries legitimately returns
+      the Writer too — whose card correctly shows the portrait, so an unscoped
+      "no portrait on the page" assertion would be wrong as well as red.
+    */
+    const hit = page.locator(`main li:has(a[href="/${locale}/works/${NAREK}"])`).first();
+    await expect(hit, `${locale} "${query}" canonical card`).toHaveCount(1);
+    await expect(hit.locator("svg[role='img']"), `${locale} "${query}" no placeholder`).toHaveCount(
+      0,
+    );
+    await expect(
+      hit.locator(`img[src*="${FILE[NAREK]}"]`),
+      `${locale} "${query}" hit uses the work's artwork`,
+    ).toHaveCount(1);
+    await expect(
+      hit.locator('img[src*="grigor-narekatsi"]'),
+      `${locale} "${query}" hit borrows no portrait`,
+    ).toHaveCount(0);
   }
 });
 
-test("metadata falls back cleanly with no artwork, and borrows no image", async ({ page }) => {
+test("metadata carries the work's own artwork and borrows no image", async ({ page }) => {
   for (const locale of LOCALES) {
     await page.goto(`/${locale}/works/${NAREK}`);
 
@@ -482,30 +593,50 @@ test("metadata falls back cleanly with no artwork, and borrows no image", async 
       ).toHaveAttribute("href", `https://armat.site/${alt}/works/${NAREK}`);
     }
 
-    // With no artwork the social image is the site default — never the author's
-    // portrait and never another work's cover.
+    /*
+      §61 asserted the site default here, because no artwork shipped and the OG
+      image had nothing else to be. §63 asserts the file — the same transition the
+      hero and the sitemap make, checked at the one place a reader never sees and
+      a share card always does.
+    */
     for (const property of ['meta[property="og:image"]', 'meta[name="twitter:image"]']) {
       const content = (await page.locator(property).first().getAttribute("content")) ?? "";
-      expect(content, `${locale} ${property} falls back`).toContain("/og-default.png");
-      expect(content, `${locale} ${property} borrows nothing`).not.toContain("grigor-narekatsi");
-      for (const borrowed of Object.values(ARTWORK)) {
+      expect(content, `${locale} ${property} is the work's artwork`).toBe(
+        `https://armat.site${ARTWORK[NAREK]}`,
+      );
+      expect(content, `${locale} ${property} is not the fallback`).not.toContain("/og-default.png");
+      expect(content, `${locale} ${property} borrows no portrait`).not.toContain(
+        "grigor-narekatsi",
+      );
+      for (const borrowed of PRE_EXISTING_ARTWORK) {
         expect(content, `${locale} ${property} borrows nothing`).not.toContain(borrowed);
       }
     }
   }
 });
 
-test("the sitemap carries the work in every edition and advertises no image", async ({
-  request,
-}) => {
+test("the sitemap advertises the work's own image in every edition", async ({ request }) => {
+  /*
+    §61 asserted these three url blocks carried no `image:loc` at all, so this is
+    the exact inversion. Checked block by block rather than by whole-document
+    count: a count of three would still pass if all three entries landed on one
+    locale's route and none on the others, and an image crawler handed a 404 or
+    the author's portrait under this URL is a failure nothing on the rendered page
+    would show.
+  */
   const xml = await (await request.get("/sitemap.xml")).text();
   const blocks = xml.split("<url>").slice(1);
 
   for (const locale of LOCALES) {
     const block = blocks.find((entry) => entry.includes(`/${locale}/works/${NAREK}</loc>`));
     expect(block, `${locale} has a sitemap entry`).toBeDefined();
-    expect(block, `${locale} advertises no image yet`).not.toContain("<image:loc>");
+    expect(block, `${locale} advertises its image`).toContain(
+      `https://armat.site${ARTWORK[NAREK]}`,
+    );
     expect(block, `${locale} borrows no portrait`).not.toContain("grigor-narekatsi");
+    for (const borrowed of PRE_EXISTING_ARTWORK) {
+      expect(block, `${locale} borrows no other cover`).not.toContain(borrowed);
+    }
   }
 });
 
@@ -538,19 +669,51 @@ test("adding the fifth work changed no other section", () => {
     const count = (category: string) =>
       b.articles.filter((a) => a.category === category).length;
 
-    expect(count("writers"), `${locale} writers`).toBe(10);
+    expect(count("writers"), `${locale} writers`).toBe(11);
     expect(count("cuisine"), `${locale} cuisine`).toBe(12);
     expect(count("places"), `${locale} places`).toBe(13);
     expect(count("history"), `${locale} history`).toBe(7);
     expect(count("works"), `${locale} works`).toBe(5);
 
-    // The Writers section is still complete: ten writers, ten portraits, none
-    // pending. Only the new Work is waiting for a picture.
+    /*
+      The Writers section is untouched by anything in this file. §63 read it as ten
+      writers with ten portraits and nothing pending; §94 added an eleventh writer
+      ahead of his portrait, so the claim here is that every writer who is not on
+      `PENDING_ARTWORK` has a picture — which still fails if a registered portrait
+      ever disappears, and no longer fails merely because Writers grew.
+    */
     const writers = b.writers.map((w) => w.slug);
     for (const slug of writers) {
+      if ((PENDING_ARTWORK as readonly string[]).includes(slug)) continue;
       expect(getImageSrc(slug), `${locale} ${slug} portrait`).toBeTruthy();
     }
-    expect([...PENDING_ARTWORK], "only the work is pending").toEqual([NAREK]);
+
+    // And every work is illustrated — the four that always were, and the fifth.
+    for (const slug of SLUGS) {
+      expect(getImageSrc(slug), `${locale} ${slug} artwork`).toBe(ARTWORK[slug]);
+    }
+
+    /*
+      §61 read `toEqual([NAREK])` here and §63 emptied the list, stating the claim
+      archive-wide: nothing anywhere was waiting for a picture.
+
+      §94 rescopes it to Works, and the rescoping is a correction rather than a
+      relaxation — the same one `places.spec.ts` made at §67 and `cuisine.spec.ts` at
+      §81, each time another section put a slug on this list. `PENDING_ARTWORK` is
+      archive-wide, not per-section. While it happened to be empty the distinction
+      cost nothing; §94 added `hakob-paronyan`, a Writer written ahead of his
+      portrait, at which point the line started making a claim about the Writers
+      section that this file has no business making, and went red for a reason that
+      had nothing to do with Works.
+
+      The claim that was always meant is the one below: no *Work* is waiting for a
+      picture. Stated as a filtered list rather than a count, so it still fails on a
+      stale entry left behind after a file lands.
+    */
+    expect(
+      [...PENDING_ARTWORK].filter((slug) => (SLUGS as readonly string[]).includes(slug)),
+      "no work is waiting for a picture",
+    ).toEqual([]);
   }
 
   // The listing dictionaries were not touched to make room for it.
