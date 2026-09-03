@@ -575,6 +575,73 @@ const SOURCES: Record<string, Source[]> = {
     },
   ],
 
+  "book-of-lamentations": [
+    {
+      author: "A. J. Hacikyan, G. Basmajian, E. S. Franchuk and N. Ouzounian (eds.)",
+      title: "The Heritage of Armenian Literature, Volume II: From the Sixth to the Eighteenth Century",
+      publisher: "Wayne State University Press",
+      year: "2000",
+      identifier: { kind: "isbn", value: "9780814330234" },
+      note: "The same volume the Narekatsi article cites, used here for the work rather than the man: its literary-historical placement, the reading of the book aloud to the sick, and the transmission of the text through the manuscript centuries.",
+    },
+    {
+      author: "Abraham Terian (translator)",
+      title: "From the Depths of the Heart: Annotated Translation of the Prayers of St. Gregory of Narek",
+      publisher: "Liturgical Press, Collegeville MN",
+      year: "2021",
+      identifier: { kind: "isbn", value: "9780814684641" },
+      note: "The scholarly annotated translation, and the source of record for the shape of the text and for the reading of the speaker. Terian's stated preference for Penitential Prayers over Lamentations is cited in the title section. Not to be confused with his The Festal Works of St. Gregory of Narek (2016), which contains the odes, litanies and encomia and not this book.",
+    },
+    {
+      author: "Thomas J. Samuelian (translator)",
+      title: "Speaking with God from the Depths of the Heart: The Armenian Prayer Book of St. Gregory of Narek",
+      publisher: "VEM Press, Yerevan",
+      year: "2001",
+      identifier: { kind: "isbn", value: "9789993085317" },
+      note: "The complete English translation that is freely readable online, and the reason most English readers have met the text at all. Cited for the title question and for the psalm comparison; no line of it is quoted here, because it is still in copyright.",
+    },
+    {
+      author: "Anush Apresyan",
+      title: "Universal Key Between East and West: St. Gregory of Narek",
+      publisher: "Banber Matenadarani, Mesrop Mashtots Institute of Ancient Manuscripts, Yerevan",
+      year: "2025",
+      identifier: { kind: "doi", value: "10.54503/1829-4073-2025.3.147-161" },
+      note: "A Matenadaran study, and the source for the commentary tradition, for Nerses of Lambron's 1177 treatment of the thirty-third discourse, and for the ascetic writers the book stands among. Also the basis for the statement that the work was difficult for medieval readers, which is why commentaries were written.",
+    },
+    {
+      author: "Anush Apresyan",
+      title: "Grigor Narekatsi and the Translators",
+      publisher: "Journal of Armenian Studies, Yerevan",
+      year: "2021",
+      identifier: { kind: "url", value: "https://arar.sci.am/Content/280582/213-222.pdf" },
+      note: "Carries the finding this article leans on hardest in the form section: the original was not broken into poetic lines in the manuscripts, so the verse layout of modern editions is editorial. Also the source for Kheranyan's omission of the prefatory title-piece and for the reordering in Gevorgyan's translation.",
+    },
+    {
+      author: "Jesse S. Arlen",
+      title: "A Window into the Tenth Century: The Life and Literary Works of Anania of Narek",
+      publisher: "PhD dissertation, University of California, Los Angeles",
+      year: "2021",
+      identifier: { kind: "url", value: "https://escholarship.org/content/qt41d7d655/qt41d7d655.pdf" },
+      note: "The source for the divisions being called ban, for rendering them as discourses, for the foundation of Narekavank under Gagik I, and for the argument that the book develops Anania of Narek's teaching rather than arriving from nowhere. Arlen's related work characterises it as a text for keeping watch.",
+    },
+    {
+      author: "E. A. Nazaryan",
+      title: "Book of Lamentations by Gregory of Narek: Anthropological Aspects",
+      publisher: "Manuscript, vol. 13 no. 6",
+      year: "2020",
+      identifier: { kind: "url", value: "https://manuscript-journal.ru/en/article/mns20200280/fulltext" },
+      note: "The peer-reviewed statement of the position the speaking-voice section rests on: the first person is a representative of humanity rather than an autonomous individual, which is why the catalogue of sins cannot be read as a personal inventory.",
+    },
+    {
+      author: "Vazgen Safaryan",
+      title: "The First Followers of the Book of Lamentations Poem of Grigor Narekatsi",
+      publisher: "Journal for Armenian Studies, Armenian State Pedagogical University, no. 4 (63)",
+      year: "2023",
+      identifier: { kind: "url", value: "https://armenianstudies.aspu.am/index.php/armenianstudies/article/view/72" },
+      note: "Names the first inheritors — Grigor Marashetsi, Nerses Shnorhali and Grigor Tlay — and makes the structural claim about Shnorhali recasting the tiered prayer form in rhymed verse. Cited for that and for nothing stronger: it does not establish verbal borrowing, and the article does not assert any.",
+    },
+  ],
+
   /* ---------------------------------------------------------------- cuisine */
 
   /*
@@ -2432,6 +2499,225 @@ const SOURCES: Record<string, Source[]> = {
       note: "Already registered for four other articles. Cited here for the architectural vocabulary this article has to use in English without distorting it — the domed hall, the triangular niche, the khachkar, and above all the gavit as a building type rather than as a mistranslated narthex — and for Trdat's place in the period, including the cathedral at Ani and the rebuilding of the dome of Hagia Sophia after the earthquake of 986.",
     },
   ],
+
+  /*
+   * §88. Writer #10, and the first bibliography in this section assembled around a
+   * subject whose reference literature disagrees with itself on the basic facts.
+   *
+   * Three of the article's decisions are decisions about sources rather than about
+   * prose, and they are recorded here because they are invisible from the list:
+   *
+   * The birth date. Three are in print — 15 August 1878, 1 January 1878, and the
+   * 1875 printed on the jacket of the Wayne State translation cited below. The
+   * article takes the first, and the reason is that the Armenian material ties it
+   * to the mid-August feast and to the baptismal name the family chose for it. A
+   * date that explains a name outranks a date that occupies a field. The 1875 is
+   * left standing in the citation rather than corrected, because the book is real
+   * and the reader who picks it up will meet that figure on it.
+   *
+   * The Sorbonne. English reference works have converted an `ազատ ունկնդիր` — a
+   * free listener, auditeur libre — into an education at the University of Paris,
+   * and English Wikipedia files him under that university's alumni. The Armenian
+   * sources are specific and unanimous, and the article follows them. No source is
+   * cited here for the degree, because there is none: the claim exists without an
+   * authority behind it, which is exactly the failure mode this file was built to
+   * catch.
+   *
+   * The Varoujan relation. It rests on one attributable sentence — Varoujan's
+   * `տաղանդավոր ոճրերգություն` on `Կարմիր լուրեր բարեկամէս` — which the Armenian
+   * literature quotes to «Գրական ասուլիսներ», book 6, Constantinople 1913, p. 26.
+   * That 1913 volume is listed below as an archival reference rather than a URL,
+   * because it is a printed volume of its period and not something that resolves.
+   * The relation is authored in one direction only; nothing was added to the
+   * Varoujan article to make the pair symmetrical.
+   */
+  siamanto: [
+    {
+      author: "A. J. Hacikyan, G. Basmajian, E. S. Franchuk and N. Ouzounian (eds.)",
+      title: "The Heritage of Armenian Literature, Volume III: From the Eighteenth Century to Modern Times",
+      publisher: "Wayne State University Press",
+      year: "2005",
+      identifier: { kind: "isbn", value: "9780814332214" },
+      note: "The section's backbone series, at the volume that covers him, pages 774 to 776. Carries the schooling, the flight after 1896, the Droshak years and the sequence of the collections. It is also the source that states the Sorbonne enrolment in the loosest form, which is why the article checks it against the Armenian material rather than repeating it.",
+    },
+    {
+      author: "Siamanto, translated by Peter Balakian and Nevart Yaghlian",
+      title: "Bloody News from My Friend",
+      publisher: "Wayne State University Press, Detroit",
+      year: "1996",
+      identifier: { kind: "isbn", value: "9780814326404" },
+      note: "The standard English translation of Կարմիր լուրեր բարեկամէս and the reason most English readers meet him at all. Cited for the cycle of twelve and for the description of its language as raw and blunt and as refusing metaphor — the claim about technique, not about biography. Its jacket dates him 1875–1915, which is the third of the three birth years discussed above.",
+    },
+    {
+      author: "Karina Asatryan",
+      title: "Metrical Relations Between Siamanto's Poetry and Medieval Armenian Verse",
+      publisher: "Armenian Folia Anglistika, volume 6, issue 1-2 (7), pages 169–175",
+      year: "2010",
+      identifier: { kind: "doi", value: "10.46991/afa/2010.6.1-2.169" },
+      note: "The whole basis for the free-verse section. It is what allows the article to say that his line connects the metres of medieval Armenian lyric to the structural conventions of modern free verse, rather than repeating the encyclopedia formula on its own.",
+    },
+    {
+      title: "Հայկական սովետական հանրագիտարան, հատոր 10",
+      publisher: "Հայկական հանրագիտարանի գլխավոր խմբագրություն, Երևան",
+      year: "1984",
+      identifier: { kind: "archive", value: "ՀՍՀ, հատոր 10, էջ 351–352" },
+      note: "The source of the precise claim the article is careful not to inflate: that he ձև է տվել — gave form to — Armenian free verse, ազատաչափ. It is also where the neo-romanticism placement, the vocabulary-building, and the comparison with Narekatsi's Book of Lamentations come from. Cited for the critical assessment; its framing of him as a poet of national struggle is the Soviet-era reading the article declines to adopt whole.",
+    },
+    {
+      author: "Ատոմ Յարճանյան (Սիամանթո) et al.",
+      title: "Գրական ասուլիսներ, գիրք 6",
+      publisher: "Կ. Պոլիս",
+      year: "1913",
+      identifier: { kind: "archive", value: "Գրական ասուլիսներ, գիրք 6, Կ. Պոլիս, 1913, էջ 26" },
+      note: "The single place the Varoujan relation is anchored: the page the Armenian literature cites for Varoujan's տաղանդավոր ոճրերգություն on Կարմիր լուրեր բարեկամէս. Recorded as an archival reference because it is a Constantinople volume of 1913, not a work with an identifier to give.",
+    },
+    {
+      title: "Kaza of Agn, Vilayet of Mamuratul Aziz-Harput",
+      publisher: "Houshamadyan, Berlin",
+      identifier: { kind: "url", value: "https://www.houshamadyan.org/mapottomanempire/vilayetofmamuratulazizharput/kaza-of-agn.html" },
+      note: "Cited for the administrative geography alone — that Akn was a kaza in the sanjak of Harput within the vilayet of Mamuret-ül-Aziz, and not in the province of Sivas. The article states the Ottoman unit because the commonest error about his birthplace is a provincial one.",
+    },
+    {
+      title: "What Happened on 24 April 1915? The Ayash Prisoners",
+      publisher: "Gomidas Institute, London",
+      identifier: { kind: "url", value: "https://gomidas.org/index.php/?submissions/show/5" },
+      note: "The basis for the one distinction this article insists on: that the men taken on 24 April were divided between Ayaş and Chankiri, that Ayaş was a secure military prison from which almost nobody returned, that Siamanto was among its prisoners, and that the killings there took place in August 1915 in groups, without a day being fixed for any individual. Cited for the detention structure, not for the poetry — and the reason the article gives a month and refuses a date.",
+    },
+  ],
+
+  /*
+   * §94. Paronyan's bibliography carries an unusual load, because three separate
+   * things about him are contested rather than merely thin: his birth year, the
+   * publication chronology of Մեծապատիվ մուրացկաններ, and a schooling claim that
+   * circulates widely with nothing behind it. Each source below is cited for the
+   * specific thing it settles, and the two that disagree are both listed rather
+   * than the losing one being dropped.
+   */
+  "hakob-paronyan": [
+    {
+      title: "Հայկական սովետական հանրագիտարան, հատոր 9",
+      publisher: "Հայկական հանրագիտարանի գլխավոր խմբագրություն, Երևան",
+      year: "1983",
+      identifier: { kind: "archive", value: "ՀՍՀ, հատոր 9, էջ 204" },
+      note: "The spine of the article and the source of every date it states without qualification: 19 November 1843 at Adrianople, 27 May 1891 at Constantinople, the Arshakunyan school, the single year at the Greek school from 1857, the pharmacy and bookkeeping work, and the sequence of periodicals from Եփրատ in 1871 to Խիկար in 1884–1888. It is also the source consulted for the schooling question, and what matters is what it does not contain: no Catholic or Mekhitarist education appears in it, which is why the article omits that claim rather than repeating it.",
+    },
+    {
+      author: "Kevork B. Bardakjian",
+      title: "A Reference Guide to Modern Armenian Literature, 1500–1920",
+      publisher: "Wayne State University Press, Detroit",
+      year: "2000",
+      identifier: { kind: "isbn", value: "9780814327470" },
+      note: "The standard English-language reference for the period and the work of the scholar who has written most on Paronyan specifically. Cited for the placement of him in the movement from romanticism to realism, and for the careful formulation the article follows — first and greatest satirist of modern Armenian literature — in place of the founder-of-Armenian-satire and Armenian-Molière framings that circulate in popular writing.",
+    },
+    {
+      author: "A. J. Hacikyan, G. Basmajian, E. S. Franchuk and N. Ouzounian (eds.)",
+      title: "The Heritage of Armenian Literature, Volume III: From the Eighteenth Century to Modern Times",
+      publisher: "Wayne State University Press",
+      year: "2005",
+      identifier: { kind: "isbn", value: "9780814332214" },
+      note: "The section's backbone series at the volume covering him. Cited for the English-language account of his career and for the treatment of his satire as social rather than political in its primary target.",
+    },
+    {
+      author: "Hagop Baronian, translated and edited by Mischa Kudian",
+      title: "Honourable Beggars: A Satire",
+      publisher: "Mashtots Press, London",
+      year: "1978",
+      identifier: { kind: "isbn", value: "9780903039055" },
+      note: "The standard English translation of Մեծապատիվ մուրացկաններ and the route by which most English readers meet him. Cited for the English title the article uses and for the cast of visiting professionals; it is also part of the transliteration evidence, since it files its author as Baronian while Armenian institutions write Պարոնյան.",
+    },
+    {
+      title: "Հակոբ Պարոնյան, Երկերի ժողովածու, տասը հատորով",
+      publisher: "Հայկական ՍՍՀ ԳԱ հրատարակչություն, Երևան",
+      year: "1962–1979",
+      identifier: { kind: "archive", value: "Wikimedia Commons, Hagop Baronian collected works, volumes 1–10" },
+      note: "The ten-volume academic collected works, digitised and in the public domain. Cited as the primary corpus behind the article's statements about what he actually wrote — the plays, the feuilleton series, Ազգային ջոջեր and the prose — and as the evidence that the texts discussed here are available rather than merely described.",
+    },
+    {
+      author: "Mariam Gevorgyan",
+      title: "Հակոբ Պարոնյանի «Ազգային ջոջեր»-ի գրապատմական արժեքը",
+      publisher: "Artsakh State University, Stepanakert",
+      year: "2019",
+      identifier: { kind: "archive", value: "artsakhlib.am, Գևորգյան, «Ազգային ջոջեր»-ի գրապատմական արժեքը" },
+      note: "The basis for the Ազգային ջոջեր section and the source that resolves what looks like a date conflict elsewhere: serialization in Թատրոն from 1874, then two book parts, Constantinople 1879 and 1880, with roughly six years of biographical research behind the portraits. Also the source for the claim that the portraits are built on documented fact and written without personal malice.",
+    },
+    {
+      title: "Library of Congress Name Authority File and Bibliothèque nationale de France, authority records for Hakob Paronean / Hagop Baronian",
+      publisher: "Library of Congress; Bibliothèque nationale de France",
+      year: "consulted 2026",
+      identifier: { kind: "archive", value: "VIAF cluster 46886934; BnF 12761124" },
+      note: "Cited only for the birth-year disagreement, and cited precisely. The Library of Congress records him as Paronean, Hakob, 1841?-1891, with the question mark that marks an unverified date; the BnF gives 1841–1891 without one. Both cluster with the records that say 1843. This is the evidence for the article's statement that a reader meeting 1841 in a catalogue has found a flagged uncertainty rather than an error, and it is not used for any biographical claim.",
+    },
+    {
+      title: "Հակոբ Պարոնյանի անվան երաժշտական կոմեդիայի պետական թատրոն",
+      publisher: "Yerevan",
+      year: "founded 1941",
+      identifier: { kind: "archive", value: "Paronyan Musical Comedy Theatre, Yerevan — institutional record" },
+      note: "Cited for the reception section: the theatre was founded in 1941 and opened in 1942 and carries his name. It is also the reason the article makes a point about search — the institution now dominates the query Hakob Paronyan, which is precisely the discovery problem this page exists to fix.",
+    },
+  ],
+
+  "alexander-shirvanzade": [
+    {
+      title: "Հայկական սովետական հանրագիտարան, հատոր 8",
+      publisher: "Հայկական հանրագիտարանի գլխավոր խմբագրություն, Երևան",
+      year: "1982",
+      identifier: { kind: "archive", value: "ՀՍՀ, հատոր 8, էջ 517–519, «Շիրվանզադե Ալեքսանդր»" },
+      note: "The spine of the article. It is the source for the birth name Մովսիսյան Ալեքսանդր Մինասի, for the Old Style birth date 7 April 1858 that the article prints and flags, for Shamakhi and Kislovodsk, for the burial in Yerevan, for the publication sequence from Հրդեհ նավթագործարանում in 1883 through Խնամատար, Նամուս and Քաոս, for the secretaryship of Արձագանք from 1886 to 1891, for the list of plays and their years, for the placement of Շիրվանզադե in the line of Sundukyan's dramaturgy, and for the assessment of Քաոս as the largest achievement of Armenian critical realism. It is also the source of one recorded conflict: it dates Մորգանի խնամին to 1930 where other Armenian sources give 1926, and the article states both rather than choosing silently.",
+    },
+    {
+      author: "Kevork B. Bardakjian",
+      title: "A Reference Guide to Modern Armenian Literature, 1500–1920",
+      publisher: "Wayne State University Press, Detroit",
+      year: "2000",
+      identifier: { kind: "isbn", value: "9780814327470" },
+      note: "The standard English-language reference for the period, and the volume whose coverage ends exactly where his major career does. Cited for his position in the movement from romanticism to realism — the contrast the article draws between Raffi's historical-national novel and Shirvanzade's contemporary urban realism rests on this rather than on the popular summaries — and for the treatment of his prose and drama as one body of work rather than two.",
+    },
+    {
+      author: "A. J. Hacikyan, G. Basmajian, E. S. Franchuk and N. Ouzounian (eds.)",
+      title: "The Heritage of Armenian Literature, Volume III: From the Eighteenth Century to Modern Times",
+      publisher: "Wayne State University Press",
+      year: "2005",
+      identifier: { kind: "isbn", value: "9780814332214" },
+      note: "The section's backbone series at the volume covering him. Cited for the English-language account of the Baku years and the oil-industrial setting of Քաոս, for the serialization of that novel in 1896–1897 ahead of the 1898 volume, and for his own critical position on realism — generalisation and typification against the photographic reproduction of reality — which is the distinction the article uses to separate him from naturalism.",
+    },
+    {
+      title: "Ширванзаде Александр Минасович, Большая российская энциклопедия",
+      publisher: "Большая российская энциклопедия, Moscow",
+      year: "consulted 2026",
+      identifier: { kind: "url", value: "https://bre.ruwiki.ru/c/shirvanzade-aleksandr-minasovich-1c9f8b" },
+      note: "Cited for the chronology outside Armenia and for the honours. It gives the district school in 1873 and the move to Baku, the Baku employment as accountant and librarian, the settlement at Tiflis from 1883, the arrest and the Odessa exile of 1898–1900, the years in France and America, the return in 1926, and the naming as people's writer of both Armenia and Azerbaijan in 1930. It is also one half of the calendar problem the article records: it prints the birth date as 7 (19) April 1858, while Armenian and Russian encyclopedic practice elsewhere prints 18 April, and the article states the disagreement rather than reconciling it.",
+    },
+    {
+      title: "Namus, The Project — Armenian Institute, London",
+      publisher: "Armenian Institute, London",
+      year: "2011",
+      identifier: { kind: "url", value: "https://www.armenianinstitute.org.uk/namus-the-project" },
+      note: "The basis for keeping the novel and the play apart. It marks the centenary of the play in 2011, which is the evidence for the 1911 dating of Shirvanzade's own stage version, and it records the first English translation of that play, by Veronica Wigg. Cited also for the contemporary staging history and for the fact that the play has been produced in this century as a work about violence against women — the reading the article reports without treating it as an update to the text.",
+    },
+    {
+      title: "Hamo Beknazarian's Namus (1926) — East European Film Bulletin",
+      publisher: "East European Film Bulletin",
+      year: "consulted 2026",
+      identifier: { kind: "url", value: "https://eefb.org/retrospectives/hamo-beknazarians-namus-1926/" },
+      note: "Cited for the film section and, specifically, for the careful form of the claim the article repeats. This source says Namus is considered to be the first Armenian feature, and gives the studio history — Gosfotkino, established at Yerevan in 1923, later Armenfilm — that bounds what first means. It is also cited for the film's account of namus as an honour tied to a woman's chastity, and for Beknazarian's critical rather than illustrative treatment of it.",
+    },
+    {
+      author: "Hasret Çetinkaya",
+      title: "Re-theorising namûs beyond 'honour': self-making, feminist ethics and the politics of translation",
+      publisher: "International Feminist Journal of Politics",
+      year: "2024",
+      identifier: { kind: "doi", value: "10.1177/14647001241226938" },
+      note: "The scholarly basis for the section on the word itself, and the reason the article refuses to translate նամուս as honour and stop there. Cited for the Arabic nāmūs and its Greek origin in nomos, for the regional rather than ethnically specific distribution of the concept, and for the asymmetry the article states — that for men the word can extend to conscience and integrity while for women it is bound to sexual conduct. It is not cited for anything about Shirvanzade.",
+    },
+    {
+      title: "Surviving lifetime images of Alexander Shirvanzade",
+      publisher: "Charents Museum of Literature and Art, Yerevan; National Archive of Georgia; Bibliothèque nationale de France",
+      year: "consulted 2026",
+      identifier: { kind: "archive", value: "Wikimedia Commons, Category:Alexander Shirvanzade" },
+      note: "Cited for the statement that gendarme registration cards on him were compiled by the Tiflis provincial gendarme administration and are held by the National Archive of Georgia. The same record is the portrait evidence for a future commission and is described precisely because it is easy to overstate: a studio portrait photograph credited to the Charents Museum and a second undated photographic portrait survive, while the image often dated about 1880 is a lithograph published in the Constantinople French-language paper La Patrie in 1910 and held by the BnF, and a commemorative stamp and a sketch in the same category are not photographs at all.",
+    },
+  ],
+
 };
 
 

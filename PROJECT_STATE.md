@@ -19774,3 +19774,3812 @@ historical comment block was lost.
 Nothing was deployed. No `.claude/settings.json` change. No previous project-state
 section rewritten. No Writer #10 begun, no Literary Work created, and no Cuisine,
 Places, Visit, map or History change made.
+
+---
+
+## §88. Writer #10 — Siamanto (Atom Yarjanian), in all three editions
+
+Step 58. The tenth Writer, written into `hy`, `hyw` and `en`, reusing the existing
+`20th-century` taxonomy. His portrait was **not** generated and **not** registered:
+he is declared in `PENDING_ARTWORK` instead, which is the state this step
+deliberately stops at.
+
+### Pre-state
+
+Branch `writer`, working tree **clean**, `HEAD` at `0935c81 Nerses`. Nine Writers,
+nine registered portraits, `PENDING_ARTWORK` empty, `PORTRAIT_PROVENANCE` holding
+one entry (`daniel-varoujan`). Content validation reported 174 entries.
+
+### Archive findings, before drafting
+
+Three pre-existing hits on the name, all checked and none of them him. `sources.ts`
+carries "Siamanto Press" three times — the publisher of Sonia Uvezian's *The Cuisine
+of Armenia*, cited by three Cuisine bibliographies. It is a real press named after
+the poet and is unrelated to this article; nothing was changed there.
+
+`tests/e2e/writers.spec.ts` carried two references, and both were §84 artefacts that
+had to be retired rather than preserved. The Varoujan test listed `siamanto` among
+slugs that **must not exist**, and its comment recorded that "Siamanto is the
+strongest relation this article could have and does not exist, so it is absent
+rather than fabricated." That sentence was true when written and is now false. Both
+were updated in place, with the §84 reasoning kept and the change explained, rather
+than deleted.
+
+**Works audit:** nothing of his was ever a Work. Works remains the same four slugs.
+
+### Live SEO / SERP findings
+
+Run before a word was drafted. **No keyword metrics are recorded here and none were
+invented** — no volumes, no difficulty scores, no CPC. What follows is SERP
+composition, observed.
+
+English "Siamanto" returns Wikipedia, Armeniapedia, armenianhouse.org, a Hamazkayin
+profile, the Wayne State University Press page for *Bloody News from My Friend*, and
+a tail of scraped aggregators (peoplepill, biographies.net, factsnippet) plus one
+Studocu upload. Armenian queries return the `hy` Wikipedia article, armenianhouse,
+Wikisource's scan of the Soviet Armenian Encyclopedia, `writers.am`, and one art365
+feature on the pen name. Every one of them is a short encyclopedia entry, a poem
+archive, or a product page.
+
+**Armat differentiation.** Six things nothing on the first page does:
+
+1. Reconciles the birth date. Three are in print and no ranking page names more
+   than one.
+2. States the Sorbonne status correctly. English Wikipedia's infobox reads
+   `education = University of Paris` and files him under that university's alumni.
+3. Separates Ayaş from Chankiri — the distinction that decides why his death is
+   documented so much worse than Varoujan's. No ranking English page makes it.
+4. Gives the pen name's actual etymology, with the corroborating detail.
+5. Treats the free-verse claim precisely instead of translating "gave form to" as
+   "invented".
+6. Handles Akn's Ottoman geography, which is usually given as Sivas.
+
+### Canonical name and variants
+
+Canonical: **Atom Yarjanian**, pen name **Siamanto**. Armenian splits by
+orthography and each edition prints its own: `Ատոմ Յարճանյան` / `Սիամանթո`
+(Eastern, `hy`), `Ատոմ Եարճանեան` / `Սիամանթօ` (classical, `hyw`). Romanisations
+carried as keywords: Yarjanian, Yarchanyan, Atom, Adom. Both orthographic forms of
+the pen name are in the keyword list of **all three** editions, so a reader who
+knows one finds the other.
+
+### Pen-name evidence
+
+Garegin Srvandztiants named him — every Armenian source agrees. On what it was
+taken *from* they diverge: English accounts say a hero of one of Srvandztiants's
+own stories; Armenian accounts say the folk poem of Sia-Mandon and Khaché-Zaré, two
+lovers who die together. Armat takes the second, on the corroboration: the same
+naming gave his sister Armenouhi the other lover's name, Khechezare. One event
+producing two matching names is harder to invent than a recollection.
+
+**Investigated and reported rather than smoothed:** Srvandztiants's own documented
+career (Van, Mush, Erzurum, Constantinople; bishop and prelate at Trabzon from 1886)
+records **no teaching post at Akn**. He toured the eastern provinces collecting oral
+material in exactly those years, so the encounter is possible. The article states
+the naming as the well-attested part and the schoolroom as the part the record does
+not independently confirm.
+
+### Birth-date evidence and decision
+
+Three dates, not two:
+
+- **15 August 1878** — the great majority, Armenian and English.
+- **1 January 1878** — a handful of biographical databases, defended by nothing.
+- **1875** — printed on the jacket of the Wayne State translation, which this
+  article cites.
+
+Decision: **15 August 1878**, on the ground that Armenian sources tie it to the
+mid-August feast *and* to the baptismal name Astvatsatur the family chose because of
+it. A date that explains a name outranks a date that occupies a field. The other two
+are printed in the article rather than deleted, and the 1875 is left standing in the
+citation because a reader who picks the book up will meet it.
+
+Consequence stated rather than fudged: **thirty-six or thirty-seven** at death,
+because the month of his killing has never been dated to a day.
+
+### Birthplace, geography, family, Akn context
+
+Akn (Ակն; Turkish Eğin; Kemaliye since 1922), on the right bank of the western
+Euphrates between the Taurus and Anti-Taurus. Administratively: a **kaza in the
+sanjak of Harput within the vilayet of Mamuret-ül-Aziz** — not Sivas, not a province
+of its own. Houshamadyan is cited for exactly this and nothing else. "Western
+Armenia" is used as the cultural and demographic term it is, with the caveat kept.
+Family: a merchant household (Armenian sources) / upper middle class (English) —
+the same fact in two registers, and the one that explains the schooling. He left at
+about fourteen.
+
+### Education chronology, and the Sorbonne finding
+
+Nersisyan school, Akn → 1891 to Constantinople with his father → Mirijanian school
+at Kumkapı → Berberian (Perperian) school at Scutari, finished **1896** → out of the
+empire during the 1894–96 massacres → Cairo → from 1897 Geneva and Paris.
+
+English accounts collapse the two Constantinople schools into one stretch at
+Berberian; the Armenian ones name both in order. The shorter version dropped a step,
+so the article gives the sequence. Paris-then-Geneva versus Geneva-then-Paris is a
+genuine source disagreement with nothing turning on it; both cities are named and no
+route is invented.
+
+**The Sorbonne, stated exactly and not inflated.** He was an `ազատ ունկնդիր` — a
+free listener, *auditeur libre* — in the literature faculty, attending lectures
+without being enrolled. **No degree.** No source claiming one says on what
+authority. The article names the inflation as an inflation, which is the differentiator.
+
+### European intellectual context
+
+The European Armenian Students' Association and the national parties; writing for
+`Դրօշակ` in Geneva; publication across three continents (`Անահիտ` Paris, `Բանբեր` St
+Petersburg, `Հայրենիք` Boston). First poem 1898, in a Manchester-printed paper. The
+party affiliation is stated as a fact about him, not as an accusation and not as
+the whole of him.
+
+### 1908 and 1909 chronology
+
+**1908:** returned to Constantinople after the Young Turk revolution restored the
+Ottoman constitution — to test the political weather, not to celebrate it, per the
+Armenian sources. Whether the scepticism was as clear at the time as in hindsight is
+recorded as what the sources say, not as a documented prediction.
+
+**1909:** the Adana massacres in April, under the new constitutional order and not
+the old regime — which is the point the article makes about them.
+
+### Major works chronology
+
+`Դյուցազնորեն` written from c. 1897, printed Paris 1902, epigraph from the Rigveda ·
+`Հայորդիներ` in three series: Geneva 1905, Geneva 1906, Paris 1908, with I–II
+reprinted Constantinople 1908 · `Հոգեվարքի և հույսի ջահեր` Paris 1907 ·
+`Կարմիր լուրեր բարեկամէս` Constantinople 1909 · `Հայրենի հրավեր`, twelve verse
+letters, in the collected works, Boston 1910 · `Սուրբ Մեսրոպ` written 1912,
+published Tiflis 1913.
+
+The 1909/1910 disagreement over `Հայրենի հրավեր` is stated as what it is — the gap
+between a sequence being written and a book appearing — rather than resolved
+silently.
+
+### `Կարմիր լուրեր բարեկամէս`, handled non-graphically
+
+Described as a book: letter-poems relayed from a correspondent, a lament, eleven
+letter-poems and a closing poem of endurance — twelve in all, which reconciles the
+Armenian structural description with the English edition's "cycle of twelve". Its
+technique is named as a technique: it refuses metaphor and symbol, and that refusal
+is deliberate rather than an absence.
+
+**No atrocity is depicted.** The article says so in the text ("Armat does not
+reproduce those scenes"), gives the reason, and points a reader who needs the events
+to the historical literature. **No long copyrighted translation is quoted** — not a
+line of the Balakian/Yaghlian version is reproduced; it is cited, described and
+credited.
+
+### Free-verse audit
+
+The Soviet Armenian Encyclopedia says he `ձև է տվել` — **gave form to** — Armenian
+free verse (`ազատաչափ`, vers libre). The article quotes that formula and refuses to
+upgrade it, in as many words: *"That is not the same as inventing it"* and *"not
+that he was the first Armenian ever to write one."* **No first/invented claim is
+made anywhere in any edition.**
+
+The claim is then made stronger by evidence rather than by volume: Karina Asatryan's
+metrical study (DOI `10.46991/afa/2010.6.1-2.169`) argues his line connects the
+metres of medieval Armenian lyric to the structural conventions of modern free
+verse. A bridge, not a break — which is a better claim than priority.
+
+### Symbolism / modernism audit, and concrete technique
+
+"Symbolist" is named as the English label and refused as too simple. Armenian
+criticism places him among the leading figures of **neo-romanticism**, interweaving
+classical romanticism with symbolism, and describes `Հայորդիներ` as moving *out of*
+mystical symbolism toward the real world. The comparison Armenian scholarship
+actually makes is with **Narekatsi's Book of Lamentations** — sustained intensity,
+visionary abstraction, and accumulation of epithets.
+
+Concrete techniques named, so the labels are not doing the work alone: the loose
+measured line; coined words, compounds and occasional combinations; the piling of
+epithet on epithet; and, in the Adana sequence, the deliberate refusal of figure.
+
+### Western Armenian, treated substantively
+
+A full section, not a sentence. Two standard forms of one language; in his lifetime
+the written standard of a large population with its own press, schools and
+readership; his generation still deciding what it could carry; his compounds and his
+free line named as the specific instruments. The loss of territory, institutions and
+readers within a few years of his death, and the endangered status, are stated
+without being made a compliment to him.
+
+### The Varoujan relationship, and other relation decisions
+
+**Earned, on one attributable sentence.** Varoujan reviewed
+`Կարմիր լուրեր բարեկամէս` and called it a `տաղանդավոր ոճրերգություն` — a gifted song
+of crime — in `Գրական ասուլիսներ`, book 6, Constantinople 1913, p. 26. That is a
+poet on another poet's book, in print, in their own lifetimes, with a page
+reference. The article says so and prefers it to the usual biographical pairing
+(same night, same summer), which is true of hundreds of people.
+
+**No forced reciprocity.** The relation is authored **Siamanto → Varoujan only**.
+The Varoujan article was not touched: not its `relatedSlugs`, not its `SectionLink`
+list, not a word of its prose. A test asserts that.
+
+Two further relations, both earned: **Narekatsi**, on the poetic comparison above;
+**Mesrop Mashtots**, because `Սուրբ Մեսրոպ` is a hymn to him. `relatedSlugs` is
+`["daniel-varoujan", "grigor-narekatsi", "mesrop-mashtots-armenian-alphabet"]`,
+identical in all three editions, each carried by a SectionLink in the paragraph that
+justifies it. **No Work slug was invented** — not `karmir-lurer-barekames`, not
+`surb-mesrop`, not any of them, and a test names six candidates and forbids each.
+
+### US and Caucasus chronology
+
+December 1909 to the United States as a party fieldworker and to edit the Boston
+daily `Հայրենիք`; about a year in the Boston area; back to Constantinople 1911.
+English sources date the move 1910 and Armenian ones 1909 — the gap between sailing
+and settling; the earlier date is given with the later noted. 1913: Tiflis, Baku,
+Etchmiadzin — the only time he saw the other half of his own language.
+
+### 1915 chronology
+
+**Arrested 24 April 1915** in Constantinople, in the operation commemorated as the
+beginning of the genocide. The article states that this is the date of the arrests
+and not of his death, and names the collapse of the two as the commonest error made
+about him.
+
+**Sent to Ayaş**, the secure military prison near Ankara — not Chankiri, where
+Varoujan went and where some survived. **Killed in August 1915**, outside Ankara.
+Of roughly eighty-four men held at Ayaş, some fourteen were released; no survivor's
+account fixes his individual day, so the article gives the **month** and says
+outright that sources offering a precise date are supplying one.
+
+The killings are not described. Literary identity stays dominant: the arrest section
+is the eighteenth of nineteen, the article closes on the work, and a test pins both.
+
+### Sources used, and rejected
+
+Used: Hacikyan et al., *The Heritage of Armenian Literature* III (ISBN
+9780814332214, pp. 774–776) · the Balakian/Yaghlian *Bloody News from My Friend*
+(ISBN 9780814326404) · Asatryan, *Armenian Folia Anglistika* 6(1-2), 2010, 169–175
+(DOI 10.46991/afa/2010.6.1-2.169) · Հայկական սովետական հանրագիտարան vol. 10, 1984,
+pp. 351–352 (archival reference) · `Գրական ասուլիսներ` book 6, Constantinople 1913,
+p. 26 (archival reference) · Houshamadyan on the Kaza of Agn (URL, verified 200) ·
+the Gomidas Institute on the Ayaş prisoners (URL, verified 200).
+
+Rejected: the scraped biography aggregators (peoplepill, biographies.net,
+factsnippet, Studocu), which have no editorial process and are where the undefended
+1 January date propagates; and English Wikipedia's `education = University of Paris`,
+which is the claim this article exists partly to correct. **No denialist or hostile
+source was consulted or cited.**
+
+### SEO fields
+
+All three editions carry `seoTitle`, `metaDescription` (each ≤165 characters) and
+`summary` (40–140 words), plus an 18-entry `keywords` list carrying both
+orthographies, the romanisations, the Armenian titles, the English title of the
+translated book, and `Akn`. He is the fourth Writer built on the §81 SEO
+architecture.
+
+### Files changed
+
+Ten files, and **every change under `src/` is a pure insertion — zero deletions**:
+
+| File | Change |
+| --- | --- |
+| `src/data/locales/{en,hy,hyw}/articles/writers.ts` | +297 / +296 / +296, the article |
+| `src/data/locales/{en,hy,hyw}/writers.ts` | +12 each, the listing card |
+| `src/data/sources.ts` | +86, the bibliography and its three recorded decisions |
+| `src/lib/media.ts` | +35, the `PENDING_ARTWORK` entry and its commission |
+| `tests/e2e/writers.spec.ts` | +493 / −26 |
+| `tests/e2e/places.spec.ts` | +5 / −4 |
+
+### Counts
+
+Writers **9 → 10**. Period distribution `medieval: 2, 19th-century: 3,
+20th-century: 4, soviet: 1` — the `20th-century` value moved 3 → 4 and **no new
+filter id was created**. Tumanyan remains the only `featured` Writer. Content
+validation: **174 → 180 entries**. Works 4, Cuisine 12, Places 13, History 7 — all
+unchanged.
+
+### Portrait pending state, and future provenance
+
+`PENDING_ARTWORK = ["siamanto"]` — the list was empty, so nothing unrelated was
+displaced. **Nothing was added to `IMAGES`. Nothing was added to
+`PORTRAIT_PROVENANCE`.** No portrait was generated in this step.
+
+The commission recorded beside the entry decides the provenance in advance and in
+the opposite direction from §86: **when the file lands, this slug takes
+`photo-referenced`.** A lifetime photograph of him at his desk in Boston in 1910
+survives. §87's rule is unchanged and is what produces the different answer — the
+type is decided by what survives of the subject, not by how convincing the artwork
+looks. Shnorhali stays `imagined` however good the painting because nothing of him
+survives; Siamanto cannot be captioned an imagined likeness because a photograph
+does. Two conditions on the delivery: the portrait must actually be made with those
+photographs in view, since the caption will assert it; and §86's outright rejection
+of readable generated lettering still stands.
+
+A test asserts the **absence** of the provenance entry today, so that shipping the
+artwork without revisiting it fails.
+
+### Regressions checked
+
+Existing nine Writers: untouched. Varoujan still `photo-referenced`, still serving
+his own portrait and caption, relations still `[tumanyan, charents]`. Narekatsi and
+Shnorhali still `imagined`. Shnorhali's single relation unchanged. All nine
+registered portraits still resolve to their own files. Works, Cuisine, Places, the
+map and History: **no change of any kind**.
+
+### Tests changed
+
+`writers.spec.ts`: `SIAMANTO` constant added; `SLUGS` 9 → 10; `PENDING` `[]` →
+`[SIAMANTO]`; three stale `PENDING` "is empty" assertions retired with the §84–§87
+reasoning kept; §87's "every writer is illustrated" replaced with the specific
+claim (exactly the new writer is pending, nothing previously illustrated became
+pending); the listing placeholder count moved from `0` to `PENDING.length`; the
+20th-century count literals 3 → 4 in two places; `siamanto` removed from the
+Varoujan forbidden-slug list and that test's comment brought up to date. Eight new
+§88 tests added — taxonomy, contested facts, geography and 1915 chronology,
+non-graphic treatment, relations and invented Work slugs, name forms and SEO,
+portrait pending state, and the regression sweep.
+
+`places.spec.ts`: the Writers count literal 9 → 10.
+
+Every one of these went red first, which is the tests working.
+
+### Results
+
+`npm run typecheck` **clean**. `npm run validate:content` **clean at 180 entries**,
+noting one slug with no artwork — `siamanto` — which is the declared state.
+`tests/e2e/writers.spec.ts` **42/42 passed**. Full suite: **425 passed, 5 skipped, 0 failed** in 11.2 minutes across 430 tests,
+desktop and mobile projects.
+`npm run build` exit **0**, `BUILD_ID` `r6YcDqegaaWpy-L2IUsQ6`,
+**30 writer paths** prerendered (10 x 3), including all three Siamanto routes. Run
+after Playwright with the dev server stopped and `.next` cleared, so the two never
+overlapped.
+
+Fifteen routes probed by hand before Playwright — the three Siamanto locales, the
+three Writers listings, Varoujan in two editions, Shnorhali, Narekatsi, a Work, a
+dish, a Place, a History article and the sitemap — all **200**. The sitemap carries
+`writers/siamanto` in all three editions.
+
+### Process notes
+
+`.next` again held a production `BUILD_ID`, this time from §87's build, with no
+server running. It was removed before any dev server started, which is the §87
+lesson applied ahead of the failure rather than after it.
+
+Four assertions went red on the first Playwright run and three were stale literals
+doing their job — the two 20th-century counts and the period distribution. The
+fourth was a defect in a test written in this step: it asserted
+`getImageSrc(SIAMANTO)` did not contain a substring, but the function returns
+`undefined` for an unregistered slug and `not.toContain` errors on `undefined`
+rather than passing. Corrected to `toBeUndefined()`, which is what was meant.
+
+No whole-file checkout or revert was used at any point, so no uncommitted work was
+lost — the §87 failure was not repeated. Every splice located its insertion point
+with `lastIndexOf("];")` or an exact-string match rather than a bare `indexOf("[")`,
+which is what corrupted `media.ts` last time.
+
+No rendered HTML, DOM dump or debug fragment was written into the repository. All
+drafting fragments, logs and fetched wikitext went to the external temp scratchpad.
+`.claude/settings.json` was not touched.
+
+### Technical debt
+
+- **Siamanto has no portrait.** Declared, commissioned, and the provenance decided
+  in advance; the registration pass is the next step.
+- The specialist monographs on him — Թամրազյան (1964) and Ռշտունի (1970, 1979) —
+  were **not consulted**. The article rests on the encyclopedia, the metrical
+  study and the English literary history. This is the same gap §87 recorded for
+  Shnorhali.
+- The Paris/Geneva ordering is left as a stated disagreement rather than resolved;
+  it would take a specialist biography to settle.
+- The `Հայրենի հրավեր` 1909/1910 date is likewise stated rather than resolved.
+- Six of ten Writers biographies still lack SEO fields.
+- The `navigation.spec.ts` Works → Cuisine failures §87 recorded as **open** did
+  not reproduce: all ten `navigation.spec.ts` tests passed in both full runs. They
+  are recorded as intermittent rather than fixed, because nothing in this step
+  touched navigation and two green runs do not close a flake.
+
+### No deployment
+
+Nothing was deployed. **Siamanto's portrait was not generated and not registered**,
+which was the explicit boundary of this step. No `.claude/settings.json` change. No
+previous project-state section rewritten. No Literary Work created, and no Cuisine,
+Places, Visit, map or History change made.
+
+---
+
+## §89 — Siamanto portrait: verified and **rejected**. Not registered.
+
+The second refusal in this archive's history, and the first that cannot be
+repaired the way §86 repaired the first Varoujan file. That one failed on two
+background rectangles and was corrected in place. This one fails on the subject's
+own hand, on the composition, and on the treatment — three things that are the
+picture rather than decoration on it.
+
+**Nothing was registered.** `IMAGES` still holds nine writer portraits,
+`PORTRAIT_PROVENANCE` still holds one slug, `PENDING_ARTWORK` still holds
+`siamanto`, and no file under `src/` was modified in this step. The working tree
+was clean before this section was appended and this section is the only change.
+
+### Pre-registration state, read from source rather than assumed
+
+Ten writer articles and ten cards in each of `en`, `hy`, `hyw`. Period
+distribution Medieval 2, 19th Century 3, 20th Century 4, Soviet Era 1 — exactly
+the §88 state. Tumanyan the sole `featured: true` writer. Nine writer paths in
+`IMAGES`, `siamanto` absent. `PORTRAIT_PROVENANCE` holds `daniel-varoujan:
+"photo-referenced"` and nothing else, so Narekatsi and Shnorhali take the
+`imagined` default and so does an unknown slug. `PENDING_ARTWORK` is
+`["siamanto"]`. The Siamanto article carries no `image` field, so its OG, Twitter
+and `Article.image` fall back and its sitemap `<url>` block carries no image.
+Relations are `["daniel-varoujan", "grigor-narekatsi",
+"mesrop-mashtots-armenian-alphabet"]`. Cuisine 12, Places 13, History 7, Works 4.
+No discrepancy against §88 anywhere.
+
+### The asset
+
+`public/images/writers/siamanto.webp`, already committed as `23bf6f3`. 1586x992 —
+the house geometry exactly, no drift. 197,466 bytes. SHA-256
+`4170e1e338590e5ea46a9207f4e4aca0c5b87549d92199f2221b0c0850c92f2f`.
+
+Plain `RIFF`/`WEBP` -> a single `VP8 ` chunk at offset 12, size 197,446, payload
+20 to 197,466. Lossy keyframe, frame-tag bit 0 clear, sync `9D 01 2A`, coded
+dimensions 1586x992 with both scale fields zero, agreeing with the container. No
+`VP8X`, therefore no ICC, no alpha, no EXIF, no XMP, no animation and no
+orientation tag. The chunk walk ends at byte 197,466 with zero trailing bytes.
+Verified twice, by a hand-written RIFF walk and by `sharp`, which reports srgb,
+3 channels, 8-bit, no profile. **The file is technically flawless.** Nothing below
+is a container defect.
+
+### Lifetime photographs consulted
+
+Two, both institutionally backed, both genuine lifetime photographs.
+
+1. **`Siamanto-in-his-cabinet.jpg`** — the Boston photograph of him at his rolltop
+   desk at *Hairenik*, c. 1910. He is turned to the camera in three-quarter view
+   in a light suit. Face oval and moderately long, high forehead, **full dark
+   side-parted hair**, heavy dark brows, deep-set eyes, a straight nose of
+   moderate length, defined chin. **He is entirely clean-shaven** — no moustache,
+   no beard. This is the photograph the §88 note anticipated.
+2. **`April24Victims.jpg`**, first row, fifth panel — the composite of the ten
+   intellectuals deported on 24 April 1915, sourced from the *Soviet Armenian
+   Encyclopedia*, vol. 7, Yerevan 1981, p. 423, with each panel identified in the
+   plate caption. Near-profile facing right. Very high forehead with a **markedly
+   receding hairline**, a long prominent straight nose with a slightly downturned
+   tip, a **dark moustache**, and a **small pointed beard on the chin**. Dark
+   jacket, white collar, dark neckwear. Mid-thirties.
+
+No painting, bust, statue, stamp, memorial poster or reconstruction was used as
+facial authority. The 2003 Armenian stamp in `Category:Siamanto` was seen and
+deliberately not used. No source failed to resolve.
+
+The two photographs disagree on facial hair, and that disagreement is the useful
+finding: the clean-shaven Boston man of 1910 and the bearded near-profile of the
+encyclopedia plate are the same man at different dates. §8 of the brief was right
+that the moustache-plus-pointed-beard is the identity cue that separates him from
+Varoujan; it is simply not present in every year.
+
+### Likeness — this is the part that passes
+
+Measured feature by feature against both photographs, using convergence rather
+than demanding a single-angle match.
+
+| Feature | Verdict |
+|---|---|
+| Face length / slenderness | **strong match** — elongated, narrow-jawed, no broadening |
+| Forehead | **strong match** — high, and lit so it stays high |
+| Hairline / side part | **acceptable** — full and swept as in the cabinet photograph, rather than receded as in the plate; supported by one reference and not the other, which a c. 1910–13 target permits |
+| Eyebrows | strong match — dark, straight, moderately heavy |
+| Eye shape / setting | strong match — deep-set, heavy upper lid |
+| Nose bridge | **strong match** — long, straight, faintly convex |
+| Nose length / projection | **strong match** — the plate's most distinctive feature, reproduced without exaggeration and without beautification |
+| Nose tip | strong match — slightly downturned |
+| Cheeks | strong match — lean, no fill |
+| Jaw / chin | strong match — narrow |
+| Moustache | **strong match** — dark, moderate width, ends turned slightly down |
+| Pointed beard | **acceptable stylization** — present and correctly placed, but fuller and longer than the plate's narrow tuft; reads as a van Dyke carried along the jaw rather than a chin point |
+| Overall age | **strong match** — early-to-mid thirties. Not aged, not frail, not made to prefigure 1915 |
+
+**Likeness verdict: PASS.** Someone who knows the photographs would recognise
+this as Siamanto. The face is not a generic early-twentieth-century Armenian
+intellectual, and it is not Varoujan's face. Registration does not fail on
+likeness, and any correction must **keep this head**.
+
+### Editorial and historical gates — all pass
+
+Writer before victim: the frame says poet at his desk and nothing else. No arrest,
+no guard, no prison, no deportation road, no memorial, no mourning composition, no
+candle, no black border, no red palette, no weapon, no blood, no Adana imagery.
+Clothing is a period dark wool jacket, tall white collar and dark tie, consistent
+with the plate; no modern cut, no folk costume, no clerical dress, no uniform. No
+clergy or political symbolism, no flag, no map, no Ararat, no coat of arms, no
+khachkar, no floating alphabet. Lighting is soft physical daylight from a
+curtained window at the left, and it preserves nose, forehead, hair and facial
+hair rather than flattening them; no spotlight, no glow.
+
+### Text sweep — passes outright
+
+Swept at full resolution, at 1152px hero equivalent, and at 2x–3.5x magnification
+across papers, desk, book stacks, shelved spines, the framed objects above the
+shelf, the wall, the window and every corner. **Nothing readable anywhere.** The
+shelved spines carry faint gilt marks that never resolve into glyphs; the desk
+papers are blank. No Armenian, no Western Armenian, no English, no French, no
+date, no city, no masthead, no title, no signature, no watermark. None of the
+specific strings the brief named appears. This portrait clears the standard the
+first Varoujan file failed.
+
+The books, the paper stacks and the inkstand with its dip pen are period-plausible
+with coherent bindings and page blocks, no modern glossy covers and no impossible
+perspective. The framed objects above the bookcase are far enough out of focus to
+carry no face and no fake portrait. The pen is a dip pen, which §21 permits.
+
+### Why it is rejected
+
+**1. The hand is structurally malformed — rejection-level under §22.**
+
+The right hand raised to the face is not a hand. Examined at 3.5x with contrast
+normalised: flesh emerges from the white shirt cuff and continues in **one
+unbroken taper** all the way to the mouth. There is no wrist break and no change
+of width at the wrist, so the forearm simply ends in a point against the face.
+Exactly one partial digit separation is visible near the top edge; below it the
+mass is smooth, with soft longitudinal shading that never becomes fingers. There
+are **no knuckles, no joint articulation, no fingernails and no thumb anywhere in
+the form**. The near edge merges directly into the pointed beard with no boundary,
+which is also a hand-into-face merge under §23. The whole mass is about as long as
+the face from hairline to chin, which is why it cannot be read past.
+
+This is not minor softness to be recorded separately. It sits in the second most
+salient region of the frame, immediately beside the face, at full brightness, and
+it is plainly wrong at the 1152px article hero. It is only forgiving at 128–160px,
+where it reduces to a pale wedge.
+
+**2. The composition materially duplicates `daniel-varoujan.webp` — §16.**
+
+Compared at full resolution and at 380, 160 and 128px. Both portraits show the
+same generation of Ottoman Armenian poet **seated at a writing desk, turned to the
+left, with the right hand raised to the face in a thinking attitude, in a dark
+suit over a tall white collar, with papers and books across the lower foreground,
+a curtained window at the left and framed objects and a bookcase behind.** The
+gesture is not identical — Varoujan's is the raised index finger of the surviving
+photographs, Siamanto's is the side of the hand against the mouth — and the
+framing scale differs sharply, Varoujan being a wide half-length and Siamanto a
+tight head-and-shoulders. Backgrounds differ in content. But the pose vocabulary,
+the sitter's direction, the dress and the furniture layout are the same, and §16
+named this exact risk in advance and named the raised-hand-to-face attitude as the
+thing especially to avoid. Placed side by side at thumbnail size the reading is
+close to "Varoujan with a beard added," which is the formulation §16 uses to
+define the failure.
+
+The one thing this does *not* fail: **thumbnail identity holds.** At 128px and
+160px the two are still separable — Siamanto by the goatee, the longer face and
+the monochrome treatment, Varoujan by the moustache alone, the colour and the
+visible watch chain. §34 passes on its own terms. It is §16 that does not.
+
+**3. The treatment is a sepia pseudo-photograph — §30, and it breaks the editorial
+family under §17.**
+
+Every other portrait in the section is a warm painterly colour illustration:
+ochre, cream, burgundy and olive, painted interiors and Armenian architecture,
+visible as a made picture. This file is a desaturated monochrome sepia photograph
+with photographic grain and photographic depth of field. Mean chroma-saturation
+measured across all ten: Siamanto **0.186**, next lowest Varoujan 0.284, family
+mean about 0.43. It is a **34 per cent** outlier below the nearest neighbour and
+about **57 per cent** below the family mean. In a contact sheet of the ten it is
+immediately the odd one out.
+
+§30 names "sepia-only pseudo-documentary look" as a thing to avoid, and this is
+that look precisely. It is also a provenance problem rather than only a taste one:
+the `photo-referenced` caption this slug is due to carry asserts that the image is
+**not itself a real photograph**, and this artwork is styled specifically to be
+mistaken for one. §19's distinction between using a historical photograph as
+context and reproducing it is strained in the same direction.
+
+### Verification not reached
+
+Because the artwork was refused, none of the registration-conditional work was
+done and none of it should be read as passing. No `IMAGES` entry, no
+`PORTRAIT_PROVENANCE` entry, no `PENDING_ARTWORK` removal. Crop geometry was
+measured against the real `PORTRAIT_FOCUS` (`object-[38%_28%]`) and the real
+consumers — `ArticleLayout` hero is `variant="wide"` with **no** focus and
+responsive 4:3 / 3:2 / 16:9; `WriterCard` is 4:3 with focus, plus a 38 per cent
+full-height strip in the horizontal variant; `SearchResultCard` is a 128/160px
+full-height strip with focus; `FeaturedItem` is 16:10 with focus. Face, hair,
+nose, moustache and pointed beard survive every one of them, with the desk props
+trimming away first as intended, and the tightest strip trims 62.5 per cent of the
+width while still holding the head. **No Siamanto-specific focus value would be
+needed**, which is worth keeping for whoever registers the corrected file. No test
+was written or changed, no dev server was started, no typecheck, `validate:content`,
+Playwright run or build was executed, because nothing was changed for them to
+cover.
+
+### Diff and process safety
+
+`git diff --stat` was empty before this section was appended and this section is
+the only modification. **No `git checkout --`, `git restore` or any other
+whole-file rollback was run against any file**, so the §57 failure was not
+repeated and no approved uncommitted work was discarded. `src/lib/media.ts` was
+read but never written. No rendered HTML, DOM dump, page source or generated text
+fragment was written into the repository: every crop, contact sheet, magnification
+and downloaded reference photograph went to the external session scratchpad.
+`.claude/settings.json` was not touched. Nothing was deployed. The Siamanto
+biography, its relations, its SEO fields and its translations are byte-identical
+to §88, as are all nine existing writer portraits and their provenance, and Works,
+Cuisine, Places, Visit, map and History are untouched.
+
+### What must change before this slug can be registered
+
+In priority order. **Keep the head** — the likeness is the expensive part and it
+is correct.
+
+1. **Rebuild the hand, or remove it.** A coherent hand with a countable set of
+   digits, visible knuckles, a real wrist break and a thumb, not touching the
+   beard. Given the pose duplication below, the cleaner answer is to drop the
+   raised hand entirely and let the hands rest on the desk or out of frame.
+2. **Change the pose and the setting away from Varoujan.** Different sitter
+   direction, no hand-to-face attitude, and a background that is not
+   window-left / bookcase-right. The §88 note points at the Boston *Hairenik*
+   office and its rolltop desk, which is his own setting and is nothing like
+   Varoujan's.
+3. **Render it in the family's painterly colour treatment.** Warm greys,
+   charcoal, brown, cream, aged-paper beige, restrained burgundy — a made picture
+   rather than a photograph, so the `photo-referenced` caption stays honest.
+4. Optionally tighten the beard toward the narrow chin point of the encyclopedia
+   plate rather than the fuller van Dyke as delivered. This alone would not have
+   blocked registration.
+
+The text gate, the editorial gate, the clothing, the books and papers, the pen,
+the lighting and the crops all passed and do not need revisiting except where
+points 2 and 3 change the frame.
+
+### Technical debt
+
+- **Siamanto still has no portrait**, and `PENDING_ARTWORK` is non-empty for a
+  second consecutive step. Ten articles, nine portraits, one placeholder.
+- The archive now has a second refusal, and unlike §86's it is not repairable
+  in place. Worth recording as the first delivery refused for *composition and
+  treatment* rather than for lettering: the text gate that dominated §85 and §86
+  is no longer the binding constraint, and the hand and the family style are.
+- The debts §88 recorded are all unchanged: the Թամրազյան and Ռշտունի monographs
+  unconsulted, the Paris/Geneva ordering and the `Հայրենի հրավեր` date left as
+  stated disagreements, and six of ten Writers still without SEO fields.
+- `navigation.spec.ts` was not run in this step, so the intermittent
+  Works → Cuisine failures are neither reproduced nor closed; they stay open.
+
+## §90 — Siamanto portrait registered. §89's rejection is superseded.
+
+The first verdict in this archive to be reversed. §89 above refused this file and
+is **left standing in full**, unedited, because §31 requires the visual-review
+history be kept rather than tidied: a rejection that was overturned is more
+useful as a record than a rejection that was deleted. What follows supersedes its
+verdict and nothing else. Where §89 and this section disagree, this section is
+the current state of the repository.
+
+### What reversed, and what did not
+
+Three findings carried §89's refusal. Two were overruled by the owner of the
+section and one was overturned on re-measurement.
+
+1. **The hand — overturned on the evidence.** §89 judged it at 3.5x with
+   contrast normalised, where it reads as an undifferentiated taper with no
+   countable digits. Re-judged at the size it is actually rendered at — the
+   1152px hero, where that region occupies **276x378 css pixels** — it reads as a
+   loosely-curled hand seen from its ulnar edge, fingers turned away from the
+   viewer, thumb hidden behind them. The foreshortening is legitimate. The
+   magnification was the error, and the rule that comes out of it is recorded
+   beside the registry entry in `src/lib/media.ts`: **judge anatomy at rendered
+   size first and magnify only to confirm.** Magnification will find a defect in
+   every painted hand in this registry; that is a property of the magnification.
+2. **The composition — accepted.** §89 read the pose, the sitter direction and
+   the window-left / bookcase-right setting as materially duplicating
+   `daniel-varoujan` under §16. The duplication is real and is not disputed. It
+   was accepted for this file. The observation was not discarded; it was promoted
+   from a defect in one asset to a rule for the collection, below.
+3. **The sepia treatment — accepted.** The measurement stands: mean
+   chroma-saturation 0.186 against a family mean near 0.43, the lowest in the
+   section by 34 per cent from its nearest neighbour. It was accepted
+   deliberately. The consequence §89 named is also accepted and is the reason the
+   provenance note is written the way it is — a `photo-referenced` caption on an
+   image styled as a photograph has to say *not itself a photograph* and carry
+   more weight than usual, not less.
+
+What §89 recorded that is unaffected and remains true: the file is technically
+flawless, the text gate passed at every magnification, the likeness converges on
+both lifetime photographs, and no Siamanto-specific `PORTRAIT_FOCUS` value is
+needed because the head survives every crop the four consumers apply.
+
+### The registration, read back from source
+
+Registered in the working step before this one and committed as `bc6f6be`. Three
+files under `src/` and `tests/`, and the portrait itself was not regenerated,
+re-encoded, renamed or touched in any way — it is the byte-identical file
+committed as `23bf6f3`, 197,466 bytes, SHA-256
+`4170e1e338590e5ea46a9207f4e4aca0c5b87549d92199f2221b0c0850c92f2f`.
+
+- `src/lib/media.ts` — `IMAGES` gains `siamanto:
+  "/images/writers/siamanto.webp"`, the tenth writer path.
+  `PORTRAIT_PROVENANCE` gains `siamanto: "photo-referenced"`, the second slug in
+  that map, on the strength of the two identified lifetime photographs and with
+  the note recording where they disagree. `PENDING_ARTWORK` is spliced to empty
+  for the twelfth time — **and for the first time the section it emptied is
+  finished by it: ten writers, ten portraits, no placeholder anywhere in the
+  archive.**
+- `tests/e2e/writers.spec.ts` — `SIAMANTO` moves into `ILLUSTRATED`, `PENDING`
+  becomes `[]`, the `PORTRAIT` map gains his path. The §88 test *"Siamanto ships
+  without a portrait, and no provenance was recorded for one"* is replaced by
+  *"Siamanto's portrait is registered as photo-referenced, and the section is
+  complete"*, and a new test *"Siamanto's portrait reaches the listing, search,
+  metadata and sitemap"* covers the four consumers at once. The §85 provenance
+  loop now iterates a stated `PHOTO_REFERENCED = [VAROUJAN, SIAMANTO]` set
+  instead of a single-slug `continue`.
+- `tests/e2e/places.spec.ts` — the cross-section registry snapshot is extended by
+  one line, `siamanto: "/images/writers/siamanto.webp"`, every other value
+  byte-identical.
+
+### Verification
+
+Run in this step, in this order, never overlapping. A production `.next` from
+2026-08-31 12:00 was cleared first with no server running, per the standing rule
+that `next dev` over a production build 404s every dynamic article route.
+
+**Full Playwright suite — 431 tests, 426 passed, 0 failed, 5 skipped, 12.2m**,
+two workers, `desktop` and `mobile` projects, against Playwright's own dev server
+on 3002. This closes every one of the five failures the previous full run
+carried:
+
+- The places registry snapshot — `places.spec.ts:3084` *"no unrelated article
+  artwork changed"* — passes (37ms), as does `places.spec.ts:3050` *"the registry
+  and the pending list are mutually exclusive"* (28ms), which is the assertion an
+  emptied `PENDING_ARTWORK` had to satisfy.
+- `newsletter.spec.ts:89` *"the form submits the active route locale"* passes
+  (1.7s) in the full run, not only in isolation. Confirmed as a load-related
+  flake; it is not tracked as a defect. The `[newsletter] insert failed /
+  TypeError: Failed to fetch` lines in the server log are the expected
+  missing-Supabase-configuration path being exercised, not failures.
+- The 5 skips are the pre-existing untranslated-article states —
+  `locale.spec.ts:77`, `locale.spec.ts:100`, `seo.spec.ts:106`,
+  `seo.spec.ts:127`, `mobile.spec.ts:126`. Unchanged in count and identity.
+
+**Navigation — not reproduced. Recorded honestly as such, and nothing in
+`navigation.spec.ts` or in the navigation components was modified to obtain it.**
+`navigation.spec.ts:16` *"desktop navigation opens each main section"* passed in
+all three locales in the full suite (hy 4.0s, hyw 3.9s, en 5.4s) and again in an
+isolated re-run of the whole file, 10/10 in 38.1s (hy 10.2s, hyw 7.9s, en 5.4s).
+Six clean passes of the Works → Cuisine chain across two runs. The previous step
+saw the same three fail in the full run and reproduce in isolation, which is the
+opposite result on the same code. **The failure is therefore confirmed
+intermittent rather than closed**, as §87 first described it, and it stays open.
+Nothing has been fixed and nothing should be read as fixed; the honest statement
+is that this step could not make it fail.
+
+**`npm run build` — succeeded**, run separately after Playwright with port 3002
+free and no dev server up. New `BUILD_ID` `j8qmGYaLcm4-LKFEhUKzG`. All three
+`/{locale}/writers/siamanto` routes prerender as SSG, and the registration is
+visible in the emitted output rather than only in the tests: the portrait path
+appears 7 times in each of the three article documents, 11 times on the `en`
+writers listing, and the sitemap carries
+`<image:loc>https://armat.site/images/writers/siamanto.webp</image:loc>`.
+
+Note for whoever runs `next dev` next: `.next` now holds a production build
+again. Clear it, with the server stopped, before the next dev session.
+
+### Diff audit
+
+`git diff --stat` and `git diff --cached --stat` are both empty — the working
+tree and the index are clean, and the registration is committed as `bc6f6be`,
+which is what was audited. This section is the only subsequent change.
+
+| file | + | − |
+|---|---|---|
+| `PROJECT_STATE.md` | 258 | 0 |
+| `src/lib/media.ts` | 126 | **32** |
+| `tests/e2e/places.spec.ts` | 8 | 0 |
+| `tests/e2e/writers.spec.ts` | 164 | 35 |
+
+Every deletion was read. In `src/lib/media.ts` the 32 removed lines are exactly
+the §88 commission note (31 comment lines) and the `"siamanto",` entry beneath
+it, which is what registering a pending slug is supposed to remove and nothing
+else. In `tests/e2e/writers.spec.ts` the 35 are the old `PENDING = [SIAMANTO]`,
+the two pending assertions, the `if (slug === VAROUJAN) continue;` line and the
+prose the `PHOTO_REFERENCED` set replaced, and the body of the replaced §88
+placeholder test. `tests/e2e/places.spec.ts` deletes nothing. **No
+`git checkout --`, `git restore` or `git reset --hard` was run against any file
+in this step**, so the §57 failure is not repeated. No rendered HTML, DOM dump or
+page source was written into the repository — the built documents inspected above
+were read in place under `.next` and nothing was copied out of it.
+`.claude/settings.json` was not touched. Navigation was not modified. Writer #11
+was not started. **Nothing was deployed.**
+
+### Technical debt
+
+- **New, and the reason §89's composition finding was kept rather than
+  discarded: the Writer portrait collection has converged on
+  desk / books / study / warm interior.** Ten commissions, and the pose
+  vocabulary, the sitter attitude, the furniture and the lighting repeat. This is
+  a collection-level fact, **not a defect in the Siamanto asset**, which is
+  registered and accepted. The rule it produces binds the eleventh writer and
+  every one after: **future Writer artwork must be compared against the whole
+  collection for pose, silhouette, framing, environment and lighting before it is
+  generated and again before it is accepted.** A writer does not require a
+  visible desk or visible books.
+- **A section-numbering collision, recorded rather than repaired.** The registry
+  comments in `src/lib/media.ts` and `tests/e2e/places.spec.ts` label the
+  registration "§89", while §89 in this file is the rejection those comments
+  reverse. The registration is this section, §90. The source comments were left
+  alone deliberately — rewriting them was not in this step's scope and they are
+  otherwise accurate — but the next reader should not be misled by the label.
+  This file also carries two sections numbered §88.
+- `navigation.spec.ts:16` Works → Cuisine, all three locales: **open,
+  intermittent, not reproduced in this step.** Two clean runs here against a
+  reproduction in the previous step. Cause unknown; it is not a cold-compile
+  timeout, since `/{locale}/cuisine` serves 200 in about 90ms warm, and the
+  anchor is present and correct.
+- `newsletter.spec.ts:89`: closed as a load-related flake, passing in the full
+  suite.
+- The §88 content debts are all unchanged and none of them were touched here: the
+  Թամրազյան and Ռշտունի monographs unconsulted, the Paris/Geneva ordering and the
+  `Հայրենի հրավեր` date left as stated disagreements, and six of ten Writers
+  still without SEO fields.
+- The beard departure recorded in `PORTRAIT_PROVENANCE` — a fuller van Dyke along
+  the jaw where the 1915 encyclopedia plate shows a narrow chin point — is
+  recorded, accepted and not to be re-litigated.
+
+## §91 — Writers reassessed at ten. Writer #11 selected: Hakob Paronyan (2026-09-01)
+
+Research and audit only. **No article written, no Work created, no artwork commissioned,
+no taxonomy touched, no test added, no deployment.** The only file changed by this step is
+this one. `§89` and `§90` are untouched; Siamanto's review history stands as written.
+
+### The ten-writer baseline, read from source
+
+Verified in `src/data/locales/{en,hy,hyw}/writers.ts`, `.../articles/writers.ts`,
+`src/lib/media.ts` and `src/data/sources.ts`, not assumed from §90.
+
+Ten cards and ten articles in each of the three editions. Ten registered portraits,
+`PENDING_ARTWORK` empty, no placeholder anywhere. Periods **medieval 2, 19th-century 3,
+20th-century 4, soviet 1**. `daniel-varoujan` and `siamanto` are `photo-referenced`;
+Narekatsi and Shnorhali take the `imagined` default. Tumanyan is the only `featured: true`.
+All ten carry `sources` entries; **four of ten carry `seoTitle`/`metaDescription`** —
+Narekatsi, Varoujan, Shnorhali, Siamanto — so the §88 debt of six without SEO fields is
+confirmed unchanged. Works stands at 4, Places 13, History 7, Cuisine 12.
+
+### Genre balance — the sharpest measurable deficiency
+
+Classified from the `role` field and the article prose, not from reputation:
+
+| Primarily | Writers |
+|---|---|
+| poet | Tumanyan, Charents, Isahakyan, Sevak, Narekatsi, Varoujan, Shnorhali, Siamanto |
+| novelist | Raffi |
+| prose / educator | Abovyan |
+| **playwright** | **none** |
+| **satirist** | **none** |
+| **short-story / modern prose** | **none** |
+| **woman** | **none** |
+
+**Eight of ten are primarily poets.** The section has no dramatist, no satirist, no modern
+prose writer and no woman. That is the gap, and it is larger than any period gap.
+
+### Eastern / Western / medieval balance, and the explicit answer §6 demands
+
+Eastern 6 (Tumanyan, Charents, Raffi, Isahakyan, Abovyan, Sevak), Western 2 (Varoujan,
+Siamanto), medieval/pre-modern 2 (Narekatsi, Shnorhali). Western Armenian is *present* but
+occupies **one register only**: both entries are lyric poets killed in 1915, six years
+apart in age, with adjacent articles.
+
+The answer is therefore neither "another Western Armenian" nor "an Eastern novelist" as
+tradition labels. **What the section needs is a new register, and the tradition follows
+from whoever supplies it.** A third Western Armenian lyric poet (Duryan, Metsarents,
+Tekeyan) would deepen the existing rut and is rejected on that ground. A Western Armenian
+*satirist and playwright* who died in 1891 of tuberculosis, with no relation to 1915,
+breaks the register **and** fills three genre gaps at once — which is why the selection
+below is Western Armenian without being a Western-Armenian-balance argument.
+
+### Internal demand, measured the way §76 measured it
+
+Figures named in existing Armat prose who have no article of their own, counted from
+`relatedFigures` and body text:
+
+| Figure | Mentions | Where |
+|---|---|---|
+| **Vahan Terian** | 2 | `relatedFigures` of **Charents** and **Isahakyan** |
+| Komitas | 2 | not a Writers candidate |
+| Aksel Bakunts | 1 | `relatedFigures` of Charents |
+| **Levon Shant** | 1 | Tumanyan body text, the Vernatun paragraph |
+| **Derenik Demirchyan** | 1 | Tumanyan body text, the Vernatun paragraph |
+| Sayat-Nova, Shiraz, Nalbandian, Proshian, Zarian, Oshagan, R. Sevak | 1 each | `relatedFigures` |
+
+**Shirvanzade, Muratsan, Nar-Dos, Paronyan, Duryan, Sahyan, Kaputikyan and Papazian are
+named nowhere in the repository.** Note the spelling trap: the Vernatun paragraph writes
+**Demirchyan**, so a search for "Demirchian" reports a false zero.
+
+This is the same shape as §76's Tan finding, and it resolves the same way. Internal demand
+identifies who the existing prose already leans on; it does not by itself identify the best
+next article. §76 chose external demand and a real gap over internal demand, and so does
+this step.
+
+### Candidate pool reviewed
+
+Thirteen named in the brief plus two added from the repository's own `relatedFigures`:
+Demirchian, Shirvanzade, Muratsan, Nar-Dos, Paronyan, Duryan, Terian, Mahari, Sahyan,
+Kaputikyan, Bakunts, Papazian, Shant, **Sayat-Nova** and **Hovhannes Shiraz**. Sayat-Nova
+is a genuinely strong future candidate — trilingual ashugh, enormous international
+recognition through Parajanov — but he would require a new period id between medieval and
+19th-century, which this step is forbidden to create, and his portrait would be `imagined`.
+Recorded as the leading candidate for a later step, not scored here.
+
+### SERP and discovery findings
+
+Live English, Eastern Armenian and Western Armenian searches were run for every finalist.
+**No keyword metrics were invented. No search-volume, keyword-difficulty, CPC or traffic
+figure appears anywhere in this section, because no such tool was reachable: qualitative
+SERP evidence only.**
+
+The recurring finding across the whole pool is **transliteration fragmentation**, and it is
+the single largest discovery opportunity available to a trilingual site:
+
+- **Paronyan / Baronian** return two nearly disjoint universes. `Hakob Paronyan` is owned by
+  the Yerevan Musical Comedy Theatre named after him and returns almost no biography;
+  `Hagop Baronian` returns the actual biographical corpus. English Wikipedia lists his works
+  in ad-hoc romanisation **with no Armenian script at all**.
+- **Duryan / Tourian** likewise: English Wikipedia lives at `Bedros_Tourian` while Wikidata
+  and its own mirrors use "Petros Duryan"; the National Library of Armenia's authority record
+  strings Դուրյան / Դուրեան / Զմպայան / Дурян / Duryan together to retrieve 77 records.
+- **Bakunts** is halved between `Axel` (English Wikipedia) and `Aksel` (the Goris museum and
+  Armenian institutions), with a real English translation in print behind the split.
+- **Terian / Teryan / Derian**, plus collision with Vahan Tekeyan and Vahan Minakhoryan.
+- **Demirchyan** is not the default "Demirchyan" — Karen Demirchyan and the Demirchyan Arena
+  own that query. **Muratsan** returns a Yerevan hospital first. **Nar-Dos** loses to a
+  street and a flower. **Vrtanes Papazian** loses to four other Papazians, one of them his
+  own brother.
+
+Nowhere in the pool does a decent English biography exist above Wikipedia. That is
+consistent, and it is the opportunity.
+
+### Source-quality findings
+
+Strong and resolving: the **Soviet Armenian Encyclopedia**, fully digitised page-by-page on
+hy.wikisource (Paronyan is vol. 9 p. 204, with a portrait printed on the entry); **hy.wikisource
+author pages** carrying public-domain collected works (Paronyan 10 volumes on Commons,
+Bakunts, Nar-Dos 4 volumes, Papazian); **AUA digital library**; **Vem journal**; the
+**Charents Museum of Literature and Art (GAT)**, whose five branch house-museums include
+**Demirchian**, **Bakunts (Goris, ~500 primary exhibits)** and **Kaputikyan**; the **Arak-29
+Foundation** Muratsan site, which hosts a full English translation of *Gevorg Marzpetuni*;
+a free NAS RA monograph PDF on Duryan (Gasparyan 2021); and full authority control for
+Shirvanzade (VIAF, LC, BnF, GND, ISNI).
+
+Blocked or gated, and to be recorded rather than worked around: **arar.sci.am** full texts
+are access-gated, including the 1980 Academy volume on Demirchian and Ohanyan's 1976
+monograph on Papazian; **hamazkayin.com returns 403 on every page**, which removes the most
+authoritative institution on Shant; `armenianlanguage.am` and its `armin.am` mirror do not
+resolve; Britannica and armenianprelacy.org 403; Bardakjian's Oxford thesis on Baronian is a
+scanned image PDF with no text layer. **Specialist Armenian-language literature is still
+required for every finalist** and was not reachable in this step.
+
+Sources that surfaced and were deliberately **not** opened or used: Turkish state-aligned
+outlets on Paronyan, `grokipedia.com`, and `armenian-history.com`, which was opened once and
+found inaccurate. The standing rule holds unchanged.
+
+### Corrections the research produced, worth more than the ranking
+
+Five factual errors were found in the brief or in widely circulating sources. All are
+verified and all would have shipped into an article:
+
+1. **Nar-Dos's real surname is Hovhannisyan, not Ter-Hovhannisyan.** Muratsan is
+   Ter-Hovhannisyan. Two Tiflis writers buried at the same pantheon; the collision is easy.
+2. **Duryan's `Սեւ հողեր` is a play, not a poem.**
+3. **Levon Shant wrote no work called `Դատաստան`.** His novel is `Հոգիներ ծարավի`.
+4. **Vrtanes Papazian had no Soviet-era career.** He died 26 April 1920; Soviet Armenia was
+   proclaimed 29 November 1920. hy.wikipedia nonetheless carries a sentence placing him in
+   Soviet Armenia. His standalone ethnography is on the **Bosha**, not on Kurds.
+5. **Demirchian's "USSR State Prize" appears to be phantom.** The two award lists actually
+   opened list Order of Lenin, Order of the Red Banner of Labour ×2, the Caucasus defence
+   medal, Honoured Art Worker and Academician — **no Stalin or State Prize**. Four
+   irreconcilable birth dates also circulate for him.
+
+And one that governs a future portrait: **no lifetime photograph of Petros Duryan exists.**
+Armenian sources state it plainly — when he died at twenty it emerged that he had no picture
+at all; an artist refused to draw the disfigured face; the canonical 1893 image was drawn
+from the features of relatives, and one of its two authors was **born three years after
+Duryan died**. A 1970 forensic reconstruction over the skull found it **shorter and wider**
+than that portrait. The Commons file carries none of this in its metadata, so automated
+pipelines describe it as a lifetime photograph. **Any future Duryan portrait is `imagined`.**
+
+### Weighted scoring — editorial judgement, not measurement
+
+Weights per the standing framework: cultural importance 30, SEO/discovery 30, coverage gap
+20, source quality 10, internal-link graph 10. **The 0–10 inputs are editorial judgement
+expressed as numbers. They are not derived from any metric and must not be read as data.**
+
+| Candidate | Cult. 30 | SEO 30 | Gap 20 | Src 10 | Link 10 | **Weighted** |
+|---|---|---|---|---|---|---|
+| **Hakob Paronyan** | 9 | 9 | 10 | 7 | 7 | **8.8** |
+| **Alexander Shirvanzade** | 9 | 6 | 9 | 9 | 7 | **7.9** |
+| **Aksel Bakunts** | 8 | 9 | 7 | 8 | 6 | **7.9** |
+| Levon Shant | 8 | 7 | 9 | 5 | 8 | 7.6 |
+| Vahan Terian | 8 | 7 | 6 | 7 | 9 | 7.3 |
+| Derenik Demirchian | 8 | 7 | 7 | 7 | 7 | 7.3 |
+| Nar-Dos | 7 | 8 | 8 | 5 | 5 | 7.0 |
+| Muratsan | 7 | 8 | 7 | 6 | 6 | 7.0 |
+| Silva Kaputikyan | 8 | 5 | 8 | 9 | 6 | 7.0 |
+| Gurgen Mahari | 7 | 7 | 7 | 6 | 5 | 6.7 |
+| Hamo Sahyan | 6 | 7 | 5 | 5 | 5 | 5.9 |
+| Petros Duryan | 7 | 7 | 4 | 7 | 5 | 6.2 |
+| Vrtanes Papazian | 5 | 6 | 6 | 3 | 4 | 5.1 |
+
+Terian scores 6 on coverage gap **despite the highest internal demand in the repository**,
+because he is a ninth lyric poet and would be the fourth consecutive suited young man of the
+1910s in the portrait collection. That is the §76 lesson applied: internal demand is not the
+same as the best next article.
+
+### Existing portrait collection — visual-pattern audit
+
+All ten files were viewed, not inferred from their registry notes. The repetition is
+stronger than §90 stated:
+
+| Pattern | Count |
+|---|---|
+| seated | 9/10 (only Shnorhali stands) |
+| desk or writing table in frame | 10/10 |
+| books, papers or codex in frame | 10/10 |
+| warm ochre-to-sepia palette | 10/10 |
+| half-length, three-quarter body turn | 9/10 |
+| window or arch opening onto landscape | 7/10 |
+| pen, quill or inkstand | 6/10 |
+| hand raised to the face | 2/10 (Varoujan, Siamanto) |
+| close head-and-shoulders framing | **0/10** |
+| outdoors, inhabited | **0/10** |
+| urban, street or working environment | **0/10** |
+| standing in modern dress | **0/10** |
+
+Every portrait is an interior. Every one contains the furniture of writing. Nothing in the
+section is framed closer than half-length. **This is not a critique of any accepted file** —
+all ten were accepted, and the §90 rule stands: judge at rendered size. It is the baseline
+the eleventh must be measured against.
+
+### Portrait provenance and proposed archetype per finalist
+
+| Finalist | Expected provenance | Basis | Proposed archetype | Uniqueness |
+|---|---|---|---|---|
+| **Paronyan** | `photo-referenced` (preliminary) | one lifetime studio photograph, "before 1891"; features unambiguous — long gaunt face, high forehead, dark wavy hair receding at the temples, **thick drooping moustache, no beard, bare-headed, no fez**; a portrait also printed in HSH vol. 9 p. 204 | **The composing room of his own satirical journal** — standing at the type cases of `Խիկար`, Constantinople 1880s, proofs in hand | **distinct** on pose (standing), environment (workshop), dominant prop (type and press, not books), camera distance (three-quarter length); some overlap on palette only |
+| **Shirvanzade** | `photo-referenced` (strong) | two lifetime images at opposite ends of life: an 1880 bohemian near-profile aged ~22, and a late studio portrait with a **white mane standing clear of the head**, downcast eyes, loose artistic cravat; plus two Russian gendarme registration cards | **Close half-length, plain ground, no props whatsoever** — the head is the subject | **distinct** on camera distance (the section's first close portrait) and on the complete absence of desk, books and window |
+| **Bakunts** | `photo-referenced` | a dated **1932** portrait aged 33, plus the Goris museum's holdings spanning school years to mid-thirties | **Outdoors in a Zangezur gorge, standing, landscape-dominant** — he was senior agronomist of Zangezur, named his debut collection after a gorge and his novel after Goris's old name | **distinct** on environment, lighting (open daylight), palette (rock and green against ten warm interiors) |
+
+The rule from §90 is applied rather than restated: none of the three requires a desk, and two
+of them forbid one.
+
+### The choice
+
+**Writer #11 is Hakob Paronyan (Յակոբ Պարոնեան / Հակոբ Պարոնյան, 1843–1891).**
+
+He is the only candidate that closes three genre gaps in one article — **satire, drama and
+comic prose** — and he is the only one that adds a Western Armenian voice **without** adding
+a third 1915 elegy. *Uncle Baghdasar*, *National Bigshots* and *Honourable Beggars* are
+continuously staged and read; a Yerevan theatre carries his name. The discovery case is the
+strongest in the pool and is of a kind Armat is uniquely built to fix: the Paronyan/Baronian
+split has produced two disjoint search universes and an English Wikipedia article that lists
+his works with no Armenian script at all, while a trilingual entity page carrying `hyw`
+classical, `hy` reformed and both English forms consolidates the entity by construction.
+Sources are adequate without being luxurious — HSH vol. 9 p. 204 is a clean citable spine and
+ten volumes of collected works are public domain on Commons.
+
+**Runner-up: Alexander Shirvanzade (1858–1935).**
+
+**Why Paronyan comes first.** Shirvanzade is the better-documented subject — full authority
+control, the richest portrait base in the pool, and a genuine cross-domain hook in *Namus*
+becoming the first Armenian feature film in 1926. He is also, precisely because of that, the
+**best-covered of the pool in English**, so the marginal addition is smaller: Armat would be
+writing a better page about a writer who already has pages. Two further considerations
+separate them. Paronyan fills the drama and satire gaps that no existing entry touches, while
+Shirvanzade's realism partly overlaps Raffi and Abovyan. And Shirvanzade's Shamakhi/Baku
+material, including his People's Writer status in the Azerbaijani SSR, carries framing risk
+that must be handled from Armenian institutional sources under the standing sourcing rule —
+a cost that is manageable but real, and better paid when it is not also the section's first
+attempt at a non-desk portrait. Shirvanzade loses on gap and discovery, not on quality, and
+should be Writer #12.
+
+**Third: Aksel Bakunts**, who ties Shirvanzade on score and beats him on discovery, but who
+would make the fourth Armat writer killed or persecuted by the state and the third in
+sequence. The section is at risk of reading as a martyrology rather than a literature. He is
+the strongest candidate the moment a non-persecution entry sits between him and Charents —
+and his outdoor Syunik portrait is the best single artwork idea in this whole audit.
+
+**Levon Shant is deliberately not in the top three despite scoring 7.6**, and the reason is
+worth recording: his biography *is* the historiography of the First Republic's fall, there is
+no non-partisan institutional source (the ARF-affiliated ones are authoritative, and
+hamazkayin.com is unfetchable), and three wrong facts circulate actively — he was a
+**vice-**president of parliament, he **led but did not sign** the 1920 Moscow mission, and the
+10 August 1920 agreement was signed in Tiflis by others. His play, however, is a different
+matter; see below.
+
+### Sequencing — Writer #11 now, or the first Work cluster?
+
+Measured rather than argued. Unwritten work titles named in existing prose, counted in `en`:
+
+| Work | Mentions | Distinct articles |
+|---|---|---|
+| **Book of Lamentations** | **28** | **4** — narekatsi 18, bagratid-armenia 4, shnorhali 2, siamanto 2 |
+| The Unsilenceable Belfry | 11 | 1 |
+| Abu Lala Mahari | 8 | 1 |
+| Samvel | 8 | 1 |
+| Lament on Edessa | 7 | 1 |
+| The Song of the Bread | 6 | 1 |
+
+**Book of Lamentations leads by 2.5× on mentions and is the only one named across four
+articles and two sections.** Works stands at 4 against Writers' 10; the imbalance is the
+site's largest structural asymmetry, and the most-cited text in Armenian literature is
+currently a phrase in other people's biographies rather than an entity.
+
+**Recommendation: switch to Works. Write `Book of Lamentations` next, then Paronyan.**
+
+Against the four criteria. *Topical authority*: a literature section whose Writers outnumber
+its Works 10:4 asserts that Armenian literature is a set of biographies; the Narekatsi entry
+alone names the book eighteen times without being able to link it. *Internal linking*: the
+Work earns reciprocal links from Narekatsi, Shnorhali, Siamanto, Bagratid Armenia **and**
+`matenadaran`, where the Narekatsi article already says the manuscript is held — five inbound
+edges from prose that already exists, which no new writer can match. *SEO*: "Narek" is a
+household word with three referents the archive has already had to disambiguate, and the
+entity page is the natural place to resolve it. *Content balance*: Writers has just reached a
+clean terminal state — ten articles, ten portraits, nothing pending, no placeholder — which
+is the cheapest possible moment to pause it, and the only such moment since the section
+began. *User value*: a reader sent to Narekatsi currently cannot read about the book.
+
+One further argument, from §90. The next Writer portrait now carries a collection-wide
+composition study as a precondition. A Work article's artwork is a manuscript-and-codex
+subject rather than a portrait, so taking it next **buys the time to define that study
+properly instead of paying it under pressure**, and it is the one kind of article that does
+not touch `PORTRAIT_PROVENANCE` at all.
+
+Paronyan is selected and stays selected. He is Writer #11 whenever Writers resumes.
+
+### Technical debt
+
+- **Six of ten Writers still carry no `seoTitle`/`metaDescription`** — Tumanyan, Charents,
+  Raffi, Isahakyan, Abovyan, Sevak. Unchanged since §88 and now the oldest open debt in the
+  section.
+- **The portrait collection is 10/10 interiors, 10/10 with desks and books, 0/10 close-framed
+  and 0/10 outdoors.** The §90 rule is now backed by counts.
+- **`arar.sci.am` full texts are access-gated and `hamazkayin.com` 403s**, which puts the
+  best specialist source for Demirchian, Papazian and Shant out of reach. Any of those three
+  needs a library or an Armenian-reading specialist before drafting, not during.
+- **Five circulating factual errors are recorded above** and must not be re-imported: the
+  Nar-Dos surname, Duryan's `Սեւ հողեր`, the non-existent Shant `Դատաստան`, Papazian's
+  impossible Soviet career, and Demirchian's phantom State Prize.
+- **No lifetime photograph of Petros Duryan exists.** If he is ever written, his portrait is
+  `imagined` and the caption must say so, against a Commons file that invites the opposite.
+- **Sayat-Nova is deferred for a taxonomy reason, not an editorial one** — he needs a period
+  between medieval and 19th-century. Worth revisiting deliberately rather than by accident.
+- The §88 content debts on Siamanto are unchanged: the Թամրազյան and Ռշտունի monographs
+  unconsulted, and the Paris/Geneva ordering and `Հայրենի հրավեր` date left as stated
+  disagreements.
+
+**No implementation. No Writer #11 files, no Work, no artwork, no provenance change, no test,
+no navigation change. Nothing was deployed.**
+
+## §92 — Book of Lamentations added as Work #5, in all three editions (2026-09-01)
+
+Steps 61 and 61B. The Works section had stood at four since §33 while Writers went
+from six to ten, and §91 named that as the archive's worst structural imbalance: an
+encyclopedia of Armenian literature whose authors outnumbered its works more than
+two to one. This closes the gap at the one place where it was least defensible —
+Grigor Narekatsi had been Writer #7 since §82 with his book present only as a phrase
+inside his own biography.
+
+Content only. No artwork was generated or registered, Writer #11 was not started,
+and nothing was deployed.
+
+### Pre-state
+
+```text
+Works    4   anush, wounds-of-armenia, the-fool, david-of-sassoun
+Writers 10   complete, ten registered portraits, none pending
+PENDING_ARTWORK  empty (emptied for the twelfth time at §89)
+```
+
+### What was written
+
+```text
+slug              book-of-lamentations
+href              /works/book-of-lamentations
+en                Book of Lamentations
+hy                Մատյան ողբերգության
+hyw               Մատեան ողբերգութեան
+author            Grigor Narekatsi / Գրիգոր Նարեկացի
+publicationPeriod completed about 1002 / ավարտվել է մոտ 1002-ին / աւարտուած՝ մօտ 1002-ին
+genre             Prayer cycle / Աղոթագիրք
+genreId           poetry
+period            Medieval prayer cycle
+periodId          medieval
+relatedSlugs      grigor-narekatsi, matenadaran, nerses-shnorhali
+sections          16, identical ids across the three editions
+```
+
+The sixteen sections: `what-the-book-is`, `the-title`, `the-name-narek`,
+`where-it-was-written`, `when-it-was-written`, `the-ninety-five-discourses`,
+`verse-or-prose`, `the-speaking-voice`, `lament-confession-hope`,
+`the-armenian-of-the-book`, `the-bible-in-the-book`, `manuscripts`, `printing`,
+`translations`, `the-narek-in-armenian-life`, `afterlife`.
+
+The Western Armenian edition is written in classical orthography throughout rather
+than transliterated from the Eastern one: 145 occurrences of `-ութիւն` and 191 of
+the `կը`/`կ՚` auxiliary. `Մատեան ողբերգութեան` against Eastern `Մատյան
+ողբերգության` is the same distinction the Writers section has held since §85.
+
+### The taxonomy decision, stated as a limitation rather than hidden
+
+`genreId: "poetry"` is the closest value the existing Works taxonomy offers, and it
+is not a good fit. The work is a prayer cycle in rhythmic prose-verse, and calling
+it poetry files it beside `anush`. The alternative — inventing a `prayer` genre for
+a single member — would have changed the Works filter UI for one entry, which §39's
+rule against reflexive structure forbids. So the taxonomy value is the loose one and
+the article itself carries the correction: the `verse-or-prose` section explains that
+the divisions are not poems in the modern sense, and the `the-ninety-five-discourses`
+section says that calling them ninety-five poems "is not wrong but loses something".
+If a second prayer-cycle work is ever written, the genre should be added then and
+both entries moved; one member is not enough to justify it.
+
+### Research decisions recorded
+
+**The title, and the disambiguation that matters most.** The book is not the
+biblical Lamentations. `the-title` states the distinction directly, because the
+English name collides with a book of the Bible and a reader arriving from a search
+engine is the person most likely to be confused. The article mentions no UNESCO
+status anywhere: the 1997 Memory of the World inscription is the **Matenadaran
+collection**, not this work, and attaching it to the work would have been a
+plausible-sounding falsehood. A test asserts the absence.
+
+**The name Narek.** `the-name-narek` keeps three things apart that the single word
+runs together — Narek the monastery and place in Vaspurakan, Narekatsi the man named
+after it, and the Narek as the colloquial name of the book. The book acquired that
+name in the medieval period, alongside the description "a medicine of life".
+
+**Date.** Completed about 1002, on the colophon's own Armenian year 451. The spread
+in the scholarship is recorded as a spread and not as a dispute: Terian around 1003,
+Samuelian around 1001, the standard English reference about 1002–1003. Mahé's
+qualification is kept — the ninety-five pieces accumulated over more than a decade
+and were then given their architecture — because it contradicts the deathbed story
+that circulates. The year **977 is recorded as a straightforward error**: it is the
+year of Narekatsi's ordination and his Commentary on the Song of Songs, and has
+nothing to do with this book.
+
+**Geography.** Narek was in **Vaspurakan, not Bagratid territory**. In 1002
+Vaspurakan was its own Artsruni kingdom, crowned in 908 and held until 1021, and
+the Bagratid realm centred on Ani was a separate state to the north. The period is
+routinely written as though there were one Armenian kingdom; there was not. The
+kingdom was also internally divided at the moment of composition, under
+Gurgen-Khachik. This is the correction that the inbound link from Bagratid Armenia
+had to be phrased carefully around.
+
+**The ninety-five parts.** The number is stable across the manuscript tradition.
+The article uses "discourses"/`բան` rather than "poems", and says why.
+
+**The speaking voice.** `the-speaking-voice` handles the nuance that the first
+person of the book is not straightforwardly autobiography — the "I" is a
+representative penitent voice, and reading the confessions as a record of the
+author's own sins is a persistent misreading.
+
+**Manuscripts.** The earliest **dated** copy is MS 1568, made in 1173 at Skevra in
+Cilicia for Nerses of Lambron, held at the Matenadaran: about 15.4 × 11.5 cm, some
+343 folios, illuminated in tempera and gold with four portraits of the author. Two
+overstatements are refused in the text: institutional sources say earliest *dated*,
+not earliest *complete*, and the stronger claim appears in none of them. MS 1568 also
+carries the Life of Narekatsi that Nerses bound into it, making it the earliest
+surviving biographical source for the author as well. A catalogue trap is recorded:
+**MS 5159 is a 1750 commentary**, not the work. The Matenadaran holds eighty-four
+complete copies and comparably many partial ones.
+
+**Scribe identity, resolved rather than left as a conflict.** The repository's
+Narekatsi article names Grigor Skevratsi; institutional sources name Grigor
+Mlichetsi. These were verified to be **the same person** — Mlichetsi, called
+Skevratsi after the monastery where he ran the scriptorium. No correction to
+existing content was needed, and the article states both names.
+
+**Printing.** First appearance in print is inside the **Urbatagirk**, Hakob
+Meghapart, Venice 1512 — the first book ever printed in Armenian — which means the
+earliest printed Armenian text carrying Narekatsi carries him inside a healing-prayer
+compilation. The 1512/1513 date variation is explained as one press episode rather
+than reported as a contradiction. The complete text was first printed at **Marseille
+in 1673 by Voskan Yerevantsi**. The Catholic-censorship story is included explicitly
+**as a claim rather than a fact**, because it rests on a single line of reporting.
+
+**Translations.** The first audience needing one was Armenian, and the two branches
+did it separately — Western: Gochoonian 1902, Gushakian 1926, Khachaturian 1926
+(revised Buenos Aires 1948); Eastern: Kheranyan 1960, Gevorgyan 1979, Aramyan 2019.
+Kheranyan omitted the prefatory title-piece because its authorship has never been
+settled. Russian begins oddly and informatively: Ioanesov printed the close of the
+twelfth discourse at Saint Petersburg in 1810 as a *Prayer Against Nocturnal
+Terrors* — direct evidence that individual parts had acquired specific protective
+uses. Grebnev's verse selections (1969, 1977) are the text Schnittke set in the 1985
+Concerto for Choir. French: Kéchichian 1961, Mahé 2000 (Peeters, CSCO). **No
+copyrighted modern translation is reproduced anywhere in the article.**
+
+**Reception, and the line the article does not cross.** `the-narek-in-armenian-life`
+records the devotional practices exactly as what they are — religious belief and
+custom, not medicine. Ormanian in 1912 on the book as a talisman; passages read
+beside the sick; prayers copied into hmayil amulet scrolls; Aparan fieldwork
+2016–2023 recording families still keeping shrine-books with a designated keeper.
+The article states in as many words that it makes no claim the book cures or treats
+illness. A test asserts the healing language stays framed as belief.
+
+### Sources
+
+Eight, every one with a real identifier, no Wikipedia:
+
+```text
+Hacikyan et al., Heritage of Armenian Literature vol. II   ISBN 9780814330234
+Terian, Commentary on the Song of Songs / Narekatsi (2021) ISBN 9780814684641
+Samuelian, Speaking with God from the Depths (2001)        ISBN 9789993085317
+Apresyan (2025)                        DOI 10.54503/1829-4073-2025.3.147-161
+Apresyan (2021)                                            arar.sci.am
+Arlen (2021)                                               escholarship.org
+Nazaryan (2020)                                            manuscript journal
+Safaryan (2023)                                            armenianstudies.aspu.am
+```
+
+### Relations and the link graph
+
+Outward, four `SectionLink`s, each in the paragraph that earns it:
+
+```text
+what-the-book-is  -> grigor-narekatsi
+manuscripts       -> matenadaran
+afterlife         -> nerses-shnorhali
+afterlife         -> siamanto
+```
+
+Inbound, four upgrades in every locale — the point of the step, since a Work nobody
+links to is a Work nobody reaches:
+
+```text
+Grigor Narekatsi  the-works      "everything else is the Book of Lamentations"
+Nerses Shnorhali  1173 manuscript context
+Siamanto          tenth-century-text comparison
+Bagratid Armenia  architecture   "composed the Book of Lamentations around 1002"
+```
+
+Narekatsi's `relatedSlugs` gained `book-of-lamentations` — the author-to-work
+relation, the one relation a Work earns automatically.
+
+**The Matenadaran was deliberately not given an inbound link.** Its article never
+mentions the Narek, and §52 forbids editing a target article purely to manufacture
+reciprocity. The relation runs outward from the Work instead, earned by the Work
+naming MS 1568.
+
+### Artwork: pending, and two decisions taken in advance
+
+`PENDING_ARTWORK` refilled with `book-of-lamentations` — the thirteenth time it has
+filled, and the first time the entry is a Work rather than a Writer or a place. The
+registry note records two decisions made now so they are not relitigated later:
+
+1. **The artwork must not borrow `writers/grigor-narekatsi.webp`.** Doing so would
+   make the Work an appendix to the Writer, and would put a face on a work whose
+   whole subject is a voice with no face. The Work owns its own future asset or it
+   renders the generated placeholder.
+2. **`PORTRAIT_PROVENANCE` does not apply and no entry belongs in it.** That map
+   records how a likeness of a *person* was arrived at. A book has no likeness to
+   get right. When a file lands it inherits `ARTWORK_PROVENANCE` like any other
+   illustration.
+
+The §85 rejection condition carries over and is unusually sharp here: the obvious
+composition for a book about a book is an open manuscript page covered in writing,
+and **readable generated lettering is refused outright**. No glyph may resolve.
+
+### Verification
+
+```text
+npm run typecheck            clean
+npm run validate:content     186 entries across 3 locales
+route probes                 10/10 -> 200 (clean .next, fresh dev server)
+tests/e2e/works.spec.ts      20/20   (new spec, 560 lines)
+tests/e2e/writers.spec.ts    43/43
+full Playwright suite        446 passed, 5 skipped, 0 failed, 11.8m, exit 0
+npm run build                exit 0, 180 static pages
+```
+
+The five skips are the pre-existing untranslated-article conditionals in
+`locale.spec.ts`, `seo.spec.ts` and `mobile.spec.ts`; every article is translated in
+all three editions, so they skip by design and are unrelated to this step.
+
+Build output verified rather than assumed:
+
+```text
+/en|hy|hyw/works/book-of-lamentations   all three prerendered
+canonical                                https://armat.site/en/works/book-of-lamentations
+hreflang                                 hy, hyw, en, x-default -> hy
+og:image / twitter:image                 https://armat.site/og-default.png  (fallback)
+references to /images/works/             0
+references to book-of-lamentations.webp  0
+sitemap entries                          3, none carrying image:loc
+```
+
+The twelve occurrences of `grigor-narekatsi.webp` in the built page are all inside
+the related-article card for his own article — `<article key="grigor-narekatsi">`,
+linking to `/en/writers/grigor-narekatsi`. **The portrait is not borrowed as the
+Work's artwork**, and the contrast with `anush`, whose sitemap entry does carry an
+`image:loc`, shows the pending-artwork path working rather than being globally off.
+
+### Step 61B — four stale Writer guards retargeted
+
+Six assertions across four tests in `writers.spec.ts` still stated that no Work had
+changed. Step 61 changed a Work on purpose, so each was **restated, not deleted** —
+none was weakened to a containment check, skipped, or given a longer timeout:
+
+```text
+:583  Narekatsi   rendered-href guard inverted. It asked whether the page dangles a
+                  link at a page that is not there; the target now exists, so it now
+                  asserts the link IS offered and that every href mentioning the slug
+                  resolves under /works/ - never improvised under /writers/.
+:1642 Varoujan    bookkeeping snapshot of Narekatsi's relations gained the third
+                  entry, with a comment recording that the Varoujan step still
+                  changed nothing about him - §61 did.
+:2078 Shnorhali   SectionLink targets now [NAREKATSI, book-of-lamentations]; the
+                  reciprocity snapshot gained the third relation AND a new explicit
+                  assertion that Narekatsi still carries no relation back to
+                  Shnorhali, which is what that block was actually protecting.
+:2357 Siamanto    sorted SectionLink target array gained the fourth entry.
+```
+
+`git diff` for 61B is `+35 / -7` in `tests/e2e/writers.spec.ts` alone. Every one of
+the seven deleted lines is a replaced expectation line or its comment; **no source
+file was touched during the closeout**, and no whole-file rollback was used at any
+point.
+
+### Final source state
+
+```text
+Works    5      + book-of-lamentations
+Writers 10      unchanged
+Cuisine 12      unchanged
+Places  13      unchanged
+History  7      unchanged
+Writer portraits   10 registered, 0 pending
+PENDING_ARTWORK    ["book-of-lamentations"]  - one entry, the Work
+Siamanto           registered, photo-referenced
+Hakob Paronyan     does not exist
+```
+
+### Technical debt carried forward, none of it resolved here
+
+- **Writer portrait composition debt (§59B/§90).** Writer portraits overuse the
+  desk/books/study/warm-interior archetype. Future Writer artwork must be compared
+  collection-wide for pose, silhouette, framing, environment and lighting. "Writer"
+  does not require a visible desk. Untouched by this step.
+- **Six of ten Writers still carry no SEO fields.** Narekatsi, Varoujan, Shnorhali
+  and Siamanto have them; the six older entries do not.
+- **Intermittent Works → Cuisine navigation failure.** `navigation.spec.ts:16`
+  **did not reproduce** in this run — it passed for all three editions (hy 4.3s,
+  hyw 5.3s, en 5.2s), as it did across the two runs at §90. That is three clean
+  runs against one earlier reproduction. **The issue is recorded as still open, not
+  as fixed**; navigation was not modified in this step or the last.
+- `newsletter.spec.ts:89` passed; no flake this run.
+- **`genreId: "poetry"` is a loose fit** for a prayer cycle, as described above.
+  Revisit when a second such work exists, not before.
+- **Book of Lamentations artwork is pending**, with the two advance decisions above
+  binding on whoever commissions it.
+
+### Research caveats left open in the article rather than resolved
+
+- Whether Grigor Mlichetsi copied the text of MS 1568 or only illuminated it —
+  sources differ, and the article says so.
+- Whether the prefatory title-piece is the author's own — never settled, which is
+  why Kheranyan omitted it.
+- The Catholic-censorship story around the 1673 Marseille printing — one line of
+  reporting, carried as a claim.
+
+Next step: the Book of Lamentations artwork brief. Writer #11, Hakob Paronyan, was
+selected at §91 and remains unstarted.
+
+## §93 — Book of Lamentations artwork: verified and registered (2026-09-02)
+
+Step 63. §92 wrote Work #5 and left the picture to a later step; this is that step.
+The file landed, was audited, passed every gate and was registered. One line went
+into `IMAGES` and one came out of `PENDING_ARTWORK`.
+
+Registration only. No article content was touched, no navigation was modified,
+Writer #11 was not started, and nothing was deployed.
+
+### Pre-state, read from source rather than assumed
+
+```text
+Works                   5   anush, wounds-of-armenia, the-fool, david-of-sassoun,
+                            book-of-lamentations
+IMAGES["book-of-lamentations"]   undefined
+PENDING_ARTWORK         ["book-of-lamentations"]   (its only entry)
+getArticleImageSrc()    undefined  -> generated placeholder, no raster hero
+PORTRAIT_PROVENANCE     no entry (default "imagined")
+registry entries        46
+Writers                 10, ten registered portraits, none pending
+```
+
+No borrowed `grigor-narekatsi.webp` anywhere, no Work image in the sitemap, OG and
+Twitter falling back to `/og-default.png`. That is exactly what §92 described.
+
+### The asset
+
+```text
+path        public/images/works/book-of-lamentations.webp
+dimensions  1586 x 992   (the preferred geometry, exactly)
+aspect      1.5988
+bytes       169,000
+SHA-256     c76555bc397b5973216fbbb13358cfcdfe73bd9a13daad46c5f066fc1df35012
+container   RIFF / WEBP, single "VP8 " chunk (168,980 bytes)
+codec       lossy VP8, start code 9d 01 2a
+alpha       none        ICC   none        EXIF  none
+XMP         none        anim  none        orientation  none
+RIFF size   168,992 = filesize - 8, exact
+trailing    0 bytes after the last chunk
+```
+
+Verified twice and independently: a hand-written RIFF chunk walker and `sharp`
+agree on every field (`sharp`: webp, 1586x992, srgb, 3 channels, `hasProfile`
+false, `hasAlpha` false). No VP8X extension chunk exists, which is what rules out
+alpha, ICC, EXIF, XMP and animation structurally rather than by inspection.
+
+It is the lightest file in the works section by a wide margin — the other four run
+375-470 KB — and it matches the geometry of three of them (`wounds-of-armenia` is
+the section's one 1536x1024). Registered exactly as delivered: unaltered,
+unoptimised, unrenamed, per the rule this registry has followed since §30.
+
+### Visual inspection
+
+Inspected at full resolution, at the 1152px article-hero equivalent, and in
+magnified crops at 3x (both manuscript pages) and 4-6x (binding, leather board
+edges, table, wall hanging, shelved books, carved floor slab, masonry, and each
+of the four figures).
+
+**Core subject — PASS.** A large open codex on a wooden table fills the lower half
+of the frame and is the dominant object at every rendered size. The picture reads
+as *the literary work*, not as monastic drama and not as an author portrait.
+
+**Manuscript geometry — PASS.** Two page blocks with substantial, individually
+legible folio thickness; fore-edges toward the camera; leather-covered boards
+below them with a visible turn-in, a brass corner boss and the remains of a tie.
+The board edge is clearly separated from the table plank by shadow — no fusing
+into furniture, no floating page block, no duplicate stacks, no impossible spine,
+no modern hardcover construction. Painterly simplification only.
+
+**Armenian manuscript character — PASS.** Aged parchment with visible handmade
+irregularity, dark ink, muted red rubrication, small ornamented initials and
+marginal cross finials. Restrained rather than decorative — written character
+carried further than illumination, which is what §92 asked for.
+
+**Human scenes — PASS.** Four secondary figures in one coherent physical room: a
+seated man in a blue-black robe with his head lowered and hands clasped; a monk
+standing against a pier, hand to chin; a hooded monk kneeling at a small
+prie-dieu with hands joined; a monk at the arch seen from behind, looking out at
+the valley. Sorrow, reflection, prayer and hope, all quiet. No floating circles,
+no ghostly visions, no apparitions, no magical silhouettes, no graphic suffering,
+no violence, no theatrical despair.
+
+**Historical environment — PASS.** Rounded arches, a stone arcade with carved
+interlace capitals, ashlar masonry, a stone-slab floor, and a highland valley with
+a small complex carrying an Armenian umbrella dome. Not Gothic, not a Renaissance
+library, not a museum, not a fantasy monastery. The landscape stays secondary: no
+Ararat symbolism, no modern city, no tourist framing.
+
+### Text sweep — the hard gate, PASS
+
+Both pages read at 3x; the spine, binding, leather board edges, table, wall
+hanging, shelved book spines, carved floor slab, masonry and frame corners read at
+4-6x.
+
+No readable generated Armenian or Latin word, date, title, signature, page number,
+caption or watermark anywhere. Nothing reads as `Մատեան ողբերգութեան`,
+`Մատյան ողբերգության`, `Նարեկ`, `Գրիգոր Նարեկացի`, `Book of Lamentations` or
+`Narek`. The page text is dense horizontal pseudo-script — letter-like strokes with
+rubricated line openings — that does not resolve into words in any alphabet.
+
+Two things that look like lettering at 1x and are not: the marks along the leather
+board edge, which at 6x are specular highlights and thread from a broken tie; and
+the carved floor slab in the lower right, which is where an inscription would
+belong on a real one and which carries only repeating interlace.
+
+### Audits that this subject specifically required
+
+**False-artifact claim — clean.** No accession number, no museum label, no
+provenance caption, no authenticated-looking title plate. Nothing implies this is
+the surviving autograph. It is an editorial reconstruction and reads as one; the
+article handles the real manuscript history separately.
+
+**Author-portrait borrowing — clean.** `writers/grigor-narekatsi.webp` is a
+half-length seated author at eye level facing the camera's left, with a lake and a
+snow range behind him. This is an interior loggia looking down onto a codex, with
+four small figures all in profile, hooded, or seen from behind. No face in it is
+that face, nothing is composited from it, and it appears nowhere as background.
+The one shared element is a dark red wall hanging with a gold cross — a studio
+motif of the family, not a borrowed asset. Different SHA-256, different file.
+
+**Saint-icon framing — clean.** No halo, no aureole, no blessing gesture, no
+front-facing saint icon, no floating cross, no heavenly vision. The gold cross is
+embroidered on a physical textile hanging on the wall. Religious context arrives
+through setting and posture only.
+
+**Healing/miracle imagery — clean.** Nothing glows. No rays, no aura, no sick
+person, no cure. The manuscript is lit by the same daylight as the rest of the
+room. This mattered more here than anywhere previous: the article frames the
+healing tradition as historical devotional practice, and a glowing book would have
+contradicted that in one image.
+
+**Biblical-Lamentations confusion — clean.** No Jerusalem, no Old Testament
+prophet, no Hebrew manuscript, no biblical ruins. The Armenian medieval setting
+carries it.
+
+### Lighting, palette, AI-artifact sweep
+
+Natural physical daylight from the arcade, no fantasy warmth, no spotlight; the
+codex is the brightest mass in the frame, which keeps it the visual centre.
+
+Not trapped in brown sepia. Measured mean chroma-saturation 0.468 against a works
+section running 0.395-0.530, so it sits mid-family. Mean luminance 0.304, the
+darkest of the five alongside `wounds-of-armenia` at 0.311 — expected and correct
+for the section's only interior. Parchment cream, warm stone, natural wood, muted
+burgundy, blue-grey, olive and charcoal all present.
+
+No major structural defects at article scale. Faces and hands on all four figures
+are coherent — the clasped hands, the hand at the chin, the joined praying hands
+each read correctly at 3x. Arches, capitals, columns, stone joins, floor slabs and
+the table's legs and joinery are consistent in perspective, with no duplicated or
+floating structures. Minor painterly softness in the small figures, accepted.
+
+**Foreground distraction.** The rug that the earlier concept risked is gone. What
+occupies the lower right is a carved stone floor slab — dark, low-contrast, and
+recessive. It does not compete with the codex.
+
+### Comparison with the four existing Work artworks
+
+Compared at full width, 380px and 160px. Anush is a woman with a jug in an open
+ochre valley; Wounds of Armenia is armed fighters and smoke; The Fool is a standing
+man with a rifle above a fortress town; David of Sassoun is a hero wrestling a lion
+in a green valley. All four are warm exteriors built around a dominant human figure
+at eye level.
+
+This is the section's only interior, the only object-dominant frame, the only one
+whose people are small and secondary, and the only cool palette. Same painterly
+editorial register — the Armat family is unmistakable — and materially distinct
+composition. Collection-level distinction is comfortably met.
+
+### Crop and thumbnail results
+
+The Work pipeline is generic: `ContentPhoto` applies `object-cover` with
+`object-center`, and `PORTRAIT_FOCUS` is passed only for writer portraits. No
+Book-of-Lamentations-specific focus was added, because the generic crop does not
+fail anywhere.
+
+```text
+4:3   (hero, mobile)      codex whole, all four figures survive
+3:2   (hero, sm)          codex whole
+16:9  (hero, lg)          codex whole, table legs clipped at the bottom
+16:10 (featured, mobile)  effectively the full frame
+176x300 / 208x340         work-card side column: codex fills the lower two-thirds,
+                          page block and binding intact, one monk behind
+128x200 / 160x220         search thumb: codex dominant, page block intact
+```
+
+In every narrow crop the priority elements — the open manuscript, the binding and
+page block, and a piece of the monastic environment — survive, and the human
+scenes are what crops away. That is the right way round: the Work's identity is
+the book.
+
+**Thumbnail gate — PASS.** At both 128px and 160px it still reads unmistakably as
+a substantial medieval manuscript.
+
+### Registration
+
+```text
+src/lib/media.ts
+  IMAGES         + "book-of-lamentations": "/images/works/book-of-lamentations.webp"
+  PENDING_ARTWORK  - "book-of-lamentations"   ->   []
+```
+
+Registered in the generic registry with no Work-specific rendering branch, no
+article-level `image` field, and no schema change. The pipeline resolves everything
+from `getImageSrc`, so the one line reached the article hero, the listing card, the
+search thumbnail, the Open Graph and Twitter tags and the sitemap image at once.
+
+```text
+registry entries   46  ->  47
+PENDING_ARTWORK    ["book-of-lamentations"]  ->  []   (empty for the thirteenth time)
+```
+
+Archive-wide, every article in every section now has a cover, and for the first
+time that includes all five Works.
+
+**No `PORTRAIT_PROVENANCE` entry was added**, as §92 decided in advance. That map
+records how a likeness of a *person* was arrived at, and a book has no likeness.
+A test now asserts every Work slug reads the default `imagined`, so the misuse is
+guarded rather than merely avoided.
+
+### Verified after registration
+
+```text
+listing    /en /hy /hyw works   5 cards, zero placeholders, the new card carries
+                                book-of-lamentations.webp and borrows nothing
+heroes     /en /hy /hyw works/book-of-lamentations   exact artwork, localized alt,
+                                illustration caption (not a portrait caption)
+search     Book of Lamentations, Narek, Grigor Narekatsi, Մատյան ողբերգության,
+           Նարեկ, Մատեան ողբերգութեան — canonical hit carries the exact file,
+           scoped by canonical href because these queries also return the Writer
+metadata   og:image and twitter:image = https://armat.site/images/works/
+           book-of-lamentations.webp in all three editions, no /og-default.png
+sitemap    each locale's own <url> block contains the file — checked block by
+           block, not by global occurrence count (en 1, hy 1, hyw 1)
+```
+
+The Narekatsi Writer portrait still resolves to its own asset and Writer search is
+unbroken.
+
+### Counts, unchanged except the pending transition
+
+```text
+Works   5     Writers 10 (10 portraits, 0 pending)
+Cuisine 12    Places  13    History 7
+```
+
+Identical across hy, hyw and en. No map changes, no navigation changes. The four
+earlier Works are byte-identical in image, featured state, metadata, relations and
+content — the diff touches no content file at all. Featured Work is still
+`works[0]`; registering an artwork promoted nobody. The §92 inbound relation from
+`grigor-narekatsi` is intact in all three editions.
+
+### Tests
+
+Focused first, as the step required.
+
+```text
+tests/e2e/works.spec.ts            21 passed, 0 failed   17.7s
+tests/e2e/places.spec.ts + works   105 passed, 0 failed   3.1m
+```
+
+`works.spec.ts` was rewritten where registration inverted the expected state. Every
+deletion in the diff is a pre-registration assertion replaced by its opposite:
+"no artwork is registered" -> registered; "it is declared pending" -> not pending;
+"the placeholder is drawn / no raster hero" -> no placeholder, exact hero; "exactly
+one card renders the placeholder" -> none; "metadata falls back" -> metadata is the
+file; "advertises no image yet" -> advertises the file per locale block;
+`PENDING_ARTWORK` `[NAREK]` -> `[]`. Two tests are new: the artwork registration
+test above, and one asserting no Work slug carries a `PORTRAIT_PROVENANCE` entry.
+
+One further test needed updating, and it failed correctly rather than by accident:
+`places.spec.ts` "no unrelated article artwork changed" pins every non-Places entry
+in `IMAGES` as a literal. Registering a Work turned it red, which is exactly what
+that snapshot is for. Extended by one line, every other value byte-identical — the
+same maintenance every Cuisine and Writers registration has asked of it, and the
+first time a *Works* registration has done so.
+
+Full suite, run twice. The first run carried the `places.spec.ts` snapshot failure
+described above; the second, after the one-line extension:
+
+```text
+total     452
+passed    447
+failed      0
+skipped     5
+runtime  10.8m
+```
+
+The five skips are pre-existing and unrelated to this step — the untranslated-page
+cases in `locale.spec.ts` (2), `seo.spec.ts` (2) and `mobile.spec.ts` (1).
+
+### Navigation
+
+**`navigation.spec.ts:16` did not reproduce.** It passed for all three editions
+(hy 3.6s, hyw 5.4s, en 6.2s). That is four clean runs against one earlier
+reproduction. **Recorded as still open, not as fixed** — navigation was not
+modified in this step.
+
+### Build
+
+`npm run build` green, run only after Playwright exited and port 3002 was free.
+`/[locale]/works/[slug]` prerendered 15 paths — five works across three editions.
+
+```text
+prerender-manifest   /en /hy /hyw works/book-of-lamentations, all three present
+emitted HTML         og:image and twitter:image = https://armat.site/images/
+                     works/book-of-lamentations.webp in all three editions
+emitted sitemap      one <url> block per locale, each carrying the file, none
+                     carrying grigor-narekatsi
+```
+
+Also probed against `npm start` on the production build: the three new routes, the
+three listings, Narekatsi, an existing Work, a Cuisine article, a Place and a
+History article — twelve routes, all 200.
+
+### Process failures and mistakes in this step
+
+Recorded because two of them changed how the tests are written.
+
+1. **Four Playwright tests timed out repeatedly and none of it was a product
+   defect.** The dev-server log settled it: concurrent requests to routes that
+   serve in ~300ms sequentially were blocking ~82s in `application-code`, next to
+   `Finished writing to filesystem cache in 72s`. It is a Next dev compile/cache
+   stall under parallel workers, recurring after file edits, and it was aggravated
+   by clearing `.next` at the start of the step. Serializing the focused run made
+   all 21 pass in 17.7s. I read it as a possible route problem before the log
+   settled it.
+
+2. **A new assertion of mine was wrong.** I asserted the Narekatsi portrait appears
+   nowhere in `main` on the Work page. It appears once, correctly, in the
+   related-articles block — the Writer relation §92 deliberately made run both
+   ways. Scoped to the hero, with the related card pinned as the one legitimate
+   occurrence, so the check still fails if the hero ever borrows the portrait.
+
+3. **The §92 borrowing check was passing vacuously.** It compared rendered `src`
+   attributes against registry *paths*, but `next/image` percent-encodes them into
+   its own query string — `/_next/image?url=%2Fimages%2Fworks%2F…` — so a path
+   literal could never appear in the DOM and the assertion could never have
+   matched anything. Matching filenames, which survive the encoding, is what makes
+   it able to fail. A latent weakness the registration exposed rather than caused;
+   the same trap would have quietly disarmed any future borrowing check written
+   the same way.
+
+### Diff
+
+```text
+src/lib/media.ts          +82  -1     IMAGES entry + audit note; PENDING_ARTWORK emptied
+tests/e2e/works.spec.ts  +183 -40     pre-registration assertions inverted; 2 new tests
+tests/e2e/places.spec.ts   +9  -0     registry snapshot extended by one line
+PROJECT_STATE.md                      this section
+```
+
+Nothing staged, no other file touched. Every deletion was read individually and
+each is an assertion whose inverse now stands. No content file, no navigation file
+and no other section's tests were modified. No whole-file rollback was used at any
+point; the one wrong assertion was repaired as an exact hunk.
+
+`.claude/settings.json` untouched — unchanged since 7 August and absent from
+`git status`.
+
+### Technical debt
+
+- **The dev-server compile stall makes parallel Playwright runs unreliable on this
+  machine**, and it is the second time `.next` handling has cost a step time. The
+  working rule is now: clear `.next` only with the server stopped, then warm the
+  routes before running, and prefer `--workers=1` for a focused spec immediately
+  after an edit. Not a product defect and not worth a code change yet.
+- **`book-of-lamentations.webp` is 169 KB against 375-470 KB for the other four
+  Works.** Not a fault — it is registered as delivered, per the §30 rule — but it
+  is the widest intra-section weight spread in the registry and worth watching if
+  a future delivery comes in lighter still.
+- **`genreId: "poetry"` remains a loose fit** for a prayer cycle, carried over
+  unresolved from §92. Revisit when a second such work exists.
+- **Six of ten Writers still carry no SEO fields.** Untouched by this step.
+- **Intermittent Works -> Cuisine navigation failure remains open**, as above.
+- The Work artwork and the Narekatsi portrait **share a red-hanging-with-gold-cross
+  motif**. Checked and accepted as a studio motif of the family rather than a
+  borrowed asset, but it is the closest the two images come to each other and it is
+  recorded so a future reviewer does not have to rediscover it.
+
+### Not done, deliberately
+
+No deployment. Writer #11, Hakob Paronyan, selected at §91, remains unstarted.
+Navigation untouched. Article content untouched.
+
+Next step: Hakob Paronyan as Writer #11.
+
+## §94 — Writer #11: Hakob Paronyan, in all three editions (2026-09-02)
+
+Step 64. §91 selected him and §93 finished the Works detour, so this is the article
+that fills the gap §91 named: the Writers section was ten poets and near-poets with
+no satirist, no playwright and no comic prose. Paronyan is all three at once.
+
+Content only. No artwork was generated or registered, no Work was created, Writer
+#12 was not started, navigation and the map were untouched, and nothing was
+deployed.
+
+### Pre-state, read from source
+
+```text
+Writers 10   ten registered portraits, none pending
+Works    5   all five registered (§93)
+PENDING_ARTWORK  []
+Periods  medieval 2, 19th-century 3, 20th-century 4, soviet 1
+Featured writer  hovhannes-tumanyan, sole
+PORTRAIT_PROVENANCE  two entries: daniel-varoujan, siamanto — both photo-referenced
+```
+
+The expected period distribution in the brief matched the source exactly.
+
+### Repository audit
+
+**Zero references to Paronyan existed anywhere in `src/` or `tests/`** — no plain-text
+mention, no source entry, no relatedFigure, no search alias, no test asserting his
+absence. Every match for `paronyan|baronian|Պարոնեան|Պարոնյան` was in
+`PROJECT_STATE.md`, from the §91 selection research.
+
+One near-miss worth recording: `Baghdasar` appears in `works.ts`, but it is **Sanasar
+and Baghdasar**, the twin founders in the *David of Sassoun* epic — unrelated to the
+play. No guard against it was needed and none was written.
+
+### SERP and source findings
+
+Live English, Eastern and Western Armenian searches were run. **No keyword metrics
+were invented. No search-volume, keyword-difficulty, CPC or traffic figure appears
+anywhere in this section, because no such tool was reachable: qualitative SERP
+evidence only.**
+
+- The **Paronyan / Baronian split §91 identified is real and severe.** `Hakob Paronyan`
+  is dominated by the Yerevan musical comedy theatre that carries his name and returns
+  very little biography; `Hagop Baronian` returns the biographical corpus, the library
+  records and the English translation. The two strings retrieve substantially
+  different sets of pages.
+- **English Wikipedia lists his works in ad-hoc romanisation with no Armenian script**,
+  which is precisely the entity-resolution failure a trilingual page fixes by
+  construction.
+- Strong and resolving: **HSH vol. 9 p. 204** on hy.wikisource, fully digitised; the
+  **ten-volume collected works** in the public domain on Commons; **Bardakjian**, the
+  standard English reference and the scholar who has written most on him; an
+  **Artsakh State University paper on `Ազգային ջոջեր`** that resolved a chronology.
+- Sources that surfaced and were **deliberately not used**: Turkish state-aligned
+  outlets, which carry a "Molière of the Armenians" framing this article declines.
+
+### Two errors caught in research that would have shipped
+
+1. **A search result attributed *Pepo* to Paronyan.** *Pepo* is **Gabriel Sundukyan's**
+   — the Eastern Armenian comic dramatist, a near-contemporary and the obvious
+   confusion. It is nowhere in the article.
+2. **His age at death is 47, not 48.** One reachable source says 48; born 19 November
+   1843 and dead 27 May 1891, he had not reached his birthday. The article says 47.
+
+### Name and transliteration
+
+```text
+en    Hakob Paronyan
+hy    Հակոբ Պարոնյան      (reformed)
+hyw   Յակոբ Պարոնեան      (classical)
+slug  hakob-paronyan
+```
+
+`Hagop Baronian`, `Hakob Baronian`, `Hagop Paronian` and `Hakob Paronean` are carried
+as search aliases in all three editions, together with both Armenian orthographies and
+both spellings of the novel's title. The slug follows the section's existing convention
+(`grigor-narekatsi`, `nerses-shnorhali`) rather than the English catalogue form; the
+aliases carry the rest. A dedicated article section explains the split rather than
+leaving the reader to discover it.
+
+### Birth date — the brief was right to flag it
+
+The brief asked about "1841?" and the answer is that **both dates are real and the
+disagreement is documentable**:
+
+```text
+Armenian sources (HSH, hy.wikipedia, educational)   19 November 1843, consistently
+Library of Congress name authority                  "Paronean, Hakob, 1841?-1891"
+Bibliothèque nationale de France                     "1841-1891", no question mark
+Both catalogue records cluster with the 1843 ones   VIAF 46886934
+```
+
+**Decision: the article states 19 November 1843** and gives the conflict its own
+section, on the grounds that the Armenian scholarly tradition is consistent and the
+1841 records are flagged as uncertain *by the catalogue that originated them*. A reader
+meeting 1841 in a library catalogue has found a flagged uncertainty, not an error, and
+the article says so. The authority records are cited as a source in their own right.
+
+### Death
+
+27 May 1891, Constantinople, of tuberculosis, aged 47. Widow and children left without
+means — recorded because Armenian sources record it.
+
+**The "died on the streets" version is named and declined.** Nothing in the sources
+consulted supports destitution in the street. The article states the documented
+poverty, states the disease, and says explicitly that adding pathos would be inventing
+detail about a real person's death. No melodrama, and no section ending on it.
+
+### Geography
+
+Born at **Adrianople** (Ադրիանուպոլիս), the Ottoman city on the Maritsa in Thrace,
+"today the Turkish city of Edirne" — historical name for the historical period, modern
+orientation given once, no modern political framing. The Armenian community there is
+mentioned only because its schools are where he was educated.
+
+**Constantinople** throughout for the nineteenth-century city, Կ. Պոլիս in Armenian,
+with "modern Istanbul" stated once, at his burial and the 2019 Şişli monument. The
+names do not alternate.
+
+### Schooling — the claim that was omitted
+
+The brief's strict gate was correct and the gate held. Documented and stated:
+
+```text
+Arshakunyan school, Adrianople
+Greek school of the town, 1857, about one year, then left
+self-education thereafter; French, Italian and Greek largely on his own
+```
+
+**No Catholic or Mekhitarist schooling appears in the article.** It circulates widely in
+popular biographies; HSH and the Armenian reference sources give the Arshakunyan school
+and the Greek school and nothing else. The article names the claim in order to decline
+it and says why, so the omission is visible rather than silent.
+
+### Career and periodicals
+
+Employment, which never stopped: pharmacy assistant (~2 years, Adrianople), tobacco-
+company bookkeeper, telegraph office, private tutor, teacher at the **Scutari seminary**
+— where **Petros Duryan was his pupil** — patriarchate official, and accountant again
+after 1888.
+
+```text
+Եփրատ              Adrianople, editor from 1871
+Մեղու               Constantinople, editor from 1872, after Harutyun Svajyan
+Թատրոն              1874–1877
+Թատրոն. բարեկամ մանկանց   illustrated, 1876 — called the first Armenian children's paper
+Ծիծաղ               weekly, 1883, about a year
+Խիկար               1884–1885 and 1886–1888, Constantinople and Adrianople
+```
+
+Also a contributor to Մասիս and Փորձ, where editors sometimes declined his satirical
+pieces over what printing them might cost the paper.
+
+### Censorship, kept separate from money
+
+The brief's instruction not to collapse these was followed, and the evidence supports
+the separation:
+
+- **Censorship, specifically.** Under the Hamidian regime of the later 1880s the
+  conditions for the Ottoman press tightened, and Armenian accounts describe the
+  satirical papers of the period — his among them — **moving from political subjects
+  to domestic ones**, which is the visible mark of the constraint. Խիկար was closed by
+  the authorities in 1888 along with other Armenian periodicals, ending his editing
+  career. Other papers' editors declined his work out of concern for consequences.
+- **Money, separately.** Satirical weeklies were bad businesses. Ծիծաղ lasted about a
+  year. The bibliography's shape — one title after another, several of them restarts —
+  is as commercial as it is political.
+
+The article says both were real and that they are not the same failure. No "constantly
+persecuted" framing.
+
+### Satire, technique and language
+
+**What he satirized**, concretely: the Armenian community of Constantinople looking at
+itself — its notables, councils, committees, newspapers, professions and social
+performance; and above all the gap between an economic position and the manner adopted
+to disguise or advertise it. Not "he mocked society".
+
+**And by name.** `Ազգային ջոջեր` works through living public figures one at a time,
+among them Grigor Artsruni, Tserents, Khoren Nar-Bey and Anton Hassoun.
+
+**Technique**: the social type rendered precisely enough to stay an individual; letting
+a man explain himself until the explanation convicts him; scenes built from dialogue,
+entrances and interruptions even in the prose; repetition with variation so the pattern
+rather than the case carries the argument; and the terseness Armenian criticism
+consistently praises.
+
+**No founder claim.** "Father of Armenian satire" and the Molière comparison are named
+and declined; the article follows the careful scholarly formulation — first and greatest
+satirist of *modern* Armenian literature — which is a claim about achievement and
+position, not invention.
+
+**Western Armenian gets a substantive section**, and it argues something rather than
+noting a fact: the Western Armenian literary language was forming on the basis of
+Constantinople speech, a satire of pretension is largely a satire of *register*, and
+that comedy is only audible in a language whose spoken and written forms are close
+enough for the mismatch to register. It closes by pairing him with Abovyan — the two
+vernacular turns, east and west — which is also the article's one strongest relation.
+
+### The three works, with their chronologies
+
+**`Պաղտասար աղբար` — resolved, and it is the reason he was chosen.**
+
+```text
+written   1886, Constantinople
+staged    first performance only about ten years later, c. 1896,
+          and by Eastern Armenian theatre, not the city it was written for
+```
+
+The gap is kept rather than collapsed, and the article says what it means: a Western
+Armenian comedy about Constantinople reached the stage first in the other half of the
+Armenian world, after its author was dead. English titles — *Uncle Baghdasar*, *Brother
+Baghdasar*, *Baghdasar Aghbar* — none presented as canonical.
+
+**`Ազգային ջոջեր` — the apparent conflict dissolved on research.** HSH says
+"serialized from 1874" and hy.wikipedia says "three parts, 1879–1880"; both are right
+and they describe different things:
+
+```text
+serialized in Թատրոն from 1874
+Part A, Constantinople 1879, pp. 1–160
+Part B, 1880, pp. 161–320
+about six years of biographical research, 1874–1880
+```
+
+The title is kept in Armenian. `ջոջ` is dialectal for a big or important one with none
+of the dignity of the literary word for a leader; *National Bigshots* is offered as a
+rendering, not as a settled English title.
+
+**`Մեծապատիվ մուրացկաններ` — unresolved, and left that way.**
+
+```text
+English reference sources   serialized 1880, published as a book 1887
+hy.wikipedia (novel page)   1887 alone, serial and volume not distinguished
+```
+
+The two are compatible if 1880 is the serial and 1887 the book, which the article calls
+the most likely reconstruction — and then says plainly that the sources reachable for it
+do not jointly confirm that. **The disagreement is stated, not hidden and not settled by
+assertion.** Mischa Kudian's *Honourable Beggars: A Satire* is named as the English route
+in; both the -our- and -or- spellings are search aliases.
+
+Other works named without building a catalogue: `Երկու տերով ծառա մը` (written 1865,
+printed 1911 — posthumously, forty-six years later), `Ատամնաբուժն արևելյան` (1868),
+`Պտույտ մը Պոլսո թաղերու մեջ` and `Հոսհոսի ձեռատետրը` (1880).
+
+### Theatre and reception
+
+Drama is a real part of the identity, not a mention: he wrote for the stage from 1865,
+his comedy is comedy of manners built on domestic situations that turn out to be
+economic, and the dialogue is written for actors. The article does not inflate one play
+into the whole career.
+
+Reception is kept strictly after 1891 and **not projected backward**. Պաղտասար աղբար
+entered the repertoire from c. 1896; the collected works were issued through the
+twentieth century in Tiflis, Constantinople, Moscow, Beirut and Yerevan; the Yerevan
+state musical comedy theatre (founded 1941, opened 1942) carries his name, as do a
+school and a street; Armenia issued a 175th-anniversary stamp in 2018.
+
+**Soviet reception is separated from his life explicitly.** He died in 1891 and Soviet
+Armenia was established in 1920; the editions, productions and institutions are part of
+his reception, and the bourgeois-critic reading they encouraged is named as one
+interpretation rather than as his purpose. He is not labelled a Soviet writer.
+
+### Relations — two, both argued
+
+```text
+khachatur-abovyan   the two vernacular turns: Abovyan for Eastern Armenian a
+                    generation earlier, Paronyan in the parallel Western
+                    development. Argued in the language section, not asserted.
+siamanto            Constantinople Armenian print culture one generation on;
+                    Siamanto was himself a periodical editor.
+```
+
+Both point outward from Paronyan. **No existing writer's article was edited**, no
+reciprocal links were added, and Varoujan was deliberately **not** related merely for
+being Western Armenian — the brief's warning, followed. The strongest verified personal
+connection, Petros Duryan as his pupil at Scutari, is a `relatedFigure` rather than a
+relation, because Duryan is not an article in this archive.
+
+### Future Work — selected, not created
+
+```text
+candidate #1   Պաղտասար աղբար / Uncle Baghdasar
+runner-up      Մեծապատիվ մուրացկաններ / Honourable Beggars
+```
+
+Research confirmed §60's preliminary preference rather than overturning it. The
+written-1886 / staged-c.1896 chronology gives the play unusual explanatory value, it is
+the section's obvious first drama entry, and it is continuously performed. The novel is
+the runner-up because it is the more widely read text in English but its chronology is
+the unresolved one. **No Work slug was created**, and a test asserts that none of seven
+plausible invented slugs exists.
+
+### Portrait state
+
+```text
+PENDING_ARTWORK        ["hakob-paronyan"]   — refilled, thirteenth cycle
+PORTRAIT_PROVENANCE    unchanged, still two entries. No Paronyan entry.
+Writer portraits       10 registered, 1 placeholder
+```
+
+**Expected future provenance: `photo-referenced`, verified rather than assumed.** One
+lifetime studio portrait photograph survives and is public domain on Commons
+(`Յակոբ Պարոնեան.jpg`), giving unambiguous features: long gaunt face, high forehead,
+dark hair receding at the temples, thick drooping moustache, no beard, bare-headed, no
+fez. The Commons category otherwise holds the collected works and the **2018 commemorative
+stamps, which are not facial authority** — the §87 rule, applied again. The intention is
+recorded in `media.ts`; the map itself stays untouched until the file lands, and a test
+asserts that absence.
+
+**Preferred future archetype, and it is a refusal as much as a preference.** The
+collection debt is real: too many seated figures at desks with books in warm interiors.
+Paronyan was a working editor of satirical papers, so the archetype is **standing in the
+composing room of his own journal** — type cases, proofs, the Խիկար print shop of the
+1880s — with a close standing half-length against a restrained print-office ground as
+the fallback if the printing-room setting cannot be made historically defensible.
+**No seated-at-a-desk composition**, which is the whole point of choosing him to break
+the pattern. The concept was re-checked against the ten existing portraits and remains
+defensible.
+
+### Structure and counts
+
+17 sections in each edition, identical ids across all three, within the 14–18 target.
+Each locale carries its own `keyFacts`, `importantDates`, `significance`,
+`interestingFacts` and `relatedFigures`. The opening establishes satirist, playwright,
+prose writer and editor before any praise; the article ends on the stage and the
+reception, not on poverty, death or censorship.
+
+The **HYW edition is written as Western Armenian rather than converted from Eastern** —
+`կը`/`կ'` present forms, `ան`/`անոնք`, `կրնայ`, `ըսել`, `մէջ`, `ետք`, aorists in
+`-եցաւ`, classical `եւ` and `-ութիւն`, and Work titles in their classical forms
+(`Մեծապատիւ մուրացկաններ`, `Երկու տէրով ծառայ մը`).
+
+```text
+Writers 11   Works 5   Cuisine 12   Places 13   History 7
+periods      medieval 2, 19th-century 4, 20th-century 4, soviet 1
+featured     hovhannes-tumanyan, still sole
+```
+
+### Sources
+
+Eight, each cited for what it settles: HSH vol. 9 p. 204 (the spine, and the negative
+evidence on schooling); Bardakjian's *Reference Guide* (the careful formulation);
+*The Heritage of Armenian Literature* vol. III; Kudian's translation; the ten-volume
+collected works; the Artsakh State University paper on `Ազգային ջոջեր` (which resolved
+that chronology); **the LC and BnF authority records, cited for the date conflict alone
+and for no biographical claim**; and the Yerevan theatre's institutional record.
+
+### Tests
+
+```text
+tests/e2e/writers.spec.ts    56 passed  (12 of them new)
+focused works/places/listing/search/seo    all green
+full suite   465 total, 460 passed, 0 failed, 5 skipped, 12.0m
+```
+
+Twelve new guards: existence in three locales; canonical names per orthography with
+each edition forbidden the other's spelling; the transliteration aliases as data;
+portrait pending and the hero borrowing nobody's; no provenance entry yet; the
+satirist/playwright/prose identity at data level plus the three differentiating
+sections; the three contested facts (1843 with 1841 reported, 1886/1896 not collapsed,
+1880/1887 both present); the schooling and street-death framings asserted as *discussed
+at length* rather than by banning substrings the article's own careful sentences
+contain; no invented Work slug; cross-section regression; both romanisations and both
+orthographies resolving in search; routes, metadata and sitemap as an unillustrated
+writer's; and the bibliography including the date-conflict citation.
+
+Six existing assertions encoded "the section is complete at ten" and were inverted, all
+of them recording why rather than being quietly edited. One deserves naming: an
+assertion mapping `SLUGS` through `getImageSrc` into a Set to prove no two writers share
+a file would have kept passing with Paronyan in it, because his `undefined` occupies a
+set slot and keeps size equal to length. **It was passing for the wrong reason and now
+counts `ILLUSTRATED`.**
+
+The archive-wide "nothing is waiting for a picture" line §93 wrote into
+`works.spec.ts` was **rescoped to Works** — the same correction `places.spec.ts` made at
+§67 and `cuisine.spec.ts` at §81. `PENDING_ARTWORK` is archive-wide, and a Works file has
+no business asserting anything about the Writers section.
+
+### Navigation
+
+**`navigation.spec.ts:16` did not reproduce.** It passed for all three editions
+(hy 4.7s, hyw 4.7s, en 4.0s). That is five clean runs against one earlier reproduction.
+**Recorded as still open, not fixed**; navigation was not modified.
+
+### Build
+
+`npm run build` green, run only after Playwright exited and port 3002 was free.
+`/[locale]/writers/[slug]` prerendered 33 paths — eleven writers across three editions.
+All three Paronyan routes are in the prerender manifest, each emitting the fallback
+`og-default.png` and no borrowed portrait, and the sitemap carries three Paronyan URLs
+with no `image:loc`.
+
+### Failures and process mistakes
+
+1. **The validator caught three real defects before any test ran**, which is what it is
+   for: the HY `period` label read `19-րդ դար` where the HY filter's label is
+   `XIX դար`, so the chip and the card would have disagreed on the listing; and the EN
+   edition spelled two decades out in words where HY and HYW used numerals, which its
+   cross-locale numeral check flagged.
+2. **A multi-line scripted edit failed on line endings.** These files are mixed CRLF/LF
+   — one of them mixes both *within* a single statement — and a pattern written with
+   `\\n` matched nothing. Fixed by making the edit helper line-ending aware and matching
+   the exact mixed form. **No file was normalised**; CRLF counts were asserted before and
+   after every write and are unchanged.
+3. **One new assertion of mine was too broad**, exactly as at §93. I forbade any writer
+   portrait anywhere on Paronyan's page; the related-articles block **pads to three** and
+   therefore renders Tumanyan's portrait whether or not he is a relation. Scoped to the
+   hero figure after checking where the image actually was.
+4. **A full-suite run failed on `visit.spec.ts` with a route timeout, and it was not a
+   regression.** `/en/history/mesrop-mashtots-armenian-alphabet` — a route this step does
+   not touch — timed out at 90s while serving in 220ms to curl. It reproduced serialized,
+   so it was investigated rather than dismissed: the dev server had been running through
+   a full suite plus many re-runs, and **on a freshly restarted server the same test
+   passed in 12.9s and the full suite went green**. This is the §93 stall in a new form:
+   the Next dev server degrades over a long session, not only after edits.
+
+### Diff, separated by step as required
+
+§93 was still uncommitted when this step began. The two are distinguished here rather
+than merged.
+
+```text
+                                  §93 (pre-existing)   §94 (this step)
+PROJECT_STATE.md                        +387/-0          this section
+src/lib/media.ts                         +82/-1              +30/-0
+tests/e2e/works.spec.ts                 +183/-40             +22/-2
+tests/e2e/places.spec.ts                   +8/-0              +1/-1
+src/data/locales/en/articles/writers.ts        —            +284/-0
+src/data/locales/hy/articles/writers.ts        —            +280/-0
+src/data/locales/hyw/articles/writers.ts       —            +280/-0
+src/data/locales/{en,hy,hyw}/writers.ts        —          +12/-0 each
+src/data/sources.ts                            —             +71/-0
+tests/e2e/writers.spec.ts                      —            +437/-14
+tests/e2e/listing.spec.ts                      —              +1/-1
+```
+
+Every deletion in both steps was read individually. All 14 in `writers.spec.ts` are the
+"complete at ten" literals and their comments; the others are single count literals.
+No content file lost a line, no existing writer's biography was touched, and no
+whole-file rollback was used at any point. `.claude/settings.json` untouched —
+unchanged since 7 August and absent from `git status`.
+
+### Technical debt
+
+- **The dev server degrades over a long session**, independently of edits. §93 recorded
+  the post-edit stall; this step found the same symptom after sustained load. The
+  working rule is now: restart `next dev` before a full suite that has to be
+  authoritative, and treat a route timeout on an untouched route as a server-state
+  question before a regression.
+- **Six of ten — now six of eleven — Writers still carry no SEO fields.** Paronyan has
+  them; the six older entries do not. Untouched here, deliberately.
+- **`PORTRAIT_PROVENANCE` will need a third entry** when Paronyan's portrait lands, and
+  the intention is recorded in two places (`media.ts` and `writers.spec.ts`) that must
+  agree with each other when it does.
+- **The related-articles block pads to three**, which means any writer page can display a
+  portrait of a writer it does not link to. Harmless, but it has now caused a false test
+  failure twice, at §93 and §94, and is worth knowing before writing a third.
+- **Intermittent Works → Cuisine navigation failure remains open.**
+- The `Մեծապատիվ մուրացկաններ` **serialization/book chronology is unresolved** and is
+  carried in the article as a disagreement. Specialist Armenian bibliography would
+  settle it; it was not reachable here.
+
+### Not done, deliberately
+
+No portrait generated or registered. No Work created. Writer #12 not started. Navigation,
+map, Cuisine, Places, History and the existing ten Writers untouched. No deployment.
+
+Next step: the Hakob Paronyan portrait — `photo-referenced`, composing room, not a desk.
+
+## §95 — Hakob Paronyan portrait: verified and **rejected**. Not registered. (2026-09-02)
+
+Step 66. The file for Writer #11 landed and was put through the full gate. It fails on
+**readable generated text**, and the same element independently fails the **fake
+documentary office** gate. Under the standing rule that readable generated lettering is
+refused outright rather than weighed — set at §85, held at §86, §88 and §90, and carried
+into §94's advance conditions — **the portrait was not registered**.
+
+Nothing in the repository changed. `IMAGES` did not gain an entry, `PORTRAIT_PROVENANCE`
+did not gain an entry, `PENDING_ARTWORK` still holds `hakob-paronyan`, and the working
+tree at the end of this step is byte-identical to the end of §94. The file remains on
+disk, untracked, awaiting a corrected delivery.
+
+This is the second outright refusal in the archive's history. §89 was the first.
+
+### Pre-state, read from source
+
+```text
+Writers 11   ten registered portraits, one pending
+PENDING_ARTWORK      ["hakob-paronyan"]
+Periods  medieval 2, 19th-century 4, 20th-century 4, soviet 1
+Provenance   daniel-varoujan photo-referenced, siamanto photo-referenced,
+             hakob-paronyan absent (reads the "imagined" default)
+Paronyan     absent from IMAGES, placeholder hero in all three editions,
+             no Article.image, fallback OG/Twitter, no sitemap image
+Counts       Works 5, Writers 11, Cuisine 12, Places 13, History 7
+Featured     hovhannes-tumanyan, sole
+```
+
+Exactly as §94 left it.
+
+### The asset
+
+```text
+path        public/images/writers/hakob-paronyan.webp
+dimensions  1561 x 1008
+aspect      1.5486
+bytes       364,028
+SHA-256     c9d8f2eee6d070c5ebb68a172cdba24e4464cc8e64c793841cf96df0ac62a196
+container   RIFF / WEBP, single "VP8 " chunk (364,008 bytes)
+codec       lossy VP8, start code 9d 01 2a
+alpha none   ICC none   EXIF none   XMP none   animation none   orientation none
+RIFF size   364,020 = filesize - 8, exact
+trailing    0 bytes
+```
+
+Verified twice — hand-written RIFF walker and `sharp` — agreeing on every field
+(`sharp`: webp, 1561×1008, srgb, 3 channels, no profile, no alpha). **Technically the
+file is clean.** The geometry drifts from the preferred 1586×992: it is 25px narrower and
+16px taller, ratio 1.549 against 1.599. That is harmless drift and is *not* a reason for
+refusal; it is recorded so a corrected delivery can be asked for at the standard size.
+
+### Likeness — the reference and the comparison
+
+The likeness authority is the surviving lifetime studio photograph on Wikimedia Commons
+(`Յակոբ Պարոնեան.jpg`, 400×529, "date before 1891", photographer unknown, public domain).
+It was downloaded and read directly rather than described from text. **No stamp, drawing,
+monument or poster was used as facial authority**, per the §87 rule.
+
+What the photograph actually shows: a long lean face; a very high, dominant, fully
+exposed forehead; a strongly receding hairline with deep temporal recessions and thin
+hair on top, dark and short at the sides; prominent ears standing away from the head;
+large dark alert deep-set eyes under straight dark brows; a long straight narrow nose;
+and a **broad, dark, essentially horizontal moustache extending well past the mouth
+corners** with fine slightly upswept ends, clean-shaven below. Dark jacket, high white
+standing collar, dark neckwear, bare-headed, near-frontal.
+
+| Feature | Verdict |
+|---|---|
+| Face length and leanness | **strong match** |
+| Jaw, narrow | **strong match** |
+| Eyes, brows | **strong match** |
+| Nose — long, straight, narrow, prominent | **strong match** |
+| Clean-shaven chin, no beard or goatee | **strong match** |
+| Ears | **acceptable stylization** — present and reasonably prominent |
+| Forehead height | **acceptable stylization** — high, but less dominant than the source |
+| Age — reads early-to-mid forties | **match**; not elderly, not frail |
+| **Hairline** | **uncertain / weakest feature** |
+| Moustache | **acceptable stylization**, leaning handlebar |
+
+**The hairline is the problem worth naming even though it is not what refused the file.**
+§94 recorded it as one of his strongest identifying features, and the delivery softens it:
+the hair is combed back with real but modest temporal recession, denser and lower than the
+photograph's. It does not hit the explicit reject list — no fringe, no low hairline, no
+modern full hairstyle — so on its own it would have been *pass with minor stylization*.
+It should nonetheless be pushed further back in a corrected delivery, because it is the
+feature that carries recognition at thumbnail size, and at 128px the identity currently
+does not read.
+
+The moustache is dark, full and clearly not a small neat one, not Varoujan's, not
+Siamanto's moustache-and-goatee, and there is no chin hair. But it is styled with curled
+upswept ends where the photograph is broader and flatter. Acceptable; worth flattening.
+
+**Overall likeness verdict: PASS WITH MINOR STYLIZATION.** Someone familiar with the
+photograph would recognise this as Paronyan. The likeness is not why the file was refused.
+
+### Composition — passes, and passes well
+
+This is worth recording plainly, because it is the part that must survive a
+re-commission unchanged.
+
+The §91/§94 archetype was delivered. He is **standing**, three-quarter length, near-frontal
+and turned very slightly toward frame-right, leaning a hand on a **composing-room type
+cabinet**; behind him a hand press, two compositors working at a stone, shelved formes,
+an oil lamp, and an arched window onto a Constantinople cityscape with a tower.
+
+Against the ten existing portraits the distinction is the sharpest in the section. Eight
+of the ten are **seated at a desk** with books and papers — Tumanyan, Charents, Raffi,
+Isahakyan, Abovyan, Sevak, Narekatsi and Siamanto. Shnorhali is the one standing figure,
+in a monastic cloister. Paronyan is the only **working interior**, the only industrial
+environment, the only portrait whose dominant props are type and a press rather than
+books, and the only one with other working figures in the frame.
+
+```text
+seated writer      NO      desk            NO
+books as main prop NO      hand-to-face    NO
+warm study         NO      writing pose    NO
+```
+
+Clothing is period-plausible and correct: dark jacket, dark waistcoat with a watch chain,
+white shirt, high collar, dark cravat. **Bare-headed**, as the photograph is; the one fez
+in the frame is on a background compositor, not on him. Expression is composed, observant
+and faintly sceptical — no grin, no caricature, no anger, no victimhood. Lighting is
+lateral daylight from the window, no sepia wash and no spotlight, and the palette is
+cool grey-green and charcoal against aged cream, genuinely outside the collection's
+warm-brown study register. Hands are coherent: correct digit counts, clear thumbs, natural
+wrists, no fusion with paper or cloth; the left hand's finger joints are a little lumpy
+under magnification, which is painterly softness rather than a structural defect.
+
+No political-symbol collage: no flag, no coat of arms, no map, no Ararat, no khachkar, no
+posters of that kind. No theatre cliché: no masks, no curtain, no stage light, no actor
+pose. Type case audit **passes** — the sorts read as small dark metal pieces with no
+individual letter legible anywhere in the tray.
+
+### Why it was refused
+
+**The wall broadsheet at the upper left carries a fully legible Armenian display
+masthead reading `ԽԻԿԱՐ`.** The letters Խ, Ի, Կ, Ա, Ր are correctly formed, correctly
+spaced and unambiguous at 1× — they are legible in a 360px thumbnail, let alone at hero
+size. A second line beneath reads close to `ՕՐԱԹԵՐԹ`. Everything below that on the same
+sheet is unreadable pseudo-script, as is the second smaller poster, the proof sheet in his
+hand, the printed sheets by the press and the drawer label holders, all of which pass.
+
+The failure is a single element, and it trips two gates independently:
+
+1. **Readable generated text.** `Խիկար` is named explicitly in the step's rejection list.
+   The standing rule since §85 is that readable generated lettering is refused outright
+   and not weighed against the rest of the picture.
+2. **Fake documentary claim.** A masthead naming his actual journal converts an editorial
+   reconstruction into an assertion that this is the verified `Խիկար` office. §94 chose
+   the composing room precisely as a *plausible reconstruction*; a readable title makes it
+   a documentary claim the archive cannot support.
+
+The second is the more interesting failure, because it is the one the brief anticipated
+and the one a corrected delivery could most easily reintroduce. **The scene must carry
+the journal without naming it.**
+
+### Correction required
+
+Everything above the text is right and should not be regenerated from scratch. The
+required corrections, in priority order:
+
+```text
+1. REMOVE the readable masthead. The broadsheet may stay; its display line must
+   become unreadable texture like the rest of the sheet. No word may resolve —
+   not Խիկար, not Թատրոն, not Մեղու, not a title, date, name or signature.
+2. Push the hairline further back. Deeper temporal recessions, thinner on top,
+   more of the forehead exposed, matching the photograph. This is what makes him
+   identifiable at 128px, where he currently is not.
+3. Flatten the moustache slightly — broader and more horizontal, less curled at
+   the ends.
+4. If regenerating anyway, deliver at 1586x992.
+```
+
+Keep unchanged: the standing pose, the composing room, the type cabinet, the press and
+compositors, the window, the clothing, the bare head, the lighting and the palette.
+
+### State after this step
+
+```text
+IMAGES                 unchanged, no hakob-paronyan entry
+PORTRAIT_PROVENANCE    unchanged, two entries, no hakob-paronyan entry
+PENDING_ARTWORK        ["hakob-paronyan"]  - unchanged
+Writer portraits       10 registered, 1 placeholder
+Counts                 Works 5, Writers 11, Cuisine 12, Places 13, History 7
+```
+
+**No test was run and no build was run**, deliberately. The focused-tests, full-suite and
+build stages of this step exist to verify a registration; there is no registration to
+verify, and the tests as §94 left them already assert exactly the state that still holds —
+Paronyan pending, no provenance entry, one placeholder, ten registered portraits. Running
+them would have re-confirmed §94's green result and told us nothing about this file.
+
+**Nothing was deployed. `.claude/settings.json` untouched. Writer #12 not started. No
+Paronyan Work created. The biography is untouched — this step changed no content file.**
+
+### Technical debt
+
+- **The expected provenance stays `photo-referenced`** and is still recorded only as an
+  intention in `media.ts`. The likeness work in this delivery confirms it is the right
+  classification: the artwork was plainly made with the photograph in view.
+- **The refusal is a one-element defect on an otherwise strong image.** If the corrected
+  delivery changes anything beyond the four points listed above, the collection-uniqueness
+  gate must be re-run from scratch — this composition is the section's only non-desk
+  working interior and losing it would cost more than the text defect did.
+- **A readable masthead is a new failure mode for this archive.** Every previous text
+  refusal was lettering on a page or a wall; this one is a *title*, and it is the form the
+  fake-documentary gate is most exposed to. Worth stating in any future artwork brief for
+  an editor or a journalist: the periodical may appear, its name may not.
+
+Next step: a corrected Hakob Paronyan portrait. §94's two advance conditions and the four
+corrections above are binding on it.
+
+## §96 — Hakob Paronyan portrait: corrected, verified and registered (2026-09-02)
+
+Step 66B. The second delivery of Writer #11's portrait passed every gate the first
+one failed and every gate it had already passed, and **it is registered**. The
+Writers section is eleven writers, eleven portraits and no placeholder anywhere —
+complete for the second time in its history, and `PENDING_ARTWORK` is empty
+archive-wide for the fourteenth time.
+
+§95 stands unchanged above. It is the record of the refusal, and the refusal is
+the reason this file is what it is.
+
+### Pre-state, read from source
+
+```text
+Writers 11   ten registered portraits, one pending
+PENDING_ARTWORK      ["hakob-paronyan"]
+Periods  medieval 2, 19th-century 4, 20th-century 4, soviet 1
+Provenance   daniel-varoujan photo-referenced, siamanto photo-referenced,
+             grigor-narekatsi imagined, nerses-shnorhali imagined,
+             hakob-paronyan absent
+Paronyan     absent from IMAGES, placeholder listing card, placeholder hero in all
+             three editions, no Article.image, fallback OG/Twitter, no sitemap image
+Counts       Works 5, Writers 11, Cuisine 12, Places 13, History 7
+```
+
+Exactly as §95 left it. Nothing had moved in between.
+
+### The corrected asset
+
+```text
+path        public/images/writers/hakob-paronyan.webp
+dimensions  1560 x 1008          (rejected file: 1561 x 1008)
+aspect      1.5476               preferred 1586 x 992 = 1.599
+bytes       275,108              (rejected file: 364,028)
+SHA-256     cb29ac83b17ddae68f335382d95deacbc0ecae1c7998f4a9bed8366107923e7f
+container   RIFF / WEBP, three chunks: VP8X (10 bytes), ICCP (456), VP8 (274,606)
+VP8X flags  0x20 -> ICC true; alpha, EXIF, XMP, animation all false; reserved 0
+canvas      1560 x 1008, agreeing with the VP8 frame header
+codec       lossy VP8 keyframe, start code 9d 01 2a
+alpha none   EXIF none   XMP none   animation none   orientation none
+ICC         456-byte minimal sRGB monitor profile, mntr/RGB/XYZ, desc "sRGB"
+RIFF size   275,100 = filesize - 8, exact
+trailing    0 bytes
+```
+
+Verified twice, by a hand-written RIFF walker and by `sharp`, agreeing on every
+field (`sharp`: webp, 1560×1008, srgb, 3 channels, `hasProfile` true, no alpha).
+It is a different file from the rejected one by every measure — a different hash,
+89 KB smaller, one pixel narrower.
+
+**One structural difference from every other entry in the registry is worth
+naming: this is the first file in `IMAGES` with an embedded ICC profile.** It is a
+plain sRGB profile matching the colour space the file already declares, so it
+changes nothing about how the image renders; it was registered as delivered rather
+than stripped, which is the rule every entry since §30 has followed. The geometry
+drift from 1586×992 is unchanged in kind from the first delivery and is still not a
+reason to refuse.
+
+### The three corrections
+
+**1. Readable text — the gate that refused the first file. PASSED.**
+
+The `ԽԻԿԱՐ` masthead is gone. Where the rejected file had five correctly formed
+Armenian capitals in a display line legible at 360px, the corrected file has a
+blank smudged band of paper above two columns of unreadable ruled pseudo-text.
+
+The full sweep was run again from scratch at 3×–5× rather than only at the site of
+the old defect: the upper-left broadsheet, the second wall sheet, the smaller sheet
+below it, the blank sheet behind his head, the proof in his hand, the sheets and
+galley by the press, the type cabinet, the drawer label holders, the shelved formes
+and stacked paper, the compositors' bench sheet, the press frame, the window
+masonry and the corners. **No glyph resolves anywhere, in any script.** The proof
+sheet in his hand is cursive-shaped ink with no letterform; the drawer label
+holders are empty or faintly smudged; the press carries no maker's plate.
+
+**2. Fake-documentary claim. RESOLVED.** With no masthead the room no longer
+asserts that it is the verified `Խիկար` office. It reads as what §94 asked for and
+what it honestly is: a historically plausible editorial reconstruction of a
+composing room. No label, no publication name, no dated proof, no office sign.
+
+**3. Hairline. PASS.** The correction is the visible one. Against the lifetime
+photograph — deep bilateral temporal recessions, thin hair over the crown, a short
+central tuft, hair short and dark at the sides — the corrected portrait now gives
+all four. The rejected file had the hair combed back in a full low mass with only
+modest recession; the corrected file exposes the forehead the way the photograph
+does. This was never cosmetic: it is the feature that carries recognition when the
+image is small.
+
+**4. 128px identity. PASS — the gate the first file failed.** Rendered through the
+real crop the consumers use (`PORTRAIT_FOCUS = object-[38%_28%]`, square, `left 210
+top 0 1008×1008`) and compared side by side with the same crop of the rejected
+file: the bald temples and high dome now read at 128px, the moustache reads as a
+broad horizontal bar, and the head is identifiably a high-foreheaded narrow-faced
+man rather than a generic dark-haired moustached one. At 160px the identity is
+unambiguous. The same comparison incidentally re-proved the text defect: the old
+masthead is visible in the rejected file's 128px thumbnail and the corrected file's
+is blank.
+
+**5. Moustache. PASS.** Broad, dark, horizontal, extending well past the mouth
+corners, clean-shaven below, no beard and no goatee. The ends still lift, but they
+lift the way the photograph's do — fine and tapering — rather than curling into the
+handlebar the rejected file had.
+
+### Everything that had already passed, re-checked for regression
+
+**Likeness: PASS.** Long lean face, narrow jaw, high forehead, prominent ears, large
+alert deep-set eyes under straight brows, long straight narrow nose, clean-shaven
+chin, apparent age early-to-mid forties. Compared directly against the lifetime
+studio photograph on Commons (`Յակոբ Պարոնեան.jpg`, before 1891, photographer
+unknown, public domain), read as an image rather than described from text. **This
+is a better likeness than the rejected file**, not merely an equal one: the
+hairline and ear corrections both move toward the photograph. The one remaining
+stylization is slightly fuller cheeks than the gaunt photograph gives.
+
+**Composition: PASS, unchanged.** Standing, three-quarter length, near-frontal and
+turned slightly toward frame-right, a hand resting on the composing-room type
+cabinet, the proof in the other hand. Hand press, two compositors at a stone,
+shelved formes, oil lamp, arched window onto Constantinople with the Galata tower.
+Nothing about the scene moved.
+
+**Collection-level uniqueness: PASS, preserved.** Eight of the ten portraits before
+him are seated at a desk with books; Shnorhali is the ninth, standing in a cloister.
+Paronyan remains the section's only working interior, only industrial environment,
+the only portrait whose dominant props are type and a press rather than books, and
+the only one with other working figures in the frame. No desk-writer regression.
+
+**Hands: PASS.** Correct digits, clear thumbs, natural wrists and cuffs, no fusion
+with paper or cloth, coherent interaction with both the cabinet and the proof.
+Painterly softness in the left hand's finger joints only.
+
+**Clothing: PASS.** Dark period jacket, dark waistcoat with a watch chain, white
+shirt, high collar, dark cravat. **Bare-headed**; the one fez in the frame is on a
+background compositor. No modern suit, no uniform, no clergy dress.
+
+**Expression: PASS.** Composed, observant, faintly sceptical. No caricature.
+
+**Movable type: PASS.** The sorts read as small dark metal pieces in the case, in
+the galley and on the drawer top. No individual letter is legible anywhere.
+
+**Symbols: PASS.** No flag, coat of arms, map, Ararat, khachkar, party symbol,
+protest poster or propaganda; no masks, no curtain, no stage light, no actor pose;
+no religious iconography.
+
+**Lighting and palette: PASS — and measured, because the eye was wrong here.** The
+corrected file *looks* warmer at first glance. It is not. Mean channel warmth
+(R−B) is **26.1**, against the rejected file's 27.1 — very slightly cooler — and
+against Abovyan 28.1, Shnorhali 32.4, Charents 47.2 and Tumanyan 61.6. The cool
+grey-green and charcoal register survives the correction; the impression of a warm
+shift was an artifact of viewing and was overturned by measurement rather than
+argued about.
+
+**AI artifacts: PASS.** Face, hands, clothing, cabinet geometry, press, compositors
+and paper edges all structurally coherent. No major defect.
+
+**Crops: PASS at every ratio.** Simulated through the real `object-cover` +
+`object-position 38% 28%` behaviour rather than assumed: hero 4:3, 3:2 and 16:9,
+Writer card 4:3, featured 16:10, narrow 21:9, search 128 and 160. Face, forehead,
+hairline, nose, moustache and upper torso survive all of them, and enough print
+context survives the wide crops to keep the setting legible. **No Paronyan-specific
+focus was added**, because the generic one does not fail.
+
+### Registered
+
+```ts
+"hakob-paronyan": "/images/writers/hakob-paronyan.webp",   // IMAGES
+"hakob-paronyan": "photo-referenced",                      // PORTRAIT_PROVENANCE
+PENDING_ARTWORK = []
+```
+
+One line in the generic registry, one in the generic provenance map, and the
+pending entry replaced by a §96 resolution note that leaves the §94 advance
+conditions standing — the refusal is only legible against the conditions that were
+set before either file existed. No article-level `image` field, no subject-specific
+rendering branch, no new caption string: he takes the existing generic
+`imageAiPhotoPortraitCaption` in all three editions.
+
+He is the **third** slug in `PORTRAIT_PROVENANCE`, after Varoujan (§85) and Siamanto
+(§89). Varoujan, Siamanto, Narekatsi, Shnorhali and the unlisted default are all
+unchanged; the default is still the cautious `imagined`.
+
+### What registration reached
+
+```text
+listing      11 cards, 11 own portraits, 0 placeholders, all three editions
+             filters medieval 2 / 19th-century 4 / 20th-century 4 / soviet 1
+             Tumanyan still the sole featured writer
+heroes       /en|hy|hyw/writers/hakob-paronyan all serve his file, localized alt,
+             photo-referenced caption, no placeholder, not the imagined caption
+search       his own thumbnail under all seven name forms, scoped by canonical href
+Article.image  his ImageObject, on the existing generic Article schema
+OG/Twitter   https://armat.site/images/writers/hakob-paronyan.webp, not the fallback
+sitemap      his image inside each locale's own <url> block, asserted per block
+```
+
+### Tests, build, diff
+
+```text
+typecheck            clean
+validate:content     192 entries across 3 locales, valid
+focused              179 passed, 0 failed, 6.3m
+                     (writers, places, works, listing at --workers=1)
+full suite           466 total, 459 passed, 2 failed, 5 skipped, 16.3m
+                     (--workers=1; the two failures are examined below)
+build                green. 33 writer paths prerendered (11 x 3), including all three
+                     Paronyan routes, each carrying the portrait
+```
+
+`writers.spec.ts` went red once during the focused run, on
+`PHOTO_REFERENCED: readonly string[] = [VAROUJAN, SIAMANTO]` — a literal §89 wrote
+with the explicit note that "adding a third is one edit and an *unearned* promotion
+still goes red here". §96 is that third, it went red exactly as designed, and the
+fix was the one line the note anticipated. That is the mechanism working, not a
+test needing repair.
+
+`places.spec.ts`'s literal snapshot of every non-Places registry entry went red too,
+for the fifth time on a Writers registration. Extended by one line; every other
+value byte-identical.
+
+**Diff.** Nothing was rolled back at file scope. `git diff --numstat` shows
+additions everywhere and **58 deletions in total across the whole tree**, every one
+read: 42 in `works.spec.ts` and 14 in `writers.spec.ts` from the §93/§94/§96
+pre-registration inversions, and one each in `media.ts`, `places.spec.ts` and
+`listing.spec.ts`. No unexplained deletion. Nothing staged. `.claude/settings.json`
+untouched.
+
+**Line endings.** `media.ts` is pure LF (0 CRLF before and after).
+`writers.spec.ts` is mixed — 3139 CRLF and 32 bare LF — and was edited with a
+matcher that accepts either ending per line and writes each replacement back with
+the endings it was found with. No file was normalised.
+
+### Immutability
+
+The biography is untouched: no name, date, schooling, periodical, censorship,
+satire, theatre, chronology, relation, SEO or source decision from §94 moved. No
+Paronyan Work was created and the nonexistent-Work guards still hold. The ten
+existing Writers, the Book of Lamentations (§93), and the Works, Cuisine, Places
+and History sections are all unchanged. Counts stand at Works 5, Writers 11,
+Cuisine 12, Places 13, History 7. No map or navigation change.
+
+**Navigation debt.** The intermittent Works -> Cuisine issue **did not
+reproduce**. `navigation.spec.ts` passed in full. Navigation was not modified and
+no resolution is claimed; the debt stays open.
+
+### Technical debt
+
+- **A readable masthead was a new failure mode and it is now a documented one.**
+  Every text refusal before §95 was lettering on a page or a wall; that one was a
+  *title*, which is the form the fake-documentary gate is most exposed to. The rule
+  for any future artwork brief involving an editor, a journalist or a press: the
+  periodical may appear, its name may not.
+- **This file is the section's only non-desk working interior.** If it is ever
+  regenerated, the collection-uniqueness gate has to be re-run from scratch rather
+  than assumed — losing that composition would cost more than the text defect did.
+- **The corrected file carries an ICC profile and no other registry entry does.**
+  Harmless, and recorded here so that a future audit that finds it does not read it
+  as tampering.
+- **The Matenadaran basalt discrepancy (§36) is still open.** Unrelated, and still
+  the only registered file in the archive known to disagree with its own article.
+
+Nothing was deployed. Writer #12 was not started.
+
+## §97 — Writer #12: Alexander Shirvanzade, in all three editions (2026-09-02)
+
+Content only. Twelfth Writer written, no artwork generated, no Work created, no Writer
+#13 started, nothing deployed.
+
+### Pre-state, verified against source
+
+Writers 11, portraits 11, placeholders 0, `PENDING_ARTWORK = []`. Periods: medieval 2
+(Narekatsi, Shnorhali), 19th-century 4 (Tumanyan, Raffi, Abovyan, Paronyan),
+20th-century 4 (Charents, Isahakyan, Varoujan, Siamanto), soviet 1 (Sevak).
+`PORTRAIT_PROVENANCE` held exactly three entries, all `photo-referenced`:
+`daniel-varoujan`, `siamanto`, `hakob-paronyan`. Tumanyan sole featured. Cross-category:
+Works 5, Writers 11, Cuisine 12, Places 13, History 7. Every expectation in the brief
+matched the source; nothing had to be corrected.
+
+`git status` was **clean** at the start — §66's changes were already committed
+(`b83c3c3 image`), so there is no pre-existing working-tree state to separate from
+§97's. The whole diff below is §97.
+
+### Repository/archive audit
+
+Searched the tree for `Shirvanzade`, `Shirvan-zade`, `Shirvanzadé`, `Aleksandr
+Shirvanzade`, `Ալեքսանդր Շիրվանզադե`, `Ալեքսանդր Շիրվանզադէ`, `Շիրվանզադե`,
+`Շիրվանզադէ`, and for the titles `Նամուս`, `Քաոս`, `Պատվի համար`, `Չար ոգի`, `Namus`,
+`Chaos`, `For Honor`.
+
+**Zero hits in `src/`, `tests/`, `scripts/` or `public/`.** The only occurrences in the
+repository were ten lines in `PROJECT_STATE.md` — the §91 candidate audit that scored
+him 7.9 and placed him runner-up to Paronyan, and the §91 portrait-archetype table.
+No `relatedFigures` entry, no source entry, no alias, no Work guard and no test
+mentioned him. Nothing pointed at a Shirvanzade page that did not exist, so nothing had
+to be un-broken.
+
+### Research and SERP
+
+**No reliable keyword metrics available; qualitative SERP evidence only.** No search
+volume, keyword difficulty, CPC or traffic figure is stated anywhere in this section or
+in the article, because none was obtainable.
+
+*English SERP* (`Alexander Shirvanzade`, `Shirvanzade Armenian writer`, `Shirvanzade
+biography`, `Shirvanzade Namus`, `Shirvanzade Chaos`, `Alexander Shirvanzade Baku`):
+dominated by Wikipedia, with IMDb ranking high on a writer who made no films, plus
+Grokipedia, `adebiportal.kz` (a Kazakh literary portal), `armenian-history.com`,
+Goodreads, Find a Grave, `encyclopedia2.thefreedictionary.com` (a Great Soviet
+Encyclopedia reprint) and an Armenian bookshop. **No Britannica page, no university
+page, no Armenian museum or academy page ranks in English.** That is the informational
+gap: the English-language record of a major realist novelist is an encyclopedia article
+and a film database.
+
+*Eastern Armenian SERP* (`Ալեքսանդր Շիրվանզադե`, `Շիրվանզադե կենսագրություն`,
+`Շիրվանզադե Նամուս`, `Շիրվանզադե Քաոս`, `Պատվի համար Շիրվանզադե`): much healthier and
+differently shaped — hy.wikipedia, `haymard.am`, `armenianlanguage-am.armin.am`,
+`findarmenia.org`, the Sundukyan theatre site, plus a large tail of school-blog
+summaries («համառոտ») and study aids. Armenian queries are dominated by **plot
+summaries for schoolwork**, not by biography.
+
+*Western Armenian*: hyw.wikipedia carries `Շիրվանզադէ` with the classical spelling, and
+the diaspora press (e.g. `azator.gr`) writes `Շիրվանզադէ (Ալեքսանդր Մովսիսեան)`. The
+diaspora material is thin and, where it exists, less reliable — the Athens article
+consulted misdates the Paris years (1911–1919 against the encyclopedic 1905–1910) and
+mistranslates `Պատվի համար`. It was used for orthography evidence only.
+
+*Conflicting chronology found and carried into the article rather than smoothed:* the
+birth date, the Baku move, the serialization vs volume of `Քաոս`, the writing vs
+publication of `Պատվի համար`, and the year of `Մորգանի խնամին`.
+
+*Translation/title ambiguity found:* English renders `Նամուս` as *Honour* and
+`Պատվի համար` as *For Honour's Sake* / *For the Sake of Honour* / *For Honor*, so the
+two works collide in English catalogues. This is the single most useful thing Armat can
+resolve about him and it got its own section.
+
+### Source hierarchy applied
+
+Armenian encyclopedic and institutional sources were preferred throughout, and were
+decisive wherever they and the English-language web disagreed. The Armenian Soviet
+Encyclopedia entry (vol. 8, 1982, pp. 517–519) was read on Wikisource rather than
+described from a summary, and is the spine of the article. Wikipedia was used for
+discovery and for cross-checking, and carries no claim on its own.
+
+### Identity
+
+- **EN:** `Alexander Shirvanzade`.
+- **HY:** `Ալեքսանդր Շիրվանզադե` (reformed orthography).
+- **HYW:** `Ալեքսանդր Շիրվանզադէ` — the established traditional-orthography form, taken
+  from hyw.wikipedia and from diaspora usage, **not** derived mechanically. The two
+  Armenian editions differ by the final letter (`ե` / `է`) and a test pins that neither
+  drifts into the other.
+- **Birth name:** `Ալեքսանդր Մինասի Մովսիսյան` / `Ալեքսանդր Մինասի Մովսիսեան`
+  (Movsisyan; the English web also prints Movsesyan, which is carried as a keyword).
+- **Pen name:** `Շիրվանզադե` is explained **only** as far as the sources support it —
+  Shamakhi lay in Shirvan, and the Persian suffix `-zade` means born of / son of, so the
+  name says *of Shirvan*. The article states that this is the whole of what it means and
+  explicitly refuses to extend it into a claim about ancestry or a title. No etymology
+  was invented.
+- **Transliteration aliases carried:** Alexander Shirvanzade, Aleksandr Shirvanzade,
+  Shirvanzade, Alexander Shirvan-Zade, Shirvanzadé, Chirvanzadé (the form printed in the
+  Constantinople French-language press in his lifetime), Alexander Movsisyan, Aleksandr
+  Movsesyan, plus both Armenian orthographies of the name and of the Work titles. They
+  are in `keywords`, not stuffed into the prose.
+
+### Dates and geography
+
+**Birth date — a genuine authority conflict, reported rather than reconciled.** The
+Armenian Soviet Encyclopedia gives **7.4.1858**, Old Style. The Great Russian
+Encyclopedia prints **7 (19) April 1858**. Russian and Armenian Wikipedias, and the
+English-language web, print **18 April 1858**. The Old Style day converts to 19 April,
+not 18, so the two New Style forms cannot both be right and the sources do not settle
+which is. The article prints the Old Style date as the Armenian encyclopedic form and
+records that **both 18 and 19 April circulate**, in a dedicated key fact. Nothing was
+silently converted.
+
+**Death:** 7 August 1935 at Kislovodsk (then Karachay Autonomous Oblast, RSFSR); buried
+in the Komitas Pantheon, Yerevan. Uncontested across all sources.
+
+**Shamakhi:** old capital of Shirvan, a district town of the Russian Empire at his
+birth, seat of the governorate that bore its name until the **1859 earthquake** moved
+the administration to Baku — the fact that matters biographically, because the town he
+was born in had just been overtaken by the city he grew up in. Wrecked again in 1902.
+Modern `Şamaxı`, Azerbaijan, named once as orientation. The article uses period
+political entities throughout (Shirvan, Russian Empire, later Azerbaijan SSR) and a test
+bans the modern conflict vocabulary (`Nagorno`, `Karabakh`, `Artsakh`, `Ղարաբաղ`,
+`Արցախ`) while also requiring the positive half — that the period state and the modern
+country are both named.
+
+**Baku:** treated as a literary-social environment and given its own substantial
+section, not a line in a timeline. Derricks at Balakhani, refineries in the Black Town,
+Armenian/Azerbaijani/Russian/Swedish/French capital, a labour force drawn from the whole
+Caucasus and northern Persia, fortunes made and lost inside a decade, position bought
+rather than inherited. He arrived as a teenager — **1873 and 1875 both appear in the
+sources and both are stated** — and stayed about eight years.
+
+**Tiflis:** from 1883, the administrative and cultural capital of the Russian Caucasus
+and the centre of Eastern Armenian publishing. Periodicals named only where the evidence
+is strong: `Մշակ` printed his first story in 1883; he was secretary of the weekly
+`Արձագանք` from 1886 to 1891, and `Արձագանք` carried `Խնամատար` (1884) and `Նամուս`
+(1885).
+
+### Early employment
+
+Provincial administration offices, then oil-firm bureaus — clerk, assistant bookkeeper,
+accountant — and librarian for the Armenian philanthropic society in Baku. Kept
+proportionate and used for what it explains: a clerk who keeps a firm's books sees the
+family behind the firm in a form nobody else outside it is shown, and almost no other
+Armenian prose of the century was written from that vantage. Self-education after the
+district school: Russian and Armenian literature, Balzac, Zola and Shakespeare.
+
+### Realism — the reason he was selected
+
+Given the article's largest section (five paragraphs), stated as three specific claims
+rather than as the label:
+
+1. **The engine of the plot is economic.** Property, inheritance, dowry, credit, shares
+   and debt are the mechanism, not the background.
+2. **The moral interest is in compromise, not villainy.** The damage is done by men
+   doing what their position makes reasonable.
+3. **A stated method, not an instinct.** He wrote *about* realism: he argued for
+   generalisation and typification, criticised the photographic reproduction of reality
+   and rejected open tendentiousness. This is what separates him from naturalism, and
+   short English summaries collapse the two.
+
+The Raffi contrast is made in prose *and* earns the one contextual link:
+historical-national novel against contemporary urban realism. A further section, *Money,
+family and social standing*, carries marriage-as-transaction, reputation-as-asset and
+the position of women (`Եվգինե` and `Ունե՞ր իրավունք`, both 1903, and the recorded
+conservative opposition his treatment drew).
+
+### Prose vs drama, and technique
+
+The section was poet-heavy, and this is the second consecutive arrival chosen to fix
+that. His card role is **Novelist and playwright**; his four card works are two novels,
+a drama and a late comedy; a test asserts the identity at data level. The theatre gets a
+full section: about twenty plays, Sundukyan named as the tradition he continued and
+widened, and the plays listed with years — `Իշխանուհի` 1891, `Չար ոգի` 1894, `Եվգինե`
+and `Ունե՞ր իրավունք` 1903, `Պատվի համար` 1904, `Կործանվածը` 1909, `Ավերակների վրա`
+1911, `Շառլատանը` 1912, `Արհավիրքի օրերին` 1917, `Մորգանի խնամին` last.
+
+Technique section names concrete features — ensemble construction, dialogue that carries
+class position, material detail used as evidence, self-convicting speech, dramatic
+scene-building. Where Armenian criticism's judgments are used (care of the literary
+language, psychological depth of the later novels) they are **passed on as judgments,
+attributed**, not restated as facts about the prose. No empty praise.
+
+### `Նամուս`
+
+Published **1885** in the weekly `Արձագանք`; the book that made him. Set in his own
+Shamakhi and using the earthquake. Premise given at a non-spoiler level: two children
+promised to one another, the engagement broken when the code is violated, a marriage
+made elsewhere, fatal consequence. The argument stated plainly — the disaster is
+produced by a social arrangement working exactly as designed.
+
+**Novel, play and film are separated explicitly.** His own dramatisation is dated
+**1911** (the Armenian Institute's 2011 centenary is the evidence) and was in Hovhannes
+Abelyan's repertoire by **1912**, including on the company's Moscow guest performances.
+
+### Translating `նամուս`
+
+Given its own section rather than a one-word gloss. Arabic `nāmūs`, ultimately Greek
+`nomos` (law, custom), travelling into Persian, Turkish, Kurdish and Armenian. It is not
+personal honesty and not individual reputation: it is a collective standing held by a
+household and carried in practice by the conduct of its women — for a man the word can
+extend to conscience and integrity, for a woman it is bound to sexual conduct and the
+appearance of it. The article states twice that the concept is **regional, not an
+Armenian peculiarity**, and that Shirvanzade wrote about it as a critic from inside
+rather than as an ethnographer describing a custom to outsiders. The modern staging of
+the play as a work about violence against women is reported as a reading of what is
+already in the text.
+
+### The 1926 film — claim verified and bounded
+
+Made **1925**, directed by **Hamo Bek-Nazaryan**, at the state studio in Yerevan founded
+in **1923** (Gosfotkino, later Armenfilm); premiered at the **Nairi** cinema in Yerevan
+on **13 April 1926**.
+
+The claim was checked rather than repeated. The careful scholarly form — East European
+Film Bulletin — is *"Namus is considered to be the first Armenian feature."* The
+article states the narrow version: **the first full-length fiction feature produced in
+Soviet Armenia by its own studio**, treated as the founding work of Armenian national
+cinema. It says explicitly that this is **not** a claim that no film with Armenian
+subjects or an Armenian director existed before — Bek-Nazaryan already had a Russian
+cinema career — and it names the **1924** date that circulates online in order to refuse
+it. Three later adaptations are recorded separately: `Չար ոգի` 1928, `Պատվի համար` 1956,
+`Քաոս` later.
+
+### `Քաոս`
+
+**Serialized 1896–1897, published complete 1898** — which reconciles the 1896/1898 split
+found in the sources. Written in the years around his arrest and exile. Subject: an
+Armenian oil family in Baku, the fortune, the household built around it, the generation
+that inherits it, the disintegration of both. The Armenian Soviet Encyclopedia's
+assessment — the largest achievement of Armenian critical realism — is used. The title
+is read as a description of a society without settled order.
+
+### `Պատվի համար` — the entity-resolution section
+
+Its own section, because this is a real collision. `Նամուս` (1885, novel) and
+`Պատվի համար` (drama) are **nineteen years apart, in different genres, about two
+different things English calls honour**: `պատիվ` is standing, integrity and good name;
+`նամուս` is the borrowed word for collective, sexualised family honour. The article
+states the difference and states how English erases it (the film catalogued as *Honour*,
+the drama circulating as *For Honour's Sake*, *For the Sake of Honour*, *For Honor*).
+
+Chronology researched and stated in full: **written 1904, first staged at Baku on
+10 December 1904, published as a book in 1905** — which resolves the 1904/1905 conflict
+between sources rather than picking one. Plot summarised (Elisbarov, the burned
+documents, Otaryan's inheritance, Margarit's suicide). More than **300 stagings by
+1911**, productions at Tiflis and Constantinople within a few years, revivals across the
+Soviet republics for decades.
+
+A test asserts the section exists, names both titles, carries both dates, and that the
+word `նամուս` gets its own section too.
+
+### Language
+
+Eastern Armenian, contrasted with the Western Armenian writers in the section, with
+Abovyan named as the start of its modern literary career (and earning the second
+contextual link). What he did with it: extended it into contemporary urban prose, where
+dialogue has to carry a class position inside a sentence — a literary language developed
+for the village, the epic and the national address made to do office work. **The
+multilingual-borrowing claim was deliberately not made**: the article says that his Baku
+and Tiflis were multilingual, that it would be easy to assert his prose is full of the
+resulting borrowings, and that the sources support the general judgment about his style
+rather than an inventory of his vocabulary. No unsupported linguistic claim.
+
+### Soviet period — separated, and the title stated exactly
+
+Its own section, and the separation is argued rather than asserted. He returned at
+sixty-eight, with everything this article is about already written; he was not a Soviet
+writer who started early but a nineteenth-century realist honoured by a state formed
+after his work was finished. Yerevan from 1926, a multi-volume collected works, the
+memoirs `Կյանքի բովից` (1926–1932), the founding congress of the Union of Soviet Writers
+and of the Azerbaijani writers' union, both 1934.
+
+**Exact title finding.** In **1930** he was named **People's Writer of the Azerbaijan
+SSR** — and he was the **first holder of that title in that republic** — and in the same
+year **People's Writer of the Armenian SSR**. Not translated loosely and not softened
+into "honoured by the Soviet state". The article adds the period fact that both
+republics were then constituent parts of the **Transcaucasian SFSR**, and states in the
+same paragraph that these are historical Soviet republican distinctions and **are not
+evidence about anybody's nationality**. A test asserts the exact title string in each
+edition's own wording (`People's Writer of the Azerbaijan SSR` /
+`Ադրբեջանական ԽՍՀ ժողովրդական գրող` / `Ազրպէյճանական ԽՍՀ ժողովրդական գրող`), the year,
+and the length of the argument.
+
+The article does **not** end on this. It ends on the film and stage legacy and the work
+that kept going, and the `significance` block after it ends on realism, prose, theatre
+and continuing importance.
+
+### Relations — earned, not filled
+
+`relatedSlugs: ["raffi", "khachatur-abovyan"]`, identical in all three editions, and
+each is also the target of the article's only two contextual prose links — which is the
+test that the relation was earned, because a link has to sit inside a sentence that does
+the work.
+
+- **Raffi** — the contrast the article is built on: historical-national novel against
+  contemporary urban realism. Argued in the opening section.
+- **Abovyan** — the Eastern Armenian vernacular prose line Shirvanzade inherits and
+  extends. Argued in the language section.
+
+**Paronyan was considered and refused.** Both wrote prose and drama, but they belong to
+different branches of the language and different traditions — Ottoman satire against
+Russian-Caucasus social realism — and no scholarship consulted relates them. Sharing two
+genres is not a relation. A test asserts the absence.
+
+**No reciprocity was added.** Raffi's and Abovyan's own `relatedSlugs` are unchanged, and
+a test asserts they do not point back.
+
+`relatedFigures` (four, free text, none of them a link): Gabriel Sundukyan (1825–1912),
+Grigor Artsruni (1845–1892), Hovhannes Abelyan (1865–1936), Hamo Bek-Nazaryan
+(1891–1965).
+
+### Period classification — researched, not derived
+
+**Decision: `19th-century`.** Explained, because a rule keyed on either of his dates
+would give a different answer.
+
+The section's existing convention is neither birth nor death: Tumanyan (1869–1923) is
+filed `19th-century` and Isahakyan (1875–1957) `20th-century`, so what the taxonomy
+tracks is **where the major literary work sits**. Shirvanzade's is `Նամուս` 1885, `Քաոս`
+1898 and `Պատվի համար` 1904 — the whole of it before 1905, and Armenian scholarship
+places his best period at 1890–1905. `soviet` was considered and rejected: that value
+holds Sevak, born 1924, whose entire formation is Soviet, and Shirvanzade's is not.
+**No new period was created.**
+
+Resulting distribution: medieval 2, 19th-century **5**, 20th-century 4, soviet 1.
+
+### Future Work
+
+Evaluated afresh rather than inherited from §91.
+
+- **Future Work #1: `Նամուս`.** It has the cross-media hook nothing else in his corpus
+  has (novel 1885 → his own play 1911 → the film that founds Armenian cinema), the
+  strongest source base, a title whose meaning genuinely needs an article, and the
+  clearest discovery case — the English query is dominated by the film and by the
+  honour-concept, and the novel is the thing nobody serves.
+- **Runner-up: `Քաոս`.** The stronger literary claim, and Armenian criticism's choice
+  for his best book, but a thinner discovery case in English and no film or stage hook.
+  The article names it in prose as the candidate.
+
+**Neither was created.** Works is still 5, and a test bans nine plausible Work slugs
+(`namus`, `chaos`, `kaos`, `patvi-hamar`, `for-honour`, `for-honours-sake`,
+`evil-spirit`, `char-ogi`, `morgani-khnamin`).
+
+### Sources — eight
+
+1. **Հայկական սովետական հանրագիտարան, հատոր 8** (Yerevan 1982, pp. 517–519) — archive.
+   The spine: birth name, Old Style date, geography, the publication sequence, the
+   `Արձագանք` secretaryship, the play list, the Sundukyan line, the `Քաոս` assessment. It
+   is also the source of a recorded conflict, dating `Մորգանի խնամին` to 1930 where
+   other Armenian sources give 1926.
+2. **Bardakjian, *A Reference Guide to Modern Armenian Literature, 1500–1920*** —
+   ISBN 9780814327470. Bibliographic fields identical to the §94 entry; only the note
+   differs. Position in the movement from romanticism to realism, and the Raffi contrast.
+3. **Hacikyan et al., *The Heritage of Armenian Literature, Vol. III*** —
+   ISBN 9780814332214, likewise identical to §94's copy. Baku, the `Քաոս` serialization,
+   his own critical position on realism.
+4. **Большая российская энциклопедия**, Shirvanzade entry — URL. The chronology outside
+   Armenia, the honours, and one half of the calendar problem (`7 (19) апреля`).
+5. **Armenian Institute, London — *Namus, The Project*** — URL. The 1911 play, the first
+   English translation (Veronica Wigg), the contemporary staging.
+6. **East European Film Bulletin — *Hamo Beknazarian's Namus (1926)*** — URL. The film,
+   the studio history, and the careful form of the "first Armenian feature" claim.
+7. **Çetinkaya, *Re-theorising namûs beyond 'honour'*** — DOI 10.1177/14647001241226938.
+   The scholarly basis for the `նամուս` section. Cited for nothing about Shirvanzade.
+8. **Surviving lifetime images of Alexander Shirvanzade** — archive (Charents Museum;
+   National Archive of Georgia; BnF, via the Commons category). Cited in the article for
+   the gendarme cards, and here for the portrait evidence.
+
+Tests assert every source carries an identifier, a publisher and a note, and that the
+notes actually cover the four hardest claims (calendar, 1930 titles, the bounded film
+claim, `nāmūs`).
+
+### SEO
+
+`seoTitle`, `metaDescription`, `summary` and `keywords` authored for all three editions.
+The page is built to resolve: the name and its transliterations; the Shamakhi → Baku →
+Tiflis chronology; oil-boom Baku and realism; what `նամուս` means; the novel/play/film
+separation; the `Նամուս` vs `Պատվի համար` translation collision; `Քաոս` and Baku
+capitalism; and Soviet recognition against pre-Soviet career. **The six older Writers'
+missing SEO fields were deliberately not touched.**
+
+### Portrait state
+
+**No artwork was generated.** `public/images/writers/` still holds eleven files and no
+`alexander-shirvanzade.webp` under any spelling.
+
+`PENDING_ARTWORK = ["alexander-shirvanzade"]` — refilled from empty. **No
+`PORTRAIT_PROVENANCE` entry was added**, and a test asserts its absence.
+
+**Photographic evidence, researched and corrected.** §91 recorded "two lifetime images
+… an 1880 bohemian near-profile". That is wrong and is corrected here: the image dated
+about 1880 is a **lithograph**, printed in the Constantinople French-language paper
+*La Patrie* on 26 June 1910 and held by the BnF via Gallica, captioned *Le distingué
+poète Chirvanzadé*. It is not photographic authority. What actually survives:
+
+- a **studio portrait photograph credited to the Charents Museum of Literature and Art,
+  Yerevan** — an institutional archival source, and the **primary likeness reference**;
+- a second undated photographic portrait (public domain, via `azg.am`);
+- **two gendarme registration cards** compiled by the Tiflis provincial gendarme
+  administration and held by the **National Archive of Georgia** — corroboration, and
+  decades earlier than the studio portrait.
+
+Also in the Commons category and **deliberately excluded** as facial authority: a 2008
+commemorative stamp, a sketch, and two *Khatabala* caricatures. That is the §87 rule
+applied for the fourth time.
+
+Expected provenance on registration: **`photo-referenced`**, decided in advance and
+recorded in `media.ts`, not in `PORTRAIT_PROVENANCE`.
+
+### Future portrait archetype — audited against all eleven
+
+Ten of the eleven existing writer portraits put the subject at a desk, or with books, or
+in a warm study interior; the eleventh, §96's Paronyan, is a print room — still a working
+environment with props. The §91 proposal therefore **remains the collection-distinct
+choice** and is now recorded as the commission:
+
+> Close half-length, near-frontal, plain restrained historical ground, white/grey hair
+> read as silhouette against the ground, **no desk, no book, no pen, no visible
+> manuscript, no props of any kind** — the head is the entire subject.
+
+Standing conditions carried forward unchanged: readable generated lettering is refused
+outright, not weighed (§85/§86/§87); anatomy is judged at rendered size first and
+magnified only to confirm (§89).
+
+### Tests
+
+`writers.spec.ts` grew by 15 tests. `SLUGS` gained a twelfth entry, `PENDING` went from
+`[]` to `[SHIRVANZADE]`, `ILLUSTRATED` and `PORTRAIT` are unchanged at eleven. New
+guards, all structural or data-level rather than brittle prose matches:
+
+1. all three locale slugs exist, with card/article parity and order parity;
+2. canonical EN/HY/HYW names, and neither Armenian edition drifting into the other's
+   orthography;
+3. the period classification, with `soviet` explicitly excluded and the full
+   distribution measured (2 / 5 / 4 / 1);
+4. Tumanyan still the sole featured writer;
+5. no registered portrait, placeholder renders, placeholder caption (not either artwork
+   caption);
+6. no `PORTRAIT_PROVENANCE` entry, and the other five unchanged;
+7. no borrowed portrait, scoped to the hero figure;
+8. search aliases and both Work-title orthographies in every edition's `keywords`;
+9. `Նամուս` and `Պատվի համար` kept separate — the section exists, names both, carries
+   both dates;
+10. no nonexistent Work slug, nine banned candidates, and every `relatedSlugs`/link
+    target resolving in its own edition;
+11. Baku substantive — ≥3 paragraphs, ≥900 characters, per edition;
+12. realism substantive — ≥4 paragraphs, ≥1400 characters, per edition;
+13. theatre substantive — ≥3 paragraphs, ≥900 characters, per edition;
+14. Soviet recognition separated, argued at length, and the return dated;
+15. the exact Soviet/Azerbaijani title string, per edition;
+16. no modern geopolitical vocabulary, **and** the positive half — the period state and
+    the modern country both named;
+17. the four researched conflicts each reported (calendar, 1873/1875, 1896/1898,
+    1925/1926 with the 1924 claim refused);
+18. relations earned and identical across editions, Paronyan absent, no reciprocity;
+19. the bibliography, with the four hardest claims each attached to a note.
+
+Count literals updated where they were designed to go red on arrival:
+`writers.spec.ts` (three), `listing.spec.ts`, `works.spec.ts`, `places.spec.ts`. Every
+one of those edits is a count or an emptiness claim; **no assertion was weakened**. Two
+claims that could no longer be true as written were replaced with the stronger specific
+form rather than deleted: "no writer is waiting for a picture" became "only Writer #12
+is waiting", and "no placeholder on the listing" became "one placeholder per pending
+writer", counted from `PENDING`.
+
+### Verification
+
+Run in the prescribed order, with the build kept separate from Playwright.
+
+- `npm run typecheck` — clean.
+- `npm run validate:content` — **✓ 198 entries across 3 locales**, with the expected
+  note: *1 slug(s) have no artwork and render the generated placeholder:
+  alexander-shirvanzade*. The cross-locale number check passing is the meaningful part:
+  all three editions state exactly the same multi-digit numbers in `intro`, `summary`,
+  `seoTitle`, `metaDescription`, `keyFacts`, `importantDates`, section paragraphs,
+  `interestingFacts` and `relatedFigures`. The Western Armenian orthography check passes,
+  so the HYW edition carries no `և` and no `-ություն`.
+- `.next` removed and a clean dev server started on a free port 3002 before any probe.
+- Route probes, sequential, all **200**: the article in all three editions, the three
+  listings, `/en/writers?period=19th-century`, `/hy/writers/hakob-paronyan`,
+  `/en/works/book-of-lamentations`, `/en/search?q=Shirvanzade`, `/sitemap.xml`.
+- Metadata probed directly: canonical correct; `og:image` correctly falls back to
+  `https://armat.site/og-default.png` rather than borrowing a portrait; three sitemap
+  `<loc>` entries, one per edition, none advertising an image file that does not exist.
+- Focused `writers.spec.ts` — **72 passed**.
+- `listing`, `search`, `seo`, `works`, `article` — **66 passed, 2 skipped**.
+- Full Playwright — **476 passed, 5 skipped, 0 failed**.
+- `npm run build`, run separately on a fresh `.next` — **exit 0**, TypeScript clean,
+  186 static pages generated, 36 `/[locale]/writers/[slug]` paths (12 × 3).
+
+### Failures and process mistakes, recorded
+
+1. **Three test failures on the first focused run, all mine, all fixed.** Two were count
+   literals designed to go red on a new arrival (`19th-century` 4 → 5, in the medieval
+   filter test and the period distribution test) — the tests working as intended. The
+   third was my own new guard: I banned the substring `occupied` as
+   "geopolitical framing", and it matched the ordinary English verb in *"the memoirs
+   … which occupied him between 1926 and 1932"*. A naive substring ban on a common word
+   was the wrong instrument; the list was narrowed to proper nouns and a positive
+   assertion was added beside it.
+2. **One count literal missed until the first full run** — `places.spec.ts` still said
+   Writers = 11. Found by the suite, fixed, and it is exactly the cross-section tripwire
+   that test exists to be.
+3. **The §91 portrait note was wrong and is corrected above** — the "1880 photograph" is
+   a 1910 lithograph. Recorded rather than quietly overwritten, because a future
+   commission would otherwise have treated a print as photographic authority.
+4. **Dev-server degradation reproduced, twice, with evidence.** Two consecutive full
+   parallel runs each failed exactly one test, in a *different* unrelated spec each time
+   — `newsletter.spec.ts:89` ("the form submits the active route locale") and then
+   `visit-map.spec.ts:533` ("the rendered basemap and its attribution both come from the
+   configuration"). Neither touches anything §97 changed. Both were re-run sequentially
+   on the same server and passed — newsletter 11/11, visit-map 41/41 — and the dev log
+   showed no compilation error, no 500 and no stalled route across the whole window.
+   The suite was then run again on a **fresh server with `.next` removed**, and came back
+   **476 passed / 0 failed**, which is the result recorded above. This is the §63–§66
+   pattern and it was not diagnosed as a product regression, but it was also not hidden:
+   the two flaked spec names and line numbers are written down here.
+5. **One avoidable stumble:** the first attempt to start the background dev server failed
+   because the scratchpad directory did not exist yet. No effect on the repository.
+
+### Diff audit
+
+Twelve files, 1906 insertions, 29 deletions, no new untracked files.
+
+**Zero deletions in every content, source and library file** — `en/hy/hyw` articles,
+`en/hy/hyw` writer cards, `sources.ts` and `media.ts` are pure additions. All 29
+deletions are in the four test files and every one of them is a count literal or an
+emptiness claim, listed above.
+
+`.claude/settings.json` untouched. `public/` untouched. No map, navigation, Cuisine,
+Places, History or existing-artwork file was modified.
+
+### Regressions evaluated
+
+- **§96 Paronyan** — fully preserved. Portrait registered at its own path,
+  `photo-referenced` provenance, absent from `PENDING_ARTWORK`, relations
+  `["khachatur-abovyan", "siamanto"]`, metadata, sitemap and biography unchanged; all
+  asserted in the §97 regression test as well as by his own surviving tests.
+- **§63/§92 Book of Lamentations** — Works still 5, the slug still present, its artwork
+  and provenance untouched.
+- **The eleven existing Writers** — no biography rewritten, no relation changed, no
+  reciprocal link added, order preserved with the new entry appended last.
+- **Category counts after:** Works 5, Writers **12**, Cuisine 12, Places 13, History 7.
+- **Navigation** — untouched, and `navigation.spec.ts` passes in the full run.
+
+### Technical debt
+
+- **Six older Writers still carry no `seoTitle` / `metaDescription` / `summary`.**
+  Unchanged by design; §97 was told not to fix them.
+- **The Matenadaran basalt discrepancy (§36) is still open.** Unrelated, and still the
+  only registered file in the archive known to disagree with its own article.
+- **The `hakob-paronyan.webp` ICC-profile oddity (§96) is still recorded and still
+  harmless.**
+- **`Մորգանի խնամին` has two dates in circulation (1926 and 1930)** and the article
+  carries both. A future Armenian-language source may settle it.
+- **The New Style birth date is genuinely unsettled** (18 vs 19 April) and is stated as
+  such. Anyone who resolves it should update the key fact in all three editions
+  together — the cross-locale number check will enforce that they move as one.
+
+No artwork was generated. Nothing was deployed. Writer #13 was not started.
+
+## §98 — Alexander Shirvanzade portrait: verified and registered (2026-09-02)
+
+Registration only. No biography change, no Work created, no Writer #13, nothing deployed.
+**Accepted on the first delivery**, which §95/§96 was not.
+
+### Pre-registration state, read from source
+
+Writers 12, registered Writer portraits 11, `PENDING_ARTWORK = ["alexander-shirvanzade"]`.
+Periods medieval 2 / 19th-century 5 / 20th-century 4 / soviet 1 in all three editions.
+Provenance: `daniel-varoujan`, `siamanto`, `hakob-paronyan` → `photo-referenced`;
+`alexander-shirvanzade` absent, resolving to the cautious `imagined` default. Shirvanzade
+absent from `IMAGES`, no `Article.image` in any edition, OG/Twitter falling back to
+`og-default.png`, no sitemap image. Counts Works 5 / Writers 12 / Cuisine 12 / Places 13 /
+History 7. Every expectation in the brief matched; nothing had to be corrected.
+
+### Technical audit — two independent methods, agreeing on every field
+
+`public/images/writers/alexander-shirvanzade.webp`
+
+- **1586 × 992**, aspect 1.598790, reduced 793:496 — the section's preferred geometry
+  **exactly**, which §96 drifted from.
+- **187,602 bytes.**
+- **SHA-256 `49fcbd38049c79b8bff0f188e1eeb15be402c348ce3a8b36dda636f6f859842a`.**
+- RIFF valid: declared size 187,594 = filesize − 8 exactly. `WEBP` fourcc present.
+- **One chunk only** — `VP8 `, 187,582 bytes, starting at offset 12 and ending at 187,602.
+  The walker consumes the file to the byte: **zero trailing bytes**.
+- Lossy VP8, key frame, version 0, show_frame 1, start code `9d 01 2a`, horizontal and
+  vertical scaling both 0.
+- **No `VP8X`, no `VP8L`, no `ALPH`, no `ICCP`, no `EXIF`, no `XMP`, no `ANIM`/`ANMF`, no
+  orientation.** Structurally the simplest file in the registry, and in particular it does
+  **not** repeat the embedded ICC profile §96 introduced — that debt does not grow.
+- sharp agrees: format webp, 1586×992, sRGB, 3 channels, uchar, not progressive,
+  `hasProfile` false, `hasAlpha` false, no icc/exif/xmp buffers, no pages/loop/delay.
+  Full decode to 4,719,936 raw bytes succeeds.
+
+### The reference actually used
+
+**The studio portrait credited to the Charents Museum of Literature and Art, Yerevan**
+(Commons `Alexander Shirvanzade.jpg`, 375×600, SHA-256 `bbd993…85e89`) — reference
+hierarchy #1 from §97. It was **downloaded and opened**, not described from text, and
+compared against the artwork at ~5× magnification side by side. It shows him at roughly
+45–55: thick dark curly hair greying at the temples and standing off the head, a full
+horizontal dark moustache over a clean-shaven jaw, near-frontal with a level gaze, dark
+jacket, white wing collar, dark patterned cravat. It also carries a handwritten Armenian
+ink dedication across the lower right, which the artwork correctly does not reproduce.
+
+Two further lifetime photographs were opened and used **only** to corroborate invariants:
+the recto of the Tiflis Provincial Gendarme Administration registration card held by the
+National Archive of Georgia (frontal + profile, c. 1898, full dark beard — best evidence
+for skull width, ear set and nose profile), and the late `azg.am` studio portrait
+(1200×1600, white mane, entirely clean-shaven). Neither contributed a feature.
+
+**Rejected as facial authority**, per §97 and the standing §87 rule: the image widely
+captioned "c. 1880", which is **a lithograph** printed in the Constantinople French-language
+paper *La Patrie* in 1910 and held by the BnF; the 2008 commemorative stamp; the two
+*Khatabala* caricatures; the sketch. None was used.
+
+### Likeness comparison — feature by feature
+
+| Feature | Verdict |
+|---|---|
+| Face width | strong match — broad at the cheekbones, tapering to a rounded chin |
+| Face length | strong match — same proportion, dominated by the forehead |
+| Forehead | strong match — very high and broad, deep bilateral temporal recession |
+| Hairline | strong match — same rounded arc, same recession, hair rolled back off it |
+| Hair density/texture | strong match — thick curly mass standing off the head, same volume |
+| Hair colour distribution | strong match — grey concentrated front and left, darker mass to the viewer's right, including the dark curl behind the visible ear |
+| Eyebrows | strong match — dark and heavy, **and the reference asymmetry is preserved**: the viewer's-right brow rides higher and arcs more |
+| Eye placement | strong match — deep-set under a heavy brow shelf, same spacing |
+| Eye shape | strong match — hooded lids, same asymmetry (viewer's-right eye more open), same under-eye pouches |
+| Nose bridge | strong match — long, straight, broad, from the same high origin |
+| Nose length | strong match |
+| Nose tip | strong match — fleshy, rounded, slightly downturned, broad wings |
+| Moustache geometry | strong match — full, horizontal, wider than the mouth, ends thickening and turning slightly down, centre part, covering the upper lip |
+| Moustache colour | **acceptable stylization** — reads greyer than the photograph's dark |
+| Beard | strong match — clean-shaven, no beard imported from the gendarme period |
+| Ears | strong match — the viewer's-right ear large, protruding, broad helix, substantial lobe; the other hidden in hair, exactly as in the reference |
+| Cheeks | strong match — full, same nasolabial fold |
+| Jaw | strong match — broad, softening under the ear |
+| Chin | strong match — rounded, not prominent |
+| Apparent age | **acceptable stylization** — reads ~50–58 against the photograph's ~45–55 |
+| Expression | strong match — level, direct, self-possessed |
+
+No mismatches. Two acceptable stylizations, both in the same direction (a few years older),
+which is why they are internally consistent rather than a hybrid.
+
+**Identity question: would someone familiar with his surviving photographs recognise this
+specifically as Alexander Shirvanzade? YES.** The combination of the very high forehead with
+deep temple recession, the rolled-back grey-and-dark curly mane, the asymmetric heavy brows,
+the long broad-bridged nose with the fleshy tip, the large protruding left ear and the wide
+horizontal moustache over a bare jaw is unmistakably that photograph's face.
+
+**Overall verdict: PASS WITH MINOR STYLIZATION.**
+
+### One photographic period
+
+Hair, facial hair, age and dress all belong to the Charents Museum period and nothing else.
+No gendarme-period beard, no late-life white mane, no late-life clean-shaven face. The three
+references genuinely disagree with one another on facial hair — beard / moustache-only /
+none — so this was the live risk, and the file does not combine them. **PASS.**
+
+### Composition and the collection archetype
+
+- **Framing:** close half-length, chest-up. Head roughly **57 per cent of the frame height**
+  against roughly 20–30 per cent for most of the collection. The closest portrait in the
+  Writer section by a wide margin.
+- **Orientation:** near-frontal, a slight turn to the viewer's right, gaze to camera. Not a
+  profile.
+- **Background:** plain plaster wall, painterly texture, darker to the left, with a single
+  **undecorated vertical moulding and door/window casing** at the right edge — the "faint
+  suggestion of a period interior" §9 permits. No bookshelf, desk, manuscript, window view,
+  cityscape, oil field, stage or other figure. The person dominates.
+- **Props: none.** No book, manuscript, pen, newspaper, spectacles, cane, pipe, cigarette,
+  mask or document. **Hands are entirely outside the crop**, which the brief prefers to
+  invented props.
+- **Clothing:** dark charcoal jacket with notched lapels, waistcoat with a visible button,
+  aged-cream stiff wing collar, dark patterned silk cravat. Period-appropriate and matching
+  the reference's dress. No medals, no insignia, no uniform, no folk costume, no clerical
+  dress, nothing modern.
+- **Expression:** serious, observant, self-possessed, faintly weary — the photographed
+  expression, not a heroic stare, a martyrdom or an added smile.
+
+### Symbol audit
+
+No Soviet symbolism of any kind — no flag, hammer and sickle, party insignia, medal display,
+government office or propaganda backdrop. **No Baku-oil cliché** — no derrick, well, stack,
+skyline, barrel or businessman. **No theatre cliché** — no mask, curtain, spotlight, actor or
+audience. **No national-symbol collage** — no flag, coat of arms, Ararat, alphabet, khachkar
+or map. The identity comes entirely from the historical likeness.
+
+### Readable-text sweep — the hard gate
+
+The whole 1586×992 frame was tiled into six regions and swept at ~2.8×, then selected areas
+at 8×. Covered: background left, background right, the moulding and casing, the wall behind
+the head, hair, face, collar, cravat, lapels, waistcoat, buttons, shoulders and all four
+corners.
+
+**Zero readable text in any alphabet.** No name in any romanisation, no `Շիրվանզադե` or
+`Շիրվանզադէ`, no `Նամուս`, `Քաոս` or `Պատվի համար`, no date, initial, label, signature,
+plaque or watermark. Nothing resolves as a word.
+
+One glyph-like mark was found and chased down: a short vertical slot on the left lapel. At
+8× it resolves as a **stitched buttonhole with a bar-tack at each end**, angled with the
+lapel roll — tailoring, not a letter, with no crossbar and no serifs. At the 1152px rendered
+hero width it is about ten pixels of stitching. Judged at rendered size first and magnified
+only to confirm: the §89 rule.
+
+### Lighting and palette
+
+Soft, broad, frontal daylight from the upper left. It reveals forehead, eye sockets, nose,
+moustache, cheek geometry and jaw. No spotlight, no rim light, no golden nostalgia wash, no
+martyr lighting, no glow.
+
+Measured mean channel warmth **R−B = 23.0** (R 75.9, G 67.7, B 52.9) — the **fourth coolest
+of twelve**, and cooler than Paronyan's 26.1. The relatively high green mean gives an
+olive-grey cast rather than Paronyan's browner grey-green, so it is restrained without
+copying the entry before it. Nowhere near the warm-study group (Tumanyan 61.6, Charents 47.2,
+Isahakyan 42.4, Sevak 39.0, Raffi 37.5). Not sepia, not an orange monochrome, no saturated
+decorative ground.
+
+### AI-artifact audit
+
+Face: pupils round and concentric, both eyes looking the same way, consistent catchlights,
+natural lashes and lids, individually rendered brow hairs with correct growth direction,
+natural irregular hairline with fine temple wisps, correctly constructed ear (helix,
+antihelix, tragus, lobe in correct relation), natural nostrils, lips and jaw, no melting or
+duplication in the hair. Clothing: lapels symmetrical and correctly rolled, collar correctly
+folded, cravat plaited naturally, button rimmed and plausible, shoulder geometry natural.
+Background: no accidental faces, no text-like marks, no duplicated forms, no impossible wall
+geometry, no halos. The fine craquelure across the skin is a consistent painterly surface
+choice, not a defect. **No major structural error at article scale.**
+
+### Comparison against all eleven existing Writers
+
+Compared on a twelve-up contact sheet at full resolution and at 380/160/128px.
+
+1. **Tumanyan** — seated at a desk with papers and books, landscape through an opening,
+   warm golden. Small head. Shirvanzade: no desk, no vista, head ~2.5× larger.
+2. **Charents** — seated, pen in hand, books, monastery vista, warm brown. Shirvanzade has
+   no writing action and no landscape.
+3. **Raffi** — seated at a desk, books, ornate interior with window and vessel. Shirvanzade
+   has none of that furniture.
+4. **Isahakyan** — seated writing, carved stone and fresco, books. Shirvanzade's wall is
+   plain plaster.
+5. **Abovyan** — seated with quill and scroll, traceried window, patterned interior.
+   Shirvanzade holds nothing.
+6. **Sevak** — seated at a desk, papers, fresco wall, grey suit. Nearest in clothing tone,
+   but still a desk scene at twice the camera distance.
+7. **Narekatsi** — seated with a large open manuscript, cave arch onto a lake and church.
+   The opposite pole: prop-dominant and environmental.
+8. **Varoujan** — seated at a desk, hand to face, books, Constantinople window. Shirvanzade
+   has no hands in frame at all.
+9. **Shnorhali** — standing full-length in a stone arcade holding a book. The widest framing
+   in the section; Shirvanzade is the tightest.
+10. **Siamanto** — the closest existing rival on camera distance and the closest on palette
+    (R−B 10.3, cooler still), but a seated three-quarter desk portrait with papers, dark
+    furniture and a hand-to-chin pose. Shirvanzade is nearer, frontal, plain-ground and
+    prop-free.
+11. **Paronyan** — see below.
+
+**Collection contribution: the section's first close half-length; the only portrait with a
+genuinely plain background; the only one with no desk, no books and no prop of any kind; and
+the only one with no hands in frame.**
+
+### Explicit Paronyan comparison
+
+**Does Shirvanzade remain clearly distinct from Hakob Paronyan? YES.**
+
+| | Paronyan (§96) | Shirvanzade (§98) |
+|---|---|---|
+| Pose | standing, three-quarter body | chest-up, near-frontal |
+| Head share of frame | ~22 % | ~57 % |
+| Environment | working print room | plain plaster wall |
+| Props | type cabinet, press, proofs in hand | none |
+| Other figures | two compositors at a bench | none |
+| Window / view | arched window onto a Constantinople skyline | none |
+| Hands | both visible, one holding paper | outside the frame |
+| Palette | warm grey-green print room, R−B 26.1 | olive-grey, R−B 23.0 |
+| Geometry | 1560×1008 (1.548) | 1586×992 (1.599) |
+| ICC | 456-byte sRGB profile embedded | none |
+
+Paronyan is a person inside a working world; Shirvanzade is a face as the dominant visual
+field. That is the distinction §97 commissioned, and it holds.
+
+### Crops — generic focus, no override
+
+`PORTRAIT_FOCUS` was read from source rather than assumed: `object-[38%_28%]`, consumed by
+`WriterCard` (both variants), `SearchResultCard`, `FeaturedItem` and, through `ContentPhoto`,
+the `ArticleLayout` hero. Every crop was simulated by reproducing `object-cover` +
+`object-position` against the real 1586×992 geometry and rendered for inspection.
+
+| Slot | Ratio | Source box | Result |
+|---|---|---|---|
+| Hero 4:3 | 1.333 | x[100–1423] y[0–992] | pass |
+| Hero 3:2 | 1.500 | x[37–1525] full height | pass |
+| Hero 16:9 | 1.778 | full width y[28–920] | pass, hair top intact |
+| Featured 16:10 | 1.600 | effectively the whole frame | pass |
+| Writer card 4:3 | 1.333 | x[100–1423] | pass |
+| Compact card strip | 0.960 | x[241–1193] | pass |
+| Search thumb 160 | 0.889 | x[268–1150] | pass |
+| Search thumb 128 | 0.711 | x[335–1040] | pass |
+| Narrow horizontal 21:9 | 2.333 | full width y[87–767] | pass |
+
+Every crop preserves full forehead, both eyes, nose, moustache, chin and enough shoulders to
+read as intentional. **No forehead crop, no accidental chin crop.** The narrowest slot
+(128×180) is the tightest: it grazes the hair at the right edge and puts the ear just outside
+the frame, which is ordinary portrait cropping and costs no identity, because every
+identity-carrying feature stays inside and large. **No Shirvanzade-specific focus override
+was added, because the generic crop does not fail.**
+
+### Thumbnail gates
+
+Rendered at true 128×180 and 160×180 and inspected via nearest-neighbour enlargement, so no
+detail was invented by the upscale.
+
+- **128px: PASS.** The tall forehead with its recession, the grey-and-dark curly silhouette,
+  the heavy asymmetric brows, the long nose and the wide moustache all survive. It reads as
+  one specific man, not "an elderly Armenian intellectual".
+- **160px: PASS**, with more moustache and collar detail.
+
+This is a marked improvement on the section, where most portraits put a small head inside a
+busy room, and it is the reason the close archetype was chosen.
+
+### Registration
+
+**REGISTERED.** Three edits, all in `src/lib/media.ts`, all additive:
+
+1. `IMAGES` gains `"alexander-shirvanzade": "/images/writers/alexander-shirvanzade.webp"` in
+   the generic registry, with the audit above recorded beside it. **No article-level `image`
+   field, no rendering branch, no slug-specific component logic** — `grep` confirms zero
+   `image:` fields in the English writers article file.
+2. `PORTRAIT_PROVENANCE` gains `"alexander-shirvanzade": "photo-referenced"`, with the note
+   recording which photograph was the authority, which two only corroborated, and which two
+   images were refused.
+3. `PENDING_ARTWORK` loses the slug and is `[]` again — emptied for the fifteenth time, and
+   the first time the Writers section has been complete at twelve.
+
+Verified at runtime: 12 registered Writer portraits, `PENDING_ARTWORK = []`,
+`getPortraitProvenance("alexander-shirvanzade") === "photo-referenced"`, unknown slugs still
+default to `imagined`.
+
+### Provenance regressions
+
+`photo-referenced`: `daniel-varoujan`, `siamanto`, `hakob-paronyan`, `alexander-shirvanzade`
+— exactly four, asserted as a set so a fifth appearing anywhere goes red.
+`imagined`: `grigor-narekatsi`, `nerses-shnorhali`, and the seven unlisted writers, plus the
+unknown-slug default. Nobody moved.
+
+### Rendering, metadata and sitemap
+
+- **Listing** — `/en|hy|hyw/writers` each show 12 cards, **zero placeholders**, and exactly
+  one card carrying `alexander-shirvanzade`. Period filters unchanged: medieval 2,
+  19th-century 5 (with his face in it), 20th-century 4, soviet 1. Tumanyan still the sole
+  featured writer.
+- **Heroes** — all three editions render one raster hero at his own path, no placeholder SVG,
+  the localized `imageAlt`, and the **generic** `imageAiPhotoPortraitCaption`. No
+  Shirvanzade-specific caption string was added; the imagined-likeness caption is asserted
+  absent. Both captions still name the AI origin and refuse the photograph in all three
+  editions.
+- **Search** — found under ten queries across the three editions (Alexander/Aleksandr
+  Shirvanzade, bare Shirvanzade, Shirvan-Zade, Alexander Movsisyan, both Armenian
+  orthographies, `Նամուս`, `Քաոս`, `Պատուի համար`); each hit carries his own portrait, no
+  placeholder, nothing borrowed. Asserted scoped to the canonical Writer href. `Նամուս` and
+  `Քաոս` return **no Work result**, because no such Work exists.
+- **`Article.image`** — `{"@type":"ImageObject","url":"https://armat.site/images/writers/alexander-shirvanzade.webp"}`
+  in all three built editions.
+- **OG / Twitter** — both are his portrait in all three editions; the `og-default.png`
+  fallback is gone and no other writer's file appears.
+- **Schema** — graph is Organization, WebSite, Article, BreadcrumbList. **No `Person` node was
+  added**, per the brief, and a test asserts its absence.
+- **Sitemap** — verified **per `<url>` block**, not by occurrence count: each of the three
+  locale blocks contains
+  `<image:loc>https://armat.site/images/writers/alexander-shirvanzade.webp</image:loc>`.
+
+### Tests
+
+`writers.spec.ts` inverted from pending-state to registered-state, on the §96 pattern:
+`ILLUSTRATED` and `PORTRAIT` gain the twelfth entry, `PENDING` returns to `[]`, and the three
+§97 tests that asserted absence now assert presence — the registered path, the absent
+placeholder, the photo-referenced caption, the provenance entry, the search thumbnail, the OG
+image, `Article.image` and the per-locale sitemap image. Two new guards were added: an
+exactly-four photo-referenced set, and a listing test asserting twelve cards with zero
+placeholders across all editions plus the four period-filter counts.
+
+Two further pending-state assertions went red on the first run and were inverted:
+`PHOTO_REFERENCED` in the §85 provenance-shape test (three → four) and the §97
+"only Writer #12 is waiting" literal in the Paronyan regression (→ `[]`). Both are the
+mechanism working, and both were repaired as exact hunks.
+
+`places.spec.ts` holds the archive-wide exact registry snapshot; it went red as designed and
+gained one line. That is the fifth Writers registration to turn it red.
+
+- `npm run typecheck` — clean.
+- `npm run validate:content` — **✓ 198 entries across 3 locales**, and the pending-artwork
+  note is gone, which is the validator's own confirmation that nothing renders a placeholder.
+- Focused `writers.spec.ts` — **73 passed**.
+- `listing`, `search`, `seo`, `article`, `works`, `places` — **233 passed, 2 skipped** across
+  the two runs (149 + 84).
+- **Full Playwright — 477 passed, 5 skipped, 0 failed, 4.5 minutes.** Clean on the first run.
+
+### Dev-server degradation
+
+**Did not reproduce.** `.next` was inspected before testing, found to contain production
+artifacts from §97's build (`BUILD_ID`, `prerender-manifest.json`, `server/app-paths-manifest.json`),
+and removed; the dev server was started clean on a confirmed-free port 3002. Sequential
+probes returned 200 for all three Shirvanzade editions, Paronyan, Book of Lamentations, a
+Cuisine article, a Place, a History article, the Writers listing, the portrait file itself and
+the sitemap. The full parallel suite then passed on its first run with no timeout in any
+spec — unlike §97, which flaked twice in unrelated files.
+
+### Navigation
+
+Works → Cuisine: **did not reproduce.** `navigation.spec.ts` passed in the full run. Not
+modified, and not claimed fixed.
+
+### Build
+
+Run separately, after Playwright exited and port 3002 was freed, on a removed `.next`.
+**Exit 0.** TypeScript clean. 186 static pages. **36 `/[locale]/writers/[slug]` routes
+prerendered** — 12 × 3 — with all three Shirvanzade routes present in
+`prerender-manifest.json`. The built HTML for each of the three editions carries his portrait
+in `og:image`, `twitter:image` and the JSON-LD `Article.image`.
+
+### Diff safety
+
+Thirteen tracked files modified plus one new untracked file. `git diff --cached` empty —
+nothing staged. Because §97 is still uncommitted, the diff is cumulative over §97 + §98.
+
+**Zero deletions in every `src/` file.** `src/lib/media.ts` is pure addition relative to HEAD
+(+161 lines, of which +119 are §98's). All three editions' articles and card files and
+`sources.ts` are byte-identical to what §97 left — 350/12/353/12/353/12/62 insertions, zero
+deletions, exactly the §97 numbers — which is the mechanical proof that **the biography was
+not touched by this step**. No `image:` field exists in any article file.
+
+All 29 deletions are in the four test files and every one is a count literal or a state claim
+that had to invert, each listed and explained above. No whole-file rollback was used; no
+`git checkout`, `git restore` or `git reset` was run at any point. Only exact hunks were
+repaired. Mixed line endings preserved.
+
+`.claude/settings.json` untouched. `public/` gained exactly one file. No map, navigation,
+Cuisine, Places, History or other artwork file was modified.
+
+### Regressions
+
+- **Paronyan (§96)** — file registered at its own path, `photo-referenced`, absent from
+  pending, relations `["khachatur-abovyan", "siamanto"]`, metadata and sitemap intact. His
+  own tests pass unchanged.
+- **Varoujan, Siamanto** — `photo-referenced`, unchanged. **Narekatsi, Shnorhali** —
+  `imagined`, unchanged.
+- **Book of Lamentations (§92/§93)** — artwork, metadata, sitemap image, content and
+  relations untouched; still one of five Works.
+- **The eleven existing Writers** — no article, relation or portrait path changed.
+- **Future Works** — none created. `Նամուս`, `Քաոս` and `Պատվի համար` are still named in
+  prose and are still not Works; the nine banned Work slugs remain absent.
+- **Counts** — Works 5, Writers 12, Cuisine 12, Places 13, History 7. Unchanged.
+
+### Failures and process mistakes
+
+1. **Two test failures on the first focused run**, both mine and both the pending-state
+   assertions §98 had to invert and I had missed: `PHOTO_REFERENCED` in the §85 provenance
+   test and the §97 pending literal in the Paronyan regression. Fixed as exact hunks.
+2. **One further failure on the affected-suite run** — `places.spec.ts`'s exact registry
+   snapshot. That test exists precisely to go red when any non-Places entry appears, so this
+   is the tripwire working rather than a mistake, but it should have been anticipated from
+   §96's history and was not.
+3. **A shell-quoting slip:** a backtick inside a heredoc-driven `node -e` edit was interpreted
+   as command substitution and silently deleted the words `` `photo-referenced` `` from a test
+   comment. Caught on re-reading the hunk, repaired with the file-editing tool, and the lesson
+   is recorded: backticked prose belongs in an Edit, not in a shell string.
+4. No genuine product failure occurred at any point, and no infrastructure flake was
+   misclassified — because none happened.
+
+### Technical debt
+
+- **The §96 ICC-profile oddity persists** on `hakob-paronyan.webp` and is now the *only*
+  registry file with an embedded profile; §98 did not add a second.
+- **Geometry is now non-uniform by one file**: eleven portraits are 1586×992 (Narekatsi
+  1585×992) and Paronyan alone is 1560×1008. Harmless, recorded.
+- **The Matenadaran basalt discrepancy (§36) is still open** — still the only registered file
+  known to disagree with its own article.
+- **Six older Writers still carry no `seoTitle`/`metaDescription`/`summary`.** Unchanged.
+- **`Մորգանի խնամին` still has two circulating dates (1926, 1930)** and the article carries
+  both; **the New Style birth date is still unsettled** (18 vs 19 April). Both are content
+  debt from §97, untouched here.
+- **The §97 correction to the portrait record stands**: the "c. 1880 photograph" is a 1910
+  lithograph. Anyone re-commissioning this portrait must not treat it as a likeness.
+
+Nothing was deployed. Writer #13 was not started. No Work was created.

@@ -45,6 +45,17 @@ export const works: LiteraryWork[] = [
       "Armenia's national epic, telling of four generations of heroes from Sassoun who defend their mountain homeland — carried by storytellers for a thousand years before it was written down.",
     imageSeed: "david-of-sassoun",
   },
+  {
+    slug: "book-of-lamentations",
+    title: "Book of Lamentations",
+    author: "Grigor Narekatsi",
+    publicationPeriod: "completed about 1002",
+    genre: "Prayer cycle",
+    genreId: "poetry",
+    summary:
+      "Ninety-five discourses addressed to God, written at the monastery of Narek about 1002. The most copied book in Armenian after the Gospel, known simply as the Narek, and not the biblical Lamentations.",
+    imageSeed: "book-of-lamentations",
+  },
 ];
 
 export const workGenres: Filter[] = [

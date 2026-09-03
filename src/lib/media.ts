@@ -242,11 +242,263 @@ const IMAGES: Record<string, string> = {
    */
   "nerses-shnorhali": "/images/writers/nerses-shnorhali.webp",
 
+  /*
+   * §89. Siamanto — Writer #10, the tenth portrait, and the entry that closes the
+   * section: every writer in the archive now has a cover.
+   *
+   * **This file was reviewed twice and the first review got it wrong, so the
+   * record starts there.** The first pass refused it on three counts: a hand it
+   * read as structurally malformed, a composition it read as materially
+   * duplicating `daniel-varoujan`, and a monochrome treatment that measured as an
+   * outlier against the other nine. The second pass, with the composition and the
+   * colour explicitly accepted by the owner of the section, re-examined the hand
+   * at the size it is actually rendered at and reversed that finding. The
+   * reversal is the part worth keeping: the hand was judged at 3.5x with contrast
+   * normalised, where it reads as an undifferentiated taper with no countable
+   * digits — and at 1152px hero scale, where the same region occupies 276x378 css
+   * pixels, it reads as a loosely-curled hand seen from its ulnar edge with the
+   * fingers turned away from the viewer and the thumb hidden behind them. The
+   * foreshortening is legitimate; the magnification was the error. **Judge hands
+   * at rendered size first and magnify to confirm, not the other way round** —
+   * magnification finds a defect in every painted hand in this registry.
+   *
+   * What survives from that first pass as a real observation, and is recorded in
+   * `PROJECT_STATE` rather than acted on here: the writer portraits lean heavily
+   * on desk-and-books-in-a-warm-study. That is a collection-level fact about ten
+   * commissions, not a defect in the tenth, and it is a rule for the eleventh.
+   *
+   * **The file.** 1586x992 — house geometry exactly, no drift, the third
+   * consecutive portrait to arrive at it without a resample. 197,466 bytes,
+   * SHA-256
+   * 4170e1e338590e5ea46a9207f4e4aca0c5b87549d92199f2221b0c0850c92f2f. Plain
+   * `RIFF`/`WEBP` -> a single `VP8 ` chunk at offset 12, size 197,446, payload 20
+   * to 197,466: one lossy keyframe, frame-tag bit 0 clear, sync 9D 01 2A, coded
+   * dimensions agreeing with the container and both scale fields zero. No `VP8X`,
+   * so no ICC, alpha, EXIF, XMP or animation, and no orientation tag. The chunk
+   * walk ends at byte 197,466 with zero trailing bytes. Verified twice, by a
+   * hand-written RIFF walk and by `sharp`.
+   *
+   * **What is in the frame.** The poet at about thirty-five in near-profile to the
+   * left, seated at a desk with the right hand raised against the cheek. Dark
+   * side-parted hair over a high forehead, a long straight nose, a dark moustache
+   * and a small pointed beard. Dark wool jacket with a notch lapel, a tall white
+   * collar, a dark figured tie, a white cuff with a stud. Behind him a
+   * sheer-curtained window at the left, a bookcase with a shaded lamp and framed
+   * objects at the right, and across the foreground blank paper, a stack of
+   * sheets, an inkstand with a dip pen and a bound book. Nothing of 1915 is in it.
+   * He was arrested in April and killed in August of that year and this picture
+   * shows the man who wrote `Կարմիր լուրեր բարեկամէս`.
+   *
+   * **Text gate.** Swept at full resolution, at 1152px hero width, and at 2x-3.5x
+   * with contrast normalised across the papers, the paper stack, the book covers,
+   * the shelved spines, the shelf, the framed objects, the wall, the window and
+   * every corner. Nothing readable anywhere. The leftmost spine carries faint
+   * gilt blobs in a vertical column that form no letterform at 3x, and the
+   * foreground sheet carries grey wisps below glyph scale. That is the same
+   * standard §87 met and the first Varoujan file failed. The blank desk paper is
+   * the one flatness worth naming: a working writer's sheet with nothing on it.
+   *
+   * **Treatment.** This is the most photographic portrait in the section — low
+   * chroma, photographic grain, shallow depth of field — where the other nine are
+   * warm painterly colour. Measured mean chroma-saturation puts it at 0.186
+   * against a family mean near 0.43. It was accepted deliberately, and it makes
+   * the caption below carry more weight than usual rather than less: the
+   * `photo-referenced` string has to say *not itself a photograph* about an image
+   * that is styled like one.
+   */
+  siamanto: "/images/writers/siamanto.webp",
+
+  /*
+   * §96. Writer #11, and the first file in this registry to be delivered twice.
+   *
+   * 1560×1008, 275,108 bytes, SHA-256
+   * `cb29ac83b17ddae68f335382d95deacbc0ecae1c7998f4a9bed8366107923e7f`. RIFF valid
+   * — the size header is the filesize minus eight exactly and there are no trailing
+   * bytes — with a `VP8X` extension chunk whose flag byte is `0x20`, an `ICCP`
+   * chunk carrying a 456-byte minimal sRGB monitor profile, and a single lossy
+   * `VP8 ` chunk with the `9d 01 2a` start code. No alpha, no EXIF, no XMP, no
+   * animation, no orientation. Verified twice, by a hand-written RIFF walker and by
+   * sharp, which agree on every field. **The embedded ICC profile is new for this
+   * registry** and is the one structural difference from every earlier entry; it is
+   * a plain sRGB profile matching the declared colour space, so it changes nothing
+   * about how the file renders and it was registered as delivered rather than
+   * stripped, like every entry since §30. The geometry drifts from the 1586×992 the
+   * section prefers — 1.548 against 1.599 — which is harmless and recorded.
+   *
+   * **The first delivery was refused outright**, and §95 of PROJECT_STATE.md holds
+   * that audit. It was technically clean and compositionally excellent, and the
+   * broadsheet on the back wall carried a fully legible Armenian display masthead
+   * reading `ԽԻԿԱՐ` — his actual journal, named in the brief's own rejection list,
+   * legible in a 360px thumbnail. That tripped two gates at once: the §85 rule that
+   * readable generated lettering is refused rather than weighed, and the separate
+   * rule against a picture that claims to document a specific real office. Two
+   * lesser corrections were asked for with it — a hairline that had come back too
+   * dense to carry recognition at 128px, and a moustache curled where the
+   * photograph is flat.
+   *
+   * **All three were made, and nothing else moved.** The masthead band is now blank
+   * smudged paper over unreadable ruled pseudo-text; the sweep at 3–5× across both
+   * wall sheets, the blank sheet behind his head, the proof in his hand, the sheets
+   * by the press, the galley, the drawer label holders, the shelved formes and the
+   * compositors' bench found no glyph that resolves in any script. The hairline now
+   * gives deep bilateral temporal recessions with a thin central tuft, which is what
+   * the photograph gives, and the identity survives the 128px square crop that
+   * defeated the first file. The moustache keeps its broad horizontal mass and the
+   * ends lift only as finely as they do in the photograph. Measured warmth is
+   * unchanged at R−B 26.1 against the rejected file's 27.1 — cooler than Abovyan,
+   * Shnorhali, Charents and Tumanyan, so the cool grey-green register survives the
+   * correction rather than drifting back into the section's warm-brown study.
+   *
+   * **Provenance is `photo-referenced`**, as §94 said in advance, and the entry is
+   * in the map below. The authority is the one surviving lifetime studio photograph
+   * on Commons; the 2018 commemorative stamp in the same category was seen and
+   * deliberately not used, which is the §87 rule again.
+   *
+   * **What this file is for.** Eight of the ten portraits before it are a seated
+   * figure at a desk with books; Shnorhali is the ninth, standing in a cloister.
+   * Paronyan is the section's only working interior, its only industrial
+   * environment, the only portrait whose dominant props are type and a press rather
+   * than books, and the only one with other working figures in the frame. That was
+   * the point of choosing him to break the pattern, and it is the part of this image
+   * that must survive any future change to it.
+   */
+  "hakob-paronyan": "/images/writers/hakob-paronyan.webp",
+
+  /*
+   * §98. Writer #12, and the first portrait in this registry whose whole point is
+   * what is *not* in it.
+   *
+   * 1586×992 — the section's preferred geometry exactly, which the previous entry
+   * drifted from — 187,602 bytes, SHA-256
+   * `49fcbd38049c79b8bff0f188e1eeb15be402c348ce3a8b36dda636f6f859842a`. RIFF valid:
+   * the declared size is the filesize minus eight exactly and the walker consumes
+   * the file to the byte with **zero trailing bytes**. A single lossy `VP8 ` chunk
+   * with the `9d 01 2a` start code, key frame, no horizontal or vertical scaling.
+   * **No `VP8X`, no `ICCP`, no alpha, no EXIF, no XMP, no animation, no
+   * orientation** — structurally the simplest file in the registry, and in
+   * particular it does *not* repeat the embedded ICC profile §96 introduced. sRGB,
+   * three channels, decodes clean to 4,719,936 raw bytes. Verified twice, by a
+   * hand-written RIFF walker and by sharp, which agree on every field.
+   *
+   * **Accepted on the first delivery**, unlike §95/§96.
+   *
+   * **The reference is the Charents Museum photograph**, opened and read directly
+   * rather than described: the mid-life studio portrait credited to the Charents
+   * Museum of Literature and Art in Yerevan. It gives a very high broad forehead
+   * with deep bilateral temporal recession, a thick curly mane rolled back and
+   * standing off the head, dark brows carrying a real asymmetry — the viewer's-right
+   * brow rides higher and arcs more than the left — deep-set hooded eyes with the
+   * same asymmetry, a long straight broad-bridged nose with a fleshy slightly
+   * downturned tip, a large protruding left ear, and a full horizontal moustache
+   * over a clean-shaven jaw. The delivered artwork agrees with it on every one of
+   * those, asymmetries included. Its one departure is that hair and moustache read a
+   * few years greyer than the photograph's, so the face sits at roughly 50–58 where
+   * the photograph is roughly 45–55; recorded, not corrected, and internally
+   * consistent rather than a hybrid.
+   *
+   * **One photographic period, deliberately.** Three lifetime references survive and
+   * they disagree: the Tiflis gendarme card of c. 1898 shows a full dark beard, the
+   * Charents Museum portrait a moustache over a clean-shaven jaw, and the late
+   * `azg.am` studio portrait a white mane and no facial hair at all. The artwork
+   * takes the Charents period whole — hair, moustache, age and dress together — and
+   * borrows nothing from the other two. That is the §12 rule from the commission,
+   * and it is the thing to check first if this file is ever regenerated.
+   *
+   * **What this file is for.** Ten of the eleven portraits before it seat the writer
+   * at a desk with books; the eleventh, Paronyan, stands in a working print room with
+   * type, a press and other figures. This is the section's first **close half-length**
+   * — chest-up, near-frontal, the head roughly 57 per cent of the frame height against
+   * roughly 20–30 per cent for most of the collection — against a plain plaster wall
+   * with a single undecorated moulding at the right edge. **No desk, no books, no
+   * manuscript, no pen, no prop of any kind, and no hands in frame.** Measured warmth
+   * is R−B 23.0, the fourth coolest of twelve and cooler than Paronyan's 26.1, with a
+   * higher green mean that gives an olive-grey cast rather than Paronyan's browner
+   * grey-green — so it is restrained without copying the entry before it. That
+   * restraint is the part of this image that must survive any future change to it: a
+   * writer does not require a visible desk, and this is the file that proves it.
+   *
+   * The readable-lettering gate was swept at 2.8× over six tiles covering the whole
+   * frame and found nothing in any script. The single glyph-like mark — a short
+   * vertical slot on the lapel — resolves at 8× as a stitched buttonhole with a
+   * bar-tack at each end, which is tailoring, not a letter. Judged at rendered size
+   * first, magnified only to confirm: the §89 rule.
+   */
+  "alexander-shirvanzade": "/images/writers/alexander-shirvanzade.webp",
+
   // Literary works
   anush: "/images/works/anush.webp",
   "david-of-sassoun": "/images/works/david-of-sassoun.webp",
   "wounds-of-armenia": "/images/works/wounds-of-armenia.webp",
   "the-fool": "/images/works/the-fool.webp",
+
+  /*
+   * §63. The fifth Work, and the first entry in this registry whose subject is a
+   * book rather than a person, a place, a dish or an event.
+   *
+   * 1586×992, 169 KB (169,000 bytes), a single lossy `VP8 ` chunk with no VP8X
+   * extension — therefore no alpha, no ICC profile, no EXIF, no XMP, no animation
+   * and no orientation tag. Verified twice, by a hand-written RIFF walker and by
+   * sharp, which agree on every field; the RIFF size header matches the file
+   * exactly and there are no trailing bytes. SHA-256
+   * `c76555bc397b5973216fbbb13358cfcdfe73bd9a13daad46c5f066fc1df35012`. It is the
+   * lightest file in the works section by a wide margin — the other four run
+   * 375–470 KB — and it matches the geometry of three of them (`wounds-of-armenia`
+   * is the section's one 1536×1024). Registered exactly as delivered, unaltered,
+   * unoptimised and unrenamed, like every entry since §30.
+   *
+   * **The two conditions §61 set in advance were both met.**
+   *
+   * The first was that the artwork must not borrow `writers/grigor-narekatsi.webp`.
+   * It does not, and not by a narrow margin. The portrait is a half-length seated
+   * author at eye level, facing the camera's left, a lake and a snow range behind
+   * him; this is an interior loggia looking down onto a codex that fills the lower
+   * half of the frame, with four small figures who are all in profile, hooded or
+   * seen from behind. No face in it is that face, no figure is composited from it,
+   * and no part of the portrait appears as background. The one motif the two share
+   * — a dark red wall hanging with a gold cross — is a studio motif of the family,
+   * not a borrowed asset.
+   *
+   * The second was that **no glyph may resolve.** The obvious composition for a
+   * book about a book is an open manuscript covered in writing, and that is exactly
+   * what was delivered: two full written pages, the largest field of pseudo-script
+   * anywhere in this registry. Both pages were read at 3× and the binding, the
+   * leather board edges, the table, the wall hanging, the shelved books, the carved
+   * floor slab and the masonry at 4–6×. The script is dense horizontal ink texture
+   * with muted red rubrication and small ornamented initials; not one word resolves
+   * in any alphabet, and nothing anywhere reads as `Մատեան ողբերգութեան`, `Նարեկ`,
+   * a date, a title, a signature, a folio number or a caption. The marks on the
+   * leather edge that look like tooling at 1× are specular highlights and thread at
+   * 6×. The carved slab in the lower right, which is where an inscription would
+   * belong on a real one, carries repeating interlace and no letters.
+   *
+   * **The subject is the book.** The codex is the dominant object at every size
+   * this archive renders — including the 208px work-card side column and the 128px
+   * search thumbnail, where the page block survives the crop and the human scenes
+   * do not, which is the right way round. The four figures — a seated man with his
+   * head lowered, a monk standing in thought, a monk kneeling at a prie-dieu, a
+   * monk at the arch looking out at the valley — are secondary narrative context in
+   * one coherent physical room. They are what §61 asked for and they stay quiet:
+   * no apparition, no floating vision, no halo, no aureole, no blessing gesture, no
+   * ecstasy, no violence, no suffering. Nothing glows. The manuscript is lit by the
+   * daylight coming through the arcade like everything else in the room, which is
+   * the point — the article frames the healing tradition as historical devotional
+   * practice, and a glowing book would have contradicted it in one image.
+   *
+   * It also declines to claim to be a document. There is no accession number, no
+   * museum label, no title plate and no provenance caption anywhere in the frame,
+   * so nothing in it implies this is the surviving autograph. It is an editorial
+   * reconstruction and reads as one.
+   *
+   * Composition-wise it is the strongest distinction in the works section: the only
+   * interior, the only object-dominant frame, the only one whose people are small,
+   * and the only cool palette — grey stone, parchment cream and a blue-black robe
+   * against a burgundy hanging — where the other four are warm exteriors built
+   * around a standing human figure. Same painterly register, different picture.
+   *
+   * Not in `PORTRAIT_PROVENANCE`, and deliberately: see §61 below, and the test
+   * that now guards it.
+   */
+  "book-of-lamentations": "/images/works/book-of-lamentations.webp",
 
   // Cuisine
   lavash: "/images/cuisine/lavash.webp",
@@ -1156,6 +1408,106 @@ const IMAGES: Record<string, string> = {
  */
 export const PENDING_ARTWORK: readonly string[] = [
   /*
+   * §97. Refilled for Writer #12. Shirvanzade's biography shipped without his
+   * portrait, on the same terms as every entry before him: the artwork is a
+   * separate step and the placeholder renders until it lands.
+   *
+   * Two things are decided here in advance, on the §88 and §94 pattern, and both
+   * are asserted in the negative by `writers.spec.ts` today.
+   *
+   * The first is the provenance. Photographs of him survive and were looked at
+   * rather than read about, so the expected type when the file arrives is
+   * `photo-referenced` — but `PORTRAIT_PROVENANCE` gains nothing now, because
+   * recording how a likeness was arrived at before the likeness exists is
+   * recording provenance for artwork nobody has made. What survives, precisely:
+   * a studio portrait photograph credited to the Charents Museum of Literature
+   * and Art in Yerevan, a second undated photographic portrait, and two gendarme
+   * registration cards compiled by the Tiflis provincial gendarme administration
+   * and held by the National Archive of Georgia. The image widely captioned
+   * "c. 1880" is **not** a photograph — it is a lithograph printed in the
+   * Constantinople paper `La Patrie` in 1910 and held by the BnF — and the 2008
+   * commemorative stamp in the same Commons category is not facial authority
+   * either. The §87 rule applies to both: a photograph is what earns the word.
+   * The late studio portrait is the primary likeness reference; the gendarme
+   * cards are corroboration and are decades earlier.
+   *
+   * The second is the composition, and it is the first entry on this list to set
+   * one against an audit of the whole collection rather than against the previous
+   * picture. Eleven writer portraits now exist. Ten of them put the subject at a
+   * desk, or with books, or against a warm study interior; §96 broke that once
+   * with Paronyan's print room, which is still a working environment with props
+   * in it. So the archetype reserved for this slug is the one thing the section
+   * has never done: **a close half-length, near-frontal portrait, plain
+   * restrained historical ground, no desk, no books, no pen, no manuscript, no
+   * props of any kind** — the white hair read as a silhouette against the ground,
+   * and the head as the entire subject. A writer does not require a visible desk,
+   * which is the §89 note's standing observation finally cashed.
+   *
+   * The standing rejection condition carries forward unchanged: readable
+   * generated lettering of any kind is refused outright, not weighed. And anatomy
+   * is judged at rendered size first, magnified only to confirm — the §89 rule.
+   */
+
+  /*
+   * §98. Emptied for the fifteenth time, and the section is complete at twelve:
+   * twelve writers, twelve portraits, no placeholder anywhere in the archive.
+   *
+   * §97 put `alexander-shirvanzade` here and decided two things in advance rather
+   * than after the fact. Both held, which is why this list is empty again on the
+   * first delivery rather than the second.
+   *
+   * The provenance was committed to `photo-referenced` before the picture existed,
+   * on the strength of surviving photographs, and the entry in `PORTRAIT_PROVENANCE`
+   * now records which of the three was used as facial authority, which two were held
+   * back to corroborate invariants only, and which two images were refused as
+   * authority because a lithograph and a postage stamp are not photographs. §97 also
+   * corrected the earlier record on that last point, and the correction is what kept
+   * a 1910 print from being treated as a likeness.
+   *
+   * The composition was specified before the commission too, and against an audit of
+   * the whole collection rather than against the previous file: a close half-length,
+   * near-frontal, plain ground, no desk, no book, no pen, no manuscript, no props.
+   * That is what arrived. It is the closest portrait in the section by a wide margin
+   * and the only one with a genuinely plain background, which is the standing
+   * observation §89 left — that ten commissions had converged on
+   * desk-and-books-in-a-warm-study — finally cashed.
+   *
+   * Kept as a constant through the empty phase, for the reason every previous empty
+   * phase gave: refilling it is then a one-line edit rather than a rediscovery.
+   */
+
+  /*
+   * §89. Emptied for the twelfth time, and the first time the section it emptied
+   * was finished by it: ten writers, ten portraits, no placeholder anywhere in
+   * the archive.
+   *
+   * §88 put `siamanto` here because Writer #10 was written ahead of his portrait,
+   * and it did something no previous entry on this list had done — it decided the
+   * provenance *before* the commission rather than after it, committing the slug
+   * to `photo-referenced` on the strength of surviving photographs and setting two
+   * conditions on the delivery. Both were met. The artwork was made with the
+   * photographs in view, and the entry in `PORTRAIT_PROVENANCE` now records which
+   * two, where they disagree, and what the picture agrees with them on. The
+   * standing rejection condition — readable generated lettering refused outright,
+   * not weighed — held for a third consecutive portrait.
+   *
+   * One thing from that pass survives as a standing rule, and it is a new one.
+   * The file was refused on first review and registered on second, and the
+   * finding that reversed was a hand judged malformed at 3.5x magnification that
+   * reads as a correctly foreshortened hand at the 1152px hero size it is
+   * actually shown at. **Judge anatomy at rendered size first and magnify only to
+   * confirm.** Magnification will find a defect in every painted hand here; that
+   * is a property of the magnification, not of the hand. The detail sits beside
+   * the registry entry above.
+   *
+   * What did not reverse, and is not a defect in this file, is recorded in
+   * `PROJECT_STATE` instead: ten writer commissions have converged on
+   * desk-and-books-in-a-warm-study, and the eleventh has to be compared against
+   * the whole collection for pose, silhouette, framing, environment and lighting
+   * before it is generated. A writer does not require a visible desk.
+   */
+
+  /*
    * §87. Emptied for the eleventh time, and the first of the three consecutive
    * Writers to be accepted on the delivery it was first sent.
    *
@@ -1924,6 +2276,91 @@ export const PENDING_ARTWORK: readonly string[] = [
    * The list is empty again, and for the fourth time that sentence covers the whole
    * archive rather than only Places: every article in every section has a cover.
    */
+
+  /*
+   * §61. Work #5, written ahead of its artwork, and the first entry this list has
+   * ever carried that is neither a person, a place nor a dish.
+   *
+   * `book-of-lamentations` is here for the ordinary reason: the article shipped and
+   * the picture has not been made. The registration pass adds the `IMAGES` entry
+   * when the file lands and drops this line in the same change, which is the rule
+   * every previous entry has followed.
+   *
+   * Two things are decided in advance, and neither should be quietly reversed.
+   *
+   * The first is that **this artwork must not borrow the author's portrait.**
+   * `writers/grigor-narekatsi.webp` exists, it is good, and it shows a monk at a
+   * table with an open illuminated codex in front of him — which is very nearly a
+   * picture of this book already. Using it, or a variation on it, would make the
+   * Work an appendix to the Writer rather than an entity of its own, and it would
+   * put a face on a work whose whole subject is a voice with no face. The Work owns
+   * its own future asset or it renders the generated placeholder.
+   *
+   * The second is that **`PORTRAIT_PROVENANCE` does not apply here and no entry
+   * belongs in it.** That map records how a likeness of a *person* was arrived at —
+   * whether photographs were consulted or the face was imagined. A book has no
+   * likeness to get right, so the question the map answers is not a question this
+   * slug raises. When the file lands it inherits `ARTWORK_PROVENANCE` like every
+   * other entry in the registry: an AI-generated editorial illustration, captioned
+   * as one. The §85 rejection condition carries over unchanged and is unusually
+   * sharp for this subject — readable generated lettering is refused outright, and
+   * the obvious composition for a book about a book is an open manuscript page
+   * covered in writing. Whatever is delivered, no glyph in it may resolve.
+   *
+   * §63 **Resolved.** The file landed and is registered above, where the audit is
+   * recorded in full. Both conditions held. It does not borrow the portrait — the
+   * two pictures share a wall hanging and nothing else — and no glyph resolves: the
+   * delivery took the obvious composition, two full written pages, and the reading
+   * at 3× on the pages and 4–6× on the binding, furniture, masonry and the carved
+   * floor slab found dense unreadable ink texture and not one word. No
+   * `PORTRAIT_PROVENANCE` entry was added, and a test now asserts that no Work slug
+   * ever acquires one.
+   *
+   * The list is empty for the thirteenth time, and for the fifth time that sentence
+   * covers the whole archive: every article in every section has a cover, and for
+   * the first time that includes all five Works.
+   *
+   * §94 fills it again the moment after, which is the pattern §41 named and every
+   * section has repeated since: the list empties, and the next article ships ahead
+   * of its picture.
+   */
+
+  /*
+   * §94. Writer #11, written ahead of his portrait.
+   *
+   * `hakob-paronyan` is here for the ordinary reason — the article shipped and the
+   * picture has not been made. Two things are decided in advance.
+   *
+   * The first is that **the expected provenance is `photo-referenced`**, and it is
+   * recorded here rather than in `PORTRAIT_PROVENANCE`, which stays untouched until
+   * the file lands. One lifetime studio photograph survives and is public domain on
+   * Commons; the features it gives are unambiguous — long gaunt face, high forehead,
+   * dark hair receding at the temples, thick drooping moustache, no beard,
+   * bare-headed, no fez. The 2018 Armenian commemorative stamp in the same Commons
+   * category is **not** facial authority, which is the §87 rule applied again.
+   *
+   * The second is the composition, and it is a standing refusal rather than a
+   * preference. The Writers section has ten portraits and too many of them are a
+   * seated figure at a desk with books in a warm interior. Paronyan was a working
+   * editor of satirical papers, so the archetype is **standing in the composing room
+   * of his own journal** — type cases, proofs, the print shop of `Խիկար` in the
+   * eighteen-eighties — or, if that setting cannot be made historically defensible,
+   * a close standing half-length against a restrained print-office ground.
+   * **No seated-at-a-desk composition.** That is the whole point of choosing him to
+   * break the pattern.
+   *
+   * §96 **Resolved.** The file landed twice and the second one is registered above,
+   * where the audit is recorded in full. Both conditions held. The provenance is
+   * `photo-referenced` and the entry is in `PORTRAIT_PROVENANCE`; the composition is
+   * the standing composing-room archetype this note asked for, with no seated desk
+   * anywhere in it. The first delivery was refused for a readable `ԽԻԿԱՐ` masthead
+   * and is recorded in §95 of PROJECT_STATE.md — the note above is left standing
+   * because the refusal is only legible against the conditions that were set before
+   * either file existed.
+   *
+   * The list is empty for the fourteenth time, and for the sixth time that sentence
+   * covers the whole archive: every article in every section has a cover.
+   */
 ];
 
 /**
@@ -2028,6 +2465,90 @@ const PORTRAIT_PROVENANCE: Record<string, PortraitProvenance> = {
    * nose, age and pose. That is a matter of record, so the caption may say it.
    */
   "daniel-varoujan": "photo-referenced",
+
+  /*
+   * §89. Two surviving lifetime photographs were consulted for this one, and they
+   * disagree with each other in a way worth recording, because the artwork sits
+   * between them.
+   *
+   * The first is the Boston photograph of him at his rolltop desk at `Hairenik`,
+   * c. 1910, which is the reference §88 named in advance. It gives the oval,
+   * moderately long face, the high forehead, the full dark side-parted hair, the
+   * heavy brows and the deep-set eyes — and it shows him **entirely
+   * clean-shaven**. The second is the fifth panel of the first row of the plate of
+   * the ten intellectuals deported on 24 April 1915, from the Soviet Armenian
+   * Encyclopedia, vol. 7, Yerevan 1981, p. 423, where every panel is identified in
+   * the caption. It is a near-profile, and it gives the long prominent straight
+   * nose with its slightly downturned tip, the dark moustache and the small
+   * pointed beard — over a markedly **receding** hairline.
+   *
+   * So the two references differ on both facial hair and hairline, and they are
+   * the same man at different dates. The delivered artwork takes the full hair of
+   * the 1910 photograph and the moustache-and-beard of the plate, which is a
+   * coherent c. 1910-13 synthesis rather than a copy of either. It agrees with
+   * both on face length, forehead, jaw width, nose bridge, nose length and
+   * projection, cheeks and apparent age. Its one departure is the beard, which is
+   * a fuller van Dyke carried along the jaw where the plate shows a narrow chin
+   * point; recorded, not corrected.
+   *
+   * That is a matter of record, so the caption may say it. No painting, bust,
+   * statue, stamp or reconstruction was used as facial authority — the 2003
+   * Armenian commemorative stamp was seen and deliberately not used, which is the
+   * §87 rule applied to a subject where photographs happen to exist.
+   */
+  siamanto: "photo-referenced",
+
+  /*
+   * §96. One surviving lifetime photograph was consulted for this one — the studio
+   * portrait on Commons filed as `Յակոբ Պարոնեան.jpg`, dated only "before 1891",
+   * photographer unknown, public domain — and it was read directly rather than
+   * described from text. It gives a long lean face, a very high forehead with deep
+   * temporal recessions and thin hair over the crown, prominent ears, large deep-set
+   * eyes, a long straight narrow nose, and a broad dark essentially horizontal
+   * moustache with fine ends that lift, clean-shaven below.
+   *
+   * The second delivered artwork agrees with it on all of them. The first did not
+   * agree on the hairline and was corrected; that history is in §95 and §96 of
+   * PROJECT_STATE.md and matters here only because the correction is what makes
+   * `photo-referenced` the honest word. This portrait was plainly made with the
+   * photograph in view, and the caption may say so.
+   *
+   * The 2018 Armenian commemorative stamp in the same Commons category was seen and
+   * deliberately not used as facial authority — the §87 rule, applied for the third
+   * time in this map.
+   */
+  "hakob-paronyan": "photo-referenced",
+
+  /*
+   * §98. Three lifetime references were opened and read directly for this one, and
+   * the entry records which was used as facial authority, because they disagree with
+   * each other more than any previous subject's did.
+   *
+   * The authority is the **studio portrait credited to the Charents Museum of
+   * Literature and Art, Yerevan** — the mid-life photograph, dark curly hair greying
+   * at the temples, a full horizontal moustache over a clean-shaven jaw, near-frontal
+   * with a level gaze. The artwork agrees with it on face width and length, forehead
+   * height, hairline arc and temporal recession, hair volume and grey distribution,
+   * brow weight *and* the brow asymmetry, eye set and lid shape, nose bridge, length
+   * and tip, moustache geometry, the large protruding left ear, cheeks, jaw and chin.
+   * That is a matter of record, so the caption may say it.
+   *
+   * Two other lifetime photographs survive and were consulted only to corroborate the
+   * invariants, never for hair, facial hair or age: the recto of the Tiflis Provincial
+   * Gendarme Administration registration card held by the National Archive of Georgia,
+   * which carries a frontal and a profile of him at about forty with a full dark beard
+   * and is the best evidence for skull width, ear set and nose profile; and the late
+   * `azg.am` studio portrait, which shows him white-haired and entirely clean-shaven.
+   * Neither contributed a feature. The artwork is one period, not a synthesis.
+   *
+   * Two images in the same Commons category were seen and **deliberately not used**,
+   * which is the §87 rule applied for the fourth time in this map. The picture widely
+   * captioned "c. 1880" is not a photograph at all — it is a lithograph published in
+   * the Constantinople French-language paper `La Patrie` in 1910 and held by the BnF
+   * — and the 2008 Armenian commemorative stamp is not facial authority either.
+   * `photo-referenced` here means a photograph was read, not that some image survives.
+   */
+  "alexander-shirvanzade": "photo-referenced",
 };
 
 /** A portrait's likeness basis. Unlisted slugs are `imagined` — see above. */

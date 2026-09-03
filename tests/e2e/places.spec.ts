@@ -3129,10 +3129,42 @@ test("no unrelated article artwork changed", () => {
     // `PORTRAIT_PROVENANCE`, which this snapshot cannot see and `writers.spec.ts`
     // asserts. Extended by one line, every other value byte-identical.
     "nerses-shnorhali": "/images/writers/nerses-shnorhali.webp",
+    // §89 adds Siamanto, the fourth Writers registration to turn this snapshot red
+    // and the one that closes the section at ten: every writer in the archive now
+    // has a portrait and `PENDING_ARTWORK` is empty again. He is the second slug in
+    // `PORTRAIT_PROVENANCE`, taking `photo-referenced` on the strength of two
+    // identified lifetime photographs — which this snapshot cannot see and
+    // `writers.spec.ts` asserts. Extended by one line, every other value
+    // byte-identical.
+    siamanto: "/images/writers/siamanto.webp",
+    // §96 adds Paronyan, the fifth Writers registration to turn this snapshot red
+    // and the one that closes the section at eleven. He is the third slug in
+    // `PORTRAIT_PROVENANCE`, taking `photo-referenced` from one surviving lifetime
+    // studio photograph — which this snapshot cannot see and `writers.spec.ts`
+    // asserts. Like Varoujan at §85, his file was delivered twice: the first was
+    // refused for a readable masthead. Also invisible from here, and deliberately:
+    // the path is what this snapshot pins, and the path is new. Extended by one
+    // line, every other value byte-identical.
+    "hakob-paronyan": "/images/writers/hakob-paronyan.webp",
+    // §98 adds Writer #12, the fifth Writers registration to turn this snapshot red
+    // and the one that completes the section at twelve — twelve writers, twelve
+    // portraits, `PENDING_ARTWORK` empty archive-wide. What makes the file unusual
+    // is invisible from here, which is the point of a path snapshot: it is the
+    // section's first close half-length on a plain ground with no desk, no books and
+    // no prop of any kind. Extended by one line, every other value byte-identical.
+    "alexander-shirvanzade": "/images/writers/alexander-shirvanzade.webp",
     anush: "/images/works/anush.webp",
     "david-of-sassoun": "/images/works/david-of-sassoun.webp",
     "wounds-of-armenia": "/images/works/wounds-of-armenia.webp",
     "the-fool": "/images/works/the-fool.webp",
+    // §93 adds the Book of Lamentations — the first *Works* registration ever to
+    // turn this snapshot red, after five Cuisine and four Writers ones, and the
+    // registration that leaves every article in every section with a cover. It is
+    // artwork for a book rather than a portrait of a person, so it is deliberately
+    // absent from `PORTRAIT_PROVENANCE`, which this snapshot cannot see and
+    // `works.spec.ts` asserts. Extended by one line, every other value
+    // byte-identical.
+    "book-of-lamentations": "/images/works/book-of-lamentations.webp",
     lavash: "/images/cuisine/lavash.webp",
     dolma: "/images/cuisine/dolma.webp",
     khorovats: "/images/cuisine/khorovats.webp",
@@ -4775,11 +4807,13 @@ test("the four existing category listings still load and still count what they d
   const expected: [string, number, string][] = [
     ["history", 7, dict.listing.history.title],
     // §81 moves Writers 6 → 7 with Grigor Narekatsi, §84 moves it 7 → 8 with
-    // Daniel Varoujan and §86 moves it 8 → 9 with Nerses Shnorhali. Edited rather
-    // than derived on purpose: this test exists to notice when another section
-    // grows, and it has now done so three times, going red first on each.
-    ["writers", 9, dict.listing.writers.title],
-    ["works", 4, dict.listing.works.title],
+    // Daniel Varoujan, §86 moves it 8 → 9 with Nerses Shnorhali, §88 moves it
+    // 9 → 10 with Siamanto, §94 moves it 10 → 11 with Hakob Paronyan and §97 moves
+    // it 11 → 12 with Alexander Shirvanzade. Edited rather than derived on purpose:
+    // this test exists to notice when another section grows, and it has now done so
+    // six times, going red first on each.
+    ["writers", 12, dict.listing.writers.title],
+    ["works", 5, dict.listing.works.title],
     // §67 moves Cuisine 6 → 7 with Spas, §70 moves it 7 → 8 with jingalov hats,
     // §72 moves it 8 → 9 with khash, §74 moves it 9 → 10 with matsun, §77 moves it
     // 10 → 11 with basturma and §79 moves it 11 → 12 with manti. Edited rather than

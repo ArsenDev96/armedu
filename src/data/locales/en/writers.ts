@@ -110,6 +110,42 @@ export const writers: Writer[] = [
     imageSeed: "nerses-shnorhali",
     notableWorks: ["Lament on Edessa", "Jesus the Son", "I Confess with Faith"],
   },
+  {
+    slug: "siamanto",
+    name: "Siamanto",
+    lifespan: "1878–1915",
+    period: "20th Century",
+    periodId: "20th-century",
+    role: "Poet and editor",
+    description:
+      "The Western Armenian poet born Atom Yarjanian, who gave Armenian free verse its form and wrote the Adana massacre of 1909 into poetry in the year it happened.",
+    imageSeed: "siamanto",
+    notableWorks: ["Կարմիր լուրեր բարեկամէս", "Հայորդիներ", "Հոգեվարքի և հույսի ջահեր", "Սուրբ Մեսրոպ"],
+  },
+  {
+    slug: "hakob-paronyan",
+    name: "Hakob Paronyan",
+    lifespan: "1843–1891",
+    period: "19th Century",
+    periodId: "19th-century",
+    role: "Satirist, playwright and editor",
+    description:
+      "The Constantinople satirist and playwright, known in English as Hagop Baronian, whose comedies and satirical journals made Ottoman Armenian city life a literary subject.",
+    imageSeed: "hakob-paronyan",
+    notableWorks: ["Պաղտասար աղբար", "Ազգային ջոջեր", "Մեծապատիվ մուրացկաններ", "Ատամնաբուժն արևելյան"],
+  },
+  {
+    slug: "alexander-shirvanzade",
+    name: "Alexander Shirvanzade",
+    lifespan: "1858–1935",
+    period: "19th Century",
+    periodId: "19th-century",
+    role: "Novelist and playwright",
+    description:
+      "The realist of oil-boom Baku, born Alexander Movsisyan, whose novels and plays made money, family and social standing the central subject of Armenian prose.",
+    imageSeed: "alexander-shirvanzade",
+    notableWorks: ["Նամուս", "Քաոս", "Պատվի համար", "Մորգանի խնամին"],
+  },
 ];
 
 export const literaryPeriods: Filter[] = [

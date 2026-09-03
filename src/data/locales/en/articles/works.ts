@@ -534,5 +534,259 @@ export const workArticles: Article[] = [
       }
     ],
     relatedSlugs: ["hovhannes-tumanyan", "mesrop-mashtots-armenian-alphabet", "anush"],
+  },
+  {
+    slug: "book-of-lamentations",
+    href: "/works/book-of-lamentations",
+    category: "works",
+    categoryLabel: "Literary Works",
+    title: "Book of Lamentations",
+    seoTitle: "Book of Lamentations: Grigor Narekatsi's Narek",
+    excerpt:
+      "Ninety-five discourses addressed to God, written at the monastery of Narek about 1002 — the book Armenians simply call the Narek, and not the biblical Lamentations.",
+    metaDescription:
+      "Grigor Narekatsi's Book of Lamentations, completed about 1002: its ninety-five discourses, its manuscripts, and why it is not the biblical Lamentations.",
+    summary:
+      "The Book of Lamentations is a single long work of ninety-five discourses addressed to God, written in Classical Armenian by Grigor Narekatsi, a monk of the monastery of Narek in Vaspurakan, and completed around 1002. It is not the biblical Book of Lamentations, which mourns a destroyed city; this one laments the condition of the person speaking it. Armenians have called it simply the Narek for centuries, it was copied more often than any Armenian book except the Gospel, and it is the medieval Armenian work a reader today is most likely to have met in translation.",
+    period: "Medieval prayer cycle",
+    periodId: "medieval",
+    imageSeed: "book-of-lamentations",
+    keywords: [
+      "Book of Lamentations",
+      "Book of Lamentation",
+      "Grigor Narekatsi Book of Lamentations",
+      "Gregory of Narek Book of Lamentations",
+      "Gregory of Narek prayers",
+      "Speaking with God from the Depths of the Heart",
+      "Narek",
+      "Narek book",
+      "Matean voghbergutean",
+      "Matean oghbergutean",
+      "Մատեան ողբերգութեան",
+      "Մատյան ողբերգության",
+      "Նարեկ",
+      "Գիրք աղօթից",
+      "classical Armenian literature",
+      "Armenian prayer book",
+    ],
+    intro:
+      "The Book of Lamentations is the best known work of Armenian literature before the modern period, and the one most often misidentified. It was written in Classical Armenian by a monk at the monastery of Narek, above the southern shore of Lake Van, and finished around the year 1002. It has no plot, no characters and no reader: it is ninety-five long speeches addressed directly to God, in which one voice examines itself without ever arriving at relief. It is not the Lamentations of the Bible, and the resemblance is entirely an accident of English translation. This article is about the book itself — what is in it, how it is built, how it survived, and how a private monastic text became the volume that sat in Armenian houses for a thousand years.",
+    author: "Armat Editorial Team",
+    updated: "2026-09-01",
+    keyFacts: [
+      { label: "Author", value: "Grigor Narekatsi, known in English as Gregory of Narek" },
+      { label: "Completed", value: "About 1002; a colophon carried with the work gives the Armenian year 451" },
+      { label: "Written at", value: "Narekavank, a monastery in Vaspurakan on the southern shore of Lake Van" },
+      { label: "Language", value: "Classical Armenian (grabar)" },
+      { label: "Structure", value: "Ninety-five discourses, called ban in Armenian; often rendered prayers or chapters" },
+      { label: "Armenian title", value: "Մատեան ողբերգութեան, in reformed spelling Մատյան ողբերգության" },
+      { label: "Earliest dated manuscript", value: "Matenadaran MS 1568, copied at Skevra in Cilicia in 1173" },
+      { label: "First printed in full", value: "Marseille, 1673" },
+    ],
+    sections: [
+      {
+        id: "what-the-book-is",
+        heading: "What the Book of Lamentations is",
+        paragraphs: [
+          "The Book of Lamentations is one continuous work in ninety-five parts, written by a monk for God to hear. Each part is a sustained address in the first person, and the book has no narrative of any kind: nothing is recounted, nobody else speaks, and the situation at the end is the situation at the beginning. What changes across it is pressure rather than plot. A speaker who believes he cannot be reconciled with a perfect God keeps saying so, at a length and with an inventiveness that no summary can stand in for.",
+          "It is not the biblical Book of Lamentations, and this needs saying early because English has made the two impossible to tell apart by name. The biblical book mourns the destruction of Jerusalem — a city, a temple, a defeat. Narekatsi's book mourns the condition of the person speaking it. The two share a translated word and nothing else: no shared text, no shared tradition, no borrowing in either direction, and the Armenian title is not a reference to Jeremiah.",
+          "Its standing in Armenian is difficult to overstate without exaggerating, so the plainest measure is the manuscript count. The Matenadaran in Yerevan alone holds eighty-four complete copies and a comparable number of partial ones, made between the twelfth and the eighteenth centuries, and the institution describes it as the most frequently copied book in Armenian after the Gospel. It was also the book Armenians stopped calling by its title: for centuries it has been simply the Narek.",
+        ],
+        links: [{ phrase: "written by a monk for God to hear", slug: "grigor-narekatsi" }],
+      },
+      {
+        id: "the-title",
+        heading: "The title, and why English has four of them",
+        paragraphs: [
+          "The Armenian title is Մատեան ողբերգութեան, Matean voghbergutean, in the classical spelling the work has carried since it was written; Republic-of-Armenia publishing since the orthographic reform writes it Մատյան ողբերգության. Մատեան, matean, is a book in the physical sense — a codex, a volume, a register — and it is the same word that gives the Matenadaran its name. Ողբերգութիւն is built from ողբ, a lament or wailing, and երգ, a song, with an abstract ending: lament-song-ness.",
+          "That second word is where the English trouble starts, because in modern Armenian it is also the ordinary word for tragedy, in the theatrical sense. This is not simply a later drift to be corrected. Annie and Jean-Pierre Mahe deliberately titled their scholarly French translation Tragedie, and Thomas Samuelian, who translated it into English, notes that the word can be rendered either way. The tragic reading is a considered reading of the Armenian, not a mistake about it.",
+          "So English carries several titles, each belonging to a different translator rather than to a different book. Mischa Kudian published Lamentations of Narek in 1977, Samuelian called it Speaking with God from the Depths of the Heart in 2001 after the phrase that heads almost every section, Khachatoor Khachatoorian called it The Book of Sadness the same year, and Abraham Terian's 2021 annotated translation is From the Depths of the Heart. Scholarship generally prefers the singular Book of Lamentation, which is the more literal rendering of an abstract noun in the genitive singular; the plural is what general English usage and the book trade have settled on, and it is the form used here. Underneath all of them is an older Armenian alternative, Գիրք աղօթից, book of prayers, which is how the early printed title pages describe it.",
+        ],
+      },
+      {
+        id: "the-name-narek",
+        heading: "Why it is called the Narek",
+        paragraphs: [
+          "Narek is a place before it is anything else: a village on the southern shore of Lake Van and the monastery beside it. Narekatsi means of Narek, an epithet rather than a surname, formed exactly like Lambronatsi, of Lambron. The book then took the same name from the man, and for most of its life that is what it has been called.",
+          "The shorthand is older and more formal than it sounds. It is not only household speech: the early printed editions put it on their own title pages, which open Narek girk, the Narek book, and the Mekhitarist scholar Gabriel Awetikian titled his Venice commentary Narek, Book of Prayers. So by the eighteenth and nineteenth centuries the nickname was doing duty as a bibliographic title in learned publishing, while the formal title in critical scholarship remained Matean voghbergutean.",
+          "One consequence reaches into the present. Narek is now among the most common male given names in Armenia, given directly after the book and the place. A word that began as the name of a village on Lake Van became the name of a book, and then the name of a person again.",
+        ],
+      },
+      {
+        id: "where-it-was-written",
+        heading: "Narek, Vaspurakan and the political map",
+        paragraphs: [
+          "The monastery of Narek stood in Vaspurakan, the Armenian province wrapped around the eastern and southern shores of Lake Van. In the year the book was finished, Vaspurakan was not a district of a larger Armenian state: it was its own kingdom, ruled by the Artsruni dynasty, which had taken a crown in 908 and held it until 1021. This is worth being exact about, because the period is often described as though there were a single Armenian kingdom. There was not. The Bagratid kingdom centred on Ani was a separate realm to the north, and while the Artsrunis had come to acknowledge Bagratid seniority, Narek was not in Bagratid territory.",
+          "Vaspurakan at the moment of composition was also divided. After the death of Abusahl-Hamazasp the kingdom had been split among his sons, and the years around 1002 fall in the reign of Gurgen-Khachik, who died about the same time as Narekatsi. Two decades later, in 1021, the last Artsruni king ceded the kingdom to the Byzantine Empire in exchange for territory around Sebasteia, and the Armenian polity in which the book was written ceased to exist.",
+          "The monastery itself was founded in the 930s or 940s under the Artsruni king Gagik I, and its school, led first by Anania of Narek, made it one of the significant centres of learning in medieval Armenia. It functioned until 1915 and was demolished around 1951; a mosque stands on the site today, in the Gevas district of Van province in Turkey. The place the book is named after can no longer be visited, which is part of why the name attached itself so firmly to the book.",
+        ],
+      },
+      {
+        id: "when-it-was-written",
+        heading: "When it was written",
+        paragraphs: [
+          "The book is unusual among medieval Armenian works in carrying its own date. A colophon transmitted with it gives the Armenian year 451, which is 1002 in the common era, and states that the author began the work three years after a period of conflict in the church, in what he calls a provisional peace. That is the firmest single piece of evidence there is, and it is why about 1002 is the date normally printed.",
+          "Around it there is a small spread rather than a disagreement. Abraham Terian writes around 1003, Samuelian around 1001, and the standard English reference gives about 1002 to 1003, all of them placing the work at the very end of a life that ended about 1003. Jean-Pierre Mahe adds a qualification worth keeping: on his reading the ninety-five pieces accumulated over more than a decade and were then given their architecture, so the book was finished at the end of Narekatsi's life without having been written in a single late burst. Nothing supports the deathbed version of the story.",
+          "One date in circulation is simply an error. The year 977 is sometimes attached to the Book of Lamentations, but 977 is the year Narekatsi was ordained priest and wrote his Commentary on the Song of Songs. It has nothing to do with this book.",
+        ],
+      },
+      {
+        id: "the-ninety-five-discourses",
+        heading: "The ninety-five discourses",
+        paragraphs: [
+          "The work has ninety-five parts, and the number is stable: no manuscript tradition or edition divides it differently. In the manuscripts and in the critical edition each is headed ԲԱՆ with a number — ban, plural bank, an ordinary Armenian word meaning word, speech or discourse, and the word used to translate the Greek logos in the opening of John's Gospel. The units are therefore not chapters in a book of chapters; they are speeches, each one an address begun and completed.",
+          "Translators have rendered ban in almost every available way, which is why English descriptions of the book disagree with each other. Terian, Samuelian and the Matenadaran call them prayers; Jesse Arlen calls them discourses; the French tradition and most encyclopedias call them chapters; Kudian's title calls them soliloquies. Calling them ninety-five poems is not wrong but loses something, because it suggests free-standing lyrics rather than parts of one sustained address. There is no single citation convention either: Terian numbers by prayer and section, Arlen by discourse and lettered subsection, Samuelian by number and letter.",
+          "The arrangement is not arbitrary. Mahe proposed reading the ninety-five as a movement through an Armenian church — from the narthex where penitents stood, to the nave, to the sanctuary — and Narekatsi himself describes the book as constructed like an edifice. The authenticity of a few individual pieces has been questioned: Mkrtich Mkryan argued on stylistic grounds that discourse 93 and parts of 26, 33 and 34 read as theological prose unlike the rest and might not be the author's. The 1985 critical edition examined the manuscript evidence and retained them, and the doubt is now a footnote in the scholarship rather than a live position.",
+        ],
+      },
+      {
+        id: "verse-or-prose",
+        heading: "Is it poetry?",
+        paragraphs: [
+          "This turns out to be a real question rather than a pedantic one, and most popular descriptions get it wrong in a specific way. The manuscripts do not lay the text out as verse. They transmit continuous writing, and the lines that readers see in modern editions and translations are an editorial decision made much later — one 2016 Armenian editor removed the lineation again for exactly that reason. No fixed metre has been established for the work.",
+          "What is unmistakably present is rhythm, built from balanced clauses, controlled pauses, heavy sound-patterning and frequent rhyme. The effect is of measured speech under pressure rather than of verse in a form. Scholars accordingly reach for compound descriptions: rhythmic prose or free verse, prayer-poems, penitential prayers, a personal lyric and confessional poem, mystic soliloquies. Arlen's characterisation is the most precise available — a text for keeping watch, written to be used by a monk during a solitary night vigil, which explains both its length and its unrelieved intensity.",
+          "This site files the work under Poetry, which is the closest of the three genre filters it maintains for literary works and is not a full description. A prayer cycle in rhythmic Classical Armenian prose, meant to be spoken aloud through a night, is not what the word poetry ordinarily calls to mind, and the label is a convenience of the catalogue rather than a claim about the text.",
+        ],
+      },
+      {
+        id: "the-speaking-voice",
+        heading: "Who is speaking",
+        paragraphs: [
+          "The book accuses its speaker of an enormous catalogue of sins, in the first person, in language of complete self-condemnation. The natural assumption is that this is autobiography, and it is the single most common misreading of the work. Abraham Terian, who translated it, puts the objection bluntly: it is unrealistic to suppose that Narekatsi had personally committed every sin the book lists.",
+          "What the speaker is instead is a representative. In the reading E. A. Nazaryan sets out, the I of the book is not an autonomous individual but a person standing for humanity, whose soul is answerable for all human sin — a confessional structure aimed at union with God rather than a record of one monk's failings. Narekatsi says as much himself. He describes the book as speaking in his place, with his voice, as though it were him; in the third discourse he writes that through these prayers supplication may be made on behalf of some and counsel given to others; and the work opens by stating that it was undertaken at the request of monks and hermits. It was commissioned, and it was built to be borrowed.",
+          "That is also why the sins have to be exhaustive rather than personal. If the text is a script that a reader takes into their own mouth during vigil, as Arlen argues, then it has to cover more ground than any one life contains. The alternative reading has not vanished — the New Catholic Encyclopedia describes the work as an analysis of Gregory's own spiritual progress — and the honest position holds both: a genuine penitent is speaking, and the voice has been deliberately universalised so that anyone can speak it. What should not be done is to read the catalogue as a confession of things Narekatsi did.",
+        ],
+      },
+      {
+        id: "lament-confession-hope",
+        heading: "Lament, confession and what the book is doing",
+        paragraphs: [
+          "Lamentation here is penitential, not commemorative. Nothing historical is being mourned: no massacre, no fallen city, no dead. What is lamented is the distance between the speaker and God, and the speaker's conviction that he is unable to cross it. Samuelian locates the tragic element precisely in that self-knowledge — the failure to recognise one's own condition, and the attempt to conceal it, is what the book treats as the disaster.",
+          "The translators themselves found the English word misleading. Terian has said that Penitential Prayers would be a more accurate title than Lamentations, and titled his own version from the recurring Armenian phrase that heads the discourses instead. Mahe went the other way and chose Tragedie. Two of the work's most serious modern translators, in two languages, declined to use the word lamentation as their title — which is the clearest indication available that the English name of this book is a problem inside the scholarship and not only for search engines.",
+          "The book is not, however, an exercise in despair. The pressure it sustains is created by holding hope and incapacity together rather than resolving them: the speaker asks for mercy he does not believe he has earned, and keeps asking. Whether that is read theologically or as literary technique, it is the mechanism that makes ninety-five discourses possible on a subject that a shorter book would exhaust in ten pages.",
+        ],
+      },
+      {
+        id: "the-armenian-of-the-book",
+        heading: "The Armenian it is written in",
+        paragraphs: [
+          "The language is grabar, Classical Armenian, which by the tenth century was a learned written language rather than anyone's speech. Narekatsi writes it at the top of its range: long chains of near-synonyms, compounds formed on the spot, and sentences extended far past the length the language was built to carry. The difficulty is not a modern reader's problem. Medieval Armenian readers found the book hard too, and the reason a substantial commentary tradition exists at all is that the text needed explaining almost from the beginning.",
+          "Word-formation is the feature everyone reports, and the figures attached to it need care. The Matenadaran, citing the linguist Vardan Arakelyan, puts the number of new words in the Book of Lamentations at about seven hundred. The much-repeated figure of more than two and a half thousand coinages comes from Hrachik Mirzoyan and refers to Narekatsi's writing as a whole, not to this book. The two numbers are not alternatives to each other, and quoting either as the count for this work would misrepresent it.",
+          "What he did with the language was not invention from nothing. His teacher Anania of Narek had written on compunction and tears, and specialists describe the Book of Lamentations as developing that teaching rather than departing from it; behind both stands a longer ascetic tradition — Ephrem the Syrian, Evagrius, John Cassian, John Climacus, Isaac of Nineveh, and his own contemporary Symeon the New Theologian. Narekatsi did not invent the penitential prayer. He took an inherited form to a scale and a linguistic intensity that Armenian had not seen, and that is a large enough claim to be worth stating accurately.",
+        ],
+      },
+      {
+        id: "the-bible-in-the-book",
+        heading: "The Bible inside the book",
+        paragraphs: [
+          "The Psalms are the model, and the debt is structural rather than ornamental. What the Psalter supplies is a grammar of address: a first person that can accuse itself in front of God without collapsing, and that can speak for a whole community while still saying I. That is exactly the move the Book of Lamentations makes at length, and several discourses meditate directly on individual psalms.",
+          "The scriptural texture is dense enough to be load-bearing. When modern Armenian translations left the biblical allusions unannotated, whole passages became unclear — a practical demonstration that the references carry meaning rather than decorate it. The medieval commentators understood this: when Nerses of Lambron treated the thirty-third discourse in 1177, his method was to set Narekatsi's prayer alongside the biblical books it draws on.",
+          "A distinction is worth keeping here, because it is often blurred. Prayers and hymns by Narekatsi did enter Armenian liturgical use, and some of his chants are still sung. The Book of Lamentations itself is a private prayer book rather than a liturgical one: it is not a fixed text in the Divine Liturgy or the Book of Hours, and its life has been devotional — read alone, read aloud beside the sick, kept in the house.",
+        ],
+      },
+      {
+        id: "manuscripts",
+        heading: "The manuscripts",
+        paragraphs: [
+          "The earliest dated copy is a small parchment codex made in 1173 at the monastery of Skevra in Cilicia, commissioned by Nerses of Lambron, then bishop of Tarsus. It is held in the Matenadaran in Yerevan as MS 1568. It measures about 15.4 by 11.5 centimetres, runs to some 343 folios, and is illuminated in tempera and gold with ornamented headpieces, decorated initials and four portraits of the author. The artist is Grigor Mlichetsi, also called Grigor Skevratsi after the monastery where he ran the scriptorium; sources differ on whether he copied the text as well as illuminating it.",
+          "Two things about that manuscript are regularly overstated. Institutional sources call it the earliest dated copy, not the earliest complete one, and the stronger claim does not appear in any of them. And it is not only a copy of the poem: Nerses of Lambron bound into it a Life of Grigor Narekatsi that he had compiled, which makes MS 1568 the earliest surviving source of biographical information about the author as well as the earliest dated copy of his book.",
+          "After that the tradition is broad rather than thin. The Matenadaran holds eighty-four complete copies and a comparable number of partial ones from the twelfth to the eighteenth centuries, including a copy of 1377 as MS 4041. Care is needed with catalogue numbers here: MS 5159, sometimes listed alongside these, is a commentary on the Book of Lamentations copied in 1750, not the work itself. The Matenadaran has digitised the volumes of its main catalogue, but there is no public shelfmark search on its site, so individual manuscripts are difficult to verify online.",
+        ],
+        links: [{ phrase: "It is held in the Matenadaran in Yerevan as MS 1568", slug: "matenadaran" }],
+      },
+      {
+        id: "printing",
+        heading: "How it reached print",
+        paragraphs: [
+          "The book's first appearance in print is a detail worth knowing, because it says something about how the work was already being used. Long extracts from it were included in the Urbatagirk, the Book of Friday, printed by Hakob Meghapart in Venice in 1512 — the first book ever printed in Armenian. The Urbatagirk is a compilation of cures and prayers for the sick, so the earliest printed Armenian text carrying Narekatsi carries him inside a healing-prayer book. Some Armenian sources date that printing to 1513; Meghapart's press ran in 1512 and 1513, and the two dates refer to the same short episode.",
+          "The complete text was first printed in Marseille in 1673 by Voskan Yerevantsi, who had produced the first printed Armenian Bible in Amsterdam seven years earlier and moved his press to Marseille in the early 1670s. Some accounts add that the edition ran into Catholic censorship; that claim rests on a single line of reporting and is repeated here as a claim rather than a fact.",
+          "Printing then concentrated where Armenian printing generally was: something in the order of thirty-two editions at Constantinople, fifteen at Venice, six at Jerusalem and three at Smyrna, with single editions elsewhere. The commentaries were printed alongside — Hakob Nalian's at Constantinople in 1745, Gabriel Awetikian's at Venice from 1801. The modern scholarly basis for all serious work on the text is the critical edition prepared by P. Khachatryan and A. Ghazinyan and published by the Armenian Academy of Sciences in Yerevan in 1985, which some catalogues date 1986.",
+        ],
+      },
+      {
+        id: "translations",
+        heading: "Translation, beginning with Armenian",
+        paragraphs: [
+          "The first audience that needed a translation was Armenian. Grabar had to be rendered into the modern language for ordinary readers, and it was done separately in the two branches: into Western Armenian by Misak Gochoonian at Constantinople in 1902, by Bishop Torgom Gushakian at Cairo in 1926 and by Bishop Garegin Khachaturian at Constantinople the same year, revised at Buenos Aires in 1948; into Eastern Armenian by Mkrtich Kheranyan in 1960, by Vazgen Gevorgyan in 1979, and by Father Mesrop Aramyan in 2019. Kheranyan's version omitted the prefatory title-piece altogether, because whether it is the author's own has never been settled.",
+          "In Russian the sequence begins early and oddly: Iosif Ioanesov published the closing section of the twelfth discourse in Saint Petersburg in 1810 as a Prayer Against Nocturnal Terrors, which is direct evidence that individual parts had acquired specific protective uses. Naum Grebnev's verse selections of 1969 and 1977 made the work known across the Soviet Union, and are the text Alfred Schnittke set in his Concerto for Choir in 1985; the standard scholarly prose translation is that of M. Darbinyan-Melikyan and L. Khanlaryan, Moscow, 1988.",
+          "In French, Isaac Kechichian's complete version appeared in 1961, and Annie and Jean-Pierre Mahe's annotated translation was published by Peeters in 2000 in the Corpus Scriptorum Christianorum Orientalium. In English there are four: Mischa Kudian's partial version of 1977, covering the first twenty-five discourses; Thomas Samuelian's complete translation of 2001, which is freely readable online and is how most English readers have met the book; Khachatoor Khachatoorian's of 2001; and Abraham Terian's annotated scholarly translation of 2021. This article quotes none of them. The Armenian original is long out of copyright; the modern translations are not, and describing how the book works is a better use of the space than reproducing someone else's English.",
+        ],
+      },
+      {
+        id: "the-narek-in-armenian-life",
+        heading: "The Narek in Armenian life",
+        paragraphs: [
+          "The book left the monastery early and entered ordinary houses, and its domestic life is as much a part of its history as its manuscripts. It was owned by families who could not read grabar, kept with the household's valuables, and treated as an object with standing rather than as a text to be studied. By the medieval period it was already being called the Narek and described as a medicine of life.",
+          "The practices attached to it are documented across several centuries and should be described exactly as what they are: religious belief and devotional custom. Malachia Ormanian, Armenian Patriarch of Constantinople, wrote in 1912 that the Narek was used for private prayer and was regarded as a potent talisman against dangers of every kind. Individual passages were read aloud beside the sick; particular discourses acquired particular purposes, which is why the end of the twelfth could be published in Russian as a prayer against night terrors; and prayers from the book were copied into hmayil, the Armenian amulet scrolls. Ethnographic fieldwork carried out in the Aparan district between 2016 and 2023 recorded families still keeping shrine-books — most often Gospels and works of Narekatsi — with a designated keeper and a place of honour in the house.",
+          "This article records those traditions as reception history, which is what they are. It makes no claim that the book cures or treats illness, and nothing here should be read as a medical statement. What the record supports is that Armenians believed the book had protective power, acted on that belief for centuries, and in places still do.",
+        ],
+      },
+      {
+        id: "afterlife",
+        heading: "Afterlife and influence",
+        paragraphs: [
+          "The best-documented influence is also the earliest. Nerses of Lambron did three things for the book in the twelfth century: he commissioned the 1173 manuscript, he wrote the Life of the author that travels with it, and in 1177 he devoted a section of a liturgical treatise to the thirty-third discourse. Between them those acts amount to the beginning of Narek scholarship, and they are the reason the Cilician church took the work up so thoroughly.",
+          "For the generations that followed, one Armenian study identifies Grigor Marashetsi, Nerses Shnorhali and Grigor Tlay as the first inheritors, and argues that Shnorhali took the tiered structure of Narekatsi's prayer and recast it in rhymed verse. That is a claim about architecture and not about wording: no direct textual borrowing has been shown, and Shnorhali's own prayer cycle is organised on a quite different principle, twenty-four prayers for the twenty-four hours rather than ninety-five discourses.",
+          "For the modern period the honest word is invoked rather than influenced. Yeghishe Charents wrote a poem in homage to Narekatsi, and Armenian criticism reads Siamanto's accumulation of epithets as having affinities with the tenth-century text — a comparison made by critics rather than a debt claimed by the poet. The book also collected honours that belong to its reception rather than to itself: when Pope Francis named Grigor Narekatsi a Doctor of the Church in April 2015, the apostolic letter referred to the Liber Lamentationum, noted that Armenians call it simply the Narek, and described it as the most venerated and most widely circulated writing in Armenia after the Gospel. That is a judgement about the book's standing, arrived at nine centuries after it was written.",
+        ],
+        links: [
+          { phrase: "Nerses Shnorhali and Grigor Tlay as the first inheritors", slug: "nerses-shnorhali" },
+          { phrase: "Armenian criticism reads Siamanto's accumulation of epithets", slug: "siamanto" },
+        ],
+      },
+    ],
+    importantDates: [
+      { year: "about 1002", event: "The book is completed at Narek; its colophon gives the Armenian year 451." },
+      { year: "1173", event: "The earliest dated copy is made at Skevra in Cilicia for Nerses of Lambron, now Matenadaran MS 1568." },
+      { year: "1177", event: "Nerses of Lambron comments on the thirty-third discourse, the beginning of Narek scholarship." },
+      { year: "1512", event: "Long extracts appear in the Urbatagirk, the first printed Armenian book." },
+      { year: "1673", event: "The complete text is printed for the first time, at Marseille, by Voskan Yerevantsi." },
+      { year: "1745", event: "Hakob Nalian's commentary is printed at Constantinople." },
+      { year: "1902", event: "The first modern Western Armenian translation is published at Constantinople." },
+      { year: "1985", event: "The critical edition of P. Khachatryan and A. Ghazinyan appears in Yerevan." },
+      { year: "2001", event: "Thomas Samuelian's complete English translation is published in Yerevan." },
+    ],
+    significance: {
+      heading: "Why the Book of Lamentations matters",
+      paragraphs: [
+        "It is the earliest Armenian book with a continuous popular life rather than only a scholarly one. A great deal was written in Armenian before it, and most of that is now read by specialists; this one was copied more than any Armenian book except the Gospel, kept in houses where nobody could read the language it was written in, and is still the first title named when Armenians are asked what their literature has produced.",
+        "Technically it demonstrated that a single voice could carry a book. Medieval literature is full of narrators, but a work of this length with no story, no second speaker and no resolution, sustained purely by one person examining himself in front of God, was an extraordinary thing to attempt and remains difficult to find a parallel for. That is why it has been translated repeatedly into both modern Armenians and into a dozen other languages, and why a reader coming to Armenian literature for the first time is most likely to arrive here.",
+      ],
+    },
+    interestingFacts: [
+      "The manuscripts do not lay the text out in verse lines; the lineation in modern editions and translations is an editorial addition.",
+      "The ninety-five sections are called ban in Armenian, the same word used to translate the Greek logos in the opening of John's Gospel.",
+      "Long extracts from the book appeared in the very first Armenian printed book, the Urbatagirk of 1512, a collection of cures and prayers.",
+      "The end of the twelfth discourse was published in Russian in 1810 under the title Prayer Against Nocturnal Terrors.",
+      "Narek is now one of the commonest male given names in Armenia, taken from the monastery by way of the book.",
+      "Alfred Schnittke set Naum Grebnev's Russian version of the text in his Concerto for Choir in 1985.",
+    ],
+    relatedFigures: [
+      {
+        name: "Anania Narekatsi",
+        lifespan: "died about 980",
+        description:
+          "Founder and first abbot of the school at Narek, and the teacher whose writing on compunction and tears the book develops.",
+      },
+      {
+        name: "Nerses of Lambron",
+        lifespan: "1153–1198",
+        description:
+          "Bishop of Tarsus who commissioned the 1173 manuscript, wrote the Life bound into it, and produced the first commentary on a discourse.",
+      },
+      {
+        name: "Grigor Mlichetsi",
+        lifespan: "died 1215 or 1216",
+        description:
+          "Illuminator at the Skevra scriptorium, also called Grigor Skevratsi, who decorated MS 1568 and painted its four portraits of the author.",
+      },
+      {
+        name: "Voskan Yerevantsi",
+        lifespan: "1614–1674",
+        description:
+          "Printer of the first Armenian Bible who issued the first complete printed edition of the Book of Lamentations at Marseille in 1673.",
+      },
+    ],
+    relatedSlugs: ["grigor-narekatsi", "matenadaran", "nerses-shnorhali"],
   }
 ];
