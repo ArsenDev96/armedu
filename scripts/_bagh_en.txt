@@ -1,0 +1,263 @@
+  {
+    slug: "baghdasar-aghbar",
+    href: "/works/baghdasar-aghbar",
+    category: "works",
+    categoryLabel: "Literary Works",
+    title: "Baghdasar Aghbar",
+    seoTitle: "Baghdasar Aghbar: Paronyan's 1886 Comedy",
+    excerpt:
+      "Hakob Paronyan's comedy in three acts, written at Constantinople in 1886: a husband who wants a divorce, and a community that decides he did not see what he saw.",
+    metaDescription:
+      "Baghdasar Aghbar is Hakob Paronyan's comedy in three acts, written in 1886 and first staged in 1895, four years after his death. Its plot, its satire and its titles.",
+    summary:
+      "Baghdasar Aghbar is a comedy in three acts by Hakob Paronyan, written at Constantinople in 1886 and printed the same year in his own satirical journal. A wealthy Constantinople Armenian discovers that his wife has a lover — his own closest friend — and goes to the Armenian community's matrimonial tribunal for a divorce. He never gets one. Lawyer, lover and councillors between them decide that what he saw was an optical illusion, and he is made to say so himself. Paronyan died in 1891 without seeing any of his plays performed; this one reached the stage at Tiflis in 1895.",
+    period: "Comedy, 1886",
+    periodId: "19th-century",
+    imageSeed: "baghdasar-aghbar",
+    keywords: [
+      "Baghdasar Aghbar",
+      "Baghdasar Aghpar",
+      "Baghdasar Akhpar",
+      "Uncle Baghdasar",
+      "Brother Baghdasar",
+      "Balthazar Paronyan",
+      "Hakob Paronyan Baghdasar",
+      "Hagop Baronian Baghdasar",
+      "Պաղտասար աղբար",
+      "Հակոբ Պարոնյան Պաղտասար աղբար",
+      "Armenian comedy",
+      "Armenian play",
+      "Western Armenian theatre",
+      "Constantinople Armenian satire",
+    ],
+    intro:
+      "Baghdasar Aghbar is a comedy in three acts by Hakob Paronyan, the satirist of Ottoman Constantinople, written in 1886. Its subject is a man who is entirely in the right and is destroyed by it: Baghdasar has seen his wife leaving a house with another man, wants a divorce, and takes the case to the tribunal his community keeps for such things. Over three acts the lawyer he hires, the friend who is his wife's lover, and the councillors who are supposed to judge the matter agree among themselves that he saw nothing — and by the end he is repeating their word for it in front of witnesses. Paronyan died in 1891 without seeing it or any of his other plays on a stage.",
+    author: "Armat Editorial Team",
+    updated: "2026-09-03",
+    keyFacts: [
+      { label: "Author", value: "Hakob Paronyan (1843–1891), also written Hagop Baronian" },
+      { label: "Form", value: "Comedy in three acts; the text calls itself Կատակերգություն երեք արարքով" },
+      { label: "Written", value: "1886, at Constantinople" },
+      { label: "First printed", value: "Serialised in Paronyan's own journal Խիկար, August to December 1886 and January to February 1887" },
+      { label: "First staged", value: "Tiflis, 1895, four years after the author's death" },
+      { label: "Setting", value: "Baghdasar's house, in the Armenian community of Constantinople" },
+      { label: "Main characters", value: "Պաղտասար աղբար, Անույշ, Կիպար, Օգսեն, Փայլակ, Երկաթ, Սուր, Սողոմե" },
+      { label: "Text of record", value: "Հակոբ Պարոնյան, Երկերի ժողովածու, volume 1, Yerevan, 1962" },
+    ],
+    sections: [
+      {
+        id: "what-the-play-is",
+        heading: "What Baghdasar Aghbar is",
+        paragraphs: [
+          "Baghdasar Aghbar is a comedy in three acts by Hakob Paronyan, written at Constantinople in 1886. The text gives its own genre on the title page — Կատակերգություն երեք արարքով, a comedy in three acts — and it is the last play he wrote. It is also the play of his that has been performed most, though he never saw a performance of it.",
+          "The situation is domestic and the target is not. A prosperous Constantinople Armenian finds out that his wife is unfaithful and applies for a divorce; the machinery his community maintains for deciding such cases takes the application, turns it around, and returns him a verdict against himself. Nothing supernatural or improbable happens. Everyone behaves according to their interest, and the interests are arranged so that the one person telling the truth is the one person who cannot be believed.",
+          "It is worth saying at the start what this article is about, because the name is used for several things. Պաղտասար աղբար is the play; it is also the name of the man in it; and in English it appears under at least six different titles, none of them standard. The second section sorts those out.",
+        ],
+        links: [{ phrase: "comedy in three acts by Hakob Paronyan", slug: "hakob-paronyan" }],
+      },
+      {
+        id: "the-title",
+        heading: "The title, and the word աղբար",
+        paragraphs: [
+          "Պաղտասար is the Armenian form of the name Balthasar. Աղբար is the difficult half. It is a dialectal, spoken form of եղբայր, brother, used as a term of address — and the standard dialect dictionary of Armenian, which marks it as dialectal and refers it to the variant աղբեր, opens that word's list of dialects with Constantinople itself. The form is native to the city the play is set in.",
+          "That matters, because it rules out the reading the title most invites. Աղբար does not make Baghdasar a provincial or a peasant: the encyclopedia describes him as a wealthy Constantinople Armenian, and so does the criticism. What the word marks is register rather than origin. Literary եղբայր is a learned form, taken back into the modern language from Classical Armenian; աղբար is what the spoken language did with the same word on its own. Calling a man Baghdasar aghbar is homely rather than respectful, and in a title it is faintly comic.",
+          "The play itself says what the name is worth. In the first act his wife tells him that before they married, in his baggy trousers and long coat, he looked like a cook — so that everyone called him Baghdasar aghbar. The title is the mocking name his neighbours gave him, and Paronyan put it over the door.",
+          "One caution about the word belongs here. In the twentieth century ախպար acquired a pejorative edge in Soviet Armenia, where it was applied to diaspora Armenians who repatriated in the years after the Second World War. That sense is later than this play by decades and has nothing to do with it.",
+        ],
+      },
+      {
+        id: "the-english-titles",
+        heading: "Why it has six English titles and no canonical one",
+        paragraphs: [
+          "There is no settled English title for this play, and the reason is that the people best placed to settle it did not agree. Two English translations have been published. Mischa Kudian, who had already given English readers Paronyan's novel as Honourable Beggars, translated the play in 1992 and called it simply Balthazar, dropping the Armenian word entirely. Paul Rapley and Aramazd Stepanian, translating it for an anthology of Armenian playwrights in 2020, kept the Armenian and transliterated it as Baghdasar Akhpar — and then glossed it in parentheses as Uncle Baghdasar, printing both solutions at once rather than choosing.",
+          "Around those two, English writing uses Baghdasar Aghbar, Baghdasar Aghpar, Brother Baghdasar, Brother Balthazar and Uncle Balthazar, more or less interchangeably. The earliest of these is older than it looks: the notes to the Armenian collected works record a French translation of 1913 as Maître Balthasar, an English one published at Boston in 1933 as Uncle Balthazar, and a Russian one of 1937 as Дядя Багдасар. Uncle, in other words, is a solution translators reached for early and independently in more than one language, because English and Russian both have a familiar-respectful way of addressing an older man and neither of them is Brother.",
+          "This article uses Baghdasar Aghbar, which is the form with the widest English currency, and treats it as a transliteration rather than a translation. Where the meaning matters the prose explains it, which is what the translators themselves ended up doing.",
+        ],
+      },
+      {
+        id: "writing-and-publication",
+        heading: "Written 1886, printed in his own journal",
+        paragraphs: [
+          "Paronyan announced the play himself. In the August 1886 number of Խիկար, the satirical journal he edited, he told his readers that he intended to publish a series of comedies drawn from national life, and that he would begin in that issue with a comedy called Պաղտասար աղբար. The serialisation ran from August to December of 1886 and continued through January and February of 1887, and the academic edition of his works is set from that printing.",
+          "So the play was printed in his lifetime, in his own paper, and the common shorthand that dates it to 1886 is the start of the run rather than the whole of it. No separate Armenian book edition is documented before a Constantinople volume of 1910, which prints it together with the unfinished Պռույգ.",
+          "The announcement also explains why he wrote a play at all. He told his readers he would stop publishing allegorical writing — the kind that necessity forces on a satirist, and in which, he said, the satire dies — and would give them instead comedies taken from national manners. That is a statement about censorship as much as about form. Allegory was what a satirist wrote when he could not name things; a comedy of Constantinople manners let him show the institutions working, without having to describe them.",
+        ],
+      },
+      {
+        id: "never-staged-in-his-lifetime",
+        heading: "Why he never saw it performed",
+        paragraphs: [
+          "Paronyan died at Constantinople on 27 May 1891, of tuberculosis and in poverty, and he had seen none of his plays staged. This is not a comment on their quality or on his obscurity, and it is not bad luck. Armenian theatre in the Ottoman capital had been shut down in the course of the 1880s, and there was no stage in the city on which an Armenian comedy could be performed.",
+          "The consequence for this play is exact and easy to state wrongly. It was written in 1886, printed in 1886 and 1887, and first performed in 1895 — four years after its author was dead, and in another empire. Everything that happened to it on a stage is posthumous reception, and none of it can be used as evidence about how it was received when it was new.",
+          "What does survive from his lifetime is a review. M. Santaljyan wrote about the play in Խիկար in May 1887, describing it as a national comedy whose purpose was to mock the conduct of judges in matrimonial cases. That is a reader's response to a printed text, not an audience's to a performance, and it is the only contemporary reaction the record preserves.",
+        ],
+      },
+      {
+        id: "the-situation",
+        heading: "The dramatic situation",
+        paragraphs: [
+          "Baghdasar's wife Anush has a lover, Kipar, who is also Baghdasar's closest and most trusted friend and has been in love with her for ten years. The play opens after the discovery rather than before it: on the previous evening Baghdasar saw his wife coming out of a disreputable house with a man, and he begins the first act knowing that much and not knowing who the man was.",
+          "He hires a lawyer, Ogsen, and applies to the Դատաստանական խորհուրդ, the tribunal the Armenian community of Constantinople maintained for matrimonial cases. What follows is a systematic reversal. Ogsen contracts for a hundred and fifty gold pieces in three instalments and later threatens, in as many words, to have his own client convicted and the wife acquitted if the money is late. Kipar files a counter-suit for slander. Anush files one of her own, appearing with her arm in a sling and a broken arm to prove it, and the council hears her petition before her husband's. Two neighbours are bribed to testify that Baghdasar had promised to marry them, which finishes his credibility.",
+          "He loses everything. The verdict is not a divorce but a separation on terms: he is to leave his own house to his wife, pay her thirty gold a month against a guarantor, and — the detail that stings — if she should ever want him back, he is to have no right to refuse. He is then required to apologise in public and to state, himself, that nobody was at fault and that there had been an optical illusion.",
+          "The ending is not the reconciliation this kind of plot usually arrives at. In the last scene Baghdasar walks in on his wife and Kipar embracing again, goes for Kipar, who runs; and Anush, no longer troubling to conceal anything, tells her husband that she loves Kipar, has never loved him and never will, and walks out angry. The curtain falls on a man alone in a house that is no longer his, with the lie about him now legally on the record.",
+        ],
+      },
+      {
+        id: "baghdasar",
+        heading: "Baghdasar",
+        paragraphs: [
+          "The comedy works because its protagonist is right about the facts and wrong about everything else. Baghdasar is a market man who has made money, and his sense of himself is built on being nobody's fool: his catchphrase, produced at the moments of his deepest blindness, is that people call him Baghdik and he knows his business. He explains to his wife's lover, in confidence and at length, that although he may look coarse and stupid from the outside he can tell a friend from an enemy — and then sends the lover himself to find out the name of the lover.",
+          "The scene that makes the character is in the first act. Ogsen, having just quarrelled with Kipar on the doorstep, comes back in denouncing him: what honour can a man have who for ten years has been the intimate friend of Baghdasar and loves Baghdasar's wife. Baghdasar does not recognise the description. It must be a different Baghdasar, he says; for a moment he thought it was himself. And then, about the man in the story, he delivers the harshest judgement anyone in the play passes on him: who is this Baghdasar aghbar, what an ass of a man he must be. He is entirely correct, and he does not know he is talking about himself.",
+          "Armenian criticism has divided over what to make of him, and the disagreement is worth reporting rather than resolving. An older reading treats him as a tragicomic figure in whom the comic and the tragic are interwoven. Darbinyan rejects the sympathy that reading implies: the author, he argues, shows no positive feeling toward anybody in the play, and Baghdasar only seems to be a suffering husband — the suffering is exactly what is being mocked, because he cannot tell real love from outward attraction. Gldjyan rejects the tragicomic label too, but arrives somewhere else: the sobered Baghdasar of the later acts shows vitality, common sense and a genuine sense of humour, and in extremity is not nearly as stupid as he looks. His verdict is nevertheless severe. This man is a nonentity, he writes, and not a petty nonentity to be pitied as a victim of circumstance — he is one of those responsible for the evil sprouting in his own society.",
+          "The text supports the severity. Asked early in the play what the law ought to do with an unfaithful wife, Baghdasar answers that she should be sent to the national hospital, chained, starved, beaten every night, have her bones broken and be removed from the world. It is the ugliest speech in the comedy and it is his. The audience is not being invited to take his side; it is being shown a man who deserves better than what happens to him and is not, on that account, a good man.",
+        ],
+      },
+      {
+        id: "marriage-and-reputation",
+        heading: "Marriage, jealousy and reputation",
+        paragraphs: [
+          "What Baghdasar wants from the tribunal is not really justice, and the play is precise about this. He wants his standing back. By the end he has understood the machine well enough to use it: the optical illusion, he says to himself, will actually serve him — now he can tell his friends he mistook another woman for his wife. He trades the truth for a story he can repeat in public, knowingly, and the trade is presented as the most humiliating thing that happens to him.",
+          "The play is double-edged about the marriage, and reading it as a simple defence of the wronged husband misses half of it. The case against Baghdasar as a husband is stated in the play, and it is accurate: Anush tells him that he had not grasped the enlightened spirit of the age and regarded his wife as a slave. She is right. She is also an adulteress saying it to get out of a marriage, and her lover is the one who taught her the vocabulary. Paronyan puts a true criticism in a false mouth, and lets neither of them off.",
+          "Around them the same doubleness runs through the economics. Divorce, the lawyer observes, costs more than marriage — with what this is going to cost, Baghdasar says, a man could take three wives. The council's verdict disposes of a household as a matter of maintenance and guarantors. Reputation, in this comedy, is a thing with a price, and everybody in the room knows the figure.",
+        ],
+      },
+      {
+        id: "the-word-that-does-the-work",
+        heading: "The word that does the work",
+        paragraphs: [
+          "The play's engine is a single word: թյուրատեսություն, false seeing, a misapprehension or an optical illusion. Kipar proposes it. The councillors take it up and pass it round in a rising chorus — yes, simply an optical illusion; yes, a perfect optical illusion; indeed more than an optical illusion; and for an optical illusion of that sort, what honourable man could possibly blame Baghdasar aghbar. Nothing has been disproved. A word has been agreed on, and agreement is all that is required.",
+          "Then Baghdasar has to say it himself, in public, as the price of the settlement: he was the cause of a misunderstanding, his wife is innocent, he is innocent, Kipar is innocent, there was an optical illusion in the business. The comedy of the whole play is compressed into that sentence, because the audience has watched every step by which a fact became a word and the word became a verdict.",
+          "And the word detonates in the last seconds. Caught in the act a second time, Kipar reaches for it again — an optical illusion — and this time Baghdasar goes for him. The joke that has been running for three acts stops being funny at exactly the moment the play ends.",
+        ],
+      },
+      {
+        id: "the-tribunal",
+        heading: "The tribunal, the lawyer and the philanthropists",
+        paragraphs: [
+          "The institution being mocked is a real one. The Դատաստանական խորհուրդ was a body of four laymen and four clerics, elected by the Mixed Assembly under the Armenian National Constitution, with jurisdiction over matrimonial matters — the community's own court, in a city where the community ran its own affairs. Paronyan is not inventing a fantastical bureaucracy; he is dramatising a court his audience could have petitioned.",
+          "The satire on procedure is the most quoted thing in the play. Ogsen explains to his client what will become of his petition: it goes to the president, then to the court of initiative, the court of competence, the office of relations, the office of editing, the office of jurisdiction, the economic office, the educational office, then to the tribunal, then to a commission, a sub-commission, a sub-group and an auxiliary sub-group. Councillor Paylak crowns it with a phrase that says everything about the register these men speak in — the summary, he explains, recounts everything in detail: a brief extensiveness.",
+          "The lawyer states his function without embarrassment. He will work, he tells Baghdasar, to have him declared innocent and to make his wife guilty. Kipar puts the profession's principle more neatly: most lawyers find justice and right where they see plenty of gold. Both men attempt to buy the verdict; only Kipar succeeds, which is the play's quietest and least forgiving joke.",
+          "The sharpest strike is aimed at something else — the philanthropic cant of the Constantinople Armenian elite. Ogsen explains that there are extenuating circumstances. If a wife took a lover for a good cause, that is, in aid of national progress and enlightenment, or to benefit some praiseworthy and nationally useful undertaking for orphans, the disabled, the old and the poor, then she would be written up in the newspapers and given laurel wreaths, for having heroically sacrificed private interest to the common good. This is the vocabulary of the community's charitable and patriotic life, quoted exactly and put to this use.",
+        ],
+      },
+      {
+        id: "dramatic-technique",
+        heading: "How the comedy is built",
+        paragraphs: [
+          "The encyclopedia's compact judgement is the best short account of the method: events and characters develop through unexpected disclosures which never halt or interrupt the momentum of the work; the resolutions of the conflicts are witty; and the comedy of situation, and above all of speech, is strong. That last clause is the one to hold on to. This is a play whose funniest effects are verbal.",
+          "The construction is dramatic irony carried to its limit. The audience learns in the opening scene, from the lovers themselves, everything that Baghdasar will spend three acts failing to establish. Every line he addresses to Kipar afterwards has two meanings, and he is deaf to the second. Paronyan reinforces the asymmetry by giving Baghdasar far more asides than anyone else, so the audience is continuously inside the mind of the one man who understands least.",
+          "Beside that runs a comedy of escalation and of derailment. The petition passes through a dozen offices; the lawyer's fee arrives in instalments; three separate suits pile onto one adultery case. And when the tribunal finally convenes to hear it, the councillors spend the session discussing Kipar's father's horse — what it cost, what it is worth now, how high it jumps, how it does after hares — while Baghdasar mutters in the corner asking who brought up the wretched animal. Gldjyan's comment is that after a private visit from Kipar the judges are more interested in the horse's age than in Baghdasar's plight.",
+          "Even the names are doing work. The three councillors are called Paylak, Yerkat and Sur — Lightning, Iron and Sword. Darbinyan calls them satirically generalising names, and the point of them is the distance between what they promise and the pliable, purchasable men who carry them.",
+        ],
+      },
+      {
+        id: "the-language",
+        heading: "The language of the play",
+        paragraphs: [
+          "Paronyan wrote in Western Armenian, and specifically in the spoken idiom of Constantinople. Makaryan's formulation is the one this article follows, because it is the only scholarly characterisation of his dramatic medium that could be located: a writer who began his literary career as a dramatist and ended as one, and who often gives whole pages over to nothing but the living talk of his characters, delivered in rich Constantinople Armenian speech.",
+          "What a reader notices in the text is that the characters do not all speak the same Armenian. Ogsen talks in legal formulas and says so himself — in the language of advocates, he explains, this is called an extenuating circumstance of the offence — and then recites the term in five languages, French, Italian, German, Greek and English, transcribed into Armenian letters. Kipar speaks a florid, abstract, self-consciously modern idiom full of principles and the civilisation of the age, salted with classicising forms. Baghdasar is blunt and paratactic. Soghome the maid is plainest of all, and gets some of the best lines: they have found a fool, she says of the lawyers, and they milk him and milk him.",
+          "A limit should be stated plainly. No study devoted to the language of this play could be found — the linguistic work on Paronyan treats his prose, his wordplay across the whole body of work, or a different comedy. The register differences above are visible in the text and consistent with what the criticism says about the comedy of speech, but they are not the finding of a published study, and this article does not dress them up as one. In particular it makes no claim about Turkish or French borrowings in this play, because no source documents any.",
+          "All of this rests on a fact about the city. The Armenians of Ottoman Constantinople governed much of their own communal life under a National Constitution, with elected assemblies, councils and courts — which is why a play about one divorce can be a play about institutions. The tribunal, the councillors, the procedural offices and the charitable undertakings are parts of a single apparatus, staffed by the notables of a middle class that had lately acquired both money and the vocabulary of progress. Paronyan had spent his working life inside that world as a journalist and editor, and his subject was always the distance between what it said about itself and what it did. These are not generic hypocrites; they are a particular committee, in a particular city, using words the audience had heard at fundraising dinners.",
+        ],
+      },
+      {
+        id: "among-his-satires",
+        heading: "The play among his other satire",
+        paragraphs: [
+          "Paronyan's best-known works belong to three different forms and should not be run together. Ազգային ջոջեր, which began serialisation in 1874, is a series of satirical portrait-biographies of real, living, named Armenian notables. Մեծապատիվ մուրացկաններ, serialised from 1880 and published as a book in 1887, is a novella in which a rich provincial arrives in the capital and is besieged by everyone who wants something from him. Baghdasar Aghbar is a play. So, for that matter, is Ատամնաբոյժն արեւելեան, printed in 1868, which is a comedy and not prose.",
+          "Nor is the drama a late phase that replaced the journalism. He began as a dramatist in 1865, spent the 1870s and early 1880s largely in periodicals and prose, and came back to the stage at the very end. And the return was not a change of channel: Baghdasar Aghbar was running in Խիկար at the same time as his prose series Քաղաքավարության վնասները, in the same journal.",
+          "What does change is the position of the satirist. In the portraits there is a named real subject and a biographer's voice standing outside the picture; in the novella there is a narrator who interrupts, digresses and addresses the reader. In the play there is no authorial voice at all — nothing survives but what the characters say to each other. Sarinyan's formulation catches the effect: here the real and the satirical are of equal weight, there is no parallel track running beside the comedy, and the world is submerged whole inside the satire. Paronyan himself put the general principle more drily, in the novella: every subject has a nature, and if Horace had taken this one he would have made a satire of it and Molière a comedy — but we, who have to live, must suit the times.",
+        ],
+      },
+      {
+        id: "the-first-staging",
+        heading: "The first staging, and a date that is not attested",
+        paragraphs: [
+          "The best-evidenced account of the premiere is that the play was first staged at Tiflis in 1895 by Aram Vruyr, who also played the title part. The Armenian encyclopedia's entry on Vruyr states it in those terms, with a city, a year and a person, and adds that he did the same for Մեծապատիվ մուրացկաններ. Tiflis, not Constantinople: the play reached the stage in the Eastern Armenian theatre of the Russian empire, not in the city it is about.",
+          "A different year, 1896, circulates widely, including in reference works. It should be treated carefully, because no source consulted here attaches a theatre, a company or a person to it. What the underlying Armenian sources actually say is that the play was staged ten years after it was written, which is a round figure taken from 1886 rather than a date; 1896 appears to be that round figure written out as a year. This article gives 1895 with its evidence and records 1896 as the widely repeated alternative.",
+          "A third date is a trap worth naming. The encyclopedia's entry on the actor Hovhannes Abelyan gives 1897 for his Baghdasar. That is when he took the role, not when the play was first performed, and it is easy to misread as a premiere. Taken together the three dates show the part travelling quickly through the Eastern Armenian companies in the second half of the 1890s.",
+          "Beyond Vruyr's name, the premiere is poorly documented. No theatre building, company, full cast or exact date could be established for it here.",
+        ],
+      },
+      {
+        id: "on-the-armenian-stage",
+        heading: "On the Armenian stage",
+        paragraphs: [
+          "From the 1890s the play entered the repertoire and stayed there, which is the plain reason it is the Paronyan work most people have actually seen. In 1927 it was staged in Yerevan at the First State Theatre, the company that would later be named after Gabriel Sundukyan and become the national theatre; it has been revived repeatedly since.",
+          "Two things about that history should be kept apart. The play became canonical in Armenia during the Soviet decades, was reprinted steadily and was taught; and Soviet criticism read it through a class lens, as an exposure of bourgeois morality and of the courts. That is reception, and it is later than the work by two generations. The targets Paronyan chose — a communal matrimonial tribunal, a fee-taking advocate, the charitable rhetoric of Constantinople notables — belong to Ottoman Armenian society in the 1880s, and neither the play's values nor its genre originate in Soviet literary policy. Paronyan was dead more than a quarter of a century before the Soviet period began.",
+        ],
+      },
+      {
+        id: "in-translation",
+        heading: "The play in other languages",
+        paragraphs: [
+          "The notes to the Armenian collected works record the early translations, and they make a useful sequence. A French version appeared at Paris in 1913 as Maître Balthasar, a comedy in three acts. An English one was published at Boston in 1933 as Uncle Balthazar, translated by Ervant D. Megerditchian — and the editors note, with visible irritation, that the translator renamed four of the characters for no reason they could discover, turning the three councillors into Ruben, Toros, Melkior and Gaspar. A Russian translation by Ya. Khachatryants appeared at Moscow in 1937 and was reissued afterwards.",
+          "Two modern English versions exist, and between them they define the title problem described above: Kudian's Balthazar of 1992, which removes the Armenian word, and the 2020 Baghdasar Akhpar, which keeps it and glosses it. A reader looking for the play in English should be prepared to find it under any of these.",
+        ],
+      },
+      {
+        id: "on-screen",
+        heading: "On screen",
+        paragraphs: [
+          "There is one well-documented screen version. Բաղդասարը բաժանվում է կնոջից — Baghdasar Divorces His Wife — was produced by Armenfilm in 1976 and released the following April, directed by Grigor Melik-Avagyan from a screenplay by Aghasi Ayvazyan, with Mher Mkrtchyan, the best-known Armenian comic actor of the period, as Baghdasar.",
+          "Two qualifications belong with it, both from the state film archive's own catalogue record. It is a feature film rather than a filmed stage production, and it is built on motifs of the play rather than being an adaptation of its text. And it renames its protagonist: the film's Բաղդասար is the Eastern Armenian form, where the play's Պաղտասար is the Western one. That difference is worth knowing, because in English search results the film reliably outranks the play, and the two are easy to mistake for one work.",
+        ],
+      },
+      {
+        id: "why-it-lasts",
+        heading: "Why the comedy lasts",
+        paragraphs: [
+          "The mechanism is portable in a way that the setting is not. A man is right; the people around him have reasons to prefer that he be wrong; a word is agreed on; the word becomes the record. Nothing in that requires an Ottoman communal court, and it is why audiences who know nothing about the Armenian National Constitution laugh in the right places.",
+          "What keeps it from being merely a machine is the figure at the centre. Baghdasar is not a victim the audience is asked to pity, and not a fool it is asked to despise, and the criticism has never fully agreed on which he is — which is the strongest evidence that Paronyan built the ambiguity deliberately. He is vain, credulous, brutal in speech, sharper than he looks, and comprehensively defeated. A comedy that can hold all of that in one part is a comedy actors keep wanting to play.",
+        ],
+      },
+    ],
+    importantDates: [
+      { year: "1886", event: "Paronyan announces the comedy in the August number of his journal Խիկար and begins serialising it." },
+      { year: "1887", event: "The serialisation ends in February; M. Santaljyan reviews the play in Խիկար in May, the only response recorded in the author's lifetime." },
+      { year: "1891", event: "Paronyan dies at Constantinople on 27 May, having never seen any of his plays performed." },
+      { year: "1895", event: "First staged at Tiflis by Aram Vruyr, who plays the title role." },
+      { year: "1897", event: "Hovhannes Abelyan takes the part, as the play spreads through the Eastern Armenian companies." },
+      { year: "1910", event: "The earliest documented separate Armenian edition appears at Constantinople, together with the unfinished Պռույգ." },
+      { year: "1913", event: "A French translation is published at Paris as Maître Balthasar." },
+      { year: "1927", event: "Staged in Yerevan at the First State Theatre, the future Sundukyan national theatre." },
+      { year: "1933", event: "An English translation appears at Boston as Uncle Balthazar, with four characters renamed." },
+      { year: "1976", event: "Armenfilm produces Բաղդասարը բաժանվում է կնոջից, a feature film on motifs of the play, with Mher Mkrtchyan." },
+    ],
+    significance: {
+      heading: "Why Baghdasar Aghbar matters",
+      paragraphs: [
+        "It is the play in which Armenian comedy stopped needing a moral. Paronyan gives his audience a wronged husband and then declines to let them side with him, gives them a court and declines to let it be merely corrupt, and ends without a reconciliation, a punishment or a lesson. What the comedy leaves behind is a demonstration: that a community can agree a fact out of existence if enough of its members find that convenient, and that the person it happens to may well be someone nobody much likes.",
+        "It is also the work that carried Western Armenian comedy onto a stage that outlived the world it was written for. The city it describes and the institutions it mocks are gone; the play went on being performed, in a different Armenian, in a different country, for more than a century. That is an unusual afterlife for a topical satire, and it rests on the thing satire is least often praised for — construction.",
+      ],
+    },
+    interestingFacts: [
+      "The title is a nickname from inside the play: Baghdasar's wife tells him that in his baggy trousers and long coat he looked like a cook, so that everyone called him Baghdasar aghbar.",
+      "In the first act Baghdasar hears his own situation described, fails to recognise it, decides it must be a different Baghdasar, and calls the man in the story an ass.",
+      "The lawyer recites the legal term for extenuating circumstances in five languages — French, Italian, German, Greek and English — transcribed into Armenian letters.",
+      "When the tribunal finally sits to hear the adultery case, it spends the session discussing the price and jumping ability of the lover's father's horse.",
+      "The English translator of 1933 renamed four characters, turning the three councillors named Lightning, Iron and Sword into Ruben, Melkior and Gaspar.",
+      "The play was never performed while Paronyan lived, because Armenian theatre in Constantinople had been closed down during the 1880s.",
+    ],
+    relatedFigures: [
+      {
+        name: "Hakob Paronyan",
+        lifespan: "1843–1891",
+        description:
+          "The author, a satirist and periodical editor of Ottoman Constantinople; this was the last of his comedies and the one he came closest to seeing staged.",
+      },
+      {
+        name: "Aram Vruyr",
+        lifespan: "1863–1924",
+        description:
+          "Actor and director, born in Constantinople and working at Tiflis, who staged the play for the first time in 1895 and played Baghdasar himself.",
+      },
+      {
+        name: "Mher Mkrtchyan",
+        lifespan: "1930–1993",
+        description:
+          "The best-known Armenian comic actor of his generation, who played Baghdasar in the Armenfilm feature of 1976 built on motifs of the play.",
+      },
+    ],
+    relatedSlugs: ["hakob-paronyan"],
+  }
