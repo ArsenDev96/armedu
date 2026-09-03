@@ -3146,9 +3146,19 @@ test("no unrelated article artwork changed", () => {
     // the path is what this snapshot pins, and the path is new. Extended by one
     // line, every other value byte-identical.
     "hakob-paronyan": "/images/writers/hakob-paronyan.webp",
-    // §98 registers Writer #12's portrait. This snapshot going red on a Writers
-    // registration is the check working: it is the only test that would notice a
-    // path in another category being retyped in passing.
+    // §98 adds Writer #12 and §100 adds Writer #13 — the fifth and sixth Writers
+    // registrations to turn this snapshot red, and together the pair that completes
+    // the section at thirteen: thirteen writers, thirteen portraits,
+    // `PENDING_ARTWORK` empty archive-wide. They were commissioned in parallel on
+    // separate branches and merged, so this snapshot grew by two lines in one move
+    // rather than one at a time. What makes either file unusual is invisible from
+    // here, which is the point of a path snapshot: Shirvanzade is the section's first
+    // close half-length on a plain ground with no desk, no books and no prop of any
+    // kind, and Bakunts is its first portrait that is not an interior at all. Two
+    // lines added, every other value byte-identical. This snapshot going red on a
+    // Writers registration is the check working: it is the only test that would
+    // notice a path in another category being retyped in passing.
+    "alexander-shirvanzade": "/images/writers/alexander-shirvanzade.webp",
     "aksel-bakunts": "/images/writers/aksel-bakunts.webp",
     anush: "/images/works/anush.webp",
     "david-of-sassoun": "/images/works/david-of-sassoun.webp",
@@ -4805,11 +4815,12 @@ test("the four existing category listings still load and still count what they d
     ["history", 7, dict.listing.history.title],
     // §81 moves Writers 6 → 7 with Grigor Narekatsi, §84 moves it 7 → 8 with
     // Daniel Varoujan, §86 moves it 8 → 9 with Nerses Shnorhali, §88 moves it
-    // 9 → 10 with Siamanto, §94 moves it 10 → 11 with Hakob Paronyan and §97 moves
-    // it 11 → 12 with Aksel Bakunts. Edited rather than derived on purpose: this
-    // test exists to notice when another section grows, and it has now done so six
-    // times, going red first on each.
-    ["writers", 12, dict.listing.writers.title],
+    // 9 → 10 with Siamanto, §94 moves it 10 → 11 with Hakob Paronyan, §97 moves it
+    // 11 → 12 with Alexander Shirvanzade and §99 moves it 12 → 13 with Aksel
+    // Bakunts. Edited rather than derived on purpose: this test exists to notice
+    // when another section grows, and it has now done so seven times, going red
+    // first on each.
+    ["writers", 13, dict.listing.writers.title],
     ["works", 5, dict.listing.works.title],
     // §67 moves Cuisine 6 → 7 with Spas, §70 moves it 7 → 8 with jingalov hats,
     // §72 moves it 8 → 9 with khash, §74 moves it 9 → 10 with matsun, §77 moves it

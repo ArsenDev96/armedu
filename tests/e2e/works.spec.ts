@@ -669,7 +669,7 @@ test("adding the fifth work changed no other section", () => {
     const count = (category: string) =>
       b.articles.filter((a) => a.category === category).length;
 
-    expect(count("writers"), `${locale} writers`).toBe(12);
+    expect(count("writers"), `${locale} writers`).toBe(13);
     expect(count("cuisine"), `${locale} cuisine`).toBe(12);
     expect(count("places"), `${locale} places`).toBe(13);
     expect(count("history"), `${locale} history`).toBe(7);

@@ -135,6 +135,18 @@ export const writers: Writer[] = [
     notableWorks: ["Պաղտասար աղբար", "Ազգային ջոջեր", "Մեծապատիվ մուրացկաններ", "Ատամնաբուժն արևելյան"],
   },
   {
+    slug: "alexander-shirvanzade",
+    name: "Alexander Shirvanzade",
+    lifespan: "1858–1935",
+    period: "19th Century",
+    periodId: "19th-century",
+    role: "Novelist and playwright",
+    description:
+      "The realist of oil-boom Baku, born Alexander Movsisyan, whose novels and plays made money, family and social standing the central subject of Armenian prose.",
+    imageSeed: "alexander-shirvanzade",
+    notableWorks: ["Նամուս", "Քաոս", "Պատվի համար", "Մորգանի խնամին"],
+  },
+  {
     slug: "aksel-bakunts",
     name: "Aksel Bakunts",
     lifespan: "1899–1937",
