@@ -788,5 +788,302 @@ export const workArticles: Article[] = [
       },
     ],
     relatedSlugs: ["grigor-narekatsi", "matenadaran", "nerses-shnorhali"],
+  },
+  {
+    slug: "mtnadzor",
+    href: "/works/mtnadzor",
+    category: "works",
+    categoryLabel: "Literary Works",
+    title: "Mtnadzor",
+    seoTitle: "Mtnadzor: Aksel Bakunts's 1927 Story Collection",
+    excerpt:
+      "Aksel Bakunts's first book: eighteen stories of the Zangezur mountains, published at Yerevan in 1927 and known in English as The Dark Valley.",
+    metaDescription:
+      "Mtnadzor: the 1927 short-story collection by Aksel Bakunts — eighteen stories, not the 1926 story of the same name. Its contents, its landscape and The Dark Valley.",
+    summary:
+      "Mtnadzor is a collection of eighteen short stories by Aksel Bakunts, published at Yerevan in 1927. It was his first book of fiction and the one that made his name as a prose writer. The same word is also the title of the story that opens the book, first printed in a newspaper in 1926; of a second and quite different story inside it; and of several real places in Armenia. The stories are set in the mountain villages of Zangezur, and they treat that landscape as something that acts on people rather than as scenery behind them. The one complete English translation is called The Dark Valley.",
+    period: "1927 short-story collection",
+    periodId: "20th-century",
+    imageSeed: "mtnadzor",
+    keywords: [
+      "Mtnadzor",
+      "Mtnadzor Bakunts",
+      "Aksel Bakunts Mtnadzor",
+      "Axel Bakunts Mtnadzor",
+      "The Dark Valley",
+      "Bakunts The Dark Valley",
+      "Mtnadzor stories",
+      "Mtnadzor collection",
+      "Armenian short stories",
+      "Մթնաձոր",
+      "Ակսել Բակունց Մթնաձոր",
+      "Միրհավ",
+      "Mirhav",
+      "Ալպիական մանուշակ",
+      "Alpine Violet",
+      "Zangezur literature",
+    ],
+    intro:
+      "Mtnadzor is a book of eighteen short stories, published at Yerevan in 1927, and it is the book with which Armenian prose acquired the mountains of its own far south. Aksel Bakunts had been the chief agronomist of Zangezur before he was a published writer of fiction, and the villages he writes about are places whose land and crops he had surveyed professionally. The title is the first difficulty a reader meets: Մթնաձոր names this collection, the story that opens it, a second story further inside it, and real gorges and rivers on the Armenian map. This article is about the collection — what is in it, how it was assembled, what its landscape does inside the stories, and how it reached English as The Dark Valley.",
+    author: "Armat Editorial Team",
+    updated: "2026-09-03",
+    keyFacts: [
+      { label: "Author", value: "Aksel Bakunts (1899–1937)" },
+      { label: "Published", value: "Yerevan, 1927" },
+      { label: "Form", value: "Eighteen short stories; his first book of fiction" },
+      { label: "Title story", value: "Printed in the daily Խորհրդային Հայաստան on 21 November 1926, a year before the book" },
+      { label: "Setting", value: "The villages, forests and gorges of Zangezur, in the far south of Armenia" },
+      { label: "Best-known stories", value: "Մթնաձոր, Միրհավ, Խոնարհ աղջիկը, Ալպիական մանուշակ" },
+      { label: "English translation", value: "The Dark Valley, translated by Nairi Hakhverdi, published in London" },
+      { label: "Standard edition", value: "Ակսել Բակունց, Երկեր, volume 1, Yerevan, 1976, with Rafayel Ishkhanyan's textological notes" },
+    ],
+    sections: [
+      {
+        id: "what-mtnadzor-is",
+        heading: "What Mtnadzor is",
+        paragraphs: [
+          "Mtnadzor is a collection of eighteen short stories by Aksel Bakunts, published at Yerevan in 1927. It was the first book of fiction he published, and the book that turned an agronomist who wrote into a writer. Suren Aghababyan, who produced the standard study of him, opens his account of it by saying that it is one of those books whose appearance fixes a new date in the history of a literature.",
+          "The stories are short, most of them a few pages, and they are set almost entirely in Zangezur, the mountainous province in the far south of the country, today Syunik. Their people are villagers: a hunter, an old man shutting up his vineyard for the winter, a bride inspected by her suitor's household, a headman, a forest guard with a whip. Very little in them is heroic and less is resolved.",
+          "What makes the book awkward to talk about is its title. Մթնաձոր names the collection, the story that stands first in it, a second and unrelated story further in, and several real places on the Armenian map. Separating those is the first thing this article has to do, because almost every short account of Bakunts merges at least two of them.",
+        ],
+        links: [{ phrase: "eighteen short stories by Aksel Bakunts", slug: "aksel-bakunts" }],
+      },
+      {
+        id: "one-word-four-things",
+        heading: "One word, four things",
+        paragraphs: [
+          "The story came first. Մթնաձոր was printed in the Yerevan daily Խորհրդային Հայաստան on 21 November 1926, a year before the book existed. It is a hunting story: an old man called Avi goes into the forest after a bear, and a forest guard named Panin holds authority over the place. When a source says that Մթնաձոր was published in 1927, that is true of the book and false of the story.",
+          "The second is Մթնաձորի «չարքը», the fourteenth piece in the collection, and it is a different work with a different subject — an instructress arriving on horseback in a village that has its own account of what walks in the gorge. Ishkhanyan searched the periodicals of the period for an earlier printing of it and found none, which makes this book its first appearance anywhere. It shares a word with the title story and nothing else.",
+          "The name is also real geography, and there is more than one of it. Armenian reference works record three watercourses called Մթնաձոր — in Lori, in Syunik and in Tavush — and a deserted village of the name in the south near Tsav, inhabited until the years of the First World War, when its people moved to Shikahogh. None of these is the book, and one of them is a trap for English readers: the Mtnadzor that appears in English-language walking guides as the Dark Gorge is the one in Tavush, at the opposite end of the country from Bakunts's south.",
+          "The distinction has a consequence Ishkhanyan drew himself. Establishing where the title story came from, he had to correct an account that placed the real incident in a forest called Mtnadzor near Shikahogh, and observed that the forest of that name is a long way from Shikahogh. The literary Mtnadzor and the mapped ones are not the same object, and nothing below treats them as one.",
+        ],
+      },
+      {
+        id: "how-the-book-was-made",
+        heading: "How the book was put together",
+        paragraphs: [
+          "Bakunts's fiction began appearing in newspapers in 1926, when he was twenty-seven and had recently finished two years as chief agronomist of Zangezur. Four of the eighteen stories had been printed before the book, all of them in Խորհրդային Հայաստան: Միրհավ on 6 June 1926, Մթնաձոր on 21 November 1926, Ալպիական մանուշակ across the issues of 1 and 4 January 1927, and Խոնարհ աղջիկը on 1–2 February 1927.",
+          "The order was settled late, and it can be reconstructed. Ishkhanyan describes the printer's contents list with three titles moved in ink: Վանդունց Բադին dropped from first place to second, Զորբան went from second to eleventh, Օրանջիա slid one place to twelfth, and Մթնաձոր was brought up from twelfth to open the book. The collection is named after a story that was not originally going to stand first in it.",
+          "The imprint is less certain than it looks. The book is normally cited as Yerevan, State Publishing House, 1927, with an extent of 184 pages. That description could not be confirmed against a library record here — the Armenian national catalogues did not answer — and Ishkhanyan's own apparatus cites the book simply as Մթնաձոր. [Ժողովածու]. Երևան, 1927, giving neither publisher nor pagination. It was also not his first printed book of any kind: two agricultural pamphlets had appeared in 1926, and the satirical novella Հովնաթան Մարչ came out in the same year as this one.",
+        ],
+      },
+      {
+        id: "the-eighteen-stories",
+        heading: "The eighteen stories",
+        paragraphs: [
+          "The contents are fixed by three witnesses that agree: Ishkhanyan's reconstruction of the printer's list, Aghababyan's own enumeration, and the Armenian Wikisource edition of the collection. English titles below are those of Nairi Hakhverdi's translation, in the article-less form its contents page uses; the rendering of Զորբան could not be confirmed here and is left in Armenian.",
+          "Later Armenian editions are shorter, and that is a fact about the editions rather than about the book. The 1955 edition of Bakunts's works reissued the cycle without four of its stories, and editions after it followed suit; Ishkhanyan's volume of 1976 restored the eighteen and their order. A reader holding a modern Armenian Մթնաձոր may be holding fourteen stories without being told so.",
+          "One loose end is worth recording rather than smoothing over. Both the standard encyclopedia entry on Bakunts and Aghababyan's own discussion of this book name a story called Տիգրանուհին among its contents, although it appears in none of the three lists. Whether that is a second title for one of the eighteen or a slip is not settled by anything consulted here.",
+        ],
+        bullets: [
+          "Մթնաձոր — The Dark Valley",
+          "Վանդունց Բադին — Vands' Badi",
+          "Աքարում — In Akar",
+          "Այու սարի լանջին — On Mount Ayu's Slope",
+          "Ծիրանի տափ — The Apricot Field",
+          "Միրհավ — Pheasant",
+          "Հանավանք — St John the Baptist Monastery",
+          "Գյուլբահարի համար — For Gyulbahar",
+          "Մինա բիբին — Aunt Mina",
+          "«Խաղլացավ» — Dancing Pain",
+          "Զորբան",
+          "Օրանջիա — Orangia",
+          "Մրոց — Mrots",
+          "Մթնաձորի «չարքը» — The Demon of the Dark Valley",
+          "Խոնարհ աղջիկը — The Modest Girl",
+          "Լառ-Մարգար — Tall Margar",
+          "Սաբու — Sabu",
+          "Ալպիական մանուշակ — Alpine Violet",
+        ],
+      },
+      {
+        id: "bakunts-and-the-short-story",
+        heading: "Bakunts and the short story",
+        paragraphs: [
+          "Bakunts came to fiction late and from an unusual direction. He had trained as an agriculturalist, and from 1924 to 1926 he was chief agronomist of Zangezur — the official answerable for the land and the crops of the region these stories are set in. They are not the observations of a visitor. They were written by a man who had already surveyed the same fields on paper.",
+          "The form he chose was the short story, and he treated it as a form rather than as a small novel. Armine Manasyan describes his plots as built by accumulating a character's boundary situations toward one final limit-collision, rather than by developing an action through stages. Aghababyan states the same thing negatively: these are stories with neither special beginnings nor special endings.",
+          "He also worked close to fact. Aghababyan argues that Bakunts followed the principle that the subject is the object — that he borrowed rather than invented, from real events, real faces, things he had watched and things he had been told, and that he sometimes appended a note in the manner of a medieval scribe's colophon to record that an episode had actually happened. The title story is the best-documented case, and it has a section to itself below.",
+          "Where the prose itself came from has been argued over. Aghababyan traced his realist method to the prose of Hovhannes Tumanyan; others have heard Terian and a symbolist inflection in it instead, and one attempt to break the Tumanyan connection altogether rested on counting epithets, on the argument that Tumanyan reflects the world directly and Bakunts through a mediated, subjective image. Manasyan, who reports the exchange, judges that counting mechanical and its conclusion exaggerated.",
+        ],
+        links: [{ phrase: "the prose of Hovhannes Tumanyan", slug: "hovhannes-tumanyan" }],
+      },
+      {
+        id: "zangezur",
+        heading: "Zangezur as literary geography",
+        paragraphs: [
+          "Before this book the Armenian south had almost no literature of its own. Zangezur is a country of steep gorges, oak forest, small stone villages and long distances between them, and where it had been written about at all it had been written as scenery rather than as a place with an interior.",
+          "Manasyan proposes reading the book through what she calls literary geography, setting Bakunts beside the diaspora writer Hamasteghd: where Hamasteghd built a village-world, Bakunts built a point-world. Mtnadzor in her reading is not a setting but the rim of the Bakuntsian world — a single dense point from which everything begins, continues and returns.",
+          "Aghababyan takes the same idea out of the stories themselves. He quotes the moment in Մրոց where the last ridge is the boundary of the world a person knows, and adds that in this country time runs on another scale, one whose smallest unit is the century. Distance and isolation are not atmosphere in these stories; they are the conditions under which their events are possible.",
+        ],
+      },
+      {
+        id: "landscape",
+        heading: "Landscape as narrative structure",
+        paragraphs: [
+          "Landscape in Mtnadzor is not a backdrop the action happens in front of, and Manasyan's formulation is the sharpest available: nature here is not described but introduced into the story by the teller as a minimum unit of psychological movement. A ridge, a turn in the weather or a bird is doing work that another writer would hand to a sentence about what a character felt.",
+          "Aghababyan describes the world of the book as one in which reality and legend have not yet come apart, where man and bear live side by side and there is no essential line between the village and the country around it — nature inside the village, the village in nature's lap. His evidence is a piece of the book's own economics: leave the fields at Akar unploughed for two years and the forest takes them back.",
+          "Naira Hambardzumyan reads the same landscape as holding time rather than space. Her starting point is the book's own sentence, that Mtnadzor seems a forgotten corner from the days when there was not yet any man, and she argues that the mythic time this opens moves gradually toward the time of the present until the two occupy each other. That is why the forest in these stories can feel older than the people in it without anything supernatural being claimed.",
+          "The landscape is also an agent, and not a kindly one. Aghababyan notes that Օրանջիա opens and closes on flowering rose-hips, and reads the frame as the book's recurring proposition that nature destroys by its beauty the people it enchants. The hunter Avi, beaten by his bear, is destroyed by the forest he had served and revered all his life.",
+        ],
+      },
+      {
+        id: "no-idyll",
+        heading: "Village life without the idyll",
+        paragraphs: [
+          "The commonest way to misread this book is to take it for a fond picture of village life, and it was misread that way in its own decade. Bakunts had refused the reading in his own journalism before the book appeared. Aghababyan quotes him dispelling the myth of the pastoral village in as many words: the dark and ignorant peasant does not come by the dry bread he eats so easily, and there is no idyll at all of the kind the poet sings about.",
+          "The stories bear that out in detail. What they record is debt, interest and the arithmetic of survival — Aghababyan's example is a peasant keeping his accounts in an old dream-book, entering milk yields and mill queues and then his own sister's burial as a cost, so absorbed in the details of his everyday tragedy, as Aghababyan puts it, that he has no time left over to live through it. Elsewhere it is superstition, a headman who burns a man's house and has him deported, a bride examined by her suitor's family, a whip across a villager's shoulders.",
+          "The conclusion Aghababyan draws is the one this article follows: however remote and forgotten Mtnadzor is, the same laws operate there as in what he calls the centres of enlightenment. Eddie Arnavoudian, reviewing the English translation, arrives independently at the same place — there is nothing idyllic about the Dark Valley, which is dark not through any romanticised isolation but because it is impoverished and outside the mainstream of urban life. He reads Bakunts as locating human misery in socially constructed relations rather than in inescapable flaws of human nature.",
+          "None of which makes the book a tract. Victoria Rowe, introducing the English edition, is careful on the point: the portraits are sympathetic as well as stark, and they are not propaganda pieces — something, she notes, that the Soviet authorities understood perfectly well. The beauty of the country and the hardness of living in it are both entirely present, and the tension between them is the book's subject rather than a failure of it.",
+        ],
+      },
+      {
+        id: "compression",
+        heading: "Compression, sub-text and the withheld ending",
+        paragraphs: [
+          "The stories are short, and they are built rather than told. Manasyan describes the technique as photographic — dense episodes, short white-hot tonalities, terse sentences. Her example is the fight between the hunter and the bear, and the moment where the whole opposition between Avi and Panin is carried by one contrast of colour: one man's face like canvas, the other's like a red beetroot.",
+          "Memory is a structural device rather than a lyrical one, and Manasyan argues this directly against Ishkhanyan, who had read Bakunts's recollection scenes as a way of making the past present. On her account Dilan's recollection in Միրհավ is not lyrical narration but the symphony of a life with its contrary deviations, and the teacher's in Խոնարհ աղջիկը is the continuation of a drama rather than the story of a love that never happened. Aghababyan makes the same distinction in technical terms: Միրհավ is built on musical retrospection, Խոնարհ աղջիկը on painterly retrospection.",
+          "Aghababyan also credits Bakunts with a formal innovation — that Armenian prose before him had no way of running two planes of narration inside a single syntactic unit, and that Bakunts gave the form standing; Խոնարհ աղջիկը, which carries both a narrator and an author, is where he demonstrates it. And he names the element that takes the weight: the Bakuntsian sub-text is the continuation of the text. In Գյուլբահարի համար the narration runs without a deep current until a village court convicts not the accused but the villagers who had persecuted the priest, and the story closes on a man left standing as a question mark.",
+          "Endings are withheld on purpose. Manasyan's example is the last sentence of the title story, where the reader is told that afterwards, when Mtnadzor was spoken of, you could not tell whether the old hunter was angry or smiling. She reads that doubleness as an instruction to recognise what kind of man he is, rather than as an evasion of the ending.",
+        ],
+      },
+      {
+        id: "the-title-story",
+        heading: "The title story",
+        paragraphs: [
+          "Մթնաձոր is a hunting story of a few pages, and it predates the book by a year. It was printed in Խորհրդային Հայաստան on 21 November 1926, in issue number 269; the date and the number both come from Ishkhanyan's source line. One caution belongs beside them. The same apparatus elsewhere mentions a cutting of the story taken from issue 292 of the same year, and nothing consulted here explains the discrepancy, so the formal source line is followed and the other figure is recorded rather than hidden.",
+          "A wrong date circulates for the story as well. It is sometimes given as 1 and 2 February 1927; that belongs to Խոնարհ աղջիկը, a different story in the same collection, and Ishkhanyan's notes say so plainly.",
+          "In the story an old hunter, Avi, goes into the forest after a bear and is mauled, and a forest guard named Panin stands over the place with the authority of the state behind him. Hambardzumyan notes how little of either man is allowed to be human on the page — Avi described as perhaps not a man at all but a scarecrow, a skeleton in a man's clothes, and Panin as a monster in a forester's coat, whose nationality, faith and origin nobody knew. Manasyan reads the pair as the story's entire conflict, compressed into a single meeting.",
+        ],
+      },
+      {
+        id: "what-the-title-story-was-made-from",
+        heading: "What the title story was made from",
+        paragraphs: [
+          "In 1961 Ishkhanyan went looking for the man behind the story and found him. Asking at Shikahogh, he established that the man with the flayed head had been Gabriel Martirosi Harutyunyan, who died in 1944. He wrote to Gabriel's son Artem, and other villagers afterwards confirmed the account.",
+          "The mauling happened on 18 February 1911, on a day of heavy snow. A wounded bear had gone into the forest called Կհոլ, and Gabriel followed it in with a companion, Ghazar. He survived, was treated at Baku, and lived the rest of his life without the skin of his head; he made sandals and prayer beads, and had two sons and a daughter afterwards.",
+          "What Bakunts did with it is the point. Ishkhanyan lists the changes: Gabriel became the hunter Avi; the companion was cut, so that Avi goes into the forest alone; the forest guard Panin was invented outright; and the setting was moved from Կհոլ to Mtnadzor. Ishkhanyan used the same finding to correct a rival account — a memoir by the Kapan district secretary Artashes Tsaturyan, which placed the incident in the Mtnadzor forest near Shikahogh and dated it to 1912. The forest called Mtnadzor is a long way from Shikahogh, Ishkhanyan pointed out, and the year was 1911.",
+          "None of this makes the story reportage, and it should not be read as one. It is a documented instance of the working method Aghababyan describes in general terms, and the most important thing about it is what Bakunts added: a forest guard who appears in no witness's account at all, and through whom the story's conflict actually runs.",
+        ],
+      },
+      {
+        id: "mirhav",
+        heading: "Միրհավ",
+        paragraphs: [
+          "Միրհավ is the sixth story in the book and the best known after the title story. It appeared in Խորհրդային Հայաստան on 6 June 1926, in issue number 132, some five months before the story Մթնաձոր.",
+          "Old Dilan climbs to his vineyard on one of the last warm days of autumn to shut it up before winter, and sits in the sun living through the one incandescent episode of his life: Sona, a young bride, coming into the press-house while he trod the grapes. Sona was married into a wealthier household and died the following summer. Two images carry the story's weight and are set down almost without comment — a wounded pheasant beating its bloodied wings in the bushes, and a whip coming down across Dilan's shoulders. Bakunts fuses them himself: Sona flew off like a mirhav and left grief behind her.",
+          "The bird's name needs explaining, carefully, because it is often overstated. The compound is read as մայրի and հաւ, forest and fowl — a forest or wild fowl. That reading was published by Karo Davtyan in a study of the Karabakh dialects in 1966; Hrach Martirosyan sets the argument out at length, supplies the supporting evidence and the case against a rival derivation, and credits the etymology itself to Davtyan rather than to himself. In Martirosyan's etymological dictionary the word has no headword of its own and appears in the dialect material under մայրի, which he treats as a general word for woods rather than for any particular tree, and where the bird is glossed with deliberate caution: probably a kind of pheasant, or else a black grouse. The hedge should be kept. Stepan Lisitsyan's ethnography of Zangezur itself glosses the word as black grouse, the transparent form of the same compound is the standard Armenian name for that bird, and the word is absent from Acharyan's dictionaries altogether.",
+          "Ishkhanyan's own gloss adds the detail that matters for reading Bakunts: the bird is a kind of pheasant common in Zangezur, and in the Karabakh and Zangezur speech it is pronounced մրհավ — միրհավ, the form Bakunts printed, being the rarer variant. Hakhverdi's translation titles the story Pheasant.",
+          "One thing about Միրհավ belongs to this book specifically rather than to the story as it is usually read. The version most readers meet is the one Bakunts rewrote for 1933. In the 1927 text the man who whips Dilan is a yasaul, a Tsarist officer, and Dilan cannot answer him because the yasaul speaks Russian; by 1933 he has become a forest guard annoyed that Dilan startled his pheasant. Ishkhanyan's collation records the change, and with it a general softening of the earlier prose. The book this article is about contains the first version.",
+        ],
+      },
+      {
+        id: "alpine-violet",
+        heading: "Ալպիական մանուշակ",
+        paragraphs: [
+          "Ալպիական մանուշակ closes the collection. It was printed in Խորհրդային Հայաստան across two issues, on 1 and 4 January 1927 — the paper's second number appeared on the fourth, which Ishkhanyan's note states explicitly to forestall the obvious confusion — and the book followed later the same year.",
+          "Its date of composition is contested, and the disagreement is worth stating rather than settling. When Bakunts reprinted the story in 1933 he dated it 25 — 27, meaning written in 1925 and reworked in 1927. Ishkhanyan's edition doubts both figures. The journey into the Meghri district out of which the story grew is placed in 1926 both by the geologist who made it with him and by Morus Hasratyan, and the reworking looks to the editors like 1930 or 1931 rather than 1927. They leave open the possibility of an earlier and different draft from 1925, without asserting one.",
+          "The dedication is the detail most often got wrong. Ալպիական մանուշակ carries a dedication to the memory of Arpenik Charents, and it is regularly described as though that had always been part of the story. It was not. The 1976 edition prints the 1927 text beside the 1933 one, and the dedication is simply absent from the earlier: it was attached six years after this book. The chronology underneath is striking on its own terms — Arpenik, the wife of Yeghishe Charents, died on 2 January 1927, between the two instalments, and the second ran on 4 January in the issue that also carried notice of her death — but the editors offer that as a probable reason for the later dedication, not as a documented one, and this article does not go further than they do.",
+          "The story itself is why the book ends where it does. An archaeologist and a painter ride up to the fortress of Kaqavaberd; the archaeologist hunts for a prince's tomb and sees only the beauty of the past, the painter sketches ramparts and violets and sees only the agreeable edge of the present. They stop at a nomad's tent, the painter draws the woman who makes their tea, and they ride away pleased with the day. The story then continues without them, and what follows falls on the woman. Petrosyan, Bayramyan and Gnuni read the pair as men looking at the world through the eyes of a beetle — arriving, seeing what is pleasant, and leaving while the substance of life escapes them — and observe that the story has no clear plot at all and works entirely by sub-text. The beetle is Bakunts's own image, and it returns in the closing lines, asleep and drunk on scent, still finding the world a fragrant garden. The editors of the collected works establish that Bakunts made the painter out of himself.",
+        ],
+        links: [{ phrase: "the wife of Yeghishe Charents", slug: "yeghishe-charents" }],
+      },
+      {
+        id: "other-stories",
+        heading: "Other stories in the book",
+        paragraphs: [
+          "The rest of the collection is not filler, and a few pieces show how wide its range is. Աքարում turns on a bride inspected by her suitor's household in the way, as Arnavoudian puts it, they would examine a horse. Խոնարհ աղջիկը is the story Aghababyan uses to demonstrate the double narration, and one of the four Bakunts later rewrote. Լառ-Մարգար is a story of memory that refuses to console: the present eases the pain of the past without cancelling it.",
+          "Մինա բիբին supplies the book's bleakest formulation, which Hambardzumyan quotes — the village as a thousand-year book, each page of which is the martyrdom of some victim of ignorance. Մթնաձորի «չարքը» is where the outside world arrives, in the person of an instructress riding into a village that has its own account of what lives in the gorge. Rowe reads the collection's recurring collision between urban and rural values as centring on women, and takes this story and Ալպիական մանուշակ as the two places it is clearest.",
+        ],
+      },
+      {
+        id: "the-name",
+        heading: "The name Mtnadzor",
+        paragraphs: [
+          "Մթնաձոր is a compound of մութ, dark, and ձոր, a gorge or a valley. Literally it is a dark gorge, and that literal sense is worth stating because it is part of how the stories work — the book's own opening page calls the place a forgotten corner left over from before there were people.",
+          "A literal gloss is not a title, and this is where English goes wrong. The Dark Valley is the title of the published English translation of the collection, and it is the only settled English name any part of this material has. Dark Gorge is an accurate rendering of the words but is not an attested title of Bakunts's book; in English it is in use for an entirely different place, the Mtnadzor gorge in Tavush. The Dark Ravine is not attested at all, as a title or as anything else. Neither belongs in a citation.",
+          "For the story and for the places, English writing normally leaves Mtnadzor untransliterated, and this article does the same.",
+        ],
+      },
+      {
+        id: "in-english",
+        heading: "The Dark Valley: the book in English",
+        paragraphs: [
+          "The whole collection exists in English once. The Dark Valley, translated by Nairi Hakhverdi with a preface by Victoria Rowe, was published in London by Taderon Press for the Gomidas Institute. Rowe states in the preface that it is the first time all eighteen of the stories have been translated into English in their entirety.",
+          "Its date is genuinely in dispute, and this article does not pick one. The Gomidas Institute's own catalogue gives London, Taderon Press, 2009, at 148 pages, and Rowe signs her preface in June 2009; the book's copyright page reads 2008, and the library cataloguing that follows it gives 2008 as well. Both years are carried by serious records, and nothing consulted here settles which describes the release.",
+          "The translation is also the source of a fresh ambiguity rather than a cure for the old one. Because the collection and its first story share a name, both are The Dark Valley in English, and the fourteenth story becomes The Demon of the Dark Valley — so a reader who meets the phrase has three possible referents and no cue to tell them apart. The contents page uses article-less forms, Pheasant and Alpine Violet, where the surrounding prose uses The Pheasant and The Alpine Violet.",
+          "Arnavoudian, reviewing the translation, judged it a significant accomplishment and not a flawless one, and documented a loss with consequences: in Միրհավ the Armenian marks that Sona married into a well-to-do neighbour's house, and the English does not, which removes the social reason for what becomes of her.",
+        ],
+      },
+      {
+        id: "reception",
+        heading: "How the book was received",
+        paragraphs: [
+          "The collection succeeded with readers and was condemned by the criticism of its own moment. Aghababyan states both halves plainly: it had enormous success with readers, and contemporary criticism assessed it negatively, as an idealisation of Armenian patriarchal antiquity.",
+          "He gives the charge in its own words in order to reject it — that Bakunts sounded the dirge of the dying old village, sanctified backward patriarchal custom, took the silence of uninhabited caves for the ideal form of existence, and anathematised civilisation. Later scholarship came to call this cluster of attributions the Legend about Bakunts, and Aghababyan traces its source to the literary model the period demanded rather than to anything in the stories.",
+          "Serious criticism existed early as well. Aghababyan names a study by Kh. Sargsyan, published in the journal Նորք in 1928, as the first subtle account of what was original in Bakunts, while noting that it paid its own partial tribute to the mentality of the time. Aghababyan's summary judgement — that this is the book in which Armenian prose took on new artistic features — is his, and is given here as his rather than as a settled verdict.",
+          "The English-language record is thin by comparison. Beyond Rowe's preface and Arnavoudian's review there is very little, and Hambardzumyan's study of the collection is one of the few pieces of scholarship on Bakunts published in English at all.",
+        ],
+      },
+      {
+        id: "place-in-his-work",
+        heading: "Where the collection sits in his work",
+        paragraphs: [
+          "Mtnadzor is where Bakunts's standing as a writer begins. Three more collections followed in his lifetime — Սպիտակ ձին, then Սև ցելերի սերմնացանը in 1933 and Անձրևը in 1935 — along with the satirical novella Հովնաթան Մարչ, which came out in the same year as this book.",
+          "He kept returning to four of these stories. Միրհավ, Խոնարհ աղջիկը and Ալպիական մանուշակ were thoroughly rewritten for the collection of 1933, and Սաբու for that of 1935, which means four of the eighteen exist in two authorial versions and that the texts most Armenian readers know are not the ones printed here. Reading Mtnadzor as a book therefore means reading the earlier versions, which is what Ishkhanyan's edition makes possible.",
+          "The book also set the terms for everything that came after it. The landscape, the compression, the refusal of the idyll and the withheld ending are all present in 1927, and none of them is a beginner's approximation of something he did better later. What Mtnadzor established is that a short story could be built from a place, a few pages and a single encounter, and still carry the weight of a whole life.",
+        ],
+      },
+    ],
+    importantDates: [
+      { year: "1926", event: "Միրհավ appears in the Yerevan daily Խորհրդային Հայաստան on 6 June, and the story Մթնաձոր in the same paper on 21 November." },
+      { year: "1927", event: "Ալպիական մանուշակ runs on 1 and 4 January and Խոնարհ աղջիկը on 1–2 February; later in the year the collection itself is published at Yerevan." },
+      { year: "1933", event: "Սև ցելերի սերմնացանը carries thoroughly reworked versions of Միրհավ, Խոնարհ աղջիկը and Ալպիական մանուշակ, the last of them now dedicated to the memory of Arpenik Charents." },
+      { year: "1935", event: "Անձրևը, the last collection published in his lifetime, carries a reworked Սաբու." },
+      { year: "1955", event: "An edition of his works reissues the Mtnadzor cycle without four of its stories, and later editions follow it." },
+      { year: "1976", event: "Rafayel Ishkhanyan's textological notes to the first volume of the collected works restore the eighteen stories and their order." },
+      { year: "2009", event: "The complete collection appears in English as The Dark Valley, translated by Nairi Hakhverdi for Taderon Press in London." },
+    ],
+    significance: {
+      heading: "Why Mtnadzor matters",
+      paragraphs: [
+        "Mtnadzor did something Armenian prose had not done before: it made a region into a literary world. Zangezur had been scenery. After this book the gorges and forests of the south were a place with an interior, and the way to write them was Bakunts's way — short, exact, unsentimental, and unwilling to let the beauty of the country stand in for the difficulty of living in it.",
+        "It is also the book that established the short story as a serious Armenian form for the century that followed. Eighteen pieces, most of them a few pages long, built out of encounters rather than plots and ending without resolution, were enough to make a prose writer's reputation in a single volume — and enough that the arguments about what is in them are still arguments about literature rather than about local colour.",
+      ],
+    },
+    interestingFacts: [
+      "The order of the stories was settled late: the printer's contents list survives with three titles moved in ink, and Մթնաձոր was lifted to the front from twelfth place.",
+      "Մթնաձորի «չարքը», the fourteenth story, is the one piece in the book that had never been printed anywhere before.",
+      "The dedication to the memory of Arpenik Charents is not in this book at all — it was attached to Ալպիական մանուշակ six years later.",
+      "Arpenik Charents died on 2 January 1927, between the two instalments of Ալպիական մանուշակ; the second ran on 4 January in the issue that also carried notice of her death.",
+      "The 1955 edition of Bakunts's works dropped four of the eighteen stories, which is why later Armenian editions of Mtnadzor are shorter than the first.",
+      "The bird in the title of Միրհավ is normally pronounced մրհավ in the Zangezur and Karabakh speech Bakunts drew on; միրհավ, the form he printed, is the rarer variant.",
+    ],
+    relatedFigures: [
+      {
+        name: "Aksel Bakunts",
+        lifespan: "1899–1937",
+        description:
+          "The author, and chief agronomist of Zangezur before he was a published writer of fiction; Mtnadzor was his first book of stories.",
+      },
+      {
+        name: "Rafayel Ishkhanyan",
+        lifespan: "1922–1995",
+        description:
+          "Linguist and bibliographer whose textological notes to the collected works established the collection's contents, its dates and the real incident behind the title story.",
+      },
+      {
+        name: "Suren Aghababyan",
+        lifespan: "1922–1986",
+        description:
+          "Author of the standard study of Bakunts and of a separate article on this collection, which set out the charge of pastoral idealisation in order to refute it.",
+      },
+      {
+        name: "Yeghishe Charents",
+        lifespan: "1897–1937",
+        description:
+          "Poet and contemporary, whose wife Arpenik died between the two instalments of Ալպիական մանուշակ; the story was dedicated to her memory six years later.",
+      },
+    ],
+    relatedSlugs: ["aksel-bakunts", "yeghishe-charents", "hovhannes-tumanyan"],
   }
 ];

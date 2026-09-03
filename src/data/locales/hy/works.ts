@@ -56,6 +56,17 @@ export const works: LiteraryWork[] = [
       "Աստծուն ուղղված իննսունհինգ բան՝ գրված Նարեկավանքում մոտ 1002 թվականին։ Ավետարանից հետո հայերեն ամենաշատ ընդօրինակված գիրքը, որ հայտնի է պարզապես «Նարեկ» անունով և աստվածաշնչյան «Ողբեր»-ը չէ։",
     imageSeed: "book-of-lamentations",
   },
+  {
+    slug: "mtnadzor",
+    title: "Մթնաձոր",
+    author: "Ակսել Բակունց",
+    publicationPeriod: "1927 թ.",
+    genre: "Պատմվածքների ժողովածու",
+    genreId: "short-stories",
+    summary:
+      "Զանգեզուրյան լեռների մասին տասնութ պատմվածք՝ Բակունցի առաջին գիրքը և այն գիրքը, որ նրան արձակագրի անուն բերեց։ Հրատարակվել է Երևանում 1927 թվականին և անգլերեն թարգմանվել որպես The Dark Valley։",
+    imageSeed: "mtnadzor",
+  },
 ];
 
 export const workGenres: Filter[] = [
@@ -63,4 +74,5 @@ export const workGenres: Filter[] = [
   { id: "poetry", label: "Պոեզիա" },
   { id: "novel", label: "Վեպեր" },
   { id: "epic", label: "Էպոսներ" },
+  { id: "short-stories", label: "Պատմվածքներ" },
 ];

@@ -642,6 +642,89 @@ const SOURCES: Record<string, Source[]> = {
     },
   ],
 
+  /*
+   * `mtnadzor` is the first Work in this archive whose central problem is
+   * bibliographic rather than interpretive: one Armenian word names a story, the
+   * book that story opens, a second story inside that same book, and several real
+   * places. Nearly every claim the article makes about *which* of those is meant
+   * rests on one source — the textological apparatus below — and the rest of the
+   * list is scoped so that no two entries do the same job.
+   */
+  mtnadzor: [
+    {
+      author: "Ակսել Բակունց, բնագրերը և ծանոթագրությունները՝ Ռաֆայել Իշխանյանի",
+      title: "Երկեր, հատոր 1",
+      publisher: "ՀՍՍՀ ԳԱ Մ. Աբեղյանի անվան գրականության ինստիտուտ, Հայաստան հրատարակչություն, Երևան",
+      year: "1976",
+      identifier: { kind: "archive", value: "Ակսել Բակունց, Երկեր, հ. 1, Երևան, 1976, ծանոթագրություններ, էջ 606–671" },
+      note: "The spine of the article, and the reason it can state a chronology at all. Ishkhanyan's apparatus supplies: the collection's eighteen titles and their order, reconstructed from the printer's contents list together with the three moves made in ink that produced the printed sequence; the first-publication lines for Մթնաձոր (ԽՀ 1926, 21 նոյ., № 269), Միրհավ (1926, 6 հուն., № 132), Ալպիական մանուշակ (1927, 1 և 4 հունվ., №№ 1–2) and Խոնարհ աղջիկը (1–2 փետր. 1927); the finding that Մթնաձորի «չարքը» has no traceable periodical publication at all and first appeared in the book; the Shikahogh enquiry of 1961 that identified the title story's real-world basis; and the collation of the 1927 and 1933 texts, which is what allows the article to say that the Ալպիական մանուշակ dedication is absent from the 1927 text and that the man who whips Dilan in Միրհավ changed between the two. The volume is digitised page by page and proofread on Հայերեն Վիքիդարան, which is how it was read. It is cited for chronology and textual state, never for evaluation. Where it dates the composition of Ալպիական մանուշակ against Bakunts's own printed 25 — 27, the article reports the disagreement rather than choosing.",
+    },
+    {
+      author: "Սուրեն Աղաբաբյան",
+      title: "«Ակսել Բակունցի «Մթնաձոր» ժողովածուն», Պատմա-բանասիրական հանդես, էջ 3–16",
+      publisher: "ՀՍՍՀ ԳԱ, Երևան",
+      year: "1979",
+      identifier: { kind: "url", value: "https://arar.sci.am/dlibra/publication/190112/edition/172653" },
+      note: "A study of this book by the scholar who wrote the standard monograph on Bakunts and signed his encyclopedia entry, and the source for three of the article's sections at once. Reception: that the collection succeeded with readers while the criticism of its own moment condemned it as an idealisation of Armenian patriarchal antiquity, an assessment Aghababyan sets out in order to refute, along with the cluster of attributions later scholarship came to call the Legend about Bakunts. Anti-pastoral: he quotes Bakunts's own pre-1927 journalism dispelling the myth of the pastoral village, and draws the conclusion this article leans on — that however inaccessible and forgotten, the same laws operate in Mtnadzor as in the centres of enlightenment. Landscape and form: that nature and the village are not separated in this world, that the sub-text is the continuation of the text, and that the stories have neither special beginnings nor special endings. His contents list is also the article's second independent witness to the eighteen titles and their order. Cited for his readings as his, not as settled fact.",
+    },
+    {
+      author: "Aksel Bakunts, translated by Nairi Hakhverdi, preface by Victoria Rowe",
+      title: "The Dark Valley",
+      publisher: "Taderon Press for the Gomidas Institute, London",
+      year: "2009",
+      identifier: { kind: "isbn", value: "9781903656907" },
+      note: "The only complete English Bakunts, and the authority for every English title this article prints for a story in the collection — Pheasant, Alpine Violet, The \"Demon\" of the Dark Valley and the rest, in the article-less forms the book's own contents page uses. Rowe's preface is the source for the statement that all eighteen stories are translated in their entirety, and for the reading of the collection as portraits of the peasantry that are never propaganda pieces. The year given here is the publisher's own: the Gomidas catalogue prints London, Taderon Press, 2009, 148 pp, and Rowe signs the preface June 2009, while the book's copyright page and the library cataloguing derived from it give 2008. The article states that conflict rather than resolving it, because no consulted record settles which is the release.",
+    },
+    {
+      author: "Eddie Arnavoudian",
+      title: "Why we should read… The Dark Valley: Short Stories by Aksel Bakunts",
+      publisher: "The Critical Corner, Armenian News Network / Groong",
+      year: "2010",
+      identifier: { kind: "url", value: "https://groong.org/tcc/tcc-20100413.html" },
+      note: "The substantial English critical notice of the collection, and the source the anti-pastoral section leans on hardest: that there is nothing idyllic about the Dark Valley, and that it is dark not through romanticised isolation but because it is impoverished and outside the mainstream of urban life. Also cited for the reading of human suffering as socially constructed rather than innate, for the loss of the well-to-do neighbour in the English Միրհավ, and for his rejection of Vahe Oshagan's claim that there is no good, evil or justice in this fiction. Cited as criticism, not as fact: where he says the husband in Ալպիական մանուշակ strikes with his sickle, the Armenian has him throw the sickle aside and strike with the staff, so the article does not repeat it.",
+    },
+    {
+      author: "Naira Hambardzumyan",
+      title: "Interpenetration of Myth and Sign in Axel Bakunts' \"Mtnadzor\" Collection",
+      publisher: "Լրաբեր հասարակական գիտությունների, ՀՀ ԳԱԱ, Երևան",
+      year: "2020",
+      identifier: { kind: "archive", value: "arar.sci.am, Հայկական հանրապետական թվային գրադարան, publication 263016" },
+      note: "Scholarship on this collection specifically rather than on Bakunts generally, and the basis for the landscape section's central claim: that the Mtnadzor stories hold a pre-human time inside the present, the forgotten corner from the days when there was no man yet. It is also one of the very few pieces of Bakunts scholarship published in English, which is itself evidence for what the article says about the state of the English-language record.",
+    },
+    {
+      author: "Արմինե Մանասյան",
+      title: "Ակսել Բակունցը և 1920-30-ական թվականների պատմվածքը",
+      publisher: "Գրականագիտական հանդես XVI, ՀՀ ԳԱԱ Մ. Աբեղյանի անվան գրականության ինստիտուտ, Երևան",
+      year: "2015",
+      identifier: { kind: "archive", value: "arar.sci.am, Հայկական հանրապետական թվային գրադարան, publication 197097" },
+      note: "The source for the form section, and the reason it makes technical rather than admiring claims: composition by accumulation toward a limiting situation, retrospection used as a construction principle rather than as lyricism, portraiture as the compositional centre, and the withheld ending of Մթնաձոր. The formulation the section rests on most heavily is hers — that nature in Bakunts is not described but introduced by the teller as a minimum unit of psychological movement.",
+    },
+    {
+      author: "Ա. Պետրոսյան, Կ. Բայրամյան և Ա. Գնունի",
+      title: "Հնագետը Ակսել Բակունցի «Ալպիական մանուշակ»-ում",
+      publisher: "Պատմա-բանասիրական հանդես, ՀՀ ԳԱԱ, Երևան",
+      year: "2025",
+      identifier: { kind: "doi", value: "10.53548/0320-8117-2025.3-257" },
+      note: "The basis for the Ալպիական մանուշակ section: the reading of the archaeologist and the painter as men looking at the world through the eyes of a beetle — arriving, seeing the beauty of past or present, and leaving while the substance of life escapes them — the observation that the story has no clear plot and works by subtext, and the archival identification of the archaeologist's model as Morus Hasratyan.",
+    },
+    {
+      author: "Hrach Martirosyan",
+      title: "Etymological Dictionary of the Armenian Inherited Lexicon",
+      publisher: "Brill, Leiden — Leiden Indo-European Etymological Dictionary Series 8",
+      year: "2010",
+      identifier: { kind: "isbn", value: "9789004173378" },
+      note: "Cited for one sentence and nothing more. The word միրհավ has no entry of its own; it appears in the dialectal material under the headword mayri, where the compound is read as forest-fowl and glossed probably as a kind of pheasant, or as heath-cock or black-cock. Both halves of that matter here: մայրի is treated as a general word for woods or forest — Martirosyan expressly rejects rendering it a forest of fir trees — and the identification of the bird is hedged rather than settled, which is why the article reports the disagreement instead of asserting the pheasant.",
+    },
+    {
+      author: "Հրաչ Մարտիրոսյան",
+      title: "«Միրհավ» բառի ծագումը",
+      publisher: "Գրանիշ",
+      year: "2014",
+      identifier: { kind: "url", value: "https://granish.org/mirhav-origin/" },
+      note: "Where the same scholar sets the argument out at length, and the reason the article credits the etymology to Կարո Դավթյան rather than to Martirosyan: he states that the analysis was already published in Davtyan's 1966 dialect study of Mountainous Karabakh, and presents his own contribution as the supporting evidence — the parallels in which a forest X means a wild X, the sound change that gives միր- from մայրի in the Karabakh and Goris speech, and the case against the rival reading of the name as Mihr's bird. Cited so that the lexical paragraph attributes each part of the argument to whoever actually made it.",
+    },
+  ],
+
   /* ---------------------------------------------------------------- cuisine */
 
   /*

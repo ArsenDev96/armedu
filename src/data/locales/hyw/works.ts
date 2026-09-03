@@ -56,6 +56,17 @@ export const works: LiteraryWork[] = [
       "Աստուծոյ ուղղուած իննսունհինգ բան, գրուած Նարեկավանքին մէջ մօտ 1002-ին։ Աւետարանէն ետք հայերէն ամէնէն շատ ընդօրինակուած գիրքը, ծանօթ պարզապէս «Նարեկ» անունով, եւ ոչ թէ Աստուածաշունչի Ողբերը։",
     imageSeed: "book-of-lamentations",
   },
+  {
+    slug: "mtnadzor",
+    title: "Մթնաձոր",
+    author: "Ակսէլ Բակունց",
+    publicationPeriod: "1927",
+    genre: "Պատմուածքներու ժողովածու",
+    genreId: "short-stories",
+    summary:
+      "Զանգեզուրեան լեռներու մասին տասնութ պատմուածք՝ Բակունցի առաջին գիրքը եւ այն գիրքը, որ իրեն արձակագիրի անուն բերաւ։ Հրատարակուած է Երեւան 1927-ին եւ անգլերէն թարգմանուած որպէս The Dark Valley։",
+    imageSeed: "mtnadzor",
+  },
 ];
 
 export const workGenres: Filter[] = [
@@ -63,4 +74,5 @@ export const workGenres: Filter[] = [
   { id: "poetry", label: "Բանաստեղծութիւն" },
   { id: "novel", label: "Վէպեր" },
   { id: "epic", label: "Դիւցազնավէպեր" },
+  { id: "short-stories", label: "Պատմուածքներ" },
 ];

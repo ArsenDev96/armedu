@@ -56,6 +56,17 @@ export const works: LiteraryWork[] = [
       "Ninety-five discourses addressed to God, written at the monastery of Narek about 1002. The most copied book in Armenian after the Gospel, known simply as the Narek, and not the biblical Lamentations.",
     imageSeed: "book-of-lamentations",
   },
+  {
+    slug: "mtnadzor",
+    title: "Mtnadzor",
+    author: "Aksel Bakunts",
+    publicationPeriod: "1927",
+    genre: "Short-story collection",
+    genreId: "short-stories",
+    summary:
+      "Eighteen stories of the Zangezur mountains — Bakunts's first book, and the one that made his name as a prose writer. Published at Yerevan in 1927 and translated into English as The Dark Valley.",
+    imageSeed: "mtnadzor",
+  },
 ];
 
 export const workGenres: Filter[] = [
@@ -63,4 +74,5 @@ export const workGenres: Filter[] = [
   { id: "poetry", label: "Poetry" },
   { id: "novel", label: "Novels" },
   { id: "epic", label: "Epics" },
+  { id: "short-stories", label: "Short stories" },
 ];

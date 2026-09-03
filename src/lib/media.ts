@@ -1493,6 +1493,36 @@ const IMAGES: Record<string, string> = {
  */
 export const PENDING_ARTWORK: readonly string[] = [
   /*
+   * §101 refills it for Work #6, and for the first time since §61 the waiting slug
+   * is a *Work* rather than a Writer. `mtnadzor` shipped as prose with no picture,
+   * on the same terms as `book-of-lamentations` before it: the artwork is its own
+   * step, and the generated placeholder renders until the file lands.
+   *
+   * One rule is decided in advance and recorded here because it is the specific way
+   * this entry could go wrong. **Bakunts's portrait must not be borrowed for it.**
+   * `writers/aksel-bakunts.webp` exists, it is `photo-referenced`, and it is one
+   * line above in `IMAGES` — which makes reaching for it the path of least
+   * resistance and the wrong answer. A book is not its author's face, no other Work
+   * in this registry carries a portrait, and a reader who met the same man on the
+   * Writers card and the Works card would reasonably conclude the two pages were
+   * about the same entity, which is the exact confusion this article exists to undo.
+   *
+   * The art direction is likewise set here rather than left to the commission, and
+   * it is stated mostly in the negative because the plausible-looking picture is the
+   * risk. Not a portrait; not a generic Armenian writer at a desk; not a travel
+   * photograph of Syunik. What the collection is about is a worked, inhabited
+   * highland — forest, gorge, a path, cultivated ground at a village edge — so the
+   * frame should be restrained and atmospheric, with the human scale small and
+   * subordinate. It must not reconstruct a scene from any story: **no bear, no
+   * hunter, no mauling, no forest guard**, since the title story is one of eighteen
+   * and illustrating it would make the book look like a single narrative. It must
+   * not purport to show a specific place called Mtnadzor — three rivers and a
+   * deserted village carry that name and the literary one is none of them — and it
+   * must carry no readable text of any kind.
+   */
+  "mtnadzor",
+
+  /*
    * §99 refills it for Writer #13. Aksel Bakunts's biography shipped without his
    * portrait, on the same terms as every entry before him: the artwork is a
    * separate step and the placeholder renders until it lands.
