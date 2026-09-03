@@ -134,6 +134,18 @@ export const writers: Writer[] = [
     imageSeed: "hakob-paronyan",
     notableWorks: ["Պաղտասար աղբար", "Ազգային ջոջեր", "Մեծապատիվ մուրացկաններ", "Ատամնաբուժն արևելյան"],
   },
+  {
+    slug: "aksel-bakunts",
+    name: "Aksel Bakunts",
+    lifespan: "1899–1937",
+    period: "20th Century",
+    periodId: "20th-century",
+    role: "Prose writer, short-story writer and agronomist",
+    description:
+      "The short-story writer of the Armenian south, known in English also as Axel Bakunts, who was chief agronomist of Zangezur before his fiction made its mountains and villages a literary subject.",
+    imageSeed: "aksel-bakunts",
+    notableWorks: ["Մթնաձոր", "Ալպիական մանուշակ", "Միրհավ", "Կյորես"],
+  },
 ];
 
 export const literaryPeriods: Filter[] = [

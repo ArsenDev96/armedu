@@ -138,6 +138,17 @@ classical orthography.
 | Avetik Isahakyan | Ավետիք Իսահակյան | Աւետիք Իսահակեան |
 | Khachatur Abovyan | Խաչատուր Աբովյան | Խաչատուր Աբովեան |
 | Paruyr Sevak | Պարույր Սեւակ | Պարոյր Սեւակ |
+| Aksel Bakunts | Ակսել Բակունց | Ակսէլ Բակունց |
+
+**Aksel, not Axel.** The English edition writes **Aksel Bakunts**, which is the form used by
+the Library of Congress name authority (`Bakuntsʻ, Aksel, 1899-1937`), the BnF, the Goris
+house-museum and the Charents Museum — and the form Charents's own article already used in
+all three editions. `Axel Bakunts` is English Wikipedia's title and dominates English search
+results, so it is carried in `keywords` rather than in the headline. His birth name is
+**Ալեքսանդր Ստեփանի Թևոսյան** (`hyw` Թեւոսեան); `Աղեքսանդր` is an attested variant.
+
+The surname **Բակունց is invariant between the two orthographies** — it contains no ե/է or
+ո/օ — so the two Armenian editions differ only in the given name.
 
 ## Things that stay in Latin script
 
@@ -213,6 +224,15 @@ known error; these are judgement calls made during translation.
 12. **`Կաթիլ մը մեղր`** for Tumanyan's "A Drop of Honey" uses Western word order; the
     canonical Eastern title is `Մի կաթիլ մեղր`. Confirm whether canonical work titles
     should keep their Eastern form in the Western edition.
+19. **Bakunts's work titles are kept in their Eastern forms** in the `hyw` edition —
+    `Մթնաձոր`, `Ալպիական մանուշակ`, `Կյորես`, `Միրհավ` — with only the `և` ligature
+    classicised where one occurred (`Գորիս եւ Կյորես`). This is the open question in item 12
+    above, decided for this article on evidence rather than by rule: a search for Western
+    Armenian renderings of his titles found none in diaspora print, and live Western Armenian
+    venues (e.g. Horizon Weekly's «Հորիզոն գրական») discuss him using the Eastern forms
+    unchanged. `Կյորես` in particular should **not** be re-spelled — it is a toponym, the old
+    name of Goris, and no attested classical-orthography form of it was found. Inventing one
+    would be worse than keeping the original.
 13. **`օփերա`** (opera), **`ԵՈՒՆԵՍՔՕ`** (UNESCO) — Western transliterations vary.
 14. **`արդիապաշտ`** for "modernist" — `մոդեռնիստ` is also current in diaspora usage.
 15. **`հայ-թաթարական բախումներ`** for the 1905–06 clashes — the historical Armenian term;

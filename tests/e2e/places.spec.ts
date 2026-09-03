@@ -3146,6 +3146,10 @@ test("no unrelated article artwork changed", () => {
     // the path is what this snapshot pins, and the path is new. Extended by one
     // line, every other value byte-identical.
     "hakob-paronyan": "/images/writers/hakob-paronyan.webp",
+    // §98 registers Writer #12's portrait. This snapshot going red on a Writers
+    // registration is the check working: it is the only test that would notice a
+    // path in another category being retyped in passing.
+    "aksel-bakunts": "/images/writers/aksel-bakunts.webp",
     anush: "/images/works/anush.webp",
     "david-of-sassoun": "/images/works/david-of-sassoun.webp",
     "wounds-of-armenia": "/images/works/wounds-of-armenia.webp",
@@ -4800,11 +4804,12 @@ test("the four existing category listings still load and still count what they d
   const expected: [string, number, string][] = [
     ["history", 7, dict.listing.history.title],
     // §81 moves Writers 6 → 7 with Grigor Narekatsi, §84 moves it 7 → 8 with
-    // Daniel Varoujan, §86 moves it 8 → 9 with Nerses Shnorhali and §88 moves it
-    // 9 → 10 with Siamanto. Edited rather than derived on purpose: this test exists
-    // to notice when another section grows, and it has now done so four times,
-    // going red first on each.
-    ["writers", 11, dict.listing.writers.title],
+    // Daniel Varoujan, §86 moves it 8 → 9 with Nerses Shnorhali, §88 moves it
+    // 9 → 10 with Siamanto, §94 moves it 10 → 11 with Hakob Paronyan and §97 moves
+    // it 11 → 12 with Aksel Bakunts. Edited rather than derived on purpose: this
+    // test exists to notice when another section grows, and it has now done so six
+    // times, going red first on each.
+    ["writers", 12, dict.listing.writers.title],
     ["works", 5, dict.listing.works.title],
     // §67 moves Cuisine 6 → 7 with Spas, §70 moves it 7 → 8 with jingalov hats,
     // §72 moves it 8 → 9 with khash, §74 moves it 9 → 10 with matsun, §77 moves it

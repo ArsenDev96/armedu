@@ -2656,6 +2656,86 @@ const SOURCES: Record<string, Source[]> = {
     },
   ],
 
+  "aksel-bakunts": [
+    {
+      author: "Սուրեն Աղաբաբյան",
+      title: "«ԲԱԿՈՒՆՑ Ակսել», Հայկական սովետական հանրագիտարան, հատոր 2",
+      publisher: "Հայկական հանրագիտարանի գլխավոր խմբագրություն, Երևան",
+      year: "1976",
+      identifier: { kind: "archive", value: "ՀՍՀ, հատոր 2, էջ 245" },
+      note: "The spine of the article and the source of every date it states without qualification: the birth as 13(25).6.1899 at Goris — which is what settles the Old Style and New Style forms as one date rather than two claims — the birth name Ալեքսանդր Ստեփանի Թևոսյան, the seminary years 1910–17, Kharkiv 1920–23, the Yerevan seed station, the Zangezur posts of 1924–26, the Peasant's Library series and the sequence of collections. Signed by the scholar who also wrote the standard monograph on him, which is why the article attributes the classical-specimens judgement to Aghababyan by name rather than stating it as fact. Its silence is also evidence and is used as such: the entry gives the death year alone, with no arrest, trial or execution, which is what a 1976 Soviet encyclopedia could say.",
+    },
+    {
+      author: "Aksel Bakunts, translated by Nairi Hakhverdi, introduction by Victoria Rowe",
+      title: "The Dark Valley",
+      publisher: "Taderon Press for the Gomidas Institute, London",
+      year: "2009",
+      identifier: { kind: "isbn", value: "9781903656907" },
+      note: "The only complete English Bakunts: all eighteen stories of the 1927 collection. Cited for the English title the article treats as settled for the book and for nothing else — the story, the toponym and the second Mtnadzor story have no canonical English form, which is precisely the distinction the Mtnadzor section draws. Also the source for the rendering of Միրհավ as The Pheasant.",
+    },
+    {
+      title: "Ակսել Բակունցի տուն-թանգարան, Գորիս",
+      publisher: "Եղիշե Չարենցի անվան գրականության և արվեստի թանգարան",
+      identifier: { kind: "url", value: "https://www.gatmuseum.am/en/branches/bakunc" },
+      note: "The institutional record for the museum: founded 1968, opened 17 September 1970, a branch of the Charents Museum of Literature and Art, holding about five hundred principal exhibits including manuscripts, photographs and his own library. Cited for the memorialisation chronology, which the article keeps separate from rehabilitation and republication. It is also the evidence that lifetime photographs of him exist in institutional hands beyond the single published one — the page describes the holdings without reproducing them.",
+    },
+    {
+      author: "Դավիթ Գասպարյան",
+      title: "Ակսել Բակունցը քաղաքական բռնությունների զոհ (1936–1937 թթ.)",
+      publisher: "Լրաբեր հասարակական գիտությունների, ՀՀ ԳԱԱ, Երևան",
+      year: "2024",
+      identifier: { kind: "doi", value: "10.54503/0135-0536-2024.3-78" },
+      note: "The basis for the whole 1936–37 chronology, by the scholar who edited the published indictment file. Cited for the arrest on 9 August 1936, the case reference — number 4131, eight volumes, 384 documents — the wording of the charge as counter-revolutionary, Trotskyist and nationalist, the Military Collegium's closed session of 7 July 1937, the execution on 8 July, and the rehabilitation of 2 March 1955. It is also the source for the Writers' Union meetings, the Zaryan article of 25 August 1936 and the documented estrangement from Charents from 1933. The article deliberately takes only the chronology and the documents' wording from it, and does not repeat the interrogation testimony as evidence about what Bakunts thought.",
+    },
+    {
+      author: "Արմինե Մանասյան",
+      title: "Ակսել Բակունցը և 1920-30-ական թվականների պատմվածքը",
+      publisher: "Գրականագիտական հանդես XVI, ՀՀ ԳԱԱ Մ. Աբեղյանի անվան գրականության ինստիտուտ, Երևան",
+      year: "2015",
+      identifier: { kind: "archive", value: "arar.sci.am, Հայկական հանրապետական թվային գրադարան, publication 197097" },
+      note: "The source for the short-story and prose-technique sections, and the reason those sections make technical rather than admiring claims: composition by accumulation toward a limiting situation, retrospection as a construction principle rather than lyricism, portraiture as compositional centre, the withheld ending of Մթնաձոր, and the formulation the article leans on hardest — that nature in Bakunts is not described but introduced by the teller as a minimum unit of psychological movement. Also the source for the live scholarly disagreement over whether his sympathies lie with the village rebels or with those who endure, which the article reports rather than resolves.",
+    },
+    {
+      author: "Սուսաննա Հովհաննիսյան",
+      title: "Ակսել Բակունցը և ազգային լեզվի զարգացման ուղիները",
+      publisher: "Գրականագիտական հանդես, ՀՀ ԳԱԱ Մ. Աբեղյանի անվան գրականության ինստիտուտ, Երևան",
+      year: "2021",
+      identifier: { kind: "archive", value: "arar.sci.am, Հայկական հանրապետական թվային գրադարան, publication 273343" },
+      note: "The basis for his stated position at the first congress of the Writers' Union of Armenia in August 1934 — that the literary language must be anchored on the popular one, that dialects are its natural path of enrichment, and that classical Armenian serves statehood and philosophy but damages the description of nature — and for his disagreement on this with Charents and Teryan and his alignment with Tumanyan. Cited so that the language section rests on what he argued rather than on what his prose is assumed to sound like.",
+    },
+    {
+      author: "Մհեր Քումունց և Ալլա Բակունց",
+      title: "Դարձվածքները Ա. Բակունցի «Կյորես» վիպակում (համեմատական քննություն)",
+      publisher: "ՀՀ ԳԱԱ Հ. Աճառյանի անվան լեզվի ինստիտուտ, Երևան",
+      year: "2025",
+      identifier: { kind: "doi", value: "10.54503/978-9939-970-08-0-229" },
+      note: "The single most important citation for the article's refusal of the dialect claim. It compares the phraseology of Կյորես against living Goris speech and finds that the idiom does derive from the dialect but that part of it sits in characters' mouths while the rest is carried in the authorial narration in literarised form — popular speech reshaped, not transcribed. That is the evidence for the distinction between regional vocabulary and dialect writing, which this article states and most short accounts of Bakunts do not. Also cited for idiom marking a speaker's social position.",
+    },
+    {
+      author: "Ա. Պետրոսյան, Կ. Բայրամյան և Ա. Գնունի",
+      title: "Հնագետը Ակսել Բակունցի «Ալպիական մանուշակ»-ում",
+      publisher: "Պատմա-բանասիրական հանդես, ՀՀ ԳԱԱ, Երևան",
+      year: "2025",
+      identifier: { kind: "doi", value: "10.53548/0320-8117-2025.3-257" },
+      note: "The basis for the Alpine Violet section and for the article's anti-pastoral argument. It supplies the reading of the archaeologist and the painter as looking at the world through the eyes of a beetle — arriving, seeing the beauty of past or present, and leaving while the substance of life escapes them — the observation that the story has no clear plot and works by subtext, and the archival identification of the archaeologist's model as Morus Hasratyan.",
+    },
+    {
+      author: "Naira Hambardzumyan",
+      title: "Interpenetration of Myth and Sign in Axel Bakunts' \"Mtnadzor\" Collection",
+      publisher: "Լրաբեր հասարակական գիտությունների, ՀՀ ԳԱԱ, Երևան",
+      year: "2020",
+      identifier: { kind: "archive", value: "arar.sci.am, Հայկական հանրապետական թվային գրադարան, publication 263016" },
+      note: "Cited for the landscape section's claim that the Mtnadzor stories hold a pre-human time inside the present, and for the line about the forgotten corner from the days when there was no man yet. Also one of the few pieces of Bakunts scholarship published in English, which is itself part of the article's point about how thin the English-language record is.",
+    },
+    {
+      title: "Library of Congress Name Authority File and Bibliothèque nationale de France, authority records for Aksel Bakuntsʻ",
+      publisher: "Library of Congress; Bibliothèque nationale de France",
+      year: "consulted 2026",
+      identifier: { kind: "archive", value: "LC n88058958; BnF ark:/12148/cb12147444v" },
+      note: "The evidence for the name section, and cited only for that. The Library of Congress heading is Bakuntsʻ, Aksel, 1899-1937, with Tʻevosyan, Alekʻsandr Stepʻani recorded as the birth name and Աղեքսանդր preserved as a variant; the BnF gives Aksel Bakounts. Both therefore file him under Aksel rather than the Axel of English Wikipedia, which is what the article's choice of canonical form rests on. Both also record Western Armenian pronunciation transliterations — Paguntsʻ, Agsel and Aksel Pagounts — which is independent evidence that diaspora imprints exist, and the reason the article treats the Western Armenian form as a variant spelling rather than inventing a separate title set.",
+    },
+  ],
+
 };
 
 

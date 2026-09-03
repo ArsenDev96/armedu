@@ -137,6 +137,18 @@ export const writers: Writer[] = [
     imageSeed: "hakob-paronyan",
     notableWorks: ["Պաղտասար աղբար", "Ազգային ջոջեր", "Մեծապատիվ մուրացկաններ", "Ատամնաբուժն արևելյան"],
   },
+  {
+    slug: "aksel-bakunts",
+    name: "Ակսել Բակունց",
+    lifespan: "1899–1937",
+    period: "XX դար",
+    periodId: "20th-century",
+    role: "Արձակագիր, պատմվածագիր և ագրոնոմ",
+    description:
+      "Հայ հարավի պատմվածագիրը, ով Զանգեզուրի գլխավոր գյուղատնտեսն էր, նախքան իր արձակը գրականության նյութ դարձներ այդ երկրամասի լեռներն ու գյուղերը:",
+    imageSeed: "aksel-bakunts",
+    notableWorks: ["Մթնաձոր", "Ալպիական մանուշակ", "Միրհավ", "Կյորես"],
+  },
 ];
 
 export const literaryPeriods: Filter[] = [
