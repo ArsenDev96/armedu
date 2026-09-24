@@ -642,6 +642,252 @@ const SOURCES: Record<string, Source[]> = {
     },
   ],
 
+  /*
+   * `mtnadzor` is the first Work in this archive whose central problem is
+   * bibliographic rather than interpretive: one Armenian word names a story, the
+   * book that story opens, a second story inside that same book, and several real
+   * places. Nearly every claim the article makes about *which* of those is meant
+   * rests on one source — the textological apparatus below — and the rest of the
+   * list is scoped so that no two entries do the same job.
+   */
+  mtnadzor: [
+    {
+      author: "Ակսել Բակունց, բնագրերը և ծանոթագրությունները՝ Ռաֆայել Իշխանյանի",
+      title: "Երկեր, հատոր 1",
+      publisher: "ՀՍՍՀ ԳԱ Մ. Աբեղյանի անվան գրականության ինստիտուտ, Հայաստան հրատարակչություն, Երևան",
+      year: "1976",
+      identifier: { kind: "archive", value: "Ակսել Բակունց, Երկեր, հ. 1, Երևան, 1976, ծանոթագրություններ, էջ 606–671" },
+      note: "The spine of the article, and the reason it can state a chronology at all. Ishkhanyan's apparatus supplies: the collection's eighteen titles and their order, reconstructed from the printer's contents list together with the three moves made in ink that produced the printed sequence; the first-publication lines for Մթնաձոր (ԽՀ 1926, 21 նոյ., № 269), Միրհավ (1926, 6 հուն., № 132), Ալպիական մանուշակ (1927, 1 և 4 հունվ., №№ 1–2) and Խոնարհ աղջիկը (1–2 փետր. 1927); the finding that Մթնաձորի «չարքը» has no traceable periodical publication at all and first appeared in the book; the Shikahogh enquiry of 1961 that identified the title story's real-world basis; and the collation of the 1927 and 1933 texts, which is what allows the article to say that the Ալպիական մանուշակ dedication is absent from the 1927 text and that the man who whips Dilan in Միրհավ changed between the two. The volume is digitised page by page and proofread on Հայերեն Վիքիդարան, which is how it was read. It is cited for chronology and textual state, never for evaluation. Where it dates the composition of Ալպիական մանուշակ against Bakunts's own printed 25 — 27, the article reports the disagreement rather than choosing.",
+    },
+    {
+      author: "Սուրեն Աղաբաբյան",
+      title: "«Ակսել Բակունցի «Մթնաձոր» ժողովածուն», Պատմա-բանասիրական հանդես, էջ 3–16",
+      publisher: "ՀՍՍՀ ԳԱ, Երևան",
+      year: "1979",
+      identifier: { kind: "url", value: "https://arar.sci.am/dlibra/publication/190112/edition/172653" },
+      note: "A study of this book by the scholar who wrote the standard monograph on Bakunts and signed his encyclopedia entry, and the source for three of the article's sections at once. Reception: that the collection succeeded with readers while the criticism of its own moment condemned it as an idealisation of Armenian patriarchal antiquity, an assessment Aghababyan sets out in order to refute, along with the cluster of attributions later scholarship came to call the Legend about Bakunts. Anti-pastoral: he quotes Bakunts's own pre-1927 journalism dispelling the myth of the pastoral village, and draws the conclusion this article leans on — that however inaccessible and forgotten, the same laws operate in Mtnadzor as in the centres of enlightenment. Landscape and form: that nature and the village are not separated in this world, that the sub-text is the continuation of the text, and that the stories have neither special beginnings nor special endings. His contents list is also the article's second independent witness to the eighteen titles and their order. Cited for his readings as his, not as settled fact.",
+    },
+    {
+      author: "Aksel Bakunts, translated by Nairi Hakhverdi, preface by Victoria Rowe",
+      title: "The Dark Valley",
+      publisher: "Taderon Press for the Gomidas Institute, London",
+      year: "2009",
+      identifier: { kind: "isbn", value: "9781903656907" },
+      note: "The only complete English Bakunts, and the authority for every English title this article prints for a story in the collection — Pheasant, Alpine Violet, The \"Demon\" of the Dark Valley and the rest, in the article-less forms the book's own contents page uses. Rowe's preface is the source for the statement that all eighteen stories are translated in their entirety, and for the reading of the collection as portraits of the peasantry that are never propaganda pieces. The year given here is the publisher's own: the Gomidas catalogue prints London, Taderon Press, 2009, 148 pp, and Rowe signs the preface June 2009, while the book's copyright page and the library cataloguing derived from it give 2008. The article states that conflict rather than resolving it, because no consulted record settles which is the release.",
+    },
+    {
+      author: "Eddie Arnavoudian",
+      title: "Why we should read… The Dark Valley: Short Stories by Aksel Bakunts",
+      publisher: "The Critical Corner, Armenian News Network / Groong",
+      year: "2010",
+      identifier: { kind: "url", value: "https://groong.org/tcc/tcc-20100413.html" },
+      note: "The substantial English critical notice of the collection, and the source the anti-pastoral section leans on hardest: that there is nothing idyllic about the Dark Valley, and that it is dark not through romanticised isolation but because it is impoverished and outside the mainstream of urban life. Also cited for the reading of human suffering as socially constructed rather than innate, for the loss of the well-to-do neighbour in the English Միրհավ, and for his rejection of Vahe Oshagan's claim that there is no good, evil or justice in this fiction. Cited as criticism, not as fact: where he says the husband in Ալպիական մանուշակ strikes with his sickle, the Armenian has him throw the sickle aside and strike with the staff, so the article does not repeat it.",
+    },
+    {
+      author: "Naira Hambardzumyan",
+      title: "Interpenetration of Myth and Sign in Axel Bakunts' \"Mtnadzor\" Collection",
+      publisher: "Լրաբեր հասարակական գիտությունների, ՀՀ ԳԱԱ, Երևան",
+      year: "2020",
+      identifier: { kind: "archive", value: "arar.sci.am, Հայկական հանրապետական թվային գրադարան, publication 263016" },
+      note: "Scholarship on this collection specifically rather than on Bakunts generally, and the basis for the landscape section's central claim: that the Mtnadzor stories hold a pre-human time inside the present, the forgotten corner from the days when there was no man yet. It is also one of the very few pieces of Bakunts scholarship published in English, which is itself evidence for what the article says about the state of the English-language record.",
+    },
+    {
+      author: "Արմինե Մանասյան",
+      title: "Ակսել Բակունցը և 1920-30-ական թվականների պատմվածքը",
+      publisher: "Գրականագիտական հանդես XVI, ՀՀ ԳԱԱ Մ. Աբեղյանի անվան գրականության ինստիտուտ, Երևան",
+      year: "2015",
+      identifier: { kind: "archive", value: "arar.sci.am, Հայկական հանրապետական թվային գրադարան, publication 197097" },
+      note: "The source for the form section, and the reason it makes technical rather than admiring claims: composition by accumulation toward a limiting situation, retrospection used as a construction principle rather than as lyricism, portraiture as the compositional centre, and the withheld ending of Մթնաձոր. The formulation the section rests on most heavily is hers — that nature in Bakunts is not described but introduced by the teller as a minimum unit of psychological movement.",
+    },
+    {
+      author: "Ա. Պետրոսյան, Կ. Բայրամյան և Ա. Գնունի",
+      title: "Հնագետը Ակսել Բակունցի «Ալպիական մանուշակ»-ում",
+      publisher: "Պատմա-բանասիրական հանդես, ՀՀ ԳԱԱ, Երևան",
+      year: "2025",
+      identifier: { kind: "doi", value: "10.53548/0320-8117-2025.3-257" },
+      note: "The basis for the Ալպիական մանուշակ section: the reading of the archaeologist and the painter as men looking at the world through the eyes of a beetle — arriving, seeing the beauty of past or present, and leaving while the substance of life escapes them — the observation that the story has no clear plot and works by subtext, and the archival identification of the archaeologist's model as Morus Hasratyan.",
+    },
+    {
+      author: "Hrach Martirosyan",
+      title: "Etymological Dictionary of the Armenian Inherited Lexicon",
+      publisher: "Brill, Leiden — Leiden Indo-European Etymological Dictionary Series 8",
+      year: "2010",
+      identifier: { kind: "isbn", value: "9789004173378" },
+      note: "Cited for one sentence and nothing more. The word միրհավ has no entry of its own; it appears in the dialectal material under the headword mayri, where the compound is read as forest-fowl and glossed probably as a kind of pheasant, or as heath-cock or black-cock. Both halves of that matter here: մայրի is treated as a general word for woods or forest — Martirosyan expressly rejects rendering it a forest of fir trees — and the identification of the bird is hedged rather than settled, which is why the article reports the disagreement instead of asserting the pheasant.",
+    },
+    {
+      author: "Հրաչ Մարտիրոսյան",
+      title: "«Միրհավ» բառի ծագումը",
+      publisher: "Գրանիշ",
+      year: "2014",
+      identifier: { kind: "url", value: "https://granish.org/mirhav-origin/" },
+      note: "Where the same scholar sets the argument out at length, and the reason the article credits the etymology to Կարո Դավթյան rather than to Martirosyan: he states that the analysis was already published in Davtyan's 1966 dialect study of Mountainous Karabakh, and presents his own contribution as the supporting evidence — the parallels in which a forest X means a wild X, the sound change that gives միր- from մայրի in the Karabakh and Goris speech, and the case against the rival reading of the name as Mihr's bird. Cited so that the lexical paragraph attributes each part of the argument to whoever actually made it.",
+    },
+  ],
+
+  /*
+   * `baghdasar-aghbar` is the section's first play, and its bibliography is shaped
+   * by two problems the prose has to solve. The first is chronological: four
+   * different years — composition, serialisation, premiere, and a premiere date
+   * that no source actually attests — circulate as though they were one fact, so
+   * the chronology entries are separated from the critical ones and each is cited
+   * for the date it establishes and no other. The second is the title: there is no
+   * canonical English form, which is why two translations with two different
+   * titles are cited as evidence rather than as authority.
+   */
+  "baghdasar-aghbar": [
+    {
+      author: "Հակոբ Պարոնյան, բնագիրը և ծանոթագրությունները՝ Ա. Ս. Մանուկյանի",
+      title: "Երկերի ժողովածու տասը հատորով, հատոր 1",
+      publisher: "ՀՍՍՌ ԳԱ Մ. Աբեղյանի անվան գրականության ինստիտուտ, Երևան",
+      year: "1962",
+      identifier: { kind: "archive", value: "Հակոբ Պարոնյան, Երկերի ժողովածու, հ. 1, Երևան, 1962, «Պաղտասար աղբար», էջ 297–421, ծանոթագրություններ՝ էջ 459–461" },
+      note: "The text of record and the source of almost everything the article states as fact rather than as reading. It supplies the play's own subtitle, Կատակերգություն երեք արարքով, and so the three acts; the dramatis personae exactly as printed, which is what settles the wife's name as Անույշ; the textological note fixing first publication in Paronyan's own Խիկար across August–December 1886 and January–February 1887; the editorial gloss defining the Դատաստանական խորհուրդ as a body of four laymen and four clerics with jurisdiction over matrimonial cases; the list of translations, which is where the French, English and Russian titles and their dates come from; and the note that the 1933 English translator renamed four characters. It is also the source for Paronyan's own statement of method at the relaunch of Խիկար — that he would stop publishing the allegorical writing which necessity forces on a satirist and in which satire dies, and write instead a series of comedies drawn from national manners, of which this was to be the first. Cited for text and chronology, never for evaluation. The edition prints reformed orthography, so the Armenian this article quotes is the academic text rather than Paronyan's own classical spelling.",
+    },
+    {
+      title: "Հայկական սովետական հանրագիտարան, հատորներ 1, 9 և 11",
+      publisher: "Հայկական հանրագիտարանի գլխավոր խմբագրություն, Երևան",
+      year: "1974–1985",
+      identifier: { kind: "archive", value: "ՀՍՀ, հատոր 9, էջ 204–205; հատոր 11, էջ 532 և 193; հատոր 1, էջ 21" },
+      note: "Three entries doing three different jobs, which is why they are cited together rather than as one page. The Պարոնյան entry in volume 9, signed by Ա. Մանուկյան, carries the chronology of the periodicals, the genre of each work — which is what keeps Ազգային ջոջեր, Մեծապատիվ մուրացկաններ and this play apart — the typing of the cast, and the one compact critical judgement the article quotes, that the comedy of situation and above all of speech is strong. The Վրույր entry in volume 11 is the only source found that names a year, a city and a person for the first staging: Tiflis, 1895, staged by Aram Vruyr, who played the title part. The same volume's theatre entry carries the 1927 Yerevan production. The Աբելյան entry in volume 1 gives his assumption of the role in 1897, which the article uses to show the part spreading and takes care not to present as a premiere.",
+    },
+    {
+      author: "Արսեն Գլջյան",
+      title: "«Պարոնյանի թատերգության գլուխգործոցը նոր մեկնաբանությամբ», Կանթեղ. գիտական հոդվածների ժողովածու, 2002, թիվ 3, էջ 3–12",
+      publisher: "Երևան",
+      year: "2002",
+      identifier: { kind: "url", value: "https://arar.sci.am/dlibra/publication/182081/edition/165312" },
+      note: "The fullest modern study devoted to this play alone, and the source of the reading the character section rests on. Gldjyan rejects the received tragicomic account of Baghdasar in as many words and argues instead for a figure in two phases: the sobered Baghdasar of the later acts shows vitality, common sense and a sense of humour, and is not, in extremity, as stupid as he looks — but he remains a nonentity, and not a petty one to be pitied as a victim of circumstance, since he is among those responsible for the evil sprouting in his own society. Also cited for the reading of the maid Soghome against the sympathetic-servant type, and for the observation that both Baghdasar and Kipar try to buy the verdict and only Kipar succeeds.",
+    },
+    {
+      author: "Վ. Ս. Դարբինյան",
+      title: "«Հակոբ Պարոնյանի թատերգությունները», Լրաբեր հասարակական գիտությունների, 1972, թիվ 5, էջ 73–80",
+      publisher: "ՀՍՍՀ ԳԱ, Երևան",
+      year: "1972",
+      identifier: { kind: "url", value: "https://arar.sci.am/dlibra/publication/38446/edition/34521" },
+      note: "Cited as the position against Gldjyan's, so that the article can report a live disagreement rather than choose a winner. Darbinyan holds that the author expresses no positive attitude toward any character in the play; that Baghdasar only appears to be a suffering husband and is mocked precisely through that appearance, his suffering set in quotation marks; and that he cannot tell real love from outward attraction, which is the true motive of his so-called tragedy. Also the source for the survey of the plays as a sequence and for the gap of about fifteen years between Շողոքորթը and this comedy.",
+    },
+    {
+      author: "Ս. Ն. Սարինյան",
+      title: "«Պարոնյանի ծիծաղի փիլիսոփայությունը», Լրաբեր հասարակական գիտությունների, 1993, թիվ 4, էջ 39–48",
+      publisher: "ՀՀ ԳԱԱ, Երևան",
+      year: "1993",
+      identifier: { kind: "url", value: "https://arar.sci.am/dlibra/publication/42312/edition/37892" },
+      note: "The formulation the satire section turns on: that in this play the real and the satirical are of equal weight, there is no parallel track running beside the comedy, and the world is submerged whole inside the satire. Cited with care about what it contrasts — Sarinyan is setting the play against Sundukyan's drama, where the comic is drawn against a background of positive reality and the line between them stays visible, not against Paronyan's own prose. He also holds that Ատամնաբոյժն արեւելեան can be read alongside Molière's comedies while this play is something else in its social and psychological landscape.",
+    },
+    {
+      author: "Ալբերտ Մակարյան",
+      title: "«Հակոբ Պարոնյանի «Մեծապատիվ մուրացկանները» վիպակի պոետիկան», Հայագիտական հանդես, 2016, թիվ 2 (32), էջ 101–115",
+      publisher: "Խ. Աբովյանի անվան ՀՊՄՀ, Երևան",
+      year: "2016",
+      identifier: { kind: "url", value: "https://arar.sci.am/dlibra/publication/401231/edition/371275" },
+      note: "Cited for two things and not for its main subject. First, the shape of the career: Makaryan states that Paronyan began his literary work as a dramatist and ended as one, naming Երկու տերով ծառա մը in 1865 and this play in 1886 as the two ends. Second, the only scholarly attestation found for the medium of his dialogue — that he often gives whole pages over to nothing but the characters' living talk, delivered in rich Constantinople Armenian speech. The article leans on that phrase rather than characterising the play's language on its own authority, because no study devoted to the language of this play could be located.",
+    },
+    {
+      title: "Հայոց լեզվի բարբառային բառարան",
+      publisher: "ՀՀ ԳԱԱ Հ. Աճառյանի անվան լեզվի ինստիտուտ, Երևան",
+      year: "2001–2012",
+      identifier: { kind: "archive", value: "Հայոց լեզվի բարբառային բառարան, բառահոդվածներ «աղբար» և «աղբեր»" },
+      note: "The evidence for the one word in the title, and the reason the article refuses the reading that most invites itself. The dictionary marks աղբար as dialectal and refers it to աղբեր, whose dialect list opens with Պոլիս — so the form is native Constantinople speech rather than a provincial import, and cannot be used to make Baghdasar a rustic. The idioms recorded under it are markers of intimacy rather than of low origin. The article states the register contrast — inherited spoken form against the learned եղբայր — and stops there, because the later pejorative sense the word acquired in Soviet Armenia belongs to the twentieth century and cannot be read back into an 1886 title.",
+    },
+    {
+      author: "Hagop Baronian, translated and edited by Mischa Kudian",
+      title: "Balthazar: A Satirical Farce in Three Acts",
+      publisher: "Mashtots Press, London",
+      year: "1992",
+      identifier: { kind: "isbn", value: "9780903039208" },
+      note: "One of the two published English versions, and cited as evidence about the title rather than as the authority on it. Kudian, who had already given English readers Մեծապատիվ մուրացկաններ as Honourable Beggars, dropped the Armenian word from the title altogether and called the play simply Balthazar. That is half the reason this article treats Baghdasar Aghbar as a transliteration rather than a translation: the two translators who actually printed the play in English did not agree on what to call it.",
+    },
+    {
+      author: "Hagop Baronian and others, translated by Paul Rapley and Aramazd Stepanian",
+      title: "Armenian Playwrights, Volume I",
+      publisher: "C.A.P.S. Publications",
+      year: "2020",
+      identifier: { kind: "isbn", value: "9781649991294" },
+      note: "The other half of the title evidence, and the more revealing half. This translation keeps the Armenian title transliterated as Baghdasar Akhpar and then glosses it in parentheses as Uncle Baghdasar — that is, the most recent translators declined to settle on an English title and printed both solutions at once. Cited for that, and for the description of the play as a late nineteenth-century marital comedy with a strong satirical bent.",
+    },
+    {
+      title: "«Բաղդասարը բաժանվում է կնոջից», ռեժիսոր՝ Գրիգոր Մելիք-Ավագյան, սցենար՝ Աղասի Այվազյան, «Հայֆիլմ»",
+      publisher: "Госфильмофонд России, каталог",
+      year: "1976",
+      identifier: { kind: "url", value: "https://gosfilmofond.ru/films/255195/" },
+      note: "The state film archive's catalogue record, cited so that the screen adaptation is described from a catalogue rather than from a synopsis site. It supplies the production year of 1976 against an April 1977 release, the studio, the director and screenwriter, the classification as a feature film rather than a filmed stage production, and Mher Mkrtchyan in the title part. It is also the source for the qualification the article makes twice: the film is built on motifs of the play rather than being an adaptation of its text, and it spells the name Բաղդասար where the play has Պաղտասար.",
+    },
+  ],
+
+  /*
+   * `yerkir-nairi` is the section's first novel with a genuinely disputed
+   * publication date circulating in reference works — one widely mirrored
+   * encyclopedia entry gives 1924, against the 1926 book date this article
+   * follows (matching the chronology already established for Charents on this
+   * site and the majority of sources here). Sources 1 and 3 are cited for that
+   * conflict directly. Two entries (6 and 8) are cited specifically for what
+   * they do *not* establish — a translator name and a diaspora-critical
+   * consensus — because the article states those limits rather than papering
+   * over them, and the citation has to support the negative claim, not just a
+   * positive one.
+   */
+  "yerkir-nairi": [
+    {
+      title: "Երկիր Նաիրի (վեպ)",
+      publisher: "Հայկական Վիքիպեդիա, ըստ Հայկական հանրագիտարանի (encyclopedia.am)",
+      year: "consulted 2026",
+      identifier: { kind: "url", value: "https://hy.wikipedia.org/wiki/Երկիր_Նաիրի_(վեպ)" },
+      note: "The source of the article's three-part structure and their titles, the character list (Մազութի Համո and the gallery of local notables around him), the narrator's own line that the novel has no hero, and the discussion of Նաիրի as both the historical kingdom and the symbolic 'united, undivided homeland' the characters invoke. Also the source of the Երկիր Նայիրի spelling variant, which it prints without treating it as a separate title. Cited with one caution stated in the article itself: this entry dates the novel's composition to 1921–1924 and its publication to 1924, which conflicts with the 1926 book date most other sources and this site's own Charents chronology use — recorded here as the documented discrepancy the article names rather than adopted silently.",
+    },
+    {
+      title: "Yeghishe Charents",
+      publisher: "Wikipedia",
+      year: "consulted 2026",
+      identifier: { kind: "url", value: "https://en.wikipedia.org/wiki/Yeghishe_Charents" },
+      note: "Cited for the biographical anchor (Kars, 1897) and for two claims about the novel's afterlife not found elsewhere consulted: that it was translated into Russian and repeatedly republished in Moscow during Charents's lifetime, and that it was presented to delegates at the 1934 Soviet Writers' Congress by Maxim Gorky. Not cited for the composition/publication dates, which this article draws from the fuller record described above.",
+    },
+    {
+      author: "Աշոտ Ալեքսանյան",
+      title: "Եղիշե Չարենցի «Երկիր Նաիրին» և եվրոպական վիպական ավանդույթը",
+      publisher: "Գրանիշ (granish.org)",
+      year: "consulted 2026",
+      identifier: { kind: "url", value: "https://granish.org/erkir-nairin-ev-evropakan-vipakan-avanduyty/" },
+      note: "The source the modernist-form and narrator sections rest on. Alexanyan places the novel beside Musil, Broch, Joyce and Proust as a European modernist seeking new expressive forms without a wholesale break from narrative continuity; states the novel's own description of itself as having 'no hero — only a narrator,' passive before events he cannot shape and describing them as 'a turbid current, a river of darkness'; identifies the satirised nationalist intellectual as the target of a Musil-style comedy of ambition outrunning material reality; and notes the novel's self-description as a poem-like novel blending poetic and essayistic elements. Cited for a documented critical argument, not as evidence Charents read these European writers.",
+    },
+    {
+      title: "«Երկիր Նաիրի», Ա. Ալեքսանդրյան | Մարիետա Շահինյան մեջբերումով",
+      publisher: "Վիքիքաղվածք (hy.wikiquote.org), «Եղիշե Չարենց»",
+      year: "consulted 2026",
+      identifier: { kind: "url", value: "https://hy.wikiquote.org/wiki/Եղիշե_Չարենց" },
+      note: "The source of Marietta Shaginyan's characterisation of the novel as 'created in a Gogolian rhythm' (ստեղծված է գոգոլյան ռիթմով), quoted in the narrator section and among the interesting facts. Cited for that one line, not for a general account of the novel.",
+    },
+    {
+      title: "Land of Nairi, Where Are You?",
+      publisher: "Armenian National Institute / Aniarc (aniarc.am)",
+      year: "2015",
+      identifier: { kind: "url", value: "https://www.aniarc.am/2015/04/23/land-of-nairi-where-are-you/" },
+      note: "Cited for the passage on Kars's Arakelots church, which Charents compares to what the soul is to the body and to Notre-Dame for Parisians, and for its framing of Nairi as a name that reaches for a vanished world rather than a plain synonym for Armenia. This is the diaspora-facing source consulted for this article; it is descriptive rather than a scholarly critical study, and is cited only for that one passage and framing.",
+    },
+    {
+      author: "Լիլիթ Երանյան",
+      title: "Կորստից ազատվելու հզոր ձգտումը ըստ Եղիշե Չարենցի «Երկիր Նաիրի» վեպի",
+      publisher: "Գրանիշ (granish.org)",
+      year: "consulted 2026",
+      identifier: { kind: "url", value: "https://granish.org/korstic-azatvelu-dzktumy/" },
+      note: "Located as a second, independent piece of contemporary Armenian literary criticism on the novel, evidence that it remains a live subject of critical attention rather than a closed classic — cited for that fact of continued scholarly engagement, not for specific claims quoted in the article, since this article does not reproduce its argument in detail.",
+    },
+    {
+      title: "Երկիր Նաիրի: Land of Nairi",
+      publisher: "Google Play Books / Kobo",
+      year: "consulted 2026",
+      identifier: { kind: "url", value: "https://play.google.com/store/books/details?id=B1YQS3B8LhMC" },
+      note: "The evidence that an English-titled digital edition circulates commercially under Land of Nairi. Cited specifically for what it does not establish: neither this listing nor the parallel Kobo listing names a translator, a print publisher or an ISBN for a critical edition, which is why the article states the title's currency without asserting a canonical English translation's bibliographic details.",
+    },
+    {
+      title: "Երկիր Նաիրի [Yerkir Nairi]",
+      publisher: "Goodreads",
+      year: "consulted 2026",
+      identifier: { kind: "url", value: "https://www.goodreads.com/hy/book/show/13627472-yerkir-nairi" },
+      note: "A library-catalogue-style record used only to cross-check the title romanisation Yerkir Nairi against independent English-language usage outside Wikipedia, alongside the Yerkir Nayiri variant this article records as an alternative transliteration rather than a different title.",
+    },
+  ],
+
   /* ---------------------------------------------------------------- cuisine */
 
   /*
@@ -2715,6 +2961,86 @@ const SOURCES: Record<string, Source[]> = {
       year: "consulted 2026",
       identifier: { kind: "archive", value: "Wikimedia Commons, Category:Alexander Shirvanzade" },
       note: "Cited for the statement that gendarme registration cards on him were compiled by the Tiflis provincial gendarme administration and are held by the National Archive of Georgia. The same record is the portrait evidence for a future commission and is described precisely because it is easy to overstate: a studio portrait photograph credited to the Charents Museum and a second undated photographic portrait survive, while the image often dated about 1880 is a lithograph published in the Constantinople French-language paper La Patrie in 1910 and held by the BnF, and a commemorative stamp and a sketch in the same category are not photographs at all.",
+    },
+  ],
+
+  "aksel-bakunts": [
+    {
+      author: "Սուրեն Աղաբաբյան",
+      title: "«ԲԱԿՈՒՆՑ Ակսել», Հայկական սովետական հանրագիտարան, հատոր 2",
+      publisher: "Հայկական հանրագիտարանի գլխավոր խմբագրություն, Երևան",
+      year: "1976",
+      identifier: { kind: "archive", value: "ՀՍՀ, հատոր 2, էջ 245" },
+      note: "The spine of the article and the source of every date it states without qualification: the birth as 13(25).6.1899 at Goris — which is what settles the Old Style and New Style forms as one date rather than two claims — the birth name Ալեքսանդր Ստեփանի Թևոսյան, the seminary years 1910–17, Kharkiv 1920–23, the Yerevan seed station, the Zangezur posts of 1924–26, the Peasant's Library series and the sequence of collections. Signed by the scholar who also wrote the standard monograph on him, which is why the article attributes the classical-specimens judgement to Aghababyan by name rather than stating it as fact. Its silence is also evidence and is used as such: the entry gives the death year alone, with no arrest, trial or execution, which is what a 1976 Soviet encyclopedia could say.",
+    },
+    {
+      author: "Aksel Bakunts, translated by Nairi Hakhverdi, introduction by Victoria Rowe",
+      title: "The Dark Valley",
+      publisher: "Taderon Press for the Gomidas Institute, London",
+      year: "2009",
+      identifier: { kind: "isbn", value: "9781903656907" },
+      note: "The only complete English Bakunts: all eighteen stories of the 1927 collection. Cited for the English title the article treats as settled for the book and for nothing else — the story, the toponym and the second Mtnadzor story have no canonical English form, which is precisely the distinction the Mtnadzor section draws. Also the source for the rendering of Միրհավ as The Pheasant.",
+    },
+    {
+      title: "Ակսել Բակունցի տուն-թանգարան, Գորիս",
+      publisher: "Եղիշե Չարենցի անվան գրականության և արվեստի թանգարան",
+      identifier: { kind: "url", value: "https://www.gatmuseum.am/en/branches/bakunc" },
+      note: "The institutional record for the museum: founded 1968, opened 17 September 1970, a branch of the Charents Museum of Literature and Art, holding about five hundred principal exhibits including manuscripts, photographs and his own library. Cited for the memorialisation chronology, which the article keeps separate from rehabilitation and republication. It is also the evidence that lifetime photographs of him exist in institutional hands beyond the single published one — the page describes the holdings without reproducing them.",
+    },
+    {
+      author: "Դավիթ Գասպարյան",
+      title: "Ակսել Բակունցը քաղաքական բռնությունների զոհ (1936–1937 թթ.)",
+      publisher: "Լրաբեր հասարակական գիտությունների, ՀՀ ԳԱԱ, Երևան",
+      year: "2024",
+      identifier: { kind: "doi", value: "10.54503/0135-0536-2024.3-78" },
+      note: "The basis for the whole 1936–37 chronology, by the scholar who edited the published indictment file. Cited for the arrest on 9 August 1936, the case reference — number 4131, eight volumes, 384 documents — the wording of the charge as counter-revolutionary, Trotskyist and nationalist, the Military Collegium's closed session of 7 July 1937, the execution on 8 July, and the rehabilitation of 2 March 1955. It is also the source for the Writers' Union meetings, the Zaryan article of 25 August 1936 and the documented estrangement from Charents from 1933. The article deliberately takes only the chronology and the documents' wording from it, and does not repeat the interrogation testimony as evidence about what Bakunts thought.",
+    },
+    {
+      author: "Արմինե Մանասյան",
+      title: "Ակսել Բակունցը և 1920-30-ական թվականների պատմվածքը",
+      publisher: "Գրականագիտական հանդես XVI, ՀՀ ԳԱԱ Մ. Աբեղյանի անվան գրականության ինստիտուտ, Երևան",
+      year: "2015",
+      identifier: { kind: "archive", value: "arar.sci.am, Հայկական հանրապետական թվային գրադարան, publication 197097" },
+      note: "The source for the short-story and prose-technique sections, and the reason those sections make technical rather than admiring claims: composition by accumulation toward a limiting situation, retrospection as a construction principle rather than lyricism, portraiture as compositional centre, the withheld ending of Մթնաձոր, and the formulation the article leans on hardest — that nature in Bakunts is not described but introduced by the teller as a minimum unit of psychological movement. Also the source for the live scholarly disagreement over whether his sympathies lie with the village rebels or with those who endure, which the article reports rather than resolves.",
+    },
+    {
+      author: "Սուսաննա Հովհաննիսյան",
+      title: "Ակսել Բակունցը և ազգային լեզվի զարգացման ուղիները",
+      publisher: "Գրականագիտական հանդես, ՀՀ ԳԱԱ Մ. Աբեղյանի անվան գրականության ինստիտուտ, Երևան",
+      year: "2021",
+      identifier: { kind: "archive", value: "arar.sci.am, Հայկական հանրապետական թվային գրադարան, publication 273343" },
+      note: "The basis for his stated position at the first congress of the Writers' Union of Armenia in August 1934 — that the literary language must be anchored on the popular one, that dialects are its natural path of enrichment, and that classical Armenian serves statehood and philosophy but damages the description of nature — and for his disagreement on this with Charents and Teryan and his alignment with Tumanyan. Cited so that the language section rests on what he argued rather than on what his prose is assumed to sound like.",
+    },
+    {
+      author: "Մհեր Քումունց և Ալլա Բակունց",
+      title: "Դարձվածքները Ա. Բակունցի «Կյորես» վիպակում (համեմատական քննություն)",
+      publisher: "ՀՀ ԳԱԱ Հ. Աճառյանի անվան լեզվի ինստիտուտ, Երևան",
+      year: "2025",
+      identifier: { kind: "doi", value: "10.54503/978-9939-970-08-0-229" },
+      note: "The single most important citation for the article's refusal of the dialect claim. It compares the phraseology of Կյորես against living Goris speech and finds that the idiom does derive from the dialect but that part of it sits in characters' mouths while the rest is carried in the authorial narration in literarised form — popular speech reshaped, not transcribed. That is the evidence for the distinction between regional vocabulary and dialect writing, which this article states and most short accounts of Bakunts do not. Also cited for idiom marking a speaker's social position.",
+    },
+    {
+      author: "Ա. Պետրոսյան, Կ. Բայրամյան և Ա. Գնունի",
+      title: "Հնագետը Ակսել Բակունցի «Ալպիական մանուշակ»-ում",
+      publisher: "Պատմա-բանասիրական հանդես, ՀՀ ԳԱԱ, Երևան",
+      year: "2025",
+      identifier: { kind: "doi", value: "10.53548/0320-8117-2025.3-257" },
+      note: "The basis for the Alpine Violet section and for the article's anti-pastoral argument. It supplies the reading of the archaeologist and the painter as looking at the world through the eyes of a beetle — arriving, seeing the beauty of past or present, and leaving while the substance of life escapes them — the observation that the story has no clear plot and works by subtext, and the archival identification of the archaeologist's model as Morus Hasratyan.",
+    },
+    {
+      author: "Naira Hambardzumyan",
+      title: "Interpenetration of Myth and Sign in Axel Bakunts' \"Mtnadzor\" Collection",
+      publisher: "Լրաբեր հասարակական գիտությունների, ՀՀ ԳԱԱ, Երևան",
+      year: "2020",
+      identifier: { kind: "archive", value: "arar.sci.am, Հայկական հանրապետական թվային գրադարան, publication 263016" },
+      note: "Cited for the landscape section's claim that the Mtnadzor stories hold a pre-human time inside the present, and for the line about the forgotten corner from the days when there was no man yet. Also one of the few pieces of Bakunts scholarship published in English, which is itself part of the article's point about how thin the English-language record is.",
+    },
+    {
+      title: "Library of Congress Name Authority File and Bibliothèque nationale de France, authority records for Aksel Bakuntsʻ",
+      publisher: "Library of Congress; Bibliothèque nationale de France",
+      year: "consulted 2026",
+      identifier: { kind: "archive", value: "LC n88058958; BnF ark:/12148/cb12147444v" },
+      note: "The evidence for the name section, and cited only for that. The Library of Congress heading is Bakuntsʻ, Aksel, 1899-1937, with Tʻevosyan, Alekʻsandr Stepʻani recorded as the birth name and Աղեքսանդր preserved as a variant; the BnF gives Aksel Bakounts. Both therefore file him under Aksel rather than the Axel of English Wikipedia, which is what the article's choice of canonical form rests on. Both also record Western Armenian pronunciation transliterations — Paguntsʻ, Agsel and Aksel Pagounts — which is independent evidence that diaspora imprints exist, and the reason the article treats the Western Armenian form as a variant spelling rather than inventing a separate title set.",
     },
   ],
 

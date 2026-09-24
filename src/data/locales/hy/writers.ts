@@ -149,6 +149,18 @@ export const writers: Writer[] = [
     imageSeed: "alexander-shirvanzade",
     notableWorks: ["Նամուս", "Քաոս", "Պատվի համար", "Մորգանի խնամին"],
   },
+  {
+    slug: "aksel-bakunts",
+    name: "Ակսել Բակունց",
+    lifespan: "1899–1937",
+    period: "XX դար",
+    periodId: "20th-century",
+    role: "Արձակագիր, պատմվածագիր և ագրոնոմ",
+    description:
+      "Հայ հարավի պատմվածագիրը, ով Զանգեզուրի գլխավոր գյուղատնտեսն էր, նախքան իր արձակը գրականության նյութ դարձներ այդ երկրամասի լեռներն ու գյուղերը:",
+    imageSeed: "aksel-bakunts",
+    notableWorks: ["Մթնաձոր", "Ալպիական մանուշակ", "Միրհավ", "Կյորես"],
+  },
 ];
 
 export const literaryPeriods: Filter[] = [

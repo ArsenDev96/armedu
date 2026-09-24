@@ -425,6 +425,91 @@ const IMAGES: Record<string, string> = {
    */
   "alexander-shirvanzade": "/images/writers/alexander-shirvanzade.webp",
 
+  /*
+   * §100. Writer #13, and the first portrait in this section that is not an interior.
+   *
+   * **Geometry is the exception worth reading first.** This file is 1448×1086 — a
+   * clean 4:3 — where eleven of the twelve before it are 1586×992 and Paronyan is
+   * 1560×1008, all near 16:10. That is a real difference rather than the usual
+   * few-pixel drift, and it was checked against the crop path rather than waved
+   * through: because `ArticleLayout` opens at `aspect-[4/3]` and `WriterCard` is
+   * `aspect-[4/3]`, this source is the only one in the registry that renders those
+   * two boxes with **no crop at all**. The `lg:aspect-[16/9]` hero keeps 75% of the
+   * frame from `object-[38%_28%]`, which still leaves the whole head with headroom.
+   * It is registered exactly as delivered, unaltered, unresized and unrenamed, like
+   * every entry since §30 — the geometry is recorded, not corrected.
+   *
+   * At 488,466 bytes it is the heaviest file in the Writers section by a wide margin
+   * (the next is Tumanyan at 357 KB) and the second to carry an embedded ICC profile
+   * after Paronyan — 456 bytes, v4.3.0, `mntr`/RGB/XYZ, sRGB-shaped. Neither is a
+   * fault and neither was touched. The container is a plain `VP8X` + `ICCP` + `VP8`:
+   * lossy, no alpha, no EXIF, no XMP, not animated, and the RIFF length matches the
+   * file exactly, so there are no trailing bytes.
+   *
+   * **Provenance is `photo-referenced`**, as §99 said in advance, and the entry is in
+   * the map below — but the reference base is not what this archive previously
+   * recorded, and the correction is the reason this note exists. §91 named "a dated
+   * 1932 portrait aged 33" as the photographic basis. That image is a **painting by
+   * Panos Terlemezian**, held by the National Gallery of Armenia, which English
+   * Wikipedia uses as its infobox image with that caption. The facial authority used
+   * and verified here is instead the single surviving lifetime **photograph**,
+   * circulating on Commons as `Axel Bakunts.gif` (328×400) and `Bakunts.png`
+   * (219×292) — two crops of one scan. The Commons category was enumerated in full
+   * and contains no other photograph of him.
+   *
+   * The delivered face was read against that photograph side by side at matched
+   * scale in greyscale. It agrees on the long lean gaunt face, the high cheekbones
+   * with hollows beneath, the prominent ears standing clear of the head, the thick
+   * dark backswept hair with a **full** frontal hairline, the long straight
+   * narrow-bridged nose with its slightly prominent tip, the thin level mouth, the
+   * long sinewy neck, the apparent age of the early-to-mid thirties, and — the gate
+   * that separates him from half this section — that he is **clean-shaven**. Two
+   * departures are recorded rather than corrected: the brows are dark and straight
+   * but carry **less mass and sit higher** than the photograph's heavy low-set bar,
+   * so the face is a little less severe than the man; and the hairline sits higher
+   * on the forehead, though it is full and shows none of the temporal recession
+   * Paronyan's photograph required.
+   *
+   * The **1960 Eduard Isabekyan oil** was seen and deliberately not used — it is the
+   * image that ranks highest in picture search for him and it was painted
+   * twenty-three years after his death. The 2024 HayPost stamp was likewise not
+   * used. That is the §87 rule applied for the fourth time in this file, and the
+   * first time the thing being refused is a painting rather than a stamp.
+   *
+   * **What this file is for.** Eight of the twelve before it are a seated figure at a
+   * desk with books; Shnorhali stands in a cloister and Paronyan stands in a print
+   * room. Four of them — Tumanyan, Charents, Narekatsi, Varoujan — show landscape,
+   * but always as a framed rectangle behind an indoor figure. This is the only
+   * portrait where the subject stands in outdoor space that continues past him: sky
+   * around the head, a stony path and a dry-stone terrace wall at his own level,
+   * scrub oak beside him, terraced slopes and hazy ridges behind. It is the only
+   * one lit by open daylight rather than interior warmth, and the only one with a
+   * cool slate-and-green palette.
+   *
+   * **One claim here was narrowed by the merge, and the narrowing is the honest
+   * part.** This entry was written asserting it was also the only portrait carrying
+   * no desk, no book, no manuscript, no pen and no prop of any kind. Shirvanzade's
+   * portrait at §98 was commissioned in parallel from the same base commit, audited
+   * against the same eleven predecessors, and came back prop-less too — a close
+   * half-length on a plain studio ground. Neither is "the only one". What is still
+   * this file's alone is the *outdoor* half of it: prop-less **in open landscape**
+   * rather than against a plain ground. That is the point of the commission and it is
+   * the part of this image that must survive any future change to it. The two entries
+   * were each measured against a collection that did not yet contain the other, so any
+   * future "only one in the section" claim must be re-checked across both.
+   *
+   * One reservation, recorded because it is a departure from the evidence rather
+   * than from the brief's hard gates, which it does not trip. The photograph shows a
+   * heavy dark work jacket over a **collarless open-necked shirt with no neckwear**.
+   * The delivery gives a worn tweed jacket over a waistcoat, with a soft open collar
+   * and a loose dark neckerchief. It does not become a formal suit and tie, a
+   * politician, a bureaucrat, a uniform or folk costume — the cloth is coarse and
+   * rumpled and the collar is open — but it reads a little more country-gentleman
+   * and a little less field agronomist than the one photograph of him does.
+   * Accepted with the reservation stated, on the §79 precedent.
+   */
+  "aksel-bakunts": "/images/writers/aksel-bakunts.webp",
+
   // Literary works
   anush: "/images/works/anush.webp",
   "david-of-sassoun": "/images/works/david-of-sassoun.webp",
@@ -1407,6 +1492,161 @@ const IMAGES: Record<string, string> = {
  * overrides both the file here and the AI caption.
  */
 export const PENDING_ARTWORK: readonly string[] = [
+  /*
+   * §101 refills it for Work #6, and for the first time since §61 the waiting slug
+   * is a *Work* rather than a Writer. `mtnadzor` shipped as prose with no picture,
+   * on the same terms as `book-of-lamentations` before it: the artwork is its own
+   * step, and the generated placeholder renders until the file lands.
+   *
+   * One rule is decided in advance and recorded here because it is the specific way
+   * this entry could go wrong. **Bakunts's portrait must not be borrowed for it.**
+   * `writers/aksel-bakunts.webp` exists, it is `photo-referenced`, and it is one
+   * line above in `IMAGES` — which makes reaching for it the path of least
+   * resistance and the wrong answer. A book is not its author's face, no other Work
+   * in this registry carries a portrait, and a reader who met the same man on the
+   * Writers card and the Works card would reasonably conclude the two pages were
+   * about the same entity, which is the exact confusion this article exists to undo.
+   *
+   * The art direction is likewise set here rather than left to the commission, and
+   * it is stated mostly in the negative because the plausible-looking picture is the
+   * risk. Not a portrait; not a generic Armenian writer at a desk; not a travel
+   * photograph of Syunik. What the collection is about is a worked, inhabited
+   * highland — forest, gorge, a path, cultivated ground at a village edge — so the
+   * frame should be restrained and atmospheric, with the human scale small and
+   * subordinate. It must not reconstruct a scene from any story: **no bear, no
+   * hunter, no mauling, no forest guard**, since the title story is one of eighteen
+   * and illustrating it would make the book look like a single narrative. It must
+   * not purport to show a specific place called Mtnadzor — three rivers and a
+   * deserted village carry that name and the literary one is none of them — and it
+   * must carry no readable text of any kind.
+   */
+  "mtnadzor",
+
+  /*
+   * §102 adds a second entry alongside it — for the first time since §61 the list
+   * holds two slugs at once, and this is the section's first *play*. `baghdasar-aghbar`
+   * shipped as prose only, on the same terms as every entry before it: the artwork is
+   * its own step and the generated placeholder renders until the file lands.
+   *
+   * The same rule that protected Mtnadzor applies here, restated because it is the
+   * specific way this entry could go wrong. **Paronyan's portrait must not be
+   * borrowed for it.** `writers/hakob-paronyan.webp` exists, it is
+   * `photo-referenced`, and it sits in the same `IMAGES` map — which makes reaching
+   * for it the path of least resistance and the wrong answer. A play is not its
+   * author's face, and a reader who met the same portrait on the Writers card and
+   * the Works card would reasonably conclude the two pages were about the same
+   * entity, which is exactly the confusion the article's second section exists to
+   * prevent.
+   *
+   * Art direction, recorded and not commissioned: a late-nineteenth-century
+   * Constantinople Armenian domestic interior, with Baghdasar as the central comic
+   * figure and a small ensemble around him carrying quiet tension rather than open
+   * conflict. Not a theatre stage, not a curtain, not a mask, not a production
+   * still or a stage photograph — the play's afterlife on stage belongs to the
+   * "on-the-armenian-stage" and "on-screen" sections, not to the illustration. Not
+   * an author portrait or a book-cover-style composition. No readable text of any
+   * kind.
+   */
+  "baghdasar-aghbar",
+
+  /*
+   * §103 adds a third entry — the Works section now has three slugs waiting at
+   * once, one more than at §102. `yerkir-nairi` shipped as prose only, on the
+   * same terms as every entry before it: the artwork is its own step and the
+   * generated placeholder renders until the file lands.
+   *
+   * The same rule stated for Mtnadzor and Baghdasar Aghbar applies here, restated
+   * because it is the specific way this entry could go wrong. **Charents's own
+   * portrait (`writers/yeghishe-charents.webp`, photo-referenced) must not be
+   * borrowed** as the novel's illustration. A poet's face is not his prose, and a
+   * reader who met the same portrait on the Writers card and this Work's card
+   * would reasonably conclude the two pages were about the same entity — the
+   * confusion the novel's own "the-title-and-nairi" and author-relation sections
+   * exist to keep separate.
+   *
+   * Art direction, recorded and not commissioned: an early-twentieth-century Kars
+   * street or civic square, plausible period architecture, small human figures
+   * rather than a single portrait subject, and a slightly unstable, faintly
+   * satirical atmosphere rather than a documentary streetscape — the picture
+   * should suggest memory and civic instability, not illustrate one scene from
+   * the book literally. No theatre-adjacent or Soviet-propaganda-collage
+   * treatment, no readable signage, and no graphic depiction of the war the
+   * novel's third part narrates.
+   */
+  "yerkir-nairi",
+
+  /*
+   * §99 refills it for Writer #13. Aksel Bakunts's biography shipped without his
+   * portrait, on the same terms as every entry before him: the artwork is a
+   * separate step and the placeholder renders until it lands.
+   *
+   * As with Siamanto at §88 and Paronyan at §94, the provenance is decided in
+   * advance and asserted here in the negative. The expected value is
+   * `photo-referenced` — but on a **narrower and partly corrected basis** than the
+   * archive previously recorded, and the correction is the reason this note is
+   * longer than its predecessors.
+   *
+   * §91 wrote that the reference base was "a dated **1932** portrait aged 33". That
+   * is wrong, and it would have been inherited straight into a commission. The 1932
+   * image is a **painting by Panos Terlemezian**, held by the National Gallery of
+   * Armenia; English Wikipedia uses it as its infobox image with exactly that
+   * caption, which is where the error entered. The age is right and the medium is
+   * not, and a painting is not facial authority here — the §87 rule, applied for the
+   * fifth time in this file and the first time against a *painting* rather than a
+   * stamp.
+   *
+   * What actually survives in published form is **one** lifetime photograph, in two
+   * crops of the same scan, undated beyond "1930s" and with no photographer
+   * recorded. It is enough to make `photo-referenced` honest and it is not much: a
+   * long, narrow, notably gaunt face; high cheekbones with hollows under them; thick
+   * dark hair swept back off a high forehead with **no recession**; heavy, straight,
+   * low-set brows over deep-set eyes; a long straight nose; a thin mouth held level;
+   * a long sinewy neck and a spare build; **clean-shaven, and no glasses in any image
+   * of him, painted or photographed**. The Goris house-museum holds photographs
+   * spanning his school years, his military service and his literary career and
+   * publishes none of them, so a richer reference set exists but is not reachable
+   * from here.
+   *
+   * Two further images must stay out of any commission. **Eduard Isabekyan's 1960
+   * oil** is the picture that ranks highest in image search for him and was painted
+   * **twenty-three years after his death**; it is memorial invention, not evidence.
+   * The **2024 HayPost stamp** is derivative artwork. Neither is facial authority.
+   *
+   * The composition, as a standing condition rather than a preference: §91 proposed
+   * **outdoors in a Zangezur gorge, standing, landscape-dominant**, and reassessed
+   * against all eleven current portraits that still holds — it is the only archetype
+   * in the section that is not an interior, and Paronyan's composing room and the
+   * ten warm interiors before it leave open daylight, rock and green entirely
+   * unused. **No desk, no books, no seated figure.** He was the chief agronomist of
+   * the district, he named his debut collection after a gorge and his novel after
+   * the town's old name, and the one photograph of him is in a **heavy dark work
+   * jacket over a collarless open-necked shirt, no tie** — field dress, not a
+   * writer's studio portrait, and the detail that makes the outdoor archetype
+   * historical rather than scenic. It must read as a man at work in his own country
+   * and not as tourism: the article's own argument is that his prose is hostile to
+   * visitors who mistake that country for a view.
+   *
+   * `PORTRAIT_PROVENANCE` gains nothing today. Recording how a likeness was arrived
+   * at before the likeness exists is recording provenance for artwork nobody has
+   * made, and a test asserts that absence.
+   *
+   * §100 **Resolved.** The file landed, was audited and is registered above, where
+   * the technical and visual record is kept in full. Every condition this note set
+   * held: the composition is the outdoor Zangezur archetype with no desk, no book
+   * and no prop of any kind; the face is clean-shaven with a full hairline; and the
+   * corrected reference base — the one lifetime photograph, not the Terlemezian
+   * painting — is the one that was actually used. The provenance is
+   * `photo-referenced` and the entry is in `PORTRAIT_PROVENANCE`. One departure from
+   * the photographic evidence was accepted with the reservation recorded beside the
+   * registry entry: the delivery dresses him in a tweed jacket and waistcoat with a
+   * loose neckerchief where the photograph gives a heavy work jacket over a
+   * collarless open-necked shirt.
+   *
+   * The list is empty for the sixteenth time, and for the eighth time that sentence
+   * covers the whole archive: thirteen writers, thirteen portraits, and no
+   * placeholder anywhere in any section.
+   */
+
   /*
    * §97. Refilled for Writer #12. Shirvanzade's biography shipped without his
    * portrait, on the same terms as every entry before him: the artwork is a
@@ -2549,6 +2789,42 @@ const PORTRAIT_PROVENANCE: Record<string, PortraitProvenance> = {
    * `photo-referenced` here means a photograph was read, not that some image survives.
    */
   "alexander-shirvanzade": "photo-referenced",
+
+  /*
+   * §100. One surviving lifetime photograph was consulted for this one, and the
+   * important thing about this entry is which image that is *not*.
+   *
+   * §91 recorded the reference base as "a dated 1932 portrait aged 33". That image
+   * is a **painting by Panos Terlemezian** in the National Gallery of Armenia,
+   * carried by English Wikipedia as its infobox picture with exactly that caption.
+   * The age is right and the medium is not, and a painting is not facial authority
+   * here. The **1960 Eduard Isabekyan oil** — which ranks highest in picture search
+   * for him and was made twenty-three years after his death — and the 2024 HayPost
+   * stamp were both seen and deliberately not used. The §87 rule, applied for the
+   * fifth time in this map and the first time against paintings.
+   *
+   * What was used is the one lifetime photograph, on Commons as `Axel Bakunts.gif`
+   * and `Bakunts.png`, which are two crops of a single scan; the category was
+   * enumerated in full and holds no other photograph of him. It is undated beyond
+   * the 1930s and its photographer is unrecorded, which is thin provenance for a
+   * reference but is a photograph, and it was read directly rather than described
+   * from text.
+   *
+   * Compared side by side at matched scale, the delivered artwork agrees with it on
+   * face length and leanness, the hollows under high cheekbones, the notably
+   * prominent ears, the thick dark backswept hair over a full frontal hairline, the
+   * long straight narrow-bridged nose, the thin level mouth, the long sinewy neck,
+   * an apparent age in the early-to-mid thirties, and a clean-shaven jaw. It departs
+   * on two things, recorded rather than smoothed: the eyebrows carry less mass and
+   * sit higher than the photograph's heavy low-set bar, and the hairline sits higher
+   * on the forehead while still being full. That is a coherent likeness of the same
+   * man rather than a copy, and it is a matter of record, so the caption may say so.
+   *
+   * The Terlemezian painting was allowed to corroborate two non-anatomical things
+   * only — brown rather than black hair, and habitually informal open-necked dress —
+   * and nothing else.
+   */
+  "aksel-bakunts": "photo-referenced",
 };
 
 /** A portrait's likeness basis. Unlisted slugs are `imagined` — see above. */

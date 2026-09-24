@@ -23583,3 +23583,2011 @@ Cuisine, Places, History or other artwork file was modified.
   lithograph. Anyone re-commissioning this portrait must not treat it as a likeness.
 
 Nothing was deployed. Writer #13 was not started. No Work was created.
+
+## §99 — Writer #13: Aksel Bakunts, in all three editions (2026-09-03)
+
+### The brief did not match *this branch*, and the branch won — then the other branch arrived
+
+The step arrived as "Step 70 — Add Axel Bakunts as Writer #13" and asserted a pre-state of
+twelve writers with Alexander Shirvanzade shipped at "Step 69". None of that was true of
+**this branch** when the work started. Read from source before anything was written:
+
+| Brief expected | Actual on this branch, at `f780415` |
+|---|---|
+| Writers = 12 | **11** |
+| Writer portraits = 12 | **11** |
+| Shirvanzade shipped at Step 69 | **not in this history** — he appeared only in §91 above, as a *runner-up candidate* |
+| 19th-century = 5 | **4** |
+| photo-referenced = 4, incl. `alexander-shirvanzade` | **3**: `daniel-varoujan`, `siamanto`, `hakob-paronyan` |
+
+Everything else the brief predicted did hold: `PENDING_ARTWORK = []`, medieval 2 /
+20th-century 4 / soviet 1, Tumanyan the sole featured writer, Works 5 / Cuisine 12 /
+Places 13 / History 7, and a clean working tree.
+
+**The brief was describing work that existed, on another branch.** Bakunts was written here
+as §97/Writer #12 on that verified pre-state. In parallel, `origin/writer` wrote Shirvanzade
+from the same base commit `f780415`, also as §97/Writer #12, and registered his portrait as
+§98 — which is exactly the "Step 69" the brief named. The two lines of work were merged at
+`87047bb`, and the merge is resolved as a **union**: both writers ship. Shirvanzade keeps
+§97/§98 because that numbering was already published on `origin/writer`; this Bakunts pass is
+renumbered **§99**, its portrait registration **§100**, and Bakunts is **Writer #13**.
+
+So the verification below was right about the branch it ran on, and the brief was right about
+the project. Every count in this section has been restated against the merged thirteen-writer
+archive; where a figure below describes the pre-merge state, it says so.
+
+The one thing §91 got wrong is corrected under *Portrait state* below, and it mattered.
+
+### Existing Bakunts references, before this step
+
+One, and it decided the spelling. `Aksel Bakunts` / «Ակսել Բակունց» / «Ակսէլ Բակունց» already
+stood in **Charents's `relatedFigures` in all three editions**, dated 1899–1937. Searches for
+`Bakunts`, `Bakounts`, `Մթնաձոր`, `Mtnadzor`, `Կյորես`, `Kyores`, `Alpine Violet` and
+`Khndzoresk` returned nothing else anywhere in the repository — no test guard, no search
+alias, no nonexistent-Work guard, no period assumption. `Goris` appeared only in the ghapama
+article (the Goris variant of the dish) and `Zangezur`/`Syunik` only in the history and Tatev
+articles. §91 above had already scored him 7.9 and named the condition for adding him: *"the
+strongest candidate the moment a non-persecution entry sits between him and Charents."*
+Paronyan at §94 is that entry, so the martyrology objection §91 raised is spent.
+
+### Research and SERP
+
+Four parallel research passes were run (identity/chronology; works and bibliography;
+criticism and Soviet context; SERP, sources and photographs), then reconciled against each
+other before any prose was written.
+
+**No keyword metrics were invented. No search-volume, keyword-difficulty, CPC or traffic
+figure appears anywhere in this section or in the article, because no such tool was
+reachable: qualitative SERP evidence only.**
+
+The governing SERP finding is a hard fork in the index:
+
+- **`Axel Bakunts`** returns encyclopedias and aggregators — en.wikipedia (which owns the
+  spelling as its article title), Wikidata, Commons, Armeniapedia, dbpedia, pantheon.world.
+  **No museum result at all.**
+- **`Aksel Bakunts`** returns institutions and the book trade — Goodreads, the Gomidas
+  translation, `gatmuseum.am`, `aksel-bakunc.mus.am`, `goris.am`.
+- **IMDb holds two separate person records for the same man**, one under each spelling.
+
+Armenian-language SERPs are worse, not better: `Ակսել Բակունց կենսագրություն` is owned almost
+entirely by school-coursework blogs, and Armenian institutional results (`gatmuseum.am`,
+`nla.am`, `arar.sci.am`, `grakantert.am`) surface only on museum and anniversary queries,
+never on biography or work-analysis ones. **No good English biography exists above Wikipedia**
+— the best English texts in existence are Victoria Rowe's introduction to *The Dark Valley*
+(print only) and Eddie Arnavoudian's 2010 Groong review.
+
+Western Armenian has **no independent result set**: `"Ակսէլ Բակունց"` folds to the Eastern
+form. `Աքսէլ Բակունց` and `Ակսէլ Պակունց` were tested and are **unattested** — neither was
+invented into the edition. What was found instead is that live Western Armenian print
+(Horizon Weekly's «Հորիզոն գրական», Montreal, Jan 2024) writes **Բակունց unchanged**, and
+that LC and BnF both carry Western pronunciation transliterations (`Paguntsʻ, Agsel`,
+`Aksel Pagounts`), which is independent evidence that diaspora imprints exist.
+
+A birth year of **1889** propagates through Goodreads, a Wikidata field sourced to IMDb, and
+several Armenian sites. It is simply wrong and the article corrects it.
+
+### Identity, name and pen name
+
+- **Canonical: Aksel Bakunts.** LC name authority `n88058958` = `Bakuntsʻ, Aksel, 1899-1937`;
+  BnF `ark:/12148/cb12147444v` = `Aksel Bakounts`; the Goris house-museum, its parent GAT and
+  `goris.am` all write Aksel. `Axel` is English Wikipedia's form and is carried as a keyword.
+- **Birth name: Ալեքսանդր Ստեփանի Թևոսյան**, Alexander son of Stepan — confirmed identically
+  by ՀՍՀ vol. 2 p. 245 and by LC's variant heading. `Աղեքսանդր` is an attested older spelling
+  and is recorded as such. The patronymic is not disputed by any source opened.
+- **`Bakunts` is a pen name**, formed from the father's ancestral family nickname *Begunts*.
+  **`Aksel`** comes from his having played the part of Aksel in Bjørnson's *The Newly-Married
+  Couple*. Both explanations trace only to Armenian accounts, not to a document, so the
+  article attributes them ("Armenian accounts record…") and does not elaborate the etymology.
+  This is the §6 instruction honoured rather than the tempting version written.
+
+### Slug decision — the one place the brief was overruled, and it was put to the user
+
+The brief preferred `axel-bakunts`. Verification pointed the other way, and because a slug is
+a permanent URL, an image filename and a test literal, **the choice was put to the user rather
+than decided silently**. The answer was `aksel-bakunts`.
+
+The supporting reason is repository convention: **all eleven existing writer slugs are their
+own English canonical name kebab-cased, with no exceptions**, and `media.ts` already documents
+slug/filename divergence as a hazard it deliberately keeps to two cases. Paronyan is the
+precedent — he took `hakob-paronyan`, the institutional Yerevan form, even though LC and
+English Wikipedia file him as *Hagop Baronian*. `axel-bakunts` would have been the first
+writer whose slug contradicted his own name, and it would have contradicted the "Aksel
+Bakunts" already standing in Charents's article.
+
+### Dates
+
+- **Born 13 June 1899 Old Style = 25 June New Style, at Goris.** ՀՍՀ prints it in the Soviet
+  convention as `13(25).6.1899`, which settles it as one date in two calendars rather than two
+  competing claims — the §7 instruction not to silently reconcile calendars, met by finding
+  the source that does the reconciling explicitly. BnF records the unconverted 13 June; LC
+  records only "b. June 1899". `hyw.wikipedia` applies a second, 13-day conversion on top of
+  an already-converted date and is wrong.
+- **Arrested 9 August 1936; sentenced 7 July 1937; executed 8 July 1937**, aged 38.
+- **Legally rehabilitated 2 March 1955.**
+
+### Geography — Goris, Zangezur, Syunik
+
+Written from period sources rather than modern ones, per §9. In 1899 Goris was the centre of
+the **Zangezur uyezd of the Elizavetpol Governorate**, Russian Empire; the contemporary
+**Brockhaus and Efron** article on the uyezd supplies the terrain, the Arax as the Persian
+frontier, the peaks and the grain/silk/livestock economy, and calls the centre *the village of
+Gerusy* — Goris was an administrative centre but not yet a city. **Syunik** is both the older
+regional name and the modern province, created in **1995**; the article says so and explicitly
+refuses to project the modern *marz* back onto 1899.
+
+Old **Kyores** — the rock-cut quarter on the left bank of the Goris river, dwellings and byres
+cut into tuff pillars — is set against the grid-planned new town laid out from the 1870s. That
+doubling is not decoration: it is the subject of `Կյորես`.
+
+### Landscape, rural society and prose technique
+
+These are the sections the step exists for, and they are built on named scholarship rather
+than on impression:
+
+- **Landscape as method.** Manasyan 2015: nature in Bakunts *is not described* but introduced
+  by the teller as a **dialogic minimum of psychological movement**. The road in `Ծիրանի փողը`
+  as the road of a people; the gorge, road and ruin as figures of fate. Hambardzumyan 2020 for
+  the pre-human time held inside the present in the `Մթնաձոր` stories.
+- **Short-story form.** Composition by **accumulation toward a limiting situation**;
+  retrospection as a **construction principle**, argued explicitly against reading it as
+  atmosphere; portraiture as compositional centre; characters taken from life as prototypes;
+  the withheld ending of `Մթնաձոր` (angry, or smiling — unresolved on purpose). Aghababyan's
+  "classical specimens of the short story and the novella" is **attributed to him by name**,
+  per §15, and never stated as fact.
+- **Rural society.** The strongest anti-pastoral material is Bakunts's own: Petrosyan/
+  Bayramyan/Gnuni 2025 on the archaeologist and the painter of `Ալպիական մանուշակ` looking at
+  the world **"through the eyes of a beetle"**, arriving, seeing the beauty of past or present
+  and leaving while the substance of life escapes them. Plus cyclical labour, feeling reported
+  as absent rather than suppressed, women in dependence, and idiom marking social position.
+  A live scholarly disagreement — Aghababyan's village "rebels" versus the later reading that
+  his centre is those who endure — is **reported rather than resolved**.
+- **Prose style.** "Lyrical" is used only with its scholarly sense explained, and the article
+  states flatly that **he was not a poet**, which is the §16 trap.
+
+### Agronomy
+
+Confirmed from ՀՍՀ verbatim, so it is stated without hedging: Yerevan seed-breeding station,
+then **chief agronomist of the Zangezur district and head of its land department, 1924–1926**,
+based at Goris; then deputy head of the land administration at the People's Commissariat of
+Land from 1926; `Մաճկալ` 1927–28; the Yerevan zootechnical-veterinary institute in 1928;
+`Նոր ուղի` in 1931. He founded the **`Գյուղացու գրադարան`** series and wrote **ագրոզրույցներ**
+for it (vetch 1926, potato cultivation 1926, the Khotorjur commune 1927); volume 4 of the
+academic collected works is agricultural articles and official papers.
+
+**No causal claim is made.** The article says the work "gave him close familiarity with…" and
+then says explicitly that it does not follow that the agronomy explains the fiction, and that
+no source consulted argues it does — §12 followed to the letter.
+
+### Military and early-adult chronology
+
+Kept as three separate episodes, per §13: teaching at Lor 1915–16; the 1915 `Փայլակ` feuilleton
+(the jail claim rests only on his own undated autobiography and is **not asserted**); service
+on the Caucasus front 1917–18. The place-name lists **conflict across three sources** (ՀՍՀ:
+Erzurum/Kars/Sardarapat; hy.wikipedia: Aşkale/Ilıca/Ardahan/Sardarapat; English accounts a
+third list) and the article says so instead of assembling a confident itinerary. **Sardarapat,
+May 1918, is the only point of agreement.** No heroic framing.
+
+He was in **Kharkiv, 1920–23**, through sovietisation, the February 1921 revolt and the
+Zangezur resistance — recorded as an absence, not a participation. Party member from **1930**.
+
+### Entry into literature, and a correction
+
+The common summary "started writing in 1924" is wrong and the article corrects it: 1924–25 is
+**journalism** (`Գավառական նամականի`, from December 1924 in `Մարտակոչ`). **Fiction begins in
+1926 in a newspaper** — `Միրհավ` 6 June 1926, `Մթնաձոր` 21 November 1926, `Ալպիական մանուշակ`
+1 and 4 January 1927 — dated from the textual notes to the collected works. The **book** is
+1927.
+
+### `Մթնաձոր` — the entity analysis, recorded explicitly (§19)
+
+**It is four distinct objects and they must never be merged:**
+
+1. the **short story**, first published 21 November 1926;
+2. the **debut collection**, Yerevan 1927, 18 stories, of which that one is first;
+3. a **real toponym** — մութ + ձոր — borne by an abandoned village in Syunik (inhabited until
+   the First World War, its people moving to Shikahogh) and by several unrelated Armenian
+   rivers and streams;
+4. a **second, different story in the same collection**, `Մթնաձորի «չարքը»`.
+
+Consequence for a future Work entity: a page headed "Mtnadzor" **must declare which of the
+four it is**. The article says this in its own prose, and a test pins that both 1926 and 1927
+appear in that section so a future edit cannot quietly collapse them.
+
+**Translation decision.** `The Dark Valley` is treated as canonical **for the collection
+only**, and only because it is the title of the one complete English translation. For the
+story and the toponym, English normally leaves *Mtnadzor* untransliterated. `Dark Gorge` is an
+accurate gloss but **not an attested title**; `The Dark Ravine` is **not attested at all** —
+neither is presented as a title.
+
+### The other works
+
+- **`Ալպիական մանուշակ`** — a **short story**, not a novella; written 1925, first published
+  1 and 4 January 1927, **before** the collection it is usually credited to; substantially
+  reworked in 1933 for `Սև ցելերի սերմնացանը`. The flower's symbolism is **in the text** (the
+  pollen-covered beetle to which the violet is a swing) and is treated as Bakunts's own; the
+  **dedication to Arpenik Charents was attached in the 1933 reworking**, not present in the
+  1927 serialisation, and the self-portrait/premonition readings are labelled posthumous.
+  The archaeologist's model is identified from archival evidence as **Morus Hasratyan**.
+- **`Կյորես`** — written at Goris in summer **1935**, first published **1936** in the booklet
+  `Եղբայրության ընկուզենիները`. ՀՍՀ's 1935 is the composition year; sources giving it as the
+  publication year have merged the two. **Genre is genuinely unsettled** — ՀՍՀ says երգիծական
+  վիպակ, hy.wikipedia says վեպ — and the article calls it a satirical novella and chronicle
+  **and records the disagreement**. Original title `Գորիս և Կյորես`. **No Place link was drawn
+  from the title**, and the article says why in its own text.
+- **`Միրհավ`** — 6 June 1926. The word means a **pheasant**; Hrach Martirosyan derives it from
+  մայրի + հաւ, and it is **in no standard or dialect dictionary** — effectively known from this
+  story. **No polished English title was invented**; `The Pheasant` is credited to the 2009
+  translation.
+- Verified and included only for range: `Լառ-Մարգար`, `Սպիտակ ձին`, `Հովնաթան Մարչ` (1927),
+  the Gogol translation (1934), forty Vardan Aygektsi fables (1935), the screenplays, and the
+  two unfinished works.
+
+**Two corrections carried into the article.** The brief's `Հովնաթան Մարաշ` **does not exist**;
+the work is **`Հովնաթան Մարչ`**. And `Կարմրաքար` was **already unfinished in his own 1932
+autobiography** — its incompleteness predates the arrest and must not be attributed to it.
+On lost manuscripts the article states only what is documented (ten surviving fragments of
+`Խաչատուր Աբովյան`, the lost 1936 `Կարինե` scenario) and **explicitly declines to assert an
+itemised destruction event**, because no source that could be opened describes one.
+
+### Soviet literary context and 1937
+
+Written with the actual historical vocabulary, per §26, not "the regime disliked his writing":
+
+- `Նոյեմբեր` attacked as a nationalist organisation of **specificist** (սպեցիֆիկյան)
+  orientation, charged with denying the possibility of a proletarian literature in Armenia.
+- The accusatory phrase was **«Բակունցի խմբակ»**, Bakunts's circle. **"Bakuntsism" does not
+  appear to exist as a term** and is not used.
+- Literary charges began **1933**, prompted by `Ծիրանի փողը`, read as nationalism and
+  idealisation of the past; a second charge rested on the **real** fact of ARF membership from
+  1915 and his chairing of the 1923 liquidation congress.
+- **Nairi Zaryan**, `Գրական թերթ`, 25 August 1936: Bakunts "does not see the collective farm,
+  does not notice the tractor's track on the road…". This is the §25 instruction resolved in
+  the most useful possible way: **collectivisation is largely absent from his fiction, and its
+  absence is what was held against him.** No source was found arguing his stories are for or
+  against collectivisation on their own terms, and **no such reading was manufactured**.
+- Case **№ 4131**, fund 3036, 8 volumes, 384 documents. Charge: **"counter-revolutionary,
+  Trotskyist and nationalist"** — the Trotskyist element belongs in the formula and is kept.
+  Military Collegium, closed session, 7 July 1937; executed 8 July.
+
+**The 1937 treatment is one section out of eighteen**, factual, non-graphic, and explicitly
+declines to record the details of the execution because the sources that carry them say they
+rest on single testimonies. The interrogation testimony about Charents and collectivisation
+was read and **deliberately not used**: it is a document produced under torture, evidence
+about the case and not about the man's beliefs. The article **opens on the man and ends on the
+writing**, and a test asserts both.
+
+**Rehabilitation is kept apart from republication and memorialisation**, per §30: legal
+rehabilitation **2 March 1955** (the 1964 sometimes given for it is the two-volume edition);
+republication from **1955**, scholarly four-volume edition from the 1970s; the Goris
+house-museum founded **1968**, opened **17 September 1970**. Paris **1938** — diaspora
+publication ran seventeen years ahead of Soviet republication.
+
+### Period classification — researched, not assumed (§24)
+
+Read from the existing writers rather than from birth and death years. Charents (1897–1937,
+entirely Soviet career) is `20th-century`; Isahakyan (1875–1957) is `20th-century`; **only
+Paruyr Sevak (1924–1971) is `soviet`**. So `soviet` in this taxonomy does not mean "published
+under Soviet rule" — if it did, Charents would be in it — it marks the generation **born and
+formed inside Soviet Armenia**.
+
+Bakunts's formation is entirely pre-Soviet: Goris parish school, the Gevorgian Seminary
+1910–17, the 1918 front, Kharkiv 1920–23, with fiction beginning only in 1926. **Charents is
+the controlling precedent** — two years older, dead the same year, named in the same case,
+filed `20th-century`. Filing Bakunts `soviet` would make that pair incoherent.
+
+**Decision: `20th-century`.** No new period created. Distribution on this branch was
+**medieval 2, 19th-century 4, 20th-century 5, soviet 1**; after the merge with §97 it is
+**medieval 2, 19th-century 5, 20th-century 5, soviet 1** — Shirvanzade lands in
+`19th-century` and does not touch this decision. The test that pins it asserts Charents's and
+Sevak's values alongside his, so the reasoning is legible from the test rather than only here.
+
+### Language (§31)
+
+He wrote **standard Eastern Armenian** — ՀՍՀ calls his language the highest quality of the
+literary language. The dialect claim is **refused on evidence**: Kumunts & Bakunts 2025 compare
+the phraseology of `Կյորես` against living Goris speech and find the idiom does derive from the
+dialect but that **part sits in characters' mouths while the rest is carried in the authorial
+line in literarised form** — the study's own subject is his *գրականացման միտումները*. Marked
+dialect is characterisation, and **not always Syunik's**: the Sasun migrant in `Ծիրանի փողը`
+speaks in a western register. He argued the position programmatically at the **1934** Writers'
+Union congress, siding with Tumanyan against Charents and Teryan.
+
+The only contemporary description of his prose as a "contrived vulgar provincial patois" is
+**Zaryan's 1936 denunciation**, reported as an accusation and never borrowed as description.
+
+### HYW edition
+
+Written as Western Armenian, not transformed from the Eastern: `կը`/`կ'` present, `մը` after
+the noun, `-ութիւն`, `-ուած`, spelled-out `եւ`, classical `է`/`օ`, `-եան` surnames. The
+validator caught one `և` that had survived inside a quoted title (`Գորիս և Կյորես`) and it was
+classicised. Work titles are **kept in their Eastern forms** — a decision recorded in the
+glossary with its evidence, because no Western Armenian renderings of them are attested and
+`Կյորես` in particular is a toponym for which inventing a classical spelling would be worse
+than keeping the original.
+
+### Relations (§45)
+
+**Two internal links, both earned, plus one geographic.**
+
+- **`yeghishe-charents` — earned, and not on metadata similarity.** They met in March 1926;
+  Bakunts joined and co-led `Նոյեմբեր`; he dedicated `Ալպիական մանուշակ` to Charents's first
+  wife; Charents addressed **at least three poems to him**, including the 1927 quatrain after
+  reading `Մթնաձոր` ("work, so that your bright path is not lost in that dark gorge"), a verse
+  letter from Leningrad dated 16 October 1929, and one written in October 1936 while Bakunts
+  was in prison. They then **broke apart from 1933**, each distancing himself from the other in
+  writing. The article carries the rupture as well as the friendship.
+- **`hovhannes-tumanyan`** — earned on the 1934 language debate, where Bakunts sided with
+  Tumanyan against Charents and Teryan.
+- **`tatev-monastery`** — geographic: Tatev stands above the same Vorotan gorge system, near
+  Goris.
+
+**No reciprocal edits were made to Charents's, Tumanyan's or Tatev's articles**, and a test
+asserts Charents's `relatedSlugs` are byte-identical to what they were. Shirvanzade was
+considered and **nothing was found**: no documented relationship, so no relation.
+
+### Future Work (§33) — selected, not created
+
+**Candidate #1: `Մթնաձոր` / *The Dark Valley*** — but as the **1927 collection**, not the story
+and not the gorge, and that boundary is the whole reason it wins. It is the only Bakunts work
+with a complete English translation (ISBN 978-1-903656-90-7), which gives a future entry a
+citable identifier, a settled English title and a route for English readers.
+
+**Runner-up: `Ալպիական մանուշակ`.** Better single-work criticism (a 2025 *ՊԲՀ* article on it
+alone), a clean entity boundary, and the strongest artwork potential — but no book-length
+English translation and a title whose English form is attested only in a 1972 relay
+translation from Russian.
+
+`Կյորես` was assessed and placed third: it is the most interesting work conceptually
+(Writer → Place) but its **genre is unsettled in Armenian scholarship**, which is a poor
+foundation for an entity that must declare one. **Nothing was created. Works remains 5.**
+
+### Sources (§44)
+
+Ten, each with a verified identifier, covering dates and name, geography, education and
+agronomy, literary career, the major works, style, language, Soviet context, arrest and
+rehabilitation:
+
+ՀՍՀ vol. 2 p. 245 (Aghababyan) · *The Dark Valley*, ISBN 9781903656907 · the Goris
+house-museum (GAT) · Gasparyan 2024, DOI 10.54503/0135-0536-2024.3-78 · Manasyan 2015 ·
+Hovhannisyan 2021 · Kumunts & Bakunts 2025, DOI 10.54503/978-9939-970-08-0-229 ·
+Petrosyan/Bayramyan/Gnuni 2025, DOI 10.53548/0320-8117-2025.3-257 · Hambardzumyan 2020 ·
+LC `n88058958` and BnF `cb12147444v`.
+
+**One deliberate omission, and it is the most important line in this section.** *The Heritage
+of Armenian Literature* vol. III is the Writers section's usual backbone citation and is cited
+by six existing writers. **It is not cited here**, because whether it covers Bakunts could not
+be confirmed from any reachable copy (HathiTrust 403, Google Books quota exhausted,
+archive.org lending-gated). Citing a volume for a subject on the assumption that the page
+exists is precisely the failure the `Source` type was written to prevent — see the type's own
+comment about 18 of 48 fabricated citations. A test asserts its ISBN is **absent** from this
+slug's bibliography. It goes in when someone opens the index.
+
+Bardakjian's *Reference Guide* was also considered and omitted: its Bakunts references are
+biographical mentions, not critical treatment.
+
+### Portrait state — and a correction to §91
+
+**No artwork was generated. `PENDING_ARTWORK = ["aksel-bakunts"]`. No `PORTRAIT_PROVENANCE`
+entry was added.**
+
+**§91 above is wrong on the photographic evidence and the error is corrected here.** It
+recorded the reference base as *"a dated **1932** portrait aged 33"*. That image is a
+**painting by Panos Terlemezian**, held by the National Gallery of Armenia; English Wikipedia
+uses it as its infobox image with exactly that caption, which is where the error entered. The
+age is right; the medium is not. Left uncorrected it would have been inherited straight into a
+commission as photographic authority.
+
+**What actually survives in published form is one lifetime photograph**, in two crops of the
+same scan (`Axel Bakunts.gif`, `Bakunts.png`), undated beyond "1930s", photographer unrecorded.
+It shows: a long, narrow, **gaunt** face; high cheekbones with hollows beneath; thick dark hair
+swept back off a high forehead with **no recession**; heavy, straight, low-set brows over
+deep-set eyes; long straight nose; thin level mouth; long sinewy neck, spare build;
+**clean-shaven, no glasses in any image of him, painted or photographed**; and a **heavy dark
+work jacket over a collarless open-necked shirt, no tie**.
+
+The **Goris house-museum holds photographs spanning his school years, his 1918 service and his
+literary career and publishes none of them** — a richer reference set exists but requires
+contacting the museum.
+
+**Three images must stay out of any commission**, and this is the §87 rule applied for the
+fourth time and the first time against a painting: the **Terlemezian 1932 painting**; **Eduard
+Isabekyan's 1960 oil**, which ranks highest in image search and was painted **23 years
+posthumously**; and the **2024 HayPost stamp**.
+
+**Expected provenance remains `photo-referenced`** — one lifetime photograph is enough to make
+that honest — but on this narrower, corrected basis rather than §91's.
+
+**Future portrait archetype: reassessed and confirmed.** §91 proposed *outdoors in a Zangezur
+gorge, standing, landscape-dominant*, and against all eleven current portraits it still holds:
+it is the only non-interior archetype in the section, and open daylight, rock and green are
+entirely unused beside Paronyan's composing room and ten warm interiors. **No desk, no books,
+no seated figure.** The open-necked field dress in the surviving photograph is what makes the
+outdoor setting historical rather than scenic — and it must not read as tourism, because the
+article's own argument is that his prose is hostile to visitors who mistake that country for a
+view. The full commission conditions are recorded beside the `PENDING_ARTWORK` entry.
+
+### Files changed
+
+`src/data/locales/{en,hy,hyw}/writers.ts` (card) · `src/data/locales/{en,hy,hyw}/articles/writers.ts`
+(article) · `src/data/sources.ts` (bibliography) · `src/lib/media.ts` (`PENDING_ARTWORK` +
+commission note) · `tests/e2e/writers.spec.ts` · `tests/e2e/works.spec.ts` ·
+`tests/e2e/listing.spec.ts` · `tests/e2e/places.spec.ts` · `docs/translation-glossary.md` ·
+`PROJECT_STATE.md`.
+
+**No portrait file. No deployment. `.claude/settings.json` untouched. Writer #14 not started.**
+
+### Counts after this step
+
+As this pass left the branch, before the merge with §97/§98:
+
+Writers **12** · Works **5** · Cuisine **12** · Places **13** · History **7**.
+Periods: medieval 2, 19th-century 4, 20th-century **5**, soviet 1.
+Portraits: **11 illustrated, 1 placeholder**. `PENDING_ARTWORK = ["aksel-bakunts"]`.
+Provenance: 3 `photo-referenced` (Varoujan, Siamanto, Paronyan), unchanged.
+
+After the merge with §97/§98 (Shirvanzade), and after §100 registers Bakunts's portrait:
+
+Writers **13** · Works **5** · Cuisine **12** · Places **13** · History **7**.
+Periods: medieval 2, 19th-century **5**, 20th-century **5**, soviet 1.
+Portraits: **13 illustrated, 0 placeholders**. `PENDING_ARTWORK = []`.
+Provenance: 5 `photo-referenced` (Varoujan, Siamanto, Paronyan, Shirvanzade, Bakunts).
+Tumanyan remains the sole featured writer.
+
+### Structure
+
+18 sections in each edition, 3–4 paragraphs each; 8 key facts; 19 important dates;
+3 significance paragraphs; 7 interesting facts; 4 related figures; 3 contextual links
+(`yeghishe-charents`, `hovhannes-tumanyan`, `tatev-monastery`), one per section, within the
+6-per-article cap.
+
+### Verification
+
+```
+npm run typecheck        → PASS (0 errors)
+npm run validate:content → PASS (198 entries across 3 locales; one pending-artwork note)
+npx playwright test      → PASS (472 passed, 5 skipped, 0 failed, 15.1m, exit 0)
+npm run build            → PASS (186 pages prerendered; /api/contact dynamic)
+```
+
+Playwright and the build were **not** overlapped. `.next` held production artifacts
+(`BUILD_ID`, `prerender-manifest.json`) at the start of the step and was cleared with the
+server stopped **before** Playwright started its own dev server, and cleared again before the
+build. Port 3002 was confirmed free both times (only `TIME_WAIT` sockets, no listener).
+
+`writers/[slug]` prerenders **36 paths** on this branch — twelve writers × three editions,
+**39** after the merge with §97 — and Bakunts's
+three routes return 200 with correct canonical and hreflang. **No dev-server timeout
+degradation occurred**, so no §56 investigation was needed.
+
+**Test changes.** `writers.spec.ts` gains **eleven** §99 tests: taxonomy and the period
+decision (asserting Charents's and Sevak's values alongside his, so the reasoning is legible
+from the test); the canonical name in three editions; keyword retrieval including the birth
+name; pending artwork and provenance-absent; the three settled provenances untouched;
+structure (that the article opens on the man, ends on the writing, carries one section on
+1936–55 and at least sixteen sections); the Mtnadzor four-entity guard plus a sweep that every
+link target resolves and that no `mtnadzor`/`alpine-violet`/`kyores`/`goris` article was
+invented; the dialect refusal; the bibliography including the **negative** assertion that the
+unverified *Heritage* ISBN is absent; the cross-section regression; and route/search/listing
+reachability.
+
+**Five older assertions went red and were updated rather than weakened** — the "goes red on
+each arrival" design working as intended: the 20th-century filter count in the Varoujan and
+Siamanto tests (4 → 5), the `PENDING` empty claim in the Shnorhali test, the archive-wide
+"nothing is waiting" claim in the Paronyan regression test, and the "no placeholder on the
+listing" claim in the Paronyan portrait test. In each case the count moved and **the claim the
+test was actually about was preserved and restated**. Count literals in `works.spec.ts`,
+`listing.spec.ts` and `places.spec.ts` moved 11 → 12 with their comments updated.
+
+One test of mine was wrong and was fixed rather than deleted: it searched the **writers
+listing** for `Mtnadzor`, but the listing filter reads card fields while article `keywords` are
+read by the site-wide search. It now tests both surfaces separately, and says why in a comment
+— which is a more useful test than the one that would have passed by accident.
+
+### Diff audit
+
+Thirteen files. **Nine are purely additive — 0 deletions**: the three card registries, the
+three article files, `sources.ts`, `media.ts` and the glossary. All 32 deletions are in the
+four test files and every one is a stale count literal or the comment explaining it; no test
+was removed or weakened. Line endings were preserved (edits were surgical, no whole-file
+rewrites). `.claude/settings.json` untouched, unmodified since 7 August.
+
+The working tree was **clean** at the start of the step, so there are no pre-existing changes
+to separate from §99's — the entire diff is this step.
+
+### Technical debt found, not fixed
+
+1. **The `author` byline is inconsistent across the archive.** `hy` uses
+   `Armat-ի խմբագրական խումբ` for the first seven writers, `Armat-ի խմբագրություն` for one, and
+   the literal English `Armat Editorial Team` for Varoujan, Siamanto and Paronyan; `hyw`
+   likewise mixes `Armat-ի խմբագրական կազմ`, `Armat-ի խմբագրութիւն` and the English string.
+   The glossary specifies the Armenian forms. Bakunts follows the **three most recent**
+   entries (`Armat Editorial Team`) so as not to introduce a fourth variant inside a step that
+   is not about bylines. A single sweep should settle all three editions at once.
+2. **`PROJECT_STATE.md`'s header is stale** — "Last updated: 2026-08-25", branch `seo`, and §3
+   verification figures from §60. §94 and §96 did not update it either; the current counts are
+   in the step sections. Worth one pass.
+3. **The Goris house-museum's own English page is internally inconsistent** on Aksel/Axel (its
+   domain says `aksel-`, its body text says "Axel"). Nothing to fix here; recorded because a
+   future editor checking the canonical form will meet it.
+
+## §100 — Aksel Bakunts portrait: audited and registered (2026-09-03)
+
+**Read this section against the merge.** It was written as §98 on a branch where Bakunts was
+Writer #12 and the collection held eleven portraits. `origin/writer` was independently adding
+Alexander Shirvanzade from the same base commit, as its own §97/§98. The two were merged; that
+work keeps §97/§98, this pass is §99/§100, and Bakunts is **Writer #13**. Every "eleven
+existing portraits" and "the actual eleven" below is therefore a faithful record of what this
+audit actually compared against — the collection as it stood on this branch — and not a claim
+about the merged archive, which holds **thirteen writers and thirteen portraits**. The one
+substantive consequence is recorded where it belongs, beside the registry entry in
+`media.ts`: both portraits were audited as prop-less against the same eleven predecessors, so
+neither is "the only one carrying no prop", and what remains this file's alone is that it is
+prop-less **outdoors**.
+
+### Pre-registration state, read from source
+
+Writers **12**, registered Writer portraits **11**, `PENDING_ARTWORK = ["aksel-bakunts"]`.
+Periods medieval 2 / 19th-century 4 / 20th-century 5 / soviet 1. `PORTRAIT_PROVENANCE` held
+three entries — `daniel-varoujan`, `siamanto`, `hakob-paronyan`. Bakunts was absent from
+`IMAGES` and from `PORTRAIT_PROVENANCE`, rendered the placeholder on the listing and in the
+article hero, declared no `Article.image`, and carried no sitemap image. Works 5, Cuisine 12,
+Places 13, History 7. Tumanyan the sole featured writer. **Alexander Shirvanzade returns zero
+matches across `src` and `tests` and was introduced into nothing.**
+
+§99 was still uncommitted when this step began, so the working tree carries both steps. They
+are separated in the diff section below, as they were at §94/§93.
+
+### The asset
+
+```
+path    public/images/writers/aksel-bakunts.webp
+bytes   488,466
+sha256  b332058cf989ddfaafa62f2fda8730401882b73991b2c24f1ea4a7ad1ea1fa91
+```
+
+Audited twice, by a custom RIFF walker and independently by sharp, which agree on every field.
+
+`RIFF` magic valid; declared RIFF length **488,458**, so file = length + 8 **exactly** — no
+trailing bytes, and the chunk walk ends precisely at EOF. Form `WEBP`. Three chunks:
+**`VP8X` (10 bytes) → `ICCP` (456) → `VP8 ` (487,964)**. `VP8X` flag byte `0x20`: ICC present,
+**no alpha, no EXIF, no XMP, no animation**, reserved bits clear. Canvas **1448 × 1086**. The
+VP8 bitstream is a keyframe with the correct `9d 01 2a` start code, its own dimensions agree
+at 1448 × 1086, and both scale fields are 0 (no upscaling flag). sharp reports `webp`, srgb,
+3 channels, uchar, `hasAlpha: false`, `isOpaque: true`, no orientation, not progressive.
+
+**ICC profile inspected rather than stripped**, per the brief: 456 bytes, version **4.3.0**,
+class `mntr`, colour space `RGB `, PCS `XYZ `, rendering intent 1, containing the standard
+`desc/rXYZ/gXYZ/bXYZ/wtpt/rTRC/gTRC/bTRC/cprt` tag set — an ordinary sRGB-shaped monitor
+profile. It is left exactly as delivered. This is the **second** file in the Writers registry
+to carry one, after Paronyan.
+
+**Geometry is the one real departure and it was tested rather than waved through.** At
+**1448 × 1086 the aspect is exactly 4:3 (1.3333)**, where ten of the eleven existing portraits
+are 1586 × 992 (1.5988) and Paronyan is 1560 × 1008 (1.5476) — all near 16:10. This is not
+few-pixel drift. It was resolved against the real crop path (see *Crops* below) and turns out
+to be **favourable**: `ArticleLayout`'s opening `aspect-[4/3]` and `WriterCard`'s
+`aspect-[4/3]` are the only boxes in the app that a 4:3 source fills with **no crop at all**.
+At 488 KB it is also the heaviest file in the section by a wide margin (next: Tumanyan,
+357 KB). Registered exactly as delivered — unaltered, unresized, unoptimised, unrenamed.
+
+### The reference, and the correction that made this step necessary
+
+**§91 was wrong and it would have been inherited into the commission.** It recorded the
+photographic basis as *"a dated 1932 portrait aged 33"*. That image —
+`Ակսել Բակունցի դիմանկարը (1932).jpg`, 460 × 347 — is a **painting by Panos Terlemezian**, held
+by the National Gallery of Armenia. English Wikipedia uses it as its infobox picture with
+exactly that caption, which is where the error entered. The age is right; the medium is not.
+
+The `Category:Axel Bakunts` Commons category was **enumerated in full via the API** (18 files,
+listed and classified). It contains exactly **two photographic files** — `Axel Bakunts.gif`
+(328 × 400) and `Bakunts.png` (219 × 292) — which are two crops of a single scan, and **no
+other photograph of him**. Everything else is a painting, a stamp, a philatelic cover, a
+sculpture, a memorial plaque or a book scan.
+
+The facial authority used here is that photograph. It was **downloaded and read directly**,
+upscaled for inspection, and compared against the delivered artwork **side by side at matched
+scale in greyscale** — not described from text.
+
+**Excluded as facial authority, deliberately:** the Terlemezian 1932 **painting**; the
+**Eduard Isabekyan 1960 oil** (painted twenty-three years posthumously, and the image that
+ranks highest in picture search for him); the 2024 HayPost stamp; the philatelic cover; the
+Goris bust; and the "Bakunts as a Hussar" drawing. That is the §87 rule applied for the
+**fourth** time in this archive and the **first** time against paintings rather than a stamp.
+The Terlemezian painting was allowed to corroborate two non-anatomical things only — brown
+rather than black hair, and habitually informal open-necked dress.
+
+### Likeness, feature by feature
+
+| Feature | Verdict |
+|---|---|
+| Face length / narrowness / leanness | **strong match** — long, narrow, notably gaunt |
+| Cheekbones and hollows beneath | **strong match** |
+| Jaw and chin | **strong match** — long jaw, firm slightly squarish chin |
+| Ears | **strong match** — prominent, standing clear of the head; a distinctive cue, precisely carried |
+| Nose (bridge, length, tip, nostrils) | **strong match** — long, straight, narrow bridge, slightly prominent tip |
+| Mouth and philtrum | **strong match** — thin, level, closed; long philtrum; nasolabial folds |
+| Neck | **strong match** — long, sinewy |
+| Clean-shaven | **strong match — hard gate passed** |
+| Apparent age | **strong match** — early-to-mid thirties; he died at 38 |
+| Hairline | **acceptable stylization** — full, no recession, but sits higher on the forehead than the photograph's low dense line |
+| Hair mass and direction | **acceptable stylization** — thick, backswept, slightly unruly; lighter and browner than the near-black of the photograph (the Terlemezian painting corroborates brown) |
+| Eyes | **acceptable stylization** — deep-set and direct, but more open and brighter than the photograph's heavily shadowed sockets |
+| **Eyebrows** | **acceptable stylization, at the low end — the weakest point of the file.** Dark and straight and not thin, arched or soft, so none of §7's reject conditions is tripped; but they carry **less mass and sit higher** than the photograph's heavy low-set bar, and the face is correspondingly less severe than the man |
+
+**Would someone familiar with the genuine photograph recognise this specifically as Aksel
+Bakunts? Yes. Verdict: PASS WITH MINOR STYLIZATION.** The identifying combination — long lean
+gaunt face, prominent standing-out ears, thick dark backswept hair over a full hairline, long
+straight nose, thin level mouth, clean-shaven jaw, long sinewy neck, direct unsmiling gaze —
+is all present and carried precisely. The two departures are the brow weight and the hairline
+height, both recorded above and in `media.ts` rather than corrected.
+
+### Composition
+
+**Outdoor, half-to-three-quarter figure, no prop of any kind.** He stands on a stony path with
+a dry-stone terrace wall at his own level to the right, scrub oak beside him, terraced
+agricultural slopes to the left, hazy ridges and a snow-streaked skyline behind, and open sky
+around his head. **No desk, no books, no manuscript, no pen, no paper, no furniture.**
+
+**Exact-geography verdict: PASS — no documentary claim is made.** The terrain is a generic
+highland gorge-side: no identifiable landmark, no Goris panorama, no Kakavaberd, no reading of
+a specific Mtnadzor. The dry-stone terracing, scrub oak and rocky path are apt for Syunik
+without asserting a viewpoint.
+
+**No Mtnadzor Work illustration: PASS.** No bear, no hunter, no dark symbolic forest, no story
+character, no literary-symbol montage. It is a portrait, not artwork for a work this archive
+has not written.
+
+**Tourism-poster verdict: PASS.** The light is flat, hazy, overcast-leaning daylight — no
+golden hour, no sunset, no supernatural glow, no rim light, no saturation. The vista is wide
+but atmospheric rather than spectacular, and the figure dominates the frame.
+
+**Clothing — accepted with a recorded reservation.** The photograph shows a heavy dark work
+jacket over a **collarless open-necked shirt with no neckwear**. The delivery gives a worn
+tweed jacket over a **waistcoat**, with a soft open collar and a **loose dark neckerchief**.
+Inspected at 3×, the neckwear is a thin, loosely knotted, frayed-ended band rather than a
+business tie against a stiff collar, and the cloth is coarse and rumpled. It therefore does
+**not** become any of §17's rejected archetypes — not a formal suit and tie, not a politician,
+not a bureaucrat, not a uniform, not folk costume — but it reads a little more
+country-gentleman and a little less field agronomist than the one photograph of him does.
+Clothing is **not** among the brief's hard gates (it appears in neither §36's decision list
+nor the acceptance criteria), so this is recorded as a reservation rather than a refusal, on
+the §79 precedent.
+
+**Agronomist identity handled without cosplay:** the terraced slopes imply working land; there
+is no clipboard, instrument, shovel, tool, specimen or tripod.
+
+**Expression:** serious, direct, observant, restrained. Not angry, not hostile, not martyred,
+not heroic, not theatrical.
+
+**Hands: not visible** — the figure is cropped at mid-torso. Pass by §24's own rule.
+
+**Symbol audit — all clear.** No military uniform, insignia, weapon, battlefield or heroic
+pose. No prison, bars, cell, interrogation, execution symbolism, NKVD cue or martyr lighting —
+nothing frames him through 1937. No hammer and sickle, flag, banner, medal, party insignia or
+propaganda composition. No Armenian flag, coat of arms, khachkar, Ararat, map or floating
+alphabet. The landscape carries the identity on its own, which is what the commission asked.
+
+### Readable-text sweep — hard gate, passed
+
+Swept at full resolution, in 2× quadrants, at 3× on all four corners with contrast boost, and
+across a 2× full-width bottom strip; plus targeted 3× passes over the collar, chest, jacket
+and the dry-stone wall, and an 8× pass on one faint sky mark that turned out to be cloud-edge
+mottling.
+
+**Zero readable text in any alphabet.** No signature, no watermark, no caption, no date. In
+particular nothing resolving to *Aksel Bakunts*, *Axel Bakunts*, `Ակսել Բակունց`,
+`Ակսէլ Բակունց`, `Մթնաձոր`, *The Dark Valley*, `Ալպիական մանուշակ`, `Կյորես`, `Միրհավ`, `1899`
+or `1937`. There is no paper, book, sign or plate anywhere in the frame for text to sit on,
+which is a structural consequence of the no-props archetype.
+
+### AI-artifact audit
+
+Face: pupils, irises, both eyes, brows, ears, nostrils, lips, jawline and hairline all
+structurally sound. Body: neck, shoulders and torso coherent. Clothing: lapel, notch, shoulder
+seam, breast welt pocket, buttonholes and waistcoat buttons all correctly formed and
+consistent. Landscape: ridge geometry, terracing, path, dry-stone coursing and foliage
+coherent; **no accidental buildings, no duplicated terrain, no accidental people**. Hands not
+in frame.
+
+One texture note, not a defect: the skin carries a fine reticulated cross-hatch at 3× that
+reads as a canvas/paint overlay. Invisible at article scale and consistent with the section's
+painterly register. **No major structural error at any rendered size.**
+
+### Lighting and palette
+
+Flat highland daylight, slightly hazy, with enough lateral modelling to reveal the brows, the
+deep eye sockets, the cheekbones, the nose and the jaw. Measured channel means: **R 118, G 108,
+B 89**.
+
+Placed against the section, the honest reading is not that it is the *coolest* file — by R−B
+it sits mid-table at **29.2**, between Abovyan (28.1) and Shnorhali (32.4), and Siamanto
+(10.3) is far cooler. What is distinctive is **luminance and blue**: its blue channel of 89 is
+**34% above the next highest in the section** (Tumanyan, 66) and its overall brightness is well
+clear of the field. That is the open-sky signature, and it is what makes the file read as
+daylight against eleven interiors rather than as a cool interior.
+
+### Collection comparison, against the actual eleven
+
+Rendered as a twelve-tile contact sheet at the real card crop (`aspect-[4/3]`,
+`object-[38%_28%]`) and again as a 128 px row, from the real `IMAGES` registry.
+
+Eight of the eleven are a seated figure at a desk with books (Tumanyan, Charents, Raffi,
+Isahakyan, Abovyan, Sevak, Narekatsi, Varoujan, with Siamanto a ninth seated hand-to-face);
+Shnorhali stands in a cloister holding a book; Paronyan stands in a print room.
+
+Bakunts is the **only** portrait that is: outdoors in space that continues past the figure;
+lit by open daylight; carrying no desk, no book, no manuscript, no pen and no prop at all; and
+framed with sky around the head.
+
+**§31's distinction holds and it matters.** Four existing portraits — Tumanyan, Charents,
+Narekatsi, Varoujan — do show landscape, but always as a **framed rectangle behind an indoor
+figure**. Here the ground, the path and the terrace wall are at the subject's own level and
+foliage stands beside him: he occupies outdoor physical space rather than looking at it
+through a window. Materially distinct.
+
+**§30 Paronyan comparison — clearly distinct.** Paronyan: standing, indoor print room, type
+cases, press, background workers, window, warm brown. Bakunts: standing, outdoors, highland,
+no machinery, no workers, no journalism props, cool daylight. They share only "standing".
+
+### Crops
+
+Simulated against the **real** implementation read from source — `PORTRAIT_FOCUS =
+"object-[38%_28%]"` with `object-cover`, and the actual boxes in `ArticleLayout`
+(`aspect-[4/3]` → `sm:aspect-[3/2]` → `lg:aspect-[16/9]`), `WriterCard` (`aspect-[4/3]` and
+the `w-[38%]` horizontal variant), `SearchResultCard` (`w-32` / `lg:w-40`, full height) and
+`FeaturedItem` (`aspect-[16/10]`, `md:aspect-auto`).
+
+| Box | Kept | Face |
+|---|---|---|
+| hero 4:3 (mobile) | **100% — no crop at all** | full |
+| hero 3:2 | 89% | full |
+| hero 16:9 (desktop) | 75% | full, with headroom |
+| featured 16:10 | 83% | full |
+| featured md half-panel | 72% | full |
+| writer card 4:3 | **100% — no crop at all** | full |
+| card horizontal `w-[38%]` | 61% | full |
+| search 128 | 56% | full |
+| search 160 | 57% | full |
+| narrow 21:9 | 57% | full |
+
+The face survives every box. **No slug-specific `object-position` was added and none is
+needed** — the generic `object-[38%_28%]` frames him correctly in all ten, because his head
+sits slightly left of centre and high, which is exactly what that value assumes.
+
+**128 px gate: PASS.** In a row of all twelve at 128 px he is immediately identifiable and not
+confusable with any other portrait: the pale cool sky reads instantly against eleven warm
+interiors, and the long lean clean-shaven face, thick backswept hair, full hairline, prominent
+ears and long nose all survive. Charents is the nearest facial type and is separated by
+palette, pose, desk, suit and hairline.
+
+**160 px gate: PASS**, and more comfortably — the brow line, eye depth, nose and jaw are all
+legible.
+
+### Registration
+
+`IMAGES["aksel-bakunts"] = "/images/writers/aksel-bakunts.webp"` in the generic registry.
+`PORTRAIT_PROVENANCE["aksel-bakunts"] = "photo-referenced"`. `PENDING_ARTWORK` emptied.
+
+**No article-level `image` field, no slug-specific component, no special rendering branch, and
+no Bakunts-specific caption string.** The article inherits the shared
+`imageAiPhotoPortraitCaption` in all three editions — AI-generated editorial portrait based on
+surviving photographs, not itself a photograph — which is the correct semantics and is
+asserted from the locale dictionary rather than from a literal.
+
+`getPortraitProvenance("aksel-bakunts")` → `"photo-referenced"`. The generic default is
+unchanged: unlisted slugs, and both medieval writers, still return `"imagined"`.
+
+Photo-referenced writers are now **four**: `daniel-varoujan`, `siamanto`, `hakob-paronyan`,
+`aksel-bakunts`. **`PENDING_ARTWORK = []` — empty for the fifteenth time, and for the seventh
+time that covers the whole archive: every article in every section has a cover.**
+
+### Reach — verified in the running app
+
+**Listings** (`/en/writers`, `/hy/writers`, `/hyw/writers`): 12 cards, 12 own portraits, **0
+placeholders** in each edition; his card serves `/images/writers/aksel-bakunts.webp`. Period
+filters unchanged at medieval 2 / 19th-century 4 / 20th-century 5 / soviet 1, and he is in the
+twentieth-century filter with his face. Tumanyan still the sole featured writer.
+
+**Heroes** (all three locales): raster hero, no placeholder SVG, localized alt, and the generic
+photo-referenced caption — explicitly *not* the imagined-likeness caption.
+
+**Metadata:** `og:image` and `twitter:image` both moved off the fallback onto
+`https://armat.site/images/writers/aksel-bakunts.webp`. The JSON-LD `Article` carries
+`"image":{"@type":"ImageObject","url":"…/aksel-bakunts.webp"}` alongside its ten citations, and
+**no `Person` node was introduced**.
+
+**Sitemap:** verified **per `<url>` block**, not by global count — each of the three locale
+entries for `/writers/aksel-bakunts` contains the portrait URL.
+
+**Search:** the canonical writer result carries the real portrait and no placeholder, scoped by
+his own href, for `Aksel Bakunts`, `Axel Bakunts`, `Mtnadzor`, `The Dark Valley`,
+`Ակսել Բակունց`, `Մթնաձոր` and `Ակսէլ Բակունց`. No Work result is produced for `mtnadzor`,
+`the-dark-valley`, `alpine-violet`, `kyores` or `mirhav` — asserted negatively.
+
+### Immutability and regressions
+
+**The §99 biography is untouched.** Not one character of the three article files or the three
+card registries changed in this step — `git diff --numstat` shows them identical to their §99
+state. A test additionally pins the decisions §99 argued: `20th-century`, the three relations
+(`yeghishe-charents`, `hovhannes-tumanyan`, `tatev-monastery`), ≥16 sections, the closing
+`what-survives` section, no featured flag, the 1899–1937 lifespan, and **no content-declared
+`image`** (so the shared AI caption still governs rather than a credit line).
+
+**Future Work guard:** Works remains **5**. No Mtnadzor, Dark Valley, Alpine Violet, Kyores or
+Mirhav entity was created, and tests assert their absence both as articles and as search
+results.
+
+**Existing writers:** all eleven portraits still resolve to their own paths; the three prior
+provenances are unchanged; Paronyan keeps his portrait, his `photo-referenced` provenance, his
+`og:image` and his relations; no reciprocal relation edit was made anywhere.
+
+**Book of Lamentations:** artwork still registered at `/images/works/book-of-lamentations.webp`.
+
+**Cross-category counts unchanged:** Works 5, Writers 12, Cuisine 12, Places 13, History 7. No
+navigation change, no map change.
+
+### Verification
+
+```
+npm run typecheck        → PASS (0 errors)
+npm run validate:content → PASS (198 entries across 3 locales; the pending-artwork note is gone)
+focused: writers.spec    → PASS (74/74)
+focused: listing, search, seo, article, places, works → PASS (149 passed, 2 skipped)
+npx playwright test      → see full-suite line below
+npm run build            → see build line below
+```
+
+`.next` held production artifacts (`BUILD_ID`, `prerender-manifest.json`) from §99's build and
+was **removed with the server stopped** before any browser test; port 3002 was confirmed to
+have no listener. Playwright and the build were not overlapped.
+
+**Route probes, all 200:** Bakunts EN/HY/HYW, Paronyan, Book of Lamentations, one Cuisine
+(lavash), one Place (Tatev), one History (Avarayr), the writers listing and `/sitemap.xml`.
+
+**Three older assertions went red and were updated rather than weakened**, which is the "goes
+red on each arrival" design working in the registration direction for once:
+
+1. `writers.spec` §85 provenance test — `PHOTO_REFERENCED` moved from three to four. This is
+   the assertion that exists to make an *unearned* promotion fail, so it going red on an
+   earned one is exactly right.
+2. `writers.spec` §87 Shnorhali test — `PENDING` back to `[]`, with the added claim that the
+   writer §99 was waiting on is now illustrated.
+3. `places.spec` §100 registry snapshot — the flat cross-category `IMAGES` map is pinned entry
+   by entry, so registering any Writers path turns it red. One line added; this is the only
+   test in the suite that would catch a path in another category being retyped in passing.
+
+The two §99 tests written in the negative were **inverted rather than deleted**, on the §96
+precedent: "Bakunts is pending artwork" became "Bakunts owns his portrait", and the
+three-provenance test became the four-provenance test. The borrowing check inside the first
+was preserved unchanged, because it is the one claim that had to hold through both states.
+
+### Diff, separated by step
+
+§99 was uncommitted when this step began. The split:
+
+**§99 (content):** `PROJECT_STATE.md` +507, the three card registries +12 each, the three
+article files +328 each, `sources.ts` +80, `docs/translation-glossary.md` +20, plus its share
+of the four spec files. All purely additive.
+
+**§100 (this step):** `src/lib/media.ts` **+127, 0 deletions** (registry entry, provenance
+entry, and the pending list emptied); `tests/e2e/writers.spec.ts` +249 with the constant and
+assertion edits described above; `tests/e2e/places.spec.ts` +4; and the new binary
+`public/images/writers/aksel-bakunts.webp`, previously untracked.
+
+Every deleted line across both steps was read individually. **All are stale count literals or
+the comments explaining them; there is no unexplained deletion, and `media.ts` has zero
+deletions in either step.** No whole-file rollback was used at any point; every change is a
+targeted hunk. Line endings preserved. `.claude/settings.json` untouched and unmodified since
+7 August.
+
+### Technical debt
+
+1. **The 4:3 geometry is now a second exception in the Writers registry**, after Paronyan's
+   1560 × 1008. Ten files are 1586 × 992 and two are not. It is harmless today — and at the
+   4:3 boxes actively better — but a third divergent aspect would make "the Writers artwork is
+   16:10" no longer a usable assumption anywhere, and nothing currently asserts geometry.
+   Worth a single test pinning each file's dimensions if the section keeps growing.
+2. **Two files now carry ICC profiles** (Paronyan, Bakunts) and ten do not. Not a fault, and
+   deliberately not stripped, but the registry is no longer uniform on metadata.
+3. **`PROJECT_STATE.md`'s header remains stale** — "Last updated: 2026-08-25", branch `seo`,
+   §3 figures from §60. Carried forward from §99; still worth one pass.
+4. **The eyebrow softening is the known weak point of this file.** It passes, and it is
+   recorded in three places (`media.ts` registry note, `PORTRAIT_PROVENANCE` note, and here),
+   so a future replacement has a stated target rather than a vague one.
+
+### Not done, deliberately
+
+No regeneration (no hard gate failed). No biography edit. No Work created. No Writer #14. No
+Cuisine, Places, History, navigation or map change. **No deployment.**
+
+---
+
+## §101 — Work #6: «Մթնաձոր», the 1927 collection, in all three editions (2026-09-03)
+
+### Actual pre-state, and a correction to the brief
+
+The step asserted a pre-state of Works 5, **Writers 12**, Cuisine 12, Places 13, History 7. Read
+from the bundles rather than from the brief, four of the five were right and one was not:
+
+| | brief | actual |
+| --- | --- | --- |
+| Works | 5 | **5** |
+| Writers | 12 | **13** |
+| Cuisine | 12 | **12** |
+| Places | 13 | **13** |
+| History | 7 | **7** |
+
+**Writers is thirteen**, and has been since §99 added Bakunts as Writer #13. The brief's expected
+post-state repeated the same figure, which would have required deleting a writer to satisfy;
+Writers was held at 13 and nothing in this step touches it. The error is inherited from §100 of
+this document, whose reach section says "12 cards, 12 own portraits" and "all eleven portraits" —
+those are the pre-Bakunts figures, written up after he had already been added. **Both are wrong
+and are corrected here rather than in place**, since §100's narrative should stay as written.
+
+Working tree was **clean** at the start: §100 was committed at `aeb659f`, so the brief's §48
+concern about unseparated portrait work did not arise. There is nothing from Step 72 in this diff.
+
+### Repository audit
+
+`Մթնաձոր` / `Mtnadzor` / `The Dark Valley` / `Ակսել Բակունց` were already present in eight files:
+the Bakunts biography in all three editions and its three card registries, `sources.ts`,
+`docs/translation-glossary.md`, `tests/e2e/writers.spec.ts`, and this document. **No Work slug,
+article, card, alias or link target existed** — §99 and §100 had asserted its absence explicitly,
+in two tests. Nothing was overwritten; the two tests that pinned the absence were rewritten to pin
+what replaced it (below).
+
+### Entity decision
+
+The Armat entity is the **1927 short-story collection**. It is *not* the 1926 story, *not*
+`Մթնաձորի «չարքը»`, and *not* any of the places. §99 recorded the four-way ambiguity and said a
+future Work "must declare which of the four it is about"; this is that declaration.
+
+- **slug** `mtnadzor` · **href** `/works/mtnadzor` · `periodId` `20th-century` (shared, as Bakunts)
+- **Titles** — en `Mtnadzor`, hy `Մթնաձոր`, hyw `Մթնաձոր`. `The Dark Valley` is carried as the
+  English *translation* title in prose and keywords, never as the headline.
+- **Author** — the card's `author` is the writer's `name` **by identity** in each edition
+  (`Aksel Bakunts` / `Ակսել Բակունց` / `Ակսէլ Բակունց`), which is what `aboutEntity` matches to
+  emit the `Person` node. A near-miss string would have silently dropped the relation; a test
+  compares them with `toBe`.
+
+### Sources re-verified before writing
+
+Four parallel research passes. The decisive find was **Rafayel Ishkhanyan's textological apparatus
+in Ակսել Բակունց, Երկեր հ. 1 (1976)**, digitised page by page on Հայերէն Վիքիդարան, which settles
+almost every disputed point at primary-source level.
+
+**Confirmed:**
+
+- **The eighteen stories and their order.** The apparatus prints the *preliminary* contents list
+  and records the three moves made in ink that produced the printed order (`Վանդունց Բադին` 1→2,
+  `Զորբան` 2→11, `Օրանջիա` 11→12, `Մթնաձոր` →1). Applying them reproduces the brief's list
+  position for position. Corroborated independently by Aghababyan's own enumeration and by the
+  Wikisource edition — **three witnesses, agreeing**.
+- **Title story: 21 November 1926, «Խորհրդային Հայաստան» no. 269.**
+- **`Միրհավ`: 6 June 1926, no. 132**, story #6.
+- **`Ալպիական մանուշակ`: 1 and 4 January 1927**, nos. 1–2 (the paper's second number appeared on
+  the fourth; the apparatus says so explicitly to forestall the obvious error), story #18.
+- **`Խոնարհ աղջիկը`: 1–2 February 1927** — so that date belongs to it and not to `Մթնաձոր`, exactly
+  as the brief said.
+- **`Մթնաձորի «չարքը»` has no traceable earlier printing at all.** The 1927 book is its first
+  appearance anywhere. This is a stronger separation than the brief anticipated and is used as one.
+
+**Not confirmed, and therefore not asserted:**
+
+- **"Երևան, Պետհրատ, 1927, 184 էջ".** Both Armenian national catalogues (`haygirk.nla.am`,
+  `armunicat.nla.am`) returned HTTP 403; no WorldCat, Open Library or archive.org record was
+  reachable. The detail rests on Wikipedia's bibliography alone, and **Ishkhanyan's own apparatus
+  cites the book as simply `Մթնաձոր. [Ժողովածու]. Երևան, 1927`, with no publisher and no extent**.
+  The article states the usual citation, then states that it could not be checked and that the
+  scholarly apparatus does not corroborate it. Per the brief's §4B this was researched before
+  inclusion; the honest result is a hedge, not a fact.
+- **Issue no. 269 vs 292.** The formal source line gives 269; the same apparatus elsewhere mentions
+  a cutting taken from no. 292 of the same year. Unexplained. The article follows 269 and records
+  292 rather than hiding it.
+- **`Տիգրանուհին`.** Both the encyclopedia entry and Aghababyan's own discussion name a story of
+  this title among the contents, though it appears in none of the three lists. Recorded as an open
+  question; **no retitling is asserted**.
+- **`Զորբան`'s English title.** Absent from the only reachable transcription of the translation's
+  contents. Left in Armenian in the bullet list rather than invented.
+
+### Corrections to the brief, made on evidence
+
+Three places where research contradicted the step's own framing, and the article follows the
+evidence:
+
+1. **The `Միրհավ` etymology was overstated in the brief.** `մայրի` is **'woods, forest'**, not
+   'cedar' — Martirosyan expressly rejects rendering it a forest of fir trees. More importantly he
+   **credits the compound analysis to Կարո Դավթյան (1966)**, not to himself; his contribution is the
+   supporting argument and the case against the rival "Mihr's bird" reading. And he **hedges the
+   bird**: "probably … a kind of pheasant, *or* heath-cock, black-cock". Lisitsyan's ethnography of
+   Zangezur itself glosses it as black grouse. The article attributes each part to whoever made it
+   and reports the disagreement.
+2. **"`Ալպիական մանուշակ` written 1925" is the author's own dating, and it is disputed.** Bakunts
+   printed `25 — 27` in 1933; the 1976 editors doubt **both** figures — the Meghri journey the story
+   grew out of is dated 1926 by two witnesses, and they place the reworking at 1930 or 1931. The
+   article presents 1925 as his attribution under dispute rather than as fact.
+3. **`Dark Gorge` is worse than merely unattested.** In English it is in live use for a *different*
+   gorge — the Mtnadzor near Lastiver, in **Tavush**, at the opposite end of the country from
+   Bakunts's Syunik. Canonicalising it would conflate a hiking destination with a book. `The Dark
+   Ravine` has no attestation of any kind.
+
+### The dedication, settled by textual evidence rather than inference
+
+The brief asked for caution; the evidence turned out to be decisive. The 1976 edition prints both
+texts: **the 1927 (`ՄԺ`) text carries no dedication line**, and the 1933 text carries
+«Արփենիկ Չարենցի հիշատակին». It was attached six years after this book. The chronology underneath
+is striking — Arpenik died on 2 January 1927 between the two instalments, and the second ran on
+4 January in the issue that also carried her death notice — but the editors offer that as a
+**probable** reason («հավանաբար») and the article does not go further than they do.
+
+### The Dark Valley: translation decision and the date conflict
+
+`The Dark Valley` is treated as canonical **for the collection**, and for nothing else. The date
+conflict is reported, not harmonised:
+
+| gives 2009 | gives 2008 |
+| --- | --- |
+| Gomidas Institute catalogue ("London: Taderon Press, 2009, 148 pp") | the book's own copyright page |
+| Rowe's preface, signed June 2009 | Harvard MARC record; LC classification `…M813 2008` |
+| AbeBooks, Open Library, the trade | English Wikipedia, the Groong review header |
+
+The pattern — library cataloguing tracking a 2008 copyright line, the publisher and trade tracking
+a late-2009 release — is offered nowhere in the article as a resolution, because no consulted record
+establishes it. `sources.ts` carries 2009 (the publisher's own year, and the year §99 already used,
+so the two bibliographies agree); the article states both.
+
+**One ISBN, one title.** `validate:content` caught the new entry titling 9781903656907 as
+`The Dark Valley: Short Stories` while §99's entry titles it `The Dark Valley`. The publisher's own
+form won, the §99 entry was left untouched, and the subtitle came out of the prose as well — it is
+Wikipedia's and Groong's expansion, not something verifiable from a copy that could be opened.
+
+### Genre taxonomy: one new id, and why
+
+`workGenres` offered `poetry`, `novel`, `epic`. A short-story collection is none of them. §61 filed
+the Narek under `poetry` and said in the article that the label was a convenience of the catalogue —
+right for a prayer cycle with three options, wrong here, because filing eighteen short stories under
+`novel` or `poetry` would make the card state something untrue to save a line.
+
+**`short-stories` was added**, and this follows the architecture rather than bending it: `placeTypes`
+already documents the rule that "a type id is added in the same change as the first article that uses
+it, never ahead of one", which is exactly what `validateFilterCoverage` enforces. Labels: `Short
+stories` / «Պատմվածքներ» / «Պատմուածքներ». **Appended after `epic`, so no existing pill moved.**
+
+### Article shape
+
+**Eighteen sections** in each edition, same ids, plus the `significance` block:
+`what-mtnadzor-is`, `one-word-four-things`, `how-the-book-was-made`, `the-eighteen-stories`,
+`bakunts-and-the-short-story`, `zangezur`, `landscape`, `no-idyll`, `compression`,
+`the-title-story`, `what-the-title-story-was-made-from`, `mirhav`, `alpine-violet`,
+`other-stories`, `the-name`, `in-english`, `reception`, `place-in-his-work`.
+
+Analysis outweighs plot: only `mirhav` and `alpine-violet` narrate a story at all, each in one
+paragraph, and both are followed by argument. There is no synopsis of the other sixteen. The
+contents appear once, as a compact eighteen-item bullet list with the translation's English titles
+beside the Armenian.
+
+**Landscape** rests on three attributed positions: Manasyan's (nature "not described but introduced
+by the teller as a minimum unit of psychological movement"), Aghababyan's (no essential line between
+village and country; leave Akar's fields two years and the forest takes them back; `Օրանջիա`'s
+rose-hip frame, where nature destroys by its beauty what it enchants), and Hambardzumyan's (the
+mythic time of "a forgotten corner from the days when there was not yet any man" moving toward the
+present until the two occupy each other). No tourism prose; the words *beautiful*, *picturesque* and
+*dramatic* are not used of Syunik anywhere.
+
+**Anti-pastoral** rests on Bakunts himself, quoted by Aghababyan from his pre-1927 journalism —
+that the peasant does not come by his dry bread easily and there is no idyll of the kind the poet
+sings about — and on Aghababyan's conclusion that the same laws operate in Mtnadzor as in the
+"centres of enlightenment", with Arnavoudian arriving independently at the same place. Rowe's
+qualification (sympathetic as well as stark; never propaganda pieces) is there to stop it tipping
+into a tract.
+
+**Ending:** the closing section is `place-in-his-work` and the `significance` block ends on short
+fiction, landscape and rural society. **1937 is not mentioned in the article at all** — it appears
+only in Bakunts's lifespan in `keyFacts` and `relatedFigures`, which is where it belongs.
+
+### One editorial addition worth recording
+
+The `Միրհավ` section carries something absent from the popular criticism and specifically relevant
+to *this* book: Ishkhanyan's collation shows the 1927 and 1933 texts differ politically. **In 1927
+the man who whips Dilan is a yasaul — a Tsarist officer whom Dilan cannot answer because he speaks
+Russian; by 1933 he is a forest guard annoyed about his pheasant.** Since four of the eighteen
+stories exist in two authorial versions and the 1955 edition dropped four stories outright, "reading
+Mtnadzor as a book" is a real distinction rather than a pedantic one, and the article makes it.
+
+### Cross-edition number discipline
+
+`validateCrossLocaleNumbers` compares the *set* of 2+ digit numbers field by field across all three
+editions. The English article was written first, its per-field sets extracted, and the Armenian and
+Western Armenian editions written against them. The body carries a set of 27 figures — `18, 21, 25,
+27, 132, 148, 184, 269, 292, 1911, 1912, 1924, 1925, 1926, 1927, 1928, 1930, 1931, 1933, 1935, 1944,
+1955, 1961, 1966, 1976, 2008, 2009` — identical in all three. Counts are spelled out (eighteen,
+fourteenth, twelfth) precisely so they do not enter the comparison.
+
+**One year was deliberately left out.** `Սպիտակ ձին` is dated 1929 in the §99 biography and 1927
+(Moscow) in the Wikipedia bibliography the research surfaced. Rather than contradict a published
+article on unverified evidence, the collection is named in `place-in-his-work` **without a year**.
+
+### Western Armenian
+
+Written natively, not converted. The policy was already settled in
+`docs/translation-glossary.md` §19 and is followed exactly: **Bakunts's work titles keep their
+Eastern forms** (`Մթնաձոր`, `Միրհավ`, `Ալպիական մանուշակ`, `Խոնարհ աղջիկը`, `Գյուլբահարի համար`)
+because no diaspora rendering of them exists and inventing one would be worse; only titles carrying
+the `և` ligature are classicised, giving `Սեւ ցելերի սերմնացանը` and `Անձրեւը`, matching what the
+`hyw` biography already prints. Name forms (`Նայիրի Հախվերտի`, `Վիքթորիա Ռոու`, `Լոնտոն`,
+`Աղաբաբեան`, `Մարտիրոսեան`, `Հասրաթեան`) were taken from the existing `hyw` Bakunts article rather
+than coined. `validate:content`'s orthography check passes: no `և`, no `ություն`.
+
+One deliberate inconsistency: the `hyw` key fact citing the collected works prints
+«Ակսել Բակունց, Երկեր, հատոր 1» in Eastern form, because that is the title page of the edition being
+cited, while the author is `Ակսէլ Բակունց` everywhere else in that edition.
+
+### Relations
+
+`relatedSlugs` = `["aksel-bakunts", "yeghishe-charents", "hovhannes-tumanyan"]`, identical in all
+three editions, and **each is earned in the prose** rather than being a geographic association:
+
+- **`aksel-bakunts`** — the author. Contextual link from `what-mtnadzor-is`.
+- **`yeghishe-charents`** — Arpenik's husband; the dedication chronology. Link from `alpine-violet`.
+- **`hovhannes-tumanyan`** — Aghababyan derived Bakunts's realist method from Tumanyan's prose and
+  the derivation was contested; Manasyan reports the exchange. Link from
+  `bakunts-and-the-short-story`. This paragraph was added specifically so the relation is earned;
+  the relation was not added because the writer happened to exist.
+
+**No Tatev relation.** The brief warned against it and the research explains why it was tempting:
+the deserted Mtnadzor village appears in Tatev monastery's tax register. That is a fact about the
+*village*, not about the collection. A test asserts `relatedSlugs` does not contain
+`tatev-monastery`.
+
+**The relation is one-way and Bakunts's biography was not edited.** Not one character of the three
+`writers` article files changed. `relatedSlugs` is explicitly not reciprocal in this codebase
+(§99: "Charents is the one writer Bakunts links to, and the link is one-way"), so nothing was
+required. See technical debt below.
+
+### Artwork: pending, and one hard rule recorded in advance
+
+`PENDING_ARTWORK` refills with **`mtnadzor`** — for the first time since §61 the waiting slug is a
+*Work* rather than a Writer. No file was created and no image was generated.
+
+The registry note states the rule in the negative because that is how it could go wrong:
+**Bakunts's portrait must not be borrowed.** `writers/aksel-bakunts.webp` exists, is
+`photo-referenced`, and sits one line above in `IMAGES`, which makes reaching for it the path of
+least resistance and the wrong answer — no other Work carries a portrait, and a reader meeting the
+same face on the Writers card and the Works card would reasonably conclude the pages were about one
+entity, which is precisely the confusion this article exists to undo. Four assertions pin it: the
+registry lookup, the rendered card, the `og:image`/`twitter:image` pair, and the sitemap block.
+
+**Art direction recorded, not commissioned:** a restrained, atmospheric worked highland — forest,
+gorge, a path, cultivated ground at a village edge — with the human scale small and subordinate.
+Explicitly **no bear, no hunter, no mauling, no forest guard** (the title story is one of eighteen
+and illustrating it would make the book look like a single narrative), no purported specific
+Mtnadzor, and no readable text.
+
+Work artwork state is now **5 illustrated, 1 pending**, which is what §46 predicted.
+
+### Bibliography
+
+Nine sources, each scoped to a distinct job, replacing an earlier plan that would have leaned twice
+on the same author:
+
+1. **Ակսել Բակունց, Երկեր հ. 1 (1976)**, notes by Ishkhanyan — chronology, contents, textual state
+2. **Աղաբաբյան, «Ակսել Բակունցի «Մթնաձոր» ժողովածուն», ՊԲՀ 1979, էջ 3–16** — reception, anti-pastoral,
+   landscape, technique
+3. **The Dark Valley**, ISBN 9781903656907 — the English translation and its titles
+4. **Arnavoudian, Groong, 13 Apr 2010** — English critical reception
+5. **Hambardzumyan 2020** — myth, sign, pre-human time
+6. **Manasyan 2015** — literary geography and short-story form
+7. **Petrosyan, Bayramyan and Gnuni 2025**, DOI `10.53548/0320-8117-2025.3-257` — `Ալպիական մանուշակ`
+8. **Martirosyan, EDAIL, Brill 2010**, ISBN 9789004173378 — the `միրհավ` lexicon
+9. **Martirosyan, «Միրհավ» բառի ծագումը, Գրանիշ 2014** — the attribution to Davtyan
+
+Source 2 is the late substitution and the best of them: a study of *this book* by the scholar who
+wrote the standard monograph and signed the encyclopedia entry. It displaced the ՀՍՀ entry, which
+covers the man rather than the book and is already cited on the Writer page. **`The Heritage of
+Armenian Literature` remains excluded**, inheriting §70's decision rather than quietly reversing it;
+a test asserts its absence.
+
+### SEO
+
+No invented volume, KD, CPC or traffic figures — none are available and none are stated. What the
+SERPs actually show, checked directly: **`Mtnadzor` alone is dominated by a restaurant, a hotel in
+Goris and a Wikidata river entry**; `Mtnadzor Bakunts` returns literary results led by English
+Wikipedia's *author* page, which cites the translation as 2008; the Gomidas catalogue does not rank
+on any of the four queries tested. **No accurate, well-ranking English page gives the collection's
+contents, its title renderings and a defensible date.** That gap is the reason `metaDescription`
+leads with "the 1927 short-story collection by Aksel Bakunts" rather than with the bare title.
+
+Keywords carry both romanisations (`Aksel` and `Axel`), both scripts, the translation title, and the
+two best-known story titles. `Dark Gorge` and `Dark Ravine` are **not** in keywords, and a test
+asserts neither ever appears in any identifying field — they appear only in `the-name`, where the
+article's point is that neither is attested.
+
+### Verification
+
+- `npx tsc --noEmit` — **clean**
+- `npm run validate:content` — **✓ 210 entries across 3 locales**, with the expected note
+  "1 slug(s) have no artwork and render the generated placeholder: mtnadzor". It caught two real
+  problems on the first run (the ISBN/title collision, and an English `metaDescription` two
+  characters over the 165 budget); both were fixed rather than worked around.
+- **Full Playwright suite: 511 passed, 5 skipped, 0 failed** (desktop + mobile).
+- `npm run build` — **succeeded**, run separately from the dev server with `.next` cleared first.
+  `/[locale]/works/[slug]` prerenders **18 paths** = 6 works × 3 locales.
+- Routes probed directly: `/en|hy|hyw/works/mtnadzor` all **200**, `/en/works` 200,
+  `/sitemap.xml` 200.
+
+**Process failures, recorded:** the first focused run showed 11 failures and the first full run 8.
+Of those, **five were mine** (a listing count still at five; a placeholder count that had to become
+one rather than zero; an `Արփենիկ` assertion that fails in English, where the article writes
+*Arpenik*; three "works unchanged" slug lists; three over-scoped `PENDING_ARTWORK` assertions). The
+rest were **cold-compile timeouts** — `.next` had been cleared and Playwright's own `webServer` was
+racing a first compile under full parallelism against a 30-second timeout. Confirmed as flakes by
+warming the routes and re-running: `cuisine.spec.ts` then passed 119/119 in isolation, and both
+timed-out writer tests passed in the full green run. No test was weakened to make a failure go away.
+
+### Test guards
+
+A **§101 block of fifteen tests** in `works.spec.ts` pins: the entity is the 1927 collection (card
+period contains 1927 and *not* 1926); author resolves to the Writer by identity; the genre id, its
+filter, its position and its coverage; both years present in the disambiguation section, with the
+title story's own section carrying 1926 and no. 269; `Մթնաձորի «չարքը»` present in the contents at a
+position other than first; **exactly eighteen bullets, no duplicates**, with #1, #6 and #18 checked
+by name; `The Dark Valley` present while `Dark Gorge`/`Dark Ravine` are barred from every
+identifying field but required in the naming section; the Alpine Violet chronology (1927, 1933,
+1976); `Միրհավ` as a story rather than an entity; nine non-entities absent as articles, cards and
+link targets, plus every link target resolving; artwork pending with four separate borrowing
+assertions; the bibliography's identifiers and the Heritage exclusion; the five earlier works, the
+Narek's artwork and relations, and Bakunts's own biography unchanged; routes, listing, filter,
+search in both directions, metadata and the sitemap.
+
+Preference for structure over prose throughout — the `Dark Gorge` guard checks *fields* rather than
+banning a substring, because the article's own careful sentence contains the string.
+
+**Rewritten rather than deleted**, in `writers.spec.ts`:
+
+- §99's four-entity test kept its claim; `mtnadzor` moved from the banned list to a positive check
+  that it exists **and is a Work**, plus an explicit assertion that the biography still does not
+  link to it — so a future step adding that link is a decision, not a surprise.
+- §100's search test narrowed its negative to the titles that still have no entity. The positive
+  half — that every one of those queries still finds Bakunts himself, with his own portrait — is
+  what now guards against the Work displacing the Writer.
+- Three archive-wide `PENDING_ARTWORK` emptiness assertions were **narrowed to the Writers
+  section**. This is the same over-scoping correction `works.spec.ts` made at §94, applied in the
+  other direction: the list is archive-wide, so a Writers test asserting on all of it goes red
+  whenever any other section writes an article ahead of its picture.
+
+### Regressions
+
+**Existing Works:** all five present, in order, with their own artwork; none moved onto the new
+genre; `works[0]` is still `anush`, so the featured work is unchanged and **no featured policy was
+touched**. **Book of Lamentations** specifically: artwork still at
+`/images/works/book-of-lamentations.webp`, still not pending, `seoTitle` intact, relations still
+`["grigor-narekatsi", "matenadaran", "nerses-shnorhali"]`, genre still `poetry`, sitemap image
+entry intact.
+
+**Bakunts:** biography untouched in all three editions; portrait still registered at
+`/images/writers/aksel-bakunts.webp` with `photo-referenced` provenance; `20th-century`; relations
+`["yeghishe-charents", "hovhannes-tumanyan", "tatev-monastery"]`; not featured; search, metadata and
+sitemap unchanged. **Counts:** Works **6**, Writers **13**, Cuisine **12**, Places **13**, History
+**7**. No navigation, map, Cuisine, Places or History change.
+
+### Diff safety
+
+Eleven files, **1 647 insertions, 31 deletions**. Every deletion is in a test file; **the six content
+files, `sources.ts` and `media.ts` have zero deletions between them**. All 31 deleted lines were read
+individually: stale count literals, the two assertions rewritten above, and the comments explaining
+them. No whole-file rollback at any point; every change is a targeted hunk; CRLF preserved
+throughout (the patch tooling converts before matching, and a mismatch throws rather than rewriting
+every line). `.claude/settings.json` untouched.
+
+### Technical debt
+
+1. **The 184-page / Պետհրատ imprint is unresolved**, because both Armenian national catalogues
+   return 403 to automated access. A physical or institutional copy would settle it in one line; the
+   article currently has to hedge a bibliographic detail that ought to be plain.
+2. **Issue 269 vs 292** for the title story's first printing is an unexplained internal
+   inconsistency in the standard apparatus. Worth checking against a digitised run of
+   «Խորհրդային Հայաստան» if one becomes reachable.
+3. **`Տիգրանուհին`** — named as a story of this collection by two sources, absent from all three
+   contents lists. Probably a retitling of `Զորբան`; not established.
+4. **`Զորբան` has no English title recorded**, because the only reachable transcription of the
+   translation's contents omits it. A copy of the printed book closes this.
+5. **The Bakunts biography does not link to the Work.** §37 forbade editing it and the omission is
+   deliberate and now asserted by a test, but the archive currently has an article whose own
+   `mtnadzor` section discusses a Work that exists and does not link to it. Worth one contextual
+   link in a later step — a `links` entry, not a prose rewrite.
+6. **`PENDING_ARTWORK` is archive-wide and three section files have now had to be corrected for
+   assuming otherwise** (`works.spec.ts` at §94, `writers.spec.ts` here, three assertions at once).
+   The pattern will recur. A shared helper — "nothing in *this* section is pending" — would stop the
+   next section's step going red for a reason that has nothing to do with it.
+7. **The `hyw` edition mixes `Ակսէլ` and `Ակսել`** — the latter only inside the bibliographic
+   citation of the Eastern-published collected works. Defensible, and flagged so a reviewer does not
+   read it as a typo.
+8. **`PROJECT_STATE.md`'s header remains stale** — "Last updated: 2026-08-25", branch `seo`. Carried
+   forward from §99 and §100; still worth one pass. §100's writer counts are wrong, as recorded at
+   the top of this entry.
+
+### Not done, deliberately
+
+No artwork generated. No Work #7 started. No new Writer. No edit to Bakunts's biography, to Cuisine,
+Places, History, navigation, the map, or any existing Work's content. No featured-policy change. No
+deployment.
+
+---
+
+## §102 — Work #7: «Պաղտասար աղբար» (Baghdasar Aghbar), Hakob Paronyan's 1886 comedy, in all three editions (2026-09-04)
+
+### Pre-state, verified against source rather than assumed
+
+`git status` at the start of this step was **not clean** in the sense the brief expected: `git log`
+showed `HEAD` at a commit titled `bagdasar`, already ahead of `§101`'s `mtnadzor` commit, but
+`git status` itself read **clean** (the `bagdasar` commit had already been made, just never written
+up here). That commit had done real, high-quality prep and left it unfinished:
+
+- `src/data/sources.ts` already carried a full eleven-source `"baghdasar-aghbar"` bibliography,
+  with a header comment explaining the chronology-vs-title bibliographic problem.
+- `scripts/_bagh_en.txt` held a complete, publication-ready English `Article` object (18 sections,
+  8 `keyFacts`, 10 `importantDates`, 6 `interestingFacts`, 3 `relatedFigures`), alongside two
+  throwaway patch scripts (`_patch_sources.mjs`, `_fix_en.mjs`) used to produce it.
+- **Nothing was wired into the content model.** `works.ts` and `articles/works.ts` in all three
+  locales still listed six Works; no `hy`/`hyw` article drafts existed; `PENDING_ARTWORK` had not
+  been touched; the two `writers.spec.ts` guard tests from §94 still asserted the *negative*
+  (`baghdasar-aghbar` must not exist); no `§102` entry existed here.
+
+Counts confirmed directly from `src/data/locales/en/{works.ts,writers.ts}` etc. before any edit:
+Works **6** (`anush`, `wounds-of-armenia`, `the-fool`, `david-of-sassoun`, `book-of-lamentations`,
+`mtnadzor`), Writers **13**, Cuisine **12**, Places **13**, History **7** — matching the brief's
+expectation exactly. Mtnadzor confirmed still Work #6 with `PENDING_ARTWORK` holding exactly
+`["mtnadzor"]`; Bakunts confirmed unchanged; the `hakob-paronyan` Writer article confirmed to exist
+(added §94, portrait §96) and to already name the play by its exact Armenian title in a section
+literally id'd `"uncle-baghdasar"`.
+
+The existing `bagdasar` commit's research was independently spot-checked against fresh web research
+(Armenian and English Wikipedia, Wikidata, Wikiquote, and several Armenian-language literary sites)
+rather than trusted blind, because the brief asked for the chronology to be reverified. It held up:
+the 1886/1895/1891 dates, the character names (Անույշ, Կիպար, Օգսեն, Փայլակ, Երկաթ, Սուր, Սողոմե),
+the Sundukyan-lineage stage history and the 1976 Armenfilm adaptation all cross-confirmed against
+independent sources, and the `bagdasar` draft's account was consistently *more precise* than what
+generic web search produced (it names Aram Vruyr and 1895 with a source; open web search mostly
+repeats the unattested "staged ~1896" round figure). The draft was used as the article's foundation
+rather than rewritten from scratch.
+
+### Repository audit for existing references
+
+Searched for every form listed in the brief (`Պաղտասար աղբար`, `Baghdasar`, `Balthazar`, `Պարոնյան`,
+etc.) across content, tests, sources and search code. Findings, precisely:
+
+- `src/data/sources.ts` — the full bibliography (pre-existing, see above).
+- `src/data/locales/*/writers.ts` — `notableWorks` arrays already name the play (free-text titles,
+  not linked entities; the `Writer` type has no `relatedWorks` slug field).
+- `src/data/locales/*/articles/writers.ts` — Paronyan's own biography already names the play in its
+  `summary`, `keywords`, a dedicated section (`id: "uncle-baghdasar"`), `keyFacts`, and
+  `importantDates`, in all three editions, with internally consistent 1886/~1896/1891 dates.
+- `tests/e2e/writers.spec.ts` — two §94 guard tests asserted the *negative* (six Works, no
+  `baghdasar-aghbar` slug); both needed inverting, exactly as §101 inverted the equivalent Mtnadzor
+  guards.
+- **False-positive checked and ruled out**: `Baghdasar`/`Sanasar and Baghdasar` in `david-of-sassoun`
+  content refers to the twin heroes of the Sassoun epic — a different, unrelated entity; nothing in
+  that Work needed touching and nothing here collides with it.
+- `Ազգային ջոջեր` and `Մեծապատիվ մուրացկաններ`/`Մեծապատիւ մուրացկաններ` appear only as plain-text
+  mentions in Paronyan's biography and in `sources.ts` notes. Neither has, or gained, a Work entity.
+
+### Chronology — reconciled, not flattened
+
+Four dates, kept separate as the brief demanded:
+
+1. **Composition**: 1886, at Constantinople. Not disputed anywhere.
+2. **First publication**: serialised in Paronyan's own journal **Խիկար**, August–December 1886 and
+   January–February 1887 (per the collected-works textological note) — so "1886" is the *start* of
+   publication, not the whole of it. No separate book edition is documented before an undated-but-
+   bounded 1910 Constantinople volume.
+3. **First staging**: the best-evidenced account is **Tiflis, 1895**, by **Aram Vruyr**, who also
+   played the title role — the only source found that names a city, a year and a person together
+   (the Armenian Soviet Encyclopedia's entry on Vruyr). **1896** circulates far more widely,
+   including in reference works, but no source consulted attaches a theatre, company or person to
+   it; the underlying claim in Armenian sources is "staged about ten years after it was written,"
+   which reads as a round figure from 1886 rather than an attested date. The article gives 1895 with
+   its evidence and records 1896 as the widely repeated, less-attested alternative — it does **not**
+   assert either as the sole truth, and it explicitly flags the conflict rather than picking one
+   silently.
+4. **A named trap**: Hovhannes Abelyan is dated to the role in **1897** in the encyclopedia's entry
+   on him — that is when he *took over* the part, not the premiere, and the article says so.
+
+**Posthumous status is explicit and load-bearing.** Paronyan died at Constantinople on 27 May 1891.
+Every staging date on record (1895, 1896, 1897, 1927, 1954, 1976) postdates his death. The article
+states this directly (`never-staged-in-his-lifetime` section) and the fact is pinned by a test
+(death year precedes staging year in `importantDates`, and the prose states he never saw a
+performance). No sentence anywhere claims a lifetime premiere.
+
+### Title and English-title decision
+
+**Canonical slug**: `baghdasar-aghbar` — kept from the pre-existing `sources.ts` key rather than
+re-derived, and independently justified: it is the form with the widest attested English currency
+across the two published translations, Wikidata's own English label ("Baghdasar Aghpar," one letter
+off), and the anthology title. ASCII, stable, internationally legible.
+
+**No single canonical English title exists, and the article says so with evidence rather than
+assertion.** Two published English translations disagree: Mischa Kudian (1992) calls it simply
+*Balthazar*, dropping the Armenian word; Rapley and Stepanian (2020) transliterate *Baghdasar
+Akhpar* and gloss it in parentheses as *Uncle Baghdasar* — printing both solutions rather than
+choosing one. Earlier translations (French 1913 *Maître Balthasar*, English 1933 *Uncle Balthazar*,
+Russian 1937 *Дядя Багдасар*) independently reached for "Uncle"/an equivalent, which the article
+reports as a converging translation choice rather than an authoritative precedent. The article uses
+*Baghdasar Aghbar* as its own primary English form and states plainly that this is a transliteration
+choice, not a claim of official status.
+
+### The word `աղբար` — explained as register, fenced against a later, unrelated sense
+
+Established via the standard Armenian dialect dictionary (cited in `sources.ts`): **աղբար is a
+dialectal, spoken-register by-form of եղբայր ("brother"), not a corruption of it** — etymologically
+both descend from Old Armenian *աղբայր, so the dialectal form is a parallel development, not a
+degraded one. The dictionary's dialect list for the related form **աղբեր opens with Constantinople
+itself**, which the article uses to make a specific point: the word does not mark Baghdasar as a
+provincial or a peasant (he is a wealthy Constantinople Armenian by every source), it marks
+*register* — homely and familiar rather than respectful — which is why the title itself is a
+faintly comic nickname (the play states in-text that his wife's mockery of his old, cook-like dress
+is where "Baghdasar aghbar" came from).
+
+**The false-certainty trap flagged in the brief was real and is explicitly fenced off**: in the
+twentieth century, **ախպար** acquired a pejorative sense in Soviet Armenia, applied to diaspora
+repatriates — a later, unrelated semantic development that the article states has nothing to do with
+this 1886 title. A dedicated test (`"աղբար is explained as a register, not equated with modern
+եղբայր"`) checks both halves are present in every edition: the dialectal explanation, and the
+fenced-off later sense.
+
+### Genre
+
+**No comedy/play genre existed in the taxonomy before this step.** Following the rule §101 itself
+stated for `short-stories` — an id is added in the same change as the first article that needs it —
+`drama` was added to `workGenres` in all three locale `works.ts` files, deliberately broad rather
+than the narrow `satirical-comedy` the brief warned against, so it can hold tragedy or tragicomedy
+later without a taxonomy change. The card's specific display genre (`"Comedy"` / `"Կատակերգություն"`
+/ `"Կատակերգութիւն"`) carries the precision; `genreId: "drama"` is the broad filter bucket — the same
+split pattern the existing taxonomy already uses (e.g. card genre "Short-story collection" against
+filter id `short-stories`).
+
+### Plot, character and satire — scope note
+
+The full treatment lives in the article's `the-situation`, `baghdasar`, `marriage-and-reputation`,
+`the-word-that-does-the-work` and `the-tribunal` sections (all three editions) rather than being
+re-summarized here. In brief: Baghdasar catches his wife Անույշ with her lover and closest friend
+Կիպար, hires the lawyer Օգսեն, and takes the case to the Դատաստանական խորհուրդ — the real
+communal matrimonial tribunal the Constantinople Armenian community maintained. He loses on every
+front: bribed witnesses, a counter-suit, and a council more interested in the lover's father's horse
+than the case, ending in a settlement that makes him state publicly that he suffered an "optical
+illusion" (թյուրատեսություն/թիւրատեսութիւն) rather than infidelity. The characterization draws on
+two named, disagreeing critics (Darbinyan reads him as mocked rather than pitiable; Gldjyan reads
+him as sobered but still complicit) rather than flattening him into either a simple victim or a
+simple fool — the article reports the disagreement instead of resolving it, per the brief's
+instruction not to psychoanalyze beyond the text.
+
+### Language, Constantinople context, dramatic technique
+
+Language claims are scoped to what one located source (Makaryan) actually attests — that Paronyan's
+dramatic dialogue is built from Constantinople Armenian speech — with register differences between
+characters (Օգսենի's legalese quoting five languages, Կիպար's florid modern idiom, Պաղտասար's blunt
+speech, Սողոմե's plain speech) presented as textually visible but **not** dressed up as a scholarly
+finding, since no study of this specific play's language was located. No claim is made about Turkish
+or French loanwords, because no source documents any — the brief's specific caution against
+unsupported borrowing claims. Constantinople's Armenian National Constitution and communal
+self-governance are explained only to the extent they make the tribunal-satire legible, not
+expanded into a general Ottoman-Armenian history. Dramatic technique (dramatic irony, the
+"optical illusion" refrain, the horse-discussion derailment, the satirically ironic councillor
+names Փայլակ/Երկաթ/Սուր) is treated as its own section rather than folded into plot summary.
+
+### Relation to Paronyan's other satire
+
+`Ազգային ջոջեր` (serial portrait-satire of named real people, from 1874) and `Մեծապատիվ
+մուրացկաններ`/`Մեծապատիւ մուրացկաններ` (a novella, serialised from 1880, book 1887) are situated
+against the play in one section (`among-his-satires`) as *different forms*, not run together, per
+the brief's explicit warning. **No Work entity was created for either** — confirmed by both a new
+positive test in `works.spec.ts` and the existing/updated negative tests in `writers.spec.ts`.
+
+### Theatre history, reception, adaptations
+
+Kept chronologically separated: the 1895 (or ~1896) premiere at Tiflis; a 1927 Yerevan staging at
+the First State Theatre (the future Sundukyan national theatre); a well-documented 1954 Sundukyan
+Theatre production (director Vardan Achemyan, Hrachya Nersisyan as Baghdasar) found during research
+but not included as a claim in the shipped article's `importantDates` beyond the 1927 entry, to keep
+the dates list from ballooning — it is discussed in prose (`on-the-armenian-stage`) instead. Soviet-
+era canonisation and its class-lens reading are labeled explicitly as *reception*, two generations
+after the work, with a direct sentence that the play's values and genre do not originate in Soviet
+literary policy and that Paronyan was dead over a quarter-century before the Soviet period began.
+One screen adaptation is documented from a primary catalogue source (the state film archive's own
+record): **Բաղդասարը բաժանվում է կնոջից** (Armenfilm, 1976, dir. Grigor Melik-Avagyan, scr. Aghasi
+Ayvazyan, with Mher Mkrtchyan), explicitly qualified twice as built on motifs rather than an
+adaptation of the text, and as renaming the protagonist to the Eastern Armenian **Բաղդասար** —
+flagged because it is the version that dominates casual English search results and is easy to
+mistake for the play itself.
+
+### Sources
+
+Nine sources (already present from the `bagdasar` commit, verified rather than re-authored): the
+1962 collected-works edition (text and chronology of record); the Armenian Soviet Encyclopedia
+(three volumes, for genre/typing, the Vruyr premiere and the Abelyan casting); Gldjyan 2002 and
+Darbinyan 1972 (the two disagreeing critical readings); Sarinyan 1993 (the satire-form comparison);
+Makaryan 2016 (the one located linguistic characterisation, cited for a different play but the only
+authority on Paronyan's dramatic medium); the Armenian dialect dictionary (the աղբար entry); Kudian
+1992 and the Rapley/Stepanian 2020 anthology (the two English translations, cited as title evidence
+rather than authority); and the Gosfilmofond catalogue record for the 1976 film. Each is scoped to
+a specific claim per the file's own header comment, not repeated for the same fact.
+
+### SEO
+
+No invented search-volume, KD, CPC or traffic metrics — none were available and the SERP research
+(Armenian- and English-language, per the brief's query list) surfaced institutional results (Wikidata,
+Armenian/English Wikipedia, Wikiquote), theatre-adjacent results, and adaptation contamination (the
+1976 film reliably outranking the play in English search) rather than any measurable metric. Keywords
+in all three editions cover the title-spelling variants, the English-title candidates, the author's
+two romanisations, and Western-Armenian-theatre framing, without stuffing.
+
+### Search aliases and relations
+
+`keywords` in each locale carry: `Պաղտասար աղբար`, `Baghdasar Aghbar`, `Baghdasar Aghpar`,
+`Baghdasar Akhpar`, `Uncle Baghdasar`, `Brother Baghdasar`, plus locale-appropriate Armenian search
+terms. No unattested English form was added merely for SEO.
+
+**Author relation**: the Work's `relatedSlugs` includes `hakob-paronyan` in all three editions
+(Work → Writer, following the established one-directional pattern). **The reciprocal edge was also
+made**, unlike the deliberately-left Bakunts/Mtnadzor debt the brief explicitly said this step
+differs from: Paronyan's own biography already had a section (`id: "uncle-baghdasar"`) whose first
+sentence names the play verbatim in all three editions, so a `links: [{ phrase, slug:
+"baghdasar-aghbar" }]` entry was added to that existing sentence in `en`/`hy`/`hyw`
+`articles/writers.ts` — **zero characters of Paronyan's prose changed**, only a link annotation on
+text that already existed. **No other structured relation was added** — Paronyan's own `relatedSlugs`
+field was left untouched, and no other Writer was pulled in.
+
+### Artwork: pending, second entry in the registry
+
+`PENDING_ARTWORK` now holds **two** entries — `["mtnadzor", "baghdasar-aghbar"]` — the first time
+since §61 the list has held more than one slug at once. Registered with the same hard rule stated
+for Mtnadzor, restated in the negative because that is the specific way it could go wrong:
+**Paronyan's own portrait (`writers/hakob-paronyan.webp`, photo-referenced) must not be borrowed**
+as the Work's illustration. Four things checked: `getImageSrc("baghdasar-aghbar")` is `undefined`;
+`getPortraitProvenance` returns `"imagined"` (a Work has no portrait provenance); no rendered
+`<img>` on the article page serves Paronyan's file; and `og:image`/`twitter:image` fall back to the
+site default rather than his portrait. (The page's JSON-LD legitimately cites Paronyan's `Person`
+node, which carries his real portrait URL to describe the *author* — that is correct and is
+explicitly not what the borrowing check tests; the check is scoped to rendered images and social
+meta, not the whole HTML/JSON-LD payload, after an early version of the test wrongly flagged this
+as a false positive.)
+
+**Future artwork direction, recorded and not commissioned**: a late-nineteenth-century Constantinople
+Armenian domestic interior, Baghdasar as the central comic figure, a small ensemble carrying quiet
+tension rather than open conflict. Explicitly **no theatre stage, no curtain, no mask, no production
+still or stage photograph** (the play's stage afterlife is the prose's job, not the illustration's),
+**no author portrait or book-cover composition**, and no readable text.
+
+### Counts
+
+Works **7**, Writers **13**, Cuisine **12**, Places **13**, History **7** — exactly the brief's
+prediction. Genre filters: `poetry`, `novel`, `epic`, `short-stories`, `drama` (five, one new).
+Artwork state: **5 illustrated, 2 pending** (`mtnadzor`, `baghdasar-aghbar`).
+
+### Tests
+
+A new §102 block in `works.spec.ts` (13 tests) covers, per the brief's checklist: existence and
+slug/href/category in all three editions; author resolves to Paronyan by identity and the relation
+is reciprocal; the new `drama` filter exists and no pre-existing work drifted onto it; 1886/1895/1896
+are all present with 1891 dated before 1895 in `importantDates`; the posthumous claim is stated in
+prose, not just inferable from dates; the աղբար explanation carries both the dialectal reading and
+the fenced-off later sense; at least three English title variants are evidenced rather than one
+asserted as canonical; `Մեծապատիվ մուրացկաններ`/`Ազգային ջոջեր`/etc. remain unregistered and every
+in-article link target resolves; artwork is pending with the portrait-borrowing checks described
+above; a full "changed nothing else" regression (counts, earlier works' order/artwork, Mtnadzor's
+genre/relations/pending-state specifically, Book of Lamentations' artwork, no featured flag, Anush
+still first); route/listing/search reachability in all three editions; and a bibliography-presence
+check.
+
+`writers.spec.ts`'s two §94 guard tests were **rewritten, not deleted** — the same treatment §101
+gave the equivalent Mtnadzor/Bakunts pair: the negative list narrowed to the titles that still have
+no entity (`uncle-baghdasar`, `national-bigshots`, `azgayin-jojer`, `honourable-beggars`,
+`honorable-beggars`, `metsapativ-muratskanner`), a positive check that `baghdasar-aghbar` now exists
+as a Work and relates back to Paronyan, and the archive-wide "changed nothing else" test's total
+counts bumped 6→7.
+
+**Every other regression test in the suite that hardcoded the Works total as `6`** — a pattern this
+codebase has followed at every prior Works step — was located and bumped to `7`: five identical
+`b.works.length` assertions and two identical `count("works")` assertions across `writers.spec.ts`
+(added by the Varoujan/Shnorhali/Siamanto/Shirvanzade/Bakunts-era "changed nothing else" tests, none
+of which have anything to do with this step but all of which check today's total), three full
+6-item `works.map(slug)` array literals (Narekatsi's, Varoujan's and Siamanto's own "nothing moved"
+tests) extended with the seventh slug, one `"Works after §101"`-labeled count relabeled to `§102`
+and bumped, `works.spec.ts`'s own `SLUGS` corpus array and three more internal count/card-count
+assertions (including the listing's placeholder-count assertion, now two placeholders located and
+attributed to the right two cards rather than one), and `places.spec.ts`'s cross-section listing
+table (`["works", 6, ...]` → `7`, with its explanatory comment extended). None of this touched
+Mtnadzor's own specific claims, which stayed correct except for one: the "appended last" assertion
+in the §101 block itself, which is now "still second-to-last" since a seventh work was appended
+after it.
+
+### Verification
+
+- `npx tsc --noEmit` — **clean**.
+- `npm run validate:content` — **✓ 216 entries across 3 locales**, with the expected note "2
+  slug(s) have no artwork and render the generated placeholder: baghdasar-aghbar, mtnadzor." One
+  real problem caught on the first run: both `hy` and `hyw` `metaDescription`s were 172–173
+  characters, over the 165 budget; both were shortened and re-validated.
+- **Focused suite** (`works.spec.ts` + `writers.spec.ts`): first run showed 10 failures, all
+  legitimate and all mine to fix (see Process failures below); second run, clean, **140 passed**.
+- **Full Playwright suite: 520 passed, 5 skipped, 3 failed** on the first run — all three failures
+  were `places.spec.ts` route timeouts (`jermuk`, `haghpat-monastery`) with nothing to do with
+  Works or Writers. Confirmed as the same cold-compile flake §101 documented (`.next` cleared,
+  Playwright's own `webServer` racing a first compile under full parallelism against a 30-second
+  timeout): warming the three routes directly returned 200 for all of them, and re-running just
+  that test in isolation passed 3/3. No test was weakened to make a failure go away.
+- `npm run build` — **succeeded**, run separately with `.next` cleared and the dev server's port
+  confirmed free first. `/[locale]/works/[slug]` prerenders **21 paths** = 7 works × 3 locales.
+
+**Process failures, recorded honestly:**
+1. The `en`/`hy`/`hyw` `metaDescription`s were initially too long by 2–8 characters; caught by
+   `validate:content`, fixed.
+2. The first full focused-suite run showed ten real failures, every one caused by this step
+   legitimately changing the Works total from 6 to 7 (or the pending-artwork list from one entry to
+   two) without my having found every place in the test suite that hardcoded the old numbers. Each
+   was a correct assertion becoming stale, not a wrong assertion being weakened — every fix bumped a
+   literal, none loosened a check.
+3. My own new artwork-borrowing test was initially over-strict: it checked the raw page HTML/JSON-LD
+   for Paronyan's portrait filename and failed, because the page's `Person` structured-data node for
+   the author legitimately carries his real portrait URL. Rescoped to rendered `<img>` elements and
+   social meta tags, which is what "borrowed as the Work's illustration" actually means.
+4. The initial full-suite run hit three `places.spec.ts` timeouts from the `.next` clear + cold
+   compile under parallelism — the exact flake §101 already documented. Confirmed as a flake by
+   warming the specific routes and re-running the specific test, both green.
+
+### Regressions
+
+**Mtnadzor**: `PENDING_ARTWORK` still contains it; `getImageSrc` still `undefined`; genre still
+`short-stories`; `relatedSlugs` still exactly `["aksel-bakunts", "yeghishe-charents",
+"hovhannes-tumanyan"]`; the Bakunts↔Mtnadzor reciprocal-link debt from §101 is untouched (not this
+step's job — the brief explicitly said not to fix it here); its position moved from last to
+second-to-last, which is the *only* thing about it that changed, and that only because a new Work
+was appended after it.
+
+**Paronyan**: biography prose byte-for-byte unchanged in all three editions except for one `links`
+array added to an existing section object (no character of any paragraph changed); portrait
+registration, provenance, `keyFacts`, `importantDates`, search and metadata all unchanged; his own
+`relatedSlugs` untouched.
+
+**Book of Lamentations, other existing Works**: all six pre-existing Works confirmed unchanged in
+slug, order (first six), artwork path, genre, and (where applicable) relations; none moved onto the
+new `drama` genre; `works[0]` is still `anush`, so the featured Work is unchanged.
+
+**Writers, Cuisine, Places, History**: counts unchanged at 13/12/13/7; no content in any of those
+sections was touched. Navigation, the map and featured-Work policy: untouched.
+
+### Diff safety
+
+Thirteen files changed, plus three scratch files removed: **1,178 insertions, 38 deletions** across
+the tracked diff. Every content-file deletion is exactly one line — the `}` → `},` needed to append
+a new array element — so the six content data files, `media.ts` and `sources.ts` (untouched, already
+correct from the `bagdasar` commit) carry no prose deletions at all. All real deletions are in three
+test files, and every one was a stale literal (a count, an array, a card-count) being corrected
+forward, read individually before editing. No whole-file rewrite or rollback at any point. The three
+removed scratch files (`scripts/_bagh_en.txt`, `_fix_en.mjs`, `_patch_sources.mjs`) were prep
+artifacts whose entire content is now migrated into permanent files; removed with `git rm -f` only
+after confirming their content matched what shipped. `.claude/settings.json` untouched.
+
+### Technical debt
+
+1. **`PROJECT_STATE.md`'s header remains stale** — "Last updated: 2026-08-25," branch `seo`. Carried
+   forward again from §99–§101; still worth one pass, and now three steps further behind.
+2. **The 1954 Sundukyan Theatre production (Achemyan/Nersisyan)** found during research is
+   documented here but not added to the shipped article's `importantDates` or prose, to keep the
+   step's scope to what the brief asked for; a future pass on later Armenian theatre history could
+   add it as a `relatedFigures`/date entry without touching anything else.
+3. **The exact theatre, company and full cast of the 1895 premiere remain undocumented** beyond
+   Aram Vruyr's name — stated as a limit in the article itself rather than papered over.
+4. Same shared-helper opportunity §101 flagged for `PENDING_ARTWORK`'s archive-wide scope is now
+   twice as relevant, with two Works sections both waiting: a "nothing in *this* section is pending"
+   helper would have caught the placeholder-count and PENDING_ARTWORK-array assertions this step had
+   to hand-fix in `works.spec.ts`.
+
+### Not done, deliberately
+
+No artwork generated. No Work #8 started. No new Writer. No edit to Paronyan's own prose (only a
+`links` annotation on an existing sentence). No edit to Bakunts's biography, to Cuisine, Places,
+History, navigation, the map, or any existing Work's content. No featured-policy change. No
+deployment.
+
+---
+
+## §103 — Work #8: «Երկիր Նաիրի» (Yerkir Nairi / Land of Nairi), Yeghishe Charents's 1926 novel, in all three editions (2026-09-04)
+
+### Pre-state, verified against source
+
+Confirmed directly from `src/data/locales/en/{works.ts,writers.ts}` before any edit, exactly as the
+brief expected: Works **7** (`anush`, `wounds-of-armenia`, `the-fool`, `david-of-sassoun`,
+`book-of-lamentations`, `mtnadzor`, `baghdasar-aghbar`), Writers **13**, Cuisine **12**, Places
+**13**, History **7**. `PENDING_ARTWORK` held exactly `["mtnadzor", "baghdasar-aghbar"]`. `git
+status` showed the same state §102's own report described — the working tree still carries every
+uncommitted step back to `bagdasar` (no step in this sequence has committed) — so this step's diff
+is additive on top of that, not a fresh base.
+
+### Repository audit for existing references
+
+Searched for every form the brief listed (`Երկիր Նաիրի`, `Yerkir Nairi`, `Land of Nairi`,
+`Yeghishe Charents`, etc.). The load-bearing finding: **Charents's own Writer biography already
+discusses this novel at length**, in all three editions — a `major-works` section paragraph naming
+it, a `bullets` entry ("Land of Nairi, novel, 1926"), a `keyFacts` "Notable works" value, an
+`importantDates` entry ("1926: Publishes the modernist novel Land of Nairi, written across the
+previous five years"), and an `interestingFacts` line calling it "often described as the first
+modernist novel written in Armenian." That existing text is the chronology anchor this step had to
+match rather than contradict: **written 1921–1925, published 1926**. No Work entity existed for it,
+and no test asserted its absence either way (unlike Paronyan's plays, Charents predates the
+"no invented Work slug" test convention, so no negative guard needed inverting). `sources.ts` had no
+prior `yeghishe-charents`-adjacent Work bibliography to reuse or collide with.
+
+### Research and the chronology conflict
+
+Independent research (Armenian and English Wikipedia, Wikiquote, Granish.org criticism, Aniarc,
+Goodreads, a Google Play/Kobo listing) converged on **written 1921–1925 in Moscow and Yerevan,
+serialised in the journal Նորք (Norq) through the mid-1920s, published as a book at Yerevan in
+1926** — matching the site's own existing Charents chronology. One source diverged sharply: the
+Armenian Wikipedia article on the novel itself (`Երկիր Նաիրի (վեպ)`) dates composition to
+1921–**1924** and book publication to **1924**, not 1926. Per the brief's explicit instruction not
+to flatten conflicting dates, this article states the fuller five-year/1926 chronology as the one it
+follows (for the reasons above) and **names the 1924 figure as a documented discrepancy** rather
+than silently adopting or dropping it — in prose, in a test, and in the `sources.ts` note for that
+citation.
+
+### Canonical title, slug and English title
+
+**Canonical Armenian title**: Երկիր Նաիրի, confirmed across every Armenian source consulted,
+including the novel's own Armenian Wikipedia article title. **Երկիր Նայիրի** appears as a variant
+(that same Wikipedia article uses it once, unglossed, in its own opening) — treated here as an
+orthographic variant of the same title, not a separate work or an error, since no source treats the
+two spellings as naming different texts.
+
+**Slug**: `yerkir-nairi` — transliteration, following the `mtnadzor` precedent the brief pointed to
+rather than an English-translation slug.
+
+**English title**: **Land of Nairi** — chosen because, unlike Baghdasar Aghbar's six competing
+English forms, this title has a single dominant, already-converged form: it is what Charents's own
+Writer article on this site already calls it, what the ResearchGate paper title uses, and what the
+Google Play/Kobo commercial digital edition is listed under. This is a different evidentiary
+situation from §102's transliteration-first decision, and the difference is deliberate rather than
+inconsistent — the title choice follows the evidence in each case rather than a fixed house rule.
+No named translator, publisher or ISBN could be verified for a print critical edition, and the
+article states that limit explicitly rather than inventing bibliographic detail.
+
+### Genre
+
+`novel` already existed in the taxonomy (added at §63) and Armenian scholarship — including the
+site's own existing Charents biography — already calls this "the first modernist Armenian novel."
+**No new genre id was added.** The card's specific display genre is "Modernist novel" /
+«Մոդեռնիստական վեպ» / «Արդիապաշտ վէպ» (the exact adjective already used in the hy and hyw Charents
+biographies, reused rather than re-coined); `genreId: "novel"` is the broad filter bucket, same
+split the taxonomy already uses elsewhere. A test confirms the genre count stayed at six and no
+earlier work drifted onto it.
+
+### Structure, Nairi, Kars, narrator, satire — scope note
+
+Full treatment lives in the article's own sections (`the-title-and-nairi`, `the-three-parts`,
+`kars`, `the-remembered-city`, `the-narrator`, `public-men-of-the-city`, `satire`,
+`grotesque-and-caricature`, `politics-and-rhetoric`, `nation-and-myth`, `memory-and-loss`), not
+repeated in full here. Key findings, each pinned by a test:
+
+- **Three parts**, tracing confidence to collapse: the city and its people; the outbreak of the
+  First World War and patriotic mobilization ("Toward Nairi"); the city's fall. Not written or
+  released as separate short works — one continuous novel, though Norq's serialisation means readers
+  met pieces of it before the 1926 book existed.
+- **Nairi**: an old name from Urartian/Assyrian inscriptions for a confederation around Lake Van,
+  adopted by nineteenth-century Armenian writers as an elevated homeland-synonym. The article states
+  explicitly that the title is not a plain historical synonym for modern Armenia — it is symbolic and
+  ironic, tested against the actual fate of the city rather than simply invoked.
+- **Kars**: Charents's own birthplace, a real Russian-Empire fortress city with committees, a
+  garrison, a hospital and a press — not a village, and not narrated as a modern travel destination.
+  The 1918–1920 collapse of Armenian control and the 1921 Treaty of Kars are stated as context, not
+  narrated as a chronological military history.
+- **The remembered vs. documentary city**: Charents wrote from Moscow and Yerevan, years and a lost
+  war away from Kars; the novel's specific, checkable geography is undercut by a narrator who keeps
+  questioning whether the city can even be said to exist — a memorial technique, not evidence the
+  city is meant to be read as fictional.
+- **The narrator**: the novel's own opening line — "there is no hero in this novel, and there will
+  not be one" (quoted directly) — sets the method. Marietta Shaginyan's characterisation of a
+  "Gogolian rhythm" and a comparative study's description of a passive narrator watching "a turbid
+  current, a river of darkness" are both cited. **"Unreliable narrator" is explicitly not imported**,
+  per the brief's caution — the article states the term isn't the one Armenian scholarship reaches
+  for here.
+- **The central figure**: Մազութի Համո (Mazuti Hamo), a local committee man. Sources disagreed on his
+  fuller patronymic (one gave "Hammo Asaturov," another "Համո Համբարձումովիչ," a third named a
+  different possible real-world figure); the article uses only the name consistently attested across
+  sources rather than guessing at a fuller legal name — the brief's Section 20 caution followed
+  exactly.
+- **Satire**: aimed at the gap between public men's rhetoric about the nation's destiny and what they
+  are actually capable of — stated explicitly as social and political before it is national, with a
+  sentence directly refusing the flattened "Charents mocking Armenians" reading.
+- **Nation and myth**: stated as contested and unresolved in Armenian criticism, with both
+  over-readings ("simply rejecting nationalism," "patriotic celebration") named and set aside rather
+  than one being adopted as the article's own verdict.
+- **Modernism**: grounded in concrete formal features (self-intervening narrator, refused genre
+  label, essayistic digression, mood-over-plot structure) and one documented comparative argument
+  (Alexanyan's Granish piece placing the novel beside Musil, Broch, Joyce and Proust, with a specific
+  Man Without Qualities parallel) — not attached as an unsupported fashionable tag.
+- **Political-context caution**: Charents's 1937 arrest and death are stated as a full decade after
+  the novel and for unrelated reasons (the 1933 attacks on Book of the Road, then the purges); a test
+  checks the 1926/1937 ordering in `importantDates` directly.
+- **No censorship claim**: no source consulted documents a formal ban or suppression of this novel
+  specifically, and the article states that absence explicitly rather than either inventing a ban or
+  silently omitting the question.
+
+### Sources
+
+Eight sources, newly added (`sources.ts["yerkir-nairi"]`), each scoped to a distinct job and honestly
+described as web-consulted secondary sources (this step had no prior archival-grade bibliography to
+build on, unlike §102's inherited prep): the novel's own Armenian Wikipedia article (structure,
+characters, the narrator quote, the Նայիրի variant — and the source of the 1924 chronology conflict,
+flagged in its own citation note); the English Wikipedia Charents article (Russian republication,
+the 1934 Gorky/Writers' Congress presentation); Alexanyan's Granish essay (the modernism and narrator
+scholarship the corresponding sections rest on); Charents's Wikiquote page (the Shaginyan "Gogolian
+rhythm" line); the Aniarc diaspora piece (the Arakelots church passage and Nairi-as-vanished-world
+framing); a second Granish critical piece (evidence of continued scholarly attention, not quoted in
+detail); the Google Play/Kobo listing (cited specifically for what it does *not* establish — a
+translator, publisher or ISBN); and a Goodreads record (cross-checking the title romanisation only).
+
+### SEO
+
+No invented search-volume, KD, CPC or traffic metrics. SERP research (English and Armenian, per the
+brief's query list) surfaced Wikipedia/Wikidata-adjacent institutional results, several independent
+Granish.org critical essays, and commercial digital-edition listings under "Land of Nairi" — no
+school-summary dominance comparable to what earlier steps found for other works. Keywords in all
+three editions cover the title spelling, both English forms (Land of Nairi / Yerkir Nairi / Yerkir
+Nayiri), and the author-plus-title search pattern, without stuffing.
+
+### Relations
+
+**Author relation**: `relatedSlugs` includes `yeghishe-charents` in all three editions (Work →
+Writer). **Reciprocal edge made, following §102's precedent rather than §101's left-open debt**:
+Charents's `major-works` section already contained the literal sentence naming the novel in every
+locale, so a `links: [{ phrase, slug: "yerkir-nairi" }]` entry was added to that existing sentence —
+zero characters of his biography's prose changed. **No other structured relation was added** —
+conservative, per the brief's Section 41: no Place entity exists for Kars, and none was invented to
+manufacture one.
+
+### Artwork: pending, third entry in the registry
+
+`PENDING_ARTWORK` now holds **three** entries — `["mtnadzor", "baghdasar-aghbar", "yerkir-nairi"]`.
+Registered with the same hard rule stated for the two entries before it, restated because it is the
+specific way this one could go wrong: **Charents's own portrait
+(`writers/yeghishe-charents.webp`, photo-referenced) must not be borrowed.** Checked directly:
+`getImageSrc("yerkir-nairi")` is `undefined`; `getPortraitProvenance` returns `"imagined"`; no
+rendered `<img>` on the article page serves his portrait file; `og:image`/`twitter:image` fall back
+to the site default.
+
+**Future artwork direction, recorded and not commissioned**: an early-twentieth-century Kars street
+or civic square, plausible period architecture, small human figures rather than one portrait
+subject, a slightly unstable and faintly satirical atmosphere rather than a documentary streetscape.
+Explicitly **no theatre-adjacent treatment, no Soviet-propaganda-collage style, no readable signage,
+and no graphic depiction of the war** the novel's third part narrates.
+
+### Counts
+
+Works **8**, Writers **13**, Cuisine **12**, Places **13**, History **7** — exactly the brief's
+prediction. Genre filters unchanged at six (`all`, `poetry`, `novel`, `epic`, `short-stories`,
+`drama`). Artwork state: **5 illustrated, 3 pending** (`mtnadzor`, `baghdasar-aghbar`,
+`yerkir-nairi`).
+
+### Tests
+
+A new §103 block in `works.spec.ts` (15 tests) covers the brief's checklist: existence and
+slug/href/category in all three editions; author resolves to Charents by identity and the relation
+is reciprocal (including that his own biography's `links` now target the new Work); the `novel`
+genre and unchanged genre count; 1921/1926/1937 all dated with 1924 recorded as a discrepancy rather
+than silently adopted; Nairi's ancient/historical grounding and the Նայիրի variant both present;
+Kars named with the remembered-vs-documentary distinction stated explicitly; the no-hero narrator
+quote and the Gogol comparison present, with no "unreliable narrator" language checked for
+elsewhere; the flattened "mocking Armenians" reading explicitly refused; **both** the
+nationalism-rejection and patriotic-celebration over-readings named and set aside, so neither could
+quietly become the article's own claim; no ban/censorship asserted, with the absence stated
+positively; the Musil comparison and Charents's own genre label both present; the 1926/1937
+ordering and the "decade" framing checked directly; artwork pending with the portrait-borrowing
+checks described above; a full "changed nothing else" regression; route/listing/search
+reachability; and a bibliography-presence check.
+
+**Every test in the suite that hardcoded the Works total as `7`** was located and bumped to `8`,
+following the exact pattern §102 itself established: five identical `b.works.length` assertions and
+two identical `count("works")` assertions in `writers.spec.ts` (the Varoujan/Shnorhali/Siamanto/
+Shirvanzade/Bakunts-era "changed nothing else" tests), three full 8-item `works.map(slug)` array
+literals extended with the new slug, one `§102`-labeled count relabeled to `§103`, one
+`"Works is seven"`-labeled assertion relabeled and bumped, two `"works count"`-labeled assertions in
+Paronyan's and Shirvanzade's own tests, `works.spec.ts`'s own `SLUGS` corpus array and its internal
+count/card-count assertions (the listing's placeholder count moved from two to three, each located
+and attributed to its own card), `places.spec.ts`'s cross-section listing table, and **one regression
+this step's own genre addition caused that §102 had no reason to anticipate**:
+`listing.spec.ts`'s `type=novel` filter test expected exactly two cards (Wounds of Armenia, The
+Fool) and now correctly expects three. Position assertions for the two earlier pending Works were
+also re-derived rather than left stale: Mtnadzor moved from "second-to-last" to "third-to-last," and
+Baghdasar Aghbar from "last" to "second-to-last," each because a new work was appended after it, not
+because either moved.
+
+### Verification
+
+- `npx tsc --noEmit` — **clean**, both after the initial content changes and again after all test
+  edits.
+- `npm run validate:content` — first run caught two real problems: a `sources.ts` title collision
+  (two entries both titled "Yeghishe Charents," resolved by giving the Google Play/Kobo listing its
+  actual distinct title) and an English `metaDescription` 10 characters over budget. Both fixed;
+  second run **✓ 222 entries across 3 locales**, with the expected note "3 slug(s) have no artwork
+  … baghdasar-aghbar, mtnadzor, yerkir-nairi."
+- **Focused suite** (`works.spec.ts` + `writers.spec.ts`): first run showed 2 failures, both in this
+  step's own new tests — an Armenian-script case-sensitivity gap (`Ուրարտ` didn't match the actual
+  lowercase `ուրարտական`) and a reformed/classical vowel gap (`վեպ` didn't match the hyw text's
+  `վէպ`). Both fixed; second run **156 passed**.
+- **Full Playwright suite, first run: 538 passed, 1 failed, 5 skipped** — the one real failure was
+  `listing.spec.ts`'s genre-filter test described above, a genuine regression this step caused by
+  giving the `novel` genre a third member. Fixed; **second full run: 539 passed, 0 failed, 5
+  skipped.**
+- `npm run build` — **succeeded**, run separately with the dev server stopped, port 3002 confirmed
+  free, and `.next` cleared first. `/[locale]/works/[slug]` prerenders **24 paths** = 8 works × 3
+  locales.
+
+**Process failures, recorded honestly:**
+1. Two `sources.ts` entries were given the same generic title ("Yeghishe Charents"), which
+   `validate:content`'s identifier-collision check caught; fixed by using the Google Play/Kobo
+   listing's actual title.
+2. The English `metaDescription` ran 10 characters over the 165 budget; shortened.
+3. Two of my own new content-assertion tests used regex patterns that didn't account for Armenian
+   script case-folding and reformed/classical orthography differences (ա vowel case, ե/է) — both
+   real bugs in the test, not the content; both fixed by broadening the pattern rather than weakening
+   the claim.
+4. This step's own genre choice (reusing `novel`) created a real regression in a listing test written
+   long before this step existed, because that test asserted an exact count for a filter this step
+   added a member to. Not foreseeable from §102's own regression list; found by running the full
+   suite rather than only the focused one, which is the reason the verification order runs both.
+
+### Regressions
+
+**Baghdasar Aghbar**: `PENDING_ARTWORK` still contains it; `getImageSrc` still `undefined`; genre
+still `drama`; `relatedSlugs` still exactly `["hakob-paronyan"]`; chronology, title-translation and
+աղբար sections untouched; its position moved from last to second-to-last, the only change, caused
+solely by the new work being appended after it.
+
+**Mtnadzor**: `PENDING_ARTWORK` still contains it; genre still `short-stories`; `relatedSlugs` still
+`["aksel-bakunts", "yeghishe-charents", "hovhannes-tumanyan"]` (already related to Charents from an
+earlier step, untouched here); the Bakunts↔Mtnadzor reciprocal-link debt from §101 remains
+deliberately unresolved, not this step's job; position moved from second-to-last to third-to-last,
+for the same reason as Baghdasar Aghbar.
+
+**Charents (Writer)**: biography prose byte-for-byte unchanged in all three editions except one
+`links` array added to an existing section object; portrait registration, provenance, `keyFacts`,
+`importantDates`, search and metadata all unchanged; his own top-level `relatedSlugs` untouched.
+
+**Book of Lamentations, other existing Works**: all seven pre-existing Works confirmed unchanged in
+slug, order, artwork path, genre and relations; none moved onto any genre it didn't already have;
+`works[0]` is still `anush`, so the featured Work is unchanged.
+
+**Writers, Cuisine, Places, History**: counts unchanged at 13/12/13/7; no content in any of those
+sections was touched. Navigation, the map and featured-Work policy: untouched.
+
+### Diff safety
+
+Sixteen files changed: **2,686 insertions, 39 deletions**. Every content-file deletion is exactly
+one line, the `}` → `},` needed to append a new array element — the six content data files,
+`sources.ts` and `media.ts` carry no prose deletions at all between them. All real deletions are in
+four test files, and every one was a stale literal (a count, an array, a position assertion) being
+corrected forward, read individually before editing. No whole-file rewrite or rollback at any point.
+`.claude/settings.json` untouched.
+
+### Technical debt
+
+1. **`PROJECT_STATE.md`'s header remains stale** — "Last updated: 2026-08-25," branch `seo`. Carried
+   forward again from §99–§102; now four steps further behind.
+2. **This step's own bibliography is web-sourced secondary criticism rather than archival-grade**,
+   unlike §102's inherited collected-works citations with page numbers. Serviceable and honestly
+   scoped, but a future pass with access to the actual academic edition (Charents's Երկեր) could
+   strengthen the composition-chronology and character-name citations specifically.
+3. **Mazuti Hamo's fuller patronymic remains unresolved**, deliberately — sources disagree and this
+   article does not guess. A primary-text or authoritative-encyclopedia check would settle it.
+4. Same shared-helper opportunity §101 and §102 both flagged for `PENDING_ARTWORK`'s archive-wide
+   scope, now with three Works sections waiting at once.
+5. **Cross-file regression surface for genre membership is unhelped by any shared test utility** —
+   this step is the first time adding a Work to an *existing* genre (rather than a new one) broke a
+   test, and nothing caught it until the full suite ran. A single "genre counts" table test, checked
+   whenever a Work ships, would catch this class of regression at the focused-suite stage instead.
+
+### Not done, deliberately
+
+No artwork generated. No Work #9 started. No new Writer. No edit to Charents's own prose (only a
+`links` annotation on an existing sentence). No edit to Baghdasar Aghbar, Mtnadzor, Book of
+Lamentations, or any other existing Work's content. No edit to Cuisine, Places, History, navigation
+or the map. No featured-policy change. No deployment.
