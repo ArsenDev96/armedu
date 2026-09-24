@@ -35,7 +35,7 @@ export const categories: Category[] = [
     id: "cuisine",
     title: "Armenian Cuisine",
     description:
-      "Meet Armenian dishes as part of history, family life, celebrations and diaspora tradition — from lavash and dolma to harissa and ghapama.",
+      "Discover Armenian dishes through history, family life, celebrations and diaspora tradition, from lavash and dolma to harissa and ghapama.",
     href: "/cuisine",
     linkLabel: "View Cuisine",
     imageSeed: "category-cuisine",
@@ -45,7 +45,7 @@ export const categories: Category[] = [
     id: "places",
     title: "Places",
     description:
-      "Monasteries, fortresses, museums and landscapes in Armenia, explained as history rather than as an itinerary — beginning with Khor Virap below Mount Ararat.",
+      "Monasteries, fortresses, museums and landscapes in Armenia, explained through their history, not as stops on an itinerary. The collection begins with Khor Virap below Mount Ararat.",
     href: "/places",
     linkLabel: "View Places",
     imageSeed: "category-places",
@@ -58,7 +58,7 @@ export const timeline: TimelineEntry[] = [
     period: "9th–6th c. BC",
     title: "Kingdom of Urartu",
     description:
-      "A powerful state around Lake Van builds the fortress cities — including Erebuni, the ancestor of Yerevan — that mark the beginning of recorded history on the Armenian Highland.",
+      "A powerful state around Lake Van builds fortress cities, among them Erebuni, the ancestor of Yerevan. With them, recorded history on the Armenian Highland begins.",
   },
   {
     id: "artaxiad",
@@ -72,28 +72,28 @@ export const timeline: TimelineEntry[] = [
     period: "301 AD",
     title: "Adoption of Christianity",
     description:
-      "King Trdat III adopts Christianity as the religion of the Armenian state, a decision that reshapes Armenian art, architecture and identity.",
+      "King Trdat III makes Christianity the religion of the Armenian state. The decision reshapes Armenian art, architecture and identity.",
   },
   {
     id: "avarayr",
     period: "451 AD",
     title: "Battle of Avarayr",
     description:
-      "Vardan Mamikonian leads Armenian forces against the Sasanian army in defence of religious freedom — a military defeat that secures a political victory.",
+      "Vardan Mamikonian leads Armenian forces against the Sasanian army in defence of religious freedom. The battle is lost, but it leads to a political victory.",
   },
   {
     id: "bagratid",
     period: "885–1045 AD",
     title: "Bagratid Armenia",
     description:
-      "A restored kingdom flourishes around its capital Ani, the city of a thousand and one churches and one of the largest cities of its age.",
+      "A restored kingdom flourishes around its capital, Ani, known as the city of a thousand and one churches and one of the largest cities of its age.",
   },
   {
     id: "first-republic",
     period: "1918–1920",
     title: "First Republic of Armenia",
     description:
-      "After centuries without statehood, an independent Armenian republic is declared — short-lived, but the direct predecessor of the republic of today.",
+      "After centuries without a state of their own, Armenians declare an independent republic. It lasts only a short time, but it is the direct predecessor of today's republic.",
   },
 ];
 

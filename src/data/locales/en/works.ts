@@ -9,7 +9,7 @@ export const works: LiteraryWork[] = [
     genre: "Narrative poem",
     genreId: "poetry",
     summary:
-      "A young shepherd and a village girl fall in love, and an old code of honour turns a moment of play into tragedy. Tumanyan's best-known poem, later set as Armenia's national opera.",
+      "A young shepherd and a village girl fall in love, and an old code of honour turns a moment of play into tragedy. This is Tumanyan's best-known poem, later set as Armenia's national opera.",
     imageSeed: "anush",
   },
   {
@@ -20,7 +20,7 @@ export const works: LiteraryWork[] = [
     genre: "Historical novel",
     genreId: "novel",
     summary:
-      "The first novel written in modern spoken Armenian, following a village caught up in the Russo-Persian war and arguing that ordinary people make history.",
+      "The first novel written in modern spoken Armenian. It follows a village caught up in the Russo-Persian war and argues that ordinary people make history.",
     imageSeed: "wounds-of-armenia",
   },
   {
@@ -31,7 +31,7 @@ export const works: LiteraryWork[] = [
     genre: "Novel",
     genreId: "novel",
     summary:
-      "Set during the Russo-Turkish war of 1877–78, Raffi's novel follows a young man dismissed as a fool by his neighbours whose clear sight makes him the only realist among them.",
+      "Set during the Russo-Turkish war of 1877–78, Raffi's novel follows a young man his neighbours dismiss as a fool, though his clear sight makes him the only realist among them.",
     imageSeed: "the-fool",
   },
   {
@@ -42,7 +42,7 @@ export const works: LiteraryWork[] = [
     genre: "Epic poem",
     genreId: "epic",
     summary:
-      "Armenia's national epic, telling of four generations of heroes from Sassoun who defend their mountain homeland — carried by storytellers for a thousand years before it was written down.",
+      "Armenia's national epic tells of four generations of heroes from Sassoun who defend their mountain homeland. Storytellers carried it for a thousand years before it was written down.",
     imageSeed: "david-of-sassoun",
   },
   {
@@ -53,7 +53,7 @@ export const works: LiteraryWork[] = [
     genre: "Prayer cycle",
     genreId: "poetry",
     summary:
-      "Ninety-five discourses addressed to God, written at the monastery of Narek about 1002. The most copied book in Armenian after the Gospel, known simply as the Narek, and not the biblical Lamentations.",
+      "Ninety-five discourses addressed to God, written at the monastery of Narek about 1002. After the Gospel it is the most copied book in Armenian. It is known simply as the Narek, and it is not the biblical Lamentations.",
     imageSeed: "book-of-lamentations",
   },
   {
@@ -64,7 +64,7 @@ export const works: LiteraryWork[] = [
     genre: "Short-story collection",
     genreId: "short-stories",
     summary:
-      "Eighteen stories of the Zangezur mountains — Bakunts's first book, and the one that made his name as a prose writer. Published at Yerevan in 1927 and translated into English as The Dark Valley.",
+      "Eighteen stories of the Zangezur mountains. Bakunts's first book made his name as a prose writer. It was published at Yerevan in 1927 and translated into English as The Dark Valley.",
     imageSeed: "mtnadzor",
   },
   {
@@ -75,7 +75,7 @@ export const works: LiteraryWork[] = [
     genre: "Comedy",
     genreId: "drama",
     summary:
-      "A prosperous Constantinople Armenian catches his wife with her lover and takes his case to the community's own tribunal — which rules that what he saw was only an optical illusion. Paronyan's only play, written in 1886 and first staged, after his death, in 1895.",
+      "A prosperous Constantinople Armenian catches his wife with her lover and takes his case to the community's own tribunal, which rules that what he saw was only an optical illusion. Paronyan's only play was written in 1886 and first staged in 1895, after his death.",
     imageSeed: "baghdasar-aghbar",
   },
   {
@@ -86,7 +86,7 @@ export const works: LiteraryWork[] = [
     genre: "Modernist novel",
     genreId: "novel",
     summary:
-      "A satirical, self-consciously modern \"poem-like novel\" about the last years of Kars, Charents's own birthplace, told by a narrator who insists the city had no heroes. Written 1921–1925 and published in 1926; often called the first modernist Armenian novel.",
+      "A satirical, self-consciously modern \"poem-like novel\" about the last years of Kars, Charents's own birthplace. Its narrator insists the city had no heroes. Written in 1921–1925 and published in 1926, it is often called the first modernist Armenian novel.",
     imageSeed: "yerkir-nairi",
   },
 ];
