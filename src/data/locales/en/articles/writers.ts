@@ -30,7 +30,7 @@ export const writerArticles: Article[] = [
         heading: "Early life in Lori",
         paragraphs: [
           "Hovhannes Tumanyan was born on 19 February 1869 in Dsegh, a village in the mountainous Lori region of northern Armenia, then part of the Russian Empire. His father, Ter Tadevos, was the village priest, and the household stood at the centre of local life. The boy grew up among shepherds, ploughmen, wedding singers and storytellers, The speech, songs and legends he absorbed there became the raw material for nearly everything he later wrote.",
-          "He went to the village school in Dsegh and, from the age of ten, to the school at Jalaloghli. In 1883 he moved on to the Nersisyan School in Tiflis, the great Armenian cultural centre of the Caucasus. Money was short. He left school in 1887 to take clerical work and never completed a formal higher education. What he lacked in diplomas he made up for in wide reading, and by his late teens he was publishing verse in Armenian periodicals.",
+          "He went to the village school in Dsegh and, from the age of ten, to the school at Jalaloghli. In 1883 he moved on to the Nersisyan School in Tiflis, the great Armenian cultural centre of the Caucasus. Money was short. He left school in 1887, without finishing the course, to take clerical work and never completed a formal higher education. What he lacked in diplomas he made up for in wide reading, and by his late teens he was publishing verse in Armenian periodicals.",
           "Tiflis shaped him as much as Lori did. In the city he met editors, teachers, painters and composers, and he learned to see his village childhood from a distance, as material worth preserving. He wrote with an insider's warmth and a writer's clear eye, and that double view became one of the defining qualities of his work.",
         ],
       },
@@ -125,7 +125,7 @@ export const writerArticles: Article[] = [
       "He had ten children, and the crowded family apartment in Tiflis doubled as the meeting place of the Vernatun literary circle.",
       "He never finished secondary school and worked as a clerk in a church consistory while publishing his early poetry.",
       "His retelling of David of Sassoun helped turn an oral epic into a text that schoolchildren could read.",
-      "The opera Anush, adapted from his poem, was the first Armenian opera to enter the permanent national repertoire.",
+      "The opera Anush, adapted from his poem, remains a fixture of the standard Armenian opera repertoire.",
       "During the 1905 unrest in the Caucasus he personally travelled between villages to negotiate peace between neighbours.",
     ],
     relatedFigures: [
@@ -224,7 +224,7 @@ export const writerArticles: Article[] = [
         paragraphs: [
           "From the early 1930s Charents came under increasing official criticism for nationalism and formalism, the standard charges of the period. He lost his publishing post, his books were withdrawn from circulation and he was placed under surveillance. His health suffered, and he kept writing, mostly for the drawer.",
           "He was arrested in the summer of 1937 during the mass repressions that swept the Soviet Union. He was held in Yerevan and died in prison on 27 November 1937 at the age of forty. His burial place is unknown, and no grave has ever been identified.",
-          "After Stalin's death Charents was officially rehabilitated in 1954 and 1955, and his work returned to print. Friends and family had hidden his manuscripts during the purge years, and some papers were reportedly buried for safekeeping. These allowed scholars to reconstruct much of what had been suppressed.",
+          "After Stalin's death Anastas Mikoyan publicly called for Charents's rehabilitation in 1954, and the poet was officially rehabilitated in 1955; his work returned to print. Friends and family had hidden his manuscripts during the purge years, and some papers were reportedly buried for safekeeping. These allowed scholars to reconstruct much of what had been suppressed.",
         ],
       },
       {
@@ -270,7 +270,7 @@ export const writerArticles: Article[] = [
     },
     interestingFacts: [
       "He took the pen name Charents in his teens and used it for the rest of his life, rarely signing his family name.",
-      "His 1933 poem Message contains an acrostic, formed by the first letters of successive lines, urging Armenians to find salvation in unity.",
+      "His 1933 poem Message contains an acrostic, formed by the second letters of successive lines, telling Armenians that their only salvation lies in their collective strength.",
       "Land of Nairi is often described as the first modernist novel written in Armenian.",
       "Friends preserved manuscripts through the purge years, which allowed much of his suppressed work to be published after 1954.",
       "The Charents Arch above the village of Voghjaberd was built in 1957 to mark his sixtieth anniversary and frames a view of Mount Ararat.",
@@ -280,7 +280,7 @@ export const writerArticles: Article[] = [
         name: "Aksel Bakunts",
         lifespan: "1899–1937",
         description:
-          "A prose writer and close contemporary of Charents who was also executed during the purges of 1937.",
+          "A prose writer and close contemporary of Charents who was executed during the purges of 1937, the year Charents died in prison.",
       },
       {
         name: "Paruyr Sevak",
@@ -400,7 +400,7 @@ export const writerArticles: Article[] = [
       ],
     },
     interestingFacts: [
-      "He took the pen name Raffi around 1872, when he began writing for the newspaper Mshak, and it quickly displaced his family name in public use.",
+      "By some accounts he took the pen name Raffi around 1872, when he began writing for the newspaper Mshak, and it quickly displaced his family name in public use.",
       "Most of his novels first reached readers as newspaper serials in the Tiflis paper Mshak.",
       "He argued publicly for the education of Armenian girls at a time when it was widely neglected.",
       "The title character of The Fool became a proverbial figure for someone whose supposed foolishness is really courage.",
@@ -473,7 +473,7 @@ export const writerArticles: Article[] = [
         id: "major-works",
         heading: "Major works",
         paragraphs: [
-          "Abu Lala Mahari, written between 1909 and 1911, is his best known long poem. In it, a wealthy poet of medieval Baghdad, sickened by human cruelty and hypocrisy, leaves the city and rides into the desert with his camel caravan. As he goes, he reflects on freedom, society and death. The poem was translated into many languages and won admirers among writers, Alexander Blok among them.",
+          "Abu Lala Mahari, written between 1909 and 1911, is his best known long poem. In it, a wealthy poet of medieval Baghdad, sickened by human cruelty and hypocrisy, leaves the city and rides into the desert with his camel caravan. As he goes, he reflects on freedom, society and death. The poem was translated into many languages and won admirers among writers.",
           "Songs and Wounds, his first collection, remains the core of his lyric reputation. Poems that open with a wandering exile or a mother waiting at the door use very simple words to powerful effect. That is why so many of them entered the repertoire of Armenian singers.",
           "He also wrote narrative works drawing on legend and history, including the unfinished novel Usta Karo and a body of fables and prose sketches. In them he explored Armenian folk belief, medieval tales and the moral questions that stayed with him all his life.",
         ],
@@ -535,7 +535,7 @@ export const writerArticles: Article[] = [
       "The Russian poet Alexander Blok, who translated some of his verse, described him as a poet of the first rank.",
       "He studied at the University of Leipzig, an unusual path for an Armenian writer of his generation.",
       "He spent most of the years between 1911 and 1936 abroad, in Germany, Italy, Austria and France, apart from a four-year stay in Armenia from 1926.",
-      "He was a founding member of the Vernatun circle that met in Hovhannes Tumanyan's Tiflis apartment.",
+      "He was one of the permanent members of the Vernatun circle that met in Hovhannes Tumanyan's Tiflis apartment.",
     ],
     relatedFigures: [
       {
@@ -587,7 +587,7 @@ export const writerArticles: Article[] = [
         paragraphs: [
           "Khachatur Abovyan was born on 15 October 1809 in Kanaker, then a village outside Yerevan and now part of the city. His family belonged to the minor local nobility. The region was still under Persian rule, and he later described those years as a time of insecurity and heavy taxes for Armenian villagers.",
           "He was educated first at the monastery school of Etchmiadzin and then at the Nersisyan School in Tiflis, where a wider world of ideas opened up to him. In 1829 he returned to Etchmiadzin as a teacher and translator, a post at the centre of Armenian religious and educational life.",
-          "That year the German scientist Friedrich Parrot came to attempt the ascent of Mount Ararat. Abovyan was appointed his interpreter and companion. In October 1829 the expedition reached the summit, the first documented ascent of the mountain. The climb made Abovyan's name and led directly to the next stage of his life.",
+          "That year the German scientist Friedrich Parrot came to attempt the ascent of Mount Ararat. Abovyan was appointed his guide and interpreter. In October 1829 the expedition reached the summit, the first documented ascent of the mountain, known from Parrot's own published account. The climb made Abovyan's name and led directly to the next stage of his life.",
         ],
       },
       {
@@ -629,7 +629,7 @@ export const writerArticles: Article[] = [
         heading: "Disappearance and legacy",
         paragraphs: [
           "On the morning of 14 April 1848 Abovyan left his home in Yerevan and was never seen again. He was thirty-eight. People have suggested suicide, murder by his political opponents, and arrest and exile by the Russian authorities. None of these can be ruled out. No evidence has ever settled the question, and his fate remains unknown.",
-          "Recognition came after his death. When Wounds of Armenia came out in 1858, it made him a founding figure. Eastern Armenian literature then grew along the path he had marked out. Raffi, Perch Proshian and later realists all worked in the vernacular tradition he began.",
+          "Recognition came only after he was gone. When Wounds of Armenia came out in 1858, it made him a founding figure. Eastern Armenian literature then grew along the path he had marked out. Raffi, Perch Proshian and later realists all worked in the vernacular tradition he began.",
           "Today his birthplace in Kanaker is a museum, a town and a major Yerevan street carry his name, and Wounds of Armenia is a fixed part of the school curriculum. He is remembered as much for his work as an educator as for his fiction.",
         ],
       },
@@ -657,7 +657,7 @@ export const writerArticles: Article[] = [
       { year: "1830", event: "Begins six years of study at the University of Dorpat." },
       { year: "1841", event: "Writes Wounds of Armenia, which cannot be published at the time." },
       { year: "1848", event: "Leaves his house in Yerevan and disappears without trace." },
-      { year: "1858", event: "Wounds of Armenia is published posthumously." },
+      { year: "1858", event: "Wounds of Armenia is published, ten years after his disappearance." },
     ],
     significance: {
       heading: "Why Khachatur Abovyan matters",
@@ -667,8 +667,8 @@ export const writerArticles: Article[] = [
       ],
     },
     interestingFacts: [
-      "He took part in the first documented ascent of Mount Ararat, in October 1829, as interpreter to the scientist Friedrich Parrot.",
-      "He buried a cross near the summit of Ararat and carried down a piece of ice, which he regarded as holy.",
+      "He took part in the first documented ascent of Mount Ararat, in October 1829, as guide and interpreter to the scientist Friedrich Parrot.",
+      "According to Parrot's account, he set up a wooden cross in the ice near the summit of Ararat and carried down a piece of ice, which he regarded as holy.",
       "Wounds of Armenia waited seventeen years for publication and appeared only after his disappearance.",
       "He advocated schooling for girls decades before it became common in the region.",
       "No one has ever explained his disappearance in 1848. It remains one of the open questions of Armenian literary history.",
@@ -730,7 +730,7 @@ export const writerArticles: Article[] = [
         id: "literary-career",
         heading: "Literary career",
         paragraphs: [
-          "Sevak published his first collection in 1948 and several more over the next decade, but he found his mature voice only at the end of the 1950s. Later he worked at the Institute of Literature in Yerevan, first as a researcher and then in a senior role. In 1966 he was elected secretary of the Writers Union of Armenia.",
+          "Sevak published his first collection in 1948 and several more over the next decade, but he found his mature voice only at the end of the 1950s. Later he worked at the Institute of Literature in Yerevan, first as a researcher and then in a senior role. In 1966 he was elected a secretary of the board of the Writers Union of Armenia.",
           "He was an active translator and critic too, and he wrote a substantial scholarly study of the eighteenth-century troubadour Sayat-Nova. As a critic he argued for honesty and craft against formulaic official verse. He also encouraged younger poets who wanted to write about private experience.",
           "His public standing grew steadily through the 1960s. Readings drew large audiences, his books sold out quickly, and he became one of the few writers whose opinions carried weight with both the intelligentsia and the general reading public.",
         ],
@@ -766,7 +766,7 @@ export const writerArticles: Article[] = [
         paragraphs: [
           "On 17 June 1971 Sevak and his wife Nelly were killed in a car crash as they drove back from his native village towards Yerevan. He was forty-seven. The death was sudden, and he was a prominent critical voice in the nation, so many people came to suspect that the security services were involved. The suspicion has never faded. The only inquiry was a Soviet one, and it recorded a traffic accident. The archives that might settle the question have never been opened. He was buried in the garden of his family house in Zangakatun.",
           "The village home is now the Paruyr Sevak House Museum. Schools, streets and a literary prize carry his name, and his poems are standard reading in Armenian classrooms.",
-          "Sevak matters most for what he made it possible to say. The Unsilenceable Belfry, written when it was, helped move remembrance of 1915 from private grief into public culture. That shift fed directly into the commemorations of 1965 and the building of the memorial at Tsitsernakaberd.",
+          "Sevak matters most for what he made it possible to say. The Unsilenceable Belfry, written when it was, helped move remembrance of 1915 from private grief into public culture. Many readers see that shift as part of the climate that led to the commemorations of 1965 and the building of the memorial at Tsitsernakaberd.",
         ],
       },
     ],
@@ -796,14 +796,14 @@ export const writerArticles: Article[] = [
       heading: "Why Paruyr Sevak matters",
       paragraphs: [
         "For decades much published Armenian verse had been cautious and formulaic. Sevak brought intellectual seriousness back to it. In poems and essays alike he argued that literature must be honest about hard things, and he showed how by writing openly about grief, doubt and moral responsibility.",
-        "His treatment of the genocide was decisive for public memory. In Soviet Armenia the subject had gone largely unspoken. The Unsilenceable Belfry gave it a language and, in Komitas, a central symbol. It prepared the ground for the commemorations and the memorial that followed in the 1960s.",
+        "His treatment of the genocide was decisive for public memory. In Soviet Armenia the subject had gone largely unspoken. The Unsilenceable Belfry gave it a language and, in Komitas, a central symbol. It is widely seen as helping to prepare the ground for the commemorations and the memorial that followed in the 1960s.",
       ],
     },
     interestingFacts: [
-      "He took his pen name from Ruben Sevak, a young Armenian poet killed in 1915.",
+      "His pen name, proposed by the editor Ruben Zaryan, recalls Ruben Sevak, a young Armenian poet killed in 1915.",
       "His doctoral research on the eighteenth-century troubadour Sayat-Nova is still cited by scholars.",
       "The Unsilenceable Belfry appeared six years before the 1965 demonstrations that pushed for public recognition of the genocide.",
-      "His native village of Chanakhchi now bears the name Zangakatun, meaning belfry, the same word as the title of his most famous poem.",
+      "His native village of Chanakhchi was renamed in his memory and now bears the name Zangakatun, meaning belfry, the same word as the title of his most famous poem.",
       "He is buried in the garden of his family home, which now serves as his house museum.",
     ],
     relatedFigures: [
@@ -958,7 +958,7 @@ export const writerArticles: Article[] = [
         id: "manuscripts-and-readers",
         heading: "Manuscripts, printing and readers",
         paragraphs: [
-          "The Book of Lamentations became one of the most heavily copied books in the Armenian manuscript tradition, so its transmission is unusually well documented. The best-known early copy was made in 1173 in Cilicia by the scribe Grigor Skevratsi for the theologian Nerses of Lambron. It carries four painted portraits of the author, and it is held today in the Matenadaran in Yerevan, the national repository whose collection grew out of this same monastic copying tradition. A book survives in such numbers because people wanted it, not because an institution kept it.",
+          "The Book of Lamentations became one of the most heavily copied books in the Armenian manuscript tradition, so its transmission is unusually well documented. The best-known early copy was made in 1173 in Cilicia for the theologian Nerses of Lambron and illuminated by the painter Grigor Mlichetsi. It carries four painted portraits of the author, and it is held today in the Matenadaran in Yerevan, the national repository whose collection grew out of this same monastic copying tradition. A book survives in such numbers because people wanted it, not because an institution kept it.",
           "It reached print early by Armenian standards. The first printed edition appeared in Marseille in 1673, and new editions and translations have followed ever since. The work now exists in French, English, Russian and other major languages. Thanks to the modern English versions, it is the one medieval Armenian text that non-specialists are likely to have come across.",
           "Alongside its scholarly and liturgical use, the book had a place in the home, and that should be described plainly. Copies were kept in ordinary houses, including houses where nobody could read grabar, and communities attributed protective and healing power to the physical book, placing it with the sick and opening it in times of need. This is a documented pattern of popular belief and practice, recorded here as cultural history. It is not a medical claim, and this article makes none.",
         ],
@@ -1042,7 +1042,7 @@ export const writerArticles: Article[] = [
     metaDescription:
       "Daniel Varoujan, the Western Armenian poet: his schooling in Constantinople, Venice and Ghent, his four collections, and the poetry the year 1915 interrupted.",
     summary:
-      "Daniel Varoujan was a Western Armenian poet, born in the village of Brgnik near Sebastia in the Ottoman Empire. He was educated at Mkhitarist schools in Constantinople and Venice and then at the University of Ghent. Between 1906 and 1912 he published three collections, Sarsurner, Tsegin sirte and Hetanos erger. A fourth, Hatsin ergi, was left unfinished and printed after his death in 1921. He wrote in Western Armenian and worked to widen what it could do as a literary language, taught school, and joined the Mehean group in 1914. He was arrested in Constantinople on 24 April 1915 and killed the following August.",
+      "Daniel Varoujan was a Western Armenian poet, born in the village of Brgnik in the district of Sebastia in the Ottoman Empire. He was educated at Mkhitarist schools in Constantinople and Venice and then at the University of Ghent. Between 1906 and 1912 he published three collections, Sarsurner, Tsegin sirte and Hetanos erger. A fourth, Hatsin ergi, was left unfinished and printed after his death in 1921. He wrote in Western Armenian and worked to widen what it could do as a literary language, taught school, and joined the Mehean group in 1914. He was arrested in Constantinople on 24 April 1915 and killed the following August.",
     period: "20th Century",
     periodId: "20th-century",
     imageSeed: "daniel-varoujan",
@@ -1101,7 +1101,7 @@ export const writerArticles: Article[] = [
         heading: "Venice and the first collection",
         paragraphs: [
           "In 1902 he moved to the Moorat-Raphael College in Venice, the Mkhitarist school attached to the monastery on the island of San Lazzaro. San Lazzaro had been the order's centre of Armenian scholarship and printing since the eighteenth century. Studying there meant living inside a working centre of language scholarship, which was much more than a school abroad.",
-          "His first collection, Սարսուռներ, was printed at San Lazzaro in 1906. It was a short book of about forty pages, published where he was studying. The title is usually given in English as Shivers or Tremors. Both try to catch a word that means something closer to a physical shudder passing through the body.",
+          "His first collection, Սարսուռներ, was printed at San Lazzaro in 1906. It was a short book of about forty pages, published where he had studied. The title is usually given in English as Shivers or Tremors. Both try to catch a word that means something closer to a physical shudder passing through the body.",
           "Scholars do not dismiss it as juvenilia. The sensory vocabulary that defines his later work is already there, though not yet organised. The gap between this book and the one that followed three years later shows clearly how fast he developed.",
         ],
       },
@@ -1429,7 +1429,7 @@ export const writerArticles: Article[] = [
         paragraphs: [
           "From about 1165 he corresponded with the Byzantine emperor Manuel I Komnenos about the differences between the Armenian and Byzantine churches. In 1171 an imperial delegation led by the theologian Theorianos came to Hromkla to negotiate in person. Constantinople eventually presented nine conditions. They included accepting the Council of Chalcedon, changing Armenian liturgical practice, aligning the calendar, and giving the emperor authority over future appointments to the Armenian catholicosate.",
           "He did not accept them, objecting that they were too severe, and the negotiations were still unfinished when he died in 1173. The episode belongs in this article for a literary reason as much as a doctrinal one: it produced letters, and the letters are part of his work. He wrote prose as well as verse, and the correspondence is where the prose is.",
-          "Modern accounts often call him a pioneer of ecumenism. The word brings a twentieth-century movement with it and needs care. What he actually did was negotiate and correspond with another church in search of reconciliation, under an emperor who had political interests in the outcome. Describing that in its own terms is more accurate than borrowing later vocabulary, and it takes nothing away from him. The patience and courtesy his contemporaries named him for show clearly in these very letters.",
+          "Modern accounts often call him a pioneer of ecumenism. The word brings a twentieth-century movement with it and needs care. What he actually did was negotiate and correspond with another church in search of reconciliation, under an emperor who had political interests in the outcome. Describing that in its own terms is more accurate than borrowing later vocabulary, and it takes nothing away from him. Whatever the origin of his epithet, the patience and courtesy it is often taken to describe show clearly in these very letters.",
         ],
       },
       {
@@ -1703,7 +1703,7 @@ export const writerArticles: Article[] = [
         heading: "Siamanto and Varoujan",
         paragraphs: [
           "The two names almost always appear together, but the pairing is usually asserted, not shown. There is a documented link, and it runs one way. Daniel Varoujan, six years younger and by 1913 the better known of the two in Constantinople, wrote about Կարմիր լուրեր բարեկամէս and called it a տաղանդավոր ոճրերգություն. The phrase can be rendered a gifted song of crime, or a talented crime-poetry, and Armenian critics have quoted it ever since. His piece appeared in the Constantinople volume Գրական ասուլիսներ in 1913.",
-          "That is a real connection: one poet writing about another's book, in print, in their lifetimes, with a page reference. It counts for more than the usual biographical pairing, that both were arrested on the same night and killed in the same summer. That is true, but it is true of a great many people.",
+          "That is a real connection: one poet writing about another's book, in print, in their lifetimes. It counts for more than the usual biographical pairing, that both were arrested on the same night and killed in the same summer. That is true, but it is true of a great many people.",
           "They were also close in a way the vocabulary tends to hide. Siamanto wrote a Navasard prayer to the goddess Anahit, and poems glorifying the pre-Christian Armenian past, in exactly the years Varoujan was writing Հեթանոս երգեր. Both drew on the same current of literary paganism in Constantinople between 1911 and 1914. Armat links to Varoujan from here, and not the other way round. The Varoujan article was written before this one, and it noted then that its strongest possible link did not yet exist. That is no longer true, but a link is added only where the evidence supports it, and is not mirrored back for symmetry.",
         ],
         links: [
@@ -1902,7 +1902,7 @@ export const writerArticles: Article[] = [
         heading: "The periodicals",
         paragraphs: [
           "Paronyan's career is easiest to follow through his papers, not his books. In 1871 he became editor of Եփրատ, Euphrates, at Adrianople. In 1872 he took over as editor of Մեղու, The Bee, the Constantinople satirical paper founded by Harutyun Svajyan. From 1874 to 1877 he edited its successor, Թատրոն, Theatre.",
-          "In 1876 he founded Թատրոն. բարեկամ մանկանց, Theatre: Children's Friend, an illustrated paper for children. Armenian sources describe it as the first Armenian children's periodical, which is an unexpected item in a satirist's bibliography. In 1883 he launched Ծիծաղ, Laughter, a weekly that lasted about a year. From 1884 he edited Խիկար, named after the sage of the old Near Eastern tale. It ran in two stretches, 1884 to 1885 and 1886 to 1888, and was published at Constantinople and at Adrianople.",
+          "In 1876 he founded Թատրոն. բարեկամ մանկանց, Theatre: Children's Friend, an illustrated paper for children. Armenian sources count it among the earliest and best-known Armenian children's periodicals, which is an unexpected item in a satirist's bibliography. In 1883 he launched Ծիծաղ, Laughter, a weekly that lasted about a year. From 1884 he edited Խիկար, named after the sage of the old Near Eastern tale. It ran in two stretches, 1884 to 1885 and 1886 to 1888, and was published at Constantinople and at Adrianople.",
           "He also wrote for papers he did not edit, among them Մասիս and Փորձ. According to Armenian accounts, their editors sometimes turned down his satirical pieces for fear of what printing them might cost the paper.",
         ],
         bullets: [
@@ -1946,17 +1946,17 @@ export const writerArticles: Article[] = [
         id: "the-theatre",
         heading: "The theatre",
         paragraphs: [
-          "Paronyan is the only playwright in this archive's writers section, and drama was central to his work. He wrote for the stage from the start: Երկու տերով ծառա մը, A Servant with Two Masters, dates from 1865, and Ատամնաբույժն արևելյան, The Oriental Dentist, from the same period; it was printed in 1868.",
+          "Of the writers in this archive, Paronyan is the one best known as a comic playwright, and drama was central to his work. He wrote for the stage from the start: Երկու տերով ծառա մը, A Servant with Two Masters, dates from 1865, and Ատամնաբույժն արևելյան, The Oriental Dentist, from the same period; it was printed in 1868.",
           "His theatre is comedy of manners. It starts from domestic situations that turn out to be about money: marriages arranged around property, households run for appearances, professionals whose expertise is really a way of charging for it. The dialogue is written for actors, with short exchanges, interruptions, and characters who talk past each other while thinking they are negotiating.",
           "His plays had a more complicated relationship with the Armenian stage than a list of premieres suggests, and that is the subject of the next section.",
         ],
       },
       {
         id: "uncle-baghdasar",
-        heading: "Պաղտասար աղբար: written 1886, staged about 1896",
+        heading: "Պաղտասար աղբար: written 1886, staged 1895",
         paragraphs: [
           "Պաղտասար աղբար is his best-known play and the one that has stayed longest in the repertoire. In English it appears as Uncle Baghdasar, Brother Baghdasar and simply Baghdasar Aghbar. The word աղբար is the familiar Western Armenian for brother, used when addressing someone, and no single English title has become standard.",
-          "The date usually given for it, 1886, is when he wrote it in Constantinople. It was not performed then. Armenian sources record that it was first staged only about ten years later, around 1896, and by Eastern Armenian theatre, not in the city it was written in and for.",
+          "The date usually given for it, 1886, is when he wrote it in Constantinople. It was not performed then. It was first staged only nine years later, in 1895 (1896 is also often given), by Aram Vruyr at Tiflis, that is, by Eastern Armenian theatre, not in the city it was written in and for.",
           "The gap between those dates is worth keeping, because it says something true about his position. A Western Armenian comedy about Constantinople Armenian life first reached the stage in the other half of the Armenian world, after its author had died. The play's later life in the Armenian national repertoire, where it has been performed ever since, began without him.",
           "The comedy turns on a husband who is deceived, finds out, and is then managed by everyone around him: his wife, her lover, a lawyer and a group of council members, each with a stake in how things are settled. Armenian critics have disagreed over whether Baghdasar is a fool exposed or a decent man surrounded by frauds. The better readings treat that ambiguity as part of the design, not a flaw.",
         ],
@@ -2002,7 +2002,7 @@ export const writerArticles: Article[] = [
         id: "on-the-stage-after-him",
         heading: "On the stage after him",
         paragraphs: [
-          "Almost everything that made Paronyan a fixture of Armenian culture happened after 1891. Պաղտասար աղբար reached the stage around 1896 and entered the permanent repertoire. Մեծապատիվ մուրացկաններ has been reprinted and adapted again and again. His collected works were edited and published throughout the twentieth century in Tiflis, Constantinople, Moscow, Beirut and Yerevan, and ten volumes of them are in the public domain.",
+          "Almost everything that made Paronyan a fixture of Armenian culture happened after 1891. Պաղտասար աղբար reached the stage in 1895 and entered the permanent repertoire. Մեծապատիվ մուրացկաններ has been reprinted and adapted again and again. His collected works were edited and published throughout the twentieth century in Tiflis, Constantinople, Moscow, Beirut and Yerevan, and ten volumes of them are in the public domain.",
           "In Soviet Armenia he was firmly part of the canon, taught in schools and constantly staged. The state musical comedy theatre in Yerevan, founded in 1941 and opened in 1942, bears his name, as do a school and a street in the city. In 2018 Armenia issued a commemorative stamp for the 175th anniversary of his birth.",
           "Dates matter here more than usual. He died in 1891, and Soviet Armenia was established in 1920. The Soviet-era editions, productions and institutions belong to how he was received, not to his life. The reading of him they encouraged, as a critic of bourgeois society, is one interpretation of the work, not a description of what he set out to do.",
         ],
@@ -2035,7 +2035,7 @@ export const writerArticles: Article[] = [
       { year: "1887", event: "Մեծապատիվ մուրացկաններ published as a book." },
       { year: "1888", event: "The authorities close Խիկար along with other Armenian periodicals; he returns to accountancy." },
       { year: "1891", event: "Dies of tuberculosis at Constantinople on 27 May." },
-      { year: "1896", event: "Պաղտասար աղբար staged for the first time, about ten years after it was written." },
+      { year: "1895", event: "Պաղտասար աղբար staged for the first time, at Tiflis, nine years after it was written." },
     ],
     significance: {
       heading: "Why Hakob Paronyan matters",
@@ -2046,12 +2046,12 @@ export const writerArticles: Article[] = [
       ],
     },
     interestingFacts: [
-      "The satirist who spent his career mocking Constantinople's notables also founded what Armenian sources call the first Armenian children's periodical, an illustrated paper he launched in 1876.",
+      "The satirist who spent his career mocking Constantinople's notables also founded one of the earliest and best-known Armenian children's periodicals, an illustrated paper he launched in 1876.",
       "Petros Duryan, the poet who died at twenty, was his pupil at the seminary at Scutari.",
       "Ազգային ջոջեր names its targets. Its subjects were living public figures, and Armenian scholarship records that he spent about six years gathering biographical material on them.",
       "His first play was printed forty-six years after he wrote it and twenty years after he died.",
       "The Library of Congress files him under 1841?, with the question mark; Armenian encyclopedias give 19 November 1843 without one.",
-      "The state musical comedy theatre in Yerevan has carried his name since the 1940s, which is why a search for Hakob Paronyan often returns a theatre's programme rather than a biography.",
+      "The state musical comedy theatre in Yerevan has carried his name since 1962, which is why a search for Hakob Paronyan often returns a theatre's programme rather than a biography.",
     ],
     relatedFigures: [
       {
@@ -2312,7 +2312,7 @@ export const writerArticles: Article[] = [
         paragraphs: [
           "The film usually called the first Armenian feature is an adaptation of his first novel, a fair measure of how far his work reached. Նամուս was directed by Hamo Bek-Nazaryan and made in 1925 at the state film studio in Yerevan (founded in 1923, later Armenfilm). It premiered at the Nairi cinema in Yerevan on 13 April 1926.",
           "The word first in that description needs limits, because it is usually repeated without any. Film historians make a narrow claim: this was the first full-length fiction feature produced in Soviet Armenia by its own studio, and it is treated as the founding work of Armenian national cinema. They do not claim that no film with Armenian subjects or an Armenian director existed before it. Bek-Nazaryan already had a career in Russian cinema behind him. Dates as early as 1924 circulate online for the film, but the premiere record does not support them.",
-          "Three more of his works were filmed afterwards: Չար ոգի in 1928, Պատվի համար in 1956, and Քաոս later still. He lived to see the first two and had no hand in making either. The films are their directors' readings of the books, not the author's.",
+          "Other works of his were filmed afterwards, among them Չար ոգի in 1928, Պատվի համար in 1956, and Քաոս later still. He lived to see only the first of these, and had no hand in making it; Պատվի համար reached the screen twenty-one years after his death. The films are their directors' readings of the books, not the author's.",
           "The stage history has never stopped. Պատվի համար and Նամուս have been in the Armenian repertoire since before his death, his best works were translated into the languages of the Soviet Union and beyond, and the novels are still read in Armenian schools and universities. What began as a clerk's account of an oil city is now the part of nineteenth-century Armenian literature a modern reader can most easily walk straight into.",
         ],
       },
@@ -2580,7 +2580,7 @@ export const writerArticles: Article[] = [
         id: "prose-technique",
         heading: "The prose itself",
         paragraphs: [
-          "Armenian critics routinely call his prose lyrical, and the word needs explaining. It refers to the density of the writing: its sound patterns, its economy, the way an image carries a state of mind. It does not mean he was a poet. He was not. His standing rests entirely on prose, and the one poet close to him wrote about him, not with him.",
+          "Armenian critics routinely call his prose lyrical, and the word needs explaining. It refers to the density of the writing: its sound patterns, its economy, the way an image carries a state of mind. It does not mean he was a poet. He was not. His standing rests entirely on prose.",
           "Restraint runs through everything. Scholars describe him bringing a plot to its end with a silent, unswerving pain, carrying a character's tragedy through the character and not in the author's own voice. He states very little and holds back a great deal, and the pressure in the writing comes from what goes unsaid.",
           "His visual method is distinctive. He does not give a face all at once when a character first appears; he scatters it through the story in pieces, and the reader puts it together. Surviving drafts show him revising single verbs for sound and precision. He uses dialogue unevenly and on purpose. Sometimes he leaves it out entirely, on the reasoning that people who share a routine have no need to speak. Sometimes, as in Կյորես, it is dense with idiom.",
           "The best single description of his texture comes from Avetik Isahakyan, not from a critic. Isahakyan wrote that these stories are so finely woven that past and present melt into one another, so that the memory becomes the present and the real present becomes a dream.",
@@ -2622,7 +2622,7 @@ export const writerArticles: Article[] = [
         paragraphs: [
           "Միրհավ, published on 6 June 1926 and sixth in the 1927 collection, is among his most anthologised works: an old man's memory of a love broken off by other people's decisions. The title is a bird — a pheasant, or in his own phrase the golden-feathered bird of dark forests. The word appears in neither the standard Armenian dictionaries nor the dialect dictionaries, and is known more or less only from this story; the linguist Hrach Martirosyan derives it from մայրի, forest, and հաւ, fowl. English has no settled title for it, and the 2009 translation calls it The Pheasant.",
           "Two more short stories come up regularly: Լառ-Մարգար, sixteenth in the 1927 collection, and Սպիտակ ձին, which is both a story and the title of a separately published book. The satirical novella Հովնաթան Մարչ of 1927 turns on the illusions of national romanticism. He translated Gogol's Taras Bulba in 1934, and in 1935 he translated forty of Vardan Aygektsi's medieval fables from classical Armenian.",
-          "He also wrote for the cinema and headed a scenario department. Three of his scenarios are documented — Սև թևի տակ, a tragedy set on Aragats, and Զանգեզուր, which he was working on in Moscow in the months before his arrest. A children's film scenario, Կարինե, was lost after August 1936.",
+          "He also wrote for the cinema and headed a scenario department. Three of his scenarios are documented — Սև թևի տակ; a tragedy set on Aragats, known by the working title Ալագյազ; and Զանգեզուր, which he was working on in Moscow in the months before his arrest. A children's film scenario, Կարինե, was lost after August 1936.",
           "Two large works were left unfinished, for different reasons. The novel Խաչատուր Աբովյան survives only as ten fragments. The epic Կարմրաքար, about the Armenian village, was already unfinished by Bakunts's own account in an autobiography of 1932. It was incomplete before his arrest, and the arrest should not be blamed for it. Beyond that, this archive found no itemised, documented list of destroyed manuscripts and does not claim one. What is certain is that much of his unpublished work did not survive him.",
         ],
       },
@@ -2668,7 +2668,7 @@ export const writerArticles: Article[] = [
         paragraphs: [
           "He was arrested at Yerevan on 9 August 1936. His investigation file, number 4131, runs to eight volumes and 384 documents. It was partly opened in the 1990s and has since been published and studied, so the dates can be given exactly.",
           "The indictment described a counter-revolutionary, Trotskyist and nationalist organisation and alleged a plot against the leadership. The word Trotskyist belongs in that formula and carried real weight in 1936. On 7 July 1937 the visiting session of the Military Collegium of the USSR Supreme Court, sitting in closed session, sentenced him to death. He was executed at Yerevan on 8 July 1937, aged thirty-eight. This article says nothing more about the execution: the details that circulate rest on single testimonies, and the sources that report them say so.",
-          "In 1937 his family was told that he had been exiled. A notice issued afterwards gave a false cause of death and a false date some years later. His wife was arrested in September 1937 and exiled for eight years.",
+          "In 1937 his family was told that he had been exiled. For years afterwards the family was given false information about his death. His wife was arrested in September 1937 and exiled for eight years.",
           "Three separate things followed, at three different dates, and they are often merged. Legal rehabilitation came on 2 March 1955, when the sentence was quashed because the elements of a crime were absent, and the case was closed. The year 1964, sometimes given for this, is the date of a two-volume edition of his works, not of the rehabilitation. Republication also began in 1955, with a volume of his works, and reached its scholarly form in the four-volume academic edition published by the Academy of Sciences from the 1970s. Public memorials came later still: the house-museum at Goris was founded in 1968 and formally opened on 17 September 1970. The diaspora had got there before all of this: his stories were printed in Paris in 1938, the year after his death.",
         ],
       },

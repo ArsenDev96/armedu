@@ -283,7 +283,7 @@ const SOURCES: Record<string, Source[]> = {
       publisher: "Longman, Brown, Green, and Longmans, London",
       year: "1845",
       identifier: { kind: "url", value: "https://archive.org/details/journeytoararat00parrgoog" },
-      note: "Parrot's own account of the 1829 ascent, on which Abovyan was his interpreter and companion.",
+      note: "Parrot's own account of the 1829 ascent, on which Abovyan was his guide and interpreter.",
     },
   ],
 
