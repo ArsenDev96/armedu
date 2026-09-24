@@ -273,5 +273,8 @@ test("the works listing filters by genre under a localized route", async ({ page
     "aria-pressed",
     "true",
   );
-  await expect(cards(page)).toHaveCount(2);
+  // Wounds of Armenia and The Fool held this filter alone until §103 added
+  // Yerkir Nairi as its third novel. Edited rather than derived on purpose,
+  // same reason as the writers count above.
+  await expect(cards(page)).toHaveCount(3);
 });

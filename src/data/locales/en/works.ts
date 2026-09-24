@@ -67,6 +67,28 @@ export const works: LiteraryWork[] = [
       "Eighteen stories of the Zangezur mountains — Bakunts's first book, and the one that made his name as a prose writer. Published at Yerevan in 1927 and translated into English as The Dark Valley.",
     imageSeed: "mtnadzor",
   },
+  {
+    slug: "baghdasar-aghbar",
+    title: "Baghdasar Aghbar",
+    author: "Hakob Paronyan",
+    publicationPeriod: "written 1886, staged 1895",
+    genre: "Comedy",
+    genreId: "drama",
+    summary:
+      "A prosperous Constantinople Armenian catches his wife with her lover and takes his case to the community's own tribunal — which rules that what he saw was only an optical illusion. Paronyan's only play, written in 1886 and first staged, after his death, in 1895.",
+    imageSeed: "baghdasar-aghbar",
+  },
+  {
+    slug: "yerkir-nairi",
+    title: "Land of Nairi",
+    author: "Yeghishe Charents",
+    publicationPeriod: "written 1921–1925, published 1926",
+    genre: "Modernist novel",
+    genreId: "novel",
+    summary:
+      "A satirical, self-consciously modern \"poem-like novel\" about the last years of Kars, Charents's own birthplace, told by a narrator who insists the city had no heroes. Written 1921–1925 and published in 1926; often called the first modernist Armenian novel.",
+    imageSeed: "yerkir-nairi",
+  },
 ];
 
 export const workGenres: Filter[] = [
@@ -75,4 +97,5 @@ export const workGenres: Filter[] = [
   { id: "novel", label: "Novels" },
   { id: "epic", label: "Epics" },
   { id: "short-stories", label: "Short stories" },
+  { id: "drama", label: "Drama" },
 ];

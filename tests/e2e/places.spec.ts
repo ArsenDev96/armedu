@@ -4822,8 +4822,10 @@ test("the four existing category listings still load and still count what they d
     // first on each.
     ["writers", 13, dict.listing.writers.title],
     // §101 moves Works 5 → 6 with Mtnadzor, the section's first short-story
-    // collection; same reason as the writers line above, edited not derived.
-    ["works", 6, dict.listing.works.title],
+    // collection; §102 moves it 6 → 7 with Baghdasar Aghbar, the section's first
+    // play; §103 moves it 7 → 8 with Yerkir Nairi. Same reason as the writers
+    // line above, edited not derived.
+    ["works", 8, dict.listing.works.title],
     // §67 moves Cuisine 6 → 7 with Spas, §70 moves it 7 → 8 with jingalov hats,
     // §72 moves it 8 → 9 with khash, §74 moves it 9 → 10 with matsun, §77 moves it
     // 10 → 11 with basturma and §79 moves it 11 → 12 with manti. Edited rather than

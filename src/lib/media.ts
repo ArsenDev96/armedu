@@ -1523,6 +1523,59 @@ export const PENDING_ARTWORK: readonly string[] = [
   "mtnadzor",
 
   /*
+   * §102 adds a second entry alongside it — for the first time since §61 the list
+   * holds two slugs at once, and this is the section's first *play*. `baghdasar-aghbar`
+   * shipped as prose only, on the same terms as every entry before it: the artwork is
+   * its own step and the generated placeholder renders until the file lands.
+   *
+   * The same rule that protected Mtnadzor applies here, restated because it is the
+   * specific way this entry could go wrong. **Paronyan's portrait must not be
+   * borrowed for it.** `writers/hakob-paronyan.webp` exists, it is
+   * `photo-referenced`, and it sits in the same `IMAGES` map — which makes reaching
+   * for it the path of least resistance and the wrong answer. A play is not its
+   * author's face, and a reader who met the same portrait on the Writers card and
+   * the Works card would reasonably conclude the two pages were about the same
+   * entity, which is exactly the confusion the article's second section exists to
+   * prevent.
+   *
+   * Art direction, recorded and not commissioned: a late-nineteenth-century
+   * Constantinople Armenian domestic interior, with Baghdasar as the central comic
+   * figure and a small ensemble around him carrying quiet tension rather than open
+   * conflict. Not a theatre stage, not a curtain, not a mask, not a production
+   * still or a stage photograph — the play's afterlife on stage belongs to the
+   * "on-the-armenian-stage" and "on-screen" sections, not to the illustration. Not
+   * an author portrait or a book-cover-style composition. No readable text of any
+   * kind.
+   */
+  "baghdasar-aghbar",
+
+  /*
+   * §103 adds a third entry — the Works section now has three slugs waiting at
+   * once, one more than at §102. `yerkir-nairi` shipped as prose only, on the
+   * same terms as every entry before it: the artwork is its own step and the
+   * generated placeholder renders until the file lands.
+   *
+   * The same rule stated for Mtnadzor and Baghdasar Aghbar applies here, restated
+   * because it is the specific way this entry could go wrong. **Charents's own
+   * portrait (`writers/yeghishe-charents.webp`, photo-referenced) must not be
+   * borrowed** as the novel's illustration. A poet's face is not his prose, and a
+   * reader who met the same portrait on the Writers card and this Work's card
+   * would reasonably conclude the two pages were about the same entity — the
+   * confusion the novel's own "the-title-and-nairi" and author-relation sections
+   * exist to keep separate.
+   *
+   * Art direction, recorded and not commissioned: an early-twentieth-century Kars
+   * street or civic square, plausible period architecture, small human figures
+   * rather than a single portrait subject, and a slightly unstable, faintly
+   * satirical atmosphere rather than a documentary streetscape — the picture
+   * should suggest memory and civic instability, not illustrate one scene from
+   * the book literally. No theatre-adjacent or Soviet-propaganda-collage
+   * treatment, no readable signage, and no graphic depiction of the war the
+   * novel's third part narrates.
+   */
+  "yerkir-nairi",
+
+  /*
    * §99 refills it for Writer #13. Aksel Bakunts's biography shipped without his
    * portrait, on the same terms as every entry before him: the artwork is a
    * separate step and the placeholder renders until it lands.

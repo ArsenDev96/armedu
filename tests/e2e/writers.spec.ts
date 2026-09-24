@@ -1070,6 +1070,10 @@ test("adding Narekatsi changed no existing writer, work or place", async ({ page
       // §101 appended the sixth. Appended, not inserted: the listing renders
       // works[0] as its featured item, so order is part of the claim.
       "mtnadzor",
+      // §102 appended the seventh.
+      "baghdasar-aghbar",
+      // §103 appended the eighth.
+      "yerkir-nairi",
     ]);
 
     // Cuisine is closed for v1 and Places are untouched by a Writers step.
@@ -1272,6 +1276,10 @@ test("the four collections are dated correctly and no Work slug is invented", as
       // §101 appended the sixth. Appended, not inserted: the listing renders
       // works[0] as its featured item, so order is part of the claim.
       "mtnadzor",
+      // §102 appended the seventh.
+      "baghdasar-aghbar",
+      // §103 appended the eighth.
+      "yerkir-nairi",
     ]);
     const slugs = new Set(bundle(locale).articles.map((a) => a.slug));
     for (const invented of [
@@ -1797,7 +1805,7 @@ test("adding Varoujan changed no existing writer, work, dish or place", async ({
     expect(b.articles.filter((a) => a.category === "cuisine").length, `${locale} cuisine`).toBe(12);
     expect(b.articles.filter((a) => a.category === "places").length, `${locale} places`).toBe(13);
     expect(b.articles.filter((a) => a.category === "history").length, `${locale} history`).toBe(7);
-    expect(b.works.length, `${locale} works`).toBe(6);
+    expect(b.works.length, `${locale} works`).toBe(8);
 
     // Narekatsi is as §82 left him, plus the one relation §61 authored: his own
     // book. The Varoujan step still changed nothing about him -- this is a later
@@ -2303,7 +2311,7 @@ test("Shnorhali's one relation is earned, and invents no Work slug", async ({ pa
       expect(workSlugs.has(invented), `${locale} ${invented} must not exist`).toBe(false);
       expect(article.relatedSlugs, `${locale} no relation to ${invented}`).not.toContain(invented);
     }
-    expect(bundle(locale).works.length, `${locale} Works after §101`).toBe(6);
+    expect(bundle(locale).works.length, `${locale} Works after §103`).toBe(8);
   }
 
   // Narekatsi was not edited for reciprocity with Shnorhali -- and still is not.
@@ -2342,7 +2350,7 @@ test("adding Shnorhali changed no existing writer, work, dish or place", async (
     expect(b.articles.filter((a) => a.category === "cuisine").length, `${locale} cuisine`).toBe(12);
     expect(b.articles.filter((a) => a.category === "places").length, `${locale} places`).toBe(13);
     expect(b.articles.filter((a) => a.category === "history").length, `${locale} history`).toBe(7);
-    expect(b.works.length, `${locale} works`).toBe(6);
+    expect(b.works.length, `${locale} works`).toBe(8);
 
     // Varoujan, closed one step earlier, is exactly as §85 left him.
     const varoujan = b.articles.find((a) => a.slug === VAROUJAN)!;
@@ -2598,6 +2606,10 @@ test("Siamanto's relations are earned, and no Work slug was invented for him", a
       // §101 appended the sixth. Appended, not inserted: the listing renders
       // works[0] as its featured item, so order is part of the claim.
       "mtnadzor",
+      // §102 appended the seventh.
+      "baghdasar-aghbar",
+      // §103 appended the eighth.
+      "yerkir-nairi",
     ]);
     const slugs = new Set(bundle(locale).articles.map((a) => a.slug));
     for (const invented of [
@@ -2912,7 +2924,7 @@ test("adding Siamanto changed no existing writer, work, dish, place or history a
     expect(b.articles.filter((a) => a.category === "cuisine").length, `${locale} cuisine`).toBe(12);
     expect(b.articles.filter((a) => a.category === "places").length, `${locale} places`).toBe(13);
     expect(b.articles.filter((a) => a.category === "history").length, `${locale} history`).toBe(7);
-    expect(b.works.length, `${locale} works`).toBe(6);
+    expect(b.works.length, `${locale} works`).toBe(8);
     expect(b.articles.filter((a) => a.category === "writers").length, `${locale} writers`).toBe(13);
 
     // Varoujan is exactly as §85 left him — relations included, and in particular
@@ -3200,19 +3212,22 @@ test("no unsupported schooling claim and no street-death mythology", () => {
   }
 });
 
-test("no Paronyan work was invented as a Work slug", () => {
+test("Baghdasar Aghbar exists as a Work now, and no other Paronyan title was invented", () => {
   /*
-    §94 is content only. His plays and the novel are named in prose and on the card,
-    and none of them is a link — the Works section still holds five entries and none
-    of them is his. A future step may add one; this one must not have.
+    §94 shipped content-only: his plays and the novel were named in prose and on
+    the card, none of them linked. §102 gives one of them — Պաղտասար աղբար — a real
+    Work entity, following the same sequence §101 used for Mtnadzor. The other
+    titles stay prose-only; the negative list below narrows to them rather than
+    disappearing, so a future step inventing one of *them* still goes red here.
   */
   for (const locale of LOCALES) {
     const b = bundle(locale);
     const works = b.articles.filter((a) => a.category === "works").map((a) => a.slug);
-    expect(works.length, `${locale} works count`).toBe(6);
+    expect(works.length, `${locale} works count`).toBe(8);
+    expect(works, `${locale} Baghdasar Aghbar is now a Work`).toContain("baghdasar-aghbar");
+
     for (const invented of [
       "uncle-baghdasar",
-      "baghdasar-aghbar",
       "national-bigshots",
       "azgayin-jojer",
       "honourable-beggars",
@@ -3222,8 +3237,14 @@ test("no Paronyan work was invented as a Work slug", () => {
       expect(works, `${locale} no invented Work "${invented}"`).not.toContain(invented);
     }
 
-    // And every slug he does point at is a real article in this edition.
+    // The new Work relates back to its author, and every slug Paronyan's own
+    // article points at — unchanged by this step — is still a real article.
     const slugs = new Set(b.articles.map((a) => a.slug));
+    expect(
+      b.articles.find((a) => a.slug === "baghdasar-aghbar")!.relatedSlugs,
+      `${locale} the Work relates to Paronyan`,
+    ).toContain(PARONYAN);
+
     const related = b.articles.find((a) => a.slug === PARONYAN)!.relatedSlugs;
     expect(related.length, `${locale} relations are restrained`).toBeLessThanOrEqual(3);
     for (const slug of related) {
@@ -3238,7 +3259,7 @@ test("adding Paronyan changed no existing writer, work, dish, place or history a
     const count = (category: string) => b.articles.filter((a) => a.category === category).length;
 
     expect(count("writers"), `${locale} writers`).toBe(13);
-    expect(count("works"), `${locale} works`).toBe(6);
+    expect(count("works"), `${locale} works`).toBe(8);
     expect(count("cuisine"), `${locale} cuisine`).toBe(12);
     expect(count("places"), `${locale} places`).toBe(13);
     expect(count("history"), `${locale} history`).toBe(7);
@@ -3797,7 +3818,7 @@ test("Նամուս and Պատվի համար are kept apart, and neither became 
       article as the candidate — and this step must not have.
     */
     const works = b.articles.filter((a) => a.category === "works").map((a) => a.slug);
-    expect(works.length, `${locale} works count`).toBe(6);
+    expect(works.length, `${locale} works count`).toBe(8);
     for (const invented of [
       "namus",
       "chaos",
@@ -3979,7 +4000,7 @@ test("adding Shirvanzade changed no existing writer, work, dish, place or histor
     const count = (category: string) => b.articles.filter((a) => a.category === category).length;
 
     expect(count("writers"), `${locale} writers`).toBe(13);
-    expect(count("works"), `${locale} works`).toBe(6);
+    expect(count("works"), `${locale} works`).toBe(8);
     expect(count("cuisine"), `${locale} cuisine`).toBe(12);
     expect(count("places"), `${locale} places`).toBe(13);
     expect(count("history"), `${locale} history`).toBe(7);
@@ -4472,7 +4493,7 @@ test("Mtnadzor is kept as four things and no Work entity is invented", () => {
       `${locale} Mtnadzor exists, as a Work`,
     ).toBe(true);
     expect(targets, `${locale} the biography still does not link to it`).not.toContain("mtnadzor");
-    expect(b.works.length, `${locale} Works is six`).toBe(6);
+    expect(b.works.length, `${locale} Works is eight`).toBe(8);
   }
 });
 
@@ -4537,7 +4558,7 @@ test("adding Bakunts changed no existing writer, work, dish, place or history ar
     expect(b.articles.filter((a) => a.category === "cuisine").length, `${locale} cuisine`).toBe(12);
     expect(b.articles.filter((a) => a.category === "places").length, `${locale} places`).toBe(13);
     expect(b.articles.filter((a) => a.category === "history").length, `${locale} history`).toBe(7);
-    expect(b.works.length, `${locale} works`).toBe(6);
+    expect(b.works.length, `${locale} works`).toBe(8);
     expect(b.articles.filter((a) => a.category === "writers").length, `${locale} writers`).toBe(13);
 
     // Paronyan is exactly as §96 left him, relations included — and in particular
@@ -4831,7 +4852,7 @@ test("registering the portrait changed nothing else in the archive", async ({ pa
 
     // Cross-category counts, unchanged.
     expect(b.articles.filter((a) => a.category === "writers").length, `${locale} writers`).toBe(13);
-    expect(b.works.length, `${locale} works`).toBe(6);
+    expect(b.works.length, `${locale} works`).toBe(8);
     expect(b.articles.filter((a) => a.category === "cuisine").length, `${locale} cuisine`).toBe(12);
     expect(b.articles.filter((a) => a.category === "places").length, `${locale} places`).toBe(13);
     expect(b.articles.filter((a) => a.category === "history").length, `${locale} history`).toBe(7);

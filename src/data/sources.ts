@@ -815,6 +815,79 @@ const SOURCES: Record<string, Source[]> = {
     },
   ],
 
+  /*
+   * `yerkir-nairi` is the section's first novel with a genuinely disputed
+   * publication date circulating in reference works — one widely mirrored
+   * encyclopedia entry gives 1924, against the 1926 book date this article
+   * follows (matching the chronology already established for Charents on this
+   * site and the majority of sources here). Sources 1 and 3 are cited for that
+   * conflict directly. Two entries (6 and 8) are cited specifically for what
+   * they do *not* establish — a translator name and a diaspora-critical
+   * consensus — because the article states those limits rather than papering
+   * over them, and the citation has to support the negative claim, not just a
+   * positive one.
+   */
+  "yerkir-nairi": [
+    {
+      title: "Երկիր Նաիրի (վեպ)",
+      publisher: "Հայկական Վիքիպեդիա, ըստ Հայկական հանրագիտարանի (encyclopedia.am)",
+      year: "consulted 2026",
+      identifier: { kind: "url", value: "https://hy.wikipedia.org/wiki/Երկիր_Նաիրի_(վեպ)" },
+      note: "The source of the article's three-part structure and their titles, the character list (Մազութի Համո and the gallery of local notables around him), the narrator's own line that the novel has no hero, and the discussion of Նաիրի as both the historical kingdom and the symbolic 'united, undivided homeland' the characters invoke. Also the source of the Երկիր Նայիրի spelling variant, which it prints without treating it as a separate title. Cited with one caution stated in the article itself: this entry dates the novel's composition to 1921–1924 and its publication to 1924, which conflicts with the 1926 book date most other sources and this site's own Charents chronology use — recorded here as the documented discrepancy the article names rather than adopted silently.",
+    },
+    {
+      title: "Yeghishe Charents",
+      publisher: "Wikipedia",
+      year: "consulted 2026",
+      identifier: { kind: "url", value: "https://en.wikipedia.org/wiki/Yeghishe_Charents" },
+      note: "Cited for the biographical anchor (Kars, 1897) and for two claims about the novel's afterlife not found elsewhere consulted: that it was translated into Russian and repeatedly republished in Moscow during Charents's lifetime, and that it was presented to delegates at the 1934 Soviet Writers' Congress by Maxim Gorky. Not cited for the composition/publication dates, which this article draws from the fuller record described above.",
+    },
+    {
+      author: "Աշոտ Ալեքսանյան",
+      title: "Եղիշե Չարենցի «Երկիր Նաիրին» և եվրոպական վիպական ավանդույթը",
+      publisher: "Գրանիշ (granish.org)",
+      year: "consulted 2026",
+      identifier: { kind: "url", value: "https://granish.org/erkir-nairin-ev-evropakan-vipakan-avanduyty/" },
+      note: "The source the modernist-form and narrator sections rest on. Alexanyan places the novel beside Musil, Broch, Joyce and Proust as a European modernist seeking new expressive forms without a wholesale break from narrative continuity; states the novel's own description of itself as having 'no hero — only a narrator,' passive before events he cannot shape and describing them as 'a turbid current, a river of darkness'; identifies the satirised nationalist intellectual as the target of a Musil-style comedy of ambition outrunning material reality; and notes the novel's self-description as a poem-like novel blending poetic and essayistic elements. Cited for a documented critical argument, not as evidence Charents read these European writers.",
+    },
+    {
+      title: "«Երկիր Նաիրի», Ա. Ալեքսանդրյան | Մարիետա Շահինյան մեջբերումով",
+      publisher: "Վիքիքաղվածք (hy.wikiquote.org), «Եղիշե Չարենց»",
+      year: "consulted 2026",
+      identifier: { kind: "url", value: "https://hy.wikiquote.org/wiki/Եղիշե_Չարենց" },
+      note: "The source of Marietta Shaginyan's characterisation of the novel as 'created in a Gogolian rhythm' (ստեղծված է գոգոլյան ռիթմով), quoted in the narrator section and among the interesting facts. Cited for that one line, not for a general account of the novel.",
+    },
+    {
+      title: "Land of Nairi, Where Are You?",
+      publisher: "Armenian National Institute / Aniarc (aniarc.am)",
+      year: "2015",
+      identifier: { kind: "url", value: "https://www.aniarc.am/2015/04/23/land-of-nairi-where-are-you/" },
+      note: "Cited for the passage on Kars's Arakelots church, which Charents compares to what the soul is to the body and to Notre-Dame for Parisians, and for its framing of Nairi as a name that reaches for a vanished world rather than a plain synonym for Armenia. This is the diaspora-facing source consulted for this article; it is descriptive rather than a scholarly critical study, and is cited only for that one passage and framing.",
+    },
+    {
+      author: "Լիլիթ Երանյան",
+      title: "Կորստից ազատվելու հզոր ձգտումը ըստ Եղիշե Չարենցի «Երկիր Նաիրի» վեպի",
+      publisher: "Գրանիշ (granish.org)",
+      year: "consulted 2026",
+      identifier: { kind: "url", value: "https://granish.org/korstic-azatvelu-dzktumy/" },
+      note: "Located as a second, independent piece of contemporary Armenian literary criticism on the novel, evidence that it remains a live subject of critical attention rather than a closed classic — cited for that fact of continued scholarly engagement, not for specific claims quoted in the article, since this article does not reproduce its argument in detail.",
+    },
+    {
+      title: "Երկիր Նաիրի: Land of Nairi",
+      publisher: "Google Play Books / Kobo",
+      year: "consulted 2026",
+      identifier: { kind: "url", value: "https://play.google.com/store/books/details?id=B1YQS3B8LhMC" },
+      note: "The evidence that an English-titled digital edition circulates commercially under Land of Nairi. Cited specifically for what it does not establish: neither this listing nor the parallel Kobo listing names a translator, a print publisher or an ISBN for a critical edition, which is why the article states the title's currency without asserting a canonical English translation's bibliographic details.",
+    },
+    {
+      title: "Երկիր Նաիրի [Yerkir Nairi]",
+      publisher: "Goodreads",
+      year: "consulted 2026",
+      identifier: { kind: "url", value: "https://www.goodreads.com/hy/book/show/13627472-yerkir-nairi" },
+      note: "A library-catalogue-style record used only to cross-check the title romanisation Yerkir Nairi against independent English-language usage outside Wikipedia, alongside the Yerkir Nayiri variant this article records as an alternative transliteration rather than a different title.",
+    },
+  ],
+
   /* ---------------------------------------------------------------- cuisine */
 
   /*

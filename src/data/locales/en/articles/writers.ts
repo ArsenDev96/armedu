@@ -207,6 +207,7 @@ export const writerArticles: Article[] = [
           "Rubaiyat and other quatrain cycles",
           "I love the sun-savoured word of my sweet Armenia, lyric poem, 1920–21",
         ],
+        links: [{ phrase: "The novel Land of Nairi", slug: "yerkir-nairi" }],
       },
       {
         id: "themes-and-style",
@@ -1959,6 +1960,7 @@ export const writerArticles: Article[] = [
           "That gap is worth keeping rather than collapsing into a single year, because it says something true about his position. A comedy written in Western Armenian about Constantinople Armenian life reached the stage first in the other half of the Armenian world, after its author was dead. The play's later career — continuous performance in the Armenian national repertoire — began without him.",
           "The comedy itself turns on a husband who is deceived, discovers it, and is then managed by everyone around him: a wife, her lover, a lawyer and a set of council members, each with an interest in how the situation is resolved. Armenian criticism has divided over whether Baghdasar is a fool exposed or a decent man surrounded by frauds, and the better readings treat that ambiguity as the design rather than a defect.",
         ],
+        links: [{ phrase: "Պաղտասար աղբար is his best-known play", slug: "baghdasar-aghbar" }],
       },
       {
         id: "national-bigshots",
