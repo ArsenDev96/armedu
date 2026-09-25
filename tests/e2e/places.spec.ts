@@ -3172,6 +3172,13 @@ test("no unrelated article artwork changed", () => {
     // `works.spec.ts` asserts. Extended by one line, every other value
     // byte-identical.
     "book-of-lamentations": "/images/works/book-of-lamentations.webp",
+    // §104 adds Works #6–#8 together — three independently audited covers that
+    // leave the Works section illustrated at eight and `PENDING_ARTWORK` empty
+    // archive-wide. None is a portrait, so none is in `PORTRAIT_PROVENANCE`, which
+    // `works.spec.ts` asserts. Three lines added, every other value byte-identical.
+    mtnadzor: "/images/works/mtnadzor.webp",
+    "baghdasar-aghbar": "/images/works/baghdasar-aghbar.webp",
+    "yerkir-nairi": "/images/works/yerkir-nairi.webp",
     lavash: "/images/cuisine/lavash.webp",
     dolma: "/images/cuisine/dolma.webp",
     khorovats: "/images/cuisine/khorovats.webp",

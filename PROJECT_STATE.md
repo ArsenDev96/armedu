@@ -1,7 +1,13 @@
 # Armat — Project State Report
 
-**Last updated:** 2026-08-25 (Matsun added as Cuisine #10 with a new Dairy type — artwork pending)
-**Repo:** `d:\armedu` · branch `seo`
+**Last updated:** 2026-09-25 (§105 — provenance/state documentation cleanup, after §104 registered the last three Work covers)
+**Repo:** `C:\Users\DoC\Desktop\armedu` · branch `writer`
+**Current state (read from source at §105):** Works **8**, Writers **13**, Cuisine **12**, Places
+**13**, History **7**, in each of `hy`, `hyw`, `en`. Artwork: every article illustrated — Works
+**8/8** registered, `PENDING_ARTWORK = []`. Portrait provenance: `photo-referenced` for Varoujan,
+Siamanto, Paronyan, Shirvanzade and Bakunts; every other writer (Charents included) `imagined`. The
+numbered sections below are dated records; §6 and §7 in particular describe the site as it was in
+July 2026 (23 articles per edition) and are superseded by this line.
 **Status:** Armenian-first multilingual site, complete in three editions and **live in
 production at [armat.site](https://armat.site)** (Vercel). Crawlable and indexable today.
 
@@ -25449,7 +25455,10 @@ manufacture one.
 `PENDING_ARTWORK` now holds **three** entries — `["mtnadzor", "baghdasar-aghbar", "yerkir-nairi"]`.
 Registered with the same hard rule stated for the two entries before it, restated because it is the
 specific way this one could go wrong: **Charents's own portrait
-(`writers/yeghishe-charents.webp`, photo-referenced) must not be borrowed.** Checked directly:
+(`writers/yeghishe-charents.webp`, photo-referenced) must not be borrowed.** *[§105 correction:
+"photo-referenced" is wrong — the registry records Charents's portrait as `imagined` (the default;
+no `PORTRAIT_PROVENANCE` entry), and always has. The original wording is kept above as written.]*
+Checked directly:
 `getImageSrc("yerkir-nairi")` is `undefined`; `getPortraitProvenance` returns `"imagined"`; no
 rendered `<img>` on the article page serves his portrait file; `og:image`/`twitter:image` fall back
 to the site default.
@@ -25591,3 +25600,195 @@ No artwork generated. No Work #9 started. No new Writer. No edit to Charents's o
 `links` annotation on an existing sentence). No edit to Baghdasar Aghbar, Mtnadzor, Book of
 Lamentations, or any other existing Work's content. No edit to Cuisine, Places, History, navigation
 or the map. No featured-policy change. No deployment.
+
+## §104 — Works #6–#8 artwork: audited independently and registered (2026-09-25)
+
+Three Work artworks landed together — `public/images/works/{mtnadzor,baghdasar-aghbar,yerkir-nairi}.webp`
+— and each was audited on its own, with an independent registration decision. **All three passed and
+are registered.** No image was regenerated, altered, optimised or renamed. No prose was touched.
+
+### Pre-state (read from source)
+
+Works 8, Writers 13, Cuisine 12, Places 13, History 7. `PENDING_ARTWORK` =
+`["mtnadzor", "baghdasar-aghbar", "yerkir-nairi"]`; the five older Work covers registered; the three
+new slugs absent from `IMAGES` and rendering the generated placeholder; no Writer portrait borrowed
+by any of them. The three files were present in the working tree, untracked.
+
+### Mtnadzor
+
+- **Technical:** 1586×992 (1.5988), 237,902 bytes, SHA-256
+  `e968c06e5f4024c6f47490d4a9cd189bbe0daf9e4a4522078d9b825cc5b154ef`. Valid RIFF/WEBP; one lossy
+  `VP8 ` chunk, no VP8X — no alpha, ICC, EXIF, XMP, animation or orientation. RIFF size header + 8
+  equals file length; the walker ends exactly at EOF; 0 trailing bytes. Custom RIFF walker and sharp
+  agree on every field.
+- **Visual:** a cobbled path along a dry-stone wall under a walnut tree, a few stone houses on the
+  slope, a forested limestone gorge opening onto misted ranges; one small figure (an old woman with a
+  staff and sack, seen from behind). Reads as the *collection's* inhabited highland, not the title
+  story: no bear, hunter, forest guard, weapon or animal; no Mirhav or Alpine Violet scene; no
+  specific Mtnadzor claimed. Overcast and restrained — not a tourism poster, not an idyllic postcard.
+  No portrait, no symbol collage, no Soviet imagery, no modern object.
+- **Text sweep:** full size, 2× quadrants, and path/houses/walls at 2–3×: nothing resolves.
+- **Artifacts:** figure anatomy, staff, sack, walls, roofs, ridges and trees coherent; no duplicated
+  forms.
+- **Crops:** 16:10, 16:9, 3:2, 4:3, 1:1, 208/160/128 square and 128×80 — the gorge structure and the
+  figure on the path survive every crop; at 128px it still reads as highland landscape plus human
+  presence.
+- **Reservation:** photographic rather than painterly finish (shared with the Narek cover, unlike the
+  four originals). Fails no gate.
+- **Decision: REGISTER.**
+
+### Baghdasar Aghbar
+
+- **Technical:** 1586×992, 153,152 bytes, SHA-256
+  `815189c7fd3b7912350f8d91ad2b715b379e6e5e02dff8f80c5b809948f62c5b`. Same structure: single lossy
+  `VP8 `, no VP8X or metadata, EOF exact, 0 trailing bytes.
+- **Visual:** a late-19th-century Constantinople sitting room — lace curtains, kilim-covered table with
+  coffee service, oil lamp, a window onto the Galata tower. Four figures in period urban dress:
+  Baghdasar central, hand on hip and fist at his waistcoat, glaring sideways — offended and
+  self-important, not clownish; an older woman wringing a handkerchief, a younger woman looking down
+  and away, a seated younger man with a folded newspaper holding his ground. Tension through glances
+  and spacing. **Domestic comedy: yes. Stage/caricature: no** — no curtain, mask, proscenium, poster
+  or slapstick.
+- **Text sweep:** the newspaper, the books on the footstool and the framed print read at 5×: ink
+  texture only. No signature or watermark.
+- **Artifacts:** hands (Baghdasar's two, both women's, the seated man's) have correct fingers; chairs,
+  table and cabinet geometry coherent; clothing period-plausible.
+- **Portrait gate:** Baghdasar's face is not Paronyan's (broad face, full dark hair, heavier
+  moustache); the framed wall print is not a portrait of him. The Galata view is a motif shared with
+  Paronyan's portrait, not a borrowed asset.
+- **Crops:** Baghdasar plus at least one supporting figure survive every ratio; at 128px it reads as a
+  historical domestic ensemble with a central figure.
+- **Decision: REGISTER.**
+
+### Yerkir Nairi
+
+- **Technical:** 1586×992, 174,188 bytes, SHA-256
+  `f189dc2e66af0e903d0d7c6c40c3892b8763a48a919445382aa3461bd787a2cb`. Same structure: single lossy
+  `VP8 `, no VP8X or metadata, EOF exact, 0 trailing bytes.
+- **Visual:** a thawing, muddy square in a stone-built provincial city under the Kars citadel, a
+  minaret and a colonnaded civic building behind; townspeople in fezzes, bowlers and shawls, a boy
+  with a sack, carts and horses, and a knot of men in greatcoats and uniform talking apart. The city
+  matters visually; the mood is uneasy and watchful. **Urban/modernist: yes. Battle/propaganda: no** —
+  no fighting, no raised weapons, no poster treatment, no Charents portrait, not a generic European
+  street or a fantasy town.
+- **Text sweep:** the weathered panel on the left building, the awning and its ironwork, the shop
+  fronts and the arcade read at 5–7×: nothing resolves; the bracket's curls are scrollwork, not
+  letters.
+- **Reservation:** the single flag on the citadel is plain red with no emblem at 7×. Recorded, not
+  failed: it carries no party or state symbol and no slogan.
+- **Artifacts:** crowd anatomy, horses, cart wheels, street lamp and façades coherent at article
+  scale; mid-crowd figures soft but not fused.
+- **Crops:** city structure plus a human grouping survive every ratio (square crops lose the citadel
+  but keep the square and the crowd); at 128px it reads as a historical urban scene with social
+  tension.
+- **Decision: REGISTER.**
+
+### Collection and borrowing
+
+No duplicate SHA among the eight Work files and the three Writer portraits; 16×16 perceptual distances
+show no near-copy. Three distinct archetypes — nature/rural landscape, urban domestic ensemble, urban
+outdoor civic scene — each distinct from Narek (interior, object-led), David (combat), Anush (single
+figure in landscape), Wounds (battle) and The Fool (single standing figure). No Writer portrait reused.
+
+### Registration
+
+- `IMAGES` gains `mtnadzor`, `baghdasar-aghbar`, `yerkir-nairi` → `/images/works/<slug>.webp`, with the
+  audit record beside them. No article-specific branch, no `PORTRAIT_PROVENANCE` entry.
+- `PENDING_ARTWORK` = **`[]`** — empty archive-wide. The three §101–§103 notes stay, each with a §104
+  "Resolved" line.
+
+### Surfaces verified (en / hy / hyw)
+
+- **Listing:** 8 cards, 8 own covers, 0 placeholders; each new card carries its own file, not the
+  author's portrait.
+- **Heroes:** each of the nine pages renders its own file, the localized alt, and the AI *illustration*
+  caption (not a portrait or placeholder caption).
+- **Search:** Mtnadzor / The Dark Valley / Մթնաձոր; Պաղտասար աղբար / Baghdasar Aghbar / Uncle
+  Baghdasar; Երկիր Նաիրի / Yerkir Nairi / Land of Nairi — each canonical hit carries the Work's file
+  and no portrait. Aksel Bakunts / Hakob Paronyan / Yeghishe Charents still return the Writer with
+  his own portrait.
+- **Metadata:** `og:image` and `twitter:image` are the exact Work file on all nine pages, in the dev
+  server and in the built HTML; `Article.image` stays undefined in the bundles — the registry is the
+  source, as for every other Work.
+- **Sitemap:** each of the nine URL blocks carries exactly one `<image:loc>` with its own file and no
+  portrait; Narek and the four originals keep theirs.
+
+### Content, Writers, older Works
+
+No article prose, chronology, sources, SEO, relations, genre or titles changed for any Work. Writers
+untouched: portraits, provenance (Bakunts and Paronyan `photo-referenced`, Charents the `imagined`
+default), biographies, search. Book of Lamentations and the four originals keep their artwork,
+metadata and sitemap entries.
+
+### Tests
+
+- `works.spec.ts`: pending-state assertions inverted (listing, registry, the Mtnadzor / Baghdasar /
+  Nairi artwork tests, OG, sitemap, "changed nothing else" blocks); `ARTWORK` gains the three files;
+  four new §104 tests (registry + empty pending + distinct files; heroes + captions; search incl.
+  writer portraits; OG/Twitter + per-block sitemap).
+- `places.spec.ts`: the registry snapshot gains three lines, every other value byte-identical.
+- Focused (works, listing, search, seo, article, writers): green after fixes — works + listing 87/87.
+- Full suite, run 1: 541 passed, 2 failed, 5 skipped (6.4 min) — the places registry snapshot
+  (genuine, fixed above) and the new search test timing out at 15 page loads within 30 s (timeout
+  raised to 120 s).
+- Full suite, run 2: **548 total — 540 passed, 3 failed, 5 skipped (6.5 min)**. The three failures
+  were an `ECONNRESET` on `/sitemap.xml` and two `page.goto` timeouts on search pages, all in
+  untouched `writers.spec.ts` tests; rerun on a fresh server (3002 confirmed free): **3/3 passed**.
+  The known cold-compile flake, not a regression.
+
+### Build
+
+`npm run build` exit 0, run after Playwright exited (3002 free; `.next` cleared before the browser
+runs). `/[locale]/works/[slug]` prerenders **24 routes** (8 works × 3 locales); the nine new pages
+carry their own `og:image` / `twitter:image`.
+
+### Diff
+
+`src/lib/media.ts` (+76 −3), `tests/e2e/works.spec.ts` (+219 −66), `tests/e2e/places.spec.ts` (+7),
+the three new WebP files, and this section. Every deletion is a pending-state assertion or its comment.
+Nothing staged. `.claude/settings.json` untouched.
+
+### Technical debt
+
+1. `PROJECT_STATE.md`'s header is still stale (carried from §99–§103).
+2. The §103 pending note in `media.ts` calls Charents's portrait "photo-referenced", but
+   `PORTRAIT_PROVENANCE` has no entry for him, so it reads `imagined`. Left as written (a prior note);
+   worth settling in a provenance pass.
+3. Style drift: three of the eight Work covers are photographic-realist, five painterly. No gate covers
+   it; a future commission brief could state the register.
+4. Search-heavy tests remain the ones most exposed to cold-compile timeouts in the full suite.
+
+### Not done
+
+No image regenerated. No Work #9. No Work prose or Writer biography edited. No deployment.
+
+## §105 — Provenance/state documentation cleanup (2026-09-25)
+
+Documentation only; no executable behaviour changed.
+
+- **Source of truth, read directly:** `getPortraitProvenance("yeghishe-charents")` → `imagined` (no
+  `PORTRAIT_PROVENANCE` entry; he reads the default). He has never had an entry — checked across
+  every revision of `media.ts` that touched the map. The `photo-referenced` list is exactly Varoujan,
+  Siamanto, Paronyan, Shirvanzade and Bakunts.
+- **Stale wording found:** two places called his portrait "photo-referenced" — the §103 pending note
+  in `src/lib/media.ts` and the §103 "Artwork: pending" paragraph here. Other hits for "Charents"
+  near provenance words were the *Charents Museum* credit on Shirvanzade's reference photograph
+  (unrelated) or already correct (§104's own record and test).
+- **Fixes:** the `media.ts` comment now says "an imagined editorial portrait — provenance `imagined`",
+  with a marked §105 correction. The §103 paragraph keeps its original wording, followed by an
+  italic *[§105 correction]*, per this file's convention of not rewriting dated records.
+  §104's technical-debt item 2 is resolved by this step.
+- **Header:** "Last updated 2026-08-25 · `d:\armedu` · branch `seo`" → 2026-09-25, the real path and
+  branch `writer`, plus a one-paragraph current-state line (counts, 8/8 Work covers,
+  `PENDING_ARTWORK = []`, provenance split) that marks §6/§7 as July-2026 snapshots. Those sections
+  and all other dated records are unchanged.
+- **Current state:** Works 8, Writers 13, Cuisine 12, Places 13, History 7 in all three editions;
+  Works 8/8 illustrated (`mtnadzor`, `baghdasar-aghbar`, `yerkir-nairi` at their §104 paths);
+  `PENDING_ARTWORK = []`.
+- **Verification:** `npx tsc --noEmit` green; a direct read of the registry confirms the counts, the
+  eight Work paths, the empty pending list and the provenance split above; Writer and Work
+  provenance tests in `works.spec.ts` and `writers.spec.ts` rerun green. No full suite: no executable
+  source changed.
+- **Diff scope:** `src/lib/media.ts` (one comment) and `PROJECT_STATE.md` (header, one annotation,
+  this entry), on top of the uncommitted §104 changes. No content, SEO, relations, artwork, captions
+  or tests changed. No Work #9. No deployment.

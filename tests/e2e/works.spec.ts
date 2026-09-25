@@ -65,7 +65,18 @@ const ARTWORK: Record<string, string> = {
   "the-fool": "/images/works/the-fool.webp",
   "david-of-sassoun": "/images/works/david-of-sassoun.webp",
   [NAREK]: "/images/works/book-of-lamentations.webp",
+  // §104: the three works written ahead of their pictures at §101–§103.
+  [MTNADZOR]: "/images/works/mtnadzor.webp",
+  [BAGHDASAR]: "/images/works/baghdasar-aghbar.webp",
+  [NAIRI]: "/images/works/yerkir-nairi.webp",
 };
+
+/** Each §104 work beside the Writer whose portrait it must never borrow. */
+const NEW_ARTWORK: readonly [string, string][] = [
+  [MTNADZOR, BAKUNTS],
+  [BAGHDASAR, PARONYAN],
+  [NAIRI, CHARENTS],
+];
 
 /**
  * Artwork filenames, for asserting against rendered `src` attributes.
@@ -509,45 +520,21 @@ test("the works listing shows six works in every edition", async ({ page }) => {
       §61 asserted exactly one placeholder here and named it; §63 asserted none,
       the same claim inverted; §101 returned it to one, because Mtnadzor was
       written ahead of its picture; §102 made it two with Baghdasar Aghbar; §103
-      makes it three with Yerkir Nairi. A count alone would also be satisfied by
-      the wrong cards having lost their covers, so all three placeholders are
-      located as well as counted: they must be inside the Mtnadzor, Baghdasar
-      Aghbar and Yerkir Nairi cards and nowhere else on the page.
+      makes it three with Yerkir Nairi. §104 registers all three and inverts it
+      once more: no placeholder anywhere on the page, and each of the three cards
+      located and checked for its own file — a count of zero alone would also pass
+      if a card had lost its image altogether.
     */
-    const pending = cards(page).filter({ hasText: articleTitle(locale, MTNADZOR) });
-    await expect(pending, `${locale} the pending card is present`).toHaveCount(1);
-    const pendingPlay = cards(page).filter({ hasText: articleTitle(locale, BAGHDASAR) });
-    await expect(pendingPlay, `${locale} the second pending card is present`).toHaveCount(1);
-    const pendingNovel = cards(page).filter({ hasText: articleTitle(locale, NAIRI) });
-    await expect(pendingNovel, `${locale} the third pending card is present`).toHaveCount(1);
     await expect(
       page.getByRole("main").locator("svg[role='img']"),
-      `${locale} exactly three placeholders remain`,
-    ).toHaveCount(3);
-    await expect(
-      pending.locator("svg[role='img']"),
-      `${locale} one is Mtnadzor's`,
-    ).toHaveCount(1);
-    await expect(
-      pendingPlay.locator("svg[role='img']"),
-      `${locale} the second is Baghdasar Aghbar's`,
-    ).toHaveCount(1);
-    await expect(
-      pendingNovel.locator("svg[role='img']"),
-      `${locale} the third is Yerkir Nairi's`,
-    ).toHaveCount(1);
-    await expect(
-      pending.locator(`img[src*="${BAKUNTS}"]`),
-      `${locale} the pending card borrows no portrait`,
+      `${locale} no placeholder remains`,
     ).toHaveCount(0);
-    await expect(
-      pendingPlay.locator(`img[src*="${PARONYAN}"]`),
-      `${locale} Baghdasar Aghbar's card borrows no portrait`,
-    ).toHaveCount(0);
-    await expect(
-      pendingNovel.locator(`img[src*="${CHARENTS}"]`),
-      `${locale} Yerkir Nairi's card borrows no portrait`,
-    ).toHaveCount(0);
+    for (const [slug, writer] of NEW_ARTWORK) {
+      const own = cards(page).filter({ hasText: articleTitle(locale, slug) });
+      await expect(own, `${locale} ${slug} card is present`).toHaveCount(1);
+      await expect(own.locator(`img[src*="${FILE[slug]}"]`), `${locale} ${slug} own cover`).toHaveCount(1);
+      await expect(own.locator(`img[src*="${writer}"]`), `${locale} ${slug} borrows no portrait`).toHaveCount(0);
+    }
 
     // And the new card carries its own cover, not a neighbour's and not the
     // author's portrait.
@@ -764,10 +751,15 @@ test("adding the fifth work changed no other section", () => {
       a count, so it fails both ways — if Mtnadzor quietly acquires a file without the
       entry coming off, and if some other work loses its picture.
     */
+    /*
+      §104 empties it again: the three waits §101–§103 declared are registered, and
+      the section is fully illustrated for the second time.
+    */
     expect(
       [...PENDING_ARTWORK].filter((slug) => (SLUGS as readonly string[]).includes(slug)),
-      "§103 adds a third wait: Mtnadzor, Baghdasar Aghbar and Yerkir Nairi, and only those three",
-    ).toEqual([MTNADZOR, BAGHDASAR, NAIRI]);
+      "no work is waiting for a picture",
+    ).toEqual([]);
+    expect(Object.keys(ARTWORK).sort(), "every work has a cover").toEqual([...SLUGS].sort());
   }
 
   // The listing dictionaries were not touched to make room for it.
@@ -1060,14 +1052,17 @@ test("no child work was invented for any story or place in the book", () => {
   }
 });
 
-test("the work is waiting for its own artwork and borrows nobody's", () => {
+test("the work owns its artwork and borrows nobody's", () => {
   /*
     The specific failure this guards is reaching one line up in `IMAGES` for
     `writers/aksel-bakunts.webp`, which exists, is photo-referenced, and is the
     obvious thing to hand a Work about his book. A book is not its author's face.
+
+    §101 asserted the wait; §104 asserts its end — the collection's own file
+    registered, the slug off the pending list — and keeps every borrowing check.
   */
-  expect(getImageSrc(MTNADZOR), "no file is registered").toBeUndefined();
-  expect(PENDING_ARTWORK, "the wait is declared").toContain(MTNADZOR);
+  expect(getImageSrc(MTNADZOR), "its own file is registered").toBe(ARTWORK[MTNADZOR]);
+  expect(PENDING_ARTWORK, "and the wait is over").not.toContain(MTNADZOR);
 
   // Nothing that already exists was pointed at it.
   const bakuntsPortrait = getImageSrc(BAKUNTS);
@@ -1235,13 +1230,16 @@ test("metadata says which Mtnadzor this is, and advertises no borrowed image", a
     expect(description, `${locale} names the year of the book`).toContain("1927");
 
     /*
-      Artwork is pending, so the share image must be the archive's fallback — and
-      above all must not be the author's portrait, which is the one file that would
-      look plausible here and would tell a crawler this page is about a person.
+      §101 asserted the fallback while the artwork was pending; §104 asserts the
+      collection's own file. Above all it must not be the author's portrait, which
+      is the one file that would look plausible here and would tell a crawler this
+      page is about a person.
     */
     for (const property of ['meta[property="og:image"]', 'meta[name="twitter:image"]']) {
       const content = (await page.locator(property).first().getAttribute("content")) ?? "";
-      expect(content, `${locale} ${property} is the fallback`).toContain("/og-default.png");
+      expect(content, `${locale} ${property} is the work's artwork`).toBe(
+        `https://armat.site${ARTWORK[MTNADZOR]}`,
+      );
       expect(content, `${locale} ${property} borrows no portrait`).not.toContain(BAKUNTS);
       for (const borrowed of PRE_EXISTING_ARTWORK) {
         expect(content, `${locale} ${property} borrows no cover`).not.toContain(borrowed);
@@ -1256,11 +1254,13 @@ test("metadata says which Mtnadzor this is, and advertises no borrowed image", a
   }
 });
 
-test("the sitemap lists all three editions and advertises no image", async ({ request }) => {
+test("the sitemap lists all three editions and advertises the collection's own image", async ({
+  request,
+}) => {
   /*
-    The inversion of the Narek's sitemap test. While artwork is pending the entry
-    must carry no `image:loc` at all — an image crawler handed a 404, or handed the
-    author's portrait under this URL, is a failure nothing on the page would show.
+    §101 asserted no `image:loc` while the artwork was pending; §104 asserts the
+    file, block by block — an image crawler handed a 404, or handed the author's
+    portrait under this URL, is a failure nothing on the page would show.
   */
   const xml = await (await request.get("/sitemap.xml")).text();
   const blocks = xml.split("<url>").slice(1);
@@ -1268,7 +1268,9 @@ test("the sitemap lists all three editions and advertises no image", async ({ re
   for (const locale of LOCALES) {
     const block = blocks.find((entry) => entry.includes(`/${locale}/works/${MTNADZOR}</loc>`));
     expect(block, `${locale} has a sitemap entry`).toBeDefined();
-    expect(block, `${locale} advertises no image yet`).not.toContain("<image:loc>");
+    expect(block, `${locale} advertises its own image`).toContain(
+      `<image:loc>https://armat.site${ARTWORK[MTNADZOR]}</image:loc>`,
+    );
     expect(block, `${locale} borrows no portrait`).not.toContain(BAKUNTS);
   }
 
@@ -1441,9 +1443,10 @@ test("Մեծապատիվ մուրացկաններ and Ազգային ջոջեր 
   }
 });
 
-test("the play is waiting for its own artwork and borrows nobody's portrait", async ({ page }) => {
-  expect(getImageSrc(BAGHDASAR), "no file is registered").toBeUndefined();
-  expect(PENDING_ARTWORK, "the wait is declared").toContain(BAGHDASAR);
+test("the play owns its artwork and borrows nobody's portrait", async ({ page }) => {
+  // §102 asserted the wait; §104 registers the play's own file.
+  expect(getImageSrc(BAGHDASAR), "its own file is registered").toBe(ARTWORK[BAGHDASAR]);
+  expect(PENDING_ARTWORK, "and the wait is over").not.toContain(BAGHDASAR);
   expect(getPortraitProvenance(BAGHDASAR), "a work has no portrait provenance").toBe("imagined");
 
   const paronyanPortrait = getImageSrc(PARONYAN);
@@ -1465,7 +1468,9 @@ test("the play is waiting for its own artwork and borrows nobody's portrait", as
     }
     for (const property of ['meta[property="og:image"]', 'meta[name="twitter:image"]']) {
       const content = (await page.locator(property).first().getAttribute("content")) ?? "";
-      expect(content, `${locale} ${property} is the fallback`).toContain("/og-default.png");
+      expect(content, `${locale} ${property} is the play's artwork`).toBe(
+        `https://armat.site${ARTWORK[BAGHDASAR]}`,
+      );
       expect(content, `${locale} ${property} borrows no portrait`).not.toContain(
         String(paronyanPortrait),
       );
@@ -1493,10 +1498,10 @@ test("adding the seventh work changed nothing else", () => {
       expect(PENDING_ARTWORK, `${slug} did not become pending`).not.toContain(slug);
     }
 
-    // Mtnadzor specifically: still pending, still a short-story collection,
-    // still related to Bakunts and no one else, untouched by this step.
-    expect(getImageSrc(MTNADZOR), `${locale} Mtnadzor artwork still pending`).toBeUndefined();
-    expect(PENDING_ARTWORK, `${locale} Mtnadzor still waiting`).toContain(MTNADZOR);
+    // Mtnadzor specifically: still a short-story collection, still related to
+    // Bakunts and no one else. Its artwork, pending at §102, is its own since §104.
+    expect(getImageSrc(MTNADZOR), `${locale} Mtnadzor artwork`).toBe(ARTWORK[MTNADZOR]);
+    expect(PENDING_ARTWORK, `${locale} Mtnadzor not waiting`).not.toContain(MTNADZOR);
     expect(work(locale, MTNADZOR).genreId, `${locale} Mtnadzor genre unmoved`).toBe(
       "short-stories",
     );
@@ -1713,9 +1718,10 @@ test("Charents's arrest and death are kept chronologically separate from the nov
   }
 });
 
-test("the novel is waiting for its own artwork and borrows nobody's portrait", async ({ page }) => {
-  expect(getImageSrc(NAIRI), "no file is registered").toBeUndefined();
-  expect(PENDING_ARTWORK, "the wait is declared").toContain(NAIRI);
+test("the novel owns its artwork and borrows nobody's portrait", async ({ page }) => {
+  // §103 asserted the wait; §104 registers the novel's own file.
+  expect(getImageSrc(NAIRI), "its own file is registered").toBe(ARTWORK[NAIRI]);
+  expect(PENDING_ARTWORK, "and the wait is over").not.toContain(NAIRI);
   expect(getPortraitProvenance(NAIRI), "a work has no portrait provenance").toBe("imagined");
 
   const charentsPortrait = getImageSrc(CHARENTS);
@@ -1733,7 +1739,9 @@ test("the novel is waiting for its own artwork and borrows nobody's portrait", a
     }
     for (const property of ['meta[property="og:image"]', 'meta[name="twitter:image"]']) {
       const content = (await page.locator(property).first().getAttribute("content")) ?? "";
-      expect(content, `${locale} ${property} is the fallback`).toContain("/og-default.png");
+      expect(content, `${locale} ${property} is the novel's artwork`).toBe(
+        `https://armat.site${ARTWORK[NAIRI]}`,
+      );
       expect(content, `${locale} ${property} borrows no portrait`).not.toContain(
         String(charentsPortrait),
       );
@@ -1761,11 +1769,12 @@ test("adding the eighth work changed nothing else", () => {
       expect(PENDING_ARTWORK, `${slug} did not become pending`).not.toContain(slug);
     }
 
-    // Mtnadzor and Baghdasar Aghbar specifically: still pending, untouched.
-    expect(getImageSrc(MTNADZOR), `${locale} Mtnadzor artwork still pending`).toBeUndefined();
-    expect(PENDING_ARTWORK, `${locale} Mtnadzor still waiting`).toContain(MTNADZOR);
-    expect(getImageSrc(BAGHDASAR), `${locale} Baghdasar artwork still pending`).toBeUndefined();
-    expect(PENDING_ARTWORK, `${locale} Baghdasar still waiting`).toContain(BAGHDASAR);
+    // Mtnadzor and Baghdasar Aghbar specifically: pending at §103, illustrated
+    // since §104, otherwise untouched.
+    expect(getImageSrc(MTNADZOR), `${locale} Mtnadzor artwork`).toBe(ARTWORK[MTNADZOR]);
+    expect(PENDING_ARTWORK, `${locale} Mtnadzor not waiting`).not.toContain(MTNADZOR);
+    expect(getImageSrc(BAGHDASAR), `${locale} Baghdasar artwork`).toBe(ARTWORK[BAGHDASAR]);
+    expect(PENDING_ARTWORK, `${locale} Baghdasar not waiting`).not.toContain(BAGHDASAR);
     expect(article(locale, BAGHDASAR).relatedSlugs, `${locale} Baghdasar relations unmoved`).toEqual(
       ["hakob-paronyan"],
     );
@@ -1808,5 +1817,149 @@ test("the novel carries a real, chronology-scoped bibliography", () => {
   expect(sources.length, "at least seven sources").toBeGreaterThanOrEqual(7);
   for (const source of sources) {
     expect(source.identifier?.value, `"${source.title}" has an identifier`).toBeTruthy();
+  }
+});
+
+/* -------------------------------------------------------------------------- */
+/*  §104 — Artwork for Works #6–#8                                            */
+/* -------------------------------------------------------------------------- */
+
+/*
+ * The three Works written ahead of their pictures at §101–§103 were audited one at
+ * a time and all three registered. The tests below check every surface that reads
+ * `IMAGES` — hero, listing (above), search, metadata, sitemap — for each of the
+ * three, and pair each with the one Writer portrait it would be most tempting to
+ * borrow.
+ */
+
+test("§104: the registry holds all eight covers and nothing is pending", () => {
+  for (const slug of SLUGS) {
+    expect(getImageSrc(slug), `${slug} resolves to its own file`).toBe(ARTWORK[slug]);
+    expect(PENDING_ARTWORK, `${slug} is not pending`).not.toContain(slug);
+    expect(getPortraitProvenance(slug), `${slug} is not a portrait`).toBe("imagined");
+  }
+  expect([...PENDING_ARTWORK], "the pending list is empty archive-wide").toEqual([]);
+
+  // No two works share a file, and no work points into the Writers folder.
+  const files = SLUGS.map((slug) => getImageSrc(slug));
+  expect(new Set(files).size, "eight distinct files").toBe(8);
+  for (const file of files) {
+    expect(String(file), `${file} is a works file`).toMatch(/^\/images\/works\//);
+  }
+
+  // The three Writers keep their own portraits and provenance, exactly as before.
+  // Charents's portrait predates `PORTRAIT_PROVENANCE` and reads the default.
+  const provenance: Record<string, string> = {
+    [BAKUNTS]: "photo-referenced",
+    [PARONYAN]: "photo-referenced",
+    [CHARENTS]: "imagined",
+  };
+  for (const [, writer] of NEW_ARTWORK) {
+    expect(getImageSrc(writer), `${writer} portrait`).toBe(`/images/writers/${writer}.webp`);
+    expect(getPortraitProvenance(writer), `${writer} provenance`).toBe(provenance[writer]);
+  }
+
+  // The article bundles declare no image of their own: the registry is the source.
+  for (const locale of LOCALES) {
+    for (const [slug] of NEW_ARTWORK) {
+      expect(article(locale, slug).image, `${locale} ${slug} no content image`).toBeUndefined();
+    }
+  }
+});
+
+test("§104: each hero renders the work's own file, captioned as an illustration", async ({ page }) => {
+  for (const [slug, writer] of NEW_ARTWORK) {
+    for (const locale of LOCALES) {
+      await page.goto(`/${locale}/works/${slug}`);
+      const figure = page.getByRole("main").locator("figure").first();
+      const hero = figure.locator("img").first();
+
+      await expect(figure.locator("svg[role='img']"), `${locale} ${slug} no placeholder`).toHaveCount(0);
+      await expect(figure.locator(`img[src*="${FILE[slug]}"]`), `${locale} ${slug} hero src`).toHaveCount(1);
+      await expect(figure.locator(`img[src*="${writer}"]`), `${locale} ${slug} not the portrait`).toHaveCount(0);
+
+      const title = articleTitle(locale, slug);
+      await expect(hero, `${locale} ${slug} localized alt`).toHaveAttribute(
+        "alt",
+        ui(locale).article.imageAlt.replace("{title}", title),
+      );
+      await expect(figure.locator("figcaption"), `${locale} ${slug} AI illustration caption`).toHaveText(
+        ui(locale).article.imageAiIllustrationCaption.replace("{title}", title),
+      );
+    }
+  }
+});
+
+test("§104: search hits carry the work's own artwork; writer hits keep their portraits", async ({
+  page,
+}) => {
+  // Fifteen search pages in one test; the 30 s default is sized for one or two.
+  test.setTimeout(120_000);
+  const queries: [string, string, string][] = [
+    [MTNADZOR, "en", "Mtnadzor"],
+    [MTNADZOR, "en", "The Dark Valley"],
+    [MTNADZOR, "hy", "Մթնաձոր"],
+    [MTNADZOR, "hyw", "Մթնաձոր"],
+    [BAGHDASAR, "hy", "Պաղտասար աղբար"],
+    [BAGHDASAR, "hyw", "Պաղտասար աղբար"],
+    [BAGHDASAR, "en", "Baghdasar Aghbar"],
+    [BAGHDASAR, "en", "Uncle Baghdasar"],
+    [NAIRI, "hy", "Երկիր Նաիրի"],
+    [NAIRI, "hyw", "Երկիր Նաիրի"],
+    [NAIRI, "en", "Yerkir Nairi"],
+    [NAIRI, "en", "Land of Nairi"],
+  ];
+  for (const [slug, locale, query] of queries) {
+    await page.goto(`/${locale}/search?q=${encodeURIComponent(query)}`);
+    const hit = page.locator(`main li:has(a[href="/${locale}/works/${slug}"])`).first();
+    await expect(hit, `${locale} "${query}" finds ${slug}`).toHaveCount(1);
+    await expect(hit.locator("svg[role='img']"), `${locale} "${query}" no placeholder`).toHaveCount(0);
+    await expect(hit.locator(`img[src*="${FILE[slug]}"]`), `${locale} "${query}" own artwork`).toHaveCount(1);
+    await expect(hit.locator('img[src*="writers"]'), `${locale} "${query}" no portrait`).toHaveCount(0);
+  }
+
+  for (const [slug, writer] of NEW_ARTWORK) {
+    const name = bundle("en").writers.find((w) => w.slug === writer)!.name;
+    await page.goto(`/en/search?q=${encodeURIComponent(name)}`);
+    const hit = page.locator(`main li:has(a[href="/en/writers/${writer}"])`).first();
+    await expect(hit, `"${name}" finds the writer`).toHaveCount(1);
+    await expect(hit.locator(`img[src*="${writer}.webp"]`), `"${name}" keeps the portrait`).toHaveCount(1);
+    await expect(hit.locator(`img[src*="${FILE[slug]}"]`), `"${name}" not the work's cover`).toHaveCount(0);
+  }
+});
+
+test("§104: OG, Twitter and sitemap advertise each work's own file, per edition", async ({
+  page,
+  request,
+}) => {
+  for (const [slug, writer] of NEW_ARTWORK) {
+    for (const locale of LOCALES) {
+      await page.goto(`/${locale}/works/${slug}`);
+      for (const property of ['meta[property="og:image"]', 'meta[name="twitter:image"]']) {
+        const content = (await page.locator(property).first().getAttribute("content")) ?? "";
+        expect(content, `${locale} ${slug} ${property}`).toBe(`https://armat.site${ARTWORK[slug]}`);
+        expect(content, `${locale} ${slug} ${property} no portrait`).not.toContain(writer);
+      }
+    }
+  }
+
+  const xml = await (await request.get("/sitemap.xml")).text();
+  const blocks = xml.split("<url>").slice(1);
+  for (const [slug, writer] of NEW_ARTWORK) {
+    for (const locale of LOCALES) {
+      const block = blocks.find((entry) => entry.includes(`/${locale}/works/${slug}</loc>`));
+      expect(block, `${locale} ${slug} has a sitemap entry`).toBeDefined();
+      expect(block, `${locale} ${slug} advertises its own image`).toContain(
+        `<image:loc>https://armat.site${ARTWORK[slug]}</image:loc>`,
+      );
+      expect(block!.match(/<image:loc>/g)?.length, `${locale} ${slug} exactly one image`).toBe(1);
+      expect(block, `${locale} ${slug} borrows no portrait`).not.toContain(writer);
+    }
+  }
+
+  // Book of Lamentations and the four originals keep their sitemap images.
+  for (const slug of [NAREK, ...PRE_EXISTING]) {
+    const block = blocks.find((entry) => entry.includes(`/en/works/${slug}</loc>`));
+    expect(block, `${slug} still advertises its image`).toContain(ARTWORK[slug]);
   }
 });
