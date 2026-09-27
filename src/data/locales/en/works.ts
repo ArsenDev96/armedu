@@ -89,6 +89,28 @@ export const works: LiteraryWork[] = [
       "A satirical, self-consciously modern \"poem-like novel\" about the last years of Kars, Charents's own birthplace. Its narrator insists the city had no heroes. Written in 1921–1925 and published in 1926, it is often called the first modernist Armenian novel.",
     imageSeed: "yerkir-nairi",
   },
+  {
+    slug: "abu-lala-mahari",
+    title: "Abu-Lala Mahari",
+    author: "Avetik Isahakyan",
+    publicationPeriod: "written 1909–1911, published 1911",
+    genre: "Philosophical poem",
+    genreId: "poetry",
+    summary:
+      "A famous poet of Baghdad, named after the Arab poet al-Maʿarrī but not a portrait of him, gives away his wealth and leads his caravan into the desert, renouncing one social bond after another. A major philosophical poem by Isahakyan, a meditation on freedom and its cost.",
+    imageSeed: "abu-lala-mahari",
+  },
+  {
+    slug: "chaos",
+    title: "Chaos",
+    author: "Alexander Shirvanzade",
+    publicationPeriod: "written 1896–1897, published 1898",
+    genre: "Realist novel",
+    genreId: "novel",
+    summary:
+      "An oil magnate dies in a boom-town on the Caspian, and his will sets his family against itself. Shirvanzade's novel of Baku's new money, and what it does to inheritance, marriage and family authority.",
+    imageSeed: "chaos",
+  },
 ];
 
 export const workGenres: Filter[] = [

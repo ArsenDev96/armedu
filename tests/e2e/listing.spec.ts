@@ -274,7 +274,7 @@ test("the works listing filters by genre under a localized route", async ({ page
     "true",
   );
   // Wounds of Armenia and The Fool held this filter alone until §103 added
-  // Yerkir Nairi as its third novel. Edited rather than derived on purpose,
-  // same reason as the writers count above.
-  await expect(cards(page)).toHaveCount(3);
+  // Yerkir Nairi as its third novel; §108 adds Chaos as the fourth. Edited rather
+  // than derived on purpose, same reason as the writers count above.
+  await expect(cards(page)).toHaveCount(4);
 });

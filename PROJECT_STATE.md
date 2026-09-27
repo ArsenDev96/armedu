@@ -1,10 +1,10 @@
 # Armat — Project State Report
 
-**Last updated:** 2026-09-25 (§105 — provenance/state documentation cleanup, after §104 registered the last three Work covers)
+**Last updated:** 2026-09-27 (§112 — micro-cleanup: Chaos superlative, Shirvanzade period wording, HYW reference term; §111 test total corrected)
 **Repo:** `C:\Users\DoC\Desktop\armedu` · branch `writer`
-**Current state (read from source at §105):** Works **8**, Writers **13**, Cuisine **12**, Places
-**13**, History **7**, in each of `hy`, `hyw`, `en`. Artwork: every article illustrated — Works
-**8/8** registered, `PENDING_ARTWORK = []`. Portrait provenance: `photo-referenced` for Varoujan,
+**Current state (read from source at §110):** Works **10**, Writers **13**, Cuisine **12**, Places
+**13**, History **7**, in each of `hy`, `hyw`, `en`. Artwork: Works **10/10** registered,
+`PENDING_ARTWORK = []`; every article illustrated. Portrait provenance: `photo-referenced` for Varoujan,
 Siamanto, Paronyan, Shirvanzade and Bakunts; every other writer (Charents included) `imagined`. The
 numbered sections below are dated records; §6 and §7 in particular describe the site as it was in
 July 2026 (23 articles per edition) and are superseded by this line.
@@ -25792,3 +25792,726 @@ Documentation only; no executable behaviour changed.
 - **Diff scope:** `src/lib/media.ts` (one comment) and `PROJECT_STATE.md` (header, one annotation,
   this entry), on top of the uncommitted §104 changes. No content, SEO, relations, artwork, captions
   or tests changed. No Work #9. No deployment.
+
+## §106 — Work #9: «Աբու-Լալա Մահարի» (Abu-Lala Mahari), Avetik Isahakyan's poem, in all three editions (2026-09-27)
+
+Content-only step. No artwork generated, no Work #10, no new Writer, no deployment.
+
+### Pre-state and git safety
+
+Read from source: Works 8, Writers 13, Cuisine 12, Places 13, History 7; Works 8/8 illustrated;
+`PENDING_ARTWORK = []`. The brief expected Steps 77/78 (§104/§105) to be uncommitted; they were in
+fact already committed in `4c6aa09` ("add images") and `git status` was clean. So there were no
+pre-existing uncommitted changes to preserve, and every change in the working tree is this step's.
+Nothing was staged, reset or restored.
+
+### Repository audit
+
+Isahakyan's biography already names the poem in all three editions, unhyphenated ("Abu Lala Mahari",
+«Աբու Լալա Մահարի»): a `major-works` paragraph dating it 1909–1911, a bullet, key facts, a
+"1911: completes it" date, and his card's `notableWorks`. There was no Work entity, no source, no
+slug, no test guard and no pending entry. §99's SERP table lists "Abu Lala Mahari" as a Writer-page
+query. The existing 1909–1911 dating matched the encyclopedia, so the biography needed no change.
+
+### Research, SERP and decisions
+
+No search volume, KD, CPC or traffic figures were invented. The English SERP shows Wikipedia, The
+Armenian Weekly's 2014 serialized translation, the house-museum's English text and bookseller
+listings. The Armenian SERP is led by school-summary and blog pages (grqamol, tarntercum, personal
+blogs) using the unhyphenated form, with hy.wikipedia and the NAS RA repository (arar.sci.am)
+holding the scholarly material.
+
+- **Title:** «Աբու-Լալա Մահարի», hyphenated, as in ՀՍՀ, NAS RA journals and the Yerevan editions;
+  the unhyphenated form is kept as a search alias. **English:** Abu-Lala Mahari (transliterated, not
+  translated); Abu Lala Mahari and Bryusov's Абул Ала Маари are recorded as variants.
+  **Slug:** `abu-lala-mahari`.
+- **Genre:** ՀՍՀ calls it «պոեմ», hy.wikipedia «քնարական պոեմ», and English sources "philosophical
+  poem"; Avik Isahakyan calls it close to a philosophical treatise. The existing `poetry` filter is
+  reused. The display genre is "Philosophical poem" / «Փիլիսոփայական պոեմ» / «Իմաստասիրական պոէմ»
+  (the last matches the existing hyw biography).
+- **Chronology, disagreement recorded:** ՀՍՀ gives 1909–1911 (as does this site); Jrbashyan (1975)
+  and hy.wikipedia give 1909–1910; Avik Isahakyan (2007) gives 1910. The article gives 1909–1911 as
+  the outer frame and names the narrower dates. Parts are reportedly printed in 1909, but no
+  periodical is named, and the article does not guess one. The first book edition was Constantinople,
+  1911, by the «Արծիւ» bookshop (from Minasyan's study of the illustrated editions). Later printings:
+  «Կիլիկեա» 1920; first Soviet edition 1929; an unrealised 1935 Tiflis edition with Saryan's
+  illustrations; illustrated Yerevan editions of 1971, 1975 and 1984. The camel-caravan conception
+  story is reported as tradition, because hy.wikipedia gives no source for it. The place of writing
+  is not documented, and none is named. No authorial revisions were documented.
+- **Structure:** a prose preamble, «Սուրահ 1–7», then «Վերջին Սուրահ» (house-museum text). The
+  subtitle, Bryusov's version and Boyajian's version all say "seven suras". The article states both
+  rather than reducing them to one number. The "five cantos" and "17 years" claims found in
+  circulation were not supported and are not used. The preamble says «տասնյակ տարիներ» in Baghdad
+  (the museum's English page says "thirty years"); the article quotes the Armenian.
+- **Historical al-Maʿarrī (973–1057):** blind from childhood, about two years in Baghdad (to 1010),
+  then seclusion at Maʿarra; skeptical reputation (Britannica only). The hero differs from him: rich,
+  decades in Baghdad, a caravan journey toward the sun. No Writer, Place or article exists for him;
+  he appears only as a `relatedFigures` entry.
+- **Criticism and scope:** Pessimism and revolt are covered through Zakaryan (2001: Schopenhauer and
+  Nietzsche; comparison with al-Maʿarrī's writings) and Jrbashyan (1975: scholarship's Nietzschean
+  focus). Saryan's optimistic reading comes via Minasyan. **Romanticism rests on Jrbashyan's 1975
+  study** of the classical Romantic-poem tradition; the concrete features listed are the article's
+  own reading in the light of it. **Author and hero:** Avik Isahakyan's 2007 hero/author study is
+  attributed, and the article states that the hero is not Isahakyan in disguise. **Politics:** the
+  article connects the poem to the 1908 arrest and 1911 exile only as context and calls it no
+  manifesto. **Love:** the hero's harsh generalisations about women are attributed to him and read
+  in context. **Belief:** labels applied to al-Maʿarrī are not transferred to the hero or to
+  Isahakyan. **Desert:** Harutyunyan (2015) on Arabic-origin vocabulary; the rest is marked as the
+  article's own reading. No orientalist or exoticising language is used, and a test pins that.
+- **Reception and translation:** Bryusov's Russian translation appeared in Поэзия Армении (Moscow,
+  1916). Blok's "first-class poet" was said of Isahakyan in general, not this poem, and the article
+  says so. English: Boyajian, *Abu Lala Mahari: Poem in Seven Suras* (Hayastan, Yerevan, 1975; NLR
+  record). The circulating 1948 date could not be confirmed. Sonentz-Papazian's translation ran in
+  The Armenian Weekly in 2014. The poem has several Arabic translations (Harutyunyan, Կանթեղ 2015),
+  but no translator is named. No French edition could be verified, and none is listed.
+
+### Sources (13, each scoped in `sources.ts`)
+
+ՀՍՀ vol. 4 (1978); Avik Isahakyan, ՊԲՀ 2007/2; Jrbashyan, ՊԲՀ 1975/3; Zakaryan, Լրաբեր 2001/2;
+Minasyan (illustrated editions, Academy of Fine Arts yearbook, heading only partly transcribed); Harutyunyan,
+FLHE 2015 (DOI); Harutyunyan, Կանթեղ 2015; house-museum text; hy.wikipedia (used with caution and
+named in prose); Britannica (historical figure only); Armenian Museum of Moscow (Bryusov); NLR record
+(Boyajian); The Armenian Weekly 2014. That is more than the brief's 7–9, because each source carries a claim
+no other source consulted does. Minasyan's PDF could not be re-read locally (there are no PDF tools on
+this machine); its claims rest on the research pass and on the repository index's own summary.
+
+### Article, relations, artwork
+
+There are 18 sections in each edition: two are two-paragraph sections and the rest have two or three
+paragraphs, plus a two-paragraph significance section, 8 key facts, 8 dates, 5 facts and 3 related figures. HYW is written in
+classical orthography (Իսահակեան, Պաղտատ, Պրիւսով, Պլոք, Լայպցիկ). The original title is kept, and
+the two quoted Eastern forms («դէպի արեւը…», Avik Isahakyan's study title) are adapted to classical
+spelling. `validate:content` requires this. **Relations:** Work → `avetik-isahakyan`. **Reciprocal
+link:** one `links` annotation on the existing `major-works` sentence in each edition, with zero
+prose changed; it is the biography's only link. **Artwork:** `PENDING_ARTWORK = ["abu-lala-mahari"]`,
+with a `media.ts` note stating that neither Isahakyan's portrait nor any portrait of al-Maʿarrī may
+be used. **Future direction, recorded only:** a desert before dawn or at dusk, a strong horizon, a
+lone rider or small caravan at modest scale; no minaret skyline, no Arabian Nights imagery, no
+exotic staging, no text.
+
+### Verification
+
+- `tsc` clean. `validate:content` ✓ 228 entries. Its first two runs caught a reformed «և» in two hyw
+  quotations, fixed as above.
+- The first focused `works.spec.ts` run failed 23 tests. Three were real test bugs: Mtnadzor,
+  Baghdasar and Nairi positions shifted by the append, and my regex was off by a comma inside the
+  quote; all three were fixed. The other 20 were page loads returning **500** on the dev server
+  Playwright started right after `.next` was cleared. A manual dev server then served every probed
+  route with 200 (all three editions of the new Work, the listing, Nairi, Narek, Isahakyan, the
+  sitemap). The rerun passed **84/84**, and the cold full suite below did not reproduce the 500s.
+  The server log from that first run was not captured, so the root cause is unconfirmed. It is
+  consistent with the known cold-compile fragility.
+- Focused writers, listing, search, seo, article and places: **219 passed, 2 skipped**.
+- **Full suite, cold** (3002 free, `.next` cleared): **562 tests, 557 passed, 0 failed, 5 skipped**
+  (5.8 min).
+- `npm run build` exit 0, run after Playwright exited. `/[locale]/works/[slug]` prerenders **27
+  paths** (9 × 3). The three new built pages carry `og:image`/`twitter:image` = `/og-default.png`,
+  and the sitemap blocks have no `<image:loc>`.
+
+### Counts and regressions
+
+Works **9**, Writers 13, Cuisine 12, Places 13, History 7. There are six genre filters (unchanged),
+and poetry now holds Anush, Narek and Abu-Lala Mahari. The listing shows 9 cards, 8 covers and 1
+placeholder, which sits in the new card. Anush is still first; no featured change. The eight Work
+covers, the Narek relations, Isahakyan's portrait, provenance, biography prose, search and metadata
+are unchanged.
+
+### Tests
+
+The §106 block in `works.spec.ts` has 14 tests: entity and slug; author and reciprocal link; genre;
+chronology including the named disagreement; historical figure versus hero; no invented al-Maʿarrī
+entity; hero versus author and no belief assigned; journey, desert, freedom, society and love
+sections; the hero's verdicts attributed; pessimism, Romanticism and form attributed; pending
+artwork, placeholder hero, OG fallback and image-free sitemap; route and seven search aliases, the
+Writer still found and no fake Writer; bibliography; changed nothing else. Existing literals were
+bumped from 8 to 9 (works.spec ×10, writers.spec ×11 plus three slug arrays, places.spec ×1). The
+§104 cover and pending assertions are rescoped to a `COVERED` list and now expect `[ABU]`.
+
+### Diff and technical debt
+
+Fourteen source and test files plus this file. Source changes are purely additive (0 deleted lines
+under `src/`). The 33 deletions are all stale test literals and assertions. `.claude/settings.json`
+is untouched.
+
+Debt:
+1. Minasyan's exact Armenian heading and the 1909 periodical are still unverified.
+2. The cause of the first-run cold 500s is unconfirmed.
+3. `works.spec.ts` now hardcodes positions and counts in four eras of tests. A shared "section
+   shape" helper would make the next Work a one-line change.
+4. Eight touched files are LF in the working tree under `core.autocrlf=true` (the index is LF, so
+   there is no content diff).
+
+## §107 — Work #9 artwork: «Աբու-Լալա Մահարի» audited and registered (2026-09-27)
+
+Artwork registration only. No prose, relations, sources, SEO or Writer content changed. No image
+regenerated, no Work #10, no deployment.
+
+### Pre-state (read from source)
+
+Works 9, Writers 13, Cuisine 12, Places 13, History 7. Eight Work covers registered and
+`PENDING_ARTWORK = ["abu-lala-mahari"]`, with the slug absent from `IMAGES`. The file sat untracked
+at `public/images/works/abu-lala-mahari.webp`. The §106 changes were uncommitted and were
+snapshotted before any edit, so the two steps' diffs could be separated afterwards.
+
+### Technical
+
+1586×992 (1.5988), 133,676 bytes, SHA-256
+`f8ddd56eea4120bfa4dd7d877fb81ec520d421b2722164506cd2a607cc034b60`. Valid RIFF/WEBP with a single
+lossy `VP8 ` keyframe (start code `9d012a`) and no VP8X, so no alpha, ICC, EXIF, XMP, animation or
+orientation. RIFF size + 8 equals the file length, the walker ends at EOF, and there are 0 trailing
+bytes. The custom walker and sharp 0.34.5 agree on every field.
+
+### Visual audit
+
+- **Composition:** a stony ridge track in the foreground, then a wide arid plateau with a dry
+  riverbed and low eroded hills, far ridges, and a large sky taking about 40% of the frame. A
+  small, hazy settlement sits on the horizon. The figures are secondary to the space.
+- **Traveller:** robed and hooded, with a white head-wrap and a staff. He is seen from behind and
+  walks away with no face shown. The pose is restrained, not heroic: no raised arms, no weapon.
+- **Identity:** neither a portrait of al-Maʿarrī nor a scholar image (no study, books or seated
+  sage), and not Isahakyan. The registered portrait shows a seated man at a desk, face on; here
+  there is no face at all.
+- **Animals:** two loaded camels on a lead. The front camel's head, neck, legs, packs and ground
+  contact are sound; the rear camel's head is hidden behind it.
+- **Gates passed:** anti-Orientalist (no palace, bazaar or costume; the settlement has no dome,
+  crescent or minaret). No religious or political symbol. Clothing is plain travel dress.
+- **Text sweep:** full size, 2× quadrants and 3–6× zooms of the figures, packs, settlement, sun,
+  rocks and corners. Nothing resolves.
+- **Palette:** blue-grey and violet-grey cloud over cream-gold light; mean RGB (133, 109, 95). The
+  palette is muted, not saturated.
+- **Reservations, none a failing gate:**
+  1. Low sun with visible rays and a warm, cinematic grade. The brief lists rays as an "avoid",
+     so this is recorded, but the sun is small and the image does not read as a travel poster.
+  2. The lead rope breaks between the halter and the hand at 4×; this is invisible at article
+     scale.
+  3. The finish is photographic, adding to the style drift §104 recorded.
+  4. The composition (a small figure on a track in a landscape) is a cousin of Mtnadzor's, but
+     the terrain, palette and meaning differ: arid open horizon versus green inhabited gorge.
+- **Collection:** this is the only open-desert, horizon cover; it is distinct from Narek
+  (interior/manuscript), Baghdasar (domestic interior), Nairi (urban square) and the four
+  originals. There is no shared SHA.
+
+### Crops
+
+Every surface uses generic centred `object-cover`: the card is 16:9 or a side column, the hero
+4:3, 3:2 or 16:9, and the featured slot 16:10.
+- **16:10, 16:9, 3:2 and 4:3:** keep the traveller, both camels, the track, the horizon and the
+  sky.
+- **1:1 and 208px:** the rear camel is clipped at the left edge.
+- **Tall side column (worst case):** the camels are lost and the traveller survives at the left
+  edge.
+- **160px and 128px:** still read as small figures on a ridge above an open plain with a horizon,
+  not a beige texture.
+
+No slug-specific crop was needed.
+
+### Registration
+
+`IMAGES` gains `"abu-lala-mahari": "/images/works/abu-lala-mahari.webp"`, with the audit record next
+to it. There is no special branch and no `PORTRAIT_PROVENANCE` entry. The `PENDING_ARTWORK` entry
+is removed, and its §106 note gains a §107 "Resolved" line. **`PENDING_ARTWORK = []`
+archive-wide; Works 9/9 illustrated.**
+
+### Surfaces (verified by tests, en / hy / hyw)
+
+- **Listing:** 9 cards, 9 own covers, 0 placeholders.
+- **Heroes:** the exact file, localized alt text, the AI-illustration caption, and no portrait.
+- **Search:** Աբու-Լալա Մահարի / Աբու Լալա Մահարի / Abu-Lala Mahari / Abu Lala Mahari / "Avetik
+  Isahakyan Abu Lala" all return hits carrying the Work's own file. "Avetik Isahakyan" returns the
+  Writer with his own portrait.
+- **Metadata:** `og:image` and `twitter:image` are the exact Work file, on the dev server and in
+  the built HTML.
+- **Sitemap:** each of the three URL blocks has exactly one `<image:loc>`, pointing at the Work
+  file.
+
+### Content and regressions
+
+`src/data`, `sources.ts` and `writers.spec.ts` are byte-identical to the §106 snapshot. Isahakyan's
+biography, portrait, provenance (`imagined`), search, metadata and sitemap are unchanged. The eight
+earlier covers, including Mtnadzor, Baghdasar, Nairi and Narek, are unchanged. Counts are
+unchanged outside Works.
+
+### Tests
+
+`works.spec.ts`: `ARTWORK` and `NEW_ARTWORK` gain the ninth work paired with Isahakyan, so the
+§104 hero, listing, search, OG and sitemap loops now cover it. `COVERED` = `SLUGS`. The listing
+test is back to 0 placeholders, and the pending filters are back to `[]`. The §106 pending test is
+inverted into a §107 registration test. The §104 search test gains 6 aliases, with its timeout
+raised to 180 s for 22 page loads; the hero test's timeout is raised to 90 s for 12 loads.
+`places.spec.ts`: the registry snapshot gains one line.
+- **Focused** (works, listing, search, seo, article, places): **213 passed, 2 skipped, 0 failed.**
+- **Full suite, cold:** 3002 free, `.next` cleared (it had held a stale production build), and a
+  fresh dev server started with its logs captured. **562 total: 556 passed, 1 failed, 5 skipped**,
+  in 6.8 min wall-clock.
+- **The one failure:** `writers.spec.ts` "Shirvanzade is reachable under his variants" hit the
+  30 s *test* timeout inside `page.goto('/hy/search?q=Քաոս')`. This test was untouched by §107. The
+  server log shows that request answered 200 in about 1.5 s, and there was no 5xx or server error
+  during the run; the slowest request was 4.9 s. The test chains 12 search-page loads, each waiting
+  for the `load` event, under 6-worker contention. Rerun alone, it passed in 3.9 s. This is budget
+  exhaustion under load, backed by the log; it is not a regression, and the test was not modified.
+
+### Build
+
+`npm run build` exit 0, run with 3002 free and `.next` cleared, after Playwright had finished.
+`/[locale]/works/[slug]` = **27 paths** (9 × 3).
+
+### Diff
+
+The §107 delta on top of §106 is:
+- `src/lib/media.ts`: +23 lines.
+- `tests/e2e/works.spec.ts`: +26 lines, 2 §106 lines replaced.
+- `tests/e2e/places.spec.ts`: +2 lines.
+- The new WebP (untracked).
+- This section and the header.
+
+Nothing is staged, and `.claude/settings.json` is untouched.
+
+### Technical debt
+
+1. Search-heavy tests still chain many page loads under the 30 s default and are the ones that fail
+   under full-suite load. The Shirvanzade test is the latest; a shared per-test timeout policy for
+   multi-query tests would end this class of failure.
+2. Style drift: four of nine Work covers are now photographic, not painterly.
+3. The §104 test title "holds all eight covers" is historical; the test now asserts nine.
+
+## §108 — Work #10: «Քաոս» (Chaos), Alexander Shirvanzade's novel, in all three editions (2026-09-27)
+
+Content-only step. No artwork generated, no Work #11, no new Writer, no deployment.
+
+### Pre-state and git
+
+Read from source: Works 9, Writers 13, Cuisine 12, Places 13, History 7; Works 9/9 illustrated;
+`PENDING_ARTWORK = []`. Shirvanzade's portrait is registered and `photo-referenced`. §106 and §107
+were **still uncommitted**: 15 modified files plus the untracked Abu-Lala WebP. That work was
+preserved, and the §108 delta below was measured against a numstat snapshot of the §107 state.
+
+### Existing references
+
+- **Card and search:** Shirvanzade's card and keywords already carried «Քաոս» and "Chaos".
+- **Biography:** it has a `chaos` section in all three editions, calling the novel his best and the
+  peak of critical realism (ՀՍՀ). It says the novel was serialised in 1896–1897 and published
+  complete in 1898 (after *Heritage* vol. III). Its closing sentence reads "This archive has not
+  yet given any of his works its own article… Քաոս is the strongest candidate for a future one".
+- **Tests:** three guards made the novel's absence explicit and had to be inverted: the §97
+  invented-slug list (`chaos`, `kaos`), the search assertion "«Քաոս» is not a Work", and the
+  contextual-links check (Raffi and Abovyan only).
+
+### Decisions
+
+- **Title:** «Քաոս» in Armenian, "Chaos" in English. Evidence: en.wikipedia "K'aos (Chaos)", the
+  French *Chaos* (2013), and the biography's own usage. No subtitle exists, and none was invented.
+- **Slug `chaos`:** no Work slug in this archive is author-prefixed. The `/works/` path already
+  scopes the generic noun, and the SERP ambiguity is solved in `seoTitle` ("Chaos by Alexander
+  Shirvanzade: A Baku Novel") and the meta description, not in the URL. `kaos` and `qaos` were not
+  created.
+- **Genre:** `novel` (now four novels). Display "Realist novel" / «Ռեալիստական վեպ» /
+  «Ռէալիստական վէպ». The Armenian encyclopedic label is սոցիալական ռեալիստական վեպ. "Critical
+  realism" is attributed as the Soviet-era-fixed scholarly term. No source calls this novel
+  naturalist.
+- **Chronology:** the subject goes back to the 1880s and a real Baku family conflict of 1881–1882.
+  The conception is placed in Metekhi prison in the mid-1890s. Written 1896–1897; first book
+  edition Baku, 1898, 444 pp.; exile to Odessa in January 1898. Later editions: 1926; collected
+  works 1934, 1950 and 1959; Cairo 1956; 1944, 1976 and 1987; 2010s–2020s.
+- **Serialisation conflict:** no source consulted names a periodical, and the Armenian account
+  speaks only of the 1898 book. The article therefore reports the biography's 1896–1897
+  serialisation as **unconfirmed**. A popular "written in prison in 1898" claim is refused.
+  > **Note (§111):** the biography stated serialisation more strongly than the evidence allowed.
+  > Its reader-facing wording was corrected at §111 to "written 1896–1897, book at Baku 1898". The
+  > periodical remains unidentified, and the claim remains research debt.
+- **Text verified directly (Wikisource):** three parts of 17, 8 and 9 chapters. The city is never
+  named ("that small, insignificant seaside town"); the author and critics identify it as Baku. The
+  name spellings are Մարկոս աղա Ալիմյան (65), Ոսկեհատ, Սմբատ, Միքայել (28), Արշակ (16), Մարթա,
+  Իսահակ Մարութխանյան and Սրաֆիոն Գասպարիչ. The eleventh house, the 1,000-rouble loan against a
+  7,000 note, and "wrote little in the will, said much" are also from the text.
+- **Will:** only what is textually confirmed is stated: Smbat holds the fortune, and Mikayel's share
+  depends on reform and an Armenian marriage. The pressure on Smbat to give up his Russian wife
+  Antonina Ivanovna comes from the widow and the father's dying wishes; it is **not** presented as
+  a clause of the will.
+  > **Correction (§111):** this was wrong. On re-reading Part I, ch. II, the will does contain an
+  > inheritance clause: Smbat may not leave his share to his "foreign" wife or their children, and
+  > children of a new Armenian marriage would be his lawful heirs. The original record is kept
+  > above; the corrected reading is in the article, and §111 describes it.
+- **Scope:** Baku is framed as a late-imperial governorate seat. Oil is the economic environment,
+  not the subject. There is no sustained picture of oil workers, and none is claimed. The Soviet
+  class reading (ru.wiki) is reported as reception, not adopted as the article's own analysis. No
+  "first urban novel" claim is made. The title is explained through Shirvanzade's own «այլանդակ
+  քաոս» and read on three levels.
+- **Adaptations:** the Hayfilm film of 1973 (director Laert Vagharshyan, screenplay Vadim
+  Meliksetyan, Sos Sargsyan as Smbat). A public-TV multi-part version is recorded without a
+  confirmed date: its listed cast suggests an older production rebroadcast later.
+- **Translations:** Russian «Хаос» (Moscow 1956; Yerevan 1975 and 1983); French *Chaos*, trans.
+  Ter-Sarkissian (Thaddée, 2013). **No complete published English translation was confirmed.** The
+  2016 print-on-demand "Chaos" is not one, and the translator of the 1956 Russian edition is not
+  named.
+- **SERP:** no metrics were invented. School-summary and blog pages dominate the Armenian results;
+  English results are thin (Wikipedia, and marketplace listings that mislabel languages).
+  Adaptation contamination comes from the 1973 film and TV pages.
+
+### Article
+
+There are 18 sections in each edition, with two or three paragraphs each, plus significance, 8 key
+facts, 8 dates, 5 facts and related figures (Shirvanzade and Sos Sargsyan). The HYW edition uses
+classical orthography (Պաքու, Պալախանի, Ոդեսա, բնապաշտ) and states the Eastern original's
+surname forms once (Ալիմեան ← Ալիմյան).
+
+**Sources (10, role-scoped):** ՀՍՀ vol. 8; the Wikisource text; hy.wiki novel, author and film
+articles; *Heritage* III (as the source of the serialisation claim); en.wiki; ru.wiki (reception
+only); Thaddée 2013 (ISBN); LiveLib (Russian editions).
+
+### Relations and artwork
+
+Work → `alexander-shirvanzade`. The reciprocal link is one `links` annotation on the existing first
+sentence of the biography's `chaos` section in each edition, with no prose changed. There is no
+Baku Place, character or oil entity. `PENDING_ARTWORK = ["chaos"]`, and `media.ts` records that
+Shirvanzade's portrait must not be borrowed. **Future direction (recorded only):** a
+late-19th-century stone Baku with an industrial horizon kept distant, a small group of period
+figures at modest scale, and tension carried by spacing. Not a refinery documentary, industrial
+poster, close-up or modern skyline; no signage, no Soviet symbolism.
+
+### Verification
+
+- `tsc` clean. `validate:content` ✓ **234 entries** on the first run; `chaos` is the only slug
+  without artwork.
+- **Tests:**
+  - A §108 block of 11 tests in `works.spec.ts`.
+  - Counts bumped from 9 to 10 across the works, writers and places specs.
+  - Positions shifted by one: Mtnadzor, Baghdasar, Nairi and Abu-Lala.
+  - The listing now expects exactly 1 placeholder, located in the Chaos card.
+  - `COVERED` excludes `chaos`.
+  - The novel filter now expects 4.
+  - The Shirvanzade guards are inverted with §108 notes, and `kaos` stays forbidden.
+  - Two stale descriptions from §107 are corrected: "all eight covers" and "only Abu-Lala Mahari
+    is waiting".
+- **Focused run 1:** 313 passed, 2 failed, 2 skipped. Both failures were my own new test code:
+  `/baku/` matched `aksel-bakunts` (an anchored regex fixes it), and the sorted link order was
+  wrong. **Focused run 2: 315 passed, 0 failed, 2 skipped.**
+- **Route probes** on a warm server all returned 200: the three editions of the new page, the
+  listing, the novel filter, Shirvanzade, Abu-Lala, the "Chaos" search and the sitemap.
+- **Full suite, cold** (3002 free, `.next` cleared, a fresh logged dev server): **574 total: 568
+  passed, 1 failed, 5 skipped**, 6.8 min.
+- **The one failure:** `writers.spec.ts` "Varoujan carries localized SEO fields…", untouched by
+  §108. It hit the 30 s test timeout at `page.goto('/en/search?q=Song of the Bread')`. The server
+  log shows that request answered 200 in 992 ms, with no 5xx or server error in the run. The test
+  makes 13 page loads under 6 workers. Isolated rerun: passed in 3.4 s. This is load-related
+  budget exhaustion, the same pattern as §107's Shirvanzade timeout, and the test was not
+  modified.
+- **Build:** exit 0, run separately with 3002 free. `/[locale]/works/[slug]` = **30 paths** (10 ×
+  3). The built `<title>` is disambiguated in each edition, and `og:image`/`twitter:image` use the
+  `og-default` fallback.
+
+### Regressions and diff
+
+Counts are unchanged outside Works. The nine covers are unchanged; Abu-Lala's SHA
+`f8ddd56e…` is unchanged and its registration intact. Anush is still first, and there is no
+featured change. The Shirvanzade biography gains only the link annotation.
+
+The §108 delta is:
+- The three `works.ts` card files: +11 lines each.
+- The three `articles/works.ts` files: +240 to +241 lines each.
+- The three `articles/writers.ts` files: +1 line each.
+- `sources.ts`: +85 lines.
+- `media.ts`: +20 lines.
+- `works.spec.ts`: +237 −6.
+- `writers.spec.ts`: +26 −4.
+- `listing.spec.ts`: +3 −3.
+- `places.spec.ts`: one digit.
+- This section and the header.
+
+There are 0 deleted lines under `src/`. Nothing is staged, and `.claude/settings.json` is untouched.
+
+### Technical debt
+
+1. **Stale biography sentence, needing a decision:** Shirvanzade's `chaos` section still says the
+   archive "has not yet given any of his works its own article". It is now false, but it was left
+   unedited because this step forbids rewriting biography prose. The biography's "serialized
+   1896–1897" is likewise unconfirmed by this step's sources.
+2. Search-heavy Writer tests (Shirvanzade at §107, Varoujan at §108) keep running out of the 30 s
+   budget under full-suite load. A per-test timeout policy for multi-query tests is overdue.
+3. The Russian translator of «Хаос» and the date of the TV version are unverified.
+4. The ՀՍՀ entry and Encyclopedia.am were not directly readable in this pass.
+
+---
+
+## §109 — Shirvanzade biography: stale "no Work article yet" sentence corrected (2026-09-27)
+
+Micro-cleanup of §108 debt item 1. One paragraph per edition was changed; nothing else.
+
+- **Found ×3:** the last paragraph of the `chaos` section of `alexander-shirvanzade` (en, hy, hyw)
+  said the archive had no article for any of his works and called Քաոս "the strongest candidate
+  for a future one". §108 made that false: `/works/chaos` exists in all three editions.
+- **EN:** "Of his works, Քաոս is the one with its own article in this archive, where the novel's
+  Baku setting, its family conflict, its money and the social change around it are followed apart
+  from this biography. The other titles on this page are named but not linked."
+- **HY:** «Նրա գործերից «Քաոս»-ն այս արխիվում ունի առանձին հոդված, որտեղ վեպի բաքվյան
+  միջավայրը, ընտանեկան հակամարտությունը, հարստությունն ու հասարակական փոփոխությունները
+  քննվում են այս կենսագրությունից անկախ։ Այս էջի մյուս վերնագրերը պարզապես նշված են և
+  հղումներ չունեն։»
+- **HYW (written independently, classical spelling):** «Իր գործերէն «Քաոս»-ը այս արխիւին մէջ իրեն
+  յատուկ յօդուած ունի, ուր վէպին պաքուեան միջավայրը, ընտանեկան բախումը, հարստութիւնը եւ
+  ընկերային փոփոխութիւնը կը քննուին այս կենսագրութենէն անջատ։ Այս էջին միւս վերնագիրները
+  միայն յիշուած են եւ յղում չունին։»
+- **Link:** the existing §108 `links` annotation on the section's first sentence is kept unchanged.
+  There is still one `chaos` link per edition; no second link was added.
+- **Serialisation debt left alone on purpose:** "serialized in 1896 and 1897" and its hy/hyw
+  equivalents are byte-identical. That needs its own research step.
+- **Unchanged:**
+  - The Chaos article files (SHA-256 of all three `articles/works.ts` match the pre-edit hashes).
+  - Sources, SEO, relations and counts (10/13/12/13/7).
+  - `PENDING_ARTWORK = ["chaos"]`, and `IMAGES` is untouched.
+- **Checks:**
+  - `tsc --noEmit` is clean, and `validate:content` passes (234 entries).
+  - 10 focused Playwright tests pass: §108 existence, relation and counts, plus the Shirvanzade
+    route, relations, Baku, Namus, conflicts and no-change tests.
+  - The full suite was not run, because no executable behaviour changed. No test pinned the old
+    prose, so no test was edited.
+- **Files:** the three `articles/writers.ts` files (one line each) and this file.
+- No artwork, no Work #11, no deployment.
+
+---
+
+## §110 — Work #10 artwork: «Քաոս» audited and registered (2026-09-27)
+
+**Pre-state (read from source):**
+- Counts: Works 10, Writers 13, Cuisine 12, Places 13, History 7.
+- Artwork: 9 of 10 Work covers registered, `PENDING_ARTWORK = ["chaos"]`, and `chaos` absent from `IMAGES`.
+- Pages: the Chaos pages used the placeholder and `og-default`, and their sitemap blocks carried no image.
+- Steps 79–83 were uncommitted, and the new file `public/images/works/chaos.webp` was untracked.
+
+**Technical:**
+- 1586×992 (1.599), 133,458 bytes.
+- SHA-256 `afc7de708a121acc086eea9acbdd9a5193933c5439418acc00ef4f39aa3b7907`.
+- RIFF/WEBP with one lossy `VP8 ` chunk (start code `9d012a`, keyframe) and no VP8X, so there is no alpha, ICC, EXIF, XMP or animation, and no orientation tag.
+- RIFF size + 8 equals the file length; the walker ends at EOF with 0 trailing bytes.
+- `sharp` agrees on every field.
+
+**Visual audit:** full frame, 2× quadrants and 2.5–4× details (head, street, derricks, facade, cart).
+- **Corrected headwear: YES.** The seated older man is bareheaded, with greying wavy hair and a full grey beard. The street figures wear dark caps and bowlers, with no fez anywhere.
+- **Ensemble (four figures):**
+  - a seated older man with a cane;
+  - a younger moustached man standing behind him;
+  - a woman in a high-necked blouse and a patterned shawl, hands clasped, looking aside;
+  - a bearded man seen from behind, hat in hand, facing the city.
+  - The tension is carried by spacing and averted gazes, with no confrontation.
+  - The faces are coherent, and the hands, including the cane grip and the clasped hands, are correct at article scale.
+- **Setting:** late-imperial Baku. A pale limestone city with wrought-iron balconies, a lamp standard, carts, horses, barrel wagons and pedestrians. Wooden-looking lattice derricks, smoke, steamships and a hazy Caspian sit behind.
+- **Hard gates, all passed:**
+  - Nothing modern: no Flame Towers, glass, cars or asphalt.
+  - No Soviet element.
+  - It does not read as Constantinople: no domes, minarets or fez.
+  - No flags, maps or national symbols.
+  - No literal chaos: no riot, fire or collapse.
+  - No readable text at 2–5×.
+- **Clothing:** period frock coats, waistcoats and wing collars; a high-necked blouse, dark skirt and shawl.
+- **Light and palette:** hazy daylight in limestone, charcoal, brown, muted burgundy and blue-grey haze. It reads distinct from Yerkir Nairi.
+- **Shirvanzade not borrowed.** His portrait is clean-chinned, with a walrus moustache and curly grey hair; no figure reproduces it.
+- **Reservations, none failing a gate:**
+  - A derrick-like lattice is fused into the mid-ground facade left of the standing man, visible at 3× but not at hero scale.
+  - Some derricks emit smoke from their crowns.
+  - One horse appears with a wheel but an ambiguous cart body.
+  - The figure vocabulary (dark suits, blouse, patterned tablecloth) is shared with Baghdasar Aghbar.
+- **Collection:**
+  - Distinct from Baghdasar Aghbar: exterior terrace, city scale and serious tone, against a domestic comedy interior.
+  - Distinct from Yerkir Nairi: a prosperous family and an oil horizon, against a Kars civic street.
+  - Distinct from Mtnadzor, Abu-Lala Mahari and Narek.
+- **Crops (generic `object-cover`, centre):**
+  - 16:10, 16:9, 3:2 and 4:3 keep all four figures, the city and the derricks.
+  - Square crops at 160 and 128 px keep the woman, the man facing the city, the stone city and the derricks.
+  - At 128 px it reads as a prosperous period ensemble over an industrial city, not a Victorian family portrait.
+  - No slug-specific crop was added.
+
+**Registration:**
+- `chaos: "/images/works/chaos.webp"` was added to `IMAGES` with an audit comment.
+- The pending entry was removed with a "Resolved" note, so `PENDING_ARTWORK = []`.
+- Result: 10 of 10 Works illustrated.
+- No `PORTRAIT_PROVENANCE` entry, component branch or `Article.image` field was added.
+
+**Verified surfaces:**
+- **Listings:** 10 cards in each edition, each with its own cover, and 0 placeholders.
+- **Heroes:** all three use `chaos.webp` with the AI-illustration caption, no fallback and no portrait.
+- **Search:** Chaos, "Alexander Shirvanzade Chaos", "Shirvanzade Chaos", Քաոս and «Շիրվանզադե Քաոս» each return the Work with its own cover. The Writer searches still return his portrait.
+- **Metadata:** OG and Twitter image are `https://armat.site/images/works/chaos.webp` in all three editions.
+- **Sitemap:** exactly one `<image:loc>` for `chaos.webp` in each Chaos URL block.
+
+**Immutability:**
+- The Chaos article files are unchanged (SHA-256 matches §109).
+- Shirvanzade's biography, including the §109 paragraph, is unchanged.
+- The serialisation debt is untouched.
+- The nine earlier covers and the Abu-Lala SHA are unchanged, and Anush is still featured.
+
+**Tests:**
+- `works.spec.ts`:
+  - `ARTWORK`/`NEW_ARTWORK` gained Chaos, and `COVERED = [...SLUGS]`.
+  - The listing test is back to 0 placeholders.
+  - The pending expectations are `[]`, and "ten distinct files".
+  - The §108 pending test was inverted into §110: own hero, OG exact, one sitemap image.
+  - The §108 search test gained an own-cover assertion.
+- `places.spec.ts`: the registry snapshot gained one line.
+- **Focused run** (works, listing, places, search, seo, article):
+  - 224 passed, 1 failed, 2 skipped.
+  - The failure was my own omission: the Shirvanzade entry was missing from the §104 provenance table. After adding it, works passed 96/96.
+- **Full suite:** 574 total, 569 passed, **0 failed**, 5 skipped, 6.3 min, on a clean `.next` and a logged dev server.
+  - The server log shows no 5xx.
+  - The only stderr is the newsletter form's expected failed fetch.
+  - No timeouts this run.
+
+**Build:** exit 0 on a clean `.next`, with 30 Work pages (10 × 3). The built Chaos pages carry the Work image in OG and Twitter, with their disambiguated titles.
+
+**Diff:**
+- Step 85 touched `media.ts` (+28), `works.spec.ts` (+16 −6 net against the §109 state), `places.spec.ts` (+2), this file, and the new untracked `chaos.webp`.
+- The Steps 79–83 diffs are byte-identical, and nothing is staged. `.claude/settings.json` is untouched.
+
+**Debt:**
+- The biography's unconfirmed 1896–97 serialisation claim.
+- The minor artwork reservations above.
+- Search-heavy test budgets under full-suite load (none tripped this run).
+
+No Work #11. No deployment.
+
+---
+
+## §111 — Targeted corrections: Abu-Lala Mahari and Chaos (2026-09-27)
+
+A narrow correction pass, following the §110-era audit (Step 86): no redesign, no new sections, and no artwork, relation or SEO work.
+
+**Primary-text basis:** hy.wikisource «Քաոս», rendered text re-read in this step.
+- **Part I, ch. II:** the will was dictated to the parish priest Տեր-Սիմոն. It hands the whole estate to Smbat and pleads with him to «ուղղել» his «սխալը».
+  - It states: «Ավելի նշանավորը մի ուրիշ կետ էր։ Սմբատն իրավունք չուներ իր բաժին ժառանգությունը կտակել ո՛չ իր «օտարազգի» կնոջը և ո՛չ իր զավակներին։ Եթե կբաժանվի այժմյան կնոջից… նոր կնոջից եղած զավակները կհամարվեն նրա օրինական ժառանգները։»
+  - Mikayel's condition is set out in the same chapter: 100 roubles a month, and his share only if he reforms and marries a «հայ-լուսավորչական» girl.
+- **Part I, ch. V:** «Մի կողմից հայրական կտակն իր ծանր անեծքով, մյուս կողմից՝ մոր անվերջ կշտամբանքները։»
+- **Part III, ch. IX (last chapter):** «— Ես կատարում եմ մեր հոր վերջին կամքը։ Վճարիր Մարութխանյանի պարտքերն իմ ժառանգությունից…», followed by «Դարձվածը հասկանալի էր՝ «մեր հոր վերջին կամքը»։ Միքայելը ամուսնանում է…»
+
+**Abu-Lala basis:** the house-museum text. Love and women are addressed in Sura 2 and the father's house in Sura 4, so love comes early, as the article's own "Love is among the first things the hero renounces" already said.
+
+### Chaos, all three editions
+
+- **The will (corrects §108).**
+  - The section now states that the will was dictated and pleads with Smbat to "correct" his "mistake".
+  - It gives the inheritance clause, the one the narrator calls the most notable: Smbat may not leave his share to his "foreign" wife or their children; if he divorces and marries an Armenian, the new children are his lawful heirs. It also says explicitly that the will does not order a divorce but shuts his present family out of the fortune.
+  - The pressure on Smbat is now described as three reinforcing sources: the clause, the father's pleading and dying curse, and the mother's reproaches.
+  - The misleading "few in writing and many in speech" line is removed.
+  - The widow is no longer "the one who" presses Smbat; she "keeps up the pressure".
+- **Mikayel.** "Not a submission to the will's terms" is replaced. His marriage comes from reform and love, yet he himself frames it as "our father's last wish" and has Marutkhanyan's debts paid from his inheritance, and the novel lets both stand.
+- **Serialisation.** The Work paragraph now attributes the claim to "one English-language literary history" (*Heritage*) instead of "this site's biography", keeping the pinned sentence "reported here as a claim that could not be confirmed". No periodical was identified in this step, and none was searched for beyond the Step 86 audit.
+- **Significance.** The two sweeping sentences are replaced:
+  - "the Armenian novel of the modern commercial city" and "where earlier Armenian prose looked to the village…" are gone.
+  - It now says much prose of the period was village- or past-set, and that Paronyan had already made Constantinople's Armenian society his subject.
+  - It says Chaos adds sustained attention to a large modern commercial-industrial city, and it is now "a major Armenian novel of the modern commercial city".
+  - The "not the first urban novel" refusal is unchanged.
+- **Other wording:**
+  - "the later television version" is now "the television version".
+  - "Armenian, Azerbaijani, Russian and European investors" is now "Armenian and other local entrepreneurs and … Russian and European investors".
+- **Source labels:**
+  - "the Armenian encyclopedic account" (three places) is now "the Armenian Wikipedia article".
+  - "Soviet-era Russian reference works described…" is removed from the oil section, where it now points to the reception section. The reception section attributes the class reading to "the Russian Wikipedia article".
+  - The Russian 1956 edition is now "Book catalogues record…"; the translator is still unnamed.
+- **Language:**
+  - HY: «տեղեկագրական» → «տեղեկատու» in 3 places, and «խորհրդանշից» → «խորհրդանիշից».
+  - HYW: «իր սէրը Միքայէլը ուղղողներուն մէկ մասն է» → «անոր սէրը Միքայէլի ուղղուելուն պատճառներէն մէկն է», and «մարդ մը, որ պարագաները կը վերածեն» → «…զոր…».
+
+### Shirvanzade biography, all three editions (minimum consistency fix)
+
+- **Section text:**
+  - "It was serialized in 1896 and 1897 and published complete in 1898" → "He wrote it in 1896 and 1897, and it was published as a book at Baku in 1898".
+  - HY «Նա այն գրել է 1896–1897 թթ., իսկ գրքով լույս է տեսել Բաքվում 1898-ին»; HYW «Գրեց զայն 1896-ին եւ 1897-ին, իսկ գիրքը լոյս տեսաւ Պաքուի մէջ՝ 1898-ին».
+- **Timeline:**
+  - 1896 "begins to appear serially…" → "Begins writing Քաոս; the work runs on into 1897".
+  - 1898 "published complete" → "published as a book at Baku".
+- **Summary line:** "the collapse of both [fortune and household]" → "what the money does to the household", because the fortune does not collapse in the text.
+- The §109 paragraph and the link are unchanged.
+
+### Abu-Lala Mahari, all three editions
+
+- **Sura order.**
+  - "The early suras deal with Baghdad, his homeland and his father's house. Later ones turn to love and friendship…" → "Across the suras he turns against one bond after another: love and women, his father's house and homeland, society, friendship, fame, treasure, power and law."
+  - The summary's "in turn homeland, love…" became "love, homeland…".
+- **"Longest and most ambitious"** is removed from the intro, the summary and all three cards.
+  - Replaced with the sourced "Jrbashyan called it the peak of his poetry" (Jrbashyan 1975, already in the bibliography).
+  - The cards now read "A major philosophical poem by Isahakyan" / «խոշոր փիլիսոփայական պոեմը» / «մեծ իմաստասիրական պոէմը».
+  - Metadata never carried the phrase.
+- **"Russian-language reference works describe it as a poem of individualist revolt…"** is removed in every edition, since no source supports it. The Zakaryan and Jrbashyan sentences stay.
+- **Movement verb:** "rides on" → "presses on" / "moving on" (the text has «Թռչում էր»).
+- **HY/HYW reversed meanings fixed:**
+  - «պոեմը ձևավորում է շարժումը» → «պոեմը կառուցվում է շարժման վրա», and «միջավայրը կրում է հենց լեզուն» → «միջավայրը կերտվում է հենց լեզվով».
+  - HYW likewise: «կը կառուցուի շարժումին վրայ», «կը կերտուի լեզուով իսկ».
+- **HYW grammar:**
+  - «ոչ ոքի դէմ մեղանչած է» → «…մեղանչած չէ».
+  - «որ ոչինչ խնայէ» → «…չխնայէ».
+  - «տասնյակ» → «տասնեակ».
+  - «իւրաքանչիւր հանգրուանի հերոսը» (two places) → «հերոսը իւրաքանչիւր հանգրուանին…».
+    - The word order changed because the case ending alone would still read as a genitive ("the hero of each stage").
+    - Applied after the full suite and build; the works suite and the build were re-run afterwards (see below).
+- **HY:** «տեղեկագրական» → «տեղեկատու» in 2 places.
+
+**Parity:** every corrected fact is aligned in EN, HY and HYW. No edition keeps a superseded formulation; the §111 guards assert this.
+
+**Unchanged:**
+- Both artwork files (SHA `f8ddd56e…` and `afc7de70…`), `IMAGES`, and `PENDING_ARTWORK = []`.
+- Relations, SEO titles and metadata.
+- Counts: 10/13/12/13/7.
+
+**Tests:**
+- `works.spec.ts` gained five §111 guards: the will clause and last wish, serialisation absent and 1898 kept, sweeping framings gone, the sura and unsourced-claim removals, and artwork/relations/counts unchanged.
+- `writers.spec.ts`: one label changed. The Shirvanzade "1896" assertion now reads as the writing year.
+- `tsc` is clean and `validate:content` passes (234 entries).
+- **Focused run** (works, writers, article, seo, listing, search): 233 passed, 3 failed, 2 skipped.
+  - The failures were three cold-start 500s on untouched `/hy/history/*` routes: `SyntaxError: Unexpected end of JSON input` in the server's first seconds, with the same routes 200 immediately after.
+  - All three passed on rerun.
+- **Full suite:** 574 total, 573 passed, **1 failed**, 5 skipped, 6.2 min.
+  > **Correction (§112):** "574 total" was a typo carried over from §110. The saved run log reads
+  > "Running 579 tests using 6 workers", ending 573 passed, 1 failed, 5 skipped (6.2m). 579 is the §110
+  > total of 574 plus the five §111 tests.
+  - The failure was "Shirvanzade is reachable under his variants…": `page.goto` exceeded the 30 s budget.
+  - Server evidence: no 5xx, and search requests took 1–3 s.
+  - It passed in isolation in 5.5 s. This is the same load pattern as §107; the test was not modified.
+
+**Re-run after the HYW word-order fix:** `works.spec.ts` passed 101/101 (the extra test is the added guard), and a second clean build exited 0 with 30 Work pages and the new wording in the HYW HTML.
+
+**Build:** exit 0 on a clean `.next`, with 30 Work pages. Abu-Lala and Chaos keep their own OG/Twitter images and exactly one sitemap `<image:loc>` per locale, and the corrected text is present in the built HTML.
+
+**Diff:**
+- Step 87 touched:
+  - the three `articles/works.ts` files (20, 25 and 24 lines, all within lines that were already uncommitted additions);
+  - the three card files (one line each);
+  - the three `articles/writers.ts` files (four lines each);
+  - `works.spec.ts` (+91) and `writers.spec.ts` (+3 −2);
+  - this file.
+- The Steps 79–85 diffs are otherwise intact, nothing is staged, and `.claude/settings.json` is untouched.
+
+**Remaining debt:**
+- Serialisation is still unverified, and the periodical unidentified.
+- The Russian translator and the TV date are unknown.
+- The ՀՍՀ entry was not read directly.
+- Minasyan's heading and the Abu-Lala publication history rest on one source.
+- Chaos's "longest and most ambitious of his novels" is unsourced; the audit rated it outside P1, so it was not touched.
+- The writer page's "Azerbaijani" wording was not touched.
+- The P2 language and SEO pass is deferred.
+
+No artwork. No Work #11. No deployment.
+
+---
+
+## §112 — Micro-cleanup before the checkpoint commit (2026-09-27)
+
+- **Chaos superlative removed.** "It is the longest and most ambitious of his novels" and the HY/HYW equivalents are deleted from the intro. No source supported the claim.
+  - Nothing replaces it; the following sourced sentences (ՀՍՀ "largest achievement of Armenian critical realism", critics' "best book") remain.
+  - "The first and longest [part]" in the structure section is factual (17 chapters) and stays.
+  - Cards and metadata never carried it.
+- **Shirvanzade period wording.** No bibliography source for the page gives an ethnic label for Shamakhi's population or for Baku's investors, so both sentences now use neutral descriptions:
+  - "a mixed Armenian and Azerbaijani town" → "a town of mixed population, Armenians alongside other local communities". HY «հայեր և այլ տեղացի համայնքներ»; HYW «հայեր եւ այլ տեղացի համայնքներ».
+  - "capital … Armenian, Azerbaijani, Russian, Swedish, French" → "from Armenian and other local entrepreneurs, and from Russian, Swedish and French investors", with matching HY and HYW.
+  - The modern-country orientation ("today Şamaxı in Azerbaijan") and the Soviet-era "Azerbaijan SSR" honours stay, since they are correct for their periods.
+- **HYW reference term.** «տեղեկագրական աշխատութիւններ» → «տեղեկատու գործեր» in all 5 remaining places (2 in Abu-Lala, 3 in Chaos). In one, the possessive also changed: «իր գլուխգործոցը» → «անոր գլուխգործոցը». None of them meant "report".
+- **§111 test total.** Corrected in place with a note, from the saved log (579 total, 573 passed, 1 failed, 5 skipped). The timeout description and the 5.5 s isolated rerun are unchanged.
+- **Tests:**
+  - The §111 guards now also forbid the Chaos superlative and HYW «տեղեկագրական». A new §112 test forbids the two old Shirvanzade phrasings.
+  - `tsc` is clean; `validate:content` passes (234 entries).
+  - `works.spec.ts` on a freshly cleared `.next`: the first cold run stopped at 81 passed with browser-test failures (the full list was not captured). The immediate rerun passed 102/102.
+  - The Shirvanzade Writer tests passed 17/17.
+  - The full suite was not re-run (wording only).
+- **Unchanged:** the artwork SHAs (`f8ddd56e…`, `afc7de70…`), relations and counts, and all Step 87 corrections.
+- **Files:**
+  - the three `articles/works.ts` files: the Chaos intro in each; HYW also has the reference term;
+  - the three `articles/writers.ts` files: two sentences each;
+  - `works.spec.ts`;
+  - this file.
+- No Work #11. No commit. No deployment.

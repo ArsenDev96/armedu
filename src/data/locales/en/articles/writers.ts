@@ -484,6 +484,7 @@ export const writerArticles: Article[] = [
           "Usta Karo, an unfinished novel",
           "Numerous fables and prose sketches",
         ],
+        links: [{ phrase: "Abu Lala Mahari, written between 1909 and 1911", slug: "abu-lala-mahari" }],
       },
       {
         id: "themes-and-style",
@@ -2161,7 +2162,7 @@ export const writerArticles: Article[] = [
         heading: "Shamakhi",
         paragraphs: [
           "Shamakhi (Շամախի, today Şamaxı in Azerbaijan) was the old capital of Shirvan and, when he was born, a district town of the Russian Empire. It had been the seat of the governorate named after it until an earthquake wrecked it in 1859 and the administration moved to Baku. For his biography, this is the key fact about the place: the town he was born in had just been overtaken by the city where he would spend his youth.",
-          "It was a mixed Armenian and Azerbaijani town, run in Russian, and it is the world of Նամուս. The novel is set there, and the earthquake is in the book. Shamakhi was wrecked again in 1902, long after he had left.",
+          "It was a town of mixed population, Armenians alongside other local communities, run in Russian, and it is the world of Նամուս. The novel is set there, and the earthquake is in the book. Shamakhi was wrecked again in 1902, long after he had left.",
           "His family was not well off. Russian reference works describe his father, Minas, as a tailor, and the household was modest enough that his schooling ended at the district school, which he finished in 1873. This article uses the historical names of these places and the political units that actually existed at the time, because those are the terms his own documents used.",
         ],
       },
@@ -2169,7 +2170,7 @@ export const writerArticles: Article[] = [
         id: "baku",
         heading: "Baku, which is the subject as much as the setting",
         paragraphs: [
-          "In the 1870s Baku was on its way to becoming the largest oil city in the world. Derricks went up at Balakhani, refineries filled the district known as the Black Town, and capital arrived from everywhere: Armenian, Azerbaijani, Russian, Swedish, French. Shirvanzade went there as a teenager, in 1873 or 1875 depending on the Armenian source, and stayed about eight years.",
+          "In the 1870s Baku was on its way to becoming the largest oil city in the world. Derricks went up at Balakhani, refineries filled the district known as the Black Town, and capital arrived from everywhere: from Armenian and other local entrepreneurs, and from Russian, Swedish and French investors. Shirvanzade went there as a teenager, in 1873 or 1875 depending on the Armenian source, and stayed about eight years.",
           "For a future novelist, the city offered social change fast enough to watch. Fortunes were made within a decade and lost within the next. Families of provincial traders became industrial owners and sent their sons to Russian and European schools. Workers were gathered from across the Caucasus and northern Persia and housed accordingly. Position had stopped being inherited and started being bought, and nobody yet knew the rules.",
           "His prose is made from this world, which is why Baku belongs in an account of his work and not just in his timeline. He does not write about the city as a visitor would. He writes about the offices and the contracts, the marriages arranged around shares, the sons who go abroad and the ones who stay, the household that is rich one decade and ruined the next. He was inside the bookkeeping of that world while it changed.",
         ],
@@ -2246,11 +2247,12 @@ export const writerArticles: Article[] = [
         id: "chaos",
         heading: "Քաոս and the oil city",
         paragraphs: [
-          "Armenian critics most often call Քաոս his best novel, and Armenian scholarship describes it as the largest achievement of Armenian critical realism. It was serialized in 1896 and 1897 and published complete in 1898, in the years around his arrest and exile.",
-          "It follows an Armenian oil family in Baku: the fortune, the household built around it, the generation that inherits it, and the collapse of both. This was exactly the world whose accounts he had kept in his twenties, and the novel is specific about business in a way most nineteenth-century fiction about wealth is not.",
+          "Armenian critics most often call Քաոս his best novel, and Armenian scholarship describes it as the largest achievement of Armenian critical realism. He wrote it in 1896 and 1897, and it was published as a book at Baku in 1898, in the years around his arrest and exile.",
+          "It follows an Armenian oil family in Baku: the fortune, the household built around it, the generation that inherits it, and what the money does to the household. This was exactly the world whose accounts he had kept in his twenties, and the novel is specific about business in a way most nineteenth-century fiction about wealth is not.",
           "The title means what it says. The book shows a society without a settled order: money moving faster than the rules that used to govern it, positions that mean nothing a decade later, and people making up a morality to suit their circumstances. Baku had made that condition visible on a scale no other city in the region matched, and Քաոս is the Armenian novel of it.",
-          "This archive has not yet given any of his works its own article. The titles on this page are named but not linked, and Քաոս is the strongest candidate for a future one.",
+          "Of his works, Քաոս is the one with its own article in this archive, where the novel's Baku setting, its family conflict, its money and the social change around it are followed apart from this biography. The other titles on this page are named but not linked.",
         ],
+        links: [{ phrase: "Armenian critics most often call Քաոս his best novel", slug: "chaos" }],
       },
       {
         id: "patvi-hamar-is-not-namus",
@@ -2360,10 +2362,10 @@ export const writerArticles: Article[] = [
       { year: "1886", event: "Becomes secretary of Արձագանք, a post he holds until 1891." },
       { year: "1893", event: "The novel Արսեն Դիմաքսյան." },
       { year: "1894", event: "The drama Չար ոգի." },
-      { year: "1896", event: "Քաոս begins to appear serially; the serialization runs on into 1897." },
+      { year: "1896", event: "Begins writing Քաոս; the work runs on into 1897." },
       {
         year: "1898",
-        event: "Քաոս published complete; he is exiled to Odessa, where he remains until 1900.",
+        event: "Քաոս published as a book at Baku; he is exiled to Odessa, where he remains until 1900.",
       },
       { year: "1903", event: "The dramas Եվգինե and Ունե՞ր իրավունք." },
       {

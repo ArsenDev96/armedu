@@ -35,6 +35,10 @@ const PARONYAN = "hakob-paronyan";
 const BAGHDASAR = "baghdasar-aghbar";
 const CHARENTS = "yeghishe-charents";
 const NAIRI = "yerkir-nairi";
+const ISAHAKYAN = "avetik-isahakyan";
+const ABU = "abu-lala-mahari";
+const SHIRVANZADE = "alexander-shirvanzade";
+const CHAOS = "chaos";
 
 /** Every work in the section, as of §61. Stated, not derived. */
 const SLUGS = [
@@ -46,7 +50,20 @@ const SLUGS = [
   MTNADZOR,
   BAGHDASAR,
   NAIRI,
+  // §106 appended the ninth, written ahead of its picture.
+  ABU,
+  // §108 appended the tenth, likewise ahead of its picture.
+  CHAOS,
 ] as const;
+
+/**
+ * The works that have a cover. Equal to `SLUGS` from §104 until §106 appended a
+ * work that is pending; stated as a filter so it shrinks back to nothing the day
+ * that cover lands and `ARTWORK` gains the line.
+ */
+// §107 registered that cover; §108 added the tenth work ahead of its own, and §110
+// registered it, so COVERED is SLUGS again.
+const COVERED = [...SLUGS];
 
 /** The four that existed before §61, which this step must not have touched. */
 const PRE_EXISTING = ["anush", "wounds-of-armenia", "the-fool", "david-of-sassoun"] as const;
@@ -69,6 +86,10 @@ const ARTWORK: Record<string, string> = {
   [MTNADZOR]: "/images/works/mtnadzor.webp",
   [BAGHDASAR]: "/images/works/baghdasar-aghbar.webp",
   [NAIRI]: "/images/works/yerkir-nairi.webp",
+  // §107: the ninth work, written ahead of its picture at §106.
+  [ABU]: "/images/works/abu-lala-mahari.webp",
+  // §110: the tenth, written ahead of its picture at §108.
+  [CHAOS]: "/images/works/chaos.webp",
 };
 
 /** Each §104 work beside the Writer whose portrait it must never borrow. */
@@ -76,6 +97,10 @@ const NEW_ARTWORK: readonly [string, string][] = [
   [MTNADZOR, BAKUNTS],
   [BAGHDASAR, PARONYAN],
   [NAIRI, CHARENTS],
+  // §107.
+  [ABU, ISAHAKYAN],
+  // §110.
+  [CHAOS, SHIRVANZADE],
 ];
 
 /**
@@ -131,11 +156,11 @@ test("the fifth work exists in every edition and the first four are untouched", 
     const b = bundle(locale);
 
     expect(b.works.map((w) => w.slug), `${locale} work order`).toEqual([...SLUGS]);
-    expect(b.works.length, `${locale} works`).toBe(8);
+    expect(b.works.length, `${locale} works`).toBe(10);
 
     // Slugs are unique — an alias accidentally shipped as a second card would
     // give the section two entries that resolve to one article.
-    expect(new Set(b.works.map((w) => w.slug)).size, `${locale} slugs unique`).toBe(8);
+    expect(new Set(b.works.map((w) => w.slug)).size, `${locale} slugs unique`).toBe(10);
 
     // The card and the article agree that this work exists in this edition.
     const card = work(locale, NAREK);
@@ -508,7 +533,7 @@ test("no work carries a portrait provenance entry", () => {
 test("the works listing shows six works in every edition", async ({ page }) => {
   for (const locale of LOCALES) {
     await page.goto(`/${locale}/works`);
-    await expect(cards(page), `${locale} card count`).toHaveCount(8);
+    await expect(cards(page), `${locale} card count`).toHaveCount(10);
 
     const card = cards(page).filter({ hasText: articleTitle(locale, NAREK) });
     await expect(card, `${locale} the new card is present`).toHaveCount(1);
@@ -524,6 +549,24 @@ test("the works listing shows six works in every edition", async ({ page }) => {
       once more: no placeholder anywhere on the page, and each of the three cards
       located and checked for its own file — a count of zero alone would also pass
       if a card had lost its image altogether.
+    */
+    /*
+      §106 returns it to one: Abu-Lala Mahari is written ahead of its picture. The
+      single placeholder is located inside that work's own card, so the count
+      cannot be satisfied by some other card having lost its cover.
+    */
+    /*
+      §107 registers it and the count returns to zero; the ninth card is checked for
+      its own file in the loop below, because it is now in `NEW_ARTWORK`.
+    */
+    /*
+      §108 returns it to one: Chaos is written ahead of its picture. The single
+      placeholder is located inside that work's own card, and that card carries no
+      portrait of Shirvanzade.
+    */
+    /*
+      §110 registers it and the count returns to zero; the tenth card is checked for
+      its own file in the loop below, because it is now in `NEW_ARTWORK`.
     */
     await expect(
       page.getByRole("main").locator("svg[role='img']"),
@@ -703,7 +746,7 @@ test("adding the fifth work changed no other section", () => {
     expect(count("cuisine"), `${locale} cuisine`).toBe(12);
     expect(count("places"), `${locale} places`).toBe(13);
     expect(count("history"), `${locale} history`).toBe(7);
-    expect(count("works"), `${locale} works`).toBe(8);
+    expect(count("works"), `${locale} works`).toBe(10);
 
     /*
       The Writers section is untouched by anything in this file. §63 read it as ten
@@ -755,10 +798,15 @@ test("adding the fifth work changed no other section", () => {
       §104 empties it again: the three waits §101–§103 declared are registered, and
       the section is fully illustrated for the second time.
     */
+    /*
+      §106 refills it with exactly one work, the ninth. Still a filtered list, so it
+      fails if the entry lingers after the cover lands or if another work drops out.
+    */
     expect(
       [...PENDING_ARTWORK].filter((slug) => (SLUGS as readonly string[]).includes(slug)),
       "no work is waiting for a picture",
     ).toEqual([]);
+    // §110 registered the tenth cover; every work has one again.
     expect(Object.keys(ARTWORK).sort(), "every work has a cover").toEqual([...SLUGS].sort());
   }
 
@@ -819,7 +867,9 @@ test("the sixth work is the 1927 collection, in every edition", () => {
     // §102 appended a seventh work and §103 an eighth after this one, so Mtnadzor
     // is now third from the end — only that it kept its own position relative to
     // what came before it.
-    expect(b.works.at(-3)!.slug, `${locale} still third-to-last`).toBe(MTNADZOR);
+    // §106 appended a ninth after it, so it is now fourth from the end.
+    // §108 appended a tenth, so it is now fifth from the end.
+    expect(b.works.at(-5)!.slug, `${locale} still fifth-to-last`).toBe(MTNADZOR);
 
     /*
       The entity is the book. `publicationPeriod` and the "published" key fact both
@@ -1111,7 +1161,7 @@ test("adding the sixth work changed no other section and no earlier work", () =>
     const b = bundle(locale);
     const count = (category: string) => b.articles.filter((a) => a.category === category).length;
 
-    expect(count("works"), `${locale} works`).toBe(8);
+    expect(count("works"), `${locale} works`).toBe(10);
     expect(count("writers"), `${locale} writers`).toBe(13);
     expect(count("cuisine"), `${locale} cuisine`).toBe(12);
     expect(count("places"), `${locale} places`).toBe(13);
@@ -1175,7 +1225,7 @@ test("the work is reachable by route, listing and search in every edition", asyn
 
     // And it is on the listing, under its new pill.
     await page.goto(`/${locale}/works`);
-    await expect(cards(page), `${locale} eight cards`).toHaveCount(8);
+    await expect(cards(page), `${locale} ten cards`).toHaveCount(10);
     await expect(
       page.locator(`main a[href="/${locale}/works/${MTNADZOR}"]`).first(),
       `${locale} card links to it`,
@@ -1315,8 +1365,10 @@ test("the seventh work is Paronyan's 1886 comedy, in every edition", () => {
     // §103 appended an eighth work after this one, so Baghdasar Aghbar is no
     // longer last — only that it kept its own position, one before the new
     // last entry.
-    expect(b.works.at(-2)!.slug, `${locale} still second-to-last`).toBe(BAGHDASAR);
-    expect(b.works.length, `${locale} eight works`).toBe(8);
+    // §106 appended a ninth, so it is now third from the end.
+    // §108 appended a tenth, so it is now fourth from the end.
+    expect(b.works.at(-4)!.slug, `${locale} still fourth-to-last`).toBe(BAGHDASAR);
+    expect(b.works.length, `${locale} ten works`).toBe(10);
 
     // No sibling Work was invented for any of Paronyan's other titles.
     const slugs = b.articles.map((x) => x.slug);
@@ -1483,7 +1535,7 @@ test("adding the seventh work changed nothing else", () => {
     const b = bundle(locale);
     const count = (category: string) => b.articles.filter((a) => a.category === category).length;
 
-    expect(count("works"), `${locale} works`).toBe(8);
+    expect(count("works"), `${locale} works`).toBe(10);
     expect(count("writers"), `${locale} writers`).toBe(13);
     expect(count("cuisine"), `${locale} cuisine`).toBe(12);
     expect(count("places"), `${locale} places`).toBe(13);
@@ -1568,8 +1620,10 @@ test("the eighth work is Charents's 1926 novel, in every edition", () => {
     expect(a, `${locale} article`).toBeTruthy();
     expect(a.href, `${locale} href`).toBe(`/works/${NAIRI}`);
     expect(a.category, `${locale} category`).toBe("works");
-    expect(b.works.at(-1)!.slug, `${locale} appended last`).toBe(NAIRI);
-    expect(b.works.length, `${locale} eight works`).toBe(8);
+    // Appended last at §103; §106 appended the ninth after it.
+    // §108 appended a tenth; it is now third from the end.
+    expect(b.works.at(-3)!.slug, `${locale} appended after the seventh`).toBe(NAIRI);
+    expect(b.works.length, `${locale} ten works`).toBe(10);
 
     for (const invented of NOT_SIBLING_TITLES) {
       const slugs = b.articles.map((x) => x.slug);
@@ -1754,7 +1808,7 @@ test("adding the eighth work changed nothing else", () => {
     const b = bundle(locale);
     const count = (category: string) => b.articles.filter((a) => a.category === category).length;
 
-    expect(count("works"), `${locale} works`).toBe(8);
+    expect(count("works"), `${locale} works`).toBe(10);
     expect(count("writers"), `${locale} writers`).toBe(13);
     expect(count("cuisine"), `${locale} cuisine`).toBe(12);
     expect(count("places"), `${locale} places`).toBe(13);
@@ -1832,17 +1886,21 @@ test("the novel carries a real, chronology-scoped bibliography", () => {
  * borrow.
  */
 
-test("§104: the registry holds all eight covers and nothing is pending", () => {
-  for (const slug of SLUGS) {
+test("§104: every illustrated work has its own registered cover", () => {
+  for (const slug of COVERED) {
     expect(getImageSrc(slug), `${slug} resolves to its own file`).toBe(ARTWORK[slug]);
     expect(PENDING_ARTWORK, `${slug} is not pending`).not.toContain(slug);
     expect(getPortraitProvenance(slug), `${slug} is not a portrait`).toBe("imagined");
   }
+  // §104 read `toEqual([])` here. §106 adds the ninth work ahead of its picture, and
+  // it is the only entry archive-wide; the eight covers above are unchanged.
+  // §107 registered the ninth and emptied the list; §108 refilled it with the tenth,
+  // and §110 empties it again.
   expect([...PENDING_ARTWORK], "the pending list is empty archive-wide").toEqual([]);
 
   // No two works share a file, and no work points into the Writers folder.
-  const files = SLUGS.map((slug) => getImageSrc(slug));
-  expect(new Set(files).size, "eight distinct files").toBe(8);
+  const files = COVERED.map((slug) => getImageSrc(slug));
+  expect(new Set(files).size, "ten distinct files").toBe(10);
   for (const file of files) {
     expect(String(file), `${file} is a works file`).toMatch(/^\/images\/works\//);
   }
@@ -1853,6 +1911,9 @@ test("§104: the registry holds all eight covers and nothing is pending", () => 
     [BAKUNTS]: "photo-referenced",
     [PARONYAN]: "photo-referenced",
     [CHARENTS]: "imagined",
+    [ISAHAKYAN]: "imagined",
+    // §110.
+    [SHIRVANZADE]: "photo-referenced",
   };
   for (const [, writer] of NEW_ARTWORK) {
     expect(getImageSrc(writer), `${writer} portrait`).toBe(`/images/writers/${writer}.webp`);
@@ -1868,6 +1929,8 @@ test("§104: the registry holds all eight covers and nothing is pending", () => 
 });
 
 test("§104: each hero renders the work's own file, captioned as an illustration", async ({ page }) => {
+  // Twelve article pages since §107.
+  test.setTimeout(90_000);
   for (const [slug, writer] of NEW_ARTWORK) {
     for (const locale of LOCALES) {
       await page.goto(`/${locale}/works/${slug}`);
@@ -1893,8 +1956,8 @@ test("§104: each hero renders the work's own file, captioned as an illustration
 test("§104: search hits carry the work's own artwork; writer hits keep their portraits", async ({
   page,
 }) => {
-  // Fifteen search pages in one test; the 30 s default is sized for one or two.
-  test.setTimeout(120_000);
+  // Twenty-two search pages since §107; the 30 s default is sized for one or two.
+  test.setTimeout(180_000);
   const queries: [string, string, string][] = [
     [MTNADZOR, "en", "Mtnadzor"],
     [MTNADZOR, "en", "The Dark Valley"],
@@ -1908,6 +1971,13 @@ test("§104: search hits carry the work's own artwork; writer hits keep their po
     [NAIRI, "hyw", "Երկիր Նաիրի"],
     [NAIRI, "en", "Yerkir Nairi"],
     [NAIRI, "en", "Land of Nairi"],
+    // §107.
+    [ABU, "hy", "Աբու-Լալա Մահարի"],
+    [ABU, "hy", "Աբու Լալա Մահարի"],
+    [ABU, "hyw", "Աբու-Լալա Մահարի"],
+    [ABU, "en", "Abu-Lala Mahari"],
+    [ABU, "en", "Abu Lala Mahari"],
+    [ABU, "en", "Avetik Isahakyan Abu Lala"],
   ];
   for (const [slug, locale, query] of queries) {
     await page.goto(`/${locale}/search?q=${encodeURIComponent(query)}`);
@@ -1961,5 +2031,615 @@ test("§104: OG, Twitter and sitemap advertise each work's own file, per edition
   for (const slug of [NAREK, ...PRE_EXISTING]) {
     const block = blocks.find((entry) => entry.includes(`/en/works/${slug}</loc>`));
     expect(block, `${slug} still advertises its image`).toContain(ARTWORK[slug]);
+  }
+});
+
+/* -------------------------------------------------------------------------- */
+/*  §106 — Work #9: Abu-Lala Mahari                                            */
+/* -------------------------------------------------------------------------- */
+
+/*
+ * The ninth work's risk is an *identity* risk three ways over: a historical Arab
+ * poet (al-Maʿarrī), the literary hero who borrows his name, and the Armenian
+ * poet who wrote the poem. The tests pin the separations structurally — section
+ * ids, relations, entities that must not exist — and pin prose only where the
+ * article states a limit or a refusal, because that sentence is the claim.
+ */
+
+test("§106: the ninth work exists in every edition, after the eighth", () => {
+  for (const locale of LOCALES) {
+    const b = bundle(locale);
+    // Appended last at §106; §108 appended the tenth after it.
+    expect(b.works.at(-2)?.slug, `${locale} appended after the eighth`).toBe(ABU);
+    expect(b.works.map((w) => w.slug), `${locale} order`).toEqual([...SLUGS]);
+
+    const a = article(locale, ABU);
+    expect(a.href, `${locale} href`).toBe(`/works/${ABU}`);
+    expect(a.category, `${locale} category`).toBe("works");
+    expect(work(locale, ABU).imageSeed, `${locale} card seed`).toBe(ABU);
+  }
+  // The Armenian editions carry the authoritative hyphenated title; the English
+  // edition transliterates it rather than translating the name.
+  expect(article("hy", ABU).title).toBe("Աբու-Լալա Մահարի");
+  expect(article("hyw", ABU).title).toBe("Աբու-Լալա Մահարի");
+  expect(article("en", ABU).title).toBe("Abu-Lala Mahari");
+});
+
+test("§106: the author is Avetik Isahakyan, and the relation runs both ways", () => {
+  for (const locale of LOCALES) {
+    const writer = bundle(locale).writers.find((w) => w.slug === ISAHAKYAN)!;
+    expect(work(locale, ABU).author, `${locale} card author`).toBe(writer.name);
+    expect(article(locale, ABU).relatedSlugs, `${locale} Work → Writer`).toEqual([ISAHAKYAN]);
+
+    // Writer → Work: one `links` annotation on the sentence that already named the
+    // poem. The sentence itself is still there, so no biography prose was rewritten.
+    const major = article(locale, ISAHAKYAN).sections.find((s) => s.id === "major-works")!;
+    const link = (major.links ?? []).find((l) => l.slug === ABU);
+    expect(link, `${locale} Writer → Work link`).toBeTruthy();
+    expect(major.paragraphs.join(" "), `${locale} phrase is in the prose`).toContain(link!.phrase);
+    expect(
+      article(locale, ISAHAKYAN).sections.flatMap((s) => s.links ?? []),
+      `${locale} and it is the only link in the biography`,
+    ).toHaveLength(1);
+  }
+});
+
+test("§106: filed under poetry, with no new genre", () => {
+  for (const locale of LOCALES) {
+    const b = bundle(locale);
+    expect(work(locale, ABU).genreId, `${locale} genre id`).toBe("poetry");
+    expect(b.workGenres.map((g) => g.id), `${locale} genre ids`).toEqual([
+      "all",
+      "poetry",
+      "novel",
+      "epic",
+      "short-stories",
+      "drama",
+    ]);
+    expect(
+      b.works.filter((w) => w.genreId === "poetry").map((w) => w.slug),
+      `${locale} poetry now holds three`,
+    ).toEqual(["anush", NAREK, ABU]);
+  }
+  expect(work("en", ABU).genre).toBe("Philosophical poem");
+});
+
+test("§106: the chronology names its disagreement instead of choosing silently", () => {
+  for (const locale of LOCALES) {
+    const all = text(locale, ABU);
+    expect(work(locale, ABU).publicationPeriod, `${locale} card`).toMatch(/1909–1911.*1911/);
+    // The outer frame, the narrower scholarly dating, and the single-year dating.
+    for (const date of ["1909–1911", "1909–1910", "1910", "1911"]) {
+      expect(all, `${locale} ${date}`).toContain(date);
+    }
+    const years = article(locale, ABU).importantDates.map((d) => d.year);
+    expect(years, `${locale} dates`).toEqual(expect.arrayContaining(["1909–1911", "1911", "1916"]));
+  }
+  const en = text("en", ABU);
+  expect(en, "first book edition").toMatch(/Constantinople/);
+  expect(en, "the caravan story is tradition, not fact").toMatch(/reported here as tradition/);
+  expect(en, "no invented periodical").toMatch(/does not guess at one/);
+});
+
+test("§106: the historical al-Maʿarrī is kept apart from the literary hero", () => {
+  for (const locale of LOCALES) {
+    const ids = article(locale, ABU).sections.map((s) => s.id);
+    expect(ids, `${locale} sections`).toEqual(
+      expect.arrayContaining(["the-historical-poet", "from-history-to-poem", "author-and-hero"]),
+    );
+    const all = text(locale, ABU);
+    expect(all, `${locale} historical dates`).toMatch(/973/);
+    expect(all, `${locale} historical dates`).toMatch(/1057/);
+    expect(
+      (article(locale, ABU).relatedFigures ?? []).map((f) => f.lifespan),
+      `${locale} al-Maʿarrī is a related figure, not an entity`,
+    ).toContain("973–1057");
+  }
+  const en = text("en", ABU);
+  expect(en).toContain("the hero is not a documentary reconstruction");
+  expect(en).toContain("The two spellings mark two different figures");
+});
+
+test("§106: no Writer or article was invented for al-Maʿarrī", () => {
+  for (const locale of LOCALES) {
+    const b = bundle(locale);
+    expect(
+      b.writers.map((w) => w.slug).filter((s) => /ma-?arri|mahari/.test(s)),
+      `${locale} writers`,
+    ).toEqual([]);
+    expect(
+      b.articles.map((a) => a.slug).filter((s) => /ma-?arri|mahari|abu-/.test(s)),
+      `${locale} articles`,
+    ).toEqual([ABU]);
+  }
+});
+
+test("§106: the hero is not Isahakyan, and no belief is assigned to either", () => {
+  const en = text("en", ABU);
+  expect(en).toContain("does not make Abu-Lala Isahakyan in disguise");
+  expect(en).not.toMatch(/Abu-Lala is Isahakyan/);
+  expect(en).toContain("draws no conclusion from it about Isahakyan's own beliefs");
+  expect(en).not.toMatch(/Isahakyan (was|is) an? (atheist|believer|skeptic)/i);
+  // The autobiographical reading is attributed to the study that makes it.
+  expect(en).toMatch(/Avik Isahakyan's 2007 study/);
+});
+
+test("§106: journey, desert and freedom are substantive sections in every edition", () => {
+  for (const locale of LOCALES) {
+    for (const id of ["the-journey", "the-desert", "freedom", "leaving-society", "love-and-attachment"]) {
+      const section = article(locale, ABU).sections.find((s) => s.id === id);
+      expect(section, `${locale} ${id}`).toBeTruthy();
+      expect(section!.paragraphs.length, `${locale} ${id} paragraphs`).toBeGreaterThanOrEqual(2);
+    }
+  }
+  const en = text("en", ABU);
+  expect(en).toContain("The journey is not an adventure");
+  expect(en, "desert scholarship attributed").toMatch(/Harutyunyan/);
+});
+
+test("§106: the hero's harsh verdicts stay the hero's", () => {
+  const en = text("en", ABU);
+  expect(en).toContain("It would be too simple to say that he hates humanity");
+  expect(en).toContain("The hero's verdict is the hero's");
+  expect(en).toContain("They are not presented as a truth about women");
+  expect(en).not.toMatch(/mystical East|exotic Arabia|sensual Orient/i);
+});
+
+test("§106: pessimism, Romanticism and form are attributed, not asserted as labels", () => {
+  for (const locale of LOCALES) {
+    const ids = article(locale, ABU).sections.map((s) => s.id);
+    expect(ids, `${locale}`).toEqual(
+      expect.arrayContaining(["pessimism-and-revolt", "romantic-tradition", "form"]),
+    );
+  }
+  const en = text("en", ABU);
+  expect(en, "Romantic claim is Jrbashyan's").toMatch(/Jrbashyan's 1975 study/);
+  expect(en, "the counter-reading").toMatch(/Saryan was perhaps the only interpreter/);
+  expect(en, "the sura count is not flattened").toMatch(/seven numbered suras and a closing "Last Sura/);
+  expect(en, "no invented canto count").not.toMatch(/five (cantos|songs)/i);
+});
+
+test("§107: the ninth work owns its artwork and nobody's portrait is borrowed", async ({ page, request }) => {
+  /*
+    §106 asserted the pending state here: no file, a placeholder hero, the OG
+    fallback and an image-free sitemap block. §107 is that assertion inverted,
+    surface by surface, with the portrait checks kept exactly as they were.
+  */
+  expect(getImageSrc(ABU), "its own file is registered").toBe(ARTWORK[ABU]);
+  expect([...PENDING_ARTWORK], "and the wait is over").not.toContain(ABU);
+  expect(getPortraitProvenance(ABU), "not a portrait").toBe("imagined");
+  expect(getImageSrc(ISAHAKYAN), "Isahakyan keeps his portrait").toBe(
+    `/images/writers/${ISAHAKYAN}.webp`,
+  );
+  for (const locale of LOCALES) {
+    expect(article(locale, ABU).image, `${locale} no content image; the registry is the source`).toBeUndefined();
+  }
+
+  for (const locale of LOCALES) {
+    await page.goto(`/${locale}/works/${ABU}`);
+    const figure = page.getByRole("main").locator("figure").first();
+    await expect(figure.locator("svg[role='img']"), `${locale} no placeholder hero`).toHaveCount(0);
+    await expect(figure.locator(`img[src*="${FILE[ABU]}"]`), `${locale} own hero`).toHaveCount(1);
+    await expect(figure.locator(`img[src*="${ISAHAKYAN}"]`), `${locale} no portrait hero`).toHaveCount(0);
+    for (const property of ['meta[property="og:image"]', 'meta[name="twitter:image"]']) {
+      const content = (await page.locator(property).first().getAttribute("content")) ?? "";
+      expect(content, `${locale} ${property} is the work's file`).toBe(`https://armat.site${ARTWORK[ABU]}`);
+      expect(content, `${locale} ${property} no portrait`).not.toContain(ISAHAKYAN);
+    }
+  }
+
+  const xml = await (await request.get("/sitemap.xml")).text();
+  const blocks = xml.split("<url>").slice(1);
+  for (const locale of LOCALES) {
+    const block = blocks.find((entry) => entry.includes(`/${locale}/works/${ABU}</loc>`));
+    expect(block, `${locale} sitemap entry`).toBeDefined();
+    expect(block, `${locale} advertises its own image`).toContain(
+      `<image:loc>https://armat.site${ARTWORK[ABU]}</image:loc>`,
+    );
+    expect(block!.match(/<image:loc>/g)?.length, `${locale} exactly one image`).toBe(1);
+    expect(block, `${locale} borrows no portrait`).not.toContain(ISAHAKYAN);
+  }
+});
+
+test("§106: reachable by route, listing and every search alias", async ({ page }) => {
+  test.setTimeout(120_000);
+  for (const locale of LOCALES) {
+    const response = await page.goto(`/${locale}/works/${ABU}`);
+    expect(response?.status(), `${locale} route`).toBe(200);
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText(articleTitle(locale, ABU));
+  }
+
+  const queries: [string, string][] = [
+    ["hy", "Աբու-Լալա Մահարի"],
+    ["hy", "Աբու Լալա Մահարի"],
+    ["hyw", "Աբու-Լալա Մահարի"],
+    ["hyw", "Աբու Լալա Մահարի"],
+    ["en", "Abu-Lala Mahari"],
+    ["en", "Abu Lala Mahari"],
+    ["en", "Avetik Isahakyan Abu Lala"],
+  ];
+  for (const [locale, query] of queries) {
+    await page.goto(`/${locale}/search?q=${encodeURIComponent(query)}`);
+    const hit = page.locator(`main li:has(a[href="/${locale}/works/${ABU}"])`).first();
+    await expect(hit, `${locale} "${query}" finds the work`).toHaveCount(1);
+    await expect(hit.locator(`img[src*="${ISAHAKYAN}"]`), `${locale} "${query}" no portrait`).toHaveCount(0);
+  }
+
+  // The author's name still finds the Writer, with his own portrait.
+  await page.goto(`/en/search?q=${encodeURIComponent("Avetik Isahakyan")}`);
+  const writer = page.locator(`main li:has(a[href="/en/writers/${ISAHAKYAN}"])`).first();
+  await expect(writer, "the Writer is still found").toHaveCount(1);
+  await expect(writer.locator(`img[src*="${ISAHAKYAN}.webp"]`), "with his portrait").toHaveCount(1);
+
+  // The historical name surfaces the poem and no Writer page.
+  await page.goto(`/en/search?q=${encodeURIComponent("al-Maʿarrī")}`);
+  await expect(page.locator(`main a[href="/en/works/${ABU}"]`).first(), "the poem").toBeVisible();
+  await expect(page.locator(`main a[href*="/en/writers/"][href*="arri"]`), "no fake Writer").toHaveCount(0);
+});
+
+test("§106: the poem carries a real, function-scoped bibliography", () => {
+  const sources = getSources(ABU);
+  expect(sources.length, "at least seven sources").toBeGreaterThanOrEqual(7);
+  for (const source of sources) {
+    expect(source.identifier?.value, `"${source.title}" has an identifier`).toBeTruthy();
+    expect(source.publisher, `"${source.title}" names a publisher`).toBeTruthy();
+  }
+  const ids = sources.map((s) => s.identifier.value);
+  expect(ids, "Harutyunyan, by DOI").toContain("10.46991/FLHE/2015.19.1.201");
+  expect(ids.some((id) => id.includes("britannica.com")), "historical figure has its own source").toBe(true);
+  expect(ids.some((id) => id.includes("189596")), "Jrbashyan 1975").toBe(true);
+});
+
+test("§106: adding the ninth work changed nothing else", () => {
+  for (const locale of LOCALES) {
+    const b = bundle(locale);
+    const count = (category: string) => b.articles.filter((a) => a.category === category).length;
+    expect(count("works"), `${locale} works`).toBe(10);
+    expect(count("writers"), `${locale} writers`).toBe(13);
+    expect(count("cuisine"), `${locale} cuisine`).toBe(12);
+    expect(count("places"), `${locale} places`).toBe(13);
+    expect(count("history"), `${locale} history`).toBe(7);
+
+    expect(b.works.slice(0, 8).map((w) => w.slug), `${locale} earlier order`).toEqual(SLUGS.slice(0, 8));
+    for (const slug of COVERED) {
+      expect(getImageSrc(slug), `${locale} ${slug} cover unmoved`).toBe(ARTWORK[slug]);
+    }
+    expect(article(locale, ABU).featured, `${locale} took no flag`).toBeFalsy();
+    expect(b.works[0].slug, `${locale} Anush is still first`).toBe("anush");
+
+    // Every writer, Isahakyan included, keeps a registered portrait.
+    for (const w of b.writers) {
+      expect(getImageSrc(w.slug), `${locale} ${w.slug} portrait`).toBeTruthy();
+    }
+  }
+});
+
+/* -------------------------------------------------------------------------- */
+/*  §108 — Work #10: Chaos (Քաոս), Alexander Shirvanzade                       */
+/* -------------------------------------------------------------------------- */
+
+/*
+ * The tenth work's risk is ambiguity. "Chaos" is a common English noun, the novel
+ * shares its title with a 1973 film and a television version, and its setting is a
+ * city whose later history is easy to read backwards into a book of 1898. The tests
+ * pin the entity, the dates and the refusals structurally; prose is pinned only
+ * where the article states a limit.
+ */
+
+test("§108: the tenth work exists in every edition, appended last", () => {
+  for (const locale of LOCALES) {
+    const b = bundle(locale);
+    expect(b.works.at(-1)?.slug, `${locale} appended last`).toBe(CHAOS);
+    expect(b.works.map((w) => w.slug), `${locale} order`).toEqual([...SLUGS]);
+    const a = article(locale, CHAOS);
+    expect(a.href, `${locale} href`).toBe(`/works/${CHAOS}`);
+    expect(a.category, `${locale} category`).toBe("works");
+    expect(work(locale, CHAOS).imageSeed, `${locale} card seed`).toBe(CHAOS);
+  }
+  expect(article("hy", CHAOS).title).toBe("Քաոս");
+  expect(article("hyw", CHAOS).title).toBe("Քաոս");
+  expect(article("en", CHAOS).title).toBe("Chaos");
+});
+
+test("§108: the author is Alexander Shirvanzade, and the relation runs both ways", () => {
+  for (const locale of LOCALES) {
+    const writer = bundle(locale).writers.find((w) => w.slug === SHIRVANZADE)!;
+    expect(work(locale, CHAOS).author, `${locale} card author`).toBe(writer.name);
+    expect(article(locale, CHAOS).relatedSlugs, `${locale} Work → Writer`).toEqual([SHIRVANZADE]);
+    const section = article(locale, SHIRVANZADE).sections.find((s) => s.id === "chaos")!;
+    const link = (section.links ?? []).find((l) => l.slug === CHAOS);
+    expect(link, `${locale} Writer → Work link`).toBeTruthy();
+    expect(section.paragraphs.join(" "), `${locale} on an existing sentence`).toContain(link!.phrase);
+  }
+});
+
+test("§108: filed as a novel, with no new genre", () => {
+  for (const locale of LOCALES) {
+    const b = bundle(locale);
+    expect(work(locale, CHAOS).genreId, `${locale} genre id`).toBe("novel");
+    expect(b.workGenres.length, `${locale} six filters`).toBe(6);
+    expect(
+      b.works.filter((w) => w.genreId === "novel").map((w) => w.slug),
+      `${locale} novels`,
+    ).toEqual(["wounds-of-armenia", "the-fool", NAIRI, CHAOS]);
+  }
+});
+
+test("§108: written, published and the unconfirmed serialization are kept apart", () => {
+  for (const locale of LOCALES) {
+    const all = text(locale, CHAOS);
+    expect(work(locale, CHAOS).publicationPeriod, `${locale} card`).toMatch(/1896–1897.*1898/);
+    for (const date of ["1896–1897", "1898", "1881–1882"]) {
+      expect(all, `${locale} ${date}`).toContain(date);
+    }
+    const years = article(locale, CHAOS).importantDates.map((d) => d.year);
+    expect(years, `${locale} dates`).toEqual(expect.arrayContaining(["1896–1897", "1898"]));
+  }
+  const en = text("en", CHAOS);
+  expect(en, "the book city").toMatch(/published as a book at Baku in 1898/);
+  expect(en, "serialization is reported, not asserted").toMatch(/reported here as a claim that could not be confirmed/);
+  expect(en, "the prison origin").toMatch(/Metekhi/);
+});
+
+test("§108: Baku, oil and the family are substantive, not background", () => {
+  for (const locale of LOCALES) {
+    for (const id of ["baku", "oil-and-money", "the-alimyan-family", "characters", "the-will", "modernization", "women", "realism", "why-chaos"]) {
+      const section = article(locale, CHAOS).sections.find((s) => s.id === id);
+      expect(section, `${locale} ${id}`).toBeTruthy();
+      expect(section!.paragraphs.length, `${locale} ${id} paragraphs`).toBeGreaterThanOrEqual(2);
+    }
+  }
+  const en = text("en", CHAOS);
+  expect(en, "the text leaves the city unnamed").toContain("the text leaves the city unnamed");
+  expect(en, "not simply about oil").toContain("Chaos is not a novel about the oil industry");
+  // Names come from the text, with the verified spellings.
+  for (const name of ["Մարկոս", "Ոսկեհատ", "Սմբատ", "Միքայել", "Շուշանիկ", "Սրաֆիոն"]) {
+    expect(text("hy", CHAOS), `hy ${name}`).toContain(name);
+  }
+});
+
+test("§108: realism is explained, and no Soviet frame is read back into 1898", () => {
+  const en = text("en", CHAOS);
+  expect(en, "critical realism attributed").toMatch(/standard Armenian scholarly term/);
+  expect(en, "no naturalism claim").toContain("No source consulted describes Chaos as naturalist");
+  expect(en, "Soviet reading reported as reception").toMatch(/Soviet-era reception/);
+  expect(en).not.toMatch(/Soviet (industrialization|capitalism)|socialist realism/i);
+  expect(en, "no 'rich people are bad' flattening").toContain("That is not quite what it shows");
+  expect(en, "no first-urban-novel claim").toContain("does not call it the first Armenian urban novel");
+});
+
+test("§108: the generic title is disambiguated in every edition's metadata", () => {
+  for (const locale of LOCALES) {
+    const a = article(locale, CHAOS);
+    expect(a.sections.map((s) => s.id), `${locale} title section`).toContain("the-title");
+    expect(`${a.seoTitle} ${a.metaDescription}`, `${locale} names the author`).toMatch(/Shirvanzade|Շիրվանզադ/);
+  }
+  const en = article("en", CHAOS);
+  expect(en.seoTitle).toMatch(/Chaos/);
+  expect(en.seoTitle).toMatch(/Alexander Shirvanzade/);
+  expect(en.metaDescription).toMatch(/Armenian novel/);
+  expect(en.metaDescription).toMatch(/Baku/);
+});
+
+test("§108: no Place, Writer or character entity was invented", () => {
+  for (const locale of LOCALES) {
+    const b = bundle(locale);
+    const slugs = b.articles.map((a) => a.slug);
+    expect(slugs.filter((s) => /(^|-)(baku|oil|alimyan|smbat|mikayel)(-|$)/.test(s)), `${locale} no invented entity`).toEqual([]);
+    expect(slugs.filter((s) => /chaos|kaos|qaos/.test(s)), `${locale} one Chaos`).toEqual([CHAOS]);
+  }
+});
+
+test("§110: the tenth work owns its artwork and Shirvanzade's portrait is not borrowed", async ({ page, request }) => {
+  /*
+    §108 asserted the pending state here: no file, a placeholder hero, the OG
+    fallback and an image-free sitemap block. §110 is that assertion inverted,
+    surface by surface, with the portrait checks kept exactly as they were.
+  */
+  expect(getImageSrc(CHAOS), "its own file is registered").toBe(ARTWORK[CHAOS]);
+  expect([...PENDING_ARTWORK], "and the wait is over").not.toContain(CHAOS);
+  for (const locale of LOCALES) {
+    expect(article(locale, CHAOS).image, `${locale} no content image; the registry is the source`).toBeUndefined();
+  }
+  expect(getPortraitProvenance(CHAOS), "not a portrait").toBe("imagined");
+  expect(getImageSrc(SHIRVANZADE), "his portrait stays his").toBe(`/images/writers/${SHIRVANZADE}.webp`);
+  expect(getPortraitProvenance(SHIRVANZADE), "his provenance").toBe("photo-referenced");
+  // Step 81's registration is intact.
+  expect(getImageSrc(ABU), "Abu-Lala Mahari keeps its cover").toBe(ARTWORK[ABU]);
+
+  for (const locale of LOCALES) {
+    await page.goto(`/${locale}/works/${CHAOS}`);
+    const figure = page.getByRole("main").locator("figure").first();
+    await expect(figure.locator("svg[role='img']"), `${locale} no placeholder hero`).toHaveCount(0);
+    await expect(figure.locator(`img[src*="${FILE[CHAOS]}"]`), `${locale} own hero`).toHaveCount(1);
+    await expect(figure.locator(`img[src*="${SHIRVANZADE}"]`), `${locale} no portrait hero`).toHaveCount(0);
+    for (const property of ['meta[property="og:image"]', 'meta[name="twitter:image"]']) {
+      const content = (await page.locator(property).first().getAttribute("content")) ?? "";
+      expect(content, `${locale} ${property} is the work's file`).toBe(`https://armat.site${ARTWORK[CHAOS]}`);
+      expect(content, `${locale} ${property} no portrait`).not.toContain(SHIRVANZADE);
+    }
+  }
+
+  const xml = await (await request.get("/sitemap.xml")).text();
+  const blocks = xml.split("<url>").slice(1);
+  for (const locale of LOCALES) {
+    const block = blocks.find((entry) => entry.includes(`/${locale}/works/${CHAOS}</loc>`));
+    expect(block, `${locale} sitemap entry`).toBeDefined();
+    expect(block, `${locale} advertises its own image`).toContain(
+      `<image:loc>https://armat.site${ARTWORK[CHAOS]}</image:loc>`,
+    );
+    expect(block!.split("<image:loc>").length - 1, `${locale} exactly one image`).toBe(1);
+  }
+});
+
+test("§108: reachable by route and by its title in every form", async ({ page }) => {
+  test.setTimeout(120_000);
+  for (const locale of LOCALES) {
+    const response = await page.goto(`/${locale}/works/${CHAOS}`);
+    expect(response?.status(), `${locale} route`).toBe(200);
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText(articleTitle(locale, CHAOS));
+  }
+
+  // The bare English noun is included: the work must be discoverable by it, not
+  // necessarily first.
+  const queries: [string, string][] = [
+    ["en", "Chaos"],
+    ["en", "Alexander Shirvanzade Chaos"],
+    ["en", "Shirvanzade Chaos"],
+    ["hy", "Քաոս"],
+    ["hy", "Շիրվանզադե Քաոս"],
+    ["hyw", "Քաոս"],
+  ];
+  for (const [locale, query] of queries) {
+    await page.goto(`/${locale}/search?q=${encodeURIComponent(query)}`);
+    const hit = page.locator(`main li:has(a[href="/${locale}/works/${CHAOS}"])`).first();
+    await expect(hit, `${locale} "${query}" finds the work`).toHaveCount(1);
+    await expect(hit.locator(`img[src*="${SHIRVANZADE}"]`), `${locale} "${query}" no portrait`).toHaveCount(0);
+    // §110: the hit carries the work's own cover.
+    await expect(hit.locator(`img[src*="${FILE[CHAOS]}"]`), `${locale} "${query}" own artwork`).toHaveCount(1);
+  }
+
+  // The author's name still finds the Writer, with his portrait.
+  for (const [locale, name] of [["en", "Alexander Shirvanzade"], ["hy", "Ալեքսանդր Շիրվանզադե"]] as const) {
+    await page.goto(`/${locale}/search?q=${encodeURIComponent(name)}`);
+    const writer = page.locator(`main li:has(a[href="/${locale}/writers/${SHIRVANZADE}"])`).first();
+    await expect(writer, `${locale} the Writer is still found`).toHaveCount(1);
+    await expect(writer.locator(`img[src*="${SHIRVANZADE}.webp"]`), `${locale} with his portrait`).toHaveCount(1);
+  }
+});
+
+test("§108: the novel carries a real, role-scoped bibliography", () => {
+  const sources = getSources(CHAOS);
+  expect(sources.length, "at least eight sources").toBeGreaterThanOrEqual(8);
+  for (const source of sources) {
+    expect(source.identifier?.value, `"${source.title}" has an identifier`).toBeTruthy();
+    expect(source.publisher, `"${source.title}" names a publisher`).toBeTruthy();
+  }
+  const ids = sources.map((s) => s.identifier.value);
+  expect(ids.some((id) => id.includes("wikisource")), "the primary text").toBe(true);
+  expect(ids, "the French translation, by ISBN").toContain("9782919131099");
+});
+
+test("§108: adding the tenth work changed nothing else", () => {
+  for (const locale of LOCALES) {
+    const b = bundle(locale);
+    const count = (category: string) => b.articles.filter((a) => a.category === category).length;
+    expect(count("works"), `${locale} works`).toBe(10);
+    expect(count("writers"), `${locale} writers`).toBe(13);
+    expect(count("cuisine"), `${locale} cuisine`).toBe(12);
+    expect(count("places"), `${locale} places`).toBe(13);
+    expect(count("history"), `${locale} history`).toBe(7);
+
+    expect(b.works.slice(0, 9).map((w) => w.slug), `${locale} earlier order`).toEqual(SLUGS.slice(0, 9));
+    for (const slug of COVERED) {
+      expect(getImageSrc(slug), `${locale} ${slug} cover unmoved`).toBe(ARTWORK[slug]);
+    }
+    expect(article(locale, CHAOS).featured, `${locale} took no flag`).toBeFalsy();
+    expect(b.works[0].slug, `${locale} Anush is still first`).toBe("anush");
+    for (const w of b.writers) {
+      expect(getImageSrc(w.slug), `${locale} ${w.slug} portrait`).toBeTruthy();
+    }
+  }
+});
+
+/* -------------------------------------------------------------------------- */
+/*  §111 — Targeted corrections to Abu-Lala Mahari and Chaos                   */
+/* -------------------------------------------------------------------------- */
+
+/*
+ * §111 corrected facts that a later edit could quietly undo. The guards pin the
+ * corrected meaning with short markers rather than whole sentences: the will's
+ * inheritance clause, Mikayel's own words, the dropped serialisation, and on the
+ * poem the sura order and the two unsourced claims.
+ */
+
+test("§111: Chaos states the will's inheritance clause and Mikayel's own framing", () => {
+  const clause: Record<string, RegExp[]> = {
+    en: [/may not leave his share/, /lawful heirs/, /does not order a divorce/],
+    hy: [/«օտարազգի»/, /օրինական ժառանգները/],
+    hyw: [/«օտարազգի»/, /օրինական ժառանգորդները/],
+  };
+  const lastWish: Record<string, string> = {
+    en: "our father's last wish",
+    hy: "մեր հոր վերջին կամքը",
+    hyw: "մեր հօր վերջին կամքը",
+  };
+  for (const locale of LOCALES) {
+    const will = article(locale, CHAOS).sections.find((s) => s.id === "the-will")!.paragraphs.join(" ");
+    for (const marker of clause[locale]) expect(will, `${locale} ${marker}`).toMatch(marker);
+    const all = text(locale, CHAOS);
+    expect(all, `${locale} Mikayel's words`).toContain(lastWish[locale]);
+    expect(all, `${locale} no flat denial`).not.toMatch(
+      /not a submission to the will|ենթարկվելը չէ|ենթարկուիլ չէ|few in writing|քիչ էր գրել|քիչ գրած էր/,
+    );
+  }
+});
+
+test("§111: serialization is nowhere asserted, and the 1898 book stands on both pages", () => {
+  const asserted = /serialized in 1896 and|appear serially|published complete|տպագրվել մաս-մաս|մաս-մաս 1896-ին|սկսում է տպագրվել|շարունակութիւններով|ամբողջութեամբ՝ 1898/i;
+  for (const locale of LOCALES) {
+    expect(text(locale, SHIRVANZADE), `${locale} biography`).not.toMatch(asserted);
+    expect(text(locale, SHIRVANZADE), `${locale} biography keeps 1898`).toContain("1898");
+  }
+  expect(text("en", SHIRVANZADE)).toMatch(/published as a book at Baku in 1898/);
+  expect(text("en", CHAOS)).toMatch(/published as a book at Baku in 1898/);
+  expect(text("en", CHAOS)).toMatch(/reported here as a claim that could not be confirmed/);
+  expect(text("en", CHAOS), "no self-reference to the old biography").not.toMatch(/This site's biography of Shirvanzade/);
+});
+
+test("§111: Chaos drops the sweeping and unsourced framings", () => {
+  const gone: Record<string, RegExp> = {
+    en: /most ambitious|the Armenian novel of the modern commercial city|looked to the village|later television|encyclopedic account|Azerbaijani, Russian|Russian reference works/,
+    hy: /ամենահավակնոտ|արդի առևտրական քաղաքի հայկական վեպն է|հետագա հեռուստատեսային|հանրագիտարանային շարադրանք|ադրբեջանցի|տեղեկագրական|խորհրդանշից/,
+    hyw: /յաւակնոտ|տեղեկագրական|քաղաքին հայ վէպն է|ետքի հեռատեսիլ|հանրագիտարանային շարադրանք|ազրպէյճանցի|ուղղողներուն/,
+  };
+  for (const locale of LOCALES) {
+    expect(text(locale, CHAOS), `${locale}`).not.toMatch(gone[locale]);
+  }
+  // The earlier urban writing is acknowledged, and the "first" refusal stays.
+  expect(text("en", CHAOS)).toMatch(/Paronyan/);
+  expect(text("en", CHAOS)).toContain("does not call it the first Armenian urban novel");
+});
+
+test("§111: Abu-Lala Mahari keeps the sura order and drops the unsourced claims", () => {
+  const gone: Record<string, RegExp> = {
+    en: /Later ones turn to love|longest|most ambitious|Russian-language reference works|rides on/,
+    hy: /հաջորդները՝ սիրուն|ամենածավալուն|ամենահավակնոտ|Ռուսալեզու|ձևավորում է շարժումը|կրում է հենց լեզուն|տեղեկագրական/,
+    hyw: /յաջորդները՝ սիրոյն|ամէնէն ընդարձակ|ընդարձակ պոէմ|յաւակնոտ|Ռուսալեզու|կը ձեւաւորէ շարժումը|կը կրէ լեզուն|տասնյակ|մեղանչած է։|ոչինչ խնայէ|հանգրուանի հերոսը|տեղեկագրական/,
+  };
+  for (const locale of LOCALES) {
+    const a = article(locale, ABU);
+    const all = [text(locale, ABU), a.excerpt, a.metaDescription, a.seoTitle, work(locale, ABU).summary].join("\n");
+    expect(all, `${locale}`).not.toMatch(gone[locale]);
+  }
+  expect(text("hyw", ABU)).toContain("մեղանչած չէ");
+  expect(text("hyw", ABU)).toContain("ոչինչ չխնայէ");
+  // Love is still named among the first renunciations, and the scholars stay attributed.
+  expect(text("en", ABU)).toContain("Love is among the first things the hero renounces");
+  expect(text("en", ABU)).toMatch(/Jrbashyan called it the peak of/);
+});
+
+test("§111: the corrections moved no artwork, relation or count", () => {
+  for (const slug of [ABU, CHAOS]) {
+    expect(getImageSrc(slug), `${slug} cover`).toBe(ARTWORK[slug]);
+    expect(PENDING_ARTWORK, `${slug} not pending`).not.toContain(slug);
+  }
+  for (const locale of LOCALES) {
+    expect(article(locale, ABU).relatedSlugs, `${locale} Abu-Lala relation`).toEqual([ISAHAKYAN]);
+    expect(article(locale, CHAOS).relatedSlugs, `${locale} Chaos relation`).toEqual([SHIRVANZADE]);
+    const b = bundle(locale);
+    expect(b.works.length, `${locale} works`).toBe(10);
+    expect(b.articles.filter((a) => a.category === "writers").length, `${locale} writers`).toBe(13);
+  }
+});
+
+test("§112: Shirvanzade's nineteenth-century prose carries no modern national label", () => {
+  const banned: Record<string, RegExp> = {
+    en: /Armenian and Azerbaijani town|Armenian, Azerbaijani, Russian/,
+    hy: /ադրբեջանցի բնակչությամբ|հայկական, ադրբեջանական/,
+    hyw: /ազրպէյճանցիներ|հայկական, ազրպէյճանական/,
+  };
+  for (const locale of LOCALES) {
+    expect(text(locale, SHIRVANZADE), locale).not.toMatch(banned[locale]);
   }
 });
