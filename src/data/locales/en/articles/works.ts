@@ -1581,4 +1581,487 @@ export const workArticles: Article[] = [
     ],
     relatedSlugs: ["yeghishe-charents"],
   },
+  {
+    slug: "abu-lala-mahari",
+    href: "/works/abu-lala-mahari",
+    category: "works",
+    categoryLabel: "Literary Works",
+    title: "Abu-Lala Mahari",
+    seoTitle: "Abu-Lala Mahari: Avetik Isahakyan's Poem",
+    excerpt:
+      "Avetik Isahakyan's poem of 1909–1911, in which a famous poet of Baghdad, modeled on the Arab poet al-Maʿarrī, gives away his wealth and leads his caravan into the desert, away from society and toward the sun.",
+    metaDescription:
+      "Abu-Lala Mahari is Avetik Isahakyan's 1909–1911 poem: the real al-Maʿarrī behind its hero, its chronology, the desert journey, freedom and its translations.",
+    summary:
+      "Abu-Lala Mahari (Աբու-Լալա Մահարի) is a poem by Avetik Isahakyan, written between 1909 and 1911 and first published as a book in Constantinople in 1911. Its hero takes his name from the Arab poet Abū al-ʿAlāʾ al-Maʿarrī (973–1057), but he is a literary creation, not a portrait. After decades of fame in Baghdad he gives his wealth to the poor, leaves the city by night with his camel caravan and crosses the desert, rejecting love, homeland, glory, wealth, power and law, until he presses on toward the sun. The poem is built from a prose preamble and a sequence of suras. The literary scholar Edward Jrbashyan called it the peak of Isahakyan's poetry, and its subject is freedom and the cost of leaving society.",
+    period: "1911 poem",
+    periodId: "20th-century",
+    imageSeed: "abu-lala-mahari",
+    keywords: [
+      "Abu-Lala Mahari",
+      "Abu Lala Mahari",
+      "Abu-Lala Mahari poem",
+      "Avetik Isahakyan Abu Lala Mahari",
+      "Isahakyan philosophical poem",
+      "al-Maarri Isahakyan",
+      "Abul Ala Maari",
+      "Աբու-Լալա Մահարի",
+      "Աբու Լալա Մահարի",
+    ],
+    intro:
+      "Abu-Lala Mahari is a poem by Avetik Isahakyan, written between 1909 and 1911. Its hero borrows the name of Abū al-ʿAlāʾ al-Maʿarrī, an Arab poet and thinker of the eleventh century, but Isahakyan makes him a literary figure of his own: a celebrated poet who turns his back on Baghdad, gives away everything he owns and leads his caravan into the desert. The journey away from the city carries the poem's argument. With every stage the hero rejects another thing society values, and the poem keeps asking what freedom is worth, what it costs, and what is left of a person who refuses all of it.",
+    author: "Armat Editorial Team",
+    updated: "2026-09-27",
+    keyFacts: [
+      { label: "Author", value: "Avetik Isahakyan (1875–1957)" },
+      { label: "Form", value: "Poem: a prose preamble followed by a sequence of suras" },
+      { label: "Written", value: "1909–1911; some scholars date the writing to 1909–1910" },
+      { label: "First book edition", value: "Constantinople, 1911" },
+      { label: "Hero", value: "A literary figure named after the Arab poet al-Maʿarrī (973–1057), not a portrait of him" },
+      { label: "Setting", value: "Baghdad, then the desert beyond it" },
+      { label: "First Russian translation", value: "Valery Bryusov, in the anthology Poetry of Armenia, Moscow, 1916" },
+      { label: "English translations", value: "Zabelle C. Boyajian (Yerevan edition, 1975); Tatul Sonentz-Papazian (serialized, 2014)" },
+    ],
+    sections: [
+      {
+        id: "what-the-work-is",
+        heading: "What Abu-Lala Mahari is",
+        paragraphs: [
+          "Abu-Lala Mahari (Աբու-Լալա Մահարի) is a poem by Avetik Isahakyan, the lyric poet from Alexandropol, now Gyumri, whose songs so many Armenians know without knowing their author. Jrbashyan called it the peak of his poetry. The Armenian Soviet Encyclopedia dates it to 1909–1911 and calls it an artistically weighty testimony to his view of the world.",
+          "The story is simple. A famous poet who has lived for decades in Baghdad gives his wealth to the poor, gathers his camel caravan and slips out of the sleeping city at night. He crosses the desert, and in a series of long speeches he renounces, one after another, the things that bound him to other people. The poem ends with him moving on toward the sun.",
+          "What makes the poem more than a travel story is that the route is the argument. Each stage of the crossing is also a stage in an argument about society, freedom and human worth. This article follows that argument. It also keeps apart three things that are easy to blur: the historical Arab poet, the literary hero who takes his name, and Isahakyan himself.",
+        ],
+        links: [{ phrase: "a poem by Avetik Isahakyan, the lyric poet", slug: "avetik-isahakyan" }],
+      },
+      {
+        id: "the-title",
+        heading: "The title and the name behind it",
+        paragraphs: [
+          "The title is an Armenian rendering of a real name. \"Abu-Lala\" renders Abū al-ʿAlāʾ, the name by which the Arab poet was known, and \"Mahari\" renders al-Maʿarrī, \"the man from Maʿarra,\" his home town in northern Syria. The hyphenated form Աբու-Լալա Մահարի is the one used by the Armenian Soviet Encyclopedia, by the Academy of Sciences' own journals and by the standard Yerevan editions, and this article follows it. The unhyphenated Աբու Լալա Մահարի is common in popular use and names the same poem.",
+          "In English, the poem circulates under a transliteration, not a translated title. Zabelle Boyajian's translation is catalogued as Abu Lala Mahari, and Armenian scholarly journals and the 2014 serialized translation use Abu-Lala Mahari. Valery Bryusov's Russian translation used a form closer to the Arabic, Абул Ала Маари (Abul Ala Maari). This article uses Abu-Lala Mahari for the poem and its hero, and the scholarly spelling al-Maʿarrī only for the historical man. The two spellings mark two different figures.",
+        ],
+      },
+      {
+        id: "the-historical-poet",
+        heading: "The real Abū al-ʿAlāʾ al-Maʿarrī",
+        paragraphs: [
+          "Abū al-ʿAlāʾ Aḥmad ibn ʿAbd Allāh al-Maʿarrī was born in 973 at Maʿarrat al-Nuʿmān, south of Aleppo, and died there in 1057. He lost his sight to smallpox in early childhood. Around 1008–1010 he spent a relatively short stay in Baghdad, the Abbasid capital and the great literary center of the age. Then he went home and lived the rest of his life in near seclusion, eating no meat and teaching the students who came to him.",
+          "He is remembered as one of the most original poets in Arabic, above all for his Luzūmiyyāt, a large collection of poems in a deliberately difficult rhyme scheme, and for his prose Risālat al-ghufrān (The Epistle of Forgiveness). Modern reference works stress his skepticism toward received dogma, his ascetic life and the dark, critical cast of his view of human society. The line he is said to have asked for as his epitaph, that his father had wronged him by bringing him into the world while he himself had wronged no one, is the best-known summary of that view.",
+          "This article gives the historical poet only as much space as the poem needs. He is the source of a name, a reputation and a few borrowed details, not the subject of Isahakyan's poem.",
+        ],
+      },
+      {
+        id: "from-history-to-poem",
+        heading: "From historical poet to literary hero",
+        paragraphs: [
+          "Isahakyan kept the name, the Baghdad setting, the renown and the bitter view of human society, and he changed almost everything else. The poem's preamble makes its hero a man who has lived \"for decades\" (տասնյակ տարիներ) in the caliphs' city, in wealth and honor, at the tables of the powerful. The historical al-Maʿarrī spent a year or two there. The poem's hero gives away a fortune and sets out across the desert with a caravan. The historical poet was blind and poor, went home to Maʿarra and shut himself away. Isahakyan's hero leaves for a desert journey toward the sun, while the historical man withdrew into his house.",
+          "So the hero is not a documentary reconstruction, and not every idea he voices can be traced back to the historical poet. The Armenian scholar M. Zakaryan has compared the poem with al-Maʿarrī's own writings, and the Armenian Wikipedia article on the poem singles out the epitaph attributed to him as the seed of the hero's outlook. It is best read as a modern poem that borrows a medieval voice, not as a medieval voice restored.",
+        ],
+      },
+      {
+        id: "writing",
+        heading: "When the poem was written",
+        paragraphs: [
+          "The sources agree on the period but not on its exact limits. The Armenian Soviet Encyclopedia, like this site's biography of Isahakyan, gives 1909–1911. The literary scholar Edward Jrbashyan, writing in 1975, dated the poem 1909–1910. The Armenian Wikipedia article gives the same years for the writing and 1911 for the complete text. A 2007 study by the scholar Avik Isahakyan dates it to 1910. These dates do not really contradict one another. The writing seems to fall in 1909–1910, with the complete poem appearing in 1911. This article gives 1909–1911 as the outer frame and names the narrower dates rather than choosing silently between them.",
+          "The years themselves matter. In 1908 Isahakyan was arrested in the mass tsarist prosecution of Armenian political activists and held in the Metekhi prison in Tiflis. He was released on bail in 1909, and in 1911 he left the Russian Empire for a long exile in Europe. Avik Isahakyan's study places the poem in exactly this crucial period, just before a departure from the homeland made under the threat of trial.",
+          "A well-known account says the idea came to Isahakyan in 1909 when he saw a camel caravan from a train window between Tiflis and Yerevan. The story is repeated widely, but the sources consulted for this article give no documentary basis for it, so it is reported here as tradition. They also do not fix the city where the poem was written, and this article does not name one.",
+        ],
+      },
+      {
+        id: "publication",
+        heading: "Publication history",
+        paragraphs: [
+          "Some reference works say parts of the poem were printed as early as 1909, but none of the sources consulted names the periodical, and this article does not guess at one. The complete poem first appeared as a book in 1911 in Constantinople, published by the Artsiv bookshop (Արծիւ). A study of the poem's illustrated editions records this first edition along with later Constantinople printings, including one by the Kilikia bookshop in 1920, and the first Soviet Armenian edition of 1929.",
+          "From then on the poem was reprinted steadily, and it became a favorite subject for Armenian book artists. Illustrated Yerevan editions of 1971, 1975 and 1984 each gave it a full visual program, the 1971 edition with a plate at the head of every sura. A Russian edition illustrated by Martiros Saryan was prepared for Tiflis in 1935 but never published. The number of illustrated editions is one concrete measure of how firmly the poem settled into the Armenian canon.",
+        ],
+      },
+      {
+        id: "form",
+        heading: "Preamble and suras: the form of the poem",
+        paragraphs: [
+          "The poem opens with a short prose preamble that tells, in the third person, how the poet left Baghdad. The verse that follows is divided into suras. Sura is the word for a chapter of the Qur'an, and Bryusov's Russian version calls the whole poem a qasida, the classical Arabic ode. Both names are deliberate: the structure itself tells the reader that this is meant to sound like Arabic poetry in Armenian.",
+          "The count needs care. The subtitle used for the poem and its translations speaks of seven suras, and Bryusov's Russian heading reads \"a qasida in seven suras.\" Printed Armenian texts number seven suras and then close with a section headed «Վերջին սուրահ», the \"Last Sura,\" which returns to the third-person narration of the preamble. This article therefore describes the poem as a preamble, seven numbered suras and a closing \"Last Sura,\" and does not reduce it to a single number.",
+          "The verse is built from long lines grouped in couplets. Reference works describe them as twenty-syllable lines governed by their own prosodic rules. Their length and slow, even pace suit a poem about a long crossing.",
+        ],
+      },
+      {
+        id: "the-journey",
+        heading: "The journey",
+        paragraphs: [
+          "The departure is quiet and deliberate. The preamble has the poet give his wealth to the poor and the needy, since he has no wife or children, and then, while Baghdad sleeps on the banks of the Tigris, lead his caravan silently out of the city \"toward the unknown.\" There is no quarrel, no exile, no scene. He simply goes.",
+          "From then on, movement shapes the poem. The caravan travels farther and farther from the city, and at each stage the hero looks back and names something else he refuses. Across the suras he turns against one bond after another: love and women, his father's house and homeland, society, friendship, fame, treasure, power and law. The physical distance and the growing list of renunciations advance together. By the time the caravan is deep in the desert, the hero has left behind not only a city but every bond that city stood for.",
+          "The journey is not an adventure. Nothing happens on the road in the usual sense: there are no encounters, dangers or discoveries. The only events are changes in how the hero sees things, and the landscape exists to make those changes visible.",
+        ],
+      },
+      {
+        id: "the-desert",
+        heading: "The desert",
+        paragraphs: [
+          "The desert is the poem's strongest image, and it works first of all as the opposite of Baghdad. The city is crowded, rich, lawful and full of speech. The desert is empty, poor, lawless and silent. Moving from one to the other turns the hero's rejection of society into a place the reader can see: the farther the caravan goes, the fewer people, institutions and obligations remain.",
+          "Scholars have looked closely at how the desert is made. Tatevik Harutyunyan of the Academy of Sciences' Institute of Literature has studied the poem's \"Eastern layer.\" She shows how Isahakyan builds the caravan and desert scenes from words and expressions of Arabic origin, so that the setting is carried by the language itself and not only by description. The desert is therefore a literary construction as much as a geographical one.",
+          "What the desert means beyond that is a matter of reading. In this article's reading, it is where the hero's freedom becomes absolute and where its emptiness becomes impossible to ignore. The poem does not settle whether that emptiness is purity or loss.",
+        ],
+      },
+      {
+        id: "leaving-society",
+        heading: "Leaving society",
+        paragraphs: [
+          "The hero's charges against society are specific. He condemns hypocrisy and false friendship, honor that is only reputation, fame, riches, the power of rulers and the laws that protect them. In one of the later suras he speaks of tearing the masks from people's faces. His complaint is that human society runs on pretense: it rewards the appearance of virtue, and it binds people with duties that serve the strong.",
+          "It would be too simple to say that he hates humanity. He knows the city from the inside, because he has sat at its best tables and enjoyed its honors, and his bitterness is that of someone who has seen through something he once loved. The poem also lets his rejection spread until it spares nothing, not even homeland and family, and that totality is part of the point. The reader is shown where the logic of complete refusal leads, not simply invited to agree with it.",
+          "The hero's verdict is the hero's. The poem gives it great eloquence, but that does not make it Isahakyan's own program, and the poem is not a social manifesto.",
+        ],
+      },
+      {
+        id: "freedom",
+        heading: "Freedom",
+        paragraphs: [
+          "Freedom is the poem's central value and its central problem. The hero leaves in order to be free: free of the city's judgments, its laws and its demands, and of every bond that could hold him. Each renunciation widens that freedom, and the open desert is its image.",
+          "But the poem also counts the cost. A freedom won by cutting every tie leaves the hero alone, with only his caravan, the landscape and the sky around him. The questions the poem raises are real ones. Can a person leave society at all, or only carry it with him into the desert? Is solitude liberation, or another kind of loss? What remains of a person once love, friendship, fame and home have all been rejected? The poem raises these questions with great force and does not claim to have answered them.",
+        ],
+      },
+      {
+        id: "love-and-attachment",
+        heading: "Love and human attachment",
+        paragraphs: [
+          "Love is among the first things the hero renounces, and some of his harshest words are aimed at women. He voices a sweeping distrust of them and of the attachments they stand for. These lines belong to the hero, spoken at a particular point in his turning away from everything. They are not presented as a truth about women, and this article does not treat them as one.",
+          "Read in context, they are part of the same total refusal that also sweeps away homeland, father's house and friendship. The hero rejects love for the same reason he rejects everything else: it binds him to other people and exposes him to disappointment. That is what makes the lines significant. They show how far his refusal reaches, and they also show its blindness, since a freedom that can only be defended by condemning everyone who might be loved is a narrow kind of freedom.",
+        ],
+      },
+      {
+        id: "belief",
+        heading: "Skepticism and belief",
+        paragraphs: [
+          "The historical al-Maʿarrī is often described as a skeptic and a critic of religious dogma. Those labels belong to him and to the debates about him. They should not be transferred automatically to Isahakyan's hero, and still less to Isahakyan.",
+          "What the poem itself does is plainer. The hero's refusals reach even the things society holds sacred, including homeland and law, and the Armenian Wikipedia article notes that he spares not even these. At the end he turns to the sun and calls it the only mother and the only holy thing left to him. The structure borrows the Qur'anic word \"sura,\" but the poem is not a religious argument. It sets what the hero still honors against everything he has rejected, and the only thing left standing is the sun. This article draws no conclusion from it about Isahakyan's own beliefs.",
+        ],
+      },
+      {
+        id: "pessimism-and-revolt",
+        heading: "Pessimism and revolt",
+        paragraphs: [
+          "Critics have long called the poem pessimistic, and they have usually connected it to philosophy. Zakaryan traces the young Isahakyan's attraction both to the pessimism of Schopenhauer and to Nietzsche's rebellious, critical spirit. Jrbashyan observed in 1975 that Armenian scholarship had concentrated on the poem's supposed Nietzschean elements.",
+          "\"Pessimistic\" does not cover the whole poem, though. The hero's rejection is also a positive act: he chooses the road, the desert and the sun, and he does not simply give up. The ending is not collapse but ascent, as he presses on \"toward the sun, the immortal sun.\" A study of the poem's illustrators notes that Martiros Saryan was perhaps the only interpreter to find optimistic tones in it alongside the disillusionment. That remark shows how differently the poem can be read. The tension between despair about people and exaltation at the end is the poem's shape, not a contradiction to explain away.",
+        ],
+      },
+      {
+        id: "romantic-tradition",
+        heading: "The poem and the Romantic tradition",
+        paragraphs: [
+          "Edward Jrbashyan's 1975 study in the Academy of Sciences' Historical-Philological Journal argued that the Nietzschean reading had hidden something important: the poem's roots in the classical tradition of the Romantic poem, in national as well as world poetry. On that reading, the poem belongs to a long line of Romantic narrative poems and is not simply a vehicle for a fashionable philosophy.",
+          "The features that make the comparison persuasive are visible in the text. There is a solitary hero at odds with society. There is a journey that is also a spiritual crisis. The emotion is intense and the rhetoric is grand. The landscape reflects the hero's inner state, and freedom is placed above every social bond. This site's biography already notes that Isahakyan absorbed European Romanticism during his studies at Leipzig. The poem shows what he made of it: an Eastern setting and a medieval name, used to carry a Romantic hero's quarrel with the world.",
+        ],
+      },
+      {
+        id: "voice-and-imagery",
+        heading: "Voice and imagery",
+        paragraphs: [
+          "The poem has two voices. A narrator speaks in the prose preamble and again in the \"Last Sura,\" telling of the hero in the third person. In between, the suras are dominated by the hero's own speech, as he looks back on what he is leaving. The frame keeps a certain distance. The hero's words are given at full strength, but they are presented as his, inside a story told by someone else. Isahakyan does not speak in his own name at any point.",
+          "The images follow the journey. Baghdad sleeps on the Tigris as the caravan slips away by night. The camels move on through the sand. A high rock gives the hero a last view over the world. The sun keeps growing in importance until it becomes his destination. In the closing lines, the poet, wrapped in a purple mantle foaming with gold, flies on tirelessly toward the immortal sun. None of these images is decoration. Each marks a stage in the move from the human world to a place beyond it.",
+        ],
+      },
+      {
+        id: "author-and-hero",
+        heading: "Isahakyan and his hero",
+        paragraphs: [
+          "The temptation to read the hero as Isahakyan is strong, and the poem's dates encourage it. The poem was written between an arrest and an exile, by a man who would spend most of the next quarter century abroad. Avik Isahakyan's 2007 study of \"the hero and the author\" examines that connection directly. It links the poem's dramatic sense of collision with the social order to the poet's own situation in those years.",
+          "That is an interpretation, and a reasonable one, but it does not make Abu-Lala Isahakyan in disguise. The hero's absolute rejection of homeland sits oddly beside a poet whose best-known lyrics are poems of longing for home, and who eventually returned to Armenia for good. The safest reading is that Isahakyan gave the hero a crisis he knew from the inside and then followed it further than he followed it in his own life. For his life and his other work, see this site's biography of Isahakyan.",
+        ],
+      },
+      {
+        id: "translation-and-reception",
+        heading: "Translation and reception",
+        paragraphs: [
+          "The poem reached Russian readers early. Valery Bryusov translated it as Абул Ала Маари for the anthology Poetry of Armenia, which he edited in Moscow in 1916, and critics have called his version a literary monument of Russian translation. Alexander Blok's often-quoted praise of Isahakyan as \"a first-class poet\" dates from the same years, but it concerned Isahakyan in general, not this poem.",
+          "In English, the translation by Zabelle C. Boyajian, Abu Lala Mahari: Poem in Seven Suras, is recorded in a Yerevan edition published by Hayastan in 1975. An earlier date is sometimes given for it, but this article could not confirm one. Tatul Sonentz-Papazian published a new English translation in The Armenian Weekly in 2014, one sura per installment. The poem has also been translated into Arabic several times, and Harutyunyan has compared those versions from different periods. This article could not verify a French edition and does not list one.",
+          "In Armenia the poem holds a secure place. Jrbashyan called it the peak of Isahakyan's poetry. It has been reprinted and illustrated again and again, and scholars have continued to write about it from the 1970s to the present.",
+        ],
+      },
+    ],
+    importantDates: [
+      { year: "973–1057", event: "Life of the Arab poet Abū al-ʿAlāʾ al-Maʿarrī, whose name and reputation the poem's hero borrows." },
+      { year: "1908–1909", event: "Isahakyan is arrested in the tsarist prosecution of Armenian activists and held in Metekhi prison, then released on bail." },
+      { year: "1909–1911", event: "The poem is written; some scholars date the writing itself to 1909–1910." },
+      { year: "1911", event: "First book edition, Constantinople (Artsiv bookshop); Isahakyan leaves the Russian Empire for Europe." },
+      { year: "1916", event: "Valery Bryusov's Russian translation appears in the anthology Poetry of Armenia, Moscow." },
+      { year: "1929", event: "First Soviet Armenian edition." },
+      { year: "1971–1984", event: "Illustrated Yerevan editions of 1971, 1975 and 1984; Boyajian's English translation is published in Yerevan in 1975." },
+      { year: "2014", event: "Tatul Sonentz-Papazian's English translation is serialized in The Armenian Weekly." },
+    ],
+    significance: {
+      heading: "Why Abu-Lala Mahari matters",
+      paragraphs: [
+        "It is the work in which Isahakyan, the master of the short folk-toned lyric, sustained a single argument across a whole poem. The argument is carried by a journey. A man leaves the city, crosses the desert and gives up one human bond after another, until only the road and the sun remain.",
+        "The poem never decides whether that road leads to freedom or to loss, and that is why it keeps being read. The desert is at once release and emptiness, and the hero's refusal is at once a clear-sighted judgment and a narrowing of life. The closing flight toward the sun is both a triumph and a departure from everything human. Isahakyan's voice holds these together in long, even lines, and it lets the caravan go on without passing judgment on the man who leads it.",
+      ],
+    },
+    interestingFacts: [
+      "The hero's name renders that of a real Arab poet, Abū al-ʿAlāʾ al-Maʿarrī, but the historical poet was blind and spent only a year or two in Baghdad. The poem's hero is a wealthy man who has lived there for decades.",
+      "The poem is divided into suras, the word for the chapters of the Qur'an, and Bryusov's Russian version calls it a qasida, the classical Arabic ode.",
+      "Printed Armenian texts close with a section headed \"Last Sura,\" after seven numbered suras.",
+      "A Russian edition illustrated by Martiros Saryan was prepared in 1935 but never published.",
+      "The poem has been translated into Arabic more than once, and scholars have compared the translations from different periods.",
+    ],
+    relatedFigures: [
+      {
+        name: "Avetik Isahakyan",
+        lifespan: "1875–1957",
+        description:
+          "The author; he wrote the poem between his 1908 arrest and his 1911 departure into a long exile.",
+      },
+      {
+        name: "Abū al-ʿAlāʾ al-Maʿarrī",
+        lifespan: "973–1057",
+        description:
+          "Arab poet and thinker of Maʿarrat al-Nuʿmān in Syria, whose name and reputation the poem's hero borrows. He is not the poem's subject, and the hero is not a portrait of him.",
+      },
+      {
+        name: "Valery Bryusov",
+        lifespan: "1873–1924",
+        description:
+          "Russian poet who translated the poem as \"Abul Ala Maari, a qasida in seven suras\" for his 1916 anthology Poetry of Armenia.",
+      },
+    ],
+    relatedSlugs: ["avetik-isahakyan"],
+  },
+  {
+    slug: "chaos",
+    href: "/works/chaos",
+    category: "works",
+    categoryLabel: "Literary Works",
+    title: "Chaos",
+    seoTitle: "Chaos by Alexander Shirvanzade: A Baku Novel",
+    excerpt:
+      "Alexander Shirvanzade's Armenian novel of 1898: an oil fortune in late-nineteenth-century Baku, a father's will, and a family that comes apart around the money.",
+    metaDescription:
+      "Chaos (Քաոս) is Alexander Shirvanzade's 1898 Armenian novel of oil-boom Baku: its chronology, the Alimyan family, money, marriage, realism and the title's meaning.",
+    summary:
+      "Chaos (Քաոս, K'aos) is a novel by the Armenian writer Alexander Shirvanzade, written in 1896–1897 and published as a book at Baku in 1898. It is set in a fast-growing oil city on the Caspian that the text leaves unnamed and that author and critics identify as Baku. The novel opens with the death of the patriarch Markos agha Alimyan. It follows what his fortune, and the will that divides it, do to his widow, his three sons and the people who depend on the house. Armenian scholarship ranks it as Shirvanzade's major novel and the high point of Armenian critical realism.",
+    period: "1898 novel",
+    periodId: "19th-century",
+    imageSeed: "chaos",
+    keywords: [
+      "Chaos Shirvanzade",
+      "Alexander Shirvanzade Chaos",
+      "Shirvanzade Chaos novel",
+      "K'aos",
+      "Kaos Shirvanzade",
+      "Armenian novel Baku",
+      "Armenian oil novel",
+      "Քաոս",
+      "Շիրվանզադե Քաոս",
+      "Քաոս վեպ",
+    ],
+    intro:
+      "Chaos (Քաոս) is a novel by Alexander Shirvanzade, published at Baku in 1898 and set in the oil city it was printed in, at the moment Baku was becoming one of the richest industrial towns of the Russian Empire. It begins at a deathbed. The wealthy patriarch Markos agha Alimyan dies, and his fortune passes under a will to a family that cannot hold together around it. From there the novel follows money through a household — inheritance, marriage, debt, respectability — and shows what a new economy does to old family authority. It is the book Armenian critics most often call Shirvanzade's best.",
+    author: "Armat Editorial Team",
+    updated: "2026-09-27",
+    keyFacts: [
+      { label: "Author", value: "Alexander Shirvanzade (1858–1935)" },
+      { label: "Form", value: "Novel in three parts (17, 8 and 9 chapters)" },
+      { label: "Written", value: "1896–1897; the subject had occupied him since the 1880s" },
+      { label: "First book edition", value: "Baku, 1898" },
+      { label: "Setting", value: "An unnamed Caspian oil city, identified as Baku, in the late nineteenth century" },
+      { label: "Central family", value: "The Alimyans: Markos agha, his widow Voskehat, their sons Smbat, Mikayel and Arshak, and their daughter Martha" },
+      { label: "Film", value: "Քաոս, Hayfilm, 1973, directed by Laert Vagharshyan" },
+      { label: "Translations", value: "Russian (Хаос, from 1956); French (Chaos, 2013). No published complete English translation confirmed" },
+    ],
+    sections: [
+      {
+        id: "what-the-work-is",
+        heading: "What Chaos is",
+        paragraphs: [
+          "Chaos (Քաոս, often romanized K'aos) is a novel by Alexander Shirvanzade, the Armenian novelist and playwright of oil-boom Baku. It was written in 1896–1897 and first published as a book at Baku in 1898. The Soviet Armenian Encyclopedia calls it the largest achievement of Armenian critical realism, and Armenian critics most often name it as his best book.",
+          "Its subject is a family and a fortune. Markos agha Alimyan, a rich man in a boom-town on the Caspian, dies in the first chapter. The rest of the book follows what his money, and the will that assigns it, does to his widow, his three sons, his daughter and son-in-law, and the dependants of the house. Around them stands the city that made the money: fast, rich, crowded and still inventing its rules.",
+          "Much in the novel is plot — deathbed, will, a forged counter-will, debts, a fire — but the plot is there for an argument. Shirvanzade wanted to show a society whose economy had moved faster than its morality. This article gives the plot only as far as that argument needs it.",
+        ],
+        links: [{ phrase: "a novel by Alexander Shirvanzade, the Armenian novelist", slug: "alexander-shirvanzade" }],
+      },
+      {
+        id: "the-title",
+        heading: "The title, and which Chaos this is",
+        paragraphs: [
+          "The Armenian title is a single word, Քաոս, borrowed from the Greek chaos, and in English the novel is known simply as Chaos. English reference works give it as K'aos (Chaos), and the French translation of 2013 is titled Chaos. This article uses Chaos in English and Քաոս in Armenian, and adds no subtitle, because the book has none.",
+          "A one-word title in English that is also a common noun needs some care. On this site, Chaos means Shirvanzade's novel of 1898, not the general idea of disorder. It is also not the film of 1973 or the television version, which are adaptations with sections of their own below. And it is not an account of the history of Baku: the city here is the setting of a novel, not the subject of a historical article.",
+        ],
+      },
+      {
+        id: "writing",
+        heading: "How and when it was written",
+        paragraphs: [
+          "The subject was with Shirvanzade for a long time. The Armenian Wikipedia article on the novel traces it to the 1880s and to a real conflict inside a prominent Baku family in 1881–1882, and says he returned to Baku several times while working on it to refresh what he had seen. He had spent about eight years in the city in his youth, as a clerk and bookkeeper in government offices and oil-firm counting-houses, so the world of the novel was one he knew from its books of account.",
+          "The decision to write it came in prison. In the mid-1890s Shirvanzade was arrested at Tiflis for his political activity on behalf of the Ottoman Armenians and held in the Metekhi prison. Armenian and English accounts both place the conception of the novel there, and quote him as saying that he felt he had to give Armenian literature a new and significant work. The text itself was written in 1896–1897.",
+          "Where and when exactly each part was drafted is not documented in the sources consulted. Some popular summaries say the whole novel was written in prison in 1898, the year of publication. That is not supported by the fuller accounts, and this article follows the 1896–1897 dating.",
+        ],
+      },
+      {
+        id: "publication",
+        heading: "Publication history",
+        paragraphs: [
+          "The novel was published as a book at Baku in 1898, in a volume of 444 pages. In January of the same year Shirvanzade was sent into exile at Odessa, so his major novel appeared in the city it describes while its author was being removed from the region.",
+          "One English-language literary history says the novel was serialized in 1896–1897 before the book appeared. The sources consulted for this article date the writing to those years but name no periodical in which it ran, and the Armenian Wikipedia article on the novel speaks only of the separate book of 1898. The serialization is therefore reported here as a claim that could not be confirmed, not as a fact.",
+          "The novel has been reprinted steadily. After the first edition it appeared at Yerevan in 1926, in Shirvanzade's collected works in 1934, 1950 and 1959, at Cairo in 1956, in further Yerevan editions of 1944, 1976 and 1987, and in the 2010s and 2020s. The repeated place in collected works is the plainest evidence of its standing.",
+        ],
+      },
+      {
+        id: "baku",
+        heading: "Baku at the centre",
+        paragraphs: [
+          "In the late nineteenth century Baku was the seat of a governorate of the Russian Empire on the western shore of the Caspian, today the capital of Azerbaijan. In a few decades it grew from a small port into one of the great oil towns of the world. Oil fields at Balakhani, refineries in the district called the Black Town, and capital from Armenian and other local entrepreneurs and from Russian and European investors turned it into a city of new fortunes, fast building and a mixed, largely migrant population.",
+          "The novel records that change without naming it. Its first chapter speaks of 'that small, insignificant seaside town' where Markos Alimyan settled, and of how it became famous for what lay beneath it. The city in the book is never called Baku. Shirvanzade himself and his critics identify it as Baku, and every detail of oil, money and building fits, but the text leaves the city unnamed. The effect is to make it less a portrait of one place than a type: the boom-town.",
+          "This article describes Baku as it was when the novel was written, a late-imperial city. It does not read later history back into it, whether the Soviet oil industry or modern national borders.",
+        ],
+      },
+      {
+        id: "oil-and-money",
+        heading: "Oil and the money it made",
+        paragraphs: [
+          "Chaos is not a novel about the oil industry in the sense of a novel about drilling or refining. Very little of it takes place at the wells. Oil is the economy that produced the Alimyan fortune, and the book is about what that fortune does once it exists.",
+          "It shows money that is new. Markos agha is a first-generation magnate, and he dies while supervising the building of his eleventh house. The characters around him are learning how to live with sums their parents never saw. Wealth is spread across property, oil interests, trade and credit, and it can be divided, contested, forged and borrowed against. A moneylender lends Mikayel a thousand roubles against a note for seven thousand. A lawyer in the family proposes a false will. The novel is exact about these transactions because they are what move its people.",
+          "The fire that ends the book belongs to the same world. A city built quickly on oil and money burns easily, and its last scenes come out of that material fact rather than symbolism laid on top of it.",
+        ],
+      },
+      {
+        id: "the-alimyan-family",
+        heading: "The Alimyan family",
+        paragraphs: [
+          "The novel is built around one household. Markos agha Alimyan is sixty-five when it opens: a rich man who came to the small seaside town, grew with it and leaves behind a fortune, a widow and four grown or growing children. His death in the first chapter sets everything in motion, and the whole book can be read as the story of what his authority becomes once he is no longer there to exercise it.",
+          "The family he leaves is already divided. The eldest son has been away for eight years and comes back married to a Russian woman. The middle son is a spendthrift in debt. The youngest is still a boy of sixteen. The daughter is married into another family with its own interests. The widow wants the household to go on as it was. None of them can simply inherit the father's position, because it rested on a way of doing things that the new city no longer rewards.",
+          "The book is in three parts, of seventeen, eight and nine chapters. The first and longest sets out the family and the will. The second and third follow the consequences, through quarrels, compromises and a fire, to a close in which one son is ruined and another has remade his life.",
+        ],
+      },
+      {
+        id: "characters",
+        heading: "The main characters",
+        paragraphs: [
+          "Սմբատ (Smbat) is the eldest son and the heir to the business. He left home as a young man with liberal ideas, saw his father's wealth as unjustly made and married a Russian woman, Անտոնինա Իվանովնա (Antonina Ivanovna), against his family's wishes. Coming home to take over the fortune, he is slowly absorbed by it. The Armenian account of the novel says he buries his ideals in the oil wells. His story is the novel's central tragedy: a decent man turned by circumstances into what he once despised.",
+          "Միքայել (Mikayel), the second son, is twenty-eight, dissolute and in debt, the spoiled young man of new money. The will ties his share to his reforming and marrying an Armenian girl. He is drawn into a plan to forge a counter-will, and then turns back from it. His slow, humiliating reform, carried partly by the love of Շուշանիկ (Shushanik), is the novel's counter-movement to Smbat's decline.",
+          "Around them stand the widow Ոսկեհատ (Voskehat), who holds to the household's old expectations; the youngest son Արշակ (Arshak); the daughter Մարթա (Martha) and her husband Իսահակ Մարութխանյան (Isahak Marutkhanyan), the son-in-law whose interest in the estate is not disinterested; Voskehat's brother Սրաֆիոն Գասպարիչ (Srafion Gasparich); and the family of the bookkeeper Դավիթ Զարգարյան (Davit Zargaryan), a household of modest means whose niece Shushanik becomes the moral centre of the book. The names are given here as they are spelled in the Armenian text.",
+        ],
+      },
+      {
+        id: "the-will",
+        heading: "The will and the fight over it",
+        paragraphs: [
+          "The will is the novel's engine. The old man dictated it and the parish priest wrote it down, and it reads more like an outpouring of feeling than a business document. It places the fortune in Smbat's hands and pleads with him to \"correct\" his \"mistake\". Most notable of all, in the narrator's words, is a clause about inheritance: Smbat may not leave his share to his \"foreign\" wife or to their children, but if he divorces her and marries an Armenian, the children of the new marriage will be his lawful heirs. The will does not order a divorce; it shuts his present family out of the fortune unless there is one. Mikayel is to receive a monthly allowance, and his share only if he mends his ways and marries an Armenian girl. A father who can no longer give orders in person tries to give them through a document.",
+          "The document does not hold. Marutkhanyan, the son-in-law, persuades Mikayel that the will can be answered by a forged counter-will. Mikayel agrees and then repents, and the conspiracy fails. The pressure on Smbat to give up his Russian wife and their children comes from several directions that reinforce one another: the inheritance clause, his father's pleading and dying curse, and his mother's endless reproaches. Smbat himself sets \"the paternal will with its heavy curse\" on one side and his mother's reproaches on the other.",
+          "The point of all this is not legal suspense. It shows the old family order trying to survive in a new medium. Paternal authority becomes a clause, and a clause can be contested, bought round or forged in a way that a living father could not.",
+        ],
+      },
+      {
+        id: "marriage-and-authority",
+        heading: "Marriage and family authority",
+        paragraphs: [
+          "Marriage is where the family's authority meets the individual's choice. Smbat married for love and outside his community, and the family treats that marriage as an injury to be repaired. Mikayel's inheritance is made to depend on marrying the right kind of wife. In both cases the family uses marriage as an instrument of continuity, and in both cases the young men resist.",
+          "Shirvanzade does not make the resistance simply heroic. Smbat's marriage, made in defiance of his family, comes apart under the pressure of the fortune he inherits, and his defence of it is also a defence of his own self-respect. Mikayel's eventual marriage comes from his own reform and a love the will could not have arranged, yet he himself frames it in the will's terms: the next morning he tells Smbat by telephone that he is carrying out \"our father's last wish\" and asks for Marutkhanyan's debts to be paid from his inheritance. The novel lets both stand: a choice freely made, and the condition the will set on his share. Throughout, the novel keeps the gap between what the family demands and what individuals can live with.",
+        ],
+      },
+      {
+        id: "wealth-and-morality",
+        heading: "Wealth, morality and standing",
+        paragraphs: [
+          "It would be easy to summarize the novel as 'money corrupts'. That is not quite what it shows. Markos agha's fortune does not make his sons bad. It gives each of them a different kind of pressure. Smbat's ideals are not defeated by greed. They are worn down by responsibility for a business that runs on practices he once condemned. Mikayel's dissipation is made possible by money, but so is the debt that forces him to face himself. The novel's interest lies in these contradictions, not in a verdict on the rich.",
+          "Standing counts as much as money. The Alimyans live in a city where position is new and has to be displayed, so reputation is a working asset. Houses, marriages and appearances are part of the family's credit. Around the family stand people whose position depends on theirs: the bookkeeper Zargaryan and his household, clerks, servants and the moneylender Barsegh. The novel shows how the fortunes of the house pass down to all of them.",
+          "The novel gives no sustained picture of the oil workers themselves, and this article does not claim one. The class reading associated with its Soviet-era reception is described under reception. It is not taken over here as a neutral description of the text.",
+        ],
+      },
+      {
+        id: "modernization",
+        heading: "Old authority, new city",
+        paragraphs: [
+          "The deepest tension in the novel is between two ways of organizing life. One is the patriarchal household, in which the father decides, marriages are arranged between families, the community's customs have the force of law and wealth is kept in the family. The other is the boom-town, in which money moves fast, education and travel give sons their own ideas, marriages cross communities and a man's position is only as good as his last transaction.",
+          "Shirvanzade does not take either side simply. The old order in the novel is often narrow and cruel. It tells a son to abandon his wife and children, and it values appearance over conduct. The new order is often empty. It has no rules except profit, and it rewards whoever can move fastest. The characters who suffer most are those caught between the two, like Smbat, who has left the first without finding anything in the second to replace it.",
+          "This is what makes Chaos a novel of modernization and not simply a family saga. The family disintegrates because the ground under the family has shifted, not because its members are unusually wicked.",
+        ],
+      },
+      {
+        id: "women",
+        heading: "Women in the novel",
+        paragraphs: [
+          "The women of Chaos are placed where the family's economic and moral pressures meet. Voskehat, the widow, speaks for the household's traditions and keeps up the pressure on Smbat to give up his wife. She has authority inside the house but none over the fortune. Antonina Ivanovna, Smbat's Russian wife, is the outsider the family refuses to accept. Her position in the city depends entirely on a marriage the family is working to dissolve.",
+          "Shushanik, from the bookkeeper's modest household, is the woman the novel sets against the Alimyans' world. Her standing rests on conduct, not money, and her love is part of what reforms Mikayel. Anush Ghulamyan, a married woman with whom Mikayel has an affair, belongs to the looser, less settled side of the city's life that his reform leaves behind.",
+          "This article describes these positions in the terms the novel offers: dependence, reputation, marriage and family pressure. It does not assign the novel a later vocabulary. Shirvanzade's concern with the position of women is documented elsewhere in his work, above all in his plays of 1903, and Chaos shows the same concern at work inside a family.",
+        ],
+      },
+      {
+        id: "realism",
+        heading: "Shirvanzade's realism",
+        paragraphs: [
+          "Armenian scholarship classes the novel as realist. The Armenian Wikipedia article calls it a realist novel of social life, and the Soviet Armenian Encyclopedia calls it the largest achievement of Armenian critical realism. The label means something specific here. Characters are shaped by their social and economic situation. Sums, documents, houses and debts are given precisely because the plot depends on them. Conflict comes from causes the reader can follow instead of from coincidence or romantic idealization. And the cast is built from recognizable social types: the magnate, the heir, the spendthrift, the lawyer, the bookkeeper, the moneylender.",
+          "\"Critical realism\" is the standard Armenian scholarly term for this line of nineteenth-century prose, and it was fixed by Soviet-era literary history. This article uses it as that scholarship's term, not as a claim that the novel was written to a program. No source consulted describes Chaos as naturalist. Shirvanzade's own stated method, of generalization and typification as against photographic reproduction, is discussed in his biography on this site and separates him from naturalism.",
+          "The novel is also founded on observation. The Armenian account notes that it grew from a real family conflict, and Shirvanzade kept returning to Baku to check his impressions against the city itself. The realism of Chaos is that of a writer who had kept the accounts of the world he describes.",
+        ],
+      },
+      {
+        id: "why-chaos",
+        heading: "Why the novel is called Chaos",
+        paragraphs: [
+          "Shirvanzade explained the title himself. Describing the Baku of those years, he wrote that the milieu was brilliant outside and deformed within, and that there had formed there «մի այլանդակ քաոս», a monstrous chaos, in which love of gold had wiped out the line between light and darkness, between what was moral and what was not, setting brother against brother and son against father.",
+          "The title therefore names a moral condition, not a random disorder. It covers the family, where a will turns brothers into rivals. It covers the city, where money has outrun the rules. And it covers the individual, whose sense of right and wrong has lost its fixed points. Critics have read it on all three levels, and the novel supports each of them. This article does not reduce the title to a single symbol.",
+        ],
+      },
+      {
+        id: "urban-prose",
+        heading: "A city novel in Armenian prose",
+        paragraphs: [
+          "Much Armenian prose of the period was set in villages or in the national past, and Raffi's historical novels are the best-known examples. City life was not new to Armenian writing: Paronyan's comedies and satirical papers had already made the Armenian society of Constantinople their subject. What Chaos adds is sustained attention to a large, modern, commercial and industrial city, with a plot built on the economy that city ran on.",
+          "This article does not call it the first Armenian urban novel, because the sources consulted do not establish that claim. What they do establish is that Armenian scholarship treats it as the fullest achievement of the realist, urban and economic line in Armenian prose, and that Shirvanzade made the life of a modern commercial city a serious subject for the Armenian novel.",
+        ],
+      },
+      {
+        id: "reception-and-adaptations",
+        heading: "Reception and adaptations",
+        paragraphs: [
+          "In Armenian literary history the novel holds the place of Shirvanzade's major work. The Soviet Armenian Encyclopedia treats it as the peak of Armenian critical realism. The standard Armenian literary history of 1950 discusses it at length (volume 2, pages 179–186). English-language reference works call it his masterpiece. Its place in his collected works of 1934, 1950 and 1959 reflects the same judgement.",
+          "Soviet-era reception, as the Russian Wikipedia article summarizes it, read the novel through class: the struggle of social classes, the exploitation of workers and the decay of the bourgeois family under the rule of money. That reading tells us how the novel was placed in Soviet literary history. It does not replace the novel's own terms, and the novel predates Soviet rule by two decades.",
+          "The novel was filmed as Քաոս by Hayfilm in 1973, directed by Laert Vagharshyan from a screenplay by Vadim Meliksetyan, with Sos Sargsyan as Smbat. The film is an adaptation with its own emphases, and its setting is sometimes described as early-twentieth-century Baku. Armenian public television has also broadcast a multi-part television version. Its listed cast suggests an older production rebroadcast later, and this article could not confirm its date.",
+        ],
+      },
+      {
+        id: "translations",
+        heading: "Translations",
+        paragraphs: [
+          "The novel reached Russian readers as Хаос. Book catalogues record Russian editions from 1956, when it was published in Moscow, with further editions at Yerevan in 1975 and 1983 and later reprints. The translator of the 1956 edition could not be confirmed and is not named here.",
+          "A French translation by Pierre Ter-Sarkissian, Chaos, was published by Éditions Thaddée in 2013. No complete published English translation could be confirmed. A 2016 print-on-demand volume titled Chaos is not an English translation. English readers have the reference-work accounts of the novel but not, so far as this article could establish, the novel itself.",
+        ],
+      },
+    ],
+    importantDates: [
+      { year: "1873 or 1875", event: "Shirvanzade moves to Baku and spends about eight years there as a clerk and bookkeeper." },
+      { year: "1881–1882", event: "A real conflict in a prominent Baku family, later named as the germ of the novel." },
+      { year: "mid-1890s", event: "Arrested at Tiflis and held in Metekhi prison, where the decision to write the novel is placed." },
+      { year: "1896–1897", event: "The novel is written." },
+      { year: "1898", event: "First book edition, Baku; the same year Shirvanzade is exiled to Odessa." },
+      { year: "1956", event: "Russian translation, Хаос, published in Moscow." },
+      { year: "1973", event: "Hayfilm's film Քաոս, directed by Laert Vagharshyan." },
+      { year: "2013", event: "French translation, Chaos, by Pierre Ter-Sarkissian." },
+    ],
+    significance: {
+      heading: "Why Chaos matters",
+      paragraphs: [
+        "It is a major Armenian novel of the modern commercial city. Chaos looks at the counting-houses and drawing rooms of an oil town in the middle of its boom, and treats wills, debts, shares and marriages as the substance of a serious novel.",
+        "It is also a precise study of a family coming apart under economic change. The patriarch's authority passes into a document, the document is contested, and the sons are pulled between an old order that is too narrow and a new one with no rules. Shirvanzade's achievement was to show that transformation as a chain of causes, in a city he knew from its books of account, and to give Armenian realism its fullest novel.",
+      ],
+    },
+    interestingFacts: [
+      "The novel never names Baku. Its first chapter calls the city only 'that small, insignificant seaside town' where Markos Alimyan settled.",
+      "Markos agha Alimyan dies in the first chapter, having caught his fatal illness while supervising the building of his eleventh house.",
+      "Shirvanzade traced the novel's origin to a real conflict in a Baku family in 1881–1882.",
+      "The book appeared at Baku in 1898, the same year its author was exiled to Odessa.",
+      "Its 1973 film version starred Sos Sargsyan as Smbat.",
+    ],
+    relatedFigures: [
+      {
+        name: "Alexander Shirvanzade",
+        lifespan: "1858–1935",
+        description:
+          "The author; he spent about eight years keeping accounts in Baku's offices before turning that world into the novel.",
+      },
+      {
+        name: "Sos Sargsyan",
+        lifespan: "1929–2013",
+        description: "Armenian actor who played Smbat in the 1973 film.",
+      },
+    ],
+    relatedSlugs: ["alexander-shirvanzade"],
+  },
 ];

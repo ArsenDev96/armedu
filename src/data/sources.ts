@@ -888,6 +888,206 @@ const SOURCES: Record<string, Source[]> = {
     },
   ],
 
+  /*
+   * `abu-lala-mahari` is the section's first Work whose hero is named after a
+   * real person from another literature, so the bibliography keeps three
+   * subjects apart: the historical al-Maʿarrī (Britannica only), Isahakyan's
+   * poem (the encyclopedia, the museum text and four NAS RA studies), and its
+   * afterlife in translation. The composition date is genuinely reported three
+   * ways — 1909–1911 (ՀՍՀ), 1909–1910 (Jrbashyan, hy.wikipedia), 1910 (Avik
+   * Isahakyan) — and the article names all three rather than choosing silently.
+   * Two claims are carried as tradition or limits, not facts: the camel-caravan
+   * conception story (hy.wikipedia, unsourced there) and the absence of a
+   * verifiable French edition or earlier Boyajian imprint.
+   */
+  "abu-lala-mahari": [
+    {
+      author: "Գ. Հովհաննիսյան",
+      title: "Իսահակյան Ավետիք",
+      publisher: "Հայկական սովետական հանրագիտարան, հ. 4, Երևան (Վիքիդարանի հրատարակություն)",
+      year: "1978",
+      identifier: { kind: "url", value: "https://hy.wikisource.org/wiki/ՀՍՀ/ԻՍԱՀԱԿՅԱՆ_ԱՎԵՏԻՔ" },
+      note: "The anchor for the 1909–1911 dating, the genre (պոեմ), the hyphenated title form and the characterisation of the poem as a «գեղարվեստական մեծարժեք վկայագիր» of Isahakyan's outlook. Also the source of Blok's praise, which it quotes about Isahakyan in general, not about this poem.",
+    },
+    {
+      author: "Ավիկ Իսահակյան",
+      title: "«Աբու-Լալա Մահարի» պոեմի հերոսը և հեղինակը",
+      publisher: "Պատմա-բանասիրական հանդես, ՀՀ ԳԱԱ, 2007, № 2, էջ 134–161",
+      year: "2007",
+      identifier: { kind: "url", value: "https://arar.sci.am/dlibra/publication/192985/edition/175339" },
+      note: "The hero-and-author study. Dates the poem to 1910 and places it in the period just before Isahakyan's departure, under threat of trial; the article cites it for that attributed autobiographical reading, not as proof that the hero is the poet.",
+    },
+    {
+      author: "Է. Մ. Ջրբաշյան",
+      title: "Ավետիք Իսահակյանի «Աբու-լալա Մահարին» և ռոմանտիկական պոեմի ավանդույթները",
+      publisher: "Պատմա-բանասիրական հանդես, Հայկական ՍՍՀ ԳԱ, 1975, № 3, էջ 43–64",
+      year: "1975",
+      identifier: { kind: "url", value: "https://arar.sci.am/dlibra/publication/189596/edition/172177" },
+      note: "The basis of the Romantic-tradition section: dates the poem 1909–1910, calls it the peak of Isahakyan's poetry, and argues that scholarship's focus on Nietzschean elements obscured its roots in the classical Romantic poem. The specific Romantic features the article lists are its own reading of the text in the light of this argument.",
+    },
+    {
+      author: "Մ. Գ. Զաքարյան",
+      title: "Ավ. Իսահակյանի «Աբու-Լալա Մահարի» պոեմի ստեղծագործական ակունքները",
+      publisher: "Լրաբեր հասարակական գիտությունների, 2001, № 2, էջ 3–17",
+      year: "2001",
+      identifier: { kind: "url", value: "https://arar.sci.am/publication/42787" },
+      note: "Cited for the young Isahakyan's attraction to Schopenhauer's pessimism and Nietzsche's rebellious spirit, and for the comparison of the poem with al-Maʿarrī's own writings.",
+    },
+    {
+      author: "Նունե Մինասյան",
+      title: "Ավետիք Իսահակյանի «Աբու-Լալա Մահարի» պոեմի … [a study of the poem's illustrated editions]",
+      publisher: "Գեղարվեստի պետական ակադեմիայի տարեգիրք, Երևան (via arar.sci.am)",
+      year: "consulted 2026",
+      identifier: { kind: "url", value: "https://arar.sci.am/Content/368333/217.pdf" },
+      note: "The publication-history source: the first book edition (Constantinople, Արծիւ bookshop, 1911), the Կիլիկեա printing of 1920, the first Soviet edition of 1929, the unrealised 1935 Tiflis edition with Saryan's illustrations, and the illustrated Yerevan editions of 1971, 1975 and 1984. Also the source of the remark that Saryan was perhaps the only interpreter to see optimistic tones in the poem. The heading is given as far as the repository's index records it; the remainder is described in brackets rather than reconstructed.",
+    },
+    {
+      author: "Tatevik Harutyunyan",
+      title: "Eastern Layer of the Poem “Abu-Lala Mahari” by Avetik Isahakyan",
+      publisher: "Foreign Languages in Higher Education, Yerevan State University, vol. 19, no. 1, pp. 201–207",
+      year: "2015",
+      identifier: { kind: "doi", value: "10.46991/FLHE/2015.19.1.201" },
+      note: "The source of the desert section's claim that the caravan and desert scenes are built from vocabulary and expressions of Arabic origin.",
+    },
+    {
+      author: "Տաթևիկ Հարությունյան",
+      title: "«Աբու-Լալա Մահարի» պոեմի արաբերեն թարգմանությունները և թարգմանիչների մեկնաբանությունները",
+      publisher: "Կանթեղ. գիտական հոդվածների ժողովածու, ՀՀ ԳԱԱ, 2015, № 2, էջ 3–12",
+      year: "2015",
+      identifier: { kind: "url", value: "https://arar.sci.am/dlibra/publication/183941/edition/167165" },
+      note: "The evidence that the poem exists in several Arabic translations from different periods. Cited for that fact only; the article names no individual Arabic translator.",
+    },
+    {
+      title: "Ավետիք Իսահակյան. Պոեմներ — «Աբու-Լալա Մահարի»",
+      publisher: "Ավետիք Իսահակյանի տուն-թանգարան, Երևան",
+      year: "consulted 2026",
+      identifier: { kind: "url", value: "https://isahakyanmuseum.am/htmls/poemner_1.html" },
+      note: "The primary text as the house-museum publishes it: the prose preamble («Տասնյակ տարիներ ապրեց Խալիֆաների հոյակապ քաղաքում»), the section headings Սուրահ 1–7 followed by «Վերջին Սուրահ», and the closing lines toward «անմահ արևը». The museum's English page renders the same preamble as \"for thirty years\"; the article quotes the Armenian.",
+    },
+    {
+      title: "Աբու-Լալա Մահարի (պոեմ)",
+      publisher: "Հայերեն Վիքիպեդիա",
+      year: "consulted 2026",
+      identifier: { kind: "url", value: "https://hy.wikipedia.org/wiki/Աբու-Լալա_Մահարի_(պոեմ)" },
+      note: "Used with caution and named in the article wherever it is relied on: the 1909–1910 writing / 1911 complete-text dating, the twenty-syllable couplets, the camel-caravan conception story (reported as tradition, since the entry gives no source), the epitaph as the seed of the hero's outlook, and the observation that the hero spares not even homeland and law.",
+    },
+    {
+      title: "al-Maʿarrī: Arab poet",
+      publisher: "Encyclopaedia Britannica",
+      year: "consulted 2026",
+      identifier: { kind: "url", value: "https://www.britannica.com/biography/al-Maarri" },
+      note: "The only source for the historical al-Maʿarrī: dates, Maʿarrat al-Nuʿmān, childhood blindness, the short Baghdad stay ending in 1010, seclusion, the Luzūmiyyāt and Risālat al-ghufrān, and the skeptical reputation. Kept separate from every claim about Isahakyan's hero.",
+    },
+    {
+      title: "Переводы Аветика Исаакяна на русский язык",
+      publisher: "Армянский музей Москвы и культуры наций",
+      year: "consulted 2026",
+      identifier: { kind: "url", value: "https://www.armmuseum.ru/news-blog/isahakyan-translation" },
+      note: "Bryusov's translation «Абул Ала Маари» for the 1916 anthology Поэзия Армении, and the critical description of it as a literary monument of Russian translation, cited as the critics' judgement the page reports. The museum's text page carries the subtitle «Касыда в 7 сурах».",
+    },
+    {
+      author: "Avetik Isahakyan, trans. Zabelle C. Boyajian",
+      title: "Abu Lala Mahari: Poem in Seven Suras",
+      publisher: "Hayastan, Yerevan",
+      year: "1975",
+      identifier: { kind: "url", value: "https://rusneb.ru/catalog/000200_000018_RU_INFOCOMM_322_NLR_5000082146/" },
+      note: "National Library of Russia record of the English translation. An earlier date (1948) circulates for Boyajian's version without a verifiable imprint, which is why the article gives only this edition.",
+    },
+    {
+      author: "Avetik Isahakyan, trans. Tatul Sonentz-Papazian",
+      title: "Abu-Lala Mahari",
+      publisher: "The Armenian Weekly",
+      year: "2014",
+      identifier: { kind: "url", value: "https://armenianweekly.com/2014/07/19/abu-lala-mahari/" },
+      note: "First installment of a serialized English translation published one sura at a time in 2014.",
+    },
+  ],
+
+  /*
+   * `chaos` carries one conflict with this site's own earlier prose. Shirvanzade's
+   * biography (§97), following The Heritage of Armenian Literature, says the
+   * novel was serialized in 1896–1897; the sources consulted here date the
+   * *writing* to those years and name no periodical, and the Armenian account
+   * speaks only of the Baku book of 1898. The article reports serialization as
+   * unconfirmed rather than repeating it or silently dropping it. Names of
+   * characters are taken from the Wikisource text, not from school summaries.
+   */
+  chaos: [
+    {
+      title: "Հայկական սովետական հանրագիտարան, հատոր 8",
+      publisher: "Հայկական հանրագիտարանի գլխավոր խմբագրություն, Երևան",
+      year: "1982",
+      identifier: { kind: "archive", value: "ՀՍՀ, հատոր 8, էջ 517–519, «Շիրվանզադե Ալեքսանդր»" },
+      note: "Cited for the assessment of Քաոս as the largest achievement of Armenian critical realism, and for its place in Shirvanzade's publication sequence. The same entry the site's biography rests on; cited here only for those two points.",
+    },
+    {
+      author: "Ալեքսանդր Շիրվանզադե",
+      title: "Քաոս",
+      publisher: "Վիքիդարան (hy.wikisource.org)",
+      year: "consulted 2026",
+      identifier: { kind: "url", value: "https://hy.wikisource.org/wiki/Քաոս" },
+      note: "The primary text. Source of the three-part structure (17, 8 and 9 chapters), the spellings of every character name the article prints (Մարկոս աղա Ալիմյան, Ոսկեհատ, Սմբատ, Միքայել, Արշակ, Մարթա, Իսահակ Մարութխանյան, Սրաֆիոն Գասպարիչ), the ages given in the first chapter, the unnamed 'small, insignificant seaside town', the eleventh house, the thousand-rouble loan against a seven-thousand note, and the line that the father wrote little in his will but said much.",
+    },
+    {
+      title: "Քաոս (վեպ)",
+      publisher: "Հայերեն Վիքիպեդիա",
+      year: "consulted 2026",
+      identifier: { kind: "url", value: "https://hy.wikipedia.org/wiki/Քաոս_(վեպ)" },
+      note: "Used with caution and named in the article where relied on: the genre label սոցիալական ռեալիստական վեպ, the 1896–1897 writing dates, the 1881–1882 family conflict and the return visits to Baku, the setting in late-nineteenth-century Baku, the will's terms and the ending, Shushanik's and Anush Ghulamyan's roles, and Shirvanzade's own description of the 'monstrous chaos' that explains the title.",
+    },
+    {
+      title: "Ալեքսանդր Շիրվանզադե",
+      publisher: "Հայերեն Վիքիպեդիա",
+      year: "consulted 2026",
+      identifier: { kind: "url", value: "https://hy.wikipedia.org/wiki/Ալեքսանդր_Շիրվանզադե" },
+      note: "Cited for the bibliography of editions — Baku 1898 (444 pages), Yerevan 1926, collected works 1934, 1950 and 1959, Cairo 1956, Yerevan 1944, 1976 and 1987 — for the Odessa exile of January 1898, for the Metekhi prison origin of the novel and the author's words about giving Armenian literature a new work, and for its citation of Հայ գրականության պատմություն, book 2 (Yerevan, 1950), pp. 179–186.",
+    },
+    {
+      author: "A. J. Hacikyan, G. Basmajian, E. S. Franchuk and N. Ouzounian (eds.)",
+      title: "The Heritage of Armenian Literature, Volume III: From the Eighteenth Century to Modern Times",
+      publisher: "Wayne State University Press",
+      year: "2005",
+      identifier: { kind: "isbn", value: "9780814332214" },
+      note: "The English-language literary history behind this site's biography of Shirvanzade, including its statement that the novel was serialized in 1896–1897. Cited here as the source of that claim, which this article reports as unconfirmed because no periodical is named in the sources consulted.",
+    },
+    {
+      title: "Alexander Shirvanzade",
+      publisher: "Wikipedia",
+      year: "consulted 2026",
+      identifier: { kind: "url", value: "https://en.wikipedia.org/wiki/Alexander_Shirvanzade" },
+      note: "Cited for the English-language form of the title, K'aos (Chaos), for the description of the novel as his masterpiece, and for the English account of its conception in Metekhi prison. Not cited for dates.",
+    },
+    {
+      title: "Ширванзаде, Александр Минасович",
+      publisher: "Русская Википедия",
+      year: "consulted 2026",
+      identifier: { kind: "url", value: "https://ru.wikipedia.org/wiki/Ширванзаде,_Александр_Минасович" },
+      note: "Cited only as reception history: the Soviet-era Russian characterisation of the novel in terms of class struggle, the exploitation of workers and the decay of the bourgeois family. The article reports this reading and does not adopt it.",
+    },
+    {
+      title: "Քաոս (ֆիլմ)",
+      publisher: "Հայերեն Վիքիպեդիա",
+      year: "consulted 2026",
+      identifier: { kind: "url", value: "https://hy.wikipedia.org/wiki/Քաոս_(ֆիլմ)" },
+      note: "The 1973 Hayfilm adaptation: director Laert Vagharshyan, screenplay by Vadim Meliksetyan, Sos Sargsyan as Smbat, and the description of its setting as early-twentieth-century Baku. Cited to keep the film distinct from the novel.",
+    },
+    {
+      author: "Chirvanzadé, trans. Pierre Ter-Sarkissian",
+      title: "Chaos",
+      publisher: "Éditions Thaddée, Paris",
+      year: "2013",
+      identifier: { kind: "isbn", value: "9782919131099" },
+      note: "The verified French translation, and the only Western-European translation of the novel found. Its title is part of the evidence for Chaos as the novel's established Western-language title.",
+    },
+    {
+      title: "Хаос — издания",
+      publisher: "LiveLib",
+      year: "consulted 2026",
+      identifier: { kind: "url", value: "https://www.livelib.ru/book/840315/editions" },
+      note: "Edition list for the Russian translation: Moscow 1956, Yerevan 1975 and 1983, and later reprints. Cited for the Russian publication record only; it does not establish the translator, and the article names none.",
+    },
+  ],
+
   /* ---------------------------------------------------------------- cuisine */
 
   /*

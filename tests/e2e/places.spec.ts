@@ -3172,6 +3172,17 @@ test("no unrelated article artwork changed", () => {
     // `works.spec.ts` asserts. Extended by one line, every other value
     // byte-identical.
     "book-of-lamentations": "/images/works/book-of-lamentations.webp",
+    // §104 adds Works #6–#8 together — three independently audited covers that
+    // leave the Works section illustrated at eight and `PENDING_ARTWORK` empty
+    // archive-wide. None is a portrait, so none is in `PORTRAIT_PROVENANCE`, which
+    // `works.spec.ts` asserts. Three lines added, every other value byte-identical.
+    mtnadzor: "/images/works/mtnadzor.webp",
+    "baghdasar-aghbar": "/images/works/baghdasar-aghbar.webp",
+    "yerkir-nairi": "/images/works/yerkir-nairi.webp",
+    // §107: one line added, every other value byte-identical.
+    "abu-lala-mahari": "/images/works/abu-lala-mahari.webp",
+    // §110: one line added, every other value byte-identical.
+    chaos: "/images/works/chaos.webp",
     lavash: "/images/cuisine/lavash.webp",
     dolma: "/images/cuisine/dolma.webp",
     khorovats: "/images/cuisine/khorovats.webp",
@@ -4825,7 +4836,7 @@ test("the four existing category listings still load and still count what they d
     // collection; §102 moves it 6 → 7 with Baghdasar Aghbar, the section's first
     // play; §103 moves it 7 → 8 with Yerkir Nairi. Same reason as the writers
     // line above, edited not derived.
-    ["works", 8, dict.listing.works.title],
+    ["works", 10, dict.listing.works.title],
     // §67 moves Cuisine 6 → 7 with Spas, §70 moves it 7 → 8 with jingalov hats,
     // §72 moves it 8 → 9 with khash, §74 moves it 9 → 10 with matsun, §77 moves it
     // 10 → 11 with basturma and §79 moves it 11 → 12 with manti. Edited rather than

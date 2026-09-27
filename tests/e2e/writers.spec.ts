@@ -1074,6 +1074,10 @@ test("adding Narekatsi changed no existing writer, work or place", async ({ page
       "baghdasar-aghbar",
       // §103 appended the eighth.
       "yerkir-nairi",
+      // §106 appended the ninth.
+      "abu-lala-mahari",
+      // §108 appended the tenth.
+      "chaos",
     ]);
 
     // Cuisine is closed for v1 and Places are untouched by a Writers step.
@@ -1280,6 +1284,10 @@ test("the four collections are dated correctly and no Work slug is invented", as
       "baghdasar-aghbar",
       // §103 appended the eighth.
       "yerkir-nairi",
+      // §106 appended the ninth.
+      "abu-lala-mahari",
+      // §108 appended the tenth.
+      "chaos",
     ]);
     const slugs = new Set(bundle(locale).articles.map((a) => a.slug));
     for (const invented of [
@@ -1805,7 +1813,7 @@ test("adding Varoujan changed no existing writer, work, dish or place", async ({
     expect(b.articles.filter((a) => a.category === "cuisine").length, `${locale} cuisine`).toBe(12);
     expect(b.articles.filter((a) => a.category === "places").length, `${locale} places`).toBe(13);
     expect(b.articles.filter((a) => a.category === "history").length, `${locale} history`).toBe(7);
-    expect(b.works.length, `${locale} works`).toBe(8);
+    expect(b.works.length, `${locale} works`).toBe(10);
 
     // Narekatsi is as §82 left him, plus the one relation §61 authored: his own
     // book. The Varoujan step still changed nothing about him -- this is a later
@@ -2311,7 +2319,7 @@ test("Shnorhali's one relation is earned, and invents no Work slug", async ({ pa
       expect(workSlugs.has(invented), `${locale} ${invented} must not exist`).toBe(false);
       expect(article.relatedSlugs, `${locale} no relation to ${invented}`).not.toContain(invented);
     }
-    expect(bundle(locale).works.length, `${locale} Works after §103`).toBe(8);
+    expect(bundle(locale).works.length, `${locale} Works after §108`).toBe(10);
   }
 
   // Narekatsi was not edited for reciprocity with Shnorhali -- and still is not.
@@ -2350,7 +2358,7 @@ test("adding Shnorhali changed no existing writer, work, dish or place", async (
     expect(b.articles.filter((a) => a.category === "cuisine").length, `${locale} cuisine`).toBe(12);
     expect(b.articles.filter((a) => a.category === "places").length, `${locale} places`).toBe(13);
     expect(b.articles.filter((a) => a.category === "history").length, `${locale} history`).toBe(7);
-    expect(b.works.length, `${locale} works`).toBe(8);
+    expect(b.works.length, `${locale} works`).toBe(10);
 
     // Varoujan, closed one step earlier, is exactly as §85 left him.
     const varoujan = b.articles.find((a) => a.slug === VAROUJAN)!;
@@ -2610,6 +2618,10 @@ test("Siamanto's relations are earned, and no Work slug was invented for him", a
       "baghdasar-aghbar",
       // §103 appended the eighth.
       "yerkir-nairi",
+      // §106 appended the ninth.
+      "abu-lala-mahari",
+      // §108 appended the tenth.
+      "chaos",
     ]);
     const slugs = new Set(bundle(locale).articles.map((a) => a.slug));
     for (const invented of [
@@ -2924,7 +2936,7 @@ test("adding Siamanto changed no existing writer, work, dish, place or history a
     expect(b.articles.filter((a) => a.category === "cuisine").length, `${locale} cuisine`).toBe(12);
     expect(b.articles.filter((a) => a.category === "places").length, `${locale} places`).toBe(13);
     expect(b.articles.filter((a) => a.category === "history").length, `${locale} history`).toBe(7);
-    expect(b.works.length, `${locale} works`).toBe(8);
+    expect(b.works.length, `${locale} works`).toBe(10);
     expect(b.articles.filter((a) => a.category === "writers").length, `${locale} writers`).toBe(13);
 
     // Varoujan is exactly as §85 left him — relations included, and in particular
@@ -3223,7 +3235,7 @@ test("Baghdasar Aghbar exists as a Work now, and no other Paronyan title was inv
   for (const locale of LOCALES) {
     const b = bundle(locale);
     const works = b.articles.filter((a) => a.category === "works").map((a) => a.slug);
-    expect(works.length, `${locale} works count`).toBe(8);
+    expect(works.length, `${locale} works count`).toBe(10);
     expect(works, `${locale} Baghdasar Aghbar is now a Work`).toContain("baghdasar-aghbar");
 
     for (const invented of [
@@ -3259,7 +3271,7 @@ test("adding Paronyan changed no existing writer, work, dish, place or history a
     const count = (category: string) => b.articles.filter((a) => a.category === category).length;
 
     expect(count("writers"), `${locale} writers`).toBe(13);
-    expect(count("works"), `${locale} works`).toBe(8);
+    expect(count("works"), `${locale} works`).toBe(10);
     expect(count("cuisine"), `${locale} cuisine`).toBe(12);
     expect(count("places"), `${locale} places`).toBe(13);
     expect(count("history"), `${locale} history`).toBe(7);
@@ -3818,10 +3830,19 @@ test("Նամուս and Պատվի համար are kept apart, and neither became 
       article as the candidate — and this step must not have.
     */
     const works = b.articles.filter((a) => a.category === "works").map((a) => a.slug);
-    expect(works.length, `${locale} works count`).toBe(8);
+    expect(works.length, `${locale} works count`).toBe(10);
+    /*
+      §108 adds Քաոս as Work #10 under the slug `chaos`, the candidate this note
+      named. It is his, and it is the only one: the other titles stay unregistered,
+      and the alternative slug `kaos` was not created alongside it.
+    */
+    expect(works, `${locale} Chaos is a Work`).toContain("chaos");
+    expect(
+      b.works.find((w) => w.slug === "chaos")!.author,
+      `${locale} and it is his`,
+    ).toBe(b.writers.find((w) => w.slug === SHIRVANZADE)!.name);
     for (const invented of [
       "namus",
-      "chaos",
       "kaos",
       "patvi-hamar",
       "for-honour",
@@ -3866,7 +3887,9 @@ test("his relations are earned and identical across the editions", () => {
     expect(
       article.sections.flatMap((s) => s.links ?? []).map((l) => l.slug).sort(),
       `${locale} contextual links`,
-    ).toEqual([ABOVYAN, "raffi"]);
+      // §108: plus one link to Work #10, annotated on the existing sentence in the
+      // `chaos` section that already named the novel. No prose changed.
+    ).toEqual(["chaos", ABOVYAN, "raffi"]);
     expect(article.relatedSlugs, `${locale} no automatic Paronyan relation`).not.toContain(
       PARONYAN,
     );
@@ -3968,8 +3991,9 @@ test("the researched conflicts are reported rather than smoothed away", () => {
     expect(prose, `${locale} carries 1873`).toContain("1873");
     expect(prose, `${locale} carries 1875`).toContain("1875");
 
-    // 3. Քաոս: the serialization and the volume are two dates, not one.
-    expect(prose, `${locale} carries the serialization`).toContain("1896");
+    // 3. Քաոս: the writing and the volume are two dates, not one. §111 dropped the
+    //    unconfirmed serialization; 1896 is now the year the writing began.
+    expect(prose, `${locale} carries the writing`).toContain("1896");
     expect(prose, `${locale} carries the volume`).toContain("1898");
 
     // 4. The film. Made in 1925, premiered in 1926, and the 1924 date that
@@ -4000,7 +4024,7 @@ test("adding Shirvanzade changed no existing writer, work, dish, place or histor
     const count = (category: string) => b.articles.filter((a) => a.category === category).length;
 
     expect(count("writers"), `${locale} writers`).toBe(13);
-    expect(count("works"), `${locale} works`).toBe(8);
+    expect(count("works"), `${locale} works`).toBe(10);
     expect(count("cuisine"), `${locale} cuisine`).toBe(12);
     expect(count("places"), `${locale} places`).toBe(13);
     expect(count("history"), `${locale} history`).toBe(7);
@@ -4085,10 +4109,10 @@ test("Shirvanzade is reachable under his variants, and his hit carries his own f
     );
   }
 
-  // And the titles named in his article did not become Work results of their own.
+  // And the titles named in his article did not become Work results of their own —
+  // except Քաոս, which §108 made Work #10 and which is asserted as found below.
   for (const [locale, query] of [
     ["hy", "Նամուս"],
-    ["hy", "Քաոս"],
   ] as const) {
     await page.goto(`/${locale}/search?q=${encodeURIComponent(query)}`);
     await expect(
@@ -4096,6 +4120,11 @@ test("Shirvanzade is reachable under his variants, and his hit carries his own f
       `${locale} "${query}" is not a Work`,
     ).toHaveCount(0);
   }
+  await page.goto(`/hy/search?q=${encodeURIComponent("Քաոս")}`);
+  await expect(
+    page.locator(`main li:has(a[href="/hy/works/chaos"])`),
+    `hy "Քաոս" finds Work #10`,
+  ).toHaveCount(1);
 });
 
 test("his routes, metadata and sitemap carry his portrait", async ({
@@ -4493,7 +4522,7 @@ test("Mtnadzor is kept as four things and no Work entity is invented", () => {
       `${locale} Mtnadzor exists, as a Work`,
     ).toBe(true);
     expect(targets, `${locale} the biography still does not link to it`).not.toContain("mtnadzor");
-    expect(b.works.length, `${locale} Works is eight`).toBe(8);
+    expect(b.works.length, `${locale} Works is ten`).toBe(10);
   }
 });
 
@@ -4558,7 +4587,7 @@ test("adding Bakunts changed no existing writer, work, dish, place or history ar
     expect(b.articles.filter((a) => a.category === "cuisine").length, `${locale} cuisine`).toBe(12);
     expect(b.articles.filter((a) => a.category === "places").length, `${locale} places`).toBe(13);
     expect(b.articles.filter((a) => a.category === "history").length, `${locale} history`).toBe(7);
-    expect(b.works.length, `${locale} works`).toBe(8);
+    expect(b.works.length, `${locale} works`).toBe(10);
     expect(b.articles.filter((a) => a.category === "writers").length, `${locale} writers`).toBe(13);
 
     // Paronyan is exactly as §96 left him, relations included — and in particular
@@ -4852,7 +4881,7 @@ test("registering the portrait changed nothing else in the archive", async ({ pa
 
     // Cross-category counts, unchanged.
     expect(b.articles.filter((a) => a.category === "writers").length, `${locale} writers`).toBe(13);
-    expect(b.works.length, `${locale} works`).toBe(8);
+    expect(b.works.length, `${locale} works`).toBe(10);
     expect(b.articles.filter((a) => a.category === "cuisine").length, `${locale} cuisine`).toBe(12);
     expect(b.articles.filter((a) => a.category === "places").length, `${locale} places`).toBe(13);
     expect(b.articles.filter((a) => a.category === "history").length, `${locale} history`).toBe(7);

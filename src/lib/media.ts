@@ -585,6 +585,107 @@ const IMAGES: Record<string, string> = {
    */
   "book-of-lamentations": "/images/works/book-of-lamentations.webp",
 
+  /*
+   * §104. The three Works written ahead of their pictures at §101–§103 land
+   * together and are audited one at a time — three independent decisions, not one
+   * batch verdict. All three passed and are registered exactly as delivered,
+   * unaltered, unoptimised and unrenamed.
+   *
+   * Technically they are triplets: each 1586×992 (the §63 geometry), a single
+   * lossy `VP8 ` chunk with no VP8X extension — so no alpha, ICC, EXIF, XMP,
+   * animation or orientation tag — and a RIFF size header that matches the file
+   * exactly with no trailing bytes. Verified by a hand-written RIFF walker and by
+   * sharp, which agree on every field.
+   *
+   * - `mtnadzor` — 237,902 bytes, SHA-256
+   *   `e968c06e5f4024c6f47490d4a9cd189bbe0daf9e4a4522078d9b825cc5b154ef`.
+   *   A cobbled path along a dry-stone wall under a walnut tree, a few stone
+   *   houses on the slope below, and a forested limestone gorge opening onto
+   *   misted ranges. One small figure — an old woman with a staff and a sack,
+   *   seen from behind — carries the human scale. The collection, not the title
+   *   story: no bear, no hunter, no forest guard, no weapon, no animal at all.
+   *   Overcast and restrained rather than a sunlit view, so it does not read as a
+   *   tourism poster. It shares a Zangezur gorge with Bakunts's own portrait and
+   *   nothing else — no face, no figure, no composition. Reservation: the finish
+   *   is photographic rather than painterly, a register the older five covers do
+   *   not use; accepted, because it is the same editorial realism as the Narek
+   *   cover and fails no gate.
+   *
+   * - `baghdasar-aghbar` — 153,152 bytes, SHA-256
+   *   `815189c7fd3b7912350f8d91ad2b715b379e6e5e02dff8f80c5b809948f62c5b`.
+   *   A late-nineteenth-century Constantinople sitting room — lace curtains, a
+   *   kilim-covered table set with coffee, an oil lamp, a window onto the Galata
+   *   tower — and four people in period urban dress. Baghdasar stands at the
+   *   centre, hand on hip, fist at his waistcoat, glaring sideways: offended and
+   *   self-important rather than clownish. The two women look away or down, and
+   *   the seated younger man holds his ground with a folded newspaper — the
+   *   tension is in glances and spacing, not in action. No stage, curtain call,
+   *   mask or proscenium. The newspaper, the books on the stool and the framed
+   *   print on the wall were read at 5×: ink texture only. Baghdasar's face is
+   *   not Paronyan's (broad, full dark hair, a heavier moustache); the Galata view
+   *   is a motif the two pictures share, not a borrowed asset.
+   *
+   * - `yerkir-nairi` — 174,188 bytes, SHA-256
+   *   `f189dc2e66af0e903d0d7c6c40c3892b8763a48a919445382aa3461bd787a2cb`.
+   *   A thawing, muddy square in a stone-built provincial city under the Kars
+   *   citadel, a minaret and a colonnaded civic building behind; townspeople in
+   *   fezzes, bowlers and shawls, a boy with a sack, carts, and a knot of men in
+   *   greatcoats and uniform talking apart. Uneasy and watchful, not a battle and
+   *   not a poster. The city carries the picture at every crop. The one flag, on
+   *   the citadel, is plain red with no emblem at 7× — recorded as a reservation
+   *   rather than a failure, because nothing resolves it into a party or state
+   *   symbol. No sign, poster, banner or plaque resolves; the awning bracket's
+   *   ironwork is scrollwork, not letters.
+   *
+   * No Work is in `PORTRAIT_PROVENANCE`, and these three are no exception.
+   */
+  mtnadzor: "/images/works/mtnadzor.webp",
+  "baghdasar-aghbar": "/images/works/baghdasar-aghbar.webp",
+  "yerkir-nairi": "/images/works/yerkir-nairi.webp",
+  /*
+   * §107 registers Work #9, written ahead of its picture at §106.
+   *
+   * - `abu-lala-mahari` — 1586×992, 133,676 bytes, SHA-256
+   *   `f8ddd56eea4120bfa4dd7d877fb81ec520d421b2722164506cd2a607cc034b60`.
+   *   One lossy `VP8 ` chunk, no VP8X: no alpha, ICC, EXIF, XMP or animation;
+   *   RIFF size + 8 equals the file length and the walker ends at EOF.
+   *   A robed traveller with a staff and a white head-wrap, seen from behind,
+   *   leads two loaded camels along a stony ridge track above a wide arid plateau
+   *   — a dry riverbed, low eroded hills, far ridges, a large sky. A small hazy
+   *   settlement sits on the horizon, secondary and neutral: no dome, crescent or
+   *   minaret. No face anywhere, so it is neither Isahakyan's portrait nor a
+   *   reconstruction of al-Maʿarrī; no study, books or seated sage. No text at 2–6×.
+   *   Reservations, none a failing gate: low sun with visible rays and a warm,
+   *   cinematic grade (muted, not saturated); the lead rope breaks between the
+   *   halter and the hand at 4×, invisible at article scale; in tall crops the
+   *   group sits at the left edge and the rear camel is lost, the traveller kept.
+   */
+  "abu-lala-mahari": "/images/works/abu-lala-mahari.webp",
+  /*
+   * §110 registers Work #10, written ahead of its picture at §108.
+   *
+   * - `chaos` — 1586×992, 133,458 bytes, SHA-256
+   *   `afc7de708a121acc086eea9acbdd9a5193933c5439418acc00ef4f39aa3b7907`.
+   *   One lossy `VP8 ` chunk, no VP8X: no alpha, ICC, EXIF, XMP or animation;
+   *   RIFF size + 8 equals the file length and the walker ends at EOF.
+   *   Four figures on a stone terrace above a pale limestone city: a seated older
+   *   man with a cane, bareheaded with greying hair and a full beard; a younger
+   *   moustached man standing behind him; a woman in a high-necked blouse and a
+   *   patterned shawl, hands clasped; and a bearded man seen from behind, hat in
+   *   hand, facing the city. Below, a street of carts, horses, barrel wagons and
+   *   pedestrians in dark caps and bowlers; beyond, a field of lattice derricks,
+   *   smoke, steamships and the Caspian in haze. This is the corrected-headwear
+   *   version: no fez on the seated man or in the street. No figure reproduces
+   *   Shirvanzade's portrait (his is clean-chinned with a walrus moustache and
+   *   curly grey hair). No modern or Soviet element, no flag, no text at 2–5×.
+   *   Reservations, none a failing gate: a derrick-like lattice is fused into the
+   *   facade left of the standing man, visible at 3×, not at article scale; some
+   *   derricks emit smoke from their crowns like chimneys; square crops lose the
+   *   younger man and the seated man's head, keeping the woman, the man facing
+   *   the city, the stone city and the derricks.
+   */
+  chaos: "/images/works/chaos.webp",
+
   // Cuisine
   lavash: "/images/cuisine/lavash.webp",
   dolma: "/images/cuisine/dolma.webp",
@@ -1519,8 +1620,13 @@ export const PENDING_ARTWORK: readonly string[] = [
    * not purport to show a specific place called Mtnadzor — three rivers and a
    * deserted village carry that name and the literary one is none of them — and it
    * must carry no readable text of any kind.
+   *
+   * §104 **Resolved.** The file landed, was audited on its own and is registered
+   * in `IMAGES`, where the technical and visual record is kept. Every condition
+   * above held: no bear, hunter or forest guard; no specific Mtnadzor claimed; the
+   * human scale one small figure on a path; no readable text; and nothing taken
+   * from Bakunts's portrait.
    */
-  "mtnadzor",
 
   /*
    * §102 adds a second entry alongside it — for the first time since §61 the list
@@ -1546,8 +1652,12 @@ export const PENDING_ARTWORK: readonly string[] = [
    * "on-the-armenian-stage" and "on-screen" sections, not to the illustration. Not
    * an author portrait or a book-cover-style composition. No readable text of any
    * kind.
+   *
+   * §104 **Resolved.** Audited independently and registered in `IMAGES`. A
+   * domestic interior, not a stage; Baghdasar central and offended rather than
+   * clownish; tension carried by glances and spacing; no readable text; and not
+   * Paronyan's face.
    */
-  "baghdasar-aghbar",
 
   /*
    * §103 adds a third entry — the Works section now has three slugs waiting at
@@ -1557,12 +1667,14 @@ export const PENDING_ARTWORK: readonly string[] = [
    *
    * The same rule stated for Mtnadzor and Baghdasar Aghbar applies here, restated
    * because it is the specific way this entry could go wrong. **Charents's own
-   * portrait (`writers/yeghishe-charents.webp`, photo-referenced) must not be
-   * borrowed** as the novel's illustration. A poet's face is not his prose, and a
-   * reader who met the same portrait on the Writers card and this Work's card
-   * would reasonably conclude the two pages were about the same entity — the
-   * confusion the novel's own "the-title-and-nairi" and author-relation sections
-   * exist to keep separate.
+   * portrait (`writers/yeghishe-charents.webp`, an imagined editorial portrait —
+   * provenance `imagined`, the default; he has no `PORTRAIT_PROVENANCE` entry)
+   * must not be borrowed** as the novel's illustration. (§105 correction: this
+   * note originally said "photo-referenced", which the registry never recorded.)
+   * A poet's face is not his prose, and a reader who met the same portrait on
+   * the Writers card and this Work's card would reasonably conclude the two
+   * pages were about the same entity — the confusion the novel's own
+   * "the-title-and-nairi" and author-relation sections exist to keep separate.
    *
    * Art direction, recorded and not commissioned: an early-twentieth-century Kars
    * street or civic square, plausible period architecture, small human figures
@@ -1572,8 +1684,65 @@ export const PENDING_ARTWORK: readonly string[] = [
    * the book literally. No theatre-adjacent or Soviet-propaganda-collage
    * treatment, no readable signage, and no graphic depiction of the war the
    * novel's third part narrates.
+   *
+   * §104 **Resolved.** Audited independently and registered in `IMAGES`. A Kars
+   * square under the citadel, small figures and quiet unease, no battle, no
+   * propaganda, no readable signage, and not Charents's face. With it the list is
+   * empty again, and for the first time since §100 that covers the whole archive:
+   * eight works with eight covers, thirteen writers with thirteen portraits, and no
+   * placeholder in any section.
    */
-  "yerkir-nairi",
+
+  /*
+   * §106 refills it for Work #9. `abu-lala-mahari` shipped as prose only, on the
+   * same terms as the three Works before it: the artwork is its own step and the
+   * generated placeholder renders until the file lands.
+   *
+   * **Isahakyan's portrait must not be borrowed.** `writers/avetik-isahakyan.webp`
+   * sits a few hundred lines above in `IMAGES`, and a poem is not its author's
+   * face. The risk is sharper here than for the three before it, because the poem
+   * has a *second* person behind it: its hero is named after the historical Arab
+   * poet al-Maʿarrī, and a commission that drifted toward a bearded medieval sage
+   * would invent a portrait of a real man the article takes pains to keep apart
+   * from the literary figure. So: no portrait of Isahakyan, and no portrait of
+   * al-Maʿarrī either.
+   *
+   * Art direction, recorded and not commissioned: a vast desert before dawn or at
+   * dusk, a strong horizon, a solitary rider or a small camel caravan at modest
+   * scale, quiet and historically plausible for the medieval Near East. What the
+   * picture should carry is journey, solitude, distance from the city and the pull
+   * of the light ahead — not spectacle. No mosque-and-minaret skyline, no Arabian
+   * Nights fantasy, no sensual or "exotic Orient" staging, no readable text.
+   *
+   * §107 **Resolved.** Audited on its own and registered in `IMAGES`, where the
+   * record is kept. A faceless traveller and two camels on a ridge above an open
+   * plateau; no portrait of either man, no domes or minarets, no text. The list is
+   * empty again archive-wide: nine works with nine covers.
+   */
+
+  /*
+   * §108 refills it for Work #10. `chaos` — Shirvanzade's novel of 1898 — shipped
+   * as prose only, on the same terms as every Work before it: the artwork is its
+   * own step and the generated placeholder renders until the file lands.
+   *
+   * **Shirvanzade's portrait must not be borrowed.** `writers/alexander-shirvanzade.webp`
+   * is `photo-referenced` and sits in `IMAGES`, which makes it the easiest wrong
+   * answer: a novel is not its author's face, and a reader meeting the same man on
+   * the Writer and Work cards would take them for one entity.
+   *
+   * Art direction, recorded and not commissioned: late-nineteenth-century Baku as
+   * the oil boom remakes it — a stone city of new houses with an industrial horizon
+   * of derricks or refinery smoke kept in the distance; a small group of family or
+   * business figures in period urban dress at modest scale, the tension between
+   * wealth and the household carried by spacing, not melodrama. Not a refinery
+   * documentary, not an industrial poster, not a family close-up, not the modern
+   * skyline. No readable signage, no Soviet symbolism, no author portrait.
+   *
+   * §110 **Resolved.** Audited on its own and registered in `IMAGES`, where the
+   * record is kept. A family on a terrace above a stone city and a derrick field;
+   * no portrait of Shirvanzade, no fez, no text. The list is empty again
+   * archive-wide: ten works with ten covers.
+   */
 
   /*
    * §99 refills it for Writer #13. Aksel Bakunts's biography shipped without his
