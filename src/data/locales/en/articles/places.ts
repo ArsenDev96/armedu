@@ -975,13 +975,13 @@ export const placeArticles: Article[] = [
       "Hellenistic Armenia",
     ],
     excerpt:
-      "A colonnaded classical building on a promontory above the Azat gorge, the only one of its kind left in Armenia. An earthquake brought it down, and in the twentieth century it was put back up from the stones that fell.",
+      "A colonnaded classical building on a promontory above the Azat gorge, the only one of its kind left in Armenia. An earthquake brought it down, and in the twentieth century it was put back up from the stones that fell, with replacement stone where pieces were missing.",
     metaDescription:
       "The temple at Garni: what its Greek inscription actually says, why AD 77 is a reconstruction rather than a record, and what the 1679 earthquake left to rebuild.",
     summary:
-      "Garni is a small colonnaded building in the classical style, standing on a fortified promontory above the Azat river gorge in Kotayk Province. A Greek inscription found on the site names Trdat I and his eleventh regnal year. Counted from his coronation by Nero, that year is AD 77; counted from his earlier installation, it is AD 63. The usual date is therefore an inference, drawn from a text about building a fortress, not this monument. Whether the building was a temple, and if so to which god, is disputed: the link with Mihr is traditional, and a serious minority view sees a royal tomb. The colonnade fell in the earthquake of 1679, and the building a visitor sees was re-erected from the fallen blocks by 1975.",
+      "Garni is a small colonnaded building in the classical style, standing on a fortified promontory above the Azat river gorge in Kotayk Province. A Greek inscription found on the site names Trdat I and his eleventh regnal year. Counted from his coronation by Nero, that year is AD 77; counted from his earlier installation, it is AD 63. The usual date is therefore an inference, drawn from a text about building a fortress, not this monument. Whether the building was a temple, and if so to which god, is disputed: the link with Mihr is traditional, and a serious minority view sees a royal tomb. The colonnade fell in the earthquake of 1679, and the building a visitor sees was re-erected by 1975 from the fallen blocks and replacement stone.",
     intro:
-      "Garni is the one building in Armenia that looks as if it belongs somewhere else: a small Greco-Roman peristyle, with twenty-four Ionic columns on a high podium, standing on the rim of a basalt gorge in Kotayk Province. It is almost always introduced as Armenia's pagan temple, built by King Trdat I in AD 77 and spared at the conversion to Christianity. Every part of that sentence is either an inference or something good scholars disagree about, and the building becomes more interesting once the parts are pulled apart. It is also mostly a twentieth-century reconstruction, and that is no small detail: the colonnade came down in an earthquake and was rebuilt from its own fallen stone within living memory.",
+      "Garni is the one building in Armenia that looks as if it belongs somewhere else: a small Greco-Roman peristyle, with twenty-four Ionic columns on a high podium, standing on the rim of a basalt gorge in Kotayk Province. It is almost always introduced as Armenia's pagan temple, built by King Trdat I in AD 77 and spared at the conversion to Christianity. Every part of that sentence is either an inference or something good scholars disagree about, and the building becomes more interesting once the parts are pulled apart. It is also a twentieth-century reconstruction, and that is no small detail: the colonnade came down in an earthquake and was rebuilt within living memory, from its own recovered blocks and replacement stone.",
     author: "Armat Editorial Team",
     updated: "2026-08-07",
     keyFacts: [
@@ -990,7 +990,7 @@ export const placeArticles: Article[] = [
       { label: "Named in the inscription", value: "Trdat I, in his eleventh regnal year" },
       { label: "Conventional date", value: "AD 77, or AD 63 on the other reckoning of that year" },
       { label: "Brought down by", value: "The earthquake of 1679, which felled the whole colonnade" },
-      { label: "Standing today", value: "An anastylosis completed by 1975, roughly a third of it ancient stone" },
+      { label: "Standing today", value: "An anastylosis completed by 1975, combining recovered ancient blocks with replacement stone" },
     ],
     sections: [
       {
@@ -1062,7 +1062,7 @@ export const placeArticles: Article[] = [
         heading: "Palace, bath and mosaic",
         paragraphs: [
           "Behind the wall, mostly at foundation level, lies the rest of the royal site: ranges of rooms identified as a palace, service buildings, and a bath complex on the northern side of the enclosure. Excavation recovered enough of the plan to show the classical building for what it was: one part of a working residence, not an isolated monument.",
-          "After the temple, the bath is the part most worth seeing. It is a Roman-style building of the third century with the usual sequence of heated rooms over a hypocaust, a raised floor carried on brick piers with hot air circulating beneath it. It is a straightforward piece of Roman engineering at an Armenian royal seat.",
+          "After the temple, the bath is the part most worth seeing. It is a Roman-style building with the usual sequence of heated rooms over a hypocaust, a raised floor carried on brick piers with hot air circulating beneath it. It is a straightforward piece of Roman engineering at an Armenian royal seat. When it was built is less clear. The reference site Livius says the bath appears to date to the third century, reasoning that it was built with materials similar to those of the nearby palace, and that the mosaic may very well belong to the same period. That is a tentative dating from building materials, and it is reported here as Livius's, not as a fixed date.",
           "Its floor carries a mosaic made from local stone in about fifteen natural shades. It shows a sea scene with figures labelled in Greek: sea deities, nereids and fishermen, with names such as Thetis, Glaukos and Eros beside them, and abstractions such as Seaside and Depth alongside. Accounts differ about which pair sits at the centre; the figures most often named there are Ocean and Thalassa (Sea). It is the finest surviving thing at Garni, and because it is a floor and not a wall, it is easy to walk past.",
           "The mosaic also carries a short Greek line, μηδὲν λαβόντες ἠργασάμεθα, usually rendered as \"we worked, having received nothing\" or \"without pay, we have been working\". It is quoted everywhere as the complaint of unpaid craftsmen, and it may well be. But the sense is ambiguous in the original: it reads just as well as a boast of work done for its own sake. The line is certainly there, and its translation is not in doubt. What it meant to the men who set it is.",
         ],
@@ -1086,14 +1086,14 @@ export const placeArticles: Article[] = [
           "On 4 June 1679 a large earthquake struck this part of Armenia, with its epicentre close to the Garni gorge, and the colonnade came down. The building split and fell towards the north-east, throwing blocks tens of metres down the slope. The chronicler Zakaria Kanakertsi, a contemporary, describes the destruction. A modern re-analysis by Emanuela Guidoboni, Ruben Haroutiunian and Aleksandr Karakhanian puts the event at an equivalent magnitude of about six and three quarters, with an epicentral intensity of ten on the Mercalli-Cancani-Sieberg scale, and dates it in the Gregorian calendar to the fourteenth of that June.",
           "One reason it fell so completely was human. The iron clamps and lead that held the dry-laid blocks together had been pulled out of the building generations earlier and melted down for shot during the wars of the period. When the earthquake came, the structure had already been stripped of its fastenings.",
           "Work on the site then stretched across most of a century. Nikolai Marr, with Yakov Smirnov and the architect Konstantin Romanov, cleared and recorded it between 1909 and 1911. Later specialists judged that campaign closer to clearance and cataloguing than to excavation, and it was never published. In the early 1930s Nikoghayos Buniatian studied the fallen material and partly re-erected the lower courses, work that was later taken down again as mistaken. Systematic excavation of the fortress began in 1949 under Babken Arakelyan, with Alexander Sahinian taking charge of the classical building.",
-          "The re-erection is Sahinian's work. Approved in 1968 and begun the following year, it was an anastylosis: the fallen blocks were identified, sorted and put back in their own positions, and missing pieces were cut new from a local quarry in matching stone. By Sahinian's own account, roughly a third of the standing building is ancient material and two thirds is new. Only about forty per cent of the column shafts survived at all, and only two of them survived complete. The new pieces were deliberately left plain, so the join between antiquity and 1975 stays visible to anyone who looks. It is an honest reconstruction, but it is still a reconstruction.",
+          "The re-erection is Sahinian's work. Approved in 1968 and begun the following year, it was an anastylosis: the fallen blocks were identified and put back in their own positions, and the reconstruction combined these recovered ancient blocks with replacement stone where pieces were missing. The colonnade was standing again by 1975. It is a reconstruction, and it should be seen as one.",
         ],
       },
       {
         id: "before-you-see-it",
         heading: "What to understand before seeing it",
         paragraphs: [
-          "First, the building is not a survival. Almost every description calls Garni the only standing Greco-Roman building in the former Soviet Union. That is true, but misleading: it stands because it was rebuilt, mostly in new stone, half a century ago. Knowing this takes nothing away from it, since the anastylosis is careful, documented work. But a reader who thinks these columns have stood since the first century has the central fact wrong.",
+          "First, the building is not a survival. Almost every description calls Garni the only standing Greco-Roman building in the former Soviet Union. That is true, but misleading: it stands because it was rebuilt half a century ago, from recovered ancient blocks and replacement stone. Knowing this takes nothing away from it, since the anastylosis is careful, documented work. But a reader who thinks these columns have stood since the first century has the central fact wrong.",
           "Second, the temple is one building on a fortified site. The wall, the palace foundations and above all the bath with its mosaic are what turn Garni from a curiosity into a place, and they are easy to skip on the way to the photograph.",
           "Third, keep the kinds of claim apart. Four different kinds are made about Garni at once. An inscription records a king building a fortress. A regnal-year calculation produces a date. A chain of associations produces a god. Comparative architecture produces a tomb. The first is a document, the second is arithmetic on a document, and the last two are arguments. All of them belong in an account of the site, but only one was written down by someone who was there.",
         ],
@@ -1116,9 +1116,9 @@ export const placeArticles: Article[] = [
           "The date proposed by the minority view that the building is a royal mausoleum, based on comparable tombs in Asia Minor and on burials nearby.",
       },
       {
-        year: "Third century AD",
+        year: "Possibly third century AD",
         event:
-          "The bath complex with its mosaic floor is built on the northern side of the enclosure.",
+          "The bath complex with its mosaic floor, on the northern side of the enclosure, may date to this period. The dating is Livius's, offered tentatively and inferred from building materials similar to the palace's.",
       },
       {
         year: "301",
@@ -1160,7 +1160,7 @@ export const placeArticles: Article[] = [
       heading: "Why Garni matters",
       paragraphs: [
         "Garni is physical evidence for something Armenian history often states but rarely shows: that this was a kingdom inside the classical world, not merely next to it. A peristyle on a gorge in Kotayk is what you get when a court that dealt with Rome and Parthia as equals builds in the style of its age, from its own basalt, on its own defensible rock.",
-        "It is also this archive's hardest case for telling kinds of claim apart, because here the popular account is less wrong than over-confident. A date that is an inference, a dedication that is an association, and a building that is largely modern stone are all presented to visitors with the same flat certainty. Sorting them out is not scepticism about Garni. It lets the parts that are firmly documented (a king, a fortress, an inscription, an earthquake, a reconstruction) stand out as clearly as they deserve.",
+        "It is also this archive's hardest case for telling kinds of claim apart, because here the popular account is less wrong than over-confident. A date that is an inference, a dedication that is an association, and a building re-erected in the twentieth century are all presented to visitors with the same flat certainty. Sorting them out is not scepticism about Garni. It lets the parts that are firmly documented (a king, a fortress, an inscription, an earthquake, a reconstruction) stand out as clearly as they deserve.",
       ],
     },
     interestingFacts: [
@@ -1168,7 +1168,7 @@ export const placeArticles: Article[] = [
       "AD 77 and AD 63 are the same eleventh regnal year counted from two different starting points: a coronation in Rome and an earlier installation from Parthia.",
       "Nothing found at Garni names Mihr, or any other god. The dedication rests on reading Helios in a royal title as the name of a god.",
       "The clamps holding the blocks together had been stripped out for their metal before the earthquake of 1679, which is part of why the colonnade fell so completely.",
-      "Only about forty per cent of the column shafts survived the collapse, and just two of them survived whole. The building standing today was completed in 1975.",
+      "The colonnade standing today is a reconstruction completed in 1975, combining blocks recovered from the collapse with replacement stone.",
     ],
     relatedFigures: [
       {
@@ -1181,7 +1181,7 @@ export const placeArticles: Article[] = [
         name: "Alexander Sahinian",
         lifespan: "twentieth century",
         description:
-          "The architect who excavated the classical building with Arakelyan's expedition and then directed its re-erection. His published account of the work is also the source for how much of the standing building is ancient stone and how much is new.",
+          "The architect who excavated the classical building with Arakelyan's expedition and then directed its re-erection.",
       },
     ],
     relatedSlugs: ["adoption-of-christianity", "tigran-the-great", "erebuni-fortress"],

@@ -2238,7 +2238,7 @@ const SOURCES: Record<string, Source[]> = {
       publisher: "UNESCO World Heritage Centre, Tentative Lists, ref. 6808",
       year: "submitted 2025",
       identifier: { kind: "url", value: "https://whc.unesco.org/en/tentativelists/6808/" },
-      note: "Cited only for the designation, and for the distinction the article draws: Garni is on Armenia's *tentative* list, not the World Heritage list. Geghard and the Upper Azat Valley, eight kilometres up the same valley, are inscribed — and Garni is not part of that inscription, which is the commonest error made about its status.",
+      note: "Armenia's own submission to the Tentative List. Cited for the designation: Garni is on the *tentative* list, not the World Heritage list, and is not part of the inscribed Geghard and Upper Azat Valley property eight kilometres up the same valley, the commonest error made about its status. Also cited for the restoration, which it says Alexander Sahinian directed, reusing recovered original blocks together with replacement stone.",
     },
     {
       author: "R. D. Wilkinson",
@@ -2310,7 +2310,7 @@ const SOURCES: Record<string, Source[]> = {
       title: "Gorneae / Garni — temple, bathhouse and Greek inscription",
       publisher: "Livius.org, Amsterdam",
       identifier: { kind: "url", value: "https://www.livius.org/articles/place/gorneae-garni/" },
-      note: "A scholarly reference site rather than a peer-reviewed publication, and cited as such — for the text and translation of the inscription of Trdat I, for the reading of Helios as a royal title rather than a theonym, for the two possible counts of the eleventh regnal year, and for the bath, its hypocaust and the labelled figures of its mosaic. Where it advances the mausoleum reading it is reporting Wilkinson and Russell, and those are cited on their own account above.",
+      note: "A scholarly reference site rather than a peer-reviewed publication, and cited as such — for the text and translation of the inscription of Trdat I, for the reading of Helios as a royal title rather than a theonym, for the two possible counts of the eleventh regnal year, and for the bath, its hypocaust and the labelled figures of its mosaic. It dates the bathhouse tentatively to the third century, from similarities to the materials of the nearby palace, and treats the mosaic as possibly of the same period. Where it advances the mausoleum reading it is reporting Wilkinson and Russell, and those are cited on their own account above.",
     },
   ],
   "geghard-monastery": [
